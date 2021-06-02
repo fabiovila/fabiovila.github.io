@@ -3,7 +3,7 @@
     <title>Fabio</title>
     <link href="https://fabiovila.github.io/feed.xml" rel="self" />
     <link href="https://fabiovila.github.io" />
-    <updated>2021-06-02T14:17:13-03:00</updated>
+    <updated>2021-06-02T14:23:31-03:00</updated>
     <author>
         <name>Fabio</name>
     </author>
@@ -21,14 +21,16 @@
             <category term="numpy"/>
             <category term="machine-learning"/>
 
-        <updated>2021-06-02T14:17:13-03:00</updated>
+        <updated>2021-06-02T14:23:31-03:00</updated>
             <summary>
                 <![CDATA[
+                        <img src="https://fabiovila.github.io/media/posts/6/Captura-de-tela-de-2021-06-02-14-23-17.png" alt="" />
                     O entendimento de como funciona o treinamento das redes neurais é um processo difícil por envolver conhecimentos de diversas áreas e matemática de nível superior. E mesmo para quem tem cálculo 1 e 2 quando se depara com a derivação parcial do erro com base&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
+                    <img src="https://fabiovila.github.io/media/posts/6/Captura-de-tela-de-2021-06-02-14-23-17.png" alt="" />
                 <p>O entendimento de como funciona o treinamento das redes neurais é um processo difícil por envolver conhecimentos de diversas áreas e matemática de nível superior. E mesmo para quem tem cálculo 1 e 2 quando se depara com a <em>derivação parcial do erro com base nos pesos</em> o entendimento não é trivial.</p>
 <p>Ainda ficarei devendo essa explicação completa, mas enquanto isso segue este programa que fiz para python/numpy para treinar o dataset Iris usando duas camadas de redes neurais ativadas por sigmoide e treinadas usando retro-propagação com AdaGrad.</p>
 <p>Sem o AdaGrad o treinamento se torna instável e pode ficar preso em um minimo local e nunca mais sair.</p>
