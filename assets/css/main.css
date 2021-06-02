@@ -362,27 +362,27 @@ dl dt {
 }
 
 code {
-  background-color: rgba(var(--color-rgb), 0.1);
+ 
   border-radius: 2px;
   color: var(--color);
   font-size: 0.9374999997rem;
-  font-family: "Monaco", "Courier New", monospace;
+  font-family: 'Roboto Mono', monospace;
   padding: 0.2428571429rem 0.4857142857rem;
 }
 
 pre {
-  background-color: var(--lighter);
+  background-color: #282b2e;
+  font-weight: 400;
   border-radius: 3px;
-  font-size: 0.9374999997rem;
+  font-size: 0.8rem;
+  line-height: 0.9rem;
   padding: 1.4571428571rem;
   white-space: pre-wrap !important;
   word-wrap: break-word;
   width: 100%;
 }
 pre code {
-  background-color: var(--lighter);
-  color: inherit !important;
-  font-size: inherit;
+  font-size: 0.8rem;
   padding: 0;
 }
 
