@@ -25,7 +25,7 @@
             <summary>
                 <![CDATA[
                         <img src="https://fabiovila.github.io/media/posts/6/Captura-de-tela-de-2021-06-02-14-23-17.png" alt="" />
-                    O entendimento de como funciona o treinamento das redes neurais é um processo difícil por envolver conhecimentos de diversas áreas e matemática de nível superior. E mesmo para quem tem cálculo 1 e 2 quando se depara com a derivação parcial do erro com base&hellip;
+                    O entendimento de como funciona o treinamento das redes neurais é um&hellip;
                 ]]>
             </summary>
         <content type="html">
@@ -173,7 +173,7 @@ if __name__ == '__main__':
             <summary>
                 <![CDATA[
                         <img src="https://fabiovila.github.io/media/posts/2/bread-18987_640.jpg" alt="" />
-                    Dietas com restrições Um problema comum na nutrição é a confecção de dietas com restrições. As restrições podem ser calóricas ou com ausência de algum componente como a lactose, a gordura, o glúten, etc .... Em geral o custo destas dietas aumentam em relação a&hellip;
+                    Dietas com restrições Um problema comum na nutrição é a confecção de&hellip;
                 ]]>
             </summary>
         <content type="html">
@@ -226,7 +226,7 @@ if __name__ == '__main__':
             <summary>
                 <![CDATA[
                         <img src="https://fabiovila.github.io/media/posts/1/Screenshot-from-2021-05-15-17-39-07-2.png" alt="" />
-                    CVXPY CVXPY é um framework python para diversos otimizadores com uma linguagem própria e suporte a Numpy. Para instalar o CVXPY use o pip: pip install cvxpy Um dos otimizadores disponíveis é o CBC um otimizador de programação linear inteiro open-source. O CBC pode ser&hellip;
+                    CVXPY CVXPY é um framework python para diversos otimizadores com uma linguagem&hellip;
                 ]]>
             </summary>
         <content type="html">
