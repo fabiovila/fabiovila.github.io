@@ -3,12 +3,204 @@
     <title>Fabio</title>
     <link href="https://fabiovila.github.io/feed.xml" rel="self" />
     <link href="https://fabiovila.github.io" />
-    <updated>2021-07-09T21:15:55-03:00</updated>
+    <updated>2021-12-18T22:53:13-03:00</updated>
     <author>
         <name>Fabio</name>
     </author>
     <id>https://fabiovila.github.io</id>
 
+    <entry>
+        <title>Usando Python para solucionar ODE em circuitos elétricos: RL</title>
+        <author>
+            <name>Fabio</name>
+        </author>
+        <link href="https://fabiovila.github.io/usando-python-para-solucionar-ode-em-circuitos-eletricos.html"/>
+        <id>https://fabiovila.github.io/usando-python-para-solucionar-ode-em-circuitos-eletricos.html</id>
+
+        <updated>2021-12-18T22:53:13-03:00</updated>
+            <summary>
+                <![CDATA[
+                    Neste primeiro post iniciarei uma série de posts tratando da solução de&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <p>Neste primeiro post iniciarei uma série de posts tratando da solução de circuitos elétricos utilizando Python. Um bom início é o circuito RL pois encontramos nele apenas uma derivada.</p>
+<figure class="post__image align-center"><img loading="lazy"  src="https://fabiovila.github.io/media/posts/10/circuit.png" sizes="(max-width: 1024px) 100vw, 1024px" srcset="https://fabiovila.github.io/media/posts/10/responsive/circuit-xs.png 300w ,https://fabiovila.github.io/media/posts/10/responsive/circuit-sm.png 480w ,https://fabiovila.github.io/media/posts/10/responsive/circuit-md.png 768w ,https://fabiovila.github.io/media/posts/10/responsive/circuit-lg.png 1024w"  alt="" width="260" height="180"></figure><br><br>Para uma fonte de 5V o circuito é modelado pela seguinte equação diferencial</p>
+<p class="msg msg--highlight ">$\displaystyle 5 = 4700 i{\left(t \right)} + 0.0001 \frac{d}{d t} i{\left(t \right)}$</p>
+<p> </p>
+<p>Posteriormente iremos usar uma fonte CA senoidal.</p>
+<p>Conhecidas como Equações Diferenciais Ordinárias ou abreviadamente ODE essas equações podem ter soluções analítica ou numérica. A solução analítica é a solução como conhecemos na escola ou a simples solução algébrica através de manipulação dos símbolos. Entretanto a solução analítica de uma ODE requer conhecimento de cálculo 2 lecionado no nível superior. </p>
+<p>A solução numérica não manipula símbolos, utiliza-se de métodos interativos com tentativa e erros com um certo discernimento de para onde ir em busca da solução. </p>
+<p>Veremos neste post os dois métodos utilizando Python. Primeiro faremos alguns imports.</p>
+<pre><code class="language-python">
+from sympy import *
+import numpy as np
+from scipy.integrate import solve_ivp
+import matplotlib.pyplot as plt
+%matplotlib inline
+</code></pre>
+<h4>Versão analítica com SymPy</h4>
+<p>A solução analítica pode ser encontrada utilizando o módulo Sympy. É um módulo promissor, mas ainda está em um nível intermediário de maturidade. Não se compara em poder ao Maxima e o Mathematica.</p>
+<p>A solução analítica de uma ODE utilizando o Sympy é encontrada com o comando <code>dsolve</code>.</p>
+<pre><code class="language-python">
+S = 5
+R = 4700
+L = 100e-6
+
+t = Symbol('t')
+v = Function('v')(t)
+i = Function('i')(t)
+    
+eq = Eq(S,R*i+L*i.diff(t))
+eq
+</code></pre>
+<p>O Sympy exibe em formato tex a equação acima como:</p>
+<p class="msg msg--highlight ">$\displaystyle 5 = 4700 i{\left(t \right)} + 0.0001 \frac{d}{d t} i{\left(t \right)}$</p>
+<p>E como dito a solução analítica é encontrada pelo comando <code>dsolve</code>: </p>
+<pre><code class="language-python">dsolve(eq)
+</code></pre>
+<p>cuja saída será:</p>
+<p class="msg msg--highlight ">$\displaystyle i{\left(t \right)} = C_{1} e^{- 47000000.0 t} + \frac{1}{940}$</p>
+<p>Que é a função de <strong>i em t </strong>como desejamos. C_1 é uma constante que como toda equação diferencial e sistemas físicos que armazenam energia essa constante define a condição inicial da função, oras, temos um indutor no circuito que INICIALMENTE pode ter um campo magnético de valor 0 ou qualquer outro valor que iria interferir no início do circuito. Cabe a nós dizer qual é esse campo. Mas em geral começamos com condições iniciais com corrente zero, ou seja, <strong>i(t=0) = 0</strong>.</p>
+<h4>Versão numérica com SciPy e Numpy</h4>
+<p><em>Sim é muito Py. Pois este é poder do Python: Seus módulos! E as pessoas gostam de homenagear o Python colocando o Py no nome.</em></p>
+<p>A solução numérica será encontrada utilizando o comando <code>solve_ivp</code> porém o correto agora é dizer "as soluções" pois o que obteremos é uma tabela (List) com os valores numéricos de <strong>i em t </strong>que utilizaremos para visualizarmos o gráfico do comportamento da corrente no circuito.</p>
+<pre><code class="language-python">def circuito(t,i):
+    return (5 -4700*i)/0.0001
+    
+tempo_maximo = 0.000001
+t = np.linspace(0,tempo_maximo,1000)
+sol = solve_ivp(circuito,[0,tempo_maximo],[0],method='RK45',t_eval=t)
+plt.plot(sol.t,sol.y[0])
+</code></pre>
+<p>O <code>solve_ivp</code> precisa que a equação esteja no formato $${dy \over dt}= ...$$ que no nosso caso então seria $${di \over dt}= ...$$ e que esta equação esteja em forma de função Python. Definimos, então, <code>def circuito(t,i):</code>.</p>
+<p>O primeiro parâmetro de <code>solve_ivp</code> é nossa função, o segundo o intervalo de tempo que a ODE será integrada e o [0] é o valor inicial e como foi dito antes a corrente no circuito inicialmente é zero, ou seja, [0].</p>
+<p><strong>Tempo_maximo</strong> é crítico. Se um valor maior que o transitório do circuito for colocado não visualizaremos nada de útil, somente o estado estacionário do circuito. Se for muito pequeno veremos apenas o início do estado transitório que provavelmente será uma reta. Com esse valores o seguinte gráfico se apresenta:</p>
+<figure class="post__image"><img loading="lazy"  src="https://fabiovila.github.io/media/posts/10/output_11_1.png" sizes="(max-width: 1024px) 100vw, 1024px" srcset="https://fabiovila.github.io/media/posts/10/responsive/output_11_1-xs.png 300w ,https://fabiovila.github.io/media/posts/10/responsive/output_11_1-sm.png 480w ,https://fabiovila.github.io/media/posts/10/responsive/output_11_1-md.png 768w ,https://fabiovila.github.io/media/posts/10/responsive/output_11_1-lg.png 1024w"  alt="" width="391" height="261"></figure>
+<p>E finalmente algo visual. Como a fonte é contínua o gráfico se apresenta como o esperado. A corrente começa do zero e vai subindo gradativamente até que o indutor seja somente um curto-circuito e a corrente circulante seja a limitada pelo resistor.</p>
+<h4>Fonte de tensão senoidal</h4>
+<p>Um circuito de corrente contínua não nos oferece muito. Vamos então usar uma fonte de tensão de 1Khz com Vp de 5V.</p>
+<h5>Solução analítica</h5>
+<pre><code class="language-python">
+S = 5*sin(t*(2*pi/(1/1000)))
+R = 4700
+L = 100e-6
+
+t = Symbol('t')
+v = Function('v')(t)
+i = Function('i')(t)
+    
+eq = Eq(S,R*i+L*i.diff(t))
+eq
+dsolve(eq)
+</code></pre>
+<p>A única diferença é a mudança do <strong>S </strong>com a senoide provida pelo Seno do SymPy <code>sin</code>. As saídas serão então:</p>
+<p>$\displaystyle 5 \sin{\left(2000 \pi t \right)} = 4700 i{\left(t \right)} + 0.0001 \frac{d}{d t} i{\left(t \right)}$</p>
+<p>E a solução </p>
+<p>$\displaystyle i{\left(t \right)} = C_{1} e^{- 47000000.0 t} + 0.00106382976822168 \sin{\left(2000 \pi t \right)} - 1.42217863170866 \cdot 10^{-7} \cos{\left(2000 \pi t \right)} $</p>
+<p>Basicamente uma corrente não defasada com 1.06mA. Não entendi o outro cos de valor irrisório. Provavelmente o transitório inicial não seja uma composição pura do exponente e o sin, mas tenha algum componente que deforme a onda (Fourier).</p>
+<h5>Solução numérica</h5>
+<p>Na solução numérica faremos maiores alterações.</p>
+<pre><code class="language-python">
+def circuito(t,i):
+    return (5*np.sin(t*(2*np.pi/0.0001)) -4700*i)/0.0001
+    
+tempo_maximo = 0.001
+t = np.linspace(0,tempo_maximo,10000)
+sol = solve_ivp(circuito,[0,tempo_maximo],[0],method='RK45',t_eval=t)
+print(max(sol.y[0]),min(sol.y[0]))
+
+plt.subplots(figsize=(15, 5))
+plt.subplot(1, 2, 1)
+plt.plot(sol.t,sol.y[0])
+plt.subplot(1, 2, 2)
+plt.plot(t,5*np.sin(t*(2*np.pi/0.0001)))
+</code></pre>
+<p>As alterações além da fonte foram o tempo que foi diminuído, exibimos o i máximo e mínimo</p>
+<p class="msg msg--highlight ">0.0010661978534370956 -0.0010652848773317844</p>
+<p>para conferência. Bem como plotamos dois gráficos. O primeiro com a corrente do circuito e o outro com a tensão da fonte exibidos abaixo.</p>
+<figure class="post__image"><img loading="lazy"  src="https://fabiovila.github.io/media/posts/10/output_22_1.png" sizes="(max-width: 1024px) 100vw, 1024px" srcset="https://fabiovila.github.io/media/posts/10/responsive/output_22_1-xs.png 300w ,https://fabiovila.github.io/media/posts/10/responsive/output_22_1-sm.png 480w ,https://fabiovila.github.io/media/posts/10/responsive/output_22_1-md.png 768w ,https://fabiovila.github.io/media/posts/10/responsive/output_22_1-lg.png 1024w"  alt="" width="902" height="303"></figure>
+<h4>Falstad</h4>
+<p>Vamos conferir com o simulador de circuitos do <a href="#INTERNAL_LINK#/post/null" title="https://falstad.com/circuit/" target="_blank" rel="noopener noreferrer">Falstad</a>? Que aliás usa de muita solução numérica para simular o circuito.</p>
+<figure class="post__image"><img loading="lazy"  src="https://fabiovila.github.io/media/posts/10/Captura-de-tela-de-2021-12-18-20-34-51.png" sizes="(max-width: 1024px) 100vw, 1024px" srcset="https://fabiovila.github.io/media/posts/10/responsive/Captura-de-tela-de-2021-12-18-20-34-51-xs.png 300w ,https://fabiovila.github.io/media/posts/10/responsive/Captura-de-tela-de-2021-12-18-20-34-51-sm.png 480w ,https://fabiovila.github.io/media/posts/10/responsive/Captura-de-tela-de-2021-12-18-20-34-51-md.png 768w ,https://fabiovila.github.io/media/posts/10/responsive/Captura-de-tela-de-2021-12-18-20-34-51-lg.png 1024w"  alt="" width="636" height="465"></figure>
+<p>Como se pode ver no osciloscópio <strong>Fonte CA</strong> o <strong>Max=1.064mA</strong> bate com nossos cálculos.</p>
+<p>Espero que tenham gostado. Em breve novos posts!</p>
+<p> </p>
+<p> </p>
+            ]]>
+        </content>
+    </entry>
+    <entry>
+        <title>Lista com 1000000 de números e seus fatores primos e se são primos ou quadrados perfeitos</title>
+        <author>
+            <name>Fabio</name>
+        </author>
+        <link href="https://fabiovila.github.io/lista-com-1000000-de-numeros-e-seus-fatores-primos-e-se-sao-primos-ou-quadrados-perfeitos.html"/>
+        <id>https://fabiovila.github.io/lista-com-1000000-de-numeros-e-seus-fatores-primos-e-se-sao-primos-ou-quadrados-perfeitos.html</id>
+
+        <updated>2021-10-09T15:22:28-03:00</updated>
+            <summary>
+                <![CDATA[
+                    Segue uma lista que fiz para um CAS que estou programando contendo&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <p>Segue uma lista que fiz para um CAS que estou programando contendo 1000000 de números no formato csv com a seguinte forma:</p>
+<p>Número em si</p>
+<p>Se primo = 1 se não = 0</p>
+<p>Até 23 Fatores primos separados por vírgula. Os números primos tem como fator eles próprios</p>
+<p>Se for um quadrado perfeito indica a raiz desse quadrado</p>
+<p>Exemplos:</p>
+<pre>9,0,3,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3<br>9999999,0,4649,239,3,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</pre>
+<p> </p>
+<p> </p>
+            ]]>
+        </content>
+    </entry>
+    <entry>
+        <title>Probabilidade Clássica, frequentista e subjetiva</title>
+        <author>
+            <name>Fabio</name>
+        </author>
+        <link href="https://fabiovila.github.io/probabilidade-classica-frequentista-e-subjetiva.html"/>
+        <id>https://fabiovila.github.io/probabilidade-classica-frequentista-e-subjetiva.html</id>
+
+        <updated>2021-08-09T21:22:53-03:00</updated>
+            <summary>
+                <![CDATA[
+                        <img src="https://fabiovila.github.io/media/posts/8/royal-flush-playing-card-and-casino-chips-on-green-poker-background.jpg" alt="https://br.freepik.com/fotos/fundo" />
+                    Probabilidade Transformando idéias e sensações em números O mundo não é determinístico&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                    <img src="https://fabiovila.github.io/media/posts/8/royal-flush-playing-card-and-casino-chips-on-green-poker-background.jpg" alt="https://br.freepik.com/fotos/fundo" />
+                <h2>Probabilidade</h2>
+<p><em>Transformando idéias e sensações em números</em></p>
+<p>O mundo não é <strong>determinístico</strong> para <em>nós.</em> Não temos as fórmulas, regras, leis, ou a onisciência de <em>determinar</em> (no sentido de precisar) quando, quanto e se a coisas acontecerão no futuro; entretanto com o avanço da matemática ao longo da história, transformar idéias e conceitos em números foi se tornando algo útil e essa quantificação das idéias chegou nas 'possibilidades' para nos ajudar a <em>prever</em> esse futuro desconhecido. Independente da matemática já percebemos que alguns eventos são mais <strong>prováveis</strong> de ocorrer que outros; sabemos naturalmente que em céu nublado é mais provável de chover do que em um céu limpo.</p>
+<p>Mas foi nos jogos e na busca pelo dinheiro fácil que a matemática de tentar prever o futuro avançou e tornou-se o que conhecemos hoje como <strong>probabilidade.</strong> Era preciso um número fixo e preciso, um valor que mostrasse o quanto uma aposta era mais provável de ganhar que perder, já não bastava apostar um bom dinheiro apenas em sensações vagas como "essa jogada tem altas chances de ganhar". Era necessário mais precisão.</p>
+<p>Os jogos em geral são sistemas fáceis de se lidar matematicamente, são poucas as variáveis com seus valores ali presentes e prontos para os cálculos. Um dado lançado só tem 6 possíveis valores a mostrar, uma carta tirada de um baralho completo só pode ser umas das 52 cartas possíveis. Uma moeda só tem dois lados, dessa forma só dois resultados são possíveis. Chamamos esses resultados de <strong>eventos </strong>de um <strong>experimento. </strong>Jogar um dado e anotar a face de cima é um experimento, o valor da face é o evento.</p>
+<p>Imagine que sua chance de ficar rico seja o lançar de um dado de 6 lados. Se você acertar o número que aparecerá na face de cima após um lançamento você ficará rico. Se o dado tem 6 lados então temos 5 possibilidades de perder e somente 1 possibilidade de ganhar. E se for um dado de 20 lados? Agora são 19 para 1 a possibilidade de perder. E se lhe fosse permitido escolher 5 números no dado de 6? Então neste caso você teria 5 chances de ganhar e 1 de perder. Seria muito azar não ficar rico.</p>
+<p class="destaque">Não confunda as chances e possibilidades com tentativas. Há apenas uma tentativa aqui ou experimento. Perdeu no primeiro lançamento, acabou o sonho.</p>
+<p>Se for uma moeda você já abre o champanhe antes mesmo de lançar. Se for na Mega Sena você não dá bola, pois sabe que vai perder.</p>
+<p>Na probabilidade clássica considera-se que os eventos tem a <strong>mesma</strong> probabilidade de ocorrerem ou chances iguais. De fato se você pensar no lançamento do dado a chance de cair qualquer número é igual para todos. É o mesmo caso do lançamento da moeda no cara e coroa ou na retirada do baralho.</p>
+<p>Sabendo da quantidade dos eventos possíveis de ocorrer fica fácil calcular um <strong>número</strong> que nos indique a chance de um evento ocorrer, a chance de ficar rico ou não, de desistir ou continuar. E ficou claro nos exemplos acima de que quanto maior a quantidade de eventos possíveis menores suas chances de vencer e quanto maior a quantidade dos eventos vencedores maiores suas chances de vencer. Que operação matemática com dois números tem esse comportamento? </p>
+<p>Chamamos de <strong>espaço amostral  </strong>o conjunto de todos os resultados possíveis do experimento. Seja um <em>experimento de lançar um dado de 6 lados</em> o espaço amostral denotado de S ou U (universo) desse experimento é $S=\{1,2,3,4,5,6\} do <em>lançamento de uma moeda</em> o espaço amostral é $S=\{ cara, coroa \}$.</p>
+<p>A probabilidade de ocorrer um evento $A$ do espaço amostral é dado por:</p>
+<p>\[P(A)=\frac{\text{Número de vezes que A ocorre}}{\text{Número total de elementos no espaço amostral}}\]</p>
+<p>No experimento de jogar um dado e cair o número 5 a probabilidade é:</p>
+<p>$S=\{1,2,3,4,5,6\}\quad\text{Número total de elementos}=6$</p>
+<p>$A=5\quad\text{Número de vezes que A ocorre}=1$</p>
+<p>$\color{blue}P(A)=\frac{1}{6}=0.1666...$</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>Usando Raspberry Pi como servidor syslog remoto para roteador Claro/NET</title>
         <author>
@@ -20,7 +212,7 @@
             <category term="rsyslog"/>
             <category term="raspberry-pi"/>
 
-        <updated>2021-07-09T21:15:55-03:00</updated>
+        <updated>2021-07-24T11:30:36-03:00</updated>
             <summary>
                 <![CDATA[
                     Descobri esses dias que meu roteador Claro/NET tem a opção de log&hellip;
@@ -28,7 +220,7 @@
             </summary>
         <content type="html">
             <![CDATA[
-                <p>Descobri esses dias que meu roteador Claro/NET tem a opção de log remoto. Aproveitei então meu Raspberry PI como servidor remoto syslog do roteador.</p>
+                <p>Descobri esses dias que meu roteador Claro/NET tem a opção de log remoto aproveitei então e configurei meu Raspberry PI como servidor remoto syslog do roteador. Neste artigo vou ensinar como colocar seu Raspberry PI e extensível a outras placas ou computadores rodando Linux como servidor syslog remoto e configurar o roteador Claro/NET para emitir logs para esse servidor.</p>
 <h2>Configurando rsyslog</h2>
 <p>O servidor syslog usado será o rsyslog que já vem por padrão instalado no Raspberry PI OS serão apenas criar e mudar alguns arquivos.</p>
 <h2>Habilitando o servidor na porta 514 no RPI</h2>

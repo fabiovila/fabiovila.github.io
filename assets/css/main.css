@@ -180,7 +180,7 @@ p,
 ul,
 ol,
 dl {
-  margin-top: 1.6rem;
+  margin-top: 1rem;
 }
 
 blockquote,
@@ -197,6 +197,8 @@ pre,
 table {
   margin-top: 1.6rem;
   margin-bottom: 2.1333333333rem;
+  border: 1px solid beige;
+  border-left: 3px solid darkcyan;
 }
 
 h1,
@@ -374,18 +376,16 @@ dl dt {
 }
 
 pre {
-  background-color: var(--lighter);
   border-radius: 3px;
   font-size: 1rem;
-  padding: 1.6rem;
   white-space: pre-wrap;
   word-wrap: break-word;
+  width: 100%;
 }
 pre > code {
-  background-color: inherit;
-  color: var(--dark);
-  display: inline-block;
-  font-size: inherit;
+  display: block;
+  font-size: 0.9em;
+  padding: 2em;
 }
 
 code {
