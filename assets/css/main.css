@@ -137,8 +137,7 @@ body {
   font-weight: var(--font-weight-normal);
   line-height: var(--line-height);
   -ms-scroll-chaining: none;
-      overscroll-behavior: none;
-  /*background-image: url("../img/5213654617_438e8ea1ed_z.jpg");*/
+  overscroll-behavior: none;
  
 }
 
