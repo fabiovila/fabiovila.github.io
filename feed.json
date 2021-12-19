@@ -19,9 +19,14 @@
                 "name": "Fabio"
             },
             "tags": [
+                   "python",
+                   "modelagem-matemática",
+                   "eletrônica",
+                   "cálculo numérico",
+                   "ODE"
             ],
             "date_published": "2021-12-18T20:37:59-03:00",
-            "date_modified": "2021-12-18T22:59:24-03:00"
+            "date_modified": "2021-12-19T08:59:42-03:00"
         },
         {
             "id": "https://fabiovila.github.io/usando-raspberry-pi-como-servidor-syslog-remoto-para-roteador-claronet.html",

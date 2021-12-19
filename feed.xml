@@ -3,7 +3,7 @@
     <title>Fabio</title>
     <link href="https://fabiovila.github.io/feed.xml" rel="self" />
     <link href="https://fabiovila.github.io" />
-    <updated>2021-12-18T22:59:24-03:00</updated>
+    <updated>2021-12-19T08:59:42-03:00</updated>
     <author>
         <name>Fabio</name>
     </author>
@@ -16,8 +16,13 @@
         </author>
         <link href="https://fabiovila.github.io/usando-python-para-solucionar-ode-em-circuitos-eletricos.html"/>
         <id>https://fabiovila.github.io/usando-python-para-solucionar-ode-em-circuitos-eletricos.html</id>
+            <category term="python"/>
+            <category term="modelagem-matemática"/>
+            <category term="eletrônica"/>
+            <category term="cálculo numérico"/>
+            <category term="ODE"/>
 
-        <updated>2021-12-18T22:59:24-03:00</updated>
+        <updated>2021-12-19T08:59:42-03:00</updated>
             <summary>
                 <![CDATA[
                     Neste primeiro post iniciarei uma série de posts tratando da solução de&hellip;
