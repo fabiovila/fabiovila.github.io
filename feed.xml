@@ -3011,26 +3011,6 @@ char *codes[][2] = { <br>{"P0001","Controle regulador de volume de combustível 
         </content>
     </entry>
     <entry>
-        <title>Como ter um minímo de privacidade no Android.</title>
-        <author>
-            <name>Fabio</name>
-        </author>
-        <link href="https://fabiovila.github.io/como-ter-um-minimo-de-privacidade-no-android.html"/>
-        <id>https://fabiovila.github.io/como-ter-um-minimo-de-privacidade-no-android.html</id>
-
-        <updated>2022-02-11T21:57:28-03:00</updated>
-            <summary>
-                <![CDATA[
-                    Faz um bom tempo que algumas pessoas solitárias alertam para os efeitos&hellip;
-                ]]>
-            </summary>
-        <content type="html">
-            <![CDATA[
-                <p>Faz um bom tempo que algumas pessoas solitárias alertam para os efeitos da invasão de privacidade do indivíduo no meio digital. </p>
-            ]]>
-        </content>
-    </entry>
-    <entry>
         <title>Usando Python para ODEs de circuitos elétricos: RL</title>
         <author>
             <name>Fabio</name>
