@@ -3,12 +3,46 @@
     <title>Fabio</title>
     <link href="https://fabiovila.github.io/feed.xml" rel="self" />
     <link href="https://fabiovila.github.io" />
-    <updated>2022-02-15T14:47:50-03:00</updated>
+    <updated>2022-05-16T21:23:50-03:00</updated>
     <author>
         <name>Fabio</name>
     </author>
     <id>https://fabiovila.github.io</id>
 
+    <entry>
+        <title>O técnico que chutou a máquina</title>
+        <author>
+            <name>Fabio</name>
+        </author>
+        <link href="https://fabiovila.github.io/o-tecnico-que-chutou-a-maquina.html"/>
+        <id>https://fabiovila.github.io/o-tecnico-que-chutou-a-maquina.html</id>
+            <category term="filosofia"/>
+            <category term="ciências"/>
+
+        <updated>2022-05-16T21:23:50-03:00</updated>
+            <summary>
+                <![CDATA[
+                        <img src="https://fabiovila.github.io/media/posts/15/british-library-Y1S0ApwC054-unsplash.jpg" alt="" />
+                    Tempos atrás (2013), com humor, um "surto de honestidade" entre os cientistas&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                    <img src="https://fabiovila.github.io/media/posts/15/british-library-Y1S0ApwC054-unsplash.jpg" alt="" />
+                <p>Tempos atrás (2013), com humor, um "surto de honestidade" entre os cientistas percorreu o twitter com a hashtag #overlyhonestmethods. Naquela semana os cientistas fugiram da impessoalidade e frieza dos artigos científicos e foram honestos com o público expondo como realmente suas descobertas aconteceram.</p>
+<p>Acredita-se ao ler esses artigos que toda descoberta seja perfeita, siga um rito rigoroso, metódico e então seguimos confiantes com a ciência. Mas nem sempre é assim, que diga-se logo sobre a descoberta acidental da Penicilina que revolucionou a medicina no tratamento de infecções.</p>
+<p>Fruto de um acidente!</p>
+<p>Descobriu-se algo espantoso de uma observação acidental ... restava então explicar o porque, o como e para que; cansativo não?</p>
+<p>Porque não se lembrar do técnico de manutenção de uma máquina que deu-lhe um chute voltando a funcionar e dado por seu turno acabado tão cedo ficou feliz porém quando seu chefe lhe pede um relatório dos motivos sabe que seu dia acabou porque terá que realmente desmontar a máquina e pesquisar o componente defeituoso.</p>
+<p>O conhecimento de um fenômeno, ou descoberta pode ser acidental, criativo, vir dos Céus porém o <strong>Conhecimento Científico</strong> exige que se explique o porque, ou pelo menos o como para que outros possam reproduzir e testar o que se explica. Da mesma forma a investigação de um crime exige a minuciosa enumeração das causalidades que não devem restar dúvidas de sua virtual reprodução.</p>
+<p>Entretanto o <strong>Conhecimento Filosófico</strong> não serve a ciência, <em>aliás não serve a ninguém</em>, ele somente duvida, não crê e indaga as verdades.</p>
+<p>- <em>Uau! A Penicilina é uma grande descoberta! Muitas vidas foram salvas!</em></p>
+<p>Mas ela cura? <strong>O que é a cura?</strong> Seus efeitos colaterais não seriam uma nova doença? Eu realmente estou saudável? Eu existo? <em>Você existe?</em></p>
+<p>Certamente o técnico não pode se valer desses questionamentos com seu chefe sobre perigo de loucura e rua, mas terá que escrever um relatório no Word dos motivos do defeito e criar um procedimento reproduzível de como se precaver desse fenômeno (o defeito) indesejado.</p>
+<p><em><a href="https://posgraduando.com/surto-de-honestidade-e-bom-humor-entre-cientistas/" target="_blank" rel="noopener">Quem quiser saber mais sobre a crise de honestidade dos cientistas</a></em></p>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>Lista de códigos OBD2</title>
         <author>
