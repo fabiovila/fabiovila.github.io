@@ -3,7 +3,7 @@
     <title>Fabio</title>
     <link href="https://fabiovila.github.io/feed.xml" rel="self" />
     <link href="https://fabiovila.github.io" />
-    <updated>2022-07-17T16:45:02-03:00</updated>
+    <updated>2022-07-17T16:50:41-03:00</updated>
     <author>
         <name>Fabio</name>
     </author>
@@ -3230,7 +3230,7 @@ plt.plot(t,5*np.sin(t*(2*np.pi/0.0001)))
             <category term="probabilidade"/>
             <category term="matemática"/>
 
-        <updated>2022-07-17T16:45:02-03:00</updated>
+        <updated>2022-07-17T16:50:41-03:00</updated>
             <summary>
                 <![CDATA[
                         <img src="https://fabiovila.github.io/media/posts/8/royal-flush-playing-card-and-casino-chips-on-green-poker-background.jpg" alt="https://br.freepik.com/fotos/fundo" />
@@ -3355,8 +3355,8 @@ plt.plot(t,5*np.sin(t*(2*np.pi/0.0001)))
 <p>Nos cargos de gerência e situações de tomada de decisões um dos atributos mais importantes é perceber corretamente as probabilidades dos eventos. <a href="#[2]">[2]</a></p>
 <div class="quadro yellow">
 <p>Curiosidade:</p>
-<p>O <strong>big data</strong> é uma grande quantidade de dados de alguma área. Os GPS de todas as pessoas dirigindo registra o trânsito, tempo de viagem, acidentes; e essa grande quantidade de dados com o uso de computadores ajuda o GPS a calcular a probabilidade e o tempo de viagem em um dado dia e horário.</p>
-<p>Os escritórios de advocacia e os tribunais tem registro de milhares de processos que estão sendo fontes de big data para que programas calculem, usando métodos frequentistas, as chances dos litígios.</p>
+<p>O <strong>big data</strong> é uma grande quantidade de dados de alguma área registrados em computador. Ao dirigir usando o GPS este registra o trânsito, tempo de viagem, percurso e ocorrências de todas as pessoas que usam ele; essa grande quantidade de dados com o uso de computadores ajuda o GPS a calcular a probabilidade e o tempo de viagem em um dado dia e horário.</p>
+<p>Os escritórios de advocacia e os tribunais tem registro de milhares de processos que estão sendo fontes de big data para que programas calculem, usando métodos frequentistas e de processamento de linguagem, as chances dos litígios.</p>
 </div>
 <hr>
 <p id="[1]">[1]<em> Para um leitor de nível superior a conclusão não segue o rito normal da inferência estatística. Porém o artigo é direcionado ao nível médio e o leitor pode concordar que intuitivamente é uma conclusão válida.</em></p>
