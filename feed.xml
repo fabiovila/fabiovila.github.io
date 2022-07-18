@@ -3,7 +3,7 @@
     <title>Fabio</title>
     <link href="https://fabiovila.github.io/feed.xml" rel="self" />
     <link href="https://fabiovila.github.io" />
-    <updated>2022-07-17T16:50:41-03:00</updated>
+    <updated>2022-07-18T09:17:17-03:00</updated>
     <author>
         <name>Fabio</name>
     </author>
@@ -60,7 +60,7 @@
             <category term="filosofia"/>
             <category term="ciências"/>
 
-        <updated>2022-07-16T23:39:04-03:00</updated>
+        <updated>2022-07-17T16:52:53-03:00</updated>
             <summary>
                 <![CDATA[
                         <img src="https://fabiovila.github.io/media/posts/15/british-library-Y1S0ApwC054-unsplash.jpg" alt="" />
@@ -72,7 +72,7 @@
                     <img src="https://fabiovila.github.io/media/posts/15/british-library-Y1S0ApwC054-unsplash.jpg" alt="" />
                 <p>Tempos atrás (2013), com humor, um "surto de honestidade" entre os cientistas percorreu o twitter com a hashtag #overlyhonestmethods. Naquela semana os cientistas fugiram da impessoalidade e frieza dos artigos científicos e foram honestos com o público expondo como realmente suas descobertas aconteceram.</p>
 <p>Temos a sensação ao ler esses artigos que toda descoberta seja perfeita, siga um rito rigoroso e metódico e dessa forma continuamos confiantes na ciência. Mas nem sempre é assim, destaco a descoberta acidental da Penicilina que revolucionou a medicina no tratamento das infecções: De um acidente de laboratório descobriu-se os antibióticos, então, depois do êxtase da descoberta restava explicar o porque, o como e para que; cansativo não?</p>
-<p>Porque não se lembrar do técnico de manutenção de uma máquina que deu-lhe um chute voltando a funcionar e dado por seu turno acabado tão cedo ficou feliz porém quando seu chefe lhe pede um relatório dos motivos sabe que seu dia acabou porque terá que realmente desmontar a máquina e pesquisar o componente defeituoso.</p>
+<p>Porque não se lembrar do técnico de manutenção de uma máquina que deu-lhe um chute voltando a funcionar e dado por seu turno acabado tão cedo ficou feliz, porém quando seu chefe lhe pede um relatório dos motivos, sabe que seu dia acabou porque terá que realmente desmontar a máquina e pesquisar o componente defeituoso.</p>
 <p>O conhecimento de um fenômeno, ou descoberta pode ser acidental, criativo, vir dos Céus porém o <strong>Conhecimento Científico</strong> exige que se explique o porque, ou pelo menos o como para que outros possam reproduzir e testar o que se explica. Da mesma forma a investigação de um crime exige a minuciosa enumeração das causalidades que não devem restar dúvidas de sua virtual reprodução.</p>
 <p>Entretanto o <strong>Conhecimento Filosófico</strong> não serve a ciência, <em>aliás não serve a ninguém</em>, ele somente duvida, não crê e indaga as verdades.</p>
 <p>- <em>Uau! A Penicilina é uma grande descoberta! Muitas vidas foram salvas!</em></p>
@@ -3230,7 +3230,7 @@ plt.plot(t,5*np.sin(t*(2*np.pi/0.0001)))
             <category term="probabilidade"/>
             <category term="matemática"/>
 
-        <updated>2022-07-17T16:50:41-03:00</updated>
+        <updated>2022-07-18T09:17:17-03:00</updated>
             <summary>
                 <![CDATA[
                         <img src="https://fabiovila.github.io/media/posts/8/royal-flush-playing-card-and-casino-chips-on-green-poker-background.jpg" alt="https://br.freepik.com/fotos/fundo" />
@@ -3347,8 +3347,8 @@ plt.plot(t,5*np.sin(t*(2*np.pi/0.0001)))
 </tbody>
 </table>
 <p><em>Como a probabilidade de um dado confiável (dado pela probabilidade clássica) é $P=0.16...$ podemos concluir que o dado é de certa forma confiável.<a href="#[1]">[1]</a></em></p>
-<p>O problema da probabilidade frequentista é que é preciso realizar os experimentos para se obter os dados e como visto no caso das lampadas os experimentos custam recursos como tempo, deslocamento, dinheiro e no caso das lampadas destrói a amostra. Outro problema é saber quantos experimentos realizar. Teoricamente o correto é realizar infinitos testes, algo impossível de se realizar.</p>
-<p>Comparada a anterior, a visão frequentista é mais precisa para se obter as probabilidades de algum evento do que simplesmente assumir que os eventos são equiprováveis.</p>
+<p>A probabilidade frequentista tem a desvantagem de que é preciso realizar os experimentos para se obter os dados e como visto no caso das lampadas os experimentos custam recursos de tempo, deslocamento, dinheiro e no caso das lampadas destrói as amostras. Outro problema é saber quantos experimentos realizar. A teoria diz que o correto é a realização de infinitos testes, algo impossível de se realizar.</p>
+<p>Comparada a anterior, a visão frequentista é mais precisa do que simplesmente assumir que os eventos são equiprováveis.</p>
 <h3>Probabilidade subjetiva</h3>
 <p>Enquanto a probabilidade clássica tem total controle sobre o espaço amostral e seus valores e na probabilidade frequentista experimentos são feitos para se obter as probabilidades dos eventos, na probabilidade subjetiva as chances dos eventos ocorrerem é uma opinião pessoal. </p>
 <p>De fato é preferível valores precisos da visão frequentista mas em alguns casos não há histórico das observações ou como realizar os experimentos. Suponha um escritório de advocacia que recebeu um processo de um cliente e este pergunta as chances de se ter vitória? Como calcular isso matematicamente? Em geral, o advogado mais experiente faz as melhores previsões.</p>
