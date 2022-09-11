@@ -3,12 +3,60 @@
     <title>Fabio</title>
     <link href="https://fabiovila.github.io/feed.xml" rel="self" />
     <link href="https://fabiovila.github.io" />
-    <updated>2022-08-14T14:43:57-03:00</updated>
+    <updated>2022-09-11T14:48:56-03:00</updated>
     <author>
         <name>Fabio</name>
     </author>
     <id>https://fabiovila.github.io</id>
 
+    <entry>
+        <title>Siglas de sensores e atuadores OBD2</title>
+        <author>
+            <name>Fabio</name>
+        </author>
+        <link href="https://fabiovila.github.io/siglas-de-sensores-e-atuadores-obd2.html"/>
+        <id>https://fabiovila.github.io/siglas-de-sensores-e-atuadores-obd2.html</id>
+            <category term="sensores"/>
+            <category term="obd2"/>
+            <category term="automotivo"/>
+
+        <updated>2022-09-11T14:48:56-03:00</updated>
+            <summary>
+                <![CDATA[
+                        <img src="https://fabiovila.github.io/media/posts/18/photo_2022-09-11_10-51-44-2.jpg" alt="" />
+                    Se você tem um leitor OBD2 em inglês essa lista pode te&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                    <img src="https://fabiovila.github.io/media/posts/18/photo_2022-09-11_10-51-44-2.jpg" alt="" />
+                <p>Se você tem um leitor OBD2 em inglês essa lista pode te ajudar a desvendar as siglas na leitura.</p>
+<p><strong>Fuel System 1 Status [Status 1 or Fuelsys1]</strong><br><strong>Fuel System 2 Status [Status 2 or Fuelsys2]</strong></p>
+<p>Em sistema de controle OL - Open Loop significa que o controle está sendo feito as 'cegas', sem o uso de sensores. Em modo CL - Closed Loop o controle está sendo feito utilizando os sensores. Ao ligar o carro estando frio a sonda lambda deverá estar quente para funcionar corretamente então a ECU operará o motor em modo OL até que a temperatura chegue no valor correto quando finalmente a ECU (agora com valores corretos dos sensores já aquecidos) muda para Closed Loop. </p>
+<p><strong>Calculated Load Value [CLV or Load_PCT]</strong></p>
+<p>Carga do motor. </p>
+<p><strong>Engine Coolant Temp [ECT]</strong></p>
+<p>Temperatura do liquido de arrefecimento (água do radiador).</p>
+<p><strong>Short Term Fuel Trim-Bank 1 [STFT 1 or SHRTFT1]</strong><br><strong>Short Term Fuel Trim-Bank 2 [STFT 2 or SHRTFT2]</strong></p>
+<p>Ajuste imediato da mistura estequiometria. Se o valor é positivo a ECU está adicionando combustível (mistura rica) se negativo a ECU está retirando combustível (mistura pobre). Esse ajuste se perde ao desligar o carro.</p>
+<p><strong>Long Term Fuel Trim- Bank 1 [LTFT 1 or LONGFT1]</strong><br><strong>Long Term Fuel Trim- Bank 2 [LTFT 2 or LONGFT2]</strong></p>
+<p>Ajuste de longo prazo da mistura com base no histórico do sensor imediato explicado acima. Se por exemplo o sensor imediato ficar por muito tempo em 6% o Long Term Fuel Trim irá incrementar seu ajuste para compensar até que o Short Term fique em 0%. Esse ajuste não se perde ao desligar o carro.<br><br><strong>Engine RPM [RPM]</strong><br>O RPM do motor</p>
+<p><strong>Vehicle Speed Sensor [VSS]</strong><br>Velocidade do veiculo</p>
+<p><strong>Ignition Timing Advance #1 [Sparkadv]</strong></p>
+<p>Mostra o ângulo de ignição ou mais conhecido como ponto de ignição. Diminui com o aumento da temperatura. </p>
+<p><strong>Intake Air Temp [IAT]</strong></p>
+<p>Temperatura do ar.</p>
+<p><strong>Air Flow Rate from Mass Air Flow Sensor [MAF]</strong></p>
+<p>A quantidade de ar entrando no sistema de admissão. Em geral está associado ao sensor MAF.</p>
+<p><strong>Absolute Throttle Position [TP or ABS_TP]</strong></p>
+<p>Posição do sensor de corpo de borboleta. Ao pisar no pedal do acelerador esse sinal deve subir. <br><br><strong>Bank 1 -- Sensor 2 Volts [O2S12]</strong><br><strong>Bank 2 – Sensor 2 Volts [O2S22]</strong></p>
+<p>Tensão da sonda lambda pós catalisador. Varia em geral entre 0.2 a 0.8</p>
+<p><strong>Bank 1 – Sensor 1 [O2S11]</strong><br><strong>Bank 2 – Sensor 1 [O2S21]</strong></p>
+<p><br>Tensão da sonda lambda antes do catalisador. No osciloscópio uma onda oscilante entre 900mV e 200mV se apresenta. Valores acima de 450mV indica mistura rica e valores abaixo mistura pobre. O sinal não deve ser contínuo, mas oscilante. O ideal é oscilar simetricamente em mistura pobre e rica, se ficar por mais tempo acima ou abaixo de 450mV possivelmente é sinal de problemas.<br><br></p>
+<p><strong>OBD Requirements OBD and OBD2 [OBDSUP]</strong><br>O protocolo de comunicação utilizado pelo OBD</p>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>Indução e Falseabilidade</title>
         <author>
