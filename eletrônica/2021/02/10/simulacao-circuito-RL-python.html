@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Usando Python para resolver ODEs de circuitos elétricos: RL - Python</title>
+    <link rel="preload"  href='/assets/css/style.css' as="style" type="text/css">
+    <link rel="stylesheet"  href='/assets/css/style.css'>
+    <link rel="stylesheet"  href='/assets/css/github.css'>
+    <script rel="preload" src="https://kit.fontawesome.com/7dc3015a44.js" as="script" crossorigin="anonymous"></script>
+    <script>
+        MathJax = {
+          jax: ["input/TeX","output/HTML-CSS"],
+          chtml: { displayAlign: 'left'      },
+          tex: {
+            inlineMath: [['$', '$']],
+            displayMath:[['$$', '$$'], ['\\[', '\\]']]
+          }
+          };
+    </script>
+        <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+        </script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>      
+        <script>hljs.highlightAll();</script>
+         <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PY9DT1RWSW"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-PY9DT1RWSW');
+        </script>
+</head>
+
+    <body>
+        <nav class="navbar has-shadow">
+            <div class="container">
+                <div class="navbar-brand"><a class="navbar-item" href="/">Fabio Vila</a>
+                <div class="navbar-burger burger" data-target="navMenu"><span></span><span></span><span></span></div>
+            </div>
+            <div class="navbar-menu" id="navMenu">
+                <div class="navbar-end">
+                    <div class="navbar-item has-dropdown is-hoverable"><a class="navbar-link">Search</a>
+                    <div class="navbar-dropdown"><a class="navbar-item">Dashboard</a><a class="navbar-item">Profile</a><a class="navbar-item">Settings</a>
+                    <hr class="navbar-divider" />
+                    <!--div class="navbar-item">Logout</div-->
+                    <div class="navbar-item">
+                    <p class="control has-icons-left">
+                        <input class="input" type="text" placeholder="Search">
+                        <span class="icon is-left">
+                          <i class="fas fa-search" aria-hidden="true"></i>
+                        </span>
+                      </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</nav>
+<section class="mt-6 container has-background-white">
+
+<section class="section ">
+<div class="columns is-centered">
+<div class="column is-9 ">
+<div class="content is-fluid">
+
+  <header class="mb-5">
+    <h1 class="title">Usando Python para resolver ODEs de circuitos elétricos: RL - Python</h1>
+    <hr class="m-1"/>
+    <small class="pl-2 has-text-dark-grey" ><span class="icon "><i class="fa fa-user "></i></span>
+      
+      Fabio
+         
+    <span class="icon"><i class="fa fa-calendar"></i></span>  
+     10 Feb 2021
+     <span class="icon"><i class="fa fa-bars"></i></span>
+    eletrônica
+    <span class="icon"><i class="fa fa-tag"></i></span>  
+    eletrônica, python, e circuitos elétricos
+    </small>
+    <hr class="mt-1 mb-5"/>
+    <div class="h-400">
+      <figure class="image">  
+                   
+          <img class="image" src="/assets/imgs/563540ef-962d-4dac-8cdd-289f4f07eb35.jpeg"/>  
+          
+      </figure>
+    </div>
+
+
+  </header>
+
+  <article class="mt-5">
+    <h3 id="usando-python-para-odes-de-circuitos-elétricos-rl">Usando Python para ODEs de circuitos elétricos: RL</h3>
+
+<p>Neste artigo explorarei a solução de circuitos elétricos utilizando Python. A solução analítica será encontrada utilizando SymPy enquanto a solução numérica será obtida com SciPy e Numpy.</p>
+
+<p>Tratarei apenas do circuito RL da figura abaixo pois encontramos neste tipo de circuito apenas uma derivada. Estudaremos os casos para fontes DC e AC.</p>
+
+<p><img src="/assets/imgs/circuit-rl.png" alt="Circuito RL" /></p>
+
+<p>Para uma fonte DC de 5V o circuito é modelado pela seguinte equação diferencial</p>
+
+<p>\[5 = 4700 i{\left(t \right)} + 0.0001 \frac{d}{d t} i{\left(t \right)}\]</p>
+
+<p>Esse é um exemplo de Equação Diferencial Ordinária ou abreviadamente ODE cujas soluções podem ser analíticas ou numéricas. A solução analítica é a solução como conhecemos na escola ou a simples solução algébrica através de manipulação dos símbolos onde obteremos no final uma família de funções matemáticas em que podemos calcular o comportamento do circuito. Obter a solução analítica de uma ODE requer conhecimentos de cálculo 1 e 2 lecionados no nível superior, mas utilizando algum CAS (Computer Álgebra System) a solução pode ser encontrada rapidamente.</p>
+
+<p>A solução numérica não manipula símbolos, utiliza-se de métodos interativos com tentativa e erros com um certo discernimento de para onde ir em busca da solução. Pode ser feito na mão ou mais adequadamente no computador.</p>
+
+<h3 id="requerimentos">Requerimentos</h3>
+
+<p>Como as soluções serão procuradas com Python precisaremos dos pacotes SymPy, Numpy, Matplotlib e SciPy que podem ser facilmente instalados utilizando o pip:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install sympy numpy matplotlib scipy
+</code></pre></div></div>
+
+<div class="destaque grad-orange">
+<h4>Conheça os pacotes usados</h4>
+<ul>
+    <li>Numpy - Pacote de manipulação de vetores, matrizes e operações matemáticas em geral. Utiliza internamente o OpenBLAS. Praticamente utilizado por todos os outros pacotes inclusive todos os abaixos.</li>
+    <li>Sympy - Pacote de computação matemática simbólica</li>
+    <li>Matplotlib - Exibe gráficos.</li>
+    <li>Scipy - Um grande pacote com diversas utilidades em vários ramos da ciência.</li>
+</ul>
+</div>
+
+<p>Em todos os arquivos os imports necessários e a cabeça do arquivo será este:</p>
+
+<pre><code class="language-python">
+from sympy import *
+import numpy as np
+from scipy.integrate import solve_ivp
+import matplotlib.pyplot as plt
+%matplotlib inline
+</code></pre>
+
+<h3 id="versão-analítica-com-sympy">Versão analítica com SymPy</h3>
+
+<p>A solução analítica pode ser encontrada utilizando o módulo Sympy. É um módulo promissor, mas ainda está em um nível intermediário de maturidade. Não se compara em poder ao Maxima e ao Mathematica.</p>
+
+<p>A solução analítica de uma ODE utilizando o Sympy é encontrada com o comando <strong>dsolve</strong>.</p>
+
+<pre><code class="language-python">
+S = 5
+R = 4700
+L = 100e-6
+
+t = Symbol('t')
+v = Function('v')(t)
+i = Function('i')(t)
+    
+eq = Eq(S,R*i+L*i.diff(t))
+eq
+</code></pre>
+<p>O Sympy exibe em formato tex a equação acima como:</p>
+
+\[5 = 4700 i{\left(t \right)} + 0.0001 \frac{d}{d t} i{\left(t \right)}\]
+
+<p>E como dito a solução analítica é encontrada pelo comando <strong>dsolve</strong>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dsolve(eq)
+</code></pre></div></div>
+
+<p>cuja saída será:</p>
+
+\[\displaystyle i{\left(t \right)} = C_{1} e^{- 47000000.0 t} + \frac{1}{940}\]
+
+<p>Que é a função de $i$ em $t$ como desejamos. $C_1$ é uma constante que como toda equação diferencial e sistemas físicos que armazenam energia essa constante define a condição inicial da função, oras, temos um indutor no circuito que INICIALMENTE pode ter um campo magnético de valor 0 ou qualquer outro valor que iria interferir no início do circuito. Cabe a nós dizer qual é esse campo. Mas em geral começamos com condições iniciais com corrente zero, ou seja, $i(t=0) = 0$.</p>
+
+<h3 id="versão-numérica-com-scipy-e-numpy">Versão numérica com SciPy e Numpy</h3>
+
+<p><em>Sim é muito Py. Pois este é poder do Python: Seus módulos! E as pessoas gostam de homenagear o Python colocando o Py no nome.</em></p>
+
+<p>A solução numérica será encontrada utilizando o comando <strong>solve_ivp</strong> porém o correto agora é dizermos “as soluções” pois o que obteremos é uma tabela (List) com os valores numéricos de $i$ em $t$ que utilizaremos para visualizar o gráfico do comportamento da corrente no circuito.</p>
+
+<p>O <strong>solve_ivp</strong> precisa que a equação esteja no formato</p>
+
+\[{dy(t) \over dt}= ...\]
+
+<p>que no nosso caso então seria</p>
+
+\[{di(t) \over dt}= ...\]
+
+<p>e que esta equação esteja em forma de função Python, dessa forma definimos então a função circuito:</p>
+
+<pre><code class="language-python">
+def circuito(t,i):
+    return (5 -4700*i)/0.0001
+    
+tempo_maximo = 0.000001
+t = np.linspace(0,tempo_maximo,1000)
+sol = solve_ivp(circuito,[0,tempo_maximo],[0],method='RK45',t_eval=t)
+plt.plot(sol.t,sol.y[0])
+</code></pre>
+
+<p>O primeiro parâmetro de <strong>solve_ivp</strong> é nossa função, o segundo o intervalo de tempo que a ODE será integrada e o <em>[0]</em> é o valor inicial e como foi dito antes a corrente no circuito inicialmente é zero, ou seja <em>[0]</em>.</p>
+
+<p><strong><em>Tempo_maximo</em></strong> é crítico. Se um valor maior que o transitório do circuito for colocado não visualizaremos nada de útil, somente o estado estacionário do circuito. Se for muito pequeno veremos apenas o início do estado transitório que provavelmente será uma reta. Com os valores do programa o seguinte gráfico aparecerá:</p>
+
+<p><img src="/assets/imgs/grafico-rl.png" alt="Grafico RL" /></p>
+
+<p>Como a fonte é contínua o gráfico se apresenta como o esperado. A corrente começa do zero e vai subindo gradativamente até que o indutor seja somente um curto-circuito e a corrente circulante seja a limitada pelo resistor.</p>
+
+<h3 id="fonte-de-tensão-senoidal">Fonte de tensão senoidal</h3>
+
+<p>Um circuito de corrente contínua não nos oferece muito, vamos então usar uma fonte de tensão de <em>1Khz</em> com <em>Vp</em> de <em>5V</em>.</p>
+
+<h3 id="solução-analítica">Solução analítica</h3>
+
+<pre><code class="language-python">
+S = 5*sin(t*(2*pi/(1/1000)))
+R = 4700
+L = 100e-6
+
+t = Symbol('t')
+v = Function('v')(t)
+i = Function('i')(t)
+    
+eq = Eq(S,R*i+L*i.diff(t))
+eq
+dsolve(eq)
+</code></pre>
+
+<p>A única diferença é a mudança do S com a senoide provida pelo Seno do SymPy <em>sin</em>. As saídas serão então:</p>
+
+\[\displaystyle 5 \sin{\left(2000 \pi t \right)} = 4700 i{\left(t \right)} + 0.0001 \frac{d}{d t} i{\left(t \right)}\]
+
+<p>E a solução</p>
+
+\[\displaystyle i{\left(t \right)} = C_{1} e^{- 47000000.0 t} + 0.00106382976822168 \sin{\left(2000 \pi t \right)} - 1.42217863170866 \cdot 10^{-7} \cos{\left(2000 \pi t \right)}\]
+
+<p>Basicamente uma corrente não defasada com <strong>1.06mA</strong>. Não entendi o outro cos de valor irrisório. Provavelmente o transitório inicial não seja uma composição pura do exponente e o seno, mas tenha algum componente que deforme a onda (Fourier).</p>
+
+<h3 id="solução-numérica">Solução numérica</h3>
+
+<p>Já na solução numérica faremos maiores alterações.</p>
+
+<pre><code class="language-python">
+def circuito(t,i):
+    return (5*np.sin(t*(2*np.pi/0.0001)) -4700*i)/0.0001
+    
+tempo_maximo = 0.001
+t = np.linspace(0,tempo_maximo,10000)
+sol = solve_ivp(circuito,[0,tempo_maximo],[0],method='RK45',t_eval=t)
+print(max(sol.y[0]),min(sol.y[0]))
+
+plt.subplots(figsize=(15, 5))
+plt.subplot(1, 2, 1)
+plt.plot(sol.t,sol.y[0])
+plt.subplot(1, 2, 2)
+plt.plot(t,5*np.sin(t*(2*np.pi/0.0001)))
+</code></pre>
+
+<p>As alterações, além da fonte, foi o tempo que foi diminuído e exibimos o i máximo e mínimo como mostrado abaixo:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>i máximo</td>
+      <td>0.0010661978534370956</td>
+    </tr>
+    <tr>
+      <td>i minimo</td>
+      <td>-0.0010652848773317844</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Nos gráficos abaixo o primeiro é a corrente do circuito encontrada pela solução numérica e o outro a tensão da fonte.</p>
+
+<p><img src="/assets/imgs/grafico2-rl.png" alt="Grafico2" /></p>
+
+<p>Os valores mínimos e máximos mostram uma corrente de <strong>1.06mA</strong> que confere com a solução analítica obtida anteriormente.</p>
+
+<h3 id="falstad">Falstad</h3>
+
+<p>Vamos conferir com o simulador de circuitos do Falstad? Que aliás usa de muita solução numérica para simular o circuito.</p>
+
+<p><img src="/assets/imgs/falstad-rl.png" alt="Falstad" /></p>
+
+<p>Como se pode ver no osciloscópio <em>Fonte CA</em> o <strong>Max=1.064mA</strong> novamente confere com os cálculos.</p>
+
+<p><a href="https://fabiovila.github.io/RL.ipynb">Link para o ipynb (Jupyter Notebook) deste post.</a></p>
+
+<p>Espero que tenham gostado. Em breve novos posts!</p>
+
+
+  </article>
+
+</div>
+</div>
+</div>
+</section>
+
+<section class="section">
+  <hr/>
+  <nav class="level is-mobile">
+
+    <div class="level-item">      
+      
+      
+      <div>
+        <p class="heading"><strong>Veja Também:</strong></p>
+        <small>Filtros FIR - Processamento de sinais</small></br>
+        <small>Inferência estatística - Matemática</small>
+      </div>
+    </div>
+  </nav>
+</section>
+<section class="section">
+  <div id="disqus_thread"></div>
+<script>
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://fabiovila-github-io.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+<!--
+    <aside class="column is-3-desktop block">
+        
+    
+    <div class="block">
+        <div class="aside-title"><span>Assuntos</span></div>
+        
+         
+          <a class="ml-1 is-capitalized has-text-grey" href="/">eletrônica</a>
+        <hr class="mt-1 mb-1"/>
+        
+         
+          <a class="ml-1 is-capitalized has-text-grey" href="/">aplicadas</a>
+        <hr class="mt-1 mb-1"/>
+        
+         
+          <a class="ml-1 is-capitalized has-text-grey" href="/">eletronica</a>
+        <hr class="mt-1 mb-1"/>
+        
+    </div>
+    <div class="block mt-5">
+            <div class="aside-title"><span>Ultimos</span></div>
+            
+             
+              <a class="ml-1 is-capitalized c" href="/">eletrônica</a>
+            <hr class="mt-1 mb-1"/>
+            
+             
+              <a class="ml-1 is-capitalized c" href="/">aplicadas</a>
+            <hr class="mt-1 mb-1"/>
+            
+             
+              <a class="ml-1 is-capitalized c" href="/">eletronica</a>
+            <hr class="mt-1 mb-1"/>
+            
+    </div>
+
+</aside>
+
+-->
+
+</section>
+<section>
+    <footer class="footer is-primary">
+    </footer>
+</section>
+
+</body>
+</html>

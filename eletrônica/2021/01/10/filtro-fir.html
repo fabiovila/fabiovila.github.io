@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Filtros FIR - Processamento de sinais</title>
+    <link rel="preload"  href='/assets/css/style.css' as="style" type="text/css">
+    <link rel="stylesheet"  href='/assets/css/style.css'>
+    <link rel="stylesheet"  href='/assets/css/github.css'>
+    <script rel="preload" src="https://kit.fontawesome.com/7dc3015a44.js" as="script" crossorigin="anonymous"></script>
+    <script>
+        MathJax = {
+          jax: ["input/TeX","output/HTML-CSS"],
+          chtml: { displayAlign: 'left'      },
+          tex: {
+            inlineMath: [['$', '$']],
+            displayMath:[['$$', '$$'], ['\\[', '\\]']]
+          }
+          };
+    </script>
+        <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+        </script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>      
+        <script>hljs.highlightAll();</script>
+         <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PY9DT1RWSW"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-PY9DT1RWSW');
+        </script>
+</head>
+
+    <body>
+        <nav class="navbar has-shadow">
+            <div class="container">
+                <div class="navbar-brand"><a class="navbar-item" href="/">Fabio Vila</a>
+                <div class="navbar-burger burger" data-target="navMenu"><span></span><span></span><span></span></div>
+            </div>
+            <div class="navbar-menu" id="navMenu">
+                <div class="navbar-end">
+                    <div class="navbar-item has-dropdown is-hoverable"><a class="navbar-link">Search</a>
+                    <div class="navbar-dropdown"><a class="navbar-item">Dashboard</a><a class="navbar-item">Profile</a><a class="navbar-item">Settings</a>
+                    <hr class="navbar-divider" />
+                    <!--div class="navbar-item">Logout</div-->
+                    <div class="navbar-item">
+                    <p class="control has-icons-left">
+                        <input class="input" type="text" placeholder="Search">
+                        <span class="icon is-left">
+                          <i class="fas fa-search" aria-hidden="true"></i>
+                        </span>
+                      </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</nav>
+<section class="mt-6 container has-background-white">
+
+<section class="section ">
+<div class="columns is-centered">
+<div class="column is-9 ">
+<div class="content is-fluid">
+
+  <header class="mb-5">
+    <h1 class="title">Filtros FIR - Processamento de sinais</h1>
+    <hr class="m-1"/>
+    <small class="pl-2 has-text-dark-grey" ><span class="icon "><i class="fa fa-user "></i></span>
+      
+      Fabio
+         
+    <span class="icon"><i class="fa fa-calendar"></i></span>  
+     10 Jan 2021
+     <span class="icon"><i class="fa fa-bars"></i></span>
+    eletrônica
+    <span class="icon"><i class="fa fa-tag"></i></span>  
+    eletrônica, processamento de sinais, e filtros
+    </small>
+    <hr class="mt-1 mb-5"/>
+    <div class="h-400">
+      <figure class="image">  
+                   
+          <img class="image" src="/assets/imgs/6e3fcf43-ee1d-4e18-8e85-5593cf539ec8.jpeg"/>  
+          
+      </figure>
+    </div>
+
+
+  </header>
+
+  <article class="mt-5">
+    <h2 id="o-que-são-filtros-fir">O que são Filtros FIR?</h2>
+
+<p>Os Filtros de Resposta ao Impulso Finita, ou FIR (do inglês Finite Impulse Response), são uma classe de filtros digitais amplamente utilizados em processamento de sinais. Ao contrário dos Filtros de Resposta ao Impulso Infinita (IIR), os FIR têm uma resposta ao impulso de duração finita, o que os torna mais simples de entender e implementar.</p>
+
+<p>Os filtros FIR são frequentemente utilizados em uma variedade de aplicações, como processamento de áudio, comunicação digital e processamento de imagens. Sua característica finita permite uma análise mais fácil de seu comportamento e uma implementação mais robusta em muitas situações.</p>
+
+<h2 id="estrutura-básica-dos-filtros-fir">Estrutura Básica dos Filtros FIR</h2>
+
+<p>A estrutura básica de um filtro FIR consiste em uma soma ponderada de amostras de entrada, cada uma multiplicada por um coeficiente específico. Matematicamente, a saída $y[n]$ de um filtro FIR pode ser expressa como a soma ponderada das amostras de entrada $x[n]$ e seus coeficientes associados $h[k]$:</p>
+
+<p>\[ y[n] = \sum_{k=0}^{N-1} h[k] \cdot x[n-k] \]</p>
+
+<p>Onde:</p>
+<ul>
+  <li>$N$ é a ordem do filtro (o número total de coeficientes),</li>
+  <li>$x[n]$ é a amostra de entrada no instante $n$,</li>
+  <li>$h[k]$ são os coeficientes do filtro.</li>
+</ul>
+
+<h2 id="exemplo-de-cálculo-de-coeficientes-fir">Exemplo de Cálculo de Coeficientes FIR</h2>
+
+<p>Para entender melhor como os coeficientes de um filtro FIR são calculados, consideremos um exemplo prático. Vamos projetar um filtro passa-baixa com uma frequência de corte normalizada de 0,2 em um sistema com frequência de amostragem normalizada de 1.</p>
+
+<ul>
+  <li>
+    <p><strong>Determine a ordem do filtro (N):</strong>
+  A ordem do filtro depende da complexidade desejada. Para este exemplo, escolheremos uma ordem $N = 15$.</p>
+  </li>
+  <li>
+    <p><strong>Calcule a frequência de corte digital (wc):</strong>
+  A frequência de corte digital é obtida multiplicando a frequência de corte desejada pela frequência de amostragem. Portanto, $wc = 0,2 \times 1 = 0,2$.</p>
+  </li>
+  <li>
+    <p><strong>Calcule os coeficientes (h[k]):</strong>
+  Utilizaremos a fórmula para um filtro passa-baixa ideal:</p>
+
+    <p>$ h[k] = \frac{\sin(\pi \cdot k \cdot wc)}{\pi \cdot k} $</p>
+
+    <p>Para $k = 0$, temos que $h[0] = 2 \cdot wc$. Para $k$ diferente de zero, aplicamos a fórmula.</p>
+
+    <p>Vamos calcular os coeficientes para $k = 1$ até $N-1 = 14$.</p>
+
+    <p>$ h[k] = \frac{\sin(\pi \cdot k \cdot 0,2)}{\pi \cdot k} $</p>
+
+    <p>Portanto, os coeficientes seriam:
+  \[ h[0] = 0,4 \]
+  \[ h[k] = \frac{\sin(\pi \cdot k \cdot 0,2)}{\pi \cdot k} \quad \text{para } k = 1 \text{ até } 14 \]</p>
+  </li>
+  <li>
+    <p><strong>Normalização dos Coeficientes:</strong>
+  É comum normalizar os coeficientes de modo que a soma dos quadrados seja igual a 1.</p>
+
+\[h[k]_{\text{normalizado}} = \frac{h[k]}{\sqrt{\sum_{k=0}^{N-1} h[k]^2}}\]
+
+    <p>Isso garante que a amplitude do sinal não seja afetada durante o processo de filtragem.</p>
+  </li>
+</ul>
+
+<p>Os filtros FIR são uma ferramenta poderosa no processamento de sinais digitais. Com uma compreensão básica de sua estrutura e uma abordagem prática para calcular os coeficientes, é possível projetar filtros personalizados para atender às necessidades específicas de uma aplicação. Experimentar com diferentes ordens e frequências de corte permite ajustar o desempenho do filtro de acordo com os requisitos do sistema.</p>
+
+  </article>
+
+</div>
+</div>
+</div>
+</section>
+
+<section class="section">
+  <hr/>
+  <nav class="level is-mobile">
+
+    <div class="level-item">      
+      
+      
+      <div>
+        <p class="heading"><strong>Veja Também:</strong></p>
+        <small>Indução e Falseabilidade - Filosofia da Ciência</small></br>
+        <small>Usando Python para resolver ODEs de circuitos elétricos: RL - Python</small>
+      </div>
+    </div>
+  </nav>
+</section>
+<section class="section">
+  <div id="disqus_thread"></div>
+<script>
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://fabiovila-github-io.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+<!--
+    <aside class="column is-3-desktop block">
+        
+    
+    <div class="block">
+        <div class="aside-title"><span>Assuntos</span></div>
+        
+         
+          <a class="ml-1 is-capitalized has-text-grey" href="/">eletrônica</a>
+        <hr class="mt-1 mb-1"/>
+        
+         
+          <a class="ml-1 is-capitalized has-text-grey" href="/">aplicadas</a>
+        <hr class="mt-1 mb-1"/>
+        
+         
+          <a class="ml-1 is-capitalized has-text-grey" href="/">eletronica</a>
+        <hr class="mt-1 mb-1"/>
+        
+    </div>
+    <div class="block mt-5">
+            <div class="aside-title"><span>Ultimos</span></div>
+            
+             
+              <a class="ml-1 is-capitalized c" href="/">eletrônica</a>
+            <hr class="mt-1 mb-1"/>
+            
+             
+              <a class="ml-1 is-capitalized c" href="/">aplicadas</a>
+            <hr class="mt-1 mb-1"/>
+            
+             
+              <a class="ml-1 is-capitalized c" href="/">eletronica</a>
+            <hr class="mt-1 mb-1"/>
+            
+    </div>
+
+</aside>
+
+-->
+
+</section>
+<section>
+    <footer class="footer is-primary">
+    </footer>
+</section>
+
+</body>
+</html>

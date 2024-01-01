@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Inferência estatística - Matemática</title>
+    <link rel="preload"  href='/assets/css/style.css' as="style" type="text/css">
+    <link rel="stylesheet"  href='/assets/css/style.css'>
+    <link rel="stylesheet"  href='/assets/css/github.css'>
+    <script rel="preload" src="https://kit.fontawesome.com/7dc3015a44.js" as="script" crossorigin="anonymous"></script>
+    <script>
+        MathJax = {
+          jax: ["input/TeX","output/HTML-CSS"],
+          chtml: { displayAlign: 'left'      },
+          tex: {
+            inlineMath: [['$', '$']],
+            displayMath:[['$$', '$$'], ['\\[', '\\]']]
+          }
+          };
+    </script>
+        <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+        </script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>      
+        <script>hljs.highlightAll();</script>
+         <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PY9DT1RWSW"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-PY9DT1RWSW');
+        </script>
+</head>
+
+    <body>
+        <nav class="navbar has-shadow">
+            <div class="container">
+                <div class="navbar-brand"><a class="navbar-item" href="/">Fabio Vila</a>
+                <div class="navbar-burger burger" data-target="navMenu"><span></span><span></span><span></span></div>
+            </div>
+            <div class="navbar-menu" id="navMenu">
+                <div class="navbar-end">
+                    <div class="navbar-item has-dropdown is-hoverable"><a class="navbar-link">Search</a>
+                    <div class="navbar-dropdown"><a class="navbar-item">Dashboard</a><a class="navbar-item">Profile</a><a class="navbar-item">Settings</a>
+                    <hr class="navbar-divider" />
+                    <!--div class="navbar-item">Logout</div-->
+                    <div class="navbar-item">
+                    <p class="control has-icons-left">
+                        <input class="input" type="text" placeholder="Search">
+                        <span class="icon is-left">
+                          <i class="fas fa-search" aria-hidden="true"></i>
+                        </span>
+                      </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</nav>
+<section class="mt-6 container has-background-white">
+
+<section class="section ">
+<div class="columns is-centered">
+<div class="column is-9 ">
+<div class="content is-fluid">
+
+  <header class="mb-5">
+    <h1 class="title">Inferência estatística - Matemática</h1>
+    <hr class="m-1"/>
+    <small class="pl-2 has-text-dark-grey" ><span class="icon "><i class="fa fa-user "></i></span>
+      
+      Fabio
+         
+    <span class="icon"><i class="fa fa-calendar"></i></span>  
+     01 Aug 2022
+     <span class="icon"><i class="fa fa-bars"></i></span>
+    aplicadas
+    <span class="icon"><i class="fa fa-tag"></i></span>  
+    matemática e estatística
+    </small>
+    <hr class="mt-1 mb-5"/>
+    <div class="h-400">
+      <figure class="image">  
+                   
+          <img class="image" src="/assets/imgs/cf59fe7f-e397-4da0-9da4-5b503ac45cfd.jpeg"/>  
+          
+      </figure>
+    </div>
+
+
+  </header>
+
+  <article class="mt-5">
+    <h2 id="uma-introdução-à-inferência-estatística">Uma Introdução à Inferência Estatística</h2>
+
+<p>Inferência estatística é uma parte crucial da estatística que nos permite tomar decisões a partir dos dados. É uma ferramenta essencial para analisar uma grande variedade de dados e encontrar respostas a questões específicas.</p>
+
+<h3 id="definição-de-inferência-estatística">Definição de Inferência Estatística</h3>
+
+<p>A Inferência estatística é o processo de usar a análise de dados para deduzir propriedades de uma população ou distribuição de probabilidade. Envolve análise estatística de uma amostra dos dados, gerada pela população. A inferência estatística inclui estimativa de parâmetros e teste de hipóteses.</p>
+
+<h3 id="tipos-de-inferência-estatística">Tipos de Inferência Estatística</h3>
+
+<p>Existem dois tipos principais de inferência estatística: <strong>estimação de parâmetros</strong> e <strong>teste de hipóteses</strong>.</p>
+
+<ul>
+  <li><strong>Estimação de parâmetros</strong>: Isso envolve chegar a uma estimativa da medida de um população a partir de uma amostra. A estimativa pode ser expressa através de um único valor (estimativa pontual) ou um intervalo de valores (estimação intervalar ou intervalo de confiança).</li>
+</ul>
+
+<p>Por exemplo, suponha que você queira saber a altura média dos alunos em uma universidade. Para isso, em vez de medir a altura de todos os alunos, você mede a altura de 100 alunos selecionados aleatoriamente (a amostra) e, com base nesses dados, você estima a altura média de todos os alunos (a população).</p>
+
+<ul>
+  <li><strong>Teste de hipóteses</strong>: Com base na amostra, uma afirmação é feita sobre a população. Essa afirmação (chamada de hipótese) é testada para aceitação ou rejeição. A hipótese de teste é apenas uma suposição sobre a população de onde a amostra foi retirada.</li>
+</ul>
+
+<p>Por exemplo, se uma empresa de laticínios afirma que a média do teor de gordura de seu leite é de 3,5%, um consumidor preocupado com a saúde pode pegar uma amostra do leite e testar a hipótese de que o teor de gordura média é realmente esse valor.</p>
+
+<h3 id="por-que-a-inferência-estatística-é-importante">Por que a Inferência Estatística é Importante?</h3>
+
+<p>A inferência estatística desempenha um papel vital na análise de dados. Ela fornece métodos para quantificar a incerteza nas conclusões e usar os dados para tomar decisões informadas. É uma ferramenta fundamental para prever tendências futuras, testar teorias e hipóteses, e tomar decisões estratégicas em negócios e pesquisa.</p>
+
+<h3 id="exemplo">Exemplo</h3>
+
+<p>Digamos que uma empresa deseja entender quanto tempo seus funcionários gastam em uma tarefa específica para melhorar a eficácia, e para isso colheu uma amostra de 25 funcionários.</p>
+
+<p>Dado os tempos em minutos:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Tempo em minutos</strong></td>
+      <td>20, 24, 22, 25, 23, 23, 21, 21, 22, 24, 22, 21, 24, 26, 25, 23, 22, 24, 23, 26, 27, 22, 24, 23, 22</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Primeiro, calculamos a média e o desvio padrão dessa amostra:</p>
+<ul>
+  <li><strong>Média</strong> $\bar{X} = {\text{soma de todos os tempos} \over \text{número de amostras}}$</li>
+  <li><strong>Desvio padrão</strong> $s = {\sqrt {\sum{(X_i - \bar{X})^2} \over {\text{número de amostras} - 1}}}$</li>
+</ul>
+
+<p>Calculando com os valores dados obtemos as seguintes informações:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Média $\bar{X}$</strong></td>
+      <td>23.16</td>
+    </tr>
+    <tr>
+      <td><strong>Desvio padrão $s$</strong></td>
+      <td>1.71</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Em seguida, podemos usar essas informações para criar um intervalo de confiança de 95% para o tempo médio que todos os funcionários gastam na tarefa. Supomos que as medidas seguem uma distribuição normal.</p>
+
+<ul>
+  <li>$Z_{score}$ para a confiança de $95\% = 1.96$ (Consultando a tabela Z-Score)</li>
+  <li><strong>Erro padrão</strong> $SE = {s \over \sqrt{\text{número de amostras}}}$</li>
+  <li><strong>Intervalo de confiança</strong> = $(\bar{X}) ± Z_{score} \times SE$</li>
+</ul>
+
+<p>Uma vez que calculamos o intervalo de confiança, podemos dizer que estamos 95% confiantes de que o tempo médio real que todos os funcionários gastam na tarefa está dentro do intervalo de confiança.</p>
+
+<p>Observe que as fórmulas acima são simplificações e assumem uma distribuição normal e uma amostra grande o suficiente. Os cálculos exatos podem ser mais complexos dependendo dos aspectos específicos dos dados e do que planejamos inferir.</p>
+
+<p>A inferência estatística é uma parte indispensável da estatística e é usada em várias disciplinas que envolvem tomada de decisões baseadas em dados. Também é essencial para traduzir os dados recolhidos em informações compreensíveis e gerenciáveis, e para transformar essas informações em conhecimento para a tomada de decisões.</p>
+
+<p>Independentemente de se tratar de negócios, medicina, engenharia ou ciências sociais, a inferência estatística continuará a ser um componente fundamental na coleta, análise e interpretação de dados, permitindo que as pessoas tomem decisões bem fundamentadas.</p>
+
+  </article>
+
+</div>
+</div>
+</div>
+</section>
+
+<section class="section">
+  <hr/>
+  <nav class="level is-mobile">
+
+    <div class="level-item">      
+      
+      
+      <div>
+        <p class="heading"><strong>Veja Também:</strong></p>
+        <small>Usando Python para resolver ODEs de circuitos elétricos: RL - Python</small></br>
+        <small>Probabilidade clássica frequentista e subjetiva - Matemática</small>
+      </div>
+    </div>
+  </nav>
+</section>
+<section class="section">
+  <div id="disqus_thread"></div>
+<script>
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://fabiovila-github-io.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+<!--
+    <aside class="column is-3-desktop block">
+        
+    
+    <div class="block">
+        <div class="aside-title"><span>Assuntos</span></div>
+        
+         
+          <a class="ml-1 is-capitalized has-text-grey" href="/">eletrônica</a>
+        <hr class="mt-1 mb-1"/>
+        
+         
+          <a class="ml-1 is-capitalized has-text-grey" href="/">aplicadas</a>
+        <hr class="mt-1 mb-1"/>
+        
+         
+          <a class="ml-1 is-capitalized has-text-grey" href="/">eletronica</a>
+        <hr class="mt-1 mb-1"/>
+        
+    </div>
+    <div class="block mt-5">
+            <div class="aside-title"><span>Ultimos</span></div>
+            
+             
+              <a class="ml-1 is-capitalized c" href="/">eletrônica</a>
+            <hr class="mt-1 mb-1"/>
+            
+             
+              <a class="ml-1 is-capitalized c" href="/">aplicadas</a>
+            <hr class="mt-1 mb-1"/>
+            
+             
+              <a class="ml-1 is-capitalized c" href="/">eletronica</a>
+            <hr class="mt-1 mb-1"/>
+            
+    </div>
+
+</aside>
+
+-->
+
+</section>
+<section>
+    <footer class="footer is-primary">
+    </footer>
+</section>
+
+</body>
+</html>

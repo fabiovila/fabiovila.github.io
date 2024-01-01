@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Probabilidade clássica frequentista e subjetiva - Matemática</title>
+    <link rel="preload"  href='/assets/css/style.css' as="style" type="text/css">
+    <link rel="stylesheet"  href='/assets/css/style.css'>
+    <link rel="stylesheet"  href='/assets/css/github.css'>
+    <script rel="preload" src="https://kit.fontawesome.com/7dc3015a44.js" as="script" crossorigin="anonymous"></script>
+    <script>
+        MathJax = {
+          jax: ["input/TeX","output/HTML-CSS"],
+          chtml: { displayAlign: 'left'      },
+          tex: {
+            inlineMath: [['$', '$']],
+            displayMath:[['$$', '$$'], ['\\[', '\\]']]
+          }
+          };
+    </script>
+        <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+        </script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>      
+        <script>hljs.highlightAll();</script>
+         <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PY9DT1RWSW"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-PY9DT1RWSW');
+        </script>
+</head>
+
+    <body>
+        <nav class="navbar has-shadow">
+            <div class="container">
+                <div class="navbar-brand"><a class="navbar-item" href="/">Fabio Vila</a>
+                <div class="navbar-burger burger" data-target="navMenu"><span></span><span></span><span></span></div>
+            </div>
+            <div class="navbar-menu" id="navMenu">
+                <div class="navbar-end">
+                    <div class="navbar-item has-dropdown is-hoverable"><a class="navbar-link">Search</a>
+                    <div class="navbar-dropdown"><a class="navbar-item">Dashboard</a><a class="navbar-item">Profile</a><a class="navbar-item">Settings</a>
+                    <hr class="navbar-divider" />
+                    <!--div class="navbar-item">Logout</div-->
+                    <div class="navbar-item">
+                    <p class="control has-icons-left">
+                        <input class="input" type="text" placeholder="Search">
+                        <span class="icon is-left">
+                          <i class="fas fa-search" aria-hidden="true"></i>
+                        </span>
+                      </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</nav>
+<section class="mt-6 container has-background-white">
+
+<section class="section ">
+<div class="columns is-centered">
+<div class="column is-9 ">
+<div class="content is-fluid">
+
+  <header class="mb-5">
+    <h1 class="title">Probabilidade clássica frequentista e subjetiva - Matemática</h1>
+    <hr class="m-1"/>
+    <small class="pl-2 has-text-dark-grey" ><span class="icon "><i class="fa fa-user "></i></span>
+      
+      Fabio
+         
+    <span class="icon"><i class="fa fa-calendar"></i></span>  
+     02 Aug 2022
+     <span class="icon"><i class="fa fa-bars"></i></span>
+    aplicadas
+    <span class="icon"><i class="fa fa-tag"></i></span>  
+    matemática e probabilidade
+    </small>
+    <hr class="mt-1 mb-5"/>
+    <div class="h-400">
+      <figure class="image">  
+                   
+          <img class="image" src="/assets/imgs/royal-flush-playing-card-and-casino-chips-on-green-poker-background-xl.jpg"/>  
+          
+      </figure>
+    </div>
+
+
+  </header>
+
+  <article class="mt-5">
+    <h2 id="todas-as-coisas-são-números">Todas as coisas são números.</h2>
+<h5 id="transformando-idéias-e-sensações-em-números">Transformando idéias e sensações em números</h5>
+
+<p>O mundo não é <strong>determinístico</strong> para <em>nós</em>. Não temos as fórmulas, as regras, as leis, ou a onisciência de saber <strong>quando</strong>, <strong>quanto</strong> e <strong>se</strong> a coisas acontecerão no futuro, entretanto ainda conseguimos perceber que alguns eventos são mais prováveis de ocorrer que outros; sabemos naturalmente que em céu nublado é mais provável de chover do que em céu limpo, que ganhar na loteria é mais improvável que ganhar em um jogo de cartas.</p>
+
+<p>Porém confiar somente nas vagas sensações de que algo acontecerá poderia trazer prejuízos enormes. Os egipicios buscavam prever as cheias do Rio Nilo para não passarem fome, investidores precisam medir a viabilidade de um negócio novo, transportadoras e agências de seguros não sobrevivem sem mensurar as chances de um acidente ocorrer. Transformar idéias e conceitos em números foi se tornando algo útil e essa quantificação das idéias chegou nas ‘possibilidades’ para nos ajudar a prever o futuro desconhecido.</p>
+
+<p>E assim na busca pelo dinheiro fácil nos jogos que a matemática de tentar prever o futuro avançou e tornou-se o que conhecemos hoje como <strong>probabilidade</strong>. Dessa forma era necessário um número fixo e confiável, um valor que mostrasse o quanto uma aposta era mais provável de ganhar que perder, já não bastava apostar um bom dinheiro apenas na intuição “essa jogada tem altas chances de ganhar”, era necessário mais precisão.</p>
+
+<p>Os jogos em geral são sistemas fáceis de se lidar matematicamente, são poucas as variáveis e seus valores estão acessíveis. Um dado lançado tem 6 valores possíveis, uma carta tirada de um baralho completo virá de uma das 52 cartas. Uma moeda só tem dois lados e quando se lança somente dois resultados possíveis poderão ocorrer: a cara ou a coroa. <strong>Chamamos esses resultados de eventos de um experimento.</strong> Jogar um dado e anotar a face de cima é um experimento, o valor da face é o evento.</p>
+
+<p>Imagine que sua chance de ficar rico seja o lançar de um dado de 6 lados. Se você acertar o número que aparecer na face de cima após um lançamento você ficará rico. Se o dado tem 6 lados então temos 5 possibilidades de perder e somente 1 possibilidade de ganhar. E se for um dado de 20 lados? Agora são 19 para 1 a possibilidade de perder. E se lhe fosse permitido escolher 5 números no dado de 6? Então neste caso você teria 5 chances de ganhar e 1 de perder. Seria muito azar não ficar rico.</p>
+<div class="quadro">
+Não confunda as chances, possibilidades e tentativas. Há apenas uma tentativa em nosso jogo. Perdeu no primeiro lançamento, acabou o sonho. Se for uma moeda você já abre o champanhe antes mesmo de lançar pois as chances são grandes. Se for na Mega Sena você não dá bola, pois sabe que vai perder.
+</div>
+
+<h5 id="probabilidade-clássica">Probabilidade Clássica</h5>
+
+<p>Na probabilidade clássica considera-se que os eventos tem a mesma probabilidade de ocorrerem, ou seja, são equiprováveis. Se você pensar no lançamento do dado a chance de cair qualquer número é igual para todos. É o mesmo caso do lançamento da moeda no cara e coroa ou na retirada do baralho.</p>
+
+<p>O conjunto de valores possíveis que um evento pode ser se chama Espaço Amostral e é abreviado pela letra <em>‘S’</em>. A tabela a seguir ilustra o espaço amostral dos exemplos mais comuns:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th>Valores possíveis</th>
+      <th>Espaço amostral</th>
+      <th>Número</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Elementos</td>
+      <td>1,2,3,4,5,6</td>
+      <td>$S={1,2,3,4,5,6}$</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>Moeda</td>
+      <td>Cara,Coroa</td>
+      <td>$S={Cara,Coroa}$</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Baralho 52 cartas</td>
+      <td>Às de espada,Reis de ouro, 2 de copas, …</td>
+      <td>$S={\text{Às de espada}, …\ \text{Reis de Ouro}}$</td>
+      <td>52</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Na probabilidade clássica como cada elemento do conjunto do espaço tem a mesma probabilidade de ocorrer dividimos 1 (ou 100%) pelo número de eventos possíveis, ou seja, a quantidade de elementos do Espaço amostral para se obter a probabilidade da ocorrência de cada elemento.
+Quanto maior o Espaço Amostral menores as chances de um evento ocorrer, como se vê na tabela a seguir.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th>Valores possíveis</th>
+      <th>Espaço amostral</th>
+      <th>Probabilidade</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Dado</td>
+      <td>$S={1,2,3,4,5,6}$</td>
+      <td>6</td>
+      <td>$P=\frac{1}{6}=0.16…$</td>
+    </tr>
+    <tr>
+      <td>Moeda</td>
+      <td>$S={Cara,Coroa}$</td>
+      <td>2</td>
+      <td>$P=\frac{1}{2}=0.50$</td>
+    </tr>
+    <tr>
+      <td>Baralho</td>
+      <td>$S={\text{Às de espada}, …\ \text{Reis de Ouro}}$</td>
+      <td>52</td>
+      <td>$P=\frac{1}{52}=0.019$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Como se pode ver a probabilidade clássica atribui um número igual para todos os eventos.</p>
+
+<p>O problema da probabilidade clássica é assumir que todos os elementos do espaço amostral tem a mesma probabilidade e conhecer o número de elementos do espaço amostral, o que nem sempre ocorre na vida real.</p>
+
+<h4 id="probabilidade-frequentista">Probabilidade frequentista</h4>
+
+<p>A probabilidade se mostrou útil para outras áreas além dos jogos, porém em outras áreas não é possível calcular a probabilidade de um evento ocorrer com uma simples divisão. Em uma indústria de lampadas como saber qual a probabilidade de uma lampada queimar depois de 1000 horas de uso? O senso comum costuma dizer que <em>“Queima ou não queima, então são 50% de queimar.”</em>. Não, não é assim que funciona.</p>
+
+<p>Uma outra forma de atribuir probabilidades a eventos é observando diversos experimentos reais e calcular os eventos ocorridos pelo número de observações.</p>
+
+<p><strong>Exemplos:</strong></p>
+
+<div class="destaque br bl">Uma indústria testou 100 lampadas ligadas por 1000 horas e depois de 1000 horas 7 delas queimaram.  Qual a probabilidade que uma lampada dessa indústria queime com 1000 horas de uso?</div>
+
+<p><strong>Efetuando os cálculos:</strong></p>
+
+<p>$P=\frac{7}{100}=0.07=7\%$</p>
+
+<p><strong>Há 7% de chance de uma lampada dessa indústria queimar com 1000 horas de uso.</strong></p>
+
+<div class="destaque br bl"><p>Um cassino estava sob suspeita de fraude e desconfiou-se que seus dados não são confiáveis. Para dirimir as dúvidas foram lançados 50 vezes o dado e obtido os seguintes valores:</p>
+<table>
+<tr><td><strong>Valor</strong></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
+<tr><td><strong>Exibições</strong></td><td>9</td><td>8</td><td>8</td><td>8</td><td>8</td><td>9</td></tr>
+<tr><td><strong>Probabilidade</strong></td><td>9</td><td>8</td><td>8</td><td>8</td><td>8</td><td>9</td></tr>
+</table>
+<p>Determine se o dado é confiável.</p>
+</div>
+
+<p><strong>Efetuando os cálculos:</strong></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Exibições</td>
+      <td>9</td>
+      <td>8</td>
+      <td>8</td>
+      <td>8</td>
+      <td>8</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td>Probabilidade</td>
+      <td>$\frac{9}{50}=0.18$</td>
+      <td>$\frac{8}{50}=0.16$</td>
+      <td>$\frac{8}{50}=0.16$</td>
+      <td>$\frac{8}{50}=0.16$</td>
+      <td>$\frac{8}{50}=0.16$</td>
+      <td>$\frac{9}{50}=0.18$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Como a probabilidade de um dado confiável (dado pela probabilidade clássica) é $\frac{1}{6}=0.16$ podemos concluir que o dado é confiável.<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></strong></p>
+
+<p>A probabilidade frequentista tem a desvantagem de ser necessário realizar os experimentos para a obtenção dos dados o que em alguns casos é impraticável, no exemplo da indústria de lâmpadas seria preciso esperar um bom tempo e destruir as lampadas para a obtenção dos dados. Outro problema é saber quantos experimentos realizar. A teoria diz que o correto é a realização de infinitos testes, algo impossível de se realizar.</p>
+
+<p>Comparada a anterior, a visão frequentista é mais eficiente em determinar as probabilidades de eventos diferentes do espaço amostral do que simplesmente assumir que os eventos são equiprováveis.</p>
+
+<h4 id="probabilidade-subjetiva">Probabilidade subjetiva</h4>
+
+<p>Enquanto a probabilidade clássica tem total controle sobre o espaço amostral e seus valores e na probabilidade frequentista experimentos são feitos para se obter as probabilidades dos eventos, na probabilidade subjetiva as chances dos eventos ocorrerem é uma opinião pessoal.</p>
+
+<p>De fato é preferível valores precisos da visão frequentista mas em alguns casos não há histórico das observações ou a possibilidade de realizar os experimentos. Suponha um escritório de advocacia que recebeu um processo de um cliente e este pergunta as chances de se ter vitória? Como calcular isso matematicamente? Em geral, o advogado mais experiente faz as melhores previsões.</p>
+
+<p>Nos cargos de gerência e situações de tomada de decisões um dos atributos mais importantes é perceber corretamente as probabilidades dos eventos. <sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup></p>
+
+<div class="destaque amarelo bt">
+<strong>Curiosidade:</strong>
+
+O <strong>big data</strong> é uma grande quantidade de dados de alguma área registrados em computador. Ao dirigir usando o GPS este registra o trânsito, tempo de viagem, percurso e ocorrências de todas as pessoas que usam ele; essa grande quantidade de dados com o uso de computadores ajuda o GPS a calcular a probabilidade e o tempo de viagem em um dado dia e horário.
+
+Os escritórios de advocacia e os tribunais tem registro de milhares de processos que estão sendo fontes de big data para que programas calculem, usando métodos frequentistas e de processamento de linguagem, as chances dos litígios.
+</div>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>Para um leitor de nível superior a conclusão não segue o rito normal da inferência estatística. Porém o artigo é direcionado ao nível médio e o leitor pode concordar que intuitivamente é uma conclusão válida. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p>Read, D. (2005). Judgment and Choice. In K. Kempf-Leonard (Ed.), Encyclopedia of Social Measurement (pp. 401–407). Elsevier. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+  </article>
+
+</div>
+</div>
+</div>
+</section>
+
+<section class="section">
+  <hr/>
+  <nav class="level is-mobile">
+
+    <div class="level-item">      
+      
+      
+      <div>
+        <p class="heading"><strong>Veja Também:</strong></p>
+        <small>Inferência estatística - Matemática</small></br>
+        <small>Usando CVXPY para o problema da mochila (knapsack) - Otimização</small>
+      </div>
+    </div>
+  </nav>
+</section>
+<section class="section">
+  <div id="disqus_thread"></div>
+<script>
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://fabiovila-github-io.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+<!--
+    <aside class="column is-3-desktop block">
+        
+    
+    <div class="block">
+        <div class="aside-title"><span>Assuntos</span></div>
+        
+         
+          <a class="ml-1 is-capitalized has-text-grey" href="/">eletrônica</a>
+        <hr class="mt-1 mb-1"/>
+        
+         
+          <a class="ml-1 is-capitalized has-text-grey" href="/">aplicadas</a>
+        <hr class="mt-1 mb-1"/>
+        
+         
+          <a class="ml-1 is-capitalized has-text-grey" href="/">eletronica</a>
+        <hr class="mt-1 mb-1"/>
+        
+    </div>
+    <div class="block mt-5">
+            <div class="aside-title"><span>Ultimos</span></div>
+            
+             
+              <a class="ml-1 is-capitalized c" href="/">eletrônica</a>
+            <hr class="mt-1 mb-1"/>
+            
+             
+              <a class="ml-1 is-capitalized c" href="/">aplicadas</a>
+            <hr class="mt-1 mb-1"/>
+            
+             
+              <a class="ml-1 is-capitalized c" href="/">eletronica</a>
+            <hr class="mt-1 mb-1"/>
+            
+    </div>
+
+</aside>
+
+-->
+
+</section>
+<section>
+    <footer class="footer is-primary">
+    </footer>
+</section>
+
+</body>
+</html>

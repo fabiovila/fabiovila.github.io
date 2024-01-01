@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Usando CVXPY para o problema da mochila (knapsack) - Otimização</title>
+    <link rel="preload"  href='/assets/css/style.css' as="style" type="text/css">
+    <link rel="stylesheet"  href='/assets/css/style.css'>
+    <link rel="stylesheet"  href='/assets/css/github.css'>
+    <script rel="preload" src="https://kit.fontawesome.com/7dc3015a44.js" as="script" crossorigin="anonymous"></script>
+    <script>
+        MathJax = {
+          jax: ["input/TeX","output/HTML-CSS"],
+          chtml: { displayAlign: 'left'      },
+          tex: {
+            inlineMath: [['$', '$']],
+            displayMath:[['$$', '$$'], ['\\[', '\\]']]
+          }
+          };
+    </script>
+        <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+        </script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>      
+        <script>hljs.highlightAll();</script>
+         <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PY9DT1RWSW"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-PY9DT1RWSW');
+        </script>
+</head>
+
+    <body>
+        <nav class="navbar has-shadow">
+            <div class="container">
+                <div class="navbar-brand"><a class="navbar-item" href="/">Fabio Vila</a>
+                <div class="navbar-burger burger" data-target="navMenu"><span></span><span></span><span></span></div>
+            </div>
+            <div class="navbar-menu" id="navMenu">
+                <div class="navbar-end">
+                    <div class="navbar-item has-dropdown is-hoverable"><a class="navbar-link">Search</a>
+                    <div class="navbar-dropdown"><a class="navbar-item">Dashboard</a><a class="navbar-item">Profile</a><a class="navbar-item">Settings</a>
+                    <hr class="navbar-divider" />
+                    <!--div class="navbar-item">Logout</div-->
+                    <div class="navbar-item">
+                    <p class="control has-icons-left">
+                        <input class="input" type="text" placeholder="Search">
+                        <span class="icon is-left">
+                          <i class="fas fa-search" aria-hidden="true"></i>
+                        </span>
+                      </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</nav>
+<section class="mt-6 container has-background-white">
+
+<section class="section ">
+<div class="columns is-centered">
+<div class="column is-9 ">
+<div class="content is-fluid">
+
+  <header class="mb-5">
+    <h1 class="title">Usando CVXPY para o problema da mochila (knapsack) - Otimização</h1>
+    <hr class="m-1"/>
+    <small class="pl-2 has-text-dark-grey" ><span class="icon "><i class="fa fa-user "></i></span>
+      
+      Fabio
+         
+    <span class="icon"><i class="fa fa-calendar"></i></span>  
+     20 Oct 2022
+     <span class="icon"><i class="fa fa-bars"></i></span>
+    aplicadas
+    <span class="icon"><i class="fa fa-tag"></i></span>  
+    python, otimização, e CVXPY
+    </small>
+    <hr class="mt-1 mb-5"/>
+    <div class="h-400">
+      <figure class="image">  
+                   
+          <img class="image" src="/assets/imgs/78482832a0074943839909905fe6fc10.jpg"/>  
+          
+      </figure>
+    </div>
+
+
+  </header>
+
+  <article class="mt-5">
+    <p>O problema da mochila ou em inglês “knapsack” é um problema clássico de otimização combinatória.</p>
+
+<p>O problema consiste em colocar em uma mochila o maior valor possível de itens com determinada capacidade de peso. A cada item é associado um peso e um valor. O valor pode ser a utilidade ou o preço. Ao ir para o camping espera-se que a mochila seja carregada da maior utilidade de itens possível, enquanto na mochila de um motoqueiro o desejado é transportar o maior valor possível. Dessa forma, o objetivo da otimização é ter o maior valor dentro da mochila, ou seja, maximizar o valor sem ultrapassar o peso. Alguns itens podem ser muito valiosos porém pesados, enquantos alguns itens leves podem ter valor pequeno. Um algoritmo trivial de otimização irá na tentativa e erro colocar itens na mochila até alcançar o peso permitido e ir trocando os itens procurando sempre maximizar o valor dentro da mochila.</p>
+
+<p>Esse problema é generalizado para outras aplicações onde o peso pode ser qualquer variável de penalidade e o preço uma variável de maximização. Exemplos não faltam:</p>
+
+<ul>
+  <li>Embarcar a maior quantidade de itens possíveis em um caminhão com custo de carga alto</li>
+  <li>Alocar máquinas de produção visando o menor tempo possível e maior valor produzido</li>
+  <li>Corte de chapas de madeira, metal, tecidos</li>
+  <li>Empacotamento</li>
+  <li>Investimento de Capital</li>
+</ul>
+
+<h4 id="cvxpy">CVXPY</h4>
+
+<p>CVXPY é um framework python para diversos otimizadores com uma linguagem própria e suporte a Numpy.</p>
+
+<p>Para instalar o CVXPY use o pip:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">pip <span class="nb">install </span>cvxpy</code></pre></figure>
+
+<p>Um dos otimizadores disponíveis é o CBC  um otimizador de programação linear inteiro open-source. O CBC pode ser usado em linha de comando sem ser necessário o CVXPY, mas neste caso será necessário aprender sua linguagem de entrada. </p>
+
+<p>Também será necessário instalar o CVXOPT:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">pip <span class="nb">install </span>cvxopt</code></pre></figure>
+
+<p>Esse problema aparece em diversas áreas como a logística, computação e investimentos.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">cvxpy</span> <span class="k">as</span> <span class="n">cp</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span></code></pre></figure>
+
+<h4 id="dados-de-entrada-do-problema">Dados de entrada do problema</h4>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">Valores</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">45</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">156</span><span class="p">,</span><span class="mi">76</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">59</span><span class="p">,</span><span class="mi">97</span><span class="p">,</span><span class="mi">99</span><span class="p">])</span>
+<span class="n">Pesos</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mi">50</span><span class="p">,</span><span class="mi">55</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">98</span><span class="p">,</span><span class="mi">34</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">19</span><span class="p">])</span>
+<span class="n">Capacidade_Mochila</span> <span class="o">=</span> <span class="mi">100</span></code></pre></figure>
+
+<h4 id="variaveis-de-decisão">Variaveis de decisão</h4>
+
+<p>Cada Item Xi terá valor 1 se estiver na mochila ou 0 se estiver fora cp.Variable cria uma variável no CVX ( não confunda cp com np ) do tipo boolean do tamanho da quantidade de itens</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">Xi</span> <span class="o">=</span> <span class="n">cp</span><span class="p">.</span><span class="n">Variable</span><span class="p">((</span><span class="n">Valores</span><span class="p">.</span><span class="n">size</span><span class="p">),</span> <span class="n">boolean</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span></code></pre></figure>
+
+<h4 id="constraints-do-problema">Constraints do problema</h4>
+
+<p>A soma total dos pesos dos itens escolhidos por Xi devem ser igual ou menor que a capacidade da mochila                </p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+</pre></td><td class="code"><pre><span class="n">constraints</span> <span class="o">=</span> <span class="p">[</span> <span class="n">Xi</span> <span class="o">@</span> <span class="n">Pesos</span> <span class="o">&lt;=</span> <span class="n">Capacidade_Mochila</span> <span class="p">]</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Tambem pode ser escrito com o mesmo resultado como:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+</pre></td><td class="code"><pre><span class="n">constraints</span> <span class="o">=</span> <span class="p">[</span> <span class="n">cp</span><span class="p">.</span><span class="nb">sum</span><span class="p">(</span> <span class="n">cp</span><span class="p">.</span><span class="n">multiply</span> <span class="p">(</span><span class="n">Xi</span><span class="p">,</span> <span class="n">Pesos</span> <span class="p">)</span> <span class="p">)</span> <span class="o">&lt;=</span> <span class="n">Capacidade_Mochila</span> <span class="p">]</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>O Objetivo do problema é maximizar os valores na mochila</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+</pre></td><td class="code"><pre><span class="n">objective</span> <span class="o">=</span> <span class="n">cp</span><span class="p">.</span><span class="n">Maximize</span><span class="p">(</span> <span class="n">Xi</span> <span class="o">@</span> <span class="n">Valores</span> <span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>finalmente chamamos o solver com verbose para acompanhar 
+o progresso e a execução máxima de 1hr</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="n">prob</span> <span class="o">=</span> <span class="n">cp</span><span class="p">.</span><span class="n">Problem</span><span class="p">(</span><span class="n">objective</span><span class="p">,</span> <span class="n">constraints</span><span class="p">)</span>
+<span class="n">prob</span><span class="p">.</span><span class="n">solve</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="n">cp</span><span class="p">.</span><span class="n">CBC</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">maximumSeconds</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span><span class="err"> </span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Status          : "</span><span class="p">,</span> <span class="n">prob</span><span class="p">.</span><span class="n">status</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Valor encontrado: "</span><span class="p">,</span> <span class="n">prob</span><span class="p">.</span><span class="n">value</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Valor de Xi     : "</span><span class="p">,</span> <span class="n">Xi</span><span class="p">.</span><span class="n">value</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>O problema da mochila tem muitas aplicações práticas principalmente na logística. Imagine uma transportadora que precisa distribuir seus pacotes utilizando vans e caminhões. Cada pacote tem peso, tamanho, localidade, tempo de espera e valor. Um programa de otimização pode ajudar no preenchimento dos caminhões e em aplicações profissionais traçar a rota de distribuição de cada veículo.</p>
+
+<p>Programas de otimização não acham o <strong>melhor</strong> valor, porque em geral é uma tarefa impossível (o mais correto seria improvável) de se achar, devido a explosão combinatória. Por isso são chamados ‘otimizadores’ pois eles buscam a melhor solução possível, ou seja, uma <strong>solução ótima</strong>.</p>
+
+  </article>
+
+</div>
+</div>
+</div>
+</section>
+
+<section class="section">
+  <hr/>
+  <nav class="level is-mobile">
+
+    <div class="level-item">      
+      
+      
+      <div>
+        <p class="heading"><strong>Veja Também:</strong></p>
+        <small>Probabilidade clássica frequentista e subjetiva - Matemática</small></br>
+        <small>O problema dual e primal - Otimização Matemática</small>
+      </div>
+    </div>
+  </nav>
+</section>
+<section class="section">
+  <div id="disqus_thread"></div>
+<script>
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://fabiovila-github-io.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+<!--
+    <aside class="column is-3-desktop block">
+        
+    
+    <div class="block">
+        <div class="aside-title"><span>Assuntos</span></div>
+        
+         
+          <a class="ml-1 is-capitalized has-text-grey" href="/">eletrônica</a>
+        <hr class="mt-1 mb-1"/>
+        
+         
+          <a class="ml-1 is-capitalized has-text-grey" href="/">aplicadas</a>
+        <hr class="mt-1 mb-1"/>
+        
+         
+          <a class="ml-1 is-capitalized has-text-grey" href="/">eletronica</a>
+        <hr class="mt-1 mb-1"/>
+        
+    </div>
+    <div class="block mt-5">
+            <div class="aside-title"><span>Ultimos</span></div>
+            
+             
+              <a class="ml-1 is-capitalized c" href="/">eletrônica</a>
+            <hr class="mt-1 mb-1"/>
+            
+             
+              <a class="ml-1 is-capitalized c" href="/">aplicadas</a>
+            <hr class="mt-1 mb-1"/>
+            
+             
+              <a class="ml-1 is-capitalized c" href="/">eletronica</a>
+            <hr class="mt-1 mb-1"/>
+            
+    </div>
+
+</aside>
+
+-->
+
+</section>
+<section>
+    <footer class="footer is-primary">
+    </footer>
+</section>
+
+</body>
+</html>

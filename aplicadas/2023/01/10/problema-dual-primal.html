@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>O problema dual e primal - Otimização Matemática</title>
+    <link rel="preload"  href='/assets/css/style.css' as="style" type="text/css">
+    <link rel="stylesheet"  href='/assets/css/style.css'>
+    <link rel="stylesheet"  href='/assets/css/github.css'>
+    <script rel="preload" src="https://kit.fontawesome.com/7dc3015a44.js" as="script" crossorigin="anonymous"></script>
+    <script>
+        MathJax = {
+          jax: ["input/TeX","output/HTML-CSS"],
+          chtml: { displayAlign: 'left'      },
+          tex: {
+            inlineMath: [['$', '$']],
+            displayMath:[['$$', '$$'], ['\\[', '\\]']]
+          }
+          };
+    </script>
+        <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+        </script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>      
+        <script>hljs.highlightAll();</script>
+         <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PY9DT1RWSW"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-PY9DT1RWSW');
+        </script>
+</head>
+
+    <body>
+        <nav class="navbar has-shadow">
+            <div class="container">
+                <div class="navbar-brand"><a class="navbar-item" href="/">Fabio Vila</a>
+                <div class="navbar-burger burger" data-target="navMenu"><span></span><span></span><span></span></div>
+            </div>
+            <div class="navbar-menu" id="navMenu">
+                <div class="navbar-end">
+                    <div class="navbar-item has-dropdown is-hoverable"><a class="navbar-link">Search</a>
+                    <div class="navbar-dropdown"><a class="navbar-item">Dashboard</a><a class="navbar-item">Profile</a><a class="navbar-item">Settings</a>
+                    <hr class="navbar-divider" />
+                    <!--div class="navbar-item">Logout</div-->
+                    <div class="navbar-item">
+                    <p class="control has-icons-left">
+                        <input class="input" type="text" placeholder="Search">
+                        <span class="icon is-left">
+                          <i class="fas fa-search" aria-hidden="true"></i>
+                        </span>
+                      </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</nav>
+<section class="mt-6 container has-background-white">
+
+<section class="section ">
+<div class="columns is-centered">
+<div class="column is-9 ">
+<div class="content is-fluid">
+
+  <header class="mb-5">
+    <h1 class="title">O problema dual e primal - Otimização Matemática</h1>
+    <hr class="m-1"/>
+    <small class="pl-2 has-text-dark-grey" ><span class="icon "><i class="fa fa-user "></i></span>
+      
+      Fabio
+         
+    <span class="icon"><i class="fa fa-calendar"></i></span>  
+     10 Jan 2023
+     <span class="icon"><i class="fa fa-bars"></i></span>
+    aplicadas
+    <span class="icon"><i class="fa fa-tag"></i></span>  
+    programação linear, otimização, e pesquisa operacional
+    </small>
+    <hr class="mt-1 mb-5"/>
+    <div class="h-400">
+      <figure class="image">  
+                   
+          <img class="image" src="/assets/imgs/13e2d7ca-e6f1-4cf4-9d6f-4e519e7e592e.jpeg"/>  
+          
+      </figure>
+    </div>
+
+
+  </header>
+
+  <article class="mt-5">
+    <p>Os <strong>problemas primal</strong> e <strong>dual</strong> estão intrinsecamente ligados na teoria da dualidade em <strong>programação linear</strong>. Eles representam duas formulações diferentes de um mesmo problema de otimização linear, sendo inter-relacionados de maneira específica.</p>
+
+<h3 id="problema-primal">Problema Primal</h3>
+
+<p>O problema primal é a formulação original do problema de otimização linear. Geralmente, é expresso na forma padrão:</p>
+
+<p>\[\text{Maximize } \quad c^Tx\]
+\[\text{sujeito a } \quad Ax \leq b\]
+\[x \geq 0\]</p>
+
+<p>onde:</p>
+<ul>
+  <li>$c$ é um vetor de coeficientes da função objetivo,</li>
+  <li>$x$ é o vetor de variáveis de decisão,</li>
+  <li>$A$ é uma matriz de coeficientes das restrições,</li>
+  <li>$b$ é o vetor de limites das restrições.</li>
+</ul>
+
+<p>A meta é maximizar ou minimizar a função objetivo $c^Tx$ sujeita a um conjunto de restrições lineares.</p>
+
+<h3 id="problema-dual">Problema Dual</h3>
+
+<p>O problema dual é uma formulação alternativa derivada do problema primal usando a teoria de dualidade. Introduz-se multiplicadores de Lagrange para as restrições do problema primal, gerando assim o problema dual. A formulação geral do problema dual é:</p>
+
+<p>\[\text{Minimize } \quad b^Ty\]
+\[\text{sujeito a } \quad A^Ty \geq c\]
+\[y \geq 0\]</p>
+
+<p>onde:</p>
+<ul>
+  <li>$y$ é o vetor de multiplicadores de Lagrange (ou variáveis duais),</li>
+  <li>$b$ é o vetor de termos constantes das restrições do primal,</li>
+  <li>$A^T$ é a matriz transposta de $A$,</li>
+  <li>$c$ é o vetor de coeficientes da função objetivo do primal.</li>
+</ul>
+
+<p>O objetivo do problema dual é encontrar os multiplicadores de Lagrange que minimizam $b^Ty$ sujeito às restrições lineares.</p>
+
+<h3 id="relação-de-dualidade">Relação de Dualidade</h3>
+
+<p>A relação fundamental entre os problemas primal e dual é expressa pelo Teorema da Dualidade, que estabelece que o valor ótimo do problema primal é sempre maior ou igual ao valor ótimo do problema dual, e vice-versa. Matematicamente, isso é expresso como:</p>
+
+<p>\[\text{Para todo } x \text{ factível no primal e para todo } y \text{ factível no dual, temos } c^Tx \geq b^Ty\]</p>
+
+<p>Se ambos os problemas alcançam seus valores ótimos, então há igualdade entre eles. Esta relação é conhecida como dualidade forte.</p>
+
+<p>A dualidade não apenas fornece uma maneira de verificar a solução ótima, mas também oferece informações valiosas sobre a sensibilidade do problema às mudanças nos parâmetros e fornece soluções alternativas.</p>
+
+  </article>
+
+</div>
+</div>
+</div>
+</section>
+
+<section class="section">
+  <hr/>
+  <nav class="level is-mobile">
+
+    <div class="level-item">      
+      
+      
+      <div>
+        <p class="heading"><strong>Veja Também:</strong></p>
+        <small>Usando CVXPY para o problema da mochila (knapsack) - Otimização</small></br>
+        <small>Siglas de sensores e atuadores OBD2 - Eletrônica automotiva</small>
+      </div>
+    </div>
+  </nav>
+</section>
+<section class="section">
+  <div id="disqus_thread"></div>
+<script>
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://fabiovila-github-io.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+<!--
+    <aside class="column is-3-desktop block">
+        
+    
+    <div class="block">
+        <div class="aside-title"><span>Assuntos</span></div>
+        
+         
+          <a class="ml-1 is-capitalized has-text-grey" href="/">eletrônica</a>
+        <hr class="mt-1 mb-1"/>
+        
+         
+          <a class="ml-1 is-capitalized has-text-grey" href="/">aplicadas</a>
+        <hr class="mt-1 mb-1"/>
+        
+         
+          <a class="ml-1 is-capitalized has-text-grey" href="/">eletronica</a>
+        <hr class="mt-1 mb-1"/>
+        
+    </div>
+    <div class="block mt-5">
+            <div class="aside-title"><span>Ultimos</span></div>
+            
+             
+              <a class="ml-1 is-capitalized c" href="/">eletrônica</a>
+            <hr class="mt-1 mb-1"/>
+            
+             
+              <a class="ml-1 is-capitalized c" href="/">aplicadas</a>
+            <hr class="mt-1 mb-1"/>
+            
+             
+              <a class="ml-1 is-capitalized c" href="/">eletronica</a>
+            <hr class="mt-1 mb-1"/>
+            
+    </div>
+
+</aside>
+
+-->
+
+</section>
+<section>
+    <footer class="footer is-primary">
+    </footer>
+</section>
+
+</body>
+</html>

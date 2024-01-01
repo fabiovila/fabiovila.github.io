@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Siglas de sensores e atuadores OBD2 - Eletrônica automotiva</title>
+    <link rel="preload"  href='/assets/css/style.css' as="style" type="text/css">
+    <link rel="stylesheet"  href='/assets/css/style.css'>
+    <link rel="stylesheet"  href='/assets/css/github.css'>
+    <script rel="preload" src="https://kit.fontawesome.com/7dc3015a44.js" as="script" crossorigin="anonymous"></script>
+    <script>
+        MathJax = {
+          jax: ["input/TeX","output/HTML-CSS"],
+          chtml: { displayAlign: 'left'      },
+          tex: {
+            inlineMath: [['$', '$']],
+            displayMath:[['$$', '$$'], ['\\[', '\\]']]
+          }
+          };
+    </script>
+        <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+        </script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>      
+        <script>hljs.highlightAll();</script>
+         <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PY9DT1RWSW"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-PY9DT1RWSW');
+        </script>
+</head>
+
+    <body>
+        <nav class="navbar has-shadow">
+            <div class="container">
+                <div class="navbar-brand"><a class="navbar-item" href="/">Fabio Vila</a>
+                <div class="navbar-burger burger" data-target="navMenu"><span></span><span></span><span></span></div>
+            </div>
+            <div class="navbar-menu" id="navMenu">
+                <div class="navbar-end">
+                    <div class="navbar-item has-dropdown is-hoverable"><a class="navbar-link">Search</a>
+                    <div class="navbar-dropdown"><a class="navbar-item">Dashboard</a><a class="navbar-item">Profile</a><a class="navbar-item">Settings</a>
+                    <hr class="navbar-divider" />
+                    <!--div class="navbar-item">Logout</div-->
+                    <div class="navbar-item">
+                    <p class="control has-icons-left">
+                        <input class="input" type="text" placeholder="Search">
+                        <span class="icon is-left">
+                          <i class="fas fa-search" aria-hidden="true"></i>
+                        </span>
+                      </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</nav>
+<section class="mt-6 container has-background-white">
+
+<section class="section ">
+<div class="columns is-centered">
+<div class="column is-9 ">
+<div class="content is-fluid">
+
+  <header class="mb-5">
+    <h1 class="title">Siglas de sensores e atuadores OBD2 - Eletrônica automotiva</h1>
+    <hr class="m-1"/>
+    <small class="pl-2 has-text-dark-grey" ><span class="icon "><i class="fa fa-user "></i></span>
+      
+      Fabio
+         
+    <span class="icon"><i class="fa fa-calendar"></i></span>  
+     15 Nov 2023
+     <span class="icon"><i class="fa fa-bars"></i></span>
+    eletronica
+    <span class="icon"><i class="fa fa-tag"></i></span>  
+    obd2
+    </small>
+    <hr class="mt-1 mb-5"/>
+    <div class="h-400">
+      <figure class="image">  
+                   
+          <img class="image" src="/assets/imgs/dbb386dc-b554-4d2f-abda-dd74e35fd18e.jpeg"/>  
+          
+      </figure>
+    </div>
+
+
+  </header>
+
+  <article class="mt-5">
+    <h3 id="se-você-tem-um-leitor-obd2-em-inglês-essa-lista-pode-te-ajudar-a-desvendar-as-siglas-na-leitura">Se você tem um leitor OBD2 em inglês essa lista pode te ajudar a desvendar as siglas na leitura.</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Informação exibida</th>
+      <th>Explicação</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Fuel System 1 Status [Status 1 ou Fuelsys1]</strong></td>
+      <td>Em sistema de controle <strong>OL - Open Loop</strong> significa que o controle está sendo feito as ‘cegas’, sem o uso dos sensores. Em modo <strong>CL - Closed Loop</strong> o controle está sendo feito utilizando os sensores. A sonda lambda é o principal sensor utilizado para controlar a mistura ar-combustível e para funcionar ela precisa estar quente.Ao ligar o carro com o motor frio a sonda lambda (fria) não será utilizada de início, então a ECU operará o motor em modo OL - Open Loop até que a sonda lambda envie os dados corretos quando finalmente a ECU (agora com valores corretos dos sensores já aquecidos) muda para Closed Loop.</td>
+    </tr>
+    <tr>
+      <td><strong>Calculated Load Value [CLV or Load_PCT]</strong></td>
+      <td>Carga do motor.</td>
+    </tr>
+    <tr>
+      <td><strong>Engine Coolant Temp [ECT]</strong></td>
+      <td>Temperatura do liquido de arrefecimento (água do radiador).</td>
+    </tr>
+    <tr>
+      <td><strong>Short Term Fuel Trim-Bank 1 [STFT 1 ou SHRTFT1]</strong></td>
+      <td>Ajuste imediato da mistura estequiometria. Se o valor é positivo a ECU está adicionando combustível (mistura rica) se negativo a ECU está retirando combustível (mistura pobre). Esse ajuste se perde ao desligar o carro. Quando se está ‘descendo na banguela’, por exemplo, com o carro engatado a ECU para de mandar combustível mostrando valores negativos para STFT.</td>
+    </tr>
+    <tr>
+      <td><strong>Long Term Fuel Trim- Bank 1 [LTFT 1 ou LONGFT1]</strong></td>
+      <td>Ajuste de longo prazo da mistura com base no histórico do sensor explicado acima. Se por exemplo o sensor imediato ficar por muito tempo em 6% o Long Term Fuel Trim irá incrementar seu ajuste para compensar até que o Short Term fique em 0%. Esse ajuste não se perde ao desligar o carro, é um dos indicadores mais importantes de falhas no motor.</td>
+    </tr>
+    <tr>
+      <td><strong>Engine RPM [RPM]</strong></td>
+      <td>O RPM do motor</td>
+    </tr>
+    <tr>
+      <td><strong>Vehicle Speed Sensor [VSS]</strong></td>
+      <td>Velocidade do veiculo</td>
+    </tr>
+    <tr>
+      <td><strong>Ignition Timing Advance #1 [Sparkadv]</strong></td>
+      <td>Mostra o ângulo de ignição ou mais conhecido como “ponto de ignição”. Diminui com o aumento da temperatura.</td>
+    </tr>
+    <tr>
+      <td><strong>Intake Air Temp [IAT]</strong></td>
+      <td>Temperatura do ar.</td>
+    </tr>
+    <tr>
+      <td><strong>Air Flow Rate from Mass Air Flow Sensor [MAF]</strong></td>
+      <td>A quantidade de ar entrando no sistema de admissão. Em geral está associado ao sensor MAF.</td>
+    </tr>
+    <tr>
+      <td><strong>Absolute Throttle Position [TP or ABS_TP]</strong></td>
+      <td>Posição do sensor de corpo de borboleta. Ao pisar no pedal do acelerador esse sinal deve subir.</td>
+    </tr>
+    <tr>
+      <td><strong>Bank 1 – Sensor 2 Volts [O2S12]</strong></td>
+      <td>Tensão da sonda lambda pós catalisador. Em situações normais não deve variar.</td>
+    </tr>
+    <tr>
+      <td><strong>Bank 1 – Sensor 1 [O2S11]</strong></td>
+      <td>Tensão da sonda lambda antes do catalisador. No osciloscópio se apresenta como uma onda oscilante entre 900mV e 200mV. Valores acima de 450mV indica mistura rica e valores abaixo mistura pobre. O sinal não deve ser contínuo, mas oscilante. O ideal é oscilar simetricamente em mistura pobre e rica, se ficar por mais tempo acima ou abaixo de 450mV possivelmente é sinal de problemas.</td>
+    </tr>
+    <tr>
+      <td><strong>OBD Requirements OBD and OBD2 [OBDSUP]</strong></td>
+      <td>O protocolo de comunicação utilizado pelo OBD</td>
+    </tr>
+  </tbody>
+</table>
+
+  </article>
+
+</div>
+</div>
+</div>
+</section>
+
+<section class="section">
+  <hr/>
+  <nav class="level is-mobile">
+
+    <div class="level-item">      
+      
+      
+      <div>
+        <p class="heading"><strong>Veja Também:</strong></p>
+        <small>O problema dual e primal - Otimização Matemática</small></br>
+        <small>Órgãos Antigos dos Anos 70: Geradores e Divisores de Oitavas - Música Eletrônica</small>
+      </div>
+    </div>
+  </nav>
+</section>
+<section class="section">
+  <div id="disqus_thread"></div>
+<script>
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://fabiovila-github-io.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+<!--
+    <aside class="column is-3-desktop block">
+        
+    
+    <div class="block">
+        <div class="aside-title"><span>Assuntos</span></div>
+        
+         
+          <a class="ml-1 is-capitalized has-text-grey" href="/">eletrônica</a>
+        <hr class="mt-1 mb-1"/>
+        
+         
+          <a class="ml-1 is-capitalized has-text-grey" href="/">aplicadas</a>
+        <hr class="mt-1 mb-1"/>
+        
+         
+          <a class="ml-1 is-capitalized has-text-grey" href="/">eletronica</a>
+        <hr class="mt-1 mb-1"/>
+        
+    </div>
+    <div class="block mt-5">
+            <div class="aside-title"><span>Ultimos</span></div>
+            
+             
+              <a class="ml-1 is-capitalized c" href="/">eletrônica</a>
+            <hr class="mt-1 mb-1"/>
+            
+             
+              <a class="ml-1 is-capitalized c" href="/">aplicadas</a>
+            <hr class="mt-1 mb-1"/>
+            
+             
+              <a class="ml-1 is-capitalized c" href="/">eletronica</a>
+            <hr class="mt-1 mb-1"/>
+            
+    </div>
+
+</aside>
+
+-->
+
+</section>
+<section>
+    <footer class="footer is-primary">
+    </footer>
+</section>
+
+</body>
+</html>
