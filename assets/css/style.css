@@ -2902,6 +2902,8 @@ h1, h2, h3, h4, h5, h6 .title { font-family: -apple-system, BlinkMacSystemFont, 
 
 strong { color: #1a1a1a; font-weight: 800; }
 
+code { background-color: whitesmoke; color: #008492; font-size: 0.875em; font-weight: normal; white-space: pre-wrap; word-wrap: break-word; }
+
 pre { border-radius: 3px; font-size: 0.85rem; white-space: pre-wrap; word-wrap: break-word; width: 100%; }
 
 pre { margin-top: 1.6rem; margin-bottom: 2.13rem; border: 1px solid beige; border-left-width: 1px; border-left-style: solid; border-left-color: beige; border-left: 3px solid #008492; background-color: white !important; }
