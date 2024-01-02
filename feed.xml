@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2024-01-02T13:35:44-06:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Órgãos Antigos dos Anos 70: Geradores e Divisores de Oitavas - Música Eletrônica</title><link href="http://0.0.0.0:4000/eletronica/2023/12/29/geradores-e-divisores-de-oitavas-org%C3%A3os-antigos.html" rel="alternate" type="text/html" title="Órgãos Antigos dos Anos 70: Geradores e Divisores de Oitavas - Música Eletrônica" /><published>2023-12-29T00:00:00-06:00</published><updated>2023-12-29T00:00:00-06:00</updated><id>http://0.0.0.0:4000/eletronica/2023/12/29/geradores-e-divisores-de-oitavas-org%C3%A3os-antigos</id><content type="html" xml:base="http://0.0.0.0:4000/eletronica/2023/12/29/geradores-e-divisores-de-oitavas-org%C3%A3os-antigos.html">&lt;h2 id=&quot;órgãos-antigos-dos-anos-70-geradores-e-divisores-de-oitavas&quot;&gt;Órgãos Antigos dos Anos 70: Geradores e Divisores de Oitavas&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2024-01-02T14:12:51-06:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Órgãos Antigos dos Anos 70: Geradores e Divisores de Oitavas - Música Eletrônica</title><link href="http://0.0.0.0:4000/eletronica/2023/12/29/geradores-e-divisores-de-oitavas-org%C3%A3os-antigos.html" rel="alternate" type="text/html" title="Órgãos Antigos dos Anos 70: Geradores e Divisores de Oitavas - Música Eletrônica" /><published>2023-12-29T00:00:00-06:00</published><updated>2023-12-29T00:00:00-06:00</updated><id>http://0.0.0.0:4000/eletronica/2023/12/29/geradores-e-divisores-de-oitavas-org%C3%A3os-antigos</id><content type="html" xml:base="http://0.0.0.0:4000/eletronica/2023/12/29/geradores-e-divisores-de-oitavas-org%C3%A3os-antigos.html">&lt;h2 id=&quot;órgãos-antigos-dos-anos-70-geradores-e-divisores-de-oitavas&quot;&gt;Órgãos Antigos dos Anos 70: Geradores e Divisores de Oitavas&lt;/h2&gt;
 
 &lt;p&gt;Os anos 70 foram uma época de efervescência musical e inovação tecnológica, e os órgãos eletrônicos desempenharam um papel crucial nesse cenário. Esses instrumentos, muitas vezes utilizados em bandas de rock progressivo, jazz fusion e música eletrônica da época, eram dotados de características sonoras únicas, inicialmente construidos com o objetivo de serem fiéis aos órgãos de tubos, sua sonoridade única e portabilidade logo achou seu lugar próprio na música.&lt;/p&gt;
 
@@ -282,7 +282,138 @@ As divisões podem ser conferidas na tabela abaixo:&lt;/p&gt;
 
 &lt;p&gt;Se ambos os problemas alcançam seus valores ótimos, então há igualdade entre eles. Esta relação é conhecida como dualidade forte.&lt;/p&gt;
 
-&lt;p&gt;A dualidade não apenas fornece uma maneira de verificar a solução ótima, mas também oferece informações valiosas sobre a sensibilidade do problema às mudanças nos parâmetros e fornece soluções alternativas.&lt;/p&gt;</content><author><name></name></author><category term="aplicadas" /><category term="programação linear" /><category term="otimização" /><category term="pesquisa operacional" /><summary type="html">Os problemas primal e dual estão intrinsecamente ligados na teoria da dualidade em programação linear. Eles representam duas formulações diferentes de um mesmo problema de otimização linear, sendo inter-relacionados de maneira específica.</summary></entry><entry><title type="html">Usando CVXPY para o problema da mochila (knapsack) - Otimização</title><link href="http://0.0.0.0:4000/aplicadas/2022/10/20/cvpy-knapsack.html" rel="alternate" type="text/html" title="Usando CVXPY para o problema da mochila (knapsack) - Otimização" /><published>2022-10-20T20:26:05-05:00</published><updated>2022-10-20T20:26:05-05:00</updated><id>http://0.0.0.0:4000/aplicadas/2022/10/20/cvpy-knapsack</id><content type="html" xml:base="http://0.0.0.0:4000/aplicadas/2022/10/20/cvpy-knapsack.html">&lt;p&gt;O problema da mochila ou em inglês “knapsack” é um problema clássico de otimização combinatória.&lt;/p&gt;
+&lt;p&gt;A dualidade não apenas fornece uma maneira de verificar a solução ótima, mas também oferece informações valiosas sobre a sensibilidade do problema às mudanças nos parâmetros e fornece soluções alternativas.&lt;/p&gt;</content><author><name></name></author><category term="aplicadas" /><category term="programação linear" /><category term="otimização" /><category term="pesquisa operacional" /><summary type="html">Os problemas primal e dual estão intrinsecamente ligados na teoria da dualidade em programação linear. Eles representam duas formulações diferentes de um mesmo problema de otimização linear, sendo inter-relacionados de maneira específica.</summary></entry><entry><title type="html">Usando os serviços OpenAI para criar um ChatBot - Python</title><link href="http://0.0.0.0:4000/python/2023/01/02/usando-servicos-openai.html" rel="alternate" type="text/html" title="Usando os serviços OpenAI para criar um ChatBot - Python" /><published>2023-01-02T00:00:00-06:00</published><updated>2023-01-02T00:00:00-06:00</updated><id>http://0.0.0.0:4000/python/2023/01/02/usando-servicos-openai</id><content type="html" xml:base="http://0.0.0.0:4000/python/2023/01/02/usando-servicos-openai.html">&lt;p&gt;Em 2023 Taylor Swift foi eleita a personalidade do ano, mas há quem diga que 2023 foi mesmo o ano da &lt;strong&gt;Inteligência Artificial&lt;/strong&gt;. E de fato há uma corrida das empresas que ficaram para trás do lançamento do modelo  &lt;strong&gt;text-davinci&lt;/strong&gt; da OpenAI que era um modelo rudimentar comparado aos &lt;strong&gt;gpt-turbo-3.5&lt;/strong&gt; e o mais moderno &lt;strong&gt;gpt-4&lt;/strong&gt; usados hoje, mas fez barulho. O Google lançou o Bard mas não impressionou. A Baidu lançou seu modelo porém restrito ainda a sua área, enquanto a Amazon e a Apple correm atrás do prejuízo. Elon Musk lançou o Grok&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;, mas até o momento tinha fila de espera para usar. A Apple tenta negociar um acordo milionário para poder usar os artigos da imprensa americana para seu modelo de linguagem&lt;sup id=&quot;fnref:2&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;. A Microsoft foi astuta e financiou a OpenAI quando percebeu o potencial do lançamento do &lt;strong&gt;GPT-2&lt;/strong&gt; e hoje oferece esses modernos modelos como serviço pago ou gratuito.&lt;/p&gt;
+
+&lt;h3 id=&quot;fazendo-um-chatbot-usando-o-openai&quot;&gt;Fazendo um chatbot usando o OpenAI&lt;/h3&gt;
+
+&lt;p&gt;Fazer um chatbot usando os serviços da OpenAI é simples, usa-se somente UMA chamada de função do módulo da openai em python.&lt;/p&gt;
+&lt;h4 id=&quot;cadastro-e-criação-da-secret-key&quot;&gt;Cadastro e criação da Secret Key&lt;/h4&gt;
+&lt;p&gt;Primeiro é preciso fazer o cadastro na plataforma de serviço OpenAI API no site &lt;a href=&quot;https://platform.openai.com/signup&quot;&gt;https://platform.openai.com/signup&lt;/a&gt;. Até o momento eles oferecem créditos para avaliação do serviço e não é preciso cartão de crédito para usar esses créditos. Entretanto a avaliação fica restrista ao modelo &lt;strong&gt;gpt-3.5-turbo&lt;/strong&gt; que não deixa de ser um modelo capaz e poderoso. Se você usa a versão gratuita do site você usa esse modelo.&lt;/p&gt;
+
+&lt;p&gt;Feito o cadastro é preciso gerar a OpenAI KEY para que se possa usar os serviços.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/imgs/openaikey.png&quot; alt=&quot;Página para criar a Secret Key da OpenAI&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Clique em “&lt;strong&gt;Create new Secret Key&lt;/strong&gt;” para criar sua Secret Key, como visto na figura acima.&lt;/p&gt;
+
+&lt;h4 id=&quot;instalação-do-módulo-de-acesso&quot;&gt;Instalação do módulo de acesso&lt;/h4&gt;
+&lt;p&gt;Em seguida é necessário instalar o módulo da openai. Isso pode ser feito pelo PIP ou preferencialmente pelo seu gerenciador de pacotes em sua distribuição Linux.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;pip install openai&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;fazendo-sua-primeira-conversa&quot;&gt;Fazendo sua primeira conversa&lt;/h4&gt;
+
+&lt;p&gt;Finalmente podemos fazer a primeira chamada para a OpenAI. Primeiramente é preciso criar uma instância OpenAI usando sua SECRET_KEY do passo anterior. Para fazer uma requisição usa-se o &lt;strong&gt;chat.completions.create&lt;/strong&gt; como visto no código abaixo:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;
+# Importa o módulo OpenAI instalado com pip anteriormente
+from openai import OpenAI
+# Cria uma instância OpenAI. Utilize aqui sua Secret Key no lugar de SUA_SECRET_KEY ( entre aspas )
+client = OpenAI(SUA_SECRET_KEY)
+
+# Finalmente fazemos uma requisição ao serviço de chat
+completion = client.chat.completions.create(
+model=&quot;gpt-3.5-turbo&quot;,  # Modelo usado.
+# A personalidade e o texto enviado ao chat.
+messages=[
+    {&quot;role&quot;: &quot;system&quot;, &quot;content&quot;: &quot;Você é um assistente virtual divertido e bem humorado.&quot;},
+    {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Qual o sentido da vida?&quot;}
+]
+)
+
+# E finalmente exibimos a resposta do modelo &quot;gpt-3.5-turbo&quot; a questão &quot;Qual o sentido da vida?&quot;
+print(completion.choices[0].message)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;personalizando-e-embutindo-informações&quot;&gt;Personalizando e embutindo informações&lt;/h4&gt;
+&lt;p&gt;Basicamente é só isso. Configura a Key e chama os serviço de complementação de texto &lt;strong&gt;completions.create&lt;/strong&gt; com a personalidade e a mensagem. Fácil não?!&lt;/p&gt;
+
+&lt;p&gt;Agora é uma boa hora para explicar os roles da requisição. Como se pode ver no código temos uma &lt;em&gt;list&lt;/em&gt; com duas &lt;em&gt;dict&lt;/em&gt; com as chaves “role” e “content”. Essas informações serão enviadas ao modelo para configurá-lo com a personalidade e informações que se deseja.&lt;/p&gt;
+
+&lt;h5 id=&quot;role-system&quot;&gt;Role System&lt;/h5&gt;
+
+&lt;p&gt;O role system é o mais forte e determina a personalidade do assistente. Veja alguns exemplos de role system:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;em&gt;“Você é uma IA da empresa Octopus S.A.. A Empresa está localizada no endereço X e tem o telefone Y.”&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;“Você é um bot do telegram divertido e bem humorado. Sua personalidade é ácida e irônica”&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;“Você é um assistente virtual no twitch do Gamer Lucão, você adora Minecraft e Playstation 5”&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Esse role é opcional. Não é preciso enviar nada se não quiser.&lt;/p&gt;
+
+&lt;h5 id=&quot;role-assistant&quot;&gt;Role Assistant&lt;/h5&gt;
+
+&lt;p&gt;O role assistant é útil para enviar a conversa anterior e informações relevantes. Em geral usa-se formatação de strings no python para embutir informações e o texto anterior. Veja alguns exemplos:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;EXPEDIENTE&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;estamos abertos até as 18:00hrs&quot;&lt;/span&gt; 
+&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;role&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;system&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;content&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;sa&quot;&gt;F&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hoje é &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;now&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; e hoje &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;EXPEDIENTE&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;.&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;REQ_ANT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Onde compro o Dipirona?&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;RESP_ANT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Olá, Você pode comprar na farmácia ...&quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;role&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;system&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;content&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;sa&quot;&gt;F&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Anteriormente o usuário solicitou &apos;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;REQ_ANT&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos; e você respondeu &apos;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RESP_ANT&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;.&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h5 id=&quot;role-user&quot;&gt;Role User&lt;/h5&gt;
+
+&lt;p&gt;O role user é onde as mensagens do usuário serão inseridas. No exemplo acima foi a mensagem “Qual o sentido da vida?”.&lt;/p&gt;
+
+&lt;h3 id=&quot;limitações&quot;&gt;Limitações&lt;/h3&gt;
+
+&lt;p&gt;Cada requisição é única e não tem memória. Ele não se lembra das requisições anteriores. Para que o modelo saiba o que foi dito anteriormente e ele possa continuar a conversa o histórico deve ser passado no role assistant.
+Também há um limite de informações que pode ser colocado nos roles. O conjunto dos roles é chamado &lt;strong&gt;contexto&lt;/strong&gt;.  O limite do contexto é dado em tokens e atualmente é 4096 tokens, mas há modelos que tem 16k tokens.&lt;/p&gt;
+
+&lt;p&gt;Tokens podem ser uma letra ou uma palavra inteira, depende do vocabulário usado pelo modelo. Não conte as letras para verificar o limite de tokens, pois como dito, os tokens podem ser uma letra ou um pedaço de uma palavra ou uma palavra inteira.&lt;/p&gt;
+
+&lt;p&gt;Os modelos tem controle de conversas tóxicas, ilegais, abusivas e temas sensíveis. Não peça para o modelo contar um conto erótico que dificilmente ele o fará. Também não é possível inventar histórias mentirosas de pessoas ou temas sensíveis. O modelo tem personalidade multicultural, feminista e woke.&lt;/p&gt;
+
+&lt;p&gt;Quando acabar seus créditos só será possível continuar requisitando com um cartão de crédito onde será cobrado por tokens. Não é muito, você brincando sozinho consumirá menos de \$ 1,00 ou em uso mais intensivo \$ 5,00. Você pode configurar um limite no site para no caso de passar desse valor ele pare de responder as requisições.&lt;/p&gt;
+
+&lt;h3 id=&quot;empresas&quot;&gt;Empresas&lt;/h3&gt;
+
+&lt;p&gt;Algumas observações são importantes quando for usar o chatbot em empresas. Vamos imaginar um cenário onde o chatbot deverá ser usado para consultar um grande banco de dados de produtos e como se percebeu a limitação do contexto (os roles system, assistant e user) não tem como colocar todos os produtos e suas caracteristicas no contexto da requisição, isso é impraticável.&lt;/p&gt;
+
+&lt;p&gt;Para que uma grande base de dados seja ‘ligada’ ao chatbot deverá ser usado um &lt;em&gt;Langchain&lt;/em&gt; ou um &lt;em&gt;Information Extration&lt;/em&gt;.
+O &lt;em&gt;Langchain&lt;/em&gt; usa duas camadas. A primeira etapa é a indexação da base de dados que você quer disponibilizar ao chatbot. Nesta etapa documentos, pdfs, textos, planilhas são indexadas por um &lt;em&gt;modelo de embedded&lt;/em&gt; que gerará um grande vetor de números de ponto flutuante. Esse vetor representará uma sentença do texto e será armazenado em um banco de dados vetorial ( Vector Database ).&lt;/p&gt;
+
+&lt;p&gt;Quando o usuário fizer uma requisição a requisição irá novamente para esse modelo embedded que gerará um vetor embedded representando a requisição e o banco de dados será consultado com o valor que mais se aproxima do vetor da requisição.
+Encontrado a informação, a informação é retornada para o chatbot para ele gerar uma resposta com a informação obtida do banco de dados.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Exemplo:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Um escritório de advocacia quer um chatbot ajudando seus advogados.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Primeira etapa ( pode ser feita somente uma vez ):&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Reunir todos os documentos, leis, sentenças e diário oficiais que achar necessário.&lt;/li&gt;
+  &lt;li&gt;Extrair as sentenças ( por exemplo fazendo um &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.split(&quot;.&quot;)&lt;/code&gt; no texto ).&lt;/li&gt;
+  &lt;li&gt;Gerar um vetor embedded para cada sentença.&lt;/li&gt;
+  &lt;li&gt;Amazenar os vetores embedded em um banco de dados vetorial.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Segunda etapa (a cada requisição ):&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;O usuário digita uma requisição por exemplo &lt;em&gt;“O Sr. Antonio de oliveira tem algum processo cível?”&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;O modelo embedded gera um vetor com o texto da requisição.&lt;/li&gt;
+  &lt;li&gt;O banco de dados é consultado com esse vetor para achar a sentença mais próxima.&lt;/li&gt;
+  &lt;li&gt;Ele achou por exemplo &lt;em&gt;“Antonio de oliveira x José no nascimento”&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;A informação é adicionada ao role assistant para o chatbot gerar uma resposta.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;O Information Extration é diferente este não usa um modelo embedded. Ele extrai a intenção do usuário e as palavras chaves que serão usados para montar diretamente uma requisição SQL ao banco de dados que então retornará a informação a ser inserida nos roles da requisição da resposta.&lt;/p&gt;
+
+&lt;p&gt;Langchain e Information Extraction são áreas e ferramentas diferentes mas auxiliares do modelos de linguagem. A OpenAI e outras empresas disponibilizam esses serviços pagos.&lt;/p&gt;
+
+&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://grok.x.ai/&quot;&gt;https://grok.x.ai/&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://www.nytimes.com/2023/12/22/technology/apple-ai-news-publishers.html&quot;&gt;https://www.nytimes.com/2023/12/22/technology/apple-ai-news-publishers.html&lt;/a&gt; &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="python" /><category term="AI" /><category term="ChatGPT" /><category term="python" /><summary type="html">Em 2023 Taylor Swift foi eleita a personalidade do ano, mas há quem diga que 2023 foi mesmo o ano da Inteligência Artificial. E de fato há uma corrida das empresas que ficaram para trás do lançamento do modelo text-davinci da OpenAI que era um modelo rudimentar comparado aos gpt-turbo-3.5 e o mais moderno gpt-4 usados hoje, mas fez barulho. O Google lançou o Bard mas não impressionou. A Baidu lançou seu modelo porém restrito ainda a sua área, enquanto a Amazon e a Apple correm atrás do prejuízo. Elon Musk lançou o Grok1, mas até o momento tinha fila de espera para usar. A Apple tenta negociar um acordo milionário para poder usar os artigos da imprensa americana para seu modelo de linguagem2. A Microsoft foi astuta e financiou a OpenAI quando percebeu o potencial do lançamento do GPT-2 e hoje oferece esses modernos modelos como serviço pago ou gratuito. https://grok.x.ai/ &amp;#8617; https://www.nytimes.com/2023/12/22/technology/apple-ai-news-publishers.html &amp;#8617;</summary></entry><entry><title type="html">Usando CVXPY para o problema da mochila (knapsack) - Otimização</title><link href="http://0.0.0.0:4000/aplicadas/2022/10/20/cvpy-knapsack.html" rel="alternate" type="text/html" title="Usando CVXPY para o problema da mochila (knapsack) - Otimização" /><published>2022-10-20T20:26:05-05:00</published><updated>2022-10-20T20:26:05-05:00</updated><id>http://0.0.0.0:4000/aplicadas/2022/10/20/cvpy-knapsack</id><content type="html" xml:base="http://0.0.0.0:4000/aplicadas/2022/10/20/cvpy-knapsack.html">&lt;p&gt;O problema da mochila ou em inglês “knapsack” é um problema clássico de otimização combinatória.&lt;/p&gt;
 
 &lt;p&gt;O problema consiste em colocar em uma mochila o maior valor possível de itens com determinada capacidade de peso. A cada item é associado um peso e um valor. O valor pode ser a utilidade ou o preço. Ao ir para o camping espera-se que a mochila seja carregada da maior utilidade de itens possível, enquanto na mochila de um motoqueiro o desejado é transportar o maior valor possível. Dessa forma, o objetivo da otimização é ter o maior valor dentro da mochila, ou seja, maximizar o valor sem ultrapassar o peso. Alguns itens podem ser muito valiosos porém pesados, enquantos alguns itens leves podem ter valor pequeno. Um algoritmo trivial de otimização irá na tentativa e erro colocar itens na mochila até alcançar o peso permitido e ir trocando os itens procurando sempre maximizar o valor dentro da mochila.&lt;/p&gt;
 
@@ -863,159 +994,20 @@ plt.plot(t,5*np.sin(t*(2*np.pi/0.0001)))
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Os filtros FIR são uma ferramenta poderosa no processamento de sinais digitais. Com uma compreensão básica de sua estrutura e uma abordagem prática para calcular os coeficientes, é possível projetar filtros personalizados para atender às necessidades específicas de uma aplicação. Experimentar com diferentes ordens e frequências de corte permite ajustar o desempenho do filtro de acordo com os requisitos do sistema.&lt;/p&gt;</content><author><name></name></author><category term="eletrônica" /><category term="eletrônica" /><category term="processamento de sinais" /><category term="filtros" /><summary type="html">O que são Filtros FIR?</summary></entry><entry><title type="html">Usando os serviços OpenAI para criar um ChatBot - Python</title><link href="http://0.0.0.0:4000/python/2020/06/10/usando-servicos-openai.html" rel="alternate" type="text/html" title="Usando os serviços OpenAI para criar um ChatBot - Python" /><published>2020-06-10T00:00:00-05:00</published><updated>2020-06-10T00:00:00-05:00</updated><id>http://0.0.0.0:4000/python/2020/06/10/usando-servicos-openai</id><content type="html" xml:base="http://0.0.0.0:4000/python/2020/06/10/usando-servicos-openai.html">&lt;p&gt;Em 2023 Taylor Swift foi eleita a personalidade do ano, mas há quem diga que 2023 foi mesmo o ano da &lt;strong&gt;Inteligência Artificial&lt;/strong&gt;. E de fato há uma corrida das empresas que ficaram para trás do lançamento do modelo  &lt;strong&gt;text-davinci&lt;/strong&gt; da OpenAI que era um modelo rudimentar comparado aos &lt;strong&gt;gpt-turbo-3.5&lt;/strong&gt; e o mais moderno &lt;strong&gt;gpt-4&lt;/strong&gt; usados hoje, mas fez barulho. O Google lançou o Bard mas não impressionou. A Baidu lançou seu modelo porém restrito ainda a sua área, enquanto a Amazon e a Apple correm atrás do prejuízo. Elon Musk lançou o Grok&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;, mas até o momento tinha fila de espera para usar. A Apple tenta negociar um acordo milionário para poder usar os artigos da imprensa americana para seu modelo de linguagem&lt;sup id=&quot;fnref:2&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;. A Microsoft foi astuta e financiou a OpenAI quando percebeu o potencial do lançamento do &lt;strong&gt;GPT-2&lt;/strong&gt; e hoje oferece esses modernos modelos como serviço pago ou gratuito.&lt;/p&gt;
+&lt;p&gt;Os filtros FIR são uma ferramenta poderosa no processamento de sinais digitais. Com uma compreensão básica de sua estrutura e uma abordagem prática para calcular os coeficientes, é possível projetar filtros personalizados para atender às necessidades específicas de uma aplicação. Experimentar com diferentes ordens e frequências de corte permite ajustar o desempenho do filtro de acordo com os requisitos do sistema.&lt;/p&gt;</content><author><name></name></author><category term="eletrônica" /><category term="eletrônica" /><category term="processamento de sinais" /><category term="filtros" /><summary type="html">O que são Filtros FIR?</summary></entry><entry><title type="html">Indução e Falseabilidade - Filosofia da Ciência</title><link href="http://0.0.0.0:4000/ci%C3%AAncias/2020/06/10/indu%C3%A7%C3%A3o-falseabilidade.html" rel="alternate" type="text/html" title="Indução e Falseabilidade - Filosofia da Ciência" /><published>2020-06-10T00:00:00-05:00</published><updated>2020-06-10T00:00:00-05:00</updated><id>http://0.0.0.0:4000/ci%C3%AAncias/2020/06/10/indu%C3%A7%C3%A3o-falseabilidade</id><content type="html" xml:base="http://0.0.0.0:4000/ci%C3%AAncias/2020/06/10/indu%C3%A7%C3%A3o-falseabilidade.html">&lt;p&gt;A hipótese desempenha um papel fundamental na ciência, sendo uma proposição ainda sem valor conhecido, aguardando evidências adicionais para determinar sua veracidade ou falsidade. O processo de formular hipóteses muitas vezes envolve o raciocínio indutivo, onde a observação de casos particulares leva à proposição de uma afirmação geral. No entanto, a validade dessas hipóteses depende da verificação cuidadosa por meio de testes e evidências.&lt;/p&gt;
 
-&lt;h3 id=&quot;fazendo-um-chatbot-usando-o-openai&quot;&gt;Fazendo um chatbot usando o OpenAI&lt;/h3&gt;
+&lt;p&gt;Enquanto o senso comum muitas vezes aceita hipóteses sem questionamento, o método científico exige rigor. As hipóteses devem ser testadas e verificadas de maneira exaustiva. A origem duvidosa de uma hipótese é desconsiderada no método científico, algo que o senso comum muitas vezes negligencia.&lt;/p&gt;
 
-&lt;p&gt;Fazer um chatbot usando os serviços da OpenAI é simples, usa-se somente UMA chamada de função do módulo da openai em python.&lt;/p&gt;
-&lt;h4 id=&quot;cadastro-e-criação-da-secret-key&quot;&gt;Cadastro e criação da Secret Key&lt;/h4&gt;
-&lt;p&gt;Primeiro é preciso fazer o cadastro na plataforma de serviço OpenAI API no site &lt;a href=&quot;https://platform.openai.com/signup&quot;&gt;https://platform.openai.com/signup&lt;/a&gt;. Até o momento eles oferecem créditos para avaliação do serviço e não é preciso cartão de crédito para usar esses créditos. Entretanto a avaliação fica restrista ao modelo &lt;strong&gt;gpt-3.5-turbo&lt;/strong&gt; que não deixa de ser um modelo capaz e poderoso. Se você usa a versão gratuita do site você usa esse modelo.&lt;/p&gt;
+&lt;p&gt;O rigor do método científico inclui não apenas a verificação da hipótese, mas também a documentação detalhada do processo de teste. Isso é essencial para garantir a transparência e a replicabilidade dos resultados. Um exemplo notável foi a hipótese sobre os efeitos prejudiciais do chumbo na gasolina&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;, onde a comunidade científica enfrentou resistência de grandes empresas, destacando a importância de uma abordagem meticulosa e documentada para validar as hipóteses.&lt;/p&gt;
 
-&lt;p&gt;Feito o cadastro é preciso gerar a OpenAI KEY para que se possa usar os serviços.&lt;/p&gt;
+&lt;p&gt;A questão da validação de hipóteses levanta o Problema da Demarcação, questionando como determinar o que é considerado ciência. Karl Popper propôs que uma característica crucial da ciência é a falsificabilidade - a capacidade de uma hipótese ser refutada. Se uma hipótese não pode ser falseada de alguma forma, ela não pode ser considerada científica. As ciências sociais são frequentemente criticadas por essa razão, pois algumas alegam que falta um método claro para rejeitar suas bases e hipóteses.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/imgs/openaikey.png&quot; alt=&quot;Página para criar a Secret Key da OpenAI&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Clique em “&lt;strong&gt;Create new Secret Key&lt;/strong&gt;” para criar sua Secret Key, como visto na figura acima.&lt;/p&gt;
-
-&lt;h4 id=&quot;instalação-do-módulo-de-acesso&quot;&gt;Instalação do módulo de acesso&lt;/h4&gt;
-&lt;p&gt;Em seguida é necessário instalar o módulo da openai. Isso pode ser feito pelo PIP ou preferencialmente pelo seu gerenciador de pacotes em sua distribuição Linux.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;pip install openai&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&quot;fazendo-sua-primeira-conversa&quot;&gt;Fazendo sua primeira conversa&lt;/h4&gt;
-
-&lt;p&gt;Finalmente podemos fazer a primeira chamada para a OpenAI. Primeiramente é preciso criar uma instância OpenAI usando sua SECRET_KEY do passo anterior. Para fazer uma requisição usa-se o &lt;strong&gt;chat.completions.create&lt;/strong&gt; como visto no código abaixo:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;
-# Importa o módulo OpenAI instalado com pip anteriormente
-from openai import OpenAI
-# Cria uma instância OpenAI. Utilize aqui sua Secret Key no lugar de SUA_SECRET_KEY ( entre aspas )
-client = OpenAI(SUA_SECRET_KEY)
-
-# Finalmente fazemos uma requisição ao serviço de chat
-completion = client.chat.completions.create(
-model=&quot;gpt-3.5-turbo&quot;,  # Modelo usado.
-# A personalidade e o texto enviado ao chat.
-messages=[
-    {&quot;role&quot;: &quot;system&quot;, &quot;content&quot;: &quot;Você é um assistente virtual divertido e bem humorado.&quot;},
-    {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Qual o sentido da vida?&quot;}
-]
-)
-
-# E finalmente exibimos a resposta do modelo &quot;gpt-3.5-turbo&quot; a questão &quot;Qual o sentido da vida?&quot;
-print(completion.choices[0].message)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&quot;personalizando-e-embutindo-informações&quot;&gt;Personalizando e embutindo informações&lt;/h4&gt;
-&lt;p&gt;Basicamente é só isso. Configura a Key e chama os serviço de complementação de texto &lt;strong&gt;completions.create&lt;/strong&gt; com a personalidade e a mensagem. Fácil não?!&lt;/p&gt;
-
-&lt;p&gt;Agora é uma boa hora para explicar os roles da requisição. Como se pode ver no código temos uma &lt;em&gt;list&lt;/em&gt; com duas &lt;em&gt;dict&lt;/em&gt; com as chaves “role” e “content”. Essas informações serão enviadas ao modelo para configurá-lo com a personalidade e informações que se deseja.&lt;/p&gt;
-
-&lt;h5 id=&quot;role-system&quot;&gt;Role System&lt;/h5&gt;
-
-&lt;p&gt;O role system é o mais forte e determina a personalidade do assistente. Veja alguns exemplos de role system:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;em&gt;“Você é uma IA da empresa Octopus S.A.. A Empresa está localizada no endereço X e tem o telefone Y.”&lt;/em&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;“Você é um bot do telegram divertido e bem humorado. Sua personalidade é ácida e irônica”&lt;/em&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;“Você é um assistente virtual no twitch do Gamer Lucão, você adora Minecraft e Playstation 5”&lt;/em&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Esse role é opcional. Não é preciso enviar nada se não quiser.&lt;/p&gt;
-
-&lt;h5 id=&quot;role-assistant&quot;&gt;Role Assistant&lt;/h5&gt;
-
-&lt;p&gt;O role assistant é útil para enviar a conversa anterior e informações relevantes. Em geral usa-se formatação de strings no python para embutir informações e o texto anterior. Veja alguns exemplos:&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;EXPEDIENTE&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;estamos abertos até as 18:00hrs&quot;&lt;/span&gt; 
-&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;role&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;system&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;content&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;sa&quot;&gt;F&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hoje é &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;now&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; e hoje &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;EXPEDIENTE&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;.&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;REQ_ANT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Onde compro o Dipirona?&quot;&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;RESP_ANT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Olá, Você pode comprar na farmácia ...&quot;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;role&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;system&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;content&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;sa&quot;&gt;F&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Anteriormente o usuário solicitou &apos;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;REQ_ANT&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos; e você respondeu &apos;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RESP_ANT&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;.&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h5 id=&quot;role-user&quot;&gt;Role User&lt;/h5&gt;
-
-&lt;p&gt;O role user é onde as mensagens do usuário serão inseridas. No exemplo acima foi a mensagem “Qual o sentido da vida?”.&lt;/p&gt;
-
-&lt;h3 id=&quot;limitações&quot;&gt;Limitações&lt;/h3&gt;
-
-&lt;p&gt;Cada requisição é única e não tem memória. Ele não se lembra das requisições anteriores. Para que o modelo saiba o que foi dito anteriormente e ele possa continuar a conversa o histórico deve ser passado no role assistant.
-Também há um limite de informações que pode ser colocado nos roles. O conjunto dos roles é chamado &lt;strong&gt;contexto&lt;/strong&gt;.  O limite do contexto é dado em tokens e atualmente é 4096 tokens, mas há modelos que tem 16k tokens.&lt;/p&gt;
-
-&lt;p&gt;Tokens podem ser uma letra ou uma palavra inteira, depende do vocabulário usado pelo modelo. Não conte as letras para verificar o limite de tokens, pois como dito, os tokens podem ser uma letra ou um pedaço de uma palavra ou uma palavra inteira.&lt;/p&gt;
-
-&lt;p&gt;Os modelos tem controle de conversas tóxicas, ilegais, abusivas e temas sensíveis. Não peça para o modelo contar um conto erótico que dificilmente ele o fará. Também não é possível inventar histórias mentirosas de pessoas ou temas sensíveis. O modelo tem personalidade multicultural, feminista e woke.&lt;/p&gt;
-
-&lt;p&gt;Quando acabar seus créditos só será possível continuar requisitando com um cartão de crédito onde será cobrado por tokens. Não é muito, você brincando sozinho consumirá menos de \$ 1,00 ou em uso mais intensivo \$ 5,00. Você pode configurar um limite no site para no caso de passar desse valor ele pare de responder as requisições.&lt;/p&gt;
-
-&lt;h3 id=&quot;empresas&quot;&gt;Empresas&lt;/h3&gt;
-
-&lt;p&gt;Algumas observações são importantes quando for usar o chatbot em empresas. Vamos imaginar um cenário onde o chatbot deverá ser usado para consultar um grande banco de dados de produtos e como se percebeu a limitação do contexto (os roles system, assistant e user) não tem como colocar todos os produtos e suas caracteristicas no contexto da requisição, isso é impraticável.&lt;/p&gt;
-
-&lt;p&gt;Para que uma grande base de dados seja ‘ligada’ ao chatbot deverá ser usado um &lt;em&gt;Langchain&lt;/em&gt; ou um &lt;em&gt;Information Extration&lt;/em&gt;.
-O &lt;em&gt;Langchain&lt;/em&gt; usa duas camadas. A primeira etapa é a indexação da base de dados que você quer disponibilizar ao chatbot. Nesta etapa documentos, pdfs, textos, planilhas são indexadas por um &lt;em&gt;modelo de embedded&lt;/em&gt; que gerará um grande vetor de números de ponto flutuante. Esse vetor representará uma sentença do texto e será armazenado em um banco de dados vetorial ( Vector Database ).&lt;/p&gt;
-
-&lt;p&gt;Quando o usuário fizer uma requisição a requisição irá novamente para esse modelo embedded que gerará um vetor embedded representando a requisição e o banco de dados será consultado com o valor que mais se aproxima do vetor da requisição.
-Encontrado a informação, a informação é retornada para o chatbot para ele gerar uma resposta com a informação obtida do banco de dados.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Exemplo:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Um escritório de advocacia quer um chatbot ajudando seus advogados.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Primeira etapa ( pode ser feita somente uma vez ):&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Reunir todos os documentos, leis, sentenças e diário oficiais que achar necessário.&lt;/li&gt;
-  &lt;li&gt;Extrair as sentenças ( por exemplo fazendo um &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.split(&quot;.&quot;)&lt;/code&gt; no texto ).&lt;/li&gt;
-  &lt;li&gt;Gerar um vetor embedded para cada sentença.&lt;/li&gt;
-  &lt;li&gt;Amazenar os vetores embedded em um banco de dados vetorial.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Segunda etapa (a cada requisição ):&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;O usuário digita uma requisição por exemplo &lt;em&gt;“O Sr. Antonio de oliveira tem algum processo cível?”&lt;/em&gt;&lt;/li&gt;
-  &lt;li&gt;O modelo embedded gera um vetor com o texto da requisição.&lt;/li&gt;
-  &lt;li&gt;O banco de dados é consultado com esse vetor para achar a sentença mais próxima.&lt;/li&gt;
-  &lt;li&gt;Ele achou por exemplo &lt;em&gt;“Antonio de oliveira x José no nascimento”&lt;/em&gt;&lt;/li&gt;
-  &lt;li&gt;A informação é adicionada ao role assistant para o chatbot gerar uma resposta.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;O Information Extration é diferente este não usa um modelo embedded. Ele extrai a intenção do usuário e as palavras chaves que serão usados para montar diretamente uma requisição SQL ao banco de dados que então retornará a informação a ser inserida nos roles da requisição da resposta.&lt;/p&gt;
-
-&lt;p&gt;Langchain e Information Extraction são áreas e ferramentas diferentes mas auxiliares do modelos de linguagem. A OpenAI e outras empresas disponibilizam esses serviços pagos.&lt;/p&gt;
+&lt;p&gt;Em resumo, a ciência exige rigor na formulação e verificação de hipóteses, com ênfase na falsificabilidade como critério distintivo. O método científico busca garantir que as afirmações sejam testadas de maneira objetiva e transparente, contribuindo para o avanço do conhecimento científico.&lt;/p&gt;
 
 &lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
   &lt;ol&gt;
     &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;&lt;a href=&quot;https://grok.x.ai/&quot;&gt;https://grok.x.ai/&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:2&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;&lt;a href=&quot;https://www.nytimes.com/2023/12/22/technology/apple-ai-news-publishers.html&quot;&gt;https://www.nytimes.com/2023/12/22/technology/apple-ai-news-publishers.html&lt;/a&gt; &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;Barrett, G. (2022, April 22). The man who accidentally killed the most people in history —. Veritasium. &lt;a href=&quot;https://www.veritasium.com/videos/2022/4/22/the-man-who-accidentally-killed-the-most-people-in-history&quot;&gt;Verisatium&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="python" /><category term="AI" /><category term="ChatGPT" /><category term="python" /><summary type="html">Em 2023 Taylor Swift foi eleita a personalidade do ano, mas há quem diga que 2023 foi mesmo o ano da Inteligência Artificial. E de fato há uma corrida das empresas que ficaram para trás do lançamento do modelo text-davinci da OpenAI que era um modelo rudimentar comparado aos gpt-turbo-3.5 e o mais moderno gpt-4 usados hoje, mas fez barulho. O Google lançou o Bard mas não impressionou. A Baidu lançou seu modelo porém restrito ainda a sua área, enquanto a Amazon e a Apple correm atrás do prejuízo. Elon Musk lançou o Grok1, mas até o momento tinha fila de espera para usar. A Apple tenta negociar um acordo milionário para poder usar os artigos da imprensa americana para seu modelo de linguagem2. A Microsoft foi astuta e financiou a OpenAI quando percebeu o potencial do lançamento do GPT-2 e hoje oferece esses modernos modelos como serviço pago ou gratuito. https://grok.x.ai/ &amp;#8617; https://www.nytimes.com/2023/12/22/technology/apple-ai-news-publishers.html &amp;#8617;</summary></entry><entry><title type="html">O técnico que chutou a máquina - Filosofia da Ciência</title><link href="http://0.0.0.0:4000/ci%C3%AAncias/2020/06/10/o-t%C3%A9cnico-que-chutou-a-maquina-copy.html" rel="alternate" type="text/html" title="O técnico que chutou a máquina - Filosofia da Ciência" /><published>2020-06-10T00:00:00-05:00</published><updated>2020-06-10T00:00:00-05:00</updated><id>http://0.0.0.0:4000/ci%C3%AAncias/2020/06/10/o-t%C3%A9cnico-que-chutou-a-maquina%20copy</id><content type="html" xml:base="http://0.0.0.0:4000/ci%C3%AAncias/2020/06/10/o-t%C3%A9cnico-que-chutou-a-maquina-copy.html">&lt;p&gt;&lt;sup id=&quot;fnref:Foto&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:Foto&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; Tempos atrás (2013), com humor, um “surto de honestidade” entre os cientistas percorreu o twitter com a hashtag &lt;strong&gt;#overlyhonestmethods&lt;/strong&gt;. Naquela semana os cientistas fugiram da impessoalidade e frieza dos artigos científicos e foram honestos com o público expondo como realmente suas descobertas aconteceram.&lt;/p&gt;
-
-&lt;p&gt;Temos a sensação ao ler esses artigos que toda descoberta seja perfeita, siga um rito rigoroso e metódico e dessa forma continuamos confiantes na ciência. Mas nem sempre é assim, destaco a descoberta acidental da Penicilina que revolucionou a medicina no tratamento das infecções: De um acidente de laboratório descobriu-se os antibióticos, então, depois do êxtase da descoberta restava explicar o porque, o como e para que; cansativo não?&lt;/p&gt;
-
-&lt;p&gt;Porque não se lembrar do técnico de manutenção de uma máquina que deu-lhe um chute voltando a funcionar e dado por seu turno acabado tão cedo ficou feliz, porém quando seu chefe lhe pede um relatório dos motivos, sua alegria se vai pois terá que realmente desmontar a máquina e pesquisar o componente defeituoso.&lt;/p&gt;
-
-&lt;p&gt;O conhecimento de um fenômeno, ou descoberta pode ser acidental, criativo ou porque não vir dos Céusm porém o &lt;strong&gt;Conhecimento Científico&lt;/strong&gt; exige que se explique o porquê, ou pelo menos o como para que outros possam reproduzir e testar a descoberta. Da mesma forma a investigação de um crime exige a minuciosa enumeração das causalidades que não devem deixar dúvidas de sua virtual reprodução.&lt;/p&gt;
-
-&lt;p&gt;Entretanto o Conhecimento Filosófico não serve a ciência, aliás não serve a ninguém, ele somente duvida, não crê e indaga as verdades.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;- Uau! A Penicilina é uma grande descoberta! Muitas vidas foram salvas!&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Mas ela cura? O que é a cura? Seus efeitos colaterais não seriam uma nova doença? Eu realmente estou saudável? Eu existo? Você existe?&lt;/p&gt;
-
-&lt;p&gt;Certamente o técnico não pode se valer desses questionamentos com seu chefe sobre perigo de loucura e rua, mas terá que escrever um relatório no Word dos motivos do defeito e criar um procedimento reproduzível de como se precaver desse fenômeno (o defeito) indesejado.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://posgraduando.com/surto-de-honestidade-e-bom-humor-entre-cientistas/&quot;&gt;Quem quiser saber mais sobre a crise de honestidade dos cientistas&lt;/a&gt;&lt;/p&gt;
-
-&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
-  &lt;ol&gt;
-    &lt;li id=&quot;fn:Foto&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;Photo by British Library on Unsplash Photo by British Library on Unsplash &lt;a href=&quot;#fnref:Foto&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="ciências" /><category term="filosofia" /><category term="ciências" /><summary type="html">1 Tempos atrás (2013), com humor, um “surto de honestidade” entre os cientistas percorreu o twitter com a hashtag #overlyhonestmethods. Naquela semana os cientistas fugiram da impessoalidade e frieza dos artigos científicos e foram honestos com o público expondo como realmente suas descobertas aconteceram. Photo by British Library on Unsplash Photo by British Library on Unsplash &amp;#8617;</summary></entry></feed>
+&lt;/div&gt;</content><author><name></name></author><category term="ciências" /><category term="filosofia" /><category term="ciências" /><summary type="html">A hipótese desempenha um papel fundamental na ciência, sendo uma proposição ainda sem valor conhecido, aguardando evidências adicionais para determinar sua veracidade ou falsidade. O processo de formular hipóteses muitas vezes envolve o raciocínio indutivo, onde a observação de casos particulares leva à proposição de uma afirmação geral. No entanto, a validade dessas hipóteses depende da verificação cuidadosa por meio de testes e evidências.</summary></entry></feed>
