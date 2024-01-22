@@ -2912,4 +2912,6 @@ pre { margin-top: 1.6rem; margin-bottom: 2.13rem; border: 1px solid beige; borde
 
 .destaque { padding: 2.5%; font-size: initial; font-weight: 300; border-radius: 5px; margin-top: 10%; margin: 5% 1% 5% 1%; }
 
-.destaque p, .destaque strong, .destaque h1, .destaque h2, .destaque h3, .destaque h4, .destaque h5, .destaque h6, .destaque span, .destaque small, .destaque li { color: white !important; margin-top: 0; }
+.grad-royal p, .grad-royal strong, .grad-royal h1, .grad-royal h2, .grad-royal h3, .grad-royal h4, .grad-royal h5, .grad-royal h6, .grad-royal span, .grad-royal small, .grad-royal li, .grad-royal a { color: white !important; margin-top: 0; }
+
+.grad-royal a:hover { color: #8f8f8f !important; margin-top: 0; }

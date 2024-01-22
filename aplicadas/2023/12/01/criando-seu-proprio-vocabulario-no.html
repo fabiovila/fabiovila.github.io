@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Primary Meta Tags -->
+    <title>Criando seu próprio vocabulário BPE no Tokenizers - Python</title>
+    <meta name="title" content="Criando seu próprio vocabulário BPE no Tokenizers - Python" />
+    <meta name="description" content="" />
+    
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="/aplicadas/2023/12/01/criando-seu-proprio-vocabulario-no.html" />
+    <meta property="og:title" content="Criando seu próprio vocabulário BPE no Tokenizers - Python" />
+    <meta property="og:description" content="Entenda a codificação usada pelos modelos de linguagem e crie seu próprio vocabulário."  />
+    <meta property="og:image" content="/assets/imgs/a95f25f7-4e25-4b55-aae0-ea2666c76d7e.jpeg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="/aplicadas/2023/12/01/criando-seu-proprio-vocabulario-no.html" />
+    <meta property="twitter:title" content="Criando seu próprio vocabulário BPE no Tokenizers - Python"  />
+    <meta property="twitter:description" content="Entenda a codificação usada pelos modelos de linguagem e crie seu próprio vocabulário." />
+    <meta property="twitter:image" content="/assets/imgs/a95f25f7-4e25-4b55-aae0-ea2666c76d7e.jpeg"/>
+
+    <!-- Meta Tags Generated with https://metatags.io -->
+
+    <link rel="preload"  href='/assets/css/style.css' as="style" type="text/css">
+    <link rel="stylesheet"  href='/assets/css/style.css'>
+    <link rel="stylesheet"  href='/assets/css/github.css'>
+    <script rel="preload" src="https://kit.fontawesome.com/7dc3015a44.js" as="script" crossorigin="anonymous"></script>
+    <script>
+        MathJax = {
+          jax: ["input/TeX","output/HTML-CSS"],
+          chtml: { displayAlign: 'left'      },
+          tex: {
+            inlineMath: [['$', '$']],
+            displayMath:[['$$', '$$'], ['\\[', '\\]']]
+          }
+          };
+    </script>
+        <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+        </script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>      
+        <script>hljs.highlightAll();</script>
+         <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PY9DT1RWSW"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-PY9DT1RWSW');
+        </script>
+</head>
+
+    <body>
+        <nav class="navbar has-shadow">
+            <div class="container">
+                <div class="navbar-brand"><a class="navbar-item" href="/">Fabio Vila</a>
+                <div class="navbar-burger burger" data-target="navMenu"><span></span><span></span><span></span></div>
+            </div>
+            <div class="navbar-menu" id="navMenu">
+                <div class="navbar-end">
+                    <div class="navbar-item has-dropdown is-hoverable"><a class="navbar-link">Search</a>
+                    <div class="navbar-dropdown"><a class="navbar-item">Dashboard</a><a class="navbar-item">Profile</a><a class="navbar-item">Settings</a>
+                    <hr class="navbar-divider" />
+                    <!--div class="navbar-item">Logout</div-->
+                    <div class="navbar-item">
+                    <p class="control has-icons-left">
+                        <input class="input" type="text" placeholder="Search">
+                        <span class="icon is-left">
+                          <i class="fas fa-search" aria-hidden="true"></i>
+                        </span>
+                      </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</nav>
+<section class="mt-6 container has-background-white">
+
+<section class="section ">
+<div class="columns is-centered">
+<div class="column is-9 ">
+<div class="content is-fluid">
+
+  <header class="mb-5">
+    <h1 class="title">Criando seu próprio vocabulário BPE no Tokenizers - Python</h1>
+    
+    <h4 class="subtitle has-text-weight-light is-family-sans-serif">Entenda a codificação usada pelos modelos de linguagem e crie seu próprio vocabulário.</h4>
+    
+    <hr class="m-1"/>
+    <small class="pl-2 has-text-dark-grey" ><span class="icon "><i class="fa fa-user "></i></span>
+      
+      Fabio
+         
+    <span class="icon"><i class="fa fa-calendar"></i></span>  
+     01 Dec 2023
+     <span class="icon"><i class="fa fa-bars"></i></span>
+    aplicadas
+    <span class="icon"><i class="fa fa-tag"></i></span>  
+    python, IA, tokenizers, e llm
+    </small>
+    <hr class="mt-1 mb-5"/>
+    <div class="h-400">
+      <figure class="image">  
+                   
+          <img class="image" src="/assets/imgs/a95f25f7-4e25-4b55-aae0-ea2666c76d7e.jpeg"/>  
+          
+      </figure>
+    </div>
+
+
+  </header>
+
+  <article class="mt-5">
+    <h2 id="tokenização">Tokenização</h2>
+
+<p>Ao longo da evolução das aplicações NLP várias formas de se representar um texto foram abordadas. Imagine a seguinte frase <strong>“Qual o sentido da vida?”</strong> como deveríamos representa-lá para ser usada em algum Modelo de Linguagem Natural? Um modelo de linguagem ‘lê’ uma parte do texto e prevê o próximo token, então a primeira abordagem talvez seja óbvia: Atribuir um número a cada letra e usar a sequência de números para representar a frase. Boa notícia, não precisamos atribuir número algum, eles já existem na codificação UTF-8 como vemos abaixo:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Qual o sentido da vida?</td>
+      <td>0x51 0x75 0x61 0x6c 0x20 0x6f 0x20 0x73 0x65 0x6e 0x74 0x69 0x64 0x6f 0x20 0x64 0x61 0x20 0x76 0x69 0x64 0x61 0x3f</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Porém essa representação não funciona muito bem.  Na entrada de exemplo “Qual o sentido d” na codificação de letras sugerida o próximo token poderá ser o <em>“a”</em>, <em>“e”</em> e <em>“o”</em> como nas frases <em>“Qual o sentido de …”</em> e <em>“Qual o sentido do …”</em> e porque não o <em>“i”</em> em <em>“Qual o sentido disso …“</em>, ou seja, a probabilidade do próximo token nessa codificação se diluí dificultando prever o próximo token. Imagine o espaço <em>” “</em> ou o artigo <em>“a”</em>, praticamente todas as letras/tokens tem a mesma probabilidade de ocorrerem depois deles.</p>
+
+<p>Outro problema é o contexto. As redes neurais vão perdendo o contexto ao longo das previsões e uma codificação como essa que precise de muitas iterações para formar uma frase fará a rede perder o ‘tema do assunto’.</p>
+
+<p>Outra forma sugerida para resolver esses problemas é atribuir um número as palavras (words) de um vocabulário como no exemplo abaixo:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Qual o sentido da vida?</td>
+      <td>0x13 0x03 0x123 0x10 0x54</td>
+    </tr>
+    <tr>
+      <td>“Qual “</td>
+      <td>0x13</td>
+    </tr>
+    <tr>
+      <td>“o “</td>
+      <td>0x03</td>
+    </tr>
+    <tr>
+      <td>“sentido “</td>
+      <td>0x123</td>
+    </tr>
+    <tr>
+      <td>“da “</td>
+      <td>0x10</td>
+    </tr>
+    <tr>
+      <td>“vida?”</td>
+      <td>0x54</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Na tabela acima cada palavra+pontuação tem um número associado. São 5 tokens então serão 5 números representando a frase toda. Nessa representação a rede neural faz poucas iterações e não se perde no contexto. De bônus ocupa pouco espaço e consome menos CPU correto? Sim. Mas alguns problemas surgem. Enquanto na representação por letras qualquer palavra do vocabulário pode ser representada, precisaríamos de uma enorme quantidade de números para representar todas as palavras existentes. Normalmente um vocabulário útil desses teria alguns Gigas de tamanho. E o que acontece se alguma palavra não conhecida aparecer? Há quem tenha usado o token &lt;UNK&gt; para representar uma palavra desconhecida … deselegante não?</p>
+
+<h3 id="byte-pair-encoding-bpe">Byte-Pair Encoding (BPE)</h3>
+
+<p>Usado inicialmente como um algoritmo para comprimir textos ele achou seu sucesso nos modelos de linguagens localizando-se no entre-meio da representação por letras e por palavras. Na codificação BPE inicialmente todas as letras são incluídas, depois uma pesquisa em uma grande quantidade de textos determinará as palavras e RADICAIS de palavras mais frequentemente usadas que serão incluídas na representação.</p>
+
+<p>Em português é extremamente comum o uso das preposições “do”, “da”, “em”; os artigos “um”, “uma”; os advérbios “não”, “sim”, “talvez”.</p>
+
+<p>Aprendemos na escola a formação das palavras com os prefixos, sufixos, radicais e outras formas, partindo disso, os prefixos “íssimo”,”an”, “anti”, “endo”, “hiper” bem como os sufixos “ismo”, “ença”, “ário” e tantos outros são fortes candidatos a serem representados pelo BPE. Por sorte nossa lingua tem radicais muito comuns que também podem ser incluídos na representação.</p>
+
+<p>Vejamos o exemplo da frase “Qual o sentido da vida?” na codificação BPE usada pelo GPT:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Token</th>
+      <th>Index</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>“Qual”</td>
+      <td>46181</td>
+    </tr>
+    <tr>
+      <td>” o”</td>
+      <td>267</td>
+    </tr>
+    <tr>
+      <td>” sent”</td>
+      <td>1908</td>
+    </tr>
+    <tr>
+      <td>“ido”</td>
+      <td>17305</td>
+    </tr>
+    <tr>
+      <td>” da”</td>
+      <td>12379</td>
+    </tr>
+    <tr>
+      <td>” v”</td>
+      <td>410</td>
+    </tr>
+    <tr>
+      <td>“ida”</td>
+      <td>3755</td>
+    </tr>
+    <tr>
+      <td>”?”</td>
+      <td>30</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Como se pode ver a palavra “sentido” foi quebrada em dois tokens “ sent” e “ido”, “vida” foi quebrado em “ v” e “ida”; faria mais sentido representar “vida” por “vida”? Sim, mas o vocabulário usado é do GPT-4 e apesar dele ser multilingual ele foi primariamente treinado para o inglês e com poucos textos em português, consequentemente ele tem mais radicais e palavras em inglês que em qualquer outra língua.</p>
+
+<p>Como todas a letras estão incluídas qualquer palavra pode ser formada e como os radicais e as palavras mais usadas estão incluídas o contexto fica pequeno. Há um balanço entre flexibilização e tamanho.</p>
+
+<div class="destaque azul">
+<p>Se quiser explorar mais a tokenização usada pelo ChatGPT use o site <a href="https://observablehq.com/@simonw/gpt-tokenizer" target="_blank">https://observablehq.com/@simonw/gpt-tokenizer</a> exemplificado na imagem abaixo:</p>
+<p><a href="https://observablehq.com/@simonw/gpt-tokenizer" target="_blank"><img src="/assets/imgs/Captura de tela de 2024-01-22 17-27-40.png" /></a></p>
+</div>
+
+<h3 id="treinando-seu-próprio-vocabulário">Treinando seu próprio vocabulário</h3>
+
+<p>Para treinar seu próprio vocabulário será necessário o módulo python <strong>tokenizers</strong>. Primeiramente instale o módulo via pip ou usando seu gerenciador de pacotes ( preferido ).</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install tokenizers
+</code></pre></div></div>
+
+<p>Incluiremos os módulos necessários no cabeçalho do arquivo:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from tokenizers import Tokenizer, models, pre_tokenizers, decoders, trainers, processors
+import glob
+</code></pre></div></div>
+
+<p>O glob é excelente para essas tarefas ao facilitar adicionar novos arquivos simplesmente jogando eles em um diretório.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Initialize a tokenizer
+tokenizer = Tokenizer(models.BPE())
+
+# Customize pre-tokenization and decoding
+tokenizer.pre_tokenizer = pre_tokenizers.ByteLevel(add_prefix_space=True)
+tokenizer.decoder = decoders.ByteLevel()
+tokenizer.post_processor = processors.ByteLevel(trim_offsets=True)
+
+# And then train
+trainer = trainers.BpeTrainer(
+    vocab_size=32000,
+    min_frequency=4,
+    initial_alphabet=pre_tokenizers.ByteLevel.alphabet()
+)
+</code></pre></div></div>
+
+<p>Inicializamos o módulo com os parâmetros desejados. Os parâmetros mais importantes são</p>
+
+<ul>
+  <li><strong>vocab_size=32000</strong> - Diz qual o tamanho do vocabulário. Muito pequeno ajuda na velocidade da rede mas diminui a quantidade de palavras e radicais. O GPT usa tamanhos de 50k (~50.000) e 100k (~100.000) para seus vocabulários. Não esqueça que as letras serão incluídas, então o tamanho deve contar essas letras obrigatórias.</li>
+  <li><strong>min_frequency=4</strong> - Frequência minima para um token ser incluído. Se alguém fizer um treinamento com diálogos de internet é muito provável que palavras digitadas erradas apareçam e outras somente uma vez, ou os famigerados kkkkkkkkkk+. É melhor deixar palavras poucos usadas de fora. Porém se o vocab_size for pequeno e a quantidade de textos grande e com muitas palavras é provável que somente palavras com muita frequência sejam incluídas.</li>
+  <li><strong>initial_alphabet=pre_tokenizers.ByteLevel.alphabet()</strong> - Lembra das letras automaticamente incluídas? Não é automático. Elas são incluídas aqui.</li>
+</ul>
+
+<p>Como glob será usado …</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>l = glob.glob("./**/*.txt", recursive=True)
+</code></pre></div></div>
+
+<p>Que fará uma lista chamada “l” com todos os aquivos *.txt no diretório e sub-diretório atual.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>specials = [
+    '&lt;|query|&gt;',
+    '&lt;|answer|&gt;',
+    '&lt;|endoftext|&gt;',
+    '&lt;|code|&gt;',
+    '&lt;|system|&gt;',
+    '&lt;|hole|&gt;'
+]
+</code></pre></div></div>
+
+<p><strong>Essa etapa é importante.</strong> A OpenAI usa muito o token <code class="language-plaintext highlighter-rouge">&lt;|endoftext|&gt;</code> para finalizar um texto e começar outro. Também é usado durante a inferência para informar que ela terminou. O token deve ser algo estranho aos textos das linguagens que ele suporta então foi escolhido esse formato estranho <code class="language-plaintext highlighter-rouge">&lt;|endoftext|&gt;</code>. Porém essa palavra tem 13 caracteres e ocuparia muito espaço bem como CPU para operá-la. Não seria melhor transformar esse token em um só número como é feito nas palavras e radicais mais usados?</p>
+
+<p>Pois é isso que é feito nessa fase. Adiciona-se os <strong>specials tokens</strong> ou tokens especiais que serão usados para alguma finalidade.</p>
+
+<div class="destaque azul">
+<p>Eu uso o <strong>&lt;|query|&gt;</strong>, <strong>&lt;|endoftext|&gt;</strong> e <strong>&lt;|answer|&gt;</strong> para montar datasets com perguntas e respostas como no exemplo:</p>
+<p><strong>&lt;|query|&gt;Quem descobriu o Brasil?&lt;|answer|&gt;Pedro Álvares Cabral&lt;|endoftext|&gt;</strong></p>
+<p>E o três tokens serão convertidos em um só número (cada) do que uma sequência de characteres.</p>
+</div>
+
+<p>Configurado os parâmetros agora é feito o processo de pesquisa e quando acabar o processo salvamos o *.json do vocabulário gerado para uso posterior.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tokenizer.add_special_tokens(specials)
+tokenizer.train(l, trainer=trainer)
+
+# And Save it
+tokenizer.save("byte-level-bpe.tokenizer.32k.json", pretty=True)
+</code></pre></div></div>
+
+<p>O arquivo <code class="language-plaintext highlighter-rouge">byte-level-bpe.tokenizer.32k.json</code> deverá aparecer no diretório atual ao final do processo com o vocabulário gerado.</p>
+
+<h3 id="usando-o-vocabulário-gerado">Usando o vocabulário gerado</h3>
+
+<p>Para carregar o arquivo o <code class="language-plaintext highlighter-rouge">from_file</code> do Tokenizer é usado. 
+Para transformar um texto em números usa-se o <code class="language-plaintext highlighter-rouge">tokenizer.encode(texto)</code> que retornará na lista <code class="language-plaintext highlighter-rouge">.ids</code>.
+Para transformar uma sequência de números em texto novamente o <code class="language-plaintext highlighter-rouge">decode</code> é usado.
+Como se pode ver no exemplo abaixo:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import tokenizers
+from tokenizers import Tokenizer
+from tokenizers.models import BPE
+tokenizer = Tokenizer.from_file("byte-level-bpe.tokenizer.32k.json")
+encode = lambda s: tokenizer.encode(s).ids
+decode = lambda l: tokenizer.decode(l)
+
+A = encode("Qual o sentido da vida?")
+B = decode(A)
+
+print(A,B)
+</code></pre></div></div>
+
+<h3 id="programa-completo">Programa completo</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from tokenizers import Tokenizer, models, pre_tokenizers, decoders, trainers, processors
+import glob
+# Initialize a tokenizer
+tokenizer = Tokenizer(models.BPE())
+
+# Customize pre-tokenization and decoding
+tokenizer.pre_tokenizer = pre_tokenizers.ByteLevel(add_prefix_space=True)
+tokenizer.decoder = decoders.ByteLevel()
+tokenizer.post_processor = processors.ByteLevel(trim_offsets=True)
+
+# And then train
+trainer = trainers.BpeTrainer(
+    vocab_size=32000,
+    min_frequency=4,
+    initial_alphabet=pre_tokenizers.ByteLevel.alphabet()
+)
+
+l = glob.glob("./**/*.txt", recursive=True)
+
+specials = [
+    '&lt;|query|&gt;',
+    '&lt;|answer|&gt;',
+    '&lt;|endoftext|&gt;',
+    '&lt;|code|&gt;',
+    '&lt;|system|&gt;',
+    '&lt;|hole|&gt;'
+]
+
+tokenizer.add_special_tokens(specials)
+tokenizer.train(l, trainer=trainer)
+
+# And Save it
+tokenizer.save("byte-level-bpe.tokenizer.32k.json", pretty=True)
+</code></pre></div></div>
+
+
+  </article>
+
+</div>
+</div>
+</div>
+</section>
+
+<section class="section">
+  <hr/>
+  <nav class="level is-mobile">
+
+    <div class="level-item">      
+      
+      
+      <div>
+        <p class="heading"><strong>Veja Também:</strong></p>
+        <small>Siglas de sensores e atuadores OBD2 - Eletrônica automotiva</small></br>
+        <small>Órgãos Antigos dos Anos 70: Geradores e Divisores de Oitavas - Música Eletrônica</small>
+      </div>
+    </div>
+  </nav>
+</section>
+<section class="section">
+  <div id="disqus_thread"></div>
+<script>
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://fabiovila-github-io.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+<!--
+    <aside class="column is-3-desktop block">
+        
+    
+    <div class="block">
+        <div class="aside-title"><span>Assuntos</span></div>
+        
+         
+          <a class="ml-1 is-capitalized has-text-grey" href="/">eletrônica</a>
+        <hr class="mt-1 mb-1"/>
+        
+         
+          <a class="ml-1 is-capitalized has-text-grey" href="/">aplicadas</a>
+        <hr class="mt-1 mb-1"/>
+        
+         
+          <a class="ml-1 is-capitalized has-text-grey" href="/">python</a>
+        <hr class="mt-1 mb-1"/>
+        
+         
+          <a class="ml-1 is-capitalized has-text-grey" href="/">eletronica</a>
+        <hr class="mt-1 mb-1"/>
+        
+    </div>
+    <div class="block mt-5">
+            <div class="aside-title"><span>Ultimos</span></div>
+            
+             
+              <a class="ml-1 is-capitalized c" href="/">eletrônica</a>
+            <hr class="mt-1 mb-1"/>
+            
+             
+              <a class="ml-1 is-capitalized c" href="/">aplicadas</a>
+            <hr class="mt-1 mb-1"/>
+            
+             
+              <a class="ml-1 is-capitalized c" href="/">python</a>
+            <hr class="mt-1 mb-1"/>
+            
+             
+              <a class="ml-1 is-capitalized c" href="/">eletronica</a>
+            <hr class="mt-1 mb-1"/>
+            
+    </div>
+
+</aside>
+
+-->
+
+</section>
+<section>
+    <footer class="footer is-primary">
+    </footer>
+</section>
+
+</body>
+</html>
