@@ -136,65 +136,62 @@
 
 <p>Para instalar o CVXPY use o pip:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">pip <span class="nb">install </span>cvxpy</code></pre></figure>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install cvxpy
+</code></pre></div></div>
 
 <p>Um dos otimizadores disponíveis é o CBC  um otimizador de programação linear inteiro open-source. O CBC pode ser usado em linha de comando sem ser necessário o CVXPY, mas neste caso será necessário aprender sua linguagem de entrada. </p>
 
 <p>Também será necessário instalar o CVXOPT:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">pip <span class="nb">install </span>cvxopt</code></pre></figure>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install cvxopt
+</code></pre></div></div>
 
 <p>Esse problema aparece em diversas áreas como a logística, computação e investimentos.</p>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">cvxpy</span> <span class="k">as</span> <span class="n">cp</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span></code></pre></figure>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import cvxpy as cp
+import numpy as np
+</code></pre></div></div>
 
 <h4 id="dados-de-entrada-do-problema">Dados de entrada do problema</h4>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">Valores</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">45</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">156</span><span class="p">,</span><span class="mi">76</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">59</span><span class="p">,</span><span class="mi">97</span><span class="p">,</span><span class="mi">99</span><span class="p">])</span>
-<span class="n">Pesos</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mi">50</span><span class="p">,</span><span class="mi">55</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">98</span><span class="p">,</span><span class="mi">34</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">19</span><span class="p">])</span>
-<span class="n">Capacidade_Mochila</span> <span class="o">=</span> <span class="mi">100</span></code></pre></figure>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Valores = np.array([10,13,1,100,45,13,156,76,4,59,97,99])
+Pesos = np.array([50,55,10,5,1,98,34,3,9,3,7,19])
+Capacidade_Mochila = 100
+</code></pre></div></div>
 
 <h4 id="variaveis-de-decisão">Variaveis de decisão</h4>
 
 <p>Cada Item Xi terá valor 1 se estiver na mochila ou 0 se estiver fora cp.Variable cria uma variável no CVX ( não confunda cp com np ) do tipo boolean do tamanho da quantidade de itens</p>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">Xi</span> <span class="o">=</span> <span class="n">cp</span><span class="p">.</span><span class="n">Variable</span><span class="p">((</span><span class="n">Valores</span><span class="p">.</span><span class="n">size</span><span class="p">),</span> <span class="n">boolean</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span></code></pre></figure>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Xi = cp.Variable((Valores.size), boolean = True)
+</code></pre></div></div>
 
 <h4 id="constraints-do-problema">Constraints do problema</h4>
 
 <p>A soma total dos pesos dos itens escolhidos por Xi devem ser igual ou menor que a capacidade da mochila                </p>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
-</pre></td><td class="code"><pre><span class="n">constraints</span> <span class="o">=</span> <span class="p">[</span> <span class="n">Xi</span> <span class="o">@</span> <span class="n">Pesos</span> <span class="o">&lt;=</span> <span class="n">Capacidade_Mochila</span> <span class="p">]</span>
-</pre></td></tr></tbody></table></code></pre></figure>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>constraints = [ Xi @ Pesos &lt;= Capacidade_Mochila ]
+</code></pre></div></div>
 
 <p>Tambem pode ser escrito com o mesmo resultado como:</p>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
-</pre></td><td class="code"><pre><span class="n">constraints</span> <span class="o">=</span> <span class="p">[</span> <span class="n">cp</span><span class="p">.</span><span class="nb">sum</span><span class="p">(</span> <span class="n">cp</span><span class="p">.</span><span class="n">multiply</span> <span class="p">(</span><span class="n">Xi</span><span class="p">,</span> <span class="n">Pesos</span> <span class="p">)</span> <span class="p">)</span> <span class="o">&lt;=</span> <span class="n">Capacidade_Mochila</span> <span class="p">]</span>
-</pre></td></tr></tbody></table></code></pre></figure>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>constraints = [ cp.sum( cp.multiply (Xi, Pesos ) ) &lt;= Capacidade_Mochila ]
+</code></pre></div></div>
 
 <p>O Objetivo do problema é maximizar os valores na mochila</p>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
-</pre></td><td class="code"><pre><span class="n">objective</span> <span class="o">=</span> <span class="n">cp</span><span class="p">.</span><span class="n">Maximize</span><span class="p">(</span> <span class="n">Xi</span> <span class="o">@</span> <span class="n">Valores</span> <span class="p">)</span>
-</pre></td></tr></tbody></table></code></pre></figure>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>objective = cp.Maximize( Xi @ Valores )
+</code></pre></div></div>
 
 <p>finalmente chamamos o solver com verbose para acompanhar 
 o progresso e a execução máxima de 1hr</p>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-</pre></td><td class="code"><pre><span class="n">prob</span> <span class="o">=</span> <span class="n">cp</span><span class="p">.</span><span class="n">Problem</span><span class="p">(</span><span class="n">objective</span><span class="p">,</span> <span class="n">constraints</span><span class="p">)</span>
-<span class="n">prob</span><span class="p">.</span><span class="n">solve</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="n">cp</span><span class="p">.</span><span class="n">CBC</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">maximumSeconds</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span><span class="err"> </span>
-<span class="k">print</span><span class="p">(</span><span class="s">"Status          : "</span><span class="p">,</span> <span class="n">prob</span><span class="p">.</span><span class="n">status</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"Valor encontrado: "</span><span class="p">,</span> <span class="n">prob</span><span class="p">.</span><span class="n">value</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"Valor de Xi     : "</span><span class="p">,</span> <span class="n">Xi</span><span class="p">.</span><span class="n">value</span><span class="p">)</span>
-</pre></td></tr></tbody></table></code></pre></figure>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>prob = cp.Problem(objective, constraints)
+prob.solve(solver=cp.CBC,verbose=True, maximumSeconds = 1 * 60 * 60) 
+print("Status          : ", prob.status)
+print("Valor encontrado: ", prob.value)
+print("Valor de Xi     : ", Xi.value)
+</code></pre></div></div>
 
 <p>O problema da mochila tem muitas aplicações práticas principalmente na logística. Imagine uma transportadora que precisa distribuir seus pacotes utilizando vans e caminhões. Cada pacote tem peso, tamanho, localidade, tempo de espera e valor. Um programa de otimização pode ajudar no preenchimento dos caminhões e em aplicações profissionais traçar a rota de distribuição de cada veículo.</p>
 
