@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Primary Meta Tags -->
+    <title>Código de Cores de capacitores - Aplicativo</title>
+    <meta name="title" content="Código de Cores de capacitores - Aplicativo" />
+    <meta name="description" content="" />
+    
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="/app/2024/01/23/capacitores.html" />
+    <meta property="og:title" content="Código de Cores de capacitores - Aplicativo" />
+    <meta property="og:description" content="Aplicação para calcular o valor de capacitores antigos por faixa de cores"  />
+    <meta property="og:image" content="/assets/imgs/capacitor.svg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="/app/2024/01/23/capacitores.html" />
+    <meta property="twitter:title" content="Código de Cores de capacitores - Aplicativo"  />
+    <meta property="twitter:description" content="Aplicação para calcular o valor de capacitores antigos por faixa de cores" />
+    <meta property="twitter:image" content="/assets/imgs/capacitor.svg"/>
+
+    <!-- Meta Tags Generated with https://metatags.io -->
+
+    <link rel="preload"  href='/assets/css/style.css' as="style" type="text/css">
+    <link rel="stylesheet"  href='/assets/css/style.css'>
+    <link rel="stylesheet"  href='/assets/css/github.css'>
+    <script rel="preload" src="https://kit.fontawesome.com/7dc3015a44.js" as="script" crossorigin="anonymous"></script>
+    <script>
+        var $ = function(id){return document.getElementById(id)};
+        MathJax = {
+          jax: ["input/TeX","output/HTML-CSS"],
+          chtml: { displayAlign: 'left'      },
+          tex: {
+            inlineMath: [['$', '$']],
+            displayMath:[['$$', '$$'], ['\\[', '\\]']]
+          }
+          };
+    </script>
+        <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+        </script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>      
+        <script>hljs.highlightAll();</script>
+         <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PY9DT1RWSW"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-PY9DT1RWSW');
+        </script>
+</head>
+
+    <body>
+        <nav class="navbar has-shadow">
+            <div class="container">
+                <div class="navbar-brand"><a class="navbar-item" href="/">Fabio Vila</a>
+                <div class="navbar-burger burger" data-target="navMenu"><span></span><span></span><span></span></div>
+            </div>
+            <div class="navbar-menu" id="navMenu">
+                <div class="navbar-end">
+                    <div class="navbar-item has-dropdown is-hoverable"><a class="navbar-link">Search</a>
+                    <div class="navbar-dropdown"><a class="navbar-item">Dashboard</a><a class="navbar-item">Profile</a><a class="navbar-item">Settings</a>
+                    <hr class="navbar-divider" />
+                    <!--div class="navbar-item">Logout</div-->
+                    <div class="navbar-item">
+                    <p class="control has-icons-left">
+                        <input class="input" type="text" placeholder="Search">
+                        <span class="icon is-left">
+                          <i class="fas fa-search" aria-hidden="true"></i>
+                        </span>
+                      </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</nav>
+<section class="mt-6 container has-background-white">
+
+<section class="section ">
+<div class="columns is-centered">
+<div class="column is-9 ">
+<div class="content is-fluid">
+
+  <header class="mb-5">
+    <h1 class="title">Código de Cores de capacitores - Aplicativo</h1>
+    
+    <h4 class="subtitle has-text-weight-light is-family-sans-serif">Aplicação para calcular o valor de capacitores antigos por faixa de cores</h4>
+    
+    <hr class="m-1"/>
+    <small class="pl-2 has-text-dark-grey" ><span class="icon "><i class="fa fa-user "></i></span>
+      
+      Fabio
+         
+    <span class="icon"><i class="fa fa-calendar"></i></span>  
+     23 Jan 2024
+     <span class="icon"><i class="fa fa-bars"></i></span>
+    app
+    <span class="icon"><i class="fa fa-tag"></i></span>  
+    eletrônica, capacitores, e código de cores
+    </small>
+    <hr class="mt-1 mb-1"/>
+    <div class="h-400">
+        
+        <object id="obj" type="image/svg+xml" class="image" style="height: 100%; width: 100%; margin:auto" data="/assets/imgs/capacitor.svg"></object>        
+        
+    </div>
+
+
+  </header>
+
+  <article class="">
+    <link href="/assets/css/colormenu.css" type="text/css" rel="stylesheet" />
+
+<script>
+var valor = 220000;
+var unidade = "";
+var faixas = [2,2,10000,0,0];
+
+function formata (valor) {
+    if (valor < 1000) {
+    unidade = " pF";
+  } else if (valor >= 1000 && valor < 1000000) {
+    unidade = " nF";
+    valor = valor / 1000;
+  } else if (valor >= 1000000 && valor < 1000000000) {
+    unidade = " uF";
+    valor = valor / 1000000;
+  } else if (valor >= 1000000000 && valor < 1000000000000) {
+    unidade = " mF";
+    valor = valor / 1000000000;
+  }
+  valor = valor.toLocaleString('pt-BR', {minimumFractionDigits:0, maximumFractionDigits:2}) + unidade;
+  return valor;
+}
+
+function updateValor(cor,index,v) {
+
+  faixas[index] = v;
+  valor = (faixas[0]+faixas[1]*10)*faixas[2];
+
+
+  console.log(cor,index,valor);
+  tolerancia = faixas[3] + "%";
+
+
+  var alta  =  formata(valor * (1 + Number(faixas[3])/100));
+  var baixa =  formata(valor * (1 - Number(faixas[3])/100));
+  $("tolerancia").innerText = tolerancia  + " " + "[ " + alta + "," + baixa + " ]";
+  valor = formata(valor);
+  document.faixas[index].style.fill = cor;
+  document.texto.innerHTML = valor;
+  $("valor").innerText = valor;
+  
+}
+
+
+</script>
+
+<div class="section">
+<div class="field is-grouped is-grouped-centered">
+  <div class="control">
+      <small>1° Faixa</small>
+      <div class="is-multiple">
+
+      <label style="background-color: black; color: white;" class="colorContainer">Preto
+        <input name="1" type="radio" checked="checked" onchange="updateValor('black',0,0);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: brown; color: white;" class="colorContainer">Marrom
+        <input name="1" type="radio" onchange="updateValor('brown',0,1);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: red; color: white;" class="colorContainer">Vermelho
+        <input name="1" type="radio" onchange="updateValor('red',0,2);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: orange; color: white;" class="colorContainer">Laranja
+        <input name="1" type="radio" checked="checked" onchange="updateValor('orange',0,3);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: yellow; color: black;" class="colorContainer">Amarelo
+        <input name="1" type="radio" onchange="updateValor('yellow',0,4);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: green; color: white;" class="colorContainer">Verde
+        <input name="1" type="radio" onchange="updateValor('green',0,5);" />
+        <span class="colorBar"></span>
+      </label>      
+
+      <label style="background-color: blue; color: white;" class="colorContainer">Azul
+        <input name="1" type="radio" checked="checked" onchange="updateValor('blue',0,6);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: violet; color: white;" class="colorContainer">Violeta
+        <input name="1" type="radio" onchange="updateValor('violet',0,7);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: grey; color: white;" class="colorContainer">Cinza
+        <input name="1" type="radio" onchange="updateValor('grey',0,8);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: white; color: black;" class="colorContainer">Branco
+        <input name="1" type="radio" checked="checked" onchange="updateValor('white',0,9);" />
+        <span class="colorBar"></span>
+      </label>
+
+      </div>
+  </div>
+
+    <div class="control">
+    <small>2° Faixa</small>
+    <div class="is-multiple">
+      
+      <label style="background-color: black; color: white;" class="colorContainer">Preto
+        <input name="1" type="radio" checked="checked" onchange="updateValor('black',1,0);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: brown; color: white;" class="colorContainer">Marrom
+        <input name="1" type="radio" onchange="updateValor('brown',1,1);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: red; color: white;" class="colorContainer">Vermelho
+        <input name="1" type="radio" onchange="updateValor('red',1,2);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: orange; color: white;" class="colorContainer">Laranja
+        <input name="1" type="radio" checked="checked" onchange="updateValor('orange',1,3);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: yellow; color: black;" class="colorContainer">Amarelo
+        <input name="1" type="radio" onchange="updateValor('yellow',1,4);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: green; color: white;" class="colorContainer">Verde
+        <input name="1" type="radio" onchange="updateValor('green',1,5);" />
+        <span class="colorBar"></span>
+      </label>      
+
+      <label style="background-color: blue; color: white;" class="colorContainer">Azul
+        <input name="1" type="radio" checked="checked" onchange="updateValor('blue',1,6);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: violet; color: white;" class="colorContainer">Violeta
+        <input name="1" type="radio" onchange="updateValor('violet',1,7);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: grey; color: white;" class="colorContainer">Cinza
+        <input name="1" type="radio" onchange="updateValor('grey',1,8);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: white; color: black;" class="colorContainer">Branco
+        <input name="1" type="radio" checked="checked" onchange="updateValor('white',1,9);" />
+        <span class="colorBar"></span>
+      </label>
+
+    </div>
+  </div>
+
+    <div class="control">
+      <small>3° Faixa</small>
+    <div class="is-multiple">
+    
+      <label style="background-color: black; color: white;" class="colorContainer">Preto
+        <input name="1" type="radio" checked="checked" onchange="updateValor('black',2,1);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: brown; color: white;" class="colorContainer">Marrom
+        <input name="1" type="radio" onchange="updateValor('brown',2,10);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: red; color: white;" class="colorContainer">Vermelho
+        <input name="1" type="radio" onchange="updateValor('red',2,100);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: orange; color: white;" class="colorContainer">Laranja
+        <input name="1" type="radio" checked="checked" onchange="updateValor('orange',2,1000);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: yellow; color: black;" class="colorContainer">Amarelo
+        <input name="1" type="radio" onchange="updateValor('yellow',2,10000);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: green; color: white;" class="colorContainer">Verde
+        <input name="1" type="radio" onchange="updateValor('green',2,100000);" />
+        <span class="colorBar"></span>
+      </label>      
+
+      <label style="background-color: blue; color: white;" class="colorContainer">Azul
+        <input name="1" type="radio" checked="checked" onchange="updateValor('blue',2,1000000);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: violet; color: white;" class="colorContainer">Violeta
+        <input name="1" type="radio" onchange="updateValor('violet',2,10000000);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: grey; color: white;" class="colorContainer">Cinza
+        <input name="1" type="radio" onchange="updateValor('grey',2,100000000);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: white; color: black;" class="colorContainer">Branco
+        <input name="1" type="radio" checked="checked" onchange="updateValor('white',2,1000000000);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: gold; color: black;" class="colorContainer">Ouro
+        <input name="1" type="radio" onchange="updateValor('gold',2,0.1);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: silver; color: black;" class="colorContainer">Prata
+        <input name="1" type="radio" checked="checked" onchange="updateValor('silver',2,0.01);" />
+        <span class="colorBar"></span>
+      </label>
+    </div>
+  </div>
+
+    <div class="control">
+      <small>4° Faixa</small>
+    <div class="is-multiple">    
+      <label style="background-color: black; color: white;" class="colorContainer">Preto
+        <input name="1" type="radio" checked="checked" onchange="updateValor('black',3,20);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: brown; color: white;" class="colorContainer">Marrom
+        <input name="1" type="radio" onchange="updateValor('brown',3,1);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: red; color: white;" class="colorContainer">Vermelho
+        <input name="1" type="radio" onchange="updateValor('red',3,2);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: orange; color: white;" class="colorContainer">Laranja
+        <input name="1" type="radio" checked="checked" onchange="updateValor('orange',3,3);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: yellow; color: black;" class="colorContainer">Amarelo
+        <input name="1" type="radio" onchange="updateValor('yellow',3,4);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: green; color: white;" class="colorContainer">Verde
+        <input name="1" type="radio" onchange="updateValor('green',3,5);" />
+        <span class="colorBar"></span>
+      </label>      
+
+      <label style="background-color: blue; color: white;" class="colorContainer">Azul
+        <input name="1" type="radio" checked="checked" onchange="updateValor('blue',3,6);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: violet; color: white;" class="colorContainer">Violeta
+        <input name="1" type="radio" onchange="updateValor('violet',3,7);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: grey; color: white;" class="colorContainer">Cinza
+        <input name="1" type="radio" onchange="updateValor('grey',3,8);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: white; color: black;" class="colorContainer">Branco
+        <input name="1" type="radio" checked="checked" onchange="updateValor('white',3,10);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: gold; color: black;" class="colorContainer">Ouro
+        <input name="1" type="radio" onchange="updateValor('gold',3,5);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: silver; color: black;" class="colorContainer">Prata
+        <input name="1" type="radio" checked="checked" onchange="updateValor('silver',3,10);" />
+        <span class="colorBar"></span>
+      </label>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<div class="section">
+<div class="subtitle has-text-centered">Selecione as cores acima para obter o resultado</div>
+  <table>
+  <tr>
+    <th>Valor</th>
+    <th>Tolerância</th>
+  </tr>
+  <tr>
+    <td id="valor" class="subtitle"></td>
+    <td id="tolerancia" class="subtitle"></td>
+  </tr>
+</table> 
+</div>
+
+<h3 id="substituição">Substituição</h3>
+
+<p>Capacitores com código de cores são antigos e muito encontrados por quem restaura rádios, órgãos ou amplificadores antigos. Para substituir sugere-se os capacitores de <strong>poliéster</strong> com a <strong>capacitância</strong> e <strong>tensão indicada</strong>. Em alguns casos capacitores de cerâmica podem ser usados como substitutos.</p>
+
+<p>O ideal é trocar todos os capacitores de equipamentos como esse. É comum encontrar alguns já estourados, rachados, descascando ou com boa aparência mas internamente já deteriorados pelo tempo.</p>
+
+<script>
+document.obj = $("obj");
+document.obj.addEventListener("load",function(){
+  var svg = document.obj.contentDocument;
+  document.faixas = [svg.getElementById("rect1-6"), svg.getElementById("rect3"), svg.getElementById("rect2"), svg.getElementById("rect1-6-3")];
+  document.texto = svg.getElementById("tspan1");
+},false);
+</script>
+
+
+  </article>
+
+</div>
+</div>
+</div>
+</section>
+
+<section class="section">
+  <hr/>
+  <nav class="level is-mobile">
+
+    <div class="level-item">      
+      
+      
+      <div>
+        <p class="heading"><strong>Veja Também:</strong></p>
+        <small>Órgãos Antigos dos Anos 70: Geradores e Divisores de Oitavas - Música Eletrônica</small></br>
+        <small></small>
+      </div>
+    </div>
+  </nav>
+</section>
+<section class="section">
+  <div id="disqus_thread"></div>
+<script>
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://fabiovila-github-io.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+<!--
+    <aside class="column is-3-desktop block">
+        
+    
+    <div class="block">
+        <div class="aside-title"><span>Assuntos</span></div>
+        
+         
+          <a class="ml-1 is-capitalized has-text-grey" href="/">eletrônica</a>
+        <hr class="mt-1 mb-1"/>
+        
+         
+          <a class="ml-1 is-capitalized has-text-grey" href="/">aplicadas</a>
+        <hr class="mt-1 mb-1"/>
+        
+         
+          <a class="ml-1 is-capitalized has-text-grey" href="/">python</a>
+        <hr class="mt-1 mb-1"/>
+        
+         
+          <a class="ml-1 is-capitalized has-text-grey" href="/">eletronica</a>
+        <hr class="mt-1 mb-1"/>
+        
+         
+          <a class="ml-1 is-capitalized has-text-grey" href="/">app</a>
+        <hr class="mt-1 mb-1"/>
+        
+    </div>
+    <div class="block mt-5">
+            <div class="aside-title"><span>Ultimos</span></div>
+            
+             
+              <a class="ml-1 is-capitalized c" href="/">eletrônica</a>
+            <hr class="mt-1 mb-1"/>
+            
+             
+              <a class="ml-1 is-capitalized c" href="/">aplicadas</a>
+            <hr class="mt-1 mb-1"/>
+            
+             
+              <a class="ml-1 is-capitalized c" href="/">python</a>
+            <hr class="mt-1 mb-1"/>
+            
+             
+              <a class="ml-1 is-capitalized c" href="/">eletronica</a>
+            <hr class="mt-1 mb-1"/>
+            
+             
+              <a class="ml-1 is-capitalized c" href="/">app</a>
+            <hr class="mt-1 mb-1"/>
+            
+    </div>
+
+</aside>
+
+-->
+
+</section>
+<section>
+    <footer class="footer is-primary">
+    </footer>
+</section>
+
+</body>
+</html>

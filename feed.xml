@@ -1,16 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2024-01-23T19:04:30-06:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Código de Cores de capacitores - Aplicativo</title><link href="http://0.0.0.0:4000/app/2024/01/23/polegadasmm.html" rel="alternate" type="text/html" title="Código de Cores de capacitores - Aplicativo" /><published>2024-01-23T00:00:00-06:00</published><updated>2024-01-23T00:00:00-06:00</updated><id>http://0.0.0.0:4000/app/2024/01/23/polegadasmm</id><content type="html" xml:base="http://0.0.0.0:4000/app/2024/01/23/polegadasmm.html">&lt;script&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2024-01-24T07:37:16-06:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Código de Cores de capacitores - Aplicativo</title><link href="http://0.0.0.0:4000/app/2024/01/23/capacitores.html" rel="alternate" type="text/html" title="Código de Cores de capacitores - Aplicativo" /><published>2024-01-23T00:00:00-06:00</published><updated>2024-01-23T00:00:00-06:00</updated><id>http://0.0.0.0:4000/app/2024/01/23/capacitores</id><content type="html" xml:base="http://0.0.0.0:4000/app/2024/01/23/capacitores.html">&lt;link href=&quot;/assets/css/colormenu.css&quot; type=&quot;text/css&quot; rel=&quot;stylesheet&quot; /&gt;
+
+&lt;script&gt;
 var valor = 220000;
 var unidade = &quot;&quot;;
 var faixas = [2,2,10000,0,0];
-function updateValor(v,m) {
-  var option = v.selectedOptions[0].style[&quot;background-color&quot;];
-  faixas[m] = Number(v.value);
-  valor = (faixas[0]+faixas[1]*10)*faixas[2];
 
-
-  console.log(faixas,valor);
-  tolerancia = faixas[3] + &quot;%&quot;;
-  if (valor &lt; 1000) {
+function formata (valor) {
+    if (valor &lt; 1000) {
     unidade = &quot; pF&quot;;
   } else if (valor &gt;= 1000 &amp;&amp; valor &lt; 1000000) {
     unidade = &quot; nF&quot;;
@@ -22,34 +18,89 @@ function updateValor(v,m) {
     unidade = &quot; mF&quot;;
     valor = valor / 1000000000;
   }
-
   valor = valor.toLocaleString(&apos;pt-BR&apos;, {minimumFractionDigits:0, maximumFractionDigits:2}) + unidade;
-  document.faixas[m].style.fill = option;
+  return valor;
+}
+
+function updateValor(cor,index,v) {
+
+  faixas[index] = v;
+  valor = (faixas[0]+faixas[1]*10)*faixas[2];
+
+
+  console.log(cor,index,valor);
+  tolerancia = faixas[3] + &quot;%&quot;;
+
+
+  var alta  =  formata(valor * (1 + Number(faixas[3])/100));
+  var baixa =  formata(valor * (1 - Number(faixas[3])/100));
+  $(&quot;tolerancia&quot;).innerText = tolerancia  + &quot; &quot; + &quot;[ &quot; + alta + &quot;,&quot; + baixa + &quot; ]&quot;;
+  valor = formata(valor);
+  document.faixas[index].style.fill = cor;
   document.texto.innerHTML = valor;
   $(&quot;valor&quot;).innerText = valor;
-  $(&quot;tolerancia&quot;).innerText = tolerancia;
+  
 }
 
 
 &lt;/script&gt;
 
 &lt;div class=&quot;section&quot;&gt;
-&lt;div class=&quot;subtitle has-text-centered&quot;&gt;Selecione as cores para obter o resultado&lt;/div&gt;
 &lt;div class=&quot;field is-grouped is-grouped-centered&quot;&gt;
   &lt;div class=&quot;control&quot;&gt;
       &lt;small&gt;1° Faixa&lt;/small&gt;
       &lt;div class=&quot;is-multiple&quot;&gt;
-      &lt;select id=&quot;s1&quot; multiple=&quot;&quot; size=&quot;12&quot; onchange=&quot;updateValor(this,0);&quot;&gt;
-        &lt;option selected=&quot;selected&quot; style=&quot;background-color: brown; color: white;&quot; value=&quot;1&quot;&gt;Marrom&lt;/option&gt;
-        &lt;option style=&quot;background-color: red; color: white;&quot; value=&quot;2&quot;&gt;Vermelho&lt;/option&gt;
-        &lt;option style=&quot;background-color: orange; color: white;&quot; value=&quot;3&quot;&gt;Laranja&lt;/option&gt;
-        &lt;option style=&quot;background-color: yellow; color: black;&quot; value=&quot;4&quot;&gt;Amarelo&lt;/option&gt;
-        &lt;option style=&quot;background-color: green; color: black;&quot; value=&quot;5&quot;&gt;Verde&lt;/option&gt;
-        &lt;option style=&quot;background-color: blue; color: white;&quot; value=&quot;6&quot;&gt;Azul&lt;/option&gt;
-        &lt;option style=&quot;background-color: violet; color: black;&quot; value=&quot;7&quot;&gt;Violeta&lt;/option&gt;
-        &lt;option style=&quot;background-color: gray; color: black;&quot; value=&quot;8&quot;&gt;Cinza&lt;/option&gt;
-        &lt;option style=&quot;background-color: white; color: black;&quot; value=&quot;9&quot;&gt;Branco&lt;/option&gt;
-      &lt;/select&gt;
+
+      &lt;label style=&quot;background-color: black; color: white;&quot; class=&quot;colorContainer&quot;&gt;Preto
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; checked=&quot;checked&quot; onchange=&quot;updateValor(&apos;black&apos;,0,0);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: brown; color: white;&quot; class=&quot;colorContainer&quot;&gt;Marrom
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;brown&apos;,0,1);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: red; color: white;&quot; class=&quot;colorContainer&quot;&gt;Vermelho
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;red&apos;,0,2);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: orange; color: white;&quot; class=&quot;colorContainer&quot;&gt;Laranja
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; checked=&quot;checked&quot; onchange=&quot;updateValor(&apos;orange&apos;,0,3);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: yellow; color: black;&quot; class=&quot;colorContainer&quot;&gt;Amarelo
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;yellow&apos;,0,4);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: green; color: white;&quot; class=&quot;colorContainer&quot;&gt;Verde
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;green&apos;,0,5);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;      
+
+      &lt;label style=&quot;background-color: blue; color: white;&quot; class=&quot;colorContainer&quot;&gt;Azul
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; checked=&quot;checked&quot; onchange=&quot;updateValor(&apos;blue&apos;,0,6);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: violet; color: white;&quot; class=&quot;colorContainer&quot;&gt;Violeta
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;violet&apos;,0,7);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: grey; color: white;&quot; class=&quot;colorContainer&quot;&gt;Cinza
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;grey&apos;,0,8);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: white; color: black;&quot; class=&quot;colorContainer&quot;&gt;Branco
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; checked=&quot;checked&quot; onchange=&quot;updateValor(&apos;white&apos;,0,9);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
       &lt;/div&gt;
   &lt;/div&gt;
 
@@ -57,61 +108,195 @@ function updateValor(v,m) {
     &lt;small&gt;2° Faixa&lt;/small&gt;
     &lt;div class=&quot;is-multiple&quot;&gt;
       
-      &lt;select id=&quot;s2&quot; multiple=&quot;&quot; size=&quot;12&quot; onchange=&quot;updateValor(this,1);&quot;&gt;
-        &lt;option selected=&quot;selected&quot; style=&quot;background-color: black; color: white;&quot; value=&quot;0&quot;&gt;Preto&lt;/option&gt;
-        &lt;option style=&quot;background-color: brown; color: white;&quot; value=&quot;1&quot;&gt;Marrom&lt;/option&gt;
-        &lt;option style=&quot;background-color: red; color: white;&quot; value=&quot;2&quot;&gt;Vermelho&lt;/option&gt;
-        &lt;option style=&quot;background-color: orange; color: white;&quot; value=&quot;3&quot;&gt;Laranja&lt;/option&gt;
-        &lt;option style=&quot;background-color: yellow; color: black;&quot; value=&quot;4&quot;&gt;Amarelo&lt;/option&gt;
-        &lt;option style=&quot;background-color: green; color: black;&quot; value=&quot;5&quot;&gt;Verde&lt;/option&gt;
-        &lt;option style=&quot;background-color: blue; color: white;&quot; value=&quot;6&quot;&gt;Azul&lt;/option&gt;
-        &lt;option style=&quot;background-color: violet; color: black;&quot; value=&quot;7&quot;&gt;Violeta&lt;/option&gt;
-        &lt;option style=&quot;background-color: gray; color: black;&quot; value=&quot;8&quot;&gt;Cinza&lt;/option&gt;
-        &lt;option style=&quot;background-color: white; color: black;&quot; value=&quot;9&quot;&gt;Branco&lt;/option&gt;
-      &lt;/select&gt;
+      &lt;label style=&quot;background-color: black; color: white;&quot; class=&quot;colorContainer&quot;&gt;Preto
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; checked=&quot;checked&quot; onchange=&quot;updateValor(&apos;black&apos;,1,0);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: brown; color: white;&quot; class=&quot;colorContainer&quot;&gt;Marrom
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;brown&apos;,1,1);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: red; color: white;&quot; class=&quot;colorContainer&quot;&gt;Vermelho
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;red&apos;,1,2);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: orange; color: white;&quot; class=&quot;colorContainer&quot;&gt;Laranja
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; checked=&quot;checked&quot; onchange=&quot;updateValor(&apos;orange&apos;,1,3);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: yellow; color: black;&quot; class=&quot;colorContainer&quot;&gt;Amarelo
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;yellow&apos;,1,4);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: green; color: white;&quot; class=&quot;colorContainer&quot;&gt;Verde
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;green&apos;,1,5);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;      
+
+      &lt;label style=&quot;background-color: blue; color: white;&quot; class=&quot;colorContainer&quot;&gt;Azul
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; checked=&quot;checked&quot; onchange=&quot;updateValor(&apos;blue&apos;,1,6);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: violet; color: white;&quot; class=&quot;colorContainer&quot;&gt;Violeta
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;violet&apos;,1,7);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: grey; color: white;&quot; class=&quot;colorContainer&quot;&gt;Cinza
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;grey&apos;,1,8);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: white; color: black;&quot; class=&quot;colorContainer&quot;&gt;Branco
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; checked=&quot;checked&quot; onchange=&quot;updateValor(&apos;white&apos;,1,9);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
     &lt;/div&gt;
   &lt;/div&gt;
 
-      &lt;div class=&quot;control&quot;&gt;
+    &lt;div class=&quot;control&quot;&gt;
       &lt;small&gt;3° Faixa&lt;/small&gt;
     &lt;div class=&quot;is-multiple&quot;&gt;
     
-      &lt;select id=&quot;s3&quot; multiple=&quot;&quot; size=&quot;12&quot; onchange=&quot;updateValor(this,2);&quot;&gt;
-        &lt;option style=&quot;background-color: black; color: white;&quot; value=&quot;1&quot;&gt;Preto&lt;/option&gt;
-        &lt;option style=&quot;background-color: brown; color: white;&quot; value=&quot;10&quot;&gt;Marrom&lt;/option&gt;
-        &lt;option selected=&quot;selected&quot; style=&quot;background-color: red; color: white;&quot; value=&quot;100&quot;&gt;Vermelho&lt;/option&gt;
-        &lt;option style=&quot;background-color: orange; color: white;&quot; value=&quot;1000&quot;&gt;Laranja&lt;/option&gt;
-        &lt;option style=&quot;background-color: yellow; color: black;&quot; value=&quot;10000&quot;&gt;Amarelo&lt;/option&gt;
-        &lt;option style=&quot;background-color: green; color: black;&quot; value=&quot;100000&quot;&gt;Verde&lt;/option&gt;
-        &lt;option style=&quot;background-color: blue; color: white;&quot; value=&quot;1000000&quot;&gt;Azul&lt;/option&gt;
-        &lt;option style=&quot;background-color: gray; color: black;&quot; value=&quot;10000000&quot;&gt;Cinza&lt;/option&gt;
-        &lt;option style=&quot;background-color: white; color: black;&quot; value=&quot;100000000&quot;&gt;Branco&lt;/option&gt;
-        &lt;option style=&quot;background-color: gold;  color: black;&quot; value=&quot;0.1&quot;&gt;Ouro&lt;/option&gt;
-        &lt;option style=&quot;background-color: silver; color: black;&quot; value=&quot;0.01&quot;&gt;Prata&lt;/option&gt;
-      &lt;/select&gt;
+      &lt;label style=&quot;background-color: black; color: white;&quot; class=&quot;colorContainer&quot;&gt;Preto
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; checked=&quot;checked&quot; onchange=&quot;updateValor(&apos;black&apos;,2,1);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: brown; color: white;&quot; class=&quot;colorContainer&quot;&gt;Marrom
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;brown&apos;,2,10);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: red; color: white;&quot; class=&quot;colorContainer&quot;&gt;Vermelho
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;red&apos;,2,100);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: orange; color: white;&quot; class=&quot;colorContainer&quot;&gt;Laranja
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; checked=&quot;checked&quot; onchange=&quot;updateValor(&apos;orange&apos;,2,1000);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: yellow; color: black;&quot; class=&quot;colorContainer&quot;&gt;Amarelo
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;yellow&apos;,2,10000);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: green; color: white;&quot; class=&quot;colorContainer&quot;&gt;Verde
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;green&apos;,2,100000);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;      
+
+      &lt;label style=&quot;background-color: blue; color: white;&quot; class=&quot;colorContainer&quot;&gt;Azul
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; checked=&quot;checked&quot; onchange=&quot;updateValor(&apos;blue&apos;,2,1000000);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: violet; color: white;&quot; class=&quot;colorContainer&quot;&gt;Violeta
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;violet&apos;,2,10000000);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: grey; color: white;&quot; class=&quot;colorContainer&quot;&gt;Cinza
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;grey&apos;,2,100000000);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: white; color: black;&quot; class=&quot;colorContainer&quot;&gt;Branco
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; checked=&quot;checked&quot; onchange=&quot;updateValor(&apos;white&apos;,2,1000000000);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: gold; color: black;&quot; class=&quot;colorContainer&quot;&gt;Ouro
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;gold&apos;,2,0.1);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: silver; color: black;&quot; class=&quot;colorContainer&quot;&gt;Prata
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; checked=&quot;checked&quot; onchange=&quot;updateValor(&apos;silver&apos;,2,0.01);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 
-      &lt;div class=&quot;control&quot;&gt;
+    &lt;div class=&quot;control&quot;&gt;
       &lt;small&gt;4° Faixa&lt;/small&gt;
     &lt;div class=&quot;is-multiple&quot;&gt;    
-      &lt;select id=&quot;s4&quot; multiple=&quot;&quot; size=&quot;12&quot; onchange=&quot;updateValor(this,3);&quot;&gt;
-        &lt;option style=&quot;background-color: black; color: white;&quot; value=&quot;20&quot;&gt;Preto&lt;/option&gt;
-        &lt;option style=&quot;background-color: brown; color: white;&quot; value=&quot;1&quot;&gt;Marrom&lt;/option&gt;
-        &lt;option style=&quot;background-color: red; color: white;&quot; value=&quot;2&quot;&gt;Vermelho&lt;/option&gt;
-        &lt;option style=&quot;background-color: orange; color: white;&quot; value=&quot;3&quot;&gt;Laranja&lt;/option&gt;
-        &lt;option style=&quot;background-color: yellow; color: black;&quot; value=&quot;4&quot;&gt;Amarelo&lt;/option&gt;
-        &lt;option style=&quot;background-color: green; color: black;&quot; value=&quot;5&quot;&gt;Verde&lt;/option&gt;
-        &lt;option style=&quot;background-color: gray; color: black;&quot; value=&quot;8&quot;&gt;Cinza&lt;/option&gt;
-        &lt;option style=&quot;background-color: white; color: black;&quot; value=&quot;10&quot;&gt;Branco&lt;/option&gt;
-        &lt;option style=&quot;background-color: gold ;color: black;&quot; value=&quot;5&quot;&gt;Ouro&lt;/option&gt;
-        &lt;option style=&quot;background-color: silver;  color: black;&quot; value=&quot;10&quot;&gt;Prata&lt;/option&gt;
-      &lt;/select&gt;
+      &lt;label style=&quot;background-color: black; color: white;&quot; class=&quot;colorContainer&quot;&gt;Preto
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; checked=&quot;checked&quot; onchange=&quot;updateValor(&apos;black&apos;,3,20);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: brown; color: white;&quot; class=&quot;colorContainer&quot;&gt;Marrom
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;brown&apos;,3,1);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: red; color: white;&quot; class=&quot;colorContainer&quot;&gt;Vermelho
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;red&apos;,3,2);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: orange; color: white;&quot; class=&quot;colorContainer&quot;&gt;Laranja
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; checked=&quot;checked&quot; onchange=&quot;updateValor(&apos;orange&apos;,3,3);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: yellow; color: black;&quot; class=&quot;colorContainer&quot;&gt;Amarelo
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;yellow&apos;,3,4);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: green; color: white;&quot; class=&quot;colorContainer&quot;&gt;Verde
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;green&apos;,3,5);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;      
+
+      &lt;label style=&quot;background-color: blue; color: white;&quot; class=&quot;colorContainer&quot;&gt;Azul
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; checked=&quot;checked&quot; onchange=&quot;updateValor(&apos;blue&apos;,3,6);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: violet; color: white;&quot; class=&quot;colorContainer&quot;&gt;Violeta
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;violet&apos;,3,7);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: grey; color: white;&quot; class=&quot;colorContainer&quot;&gt;Cinza
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;grey&apos;,3,8);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: white; color: black;&quot; class=&quot;colorContainer&quot;&gt;Branco
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; checked=&quot;checked&quot; onchange=&quot;updateValor(&apos;white&apos;,3,10);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: gold; color: black;&quot; class=&quot;colorContainer&quot;&gt;Ouro
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;gold&apos;,3,5);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: silver; color: black;&quot; class=&quot;colorContainer&quot;&gt;Prata
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; checked=&quot;checked&quot; onchange=&quot;updateValor(&apos;silver&apos;,3,10);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
     &lt;/div&gt;
   &lt;/div&gt;
+
+&lt;/div&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;section&quot;&gt;
+&lt;div class=&quot;subtitle has-text-centered&quot;&gt;Selecione as cores acima para obter o resultado&lt;/div&gt;
   &lt;table&gt;
   &lt;tr&gt;
     &lt;th&gt;Valor&lt;/th&gt;
@@ -124,20 +309,20 @@ function updateValor(v,m) {
 &lt;/table&gt; 
 &lt;/div&gt;
 
+&lt;h3 id=&quot;substituição&quot;&gt;Substituição&lt;/h3&gt;
+
+&lt;p&gt;Capacitores com código de cores são antigos e muito encontrados por quem restaura rádios, órgãos ou amplificadores antigos. Para substituir sugere-se os capacitores de &lt;strong&gt;poliéster&lt;/strong&gt; com a &lt;strong&gt;capacitância&lt;/strong&gt; e &lt;strong&gt;tensão indicada&lt;/strong&gt;. Em alguns casos capacitores de cerâmica podem ser usados como substitutos.&lt;/p&gt;
+
+&lt;p&gt;O ideal é trocar todos os capacitores de equipamentos como esse. É comum encontrar alguns já estourados, rachados, descascando ou com boa aparência mas internamente já deteriorados pelo tempo.&lt;/p&gt;
+
 &lt;script&gt;
-
-
-
 document.obj = $(&quot;obj&quot;);
 document.obj.addEventListener(&quot;load&quot;,function(){
   var svg = document.obj.contentDocument;
   document.faixas = [svg.getElementById(&quot;rect1-6&quot;), svg.getElementById(&quot;rect3&quot;), svg.getElementById(&quot;rect2&quot;), svg.getElementById(&quot;rect1-6-3&quot;)];
   document.texto = svg.getElementById(&quot;tspan1&quot;);
 },false);
-
-&lt;/script&gt;
-
-&lt;/div&gt;</content><author><name></name></author><category term="app" /><category term="eletrônica" /><category term="capacitores" /><category term="código de cores" /><summary type="html"></summary></entry><entry><title type="html">Órgãos Antigos dos Anos 70: Geradores e Divisores de Oitavas - Música Eletrônica</title><link href="http://0.0.0.0:4000/eletronica/2023/12/29/geradores-e-divisores-de-oitavas-org%C3%A3os-antigos.html" rel="alternate" type="text/html" title="Órgãos Antigos dos Anos 70: Geradores e Divisores de Oitavas - Música Eletrônica" /><published>2023-12-29T00:00:00-06:00</published><updated>2023-12-29T00:00:00-06:00</updated><id>http://0.0.0.0:4000/eletronica/2023/12/29/geradores-e-divisores-de-oitavas-org%C3%A3os-antigos</id><content type="html" xml:base="http://0.0.0.0:4000/eletronica/2023/12/29/geradores-e-divisores-de-oitavas-org%C3%A3os-antigos.html">&lt;h2 id=&quot;órgãos-antigos-dos-anos-70-geradores-e-divisores-de-oitavas&quot;&gt;Órgãos Antigos dos Anos 70: Geradores e Divisores de Oitavas&lt;/h2&gt;
+&lt;/script&gt;</content><author><name></name></author><category term="app" /><category term="eletrônica" /><category term="capacitores" /><category term="código de cores" /><summary type="html"></summary></entry><entry><title type="html">Órgãos Antigos dos Anos 70: Geradores e Divisores de Oitavas - Música Eletrônica</title><link href="http://0.0.0.0:4000/eletronica/2023/12/29/geradores-e-divisores-de-oitavas-org%C3%A3os-antigos.html" rel="alternate" type="text/html" title="Órgãos Antigos dos Anos 70: Geradores e Divisores de Oitavas - Música Eletrônica" /><published>2023-12-29T00:00:00-06:00</published><updated>2023-12-29T00:00:00-06:00</updated><id>http://0.0.0.0:4000/eletronica/2023/12/29/geradores-e-divisores-de-oitavas-org%C3%A3os-antigos</id><content type="html" xml:base="http://0.0.0.0:4000/eletronica/2023/12/29/geradores-e-divisores-de-oitavas-org%C3%A3os-antigos.html">&lt;h2 id=&quot;órgãos-antigos-dos-anos-70-geradores-e-divisores-de-oitavas&quot;&gt;Órgãos Antigos dos Anos 70: Geradores e Divisores de Oitavas&lt;/h2&gt;
 
 &lt;p&gt;Os anos 70 foram uma época de efervescência musical e inovação tecnológica, e os órgãos eletrônicos desempenharam um papel crucial nesse cenário. Esses instrumentos, muitas vezes utilizados em bandas de rock progressivo, jazz fusion e música eletrônica da época, eram dotados de características sonoras únicas, inicialmente construidos com o objetivo de serem fiéis aos órgãos de tubos, sua sonoridade única e portabilidade logo achou seu lugar próprio na música.&lt;/p&gt;
 
