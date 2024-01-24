@@ -2874,7 +2874,7 @@ h1, h2, h3, h4, h5, h6 .title { font-family: -apple-system, BlinkMacSystemFont, 
 
 .bb { border-bottom: 5px solid #008492b8; }
 
-.content table { background: linear-gradient(153deg, rgba(240, 240, 240, 0.2) 0%, white 100%); }
+.content table { background: linear-gradient(153deg, rgba(240, 240, 240, 0.514) 0%, #ccdcff 100%); }
 
 .content table td { font-size: 0.85rem; }
 

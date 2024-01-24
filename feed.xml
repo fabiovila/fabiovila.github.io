@@ -1,4 +1,143 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2024-01-22T16:26:16-06:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Órgãos Antigos dos Anos 70: Geradores e Divisores de Oitavas - Música Eletrônica</title><link href="http://0.0.0.0:4000/eletronica/2023/12/29/geradores-e-divisores-de-oitavas-org%C3%A3os-antigos.html" rel="alternate" type="text/html" title="Órgãos Antigos dos Anos 70: Geradores e Divisores de Oitavas - Música Eletrônica" /><published>2023-12-29T00:00:00-06:00</published><updated>2023-12-29T00:00:00-06:00</updated><id>http://0.0.0.0:4000/eletronica/2023/12/29/geradores-e-divisores-de-oitavas-org%C3%A3os-antigos</id><content type="html" xml:base="http://0.0.0.0:4000/eletronica/2023/12/29/geradores-e-divisores-de-oitavas-org%C3%A3os-antigos.html">&lt;h2 id=&quot;órgãos-antigos-dos-anos-70-geradores-e-divisores-de-oitavas&quot;&gt;Órgãos Antigos dos Anos 70: Geradores e Divisores de Oitavas&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2024-01-23T19:04:30-06:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Código de Cores de capacitores - Aplicativo</title><link href="http://0.0.0.0:4000/app/2024/01/23/polegadasmm.html" rel="alternate" type="text/html" title="Código de Cores de capacitores - Aplicativo" /><published>2024-01-23T00:00:00-06:00</published><updated>2024-01-23T00:00:00-06:00</updated><id>http://0.0.0.0:4000/app/2024/01/23/polegadasmm</id><content type="html" xml:base="http://0.0.0.0:4000/app/2024/01/23/polegadasmm.html">&lt;script&gt;
+var valor = 220000;
+var unidade = &quot;&quot;;
+var faixas = [2,2,10000,0,0];
+function updateValor(v,m) {
+  var option = v.selectedOptions[0].style[&quot;background-color&quot;];
+  faixas[m] = Number(v.value);
+  valor = (faixas[0]+faixas[1]*10)*faixas[2];
+
+
+  console.log(faixas,valor);
+  tolerancia = faixas[3] + &quot;%&quot;;
+  if (valor &lt; 1000) {
+    unidade = &quot; pF&quot;;
+  } else if (valor &gt;= 1000 &amp;&amp; valor &lt; 1000000) {
+    unidade = &quot; nF&quot;;
+    valor = valor / 1000;
+  } else if (valor &gt;= 1000000 &amp;&amp; valor &lt; 1000000000) {
+    unidade = &quot; uF&quot;;
+    valor = valor / 1000000;
+  } else if (valor &gt;= 1000000000 &amp;&amp; valor &lt; 1000000000000) {
+    unidade = &quot; mF&quot;;
+    valor = valor / 1000000000;
+  }
+
+  valor = valor.toLocaleString(&apos;pt-BR&apos;, {minimumFractionDigits:0, maximumFractionDigits:2}) + unidade;
+  document.faixas[m].style.fill = option;
+  document.texto.innerHTML = valor;
+  $(&quot;valor&quot;).innerText = valor;
+  $(&quot;tolerancia&quot;).innerText = tolerancia;
+}
+
+
+&lt;/script&gt;
+
+&lt;div class=&quot;section&quot;&gt;
+&lt;div class=&quot;subtitle has-text-centered&quot;&gt;Selecione as cores para obter o resultado&lt;/div&gt;
+&lt;div class=&quot;field is-grouped is-grouped-centered&quot;&gt;
+  &lt;div class=&quot;control&quot;&gt;
+      &lt;small&gt;1° Faixa&lt;/small&gt;
+      &lt;div class=&quot;is-multiple&quot;&gt;
+      &lt;select id=&quot;s1&quot; multiple=&quot;&quot; size=&quot;12&quot; onchange=&quot;updateValor(this,0);&quot;&gt;
+        &lt;option selected=&quot;selected&quot; style=&quot;background-color: brown; color: white;&quot; value=&quot;1&quot;&gt;Marrom&lt;/option&gt;
+        &lt;option style=&quot;background-color: red; color: white;&quot; value=&quot;2&quot;&gt;Vermelho&lt;/option&gt;
+        &lt;option style=&quot;background-color: orange; color: white;&quot; value=&quot;3&quot;&gt;Laranja&lt;/option&gt;
+        &lt;option style=&quot;background-color: yellow; color: black;&quot; value=&quot;4&quot;&gt;Amarelo&lt;/option&gt;
+        &lt;option style=&quot;background-color: green; color: black;&quot; value=&quot;5&quot;&gt;Verde&lt;/option&gt;
+        &lt;option style=&quot;background-color: blue; color: white;&quot; value=&quot;6&quot;&gt;Azul&lt;/option&gt;
+        &lt;option style=&quot;background-color: violet; color: black;&quot; value=&quot;7&quot;&gt;Violeta&lt;/option&gt;
+        &lt;option style=&quot;background-color: gray; color: black;&quot; value=&quot;8&quot;&gt;Cinza&lt;/option&gt;
+        &lt;option style=&quot;background-color: white; color: black;&quot; value=&quot;9&quot;&gt;Branco&lt;/option&gt;
+      &lt;/select&gt;
+      &lt;/div&gt;
+  &lt;/div&gt;
+
+    &lt;div class=&quot;control&quot;&gt;
+    &lt;small&gt;2° Faixa&lt;/small&gt;
+    &lt;div class=&quot;is-multiple&quot;&gt;
+      
+      &lt;select id=&quot;s2&quot; multiple=&quot;&quot; size=&quot;12&quot; onchange=&quot;updateValor(this,1);&quot;&gt;
+        &lt;option selected=&quot;selected&quot; style=&quot;background-color: black; color: white;&quot; value=&quot;0&quot;&gt;Preto&lt;/option&gt;
+        &lt;option style=&quot;background-color: brown; color: white;&quot; value=&quot;1&quot;&gt;Marrom&lt;/option&gt;
+        &lt;option style=&quot;background-color: red; color: white;&quot; value=&quot;2&quot;&gt;Vermelho&lt;/option&gt;
+        &lt;option style=&quot;background-color: orange; color: white;&quot; value=&quot;3&quot;&gt;Laranja&lt;/option&gt;
+        &lt;option style=&quot;background-color: yellow; color: black;&quot; value=&quot;4&quot;&gt;Amarelo&lt;/option&gt;
+        &lt;option style=&quot;background-color: green; color: black;&quot; value=&quot;5&quot;&gt;Verde&lt;/option&gt;
+        &lt;option style=&quot;background-color: blue; color: white;&quot; value=&quot;6&quot;&gt;Azul&lt;/option&gt;
+        &lt;option style=&quot;background-color: violet; color: black;&quot; value=&quot;7&quot;&gt;Violeta&lt;/option&gt;
+        &lt;option style=&quot;background-color: gray; color: black;&quot; value=&quot;8&quot;&gt;Cinza&lt;/option&gt;
+        &lt;option style=&quot;background-color: white; color: black;&quot; value=&quot;9&quot;&gt;Branco&lt;/option&gt;
+      &lt;/select&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+      &lt;div class=&quot;control&quot;&gt;
+      &lt;small&gt;3° Faixa&lt;/small&gt;
+    &lt;div class=&quot;is-multiple&quot;&gt;
+    
+      &lt;select id=&quot;s3&quot; multiple=&quot;&quot; size=&quot;12&quot; onchange=&quot;updateValor(this,2);&quot;&gt;
+        &lt;option style=&quot;background-color: black; color: white;&quot; value=&quot;1&quot;&gt;Preto&lt;/option&gt;
+        &lt;option style=&quot;background-color: brown; color: white;&quot; value=&quot;10&quot;&gt;Marrom&lt;/option&gt;
+        &lt;option selected=&quot;selected&quot; style=&quot;background-color: red; color: white;&quot; value=&quot;100&quot;&gt;Vermelho&lt;/option&gt;
+        &lt;option style=&quot;background-color: orange; color: white;&quot; value=&quot;1000&quot;&gt;Laranja&lt;/option&gt;
+        &lt;option style=&quot;background-color: yellow; color: black;&quot; value=&quot;10000&quot;&gt;Amarelo&lt;/option&gt;
+        &lt;option style=&quot;background-color: green; color: black;&quot; value=&quot;100000&quot;&gt;Verde&lt;/option&gt;
+        &lt;option style=&quot;background-color: blue; color: white;&quot; value=&quot;1000000&quot;&gt;Azul&lt;/option&gt;
+        &lt;option style=&quot;background-color: gray; color: black;&quot; value=&quot;10000000&quot;&gt;Cinza&lt;/option&gt;
+        &lt;option style=&quot;background-color: white; color: black;&quot; value=&quot;100000000&quot;&gt;Branco&lt;/option&gt;
+        &lt;option style=&quot;background-color: gold;  color: black;&quot; value=&quot;0.1&quot;&gt;Ouro&lt;/option&gt;
+        &lt;option style=&quot;background-color: silver; color: black;&quot; value=&quot;0.01&quot;&gt;Prata&lt;/option&gt;
+      &lt;/select&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+      &lt;div class=&quot;control&quot;&gt;
+      &lt;small&gt;4° Faixa&lt;/small&gt;
+    &lt;div class=&quot;is-multiple&quot;&gt;    
+      &lt;select id=&quot;s4&quot; multiple=&quot;&quot; size=&quot;12&quot; onchange=&quot;updateValor(this,3);&quot;&gt;
+        &lt;option style=&quot;background-color: black; color: white;&quot; value=&quot;20&quot;&gt;Preto&lt;/option&gt;
+        &lt;option style=&quot;background-color: brown; color: white;&quot; value=&quot;1&quot;&gt;Marrom&lt;/option&gt;
+        &lt;option style=&quot;background-color: red; color: white;&quot; value=&quot;2&quot;&gt;Vermelho&lt;/option&gt;
+        &lt;option style=&quot;background-color: orange; color: white;&quot; value=&quot;3&quot;&gt;Laranja&lt;/option&gt;
+        &lt;option style=&quot;background-color: yellow; color: black;&quot; value=&quot;4&quot;&gt;Amarelo&lt;/option&gt;
+        &lt;option style=&quot;background-color: green; color: black;&quot; value=&quot;5&quot;&gt;Verde&lt;/option&gt;
+        &lt;option style=&quot;background-color: gray; color: black;&quot; value=&quot;8&quot;&gt;Cinza&lt;/option&gt;
+        &lt;option style=&quot;background-color: white; color: black;&quot; value=&quot;10&quot;&gt;Branco&lt;/option&gt;
+        &lt;option style=&quot;background-color: gold ;color: black;&quot; value=&quot;5&quot;&gt;Ouro&lt;/option&gt;
+        &lt;option style=&quot;background-color: silver;  color: black;&quot; value=&quot;10&quot;&gt;Prata&lt;/option&gt;
+      &lt;/select&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;section&quot;&gt;
+  &lt;table&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Valor&lt;/th&gt;
+    &lt;th&gt;Tolerância&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td id=&quot;valor&quot; class=&quot;subtitle&quot;&gt;&lt;/td&gt;
+    &lt;td id=&quot;tolerancia&quot; class=&quot;subtitle&quot;&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt; 
+&lt;/div&gt;
+
+&lt;script&gt;
+
+
+
+document.obj = $(&quot;obj&quot;);
+document.obj.addEventListener(&quot;load&quot;,function(){
+  var svg = document.obj.contentDocument;
+  document.faixas = [svg.getElementById(&quot;rect1-6&quot;), svg.getElementById(&quot;rect3&quot;), svg.getElementById(&quot;rect2&quot;), svg.getElementById(&quot;rect1-6-3&quot;)];
+  document.texto = svg.getElementById(&quot;tspan1&quot;);
+},false);
+
+&lt;/script&gt;
+
+&lt;/div&gt;</content><author><name></name></author><category term="app" /><category term="eletrônica" /><category term="capacitores" /><category term="código de cores" /><summary type="html"></summary></entry><entry><title type="html">Órgãos Antigos dos Anos 70: Geradores e Divisores de Oitavas - Música Eletrônica</title><link href="http://0.0.0.0:4000/eletronica/2023/12/29/geradores-e-divisores-de-oitavas-org%C3%A3os-antigos.html" rel="alternate" type="text/html" title="Órgãos Antigos dos Anos 70: Geradores e Divisores de Oitavas - Música Eletrônica" /><published>2023-12-29T00:00:00-06:00</published><updated>2023-12-29T00:00:00-06:00</updated><id>http://0.0.0.0:4000/eletronica/2023/12/29/geradores-e-divisores-de-oitavas-org%C3%A3os-antigos</id><content type="html" xml:base="http://0.0.0.0:4000/eletronica/2023/12/29/geradores-e-divisores-de-oitavas-org%C3%A3os-antigos.html">&lt;h2 id=&quot;órgãos-antigos-dos-anos-70-geradores-e-divisores-de-oitavas&quot;&gt;Órgãos Antigos dos Anos 70: Geradores e Divisores de Oitavas&lt;/h2&gt;
 
 &lt;p&gt;Os anos 70 foram uma época de efervescência musical e inovação tecnológica, e os órgãos eletrônicos desempenharam um papel crucial nesse cenário. Esses instrumentos, muitas vezes utilizados em bandas de rock progressivo, jazz fusion e música eletrônica da época, eram dotados de características sonoras únicas, inicialmente construidos com o objetivo de serem fiéis aos órgãos de tubos, sua sonoridade única e portabilidade logo achou seu lugar próprio na música.&lt;/p&gt;
 
@@ -1177,62 +1316,4 @@ plt.plot(t,5*np.sin(t*(2*np.pi/0.0001)))
 
 &lt;p&gt;&lt;a href=&quot;https://fabiovila.github.io/RL.ipynb&quot;&gt;Link para o ipynb (Jupyter Notebook) deste post.&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;Espero que tenham gostado. Em breve novos posts!&lt;/p&gt;</content><author><name></name></author><category term="eletrônica" /><category term="eletrônica" /><category term="python" /><category term="circuitos elétricos" /><summary type="html">Usando Python para ODEs de circuitos elétricos: RL</summary></entry><entry><title type="html">Filtros FIR - Processamento de sinais</title><link href="http://0.0.0.0:4000/eletr%C3%B4nica/2021/01/10/filtro-fir.html" rel="alternate" type="text/html" title="Filtros FIR - Processamento de sinais" /><published>2021-01-10T00:00:00-06:00</published><updated>2021-01-10T00:00:00-06:00</updated><id>http://0.0.0.0:4000/eletr%C3%B4nica/2021/01/10/filtro-fir</id><content type="html" xml:base="http://0.0.0.0:4000/eletr%C3%B4nica/2021/01/10/filtro-fir.html">&lt;h2 id=&quot;o-que-são-filtros-fir&quot;&gt;O que são Filtros FIR?&lt;/h2&gt;
-
-&lt;p&gt;Os Filtros de Resposta ao Impulso Finita, ou FIR (do inglês Finite Impulse Response), são uma classe de filtros digitais amplamente utilizados em processamento de sinais. Ao contrário dos Filtros de Resposta ao Impulso Infinita (IIR), os FIR têm uma resposta ao impulso de duração finita, o que os torna mais simples de entender e implementar.&lt;/p&gt;
-
-&lt;p&gt;Os filtros FIR são frequentemente utilizados em uma variedade de aplicações, como processamento de áudio, comunicação digital e processamento de imagens. Sua característica finita permite uma análise mais fácil de seu comportamento e uma implementação mais robusta em muitas situações.&lt;/p&gt;
-
-&lt;h2 id=&quot;estrutura-básica-dos-filtros-fir&quot;&gt;Estrutura Básica dos Filtros FIR&lt;/h2&gt;
-
-&lt;p&gt;A estrutura básica de um filtro FIR consiste em uma soma ponderada de amostras de entrada, cada uma multiplicada por um coeficiente específico. Matematicamente, a saída $y[n]$ de um filtro FIR pode ser expressa como a soma ponderada das amostras de entrada $x[n]$ e seus coeficientes associados $h[k]$:&lt;/p&gt;
-
-&lt;p&gt;\[ y[n] = \sum_{k=0}^{N-1} h[k] \cdot x[n-k] \]&lt;/p&gt;
-
-&lt;p&gt;Onde:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;$N$ é a ordem do filtro (o número total de coeficientes),&lt;/li&gt;
-  &lt;li&gt;$x[n]$ é a amostra de entrada no instante $n$,&lt;/li&gt;
-  &lt;li&gt;$h[k]$ são os coeficientes do filtro.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;exemplo-de-cálculo-de-coeficientes-fir&quot;&gt;Exemplo de Cálculo de Coeficientes FIR&lt;/h2&gt;
-
-&lt;p&gt;Para entender melhor como os coeficientes de um filtro FIR são calculados, consideremos um exemplo prático. Vamos projetar um filtro passa-baixa com uma frequência de corte normalizada de 0,2 em um sistema com frequência de amostragem normalizada de 1.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Determine a ordem do filtro (N):&lt;/strong&gt;
-  A ordem do filtro depende da complexidade desejada. Para este exemplo, escolheremos uma ordem $N = 15$.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Calcule a frequência de corte digital (wc):&lt;/strong&gt;
-  A frequência de corte digital é obtida multiplicando a frequência de corte desejada pela frequência de amostragem. Portanto, $wc = 0,2 \times 1 = 0,2$.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Calcule os coeficientes (h[k]):&lt;/strong&gt;
-  Utilizaremos a fórmula para um filtro passa-baixa ideal:&lt;/p&gt;
-
-    &lt;p&gt;$ h[k] = \frac{\sin(\pi \cdot k \cdot wc)}{\pi \cdot k} $&lt;/p&gt;
-
-    &lt;p&gt;Para $k = 0$, temos que $h[0] = 2 \cdot wc$. Para $k$ diferente de zero, aplicamos a fórmula.&lt;/p&gt;
-
-    &lt;p&gt;Vamos calcular os coeficientes para $k = 1$ até $N-1 = 14$.&lt;/p&gt;
-
-    &lt;p&gt;$ h[k] = \frac{\sin(\pi \cdot k \cdot 0,2)}{\pi \cdot k} $&lt;/p&gt;
-
-    &lt;p&gt;Portanto, os coeficientes seriam:
-  \[ h[0] = 0,4 \]
-  \[ h[k] = \frac{\sin(\pi \cdot k \cdot 0,2)}{\pi \cdot k} \quad \text{para } k = 1 \text{ até } 14 \]&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Normalização dos Coeficientes:&lt;/strong&gt;
-  É comum normalizar os coeficientes de modo que a soma dos quadrados seja igual a 1.&lt;/p&gt;
-
-\[h[k]_{\text{normalizado}} = \frac{h[k]}{\sqrt{\sum_{k=0}^{N-1} h[k]^2}}\]
-
-    &lt;p&gt;Isso garante que a amplitude do sinal não seja afetada durante o processo de filtragem.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Os filtros FIR são uma ferramenta poderosa no processamento de sinais digitais. Com uma compreensão básica de sua estrutura e uma abordagem prática para calcular os coeficientes, é possível projetar filtros personalizados para atender às necessidades específicas de uma aplicação. Experimentar com diferentes ordens e frequências de corte permite ajustar o desempenho do filtro de acordo com os requisitos do sistema.&lt;/p&gt;</content><author><name></name></author><category term="eletrônica" /><category term="eletrônica" /><category term="processamento de sinais" /><category term="filtros" /><summary type="html">O que são Filtros FIR?</summary></entry></feed>
+&lt;p&gt;Espero que tenham gostado. Em breve novos posts!&lt;/p&gt;</content><author><name></name></author><category term="eletrônica" /><category term="eletrônica" /><category term="python" /><category term="circuitos elétricos" /><summary type="html">Usando Python para ODEs de circuitos elétricos: RL</summary></entry></feed>
