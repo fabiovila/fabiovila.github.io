@@ -1,4 +1,394 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2024-01-24T11:09:37-06:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Código de Cores de capacitores - Aplicativo</title><link href="http://0.0.0.0:4000/app/2024/01/23/capacitores.html" rel="alternate" type="text/html" title="Código de Cores de capacitores - Aplicativo" /><published>2024-01-23T00:00:00-06:00</published><updated>2024-01-23T00:00:00-06:00</updated><id>http://0.0.0.0:4000/app/2024/01/23/capacitores</id><content type="html" xml:base="http://0.0.0.0:4000/app/2024/01/23/capacitores.html">&lt;link href=&quot;/assets/css/colormenu.css&quot; type=&quot;text/css&quot; rel=&quot;stylesheet&quot; /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2024-01-24T18:18:58-06:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Cálculo do valor do resistor - Aplicativo</title><link href="http://0.0.0.0:4000/app/2024/01/24/calculo-resistores.html" rel="alternate" type="text/html" title="Cálculo do valor do resistor - Aplicativo" /><published>2024-01-24T00:00:00-06:00</published><updated>2024-01-24T00:00:00-06:00</updated><id>http://0.0.0.0:4000/app/2024/01/24/calculo-resistores</id><content type="html" xml:base="http://0.0.0.0:4000/app/2024/01/24/calculo-resistores.html">&lt;link href=&quot;/assets/css/colormenu.css&quot; type=&quot;text/css&quot; rel=&quot;stylesheet&quot; /&gt;
+
+&lt;script&gt;
+var valor = 220000;
+var unidade = &quot;&quot;;
+var faixas = [2,2,10000,20];
+
+function formata (valor) {
+    if (valor &lt; 1000) {
+    unidade = &quot; Ω&quot;;
+  } else if (valor &gt;= 1000 &amp;&amp; valor &lt; 1000000) {
+    unidade = &quot; KΩ&quot;;
+    valor = valor / 1000;
+  } else if (valor &gt;= 1000000 &amp;&amp; valor &lt; 1000000000) {
+    unidade = &quot; MΩ&quot;;
+    valor = valor / 1000000;
+  } else if (valor &gt;= 1000000000 &amp;&amp; valor &lt; 1000000000000) {
+    unidade = &quot; GΩ&quot;;
+    valor = valor / 1000000000;
+  }
+  valor = valor.toLocaleString(&apos;pt-BR&apos;, {minimumFractionDigits:0, maximumFractionDigits:2}) + unidade;
+  return valor;
+}
+
+function updateValor(cor,index,v) {
+
+  faixas[index] = v;
+  valor = (faixas[0]*10+faixas[1])*faixas[2];
+
+  if (valor &lt;= 100) { substituto = valor; } 
+  if (valor &gt; 100)  { substituto = faixas[0]*100 + faixas[1]*10 + (Math.log10(Number(faixas[2])))   ; }
+
+
+  console.log(cor,index,valor);
+  tolerancia = faixas[3] + &quot;%&quot;;
+
+
+  var alta  =  formata(valor * (1 + Number(faixas[3])/100));
+  var baixa =  formata(valor * (1 - Number(faixas[3])/100));
+  $(&quot;tolerancia&quot;).innerText = tolerancia  + &quot; &quot; + &quot;[ &quot; + alta + &quot;,&quot; + baixa + &quot; ]&quot;;
+  valor = formata(valor);
+  document.faixas[index].style.fill = cor;
+  document.texto.innerHTML = valor;
+  $(&quot;valor&quot;).innerText = valor;
+  
+}
+
+
+&lt;/script&gt;
+
+&lt;div class=&quot;section&quot;&gt;
+&lt;div class=&quot;field is-grouped is-grouped-centered&quot;&gt;
+  &lt;div class=&quot;control&quot;&gt;
+      &lt;small&gt;1° Faixa&lt;/small&gt;
+      &lt;div class=&quot;is-multiple&quot;&gt;
+
+      &lt;label style=&quot;background-color: black; color: dark-grey;&quot; class=&quot;colorContainer&quot;&gt;Preto
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; disabled=&quot;disabled&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: brown; color: white;&quot; class=&quot;colorContainer&quot;&gt;Marrom
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;brown&apos;,0,1);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: red; color: white;&quot; class=&quot;colorContainer&quot;&gt;Vermelho
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;red&apos;,0,2);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: orange; color: white;&quot; class=&quot;colorContainer&quot;&gt;Laranja
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;orange&apos;,0,3);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: yellow; color: black;&quot; class=&quot;colorContainer&quot;&gt;Amarelo
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;yellow&apos;,0,4);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: green; color: white;&quot; class=&quot;colorContainer&quot;&gt;Verde
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;green&apos;,0,5);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;      
+
+      &lt;label style=&quot;background-color: blue; color: white;&quot; class=&quot;colorContainer&quot;&gt;Azul
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;blue&apos;,0,6);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: violet; color: white;&quot; class=&quot;colorContainer&quot;&gt;Violeta
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;violet&apos;,0,7);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: grey; color: white;&quot; class=&quot;colorContainer&quot;&gt;Cinza
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;grey&apos;,0,8);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: white; color: black;&quot; class=&quot;colorContainer&quot;&gt;Branco
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;white&apos;,0,9);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;/div&gt;
+  &lt;/div&gt;
+
+    &lt;div class=&quot;control&quot;&gt;
+    &lt;small&gt;2° Faixa&lt;/small&gt;
+    &lt;div class=&quot;is-multiple&quot;&gt;
+      
+      &lt;label style=&quot;background-color: black; color: white;&quot; class=&quot;colorContainer&quot;&gt;Preto
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;black&apos;,1,0);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: brown; color: white;&quot; class=&quot;colorContainer&quot;&gt;Marrom
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;brown&apos;,1,1);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: red; color: white;&quot; class=&quot;colorContainer&quot;&gt;Vermelho
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;red&apos;,1,2);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: orange; color: white;&quot; class=&quot;colorContainer&quot;&gt;Laranja
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;orange&apos;,1,3);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: yellow; color: black;&quot; class=&quot;colorContainer&quot;&gt;Amarelo
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;yellow&apos;,1,4);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: green; color: white;&quot; class=&quot;colorContainer&quot;&gt;Verde
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;green&apos;,1,5);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;      
+
+      &lt;label style=&quot;background-color: blue; color: white;&quot; class=&quot;colorContainer&quot;&gt;Azul
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;blue&apos;,1,6);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: violet; color: white;&quot; class=&quot;colorContainer&quot;&gt;Violeta
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;violet&apos;,1,7);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: grey; color: white;&quot; class=&quot;colorContainer&quot;&gt;Cinza
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;grey&apos;,1,8);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: white; color: black;&quot; class=&quot;colorContainer&quot;&gt;Branco
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;white&apos;,1,9);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+    &lt;div class=&quot;control&quot;&gt;
+      &lt;small&gt;3° Faixa&lt;/small&gt;
+    &lt;div class=&quot;is-multiple&quot;&gt;
+    
+      &lt;label style=&quot;background-color: black; color: white;&quot; class=&quot;colorContainer&quot;&gt;Preto
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;black&apos;,2,1);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: brown; color: white;&quot; class=&quot;colorContainer&quot;&gt;Marrom
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;brown&apos;,2,10);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: red; color: white;&quot; class=&quot;colorContainer&quot;&gt;Vermelho
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;red&apos;,2,100);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: orange; color: white;&quot; class=&quot;colorContainer&quot;&gt;Laranja
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;orange&apos;,2,1000);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: yellow; color: black;&quot; class=&quot;colorContainer&quot;&gt;Amarelo
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;yellow&apos;,2,10000);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: green; color: white;&quot; class=&quot;colorContainer&quot;&gt;Verde
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;green&apos;,2,100000);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;      
+
+      &lt;label style=&quot;background-color: blue; color: white;&quot; class=&quot;colorContainer&quot;&gt;Azul
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;blue&apos;,2,1000000);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: violet; color: white;&quot; class=&quot;colorContainer&quot;&gt;Violeta
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;violet&apos;,2,10000000);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: grey; color: white;&quot; class=&quot;colorContainer&quot;&gt;Cinza
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;grey&apos;,2,100000000);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: white; color: black;&quot; class=&quot;colorContainer&quot;&gt;Branco
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;white&apos;,2,1000000000);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: gold; color: black;&quot; class=&quot;colorContainer&quot;&gt;Ouro
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;gold&apos;,2,0.1);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: silver; color: black;&quot; class=&quot;colorContainer&quot;&gt;Prata
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;silver&apos;,2,0.01);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+    &lt;div class=&quot;control&quot;&gt;
+      &lt;small&gt;4° Faixa&lt;/small&gt;
+    &lt;div class=&quot;is-multiple&quot;&gt;    
+      &lt;label style=&quot;background-color: black; color: white;&quot; class=&quot;colorContainer&quot;&gt;Preto
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;black&apos;,3,20);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: brown; color: white;&quot; class=&quot;colorContainer&quot;&gt;Marrom
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;brown&apos;,3,1);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: red; color: white;&quot; class=&quot;colorContainer&quot;&gt;Vermelho
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;red&apos;,3,2);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: orange; color: white;&quot; class=&quot;colorContainer&quot;&gt;Laranja
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;orange&apos;,3,3);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: yellow; color: black;&quot; class=&quot;colorContainer&quot;&gt;Amarelo
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;yellow&apos;,3,4);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: green; color: white;&quot; class=&quot;colorContainer&quot;&gt;Verde
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;green&apos;,3,0.5);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;      
+
+      &lt;label style=&quot;background-color: blue; color: white;&quot; class=&quot;colorContainer&quot;&gt;Azul
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;blue&apos;,3,0.25);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: violet; color: white;&quot; class=&quot;colorContainer&quot;&gt;Violeta
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;violet&apos;,3,0.1);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: grey; color: white;&quot; class=&quot;colorContainer&quot;&gt;Cinza
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;grey&apos;,3,0.05);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: white; color: black;&quot; class=&quot;colorContainer&quot;&gt;Branco
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;white&apos;,3,10);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: gold; color: black;&quot; class=&quot;colorContainer&quot;&gt;Ouro
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;gold&apos;,3,5);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+
+      &lt;label style=&quot;background-color: silver; color: black;&quot; class=&quot;colorContainer&quot;&gt;Prata
+        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;silver&apos;,3,10);&quot; /&gt;
+        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
+      &lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;section&quot;&gt;
+&lt;div class=&quot;subtitle has-text-centered&quot;&gt;Selecione as cores acima para obter o resultado&lt;/div&gt;
+&lt;table&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Valor&lt;/th&gt;
+    &lt;th&gt;Tolerância&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td id=&quot;valor&quot; class=&quot;subtitle&quot;&gt;&lt;/td&gt;
+    &lt;td id=&quot;tolerancia&quot; class=&quot;subtitle&quot;&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt; 
+&lt;/div&gt;
+
+&lt;h3 id=&quot;valores-comuns-de-resistores&quot;&gt;Valores comuns de resistores&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;330Ω&lt;/strong&gt; é um valor comum para alimentar um LED em 5V com corrente de 10mA&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;1kΩ&lt;/strong&gt; é um valor comum para alimentar um LED em 5V com corrente de aproximadamente 3mA
+    &lt;ul&gt;
+      &lt;li&gt;Esse valor é usado pelo Arduino em série com os LEDs&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;1k2Ω&lt;/strong&gt; é um valor comum para alimentar um LED em 12V com corrente de aproximadamente 3mA&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;10KΩ&lt;/strong&gt; é um valor comum para Pull Up e Pull Down
+    &lt;ul&gt;
+      &lt;li&gt;Esse valor é usado pelo Arduino como Pull Up&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;510Ω&lt;/strong&gt; é usado pela placa BluePill (STM32 a 3,3 Volts) como resistor de LEDs&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;0.18Ω&lt;/strong&gt; e &lt;strong&gt;0.01Ω&lt;/strong&gt; são valores comuns para resistores Shunt ( sensores de corrente )&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;1MΩ&lt;/strong&gt; é normalmente usado em paralelo com cristais de clock&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;valores-comerciais&quot;&gt;Valores Comerciais&lt;/h3&gt;
+
+&lt;p&gt;O comércio não comercializa todos os valores possíveis. A indústria padronizou alguns valores que são multiplicados pela 3° Faixa, por exemplo, o valor 8.2 pode ser 8.2Ω, 82Ω, 820Ω, 8,2KΩ e assim por diante. Na tabela abaixo pode-se conferir esses valores.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Padrão&lt;/th&gt;
+      &lt;th&gt;E6, E12 e E24&lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1.0&lt;/td&gt;
+      &lt;td&gt;1.1&lt;/td&gt;
+      &lt;td&gt;1.2&lt;/td&gt;
+      &lt;td&gt;1.3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1.5&lt;/td&gt;
+      &lt;td&gt;1.6&lt;/td&gt;
+      &lt;td&gt;1.8&lt;/td&gt;
+      &lt;td&gt;2.0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2.2&lt;/td&gt;
+      &lt;td&gt;2.4&lt;/td&gt;
+      &lt;td&gt;2.7&lt;/td&gt;
+      &lt;td&gt;3.0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;3.3&lt;/td&gt;
+      &lt;td&gt;3.6&lt;/td&gt;
+      &lt;td&gt;3.9&lt;/td&gt;
+      &lt;td&gt;4.3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;6.8&lt;/td&gt;
+      &lt;td&gt;7.5&lt;/td&gt;
+      &lt;td&gt;8.2&lt;/td&gt;
+      &lt;td&gt;9.1&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Esses valores são para resistores de tolerância entre 5% e 20%. Para tolerâncias menores entre 1% e 0.1% a quantidade de valores comerciais é maior e neste caso uma faixa adicional é usada para indicar a maior precisão de valores.&lt;/p&gt;
+
+&lt;script&gt;
+document.obj = $(&quot;obj&quot;);
+document.obj.addEventListener(&quot;load&quot;,function(){
+  var svg = document.obj.contentDocument;
+  document.faixas = [svg.getElementById(&quot;faixa1&quot;), svg.getElementById(&quot;faixa2&quot;), svg.getElementById(&quot;faixa3&quot;), svg.getElementById(&quot;faixa4&quot;)];
+  document.texto = svg.getElementById(&quot;tspan13&quot;);
+},false);
+&lt;/script&gt;</content><author><name></name></author><category term="app" /><category term="eletrônica" /><category term="resistores" /><category term="código de cores" /><summary type="html"></summary></entry><entry><title type="html">Código de Cores de capacitores - Aplicativo</title><link href="http://0.0.0.0:4000/app/2024/01/23/calculo-capacitores.html" rel="alternate" type="text/html" title="Código de Cores de capacitores - Aplicativo" /><published>2024-01-23T00:00:00-06:00</published><updated>2024-01-23T00:00:00-06:00</updated><id>http://0.0.0.0:4000/app/2024/01/23/calculo-capacitores</id><content type="html" xml:base="http://0.0.0.0:4000/app/2024/01/23/calculo-capacitores.html">&lt;link href=&quot;/assets/css/colormenu.css&quot; type=&quot;text/css&quot; rel=&quot;stylesheet&quot; /&gt;
 
 &lt;script&gt;
 var valor = 220000;
@@ -1316,195 +1706,4 @@ Os escritórios de advocacia e os tribunais tem registro de milhares de processo
 
 &lt;p&gt;A inferência estatística é uma parte indispensável da estatística e é usada em várias disciplinas que envolvem tomada de decisões baseadas em dados. Também é essencial para traduzir os dados recolhidos em informações compreensíveis e gerenciáveis, e para transformar essas informações em conhecimento para a tomada de decisões.&lt;/p&gt;
 
-&lt;p&gt;Independentemente de se tratar de negócios, medicina, engenharia ou ciências sociais, a inferência estatística continuará a ser um componente fundamental na coleta, análise e interpretação de dados, permitindo que as pessoas tomem decisões bem fundamentadas.&lt;/p&gt;</content><author><name></name></author><category term="aplicadas" /><category term="matemática" /><category term="estatística" /><summary type="html">Uma Introdução à Inferência Estatística</summary></entry><entry><title type="html">Usando Python para resolver ODEs de circuitos elétricos: RL - Python</title><link href="http://0.0.0.0:4000/eletr%C3%B4nica/2021/02/10/simulacao-circuito-RL-python.html" rel="alternate" type="text/html" title="Usando Python para resolver ODEs de circuitos elétricos: RL - Python" /><published>2021-02-10T00:00:00-06:00</published><updated>2021-02-10T00:00:00-06:00</updated><id>http://0.0.0.0:4000/eletr%C3%B4nica/2021/02/10/simulacao-circuito-RL-python</id><content type="html" xml:base="http://0.0.0.0:4000/eletr%C3%B4nica/2021/02/10/simulacao-circuito-RL-python.html">&lt;h3 id=&quot;usando-python-para-odes-de-circuitos-elétricos-rl&quot;&gt;Usando Python para ODEs de circuitos elétricos: RL&lt;/h3&gt;
-
-&lt;p&gt;Neste artigo explorarei a solução de circuitos elétricos utilizando Python. A solução analítica será encontrada utilizando SymPy enquanto a solução numérica será obtida com SciPy e Numpy.&lt;/p&gt;
-
-&lt;p&gt;Tratarei apenas do circuito RL da figura abaixo pois encontramos neste tipo de circuito apenas uma derivada. Estudaremos os casos para fontes DC e AC.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/imgs/circuit-rl.png&quot; alt=&quot;Circuito RL&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Para uma fonte DC de 5V o circuito é modelado pela seguinte equação diferencial&lt;/p&gt;
-
-&lt;p&gt;\[5 = 4700 i{\left(t \right)} + 0.0001 \frac{d}{d t} i{\left(t \right)}\]&lt;/p&gt;
-
-&lt;p&gt;Esse é um exemplo de Equação Diferencial Ordinária ou abreviadamente ODE cujas soluções podem ser analíticas ou numéricas. A solução analítica é a solução como conhecemos na escola ou a simples solução algébrica através de manipulação dos símbolos onde obteremos no final uma família de funções matemáticas em que podemos calcular o comportamento do circuito. Obter a solução analítica de uma ODE requer conhecimentos de cálculo 1 e 2 lecionados no nível superior, mas utilizando algum CAS (Computer Álgebra System) a solução pode ser encontrada rapidamente.&lt;/p&gt;
-
-&lt;p&gt;A solução numérica não manipula símbolos, utiliza-se de métodos interativos com tentativa e erros com um certo discernimento de para onde ir em busca da solução. Pode ser feito na mão ou mais adequadamente no computador.&lt;/p&gt;
-
-&lt;h3 id=&quot;requerimentos&quot;&gt;Requerimentos&lt;/h3&gt;
-
-&lt;p&gt;Como as soluções serão procuradas com Python precisaremos dos pacotes SymPy, Numpy, Matplotlib e SciPy que podem ser facilmente instalados utilizando o pip:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip install sympy numpy matplotlib scipy
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;destaque grad-orange&quot;&gt;
-&lt;h4&gt;Conheça os pacotes usados&lt;/h4&gt;
-&lt;ul&gt;
-    &lt;li&gt;Numpy - Pacote de manipulação de vetores, matrizes e operações matemáticas em geral. Utiliza internamente o OpenBLAS. Praticamente utilizado por todos os outros pacotes inclusive todos os abaixos.&lt;/li&gt;
-    &lt;li&gt;Sympy - Pacote de computação matemática simbólica&lt;/li&gt;
-    &lt;li&gt;Matplotlib - Exibe gráficos.&lt;/li&gt;
-    &lt;li&gt;Scipy - Um grande pacote com diversas utilidades em vários ramos da ciência.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Em todos os arquivos os imports necessários e a cabeça do arquivo será este:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;
-from sympy import *
-import numpy as np
-from scipy.integrate import solve_ivp
-import matplotlib.pyplot as plt
-%matplotlib inline
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&quot;versão-analítica-com-sympy&quot;&gt;Versão analítica com SymPy&lt;/h3&gt;
-
-&lt;p&gt;A solução analítica pode ser encontrada utilizando o módulo Sympy. É um módulo promissor, mas ainda está em um nível intermediário de maturidade. Não se compara em poder ao Maxima e ao Mathematica.&lt;/p&gt;
-
-&lt;p&gt;A solução analítica de uma ODE utilizando o Sympy é encontrada com o comando &lt;strong&gt;dsolve&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;
-S = 5
-R = 4700
-L = 100e-6
-
-t = Symbol(&apos;t&apos;)
-v = Function(&apos;v&apos;)(t)
-i = Function(&apos;i&apos;)(t)
-    
-eq = Eq(S,R*i+L*i.diff(t))
-eq
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;O Sympy exibe em formato tex a equação acima como:&lt;/p&gt;
-
-\[5 = 4700 i{\left(t \right)} + 0.0001 \frac{d}{d t} i{\left(t \right)}\]
-
-&lt;p&gt;E como dito a solução analítica é encontrada pelo comando &lt;strong&gt;dsolve&lt;/strong&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dsolve(eq)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;cuja saída será:&lt;/p&gt;
-
-\[\displaystyle i{\left(t \right)} = C_{1} e^{- 47000000.0 t} + \frac{1}{940}\]
-
-&lt;p&gt;Que é a função de $i$ em $t$ como desejamos. $C_1$ é uma constante que como toda equação diferencial e sistemas físicos que armazenam energia essa constante define a condição inicial da função, oras, temos um indutor no circuito que INICIALMENTE pode ter um campo magnético de valor 0 ou qualquer outro valor que iria interferir no início do circuito. Cabe a nós dizer qual é esse campo. Mas em geral começamos com condições iniciais com corrente zero, ou seja, $i(t=0) = 0$.&lt;/p&gt;
-
-&lt;h3 id=&quot;versão-numérica-com-scipy-e-numpy&quot;&gt;Versão numérica com SciPy e Numpy&lt;/h3&gt;
-
-&lt;p&gt;&lt;em&gt;Sim é muito Py. Pois este é poder do Python: Seus módulos! E as pessoas gostam de homenagear o Python colocando o Py no nome.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;A solução numérica será encontrada utilizando o comando &lt;strong&gt;solve_ivp&lt;/strong&gt; porém o correto agora é dizermos “as soluções” pois o que obteremos é uma tabela (List) com os valores numéricos de $i$ em $t$ que utilizaremos para visualizar o gráfico do comportamento da corrente no circuito.&lt;/p&gt;
-
-&lt;p&gt;O &lt;strong&gt;solve_ivp&lt;/strong&gt; precisa que a equação esteja no formato&lt;/p&gt;
-
-\[{dy(t) \over dt}= ...\]
-
-&lt;p&gt;que no nosso caso então seria&lt;/p&gt;
-
-\[{di(t) \over dt}= ...\]
-
-&lt;p&gt;e que esta equação esteja em forma de função Python, dessa forma definimos então a função circuito:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;
-def circuito(t,i):
-    return (5 -4700*i)/0.0001
-    
-tempo_maximo = 0.000001
-t = np.linspace(0,tempo_maximo,1000)
-sol = solve_ivp(circuito,[0,tempo_maximo],[0],method=&apos;RK45&apos;,t_eval=t)
-plt.plot(sol.t,sol.y[0])
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;O primeiro parâmetro de &lt;strong&gt;solve_ivp&lt;/strong&gt; é nossa função, o segundo o intervalo de tempo que a ODE será integrada e o &lt;em&gt;[0]&lt;/em&gt; é o valor inicial e como foi dito antes a corrente no circuito inicialmente é zero, ou seja &lt;em&gt;[0]&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Tempo_maximo&lt;/em&gt;&lt;/strong&gt; é crítico. Se um valor maior que o transitório do circuito for colocado não visualizaremos nada de útil, somente o estado estacionário do circuito. Se for muito pequeno veremos apenas o início do estado transitório que provavelmente será uma reta. Com os valores do programa o seguinte gráfico aparecerá:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/imgs/grafico-rl.png&quot; alt=&quot;Grafico RL&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Como a fonte é contínua o gráfico se apresenta como o esperado. A corrente começa do zero e vai subindo gradativamente até que o indutor seja somente um curto-circuito e a corrente circulante seja a limitada pelo resistor.&lt;/p&gt;
-
-&lt;h3 id=&quot;fonte-de-tensão-senoidal&quot;&gt;Fonte de tensão senoidal&lt;/h3&gt;
-
-&lt;p&gt;Um circuito de corrente contínua não nos oferece muito, vamos então usar uma fonte de tensão de &lt;em&gt;1Khz&lt;/em&gt; com &lt;em&gt;Vp&lt;/em&gt; de &lt;em&gt;5V&lt;/em&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;solução-analítica&quot;&gt;Solução analítica&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;
-S = 5*sin(t*(2*pi/(1/1000)))
-R = 4700
-L = 100e-6
-
-t = Symbol(&apos;t&apos;)
-v = Function(&apos;v&apos;)(t)
-i = Function(&apos;i&apos;)(t)
-    
-eq = Eq(S,R*i+L*i.diff(t))
-eq
-dsolve(eq)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;A única diferença é a mudança do S com a senoide provida pelo Seno do SymPy &lt;em&gt;sin&lt;/em&gt;. As saídas serão então:&lt;/p&gt;
-
-\[\displaystyle 5 \sin{\left(2000 \pi t \right)} = 4700 i{\left(t \right)} + 0.0001 \frac{d}{d t} i{\left(t \right)}\]
-
-&lt;p&gt;E a solução&lt;/p&gt;
-
-\[\displaystyle i{\left(t \right)} = C_{1} e^{- 47000000.0 t} + 0.00106382976822168 \sin{\left(2000 \pi t \right)} - 1.42217863170866 \cdot 10^{-7} \cos{\left(2000 \pi t \right)}\]
-
-&lt;p&gt;Basicamente uma corrente não defasada com &lt;strong&gt;1.06mA&lt;/strong&gt;. Não entendi o outro cos de valor irrisório. Provavelmente o transitório inicial não seja uma composição pura do exponente e o seno, mas tenha algum componente que deforme a onda (Fourier).&lt;/p&gt;
-
-&lt;h3 id=&quot;solução-numérica&quot;&gt;Solução numérica&lt;/h3&gt;
-
-&lt;p&gt;Já na solução numérica faremos maiores alterações.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;
-def circuito(t,i):
-    return (5*np.sin(t*(2*np.pi/0.0001)) -4700*i)/0.0001
-    
-tempo_maximo = 0.001
-t = np.linspace(0,tempo_maximo,10000)
-sol = solve_ivp(circuito,[0,tempo_maximo],[0],method=&apos;RK45&apos;,t_eval=t)
-print(max(sol.y[0]),min(sol.y[0]))
-
-plt.subplots(figsize=(15, 5))
-plt.subplot(1, 2, 1)
-plt.plot(sol.t,sol.y[0])
-plt.subplot(1, 2, 2)
-plt.plot(t,5*np.sin(t*(2*np.pi/0.0001)))
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;As alterações, além da fonte, foi o tempo que foi diminuído e exibimos o i máximo e mínimo como mostrado abaixo:&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;i máximo&lt;/td&gt;
-      &lt;td&gt;0.0010661978534370956&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;i minimo&lt;/td&gt;
-      &lt;td&gt;-0.0010652848773317844&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;Nos gráficos abaixo o primeiro é a corrente do circuito encontrada pela solução numérica e o outro a tensão da fonte.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/imgs/grafico2-rl.png&quot; alt=&quot;Grafico2&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Os valores mínimos e máximos mostram uma corrente de &lt;strong&gt;1.06mA&lt;/strong&gt; que confere com a solução analítica obtida anteriormente.&lt;/p&gt;
-
-&lt;h3 id=&quot;falstad&quot;&gt;Falstad&lt;/h3&gt;
-
-&lt;p&gt;Vamos conferir com o simulador de circuitos do Falstad? Que aliás usa de muita solução numérica para simular o circuito.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/imgs/falstad-rl.png&quot; alt=&quot;Falstad&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Como se pode ver no osciloscópio &lt;em&gt;Fonte CA&lt;/em&gt; o &lt;strong&gt;Max=1.064mA&lt;/strong&gt; novamente confere com os cálculos.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://fabiovila.github.io/RL.ipynb&quot;&gt;Link para o ipynb (Jupyter Notebook) deste post.&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Espero que tenham gostado. Em breve novos posts!&lt;/p&gt;</content><author><name></name></author><category term="eletrônica" /><category term="eletrônica" /><category term="python" /><category term="circuitos elétricos" /><summary type="html">Usando Python para ODEs de circuitos elétricos: RL</summary></entry></feed>
+&lt;p&gt;Independentemente de se tratar de negócios, medicina, engenharia ou ciências sociais, a inferência estatística continuará a ser um componente fundamental na coleta, análise e interpretação de dados, permitindo que as pessoas tomem decisões bem fundamentadas.&lt;/p&gt;</content><author><name></name></author><category term="aplicadas" /><category term="matemática" /><category term="estatística" /><summary type="html">Uma Introdução à Inferência Estatística</summary></entry></feed>
