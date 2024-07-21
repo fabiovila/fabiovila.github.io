@@ -1,4 +1,61 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2024-01-24T18:52:54-06:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Cálculo de valor do resistor - Aplicativo</title><link href="http://0.0.0.0:4000/app/2024/01/24/calculo-resistores.html" rel="alternate" type="text/html" title="Cálculo de valor do resistor - Aplicativo" /><published>2024-01-24T00:00:00-06:00</published><updated>2024-01-24T00:00:00-06:00</updated><id>http://0.0.0.0:4000/app/2024/01/24/calculo-resistores</id><content type="html" xml:base="http://0.0.0.0:4000/app/2024/01/24/calculo-resistores.html">&lt;link href=&quot;/assets/css/colormenu.css&quot; type=&quot;text/css&quot; rel=&quot;stylesheet&quot; /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2024-07-19T20:24:24-05:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Significado dos códigos de falha OBD2 da ECU - Aplicativo</title><link href="http://0.0.0.0:4000/app/2024/07/17/codigo-falhas-obd2-ecu.html" rel="alternate" type="text/html" title="Significado dos códigos de falha OBD2 da ECU - Aplicativo" /><published>2024-07-17T00:00:00-05:00</published><updated>2024-07-17T00:00:00-05:00</updated><id>http://0.0.0.0:4000/app/2024/07/17/codigo-falhas-obd2-ecu</id><content type="html" xml:base="http://0.0.0.0:4000/app/2024/07/17/codigo-falhas-obd2-ecu.html">&lt;script&gt;
+  var codigos;
+
+function procurar(texto) {
+  var html = &quot;&lt;tr&gt;&lt;th&gt;Código&lt;/th&gt;&lt;th&gt;Descrição&lt;/th&gt;&lt;/tr&gt;&quot;;
+  $(&apos;tresult&apos;).innerHTML = &quot;&quot;;
+  for (const codigo of codigos) {
+    const cdescr = codigo.cdescr || &quot;&quot;; 
+    if (codigo.Code.includes(texto) || codigo.Description.includes(texto) || cdescr.includes(texto)){
+      if (&quot;cdescr&quot; in codigo) {
+        html += &quot;&lt;tr&gt;&lt;td class=&apos;has-text-weight-bold&apos;&gt;&quot; + codigo.Code + &quot;&lt;/td&gt;&lt;td class=&apos;has-text-weight-bold&apos;&gt;&quot; + codigo.Description + &quot;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&quot;+codigo.cdescr+&quot;&lt;/td&gt;&lt;/tr&gt;&quot;;
+      } else {
+        html += &quot;&lt;tr&gt;&lt;td&gt;&quot; + codigo.Code + &quot;&lt;/td&gt;&lt;td&gt;&quot; + codigo.Description + &quot;&lt;/td&gt;&lt;/tr&gt;&quot;;
+      }
+      
+    }
+  }    
+  $(&apos;tresult&apos;).innerHTML = html;
+}
+
+window.addEventListener(&quot;load&quot;, function(){
+   fetch(&apos;/assets/json/codigos.json&apos;)
+    .then((response) =&gt; response.json())
+    .then((json) =&gt; codigos = json);
+});
+&lt;/script&gt;
+
+&lt;hr class=&quot;m-1&quot; /&gt;
+
+&lt;h3 id=&quot;digite-o-código-ou-alguma-palavra&quot;&gt;Digite o código ou alguma palavra&lt;/h3&gt;
+&lt;form onsubmit=&quot;return false;&quot;&gt;
+&lt;div class=&quot;field&quot;&gt;
+&lt;div class=&quot;control has-icons-left has-icons-right&quot;&gt;
+  &lt;input class=&quot;input&quot; onkeyup=&quot;procurar(this.value)&quot; id=&quot;tx&quot; type=&quot;text&quot; placeholder=&quot;Exemplo: P104 ou 104 ou sonda lambda&quot; /&gt;
+  &lt;span class=&quot;icon is-medium is-left&quot;&gt;
+    &lt;i class=&quot;fas fa-search&quot;&gt;&lt;/i&gt;
+  &lt;/span&gt;
+  &lt;span class=&quot;icon is-medium is-right&quot;&gt;
+    &lt;i class=&quot;fas fa-check&quot;&gt;&lt;/i&gt;
+  &lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;field is-grouped&quot;&gt;
+  &lt;div class=&quot;control&quot;&gt;
+    &lt;button class=&quot;button is-rounded is-success&quot; onkeyup=&quot;procurar($(&apos;tx&apos;).value)&quot;&gt;Procurar&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;/form&gt;
+
+&lt;h3 id=&quot;resultado&quot;&gt;Resultado&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;Os comentários, soluções e descrições abaixo são genéricos. Cada carro e seu defeito tem suas particularidades que a soluções descritas podem não resolver ou ainda piorar o problema. Algumas atividades de manutenção requerem conhecimento técnico prévio, ferramentas adequadas e experiência do operador. Se não sabe o que está fazendo consulte um profissional.&lt;/em&gt;&lt;/p&gt;
+
+&lt;div class=&quot;content&quot;&gt;
+&lt;table id=&quot;tresult&quot;&gt;
+&lt;/table&gt; 
+&lt;/div&gt;</content><author><name></name></author><category term="app" /><category term="auto" /><category term="obd2" /><category term="ecu" /><summary type="html"></summary></entry><entry><title type="html">Cálculo de resistência pelas cores do resistor - Aplicativo</title><link href="http://0.0.0.0:4000/app/2024/01/24/calculo-resistores.html" rel="alternate" type="text/html" title="Cálculo de resistência pelas cores do resistor - Aplicativo" /><published>2024-01-24T00:00:00-06:00</published><updated>2024-01-24T00:00:00-06:00</updated><id>http://0.0.0.0:4000/app/2024/01/24/calculo-resistores</id><content type="html" xml:base="http://0.0.0.0:4000/app/2024/01/24/calculo-resistores.html">&lt;link href=&quot;/assets/css/colormenu.css&quot; type=&quot;text/css&quot; rel=&quot;stylesheet&quot; /&gt;
 
 &lt;script&gt;
 var valor = 220000;
@@ -902,7 +959,7 @@ As divisões podem ser conferidas na tabela abaixo:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;Porém essa representação não funciona muito bem.  Na entrada de exemplo “Qual o sentido d” na codificação de letras sugerida o próximo token poderá ser o &lt;em&gt;“a”&lt;/em&gt;, &lt;em&gt;“e”&lt;/em&gt; e &lt;em&gt;“o”&lt;/em&gt; como nas frases &lt;em&gt;“Qual o sentido de …”&lt;/em&gt; e &lt;em&gt;“Qual o sentido do …”&lt;/em&gt; e porque não o &lt;em&gt;“i”&lt;/em&gt; em &lt;em&gt;“Qual o sentido disso …“&lt;/em&gt;, ou seja, a probabilidade do próximo token nessa codificação se diluí dificultando prever o próximo token. Imagine o espaço &lt;em&gt;” “&lt;/em&gt; ou o artigo &lt;em&gt;“a”&lt;/em&gt;, praticamente todas as letras/tokens tem a mesma probabilidade de ocorrerem depois deles.&lt;/p&gt;
+&lt;p&gt;Porém essa representação não funciona muito bem.  Se por exemplo na entrada “Qual o sentido d” nessa codificação por letras sugerida o próximo token poderá ser o &lt;em&gt;“a”&lt;/em&gt;, &lt;em&gt;“e”&lt;/em&gt; e &lt;em&gt;“o”&lt;/em&gt; como nas frases &lt;em&gt;“Qual o sentido de …”&lt;/em&gt; e &lt;em&gt;“Qual o sentido do …”&lt;/em&gt; e porque não o &lt;em&gt;“i”&lt;/em&gt; em &lt;em&gt;“Qual o sentido disso …“&lt;/em&gt;, ou seja, a probabilidade do próximo token nessa codificação se diluí dificultando prever o próximo token. A situação piora com o espaço &lt;em&gt;” “&lt;/em&gt; ou o artigo &lt;em&gt;“a”&lt;/em&gt;, praticamente todas as letras/tokens tem a mesma probabilidade de ocorrerem depois deles.&lt;/p&gt;
 
 &lt;p&gt;Outro problema é o contexto. As redes neurais vão perdendo o contexto ao longo das previsões e uma codificação como essa que precise de muitas iterações para formar uma frase fará a rede perder o ‘tema do assunto’.&lt;/p&gt;
 
@@ -941,11 +998,11 @@ As divisões podem ser conferidas na tabela abaixo:&lt;/p&gt;
 
 &lt;h3 id=&quot;byte-pair-encoding-bpe&quot;&gt;Byte-Pair Encoding (BPE)&lt;/h3&gt;
 
-&lt;p&gt;Usado inicialmente como um algoritmo para comprimir textos ele achou seu sucesso nos modelos de linguagens localizando-se no entre-meio da representação por letras e por palavras. Na codificação BPE inicialmente todas as letras são incluídas, depois uma pesquisa em uma grande quantidade de textos determinará as palavras e RADICAIS de palavras mais frequentemente usadas que serão incluídas na representação.&lt;/p&gt;
+&lt;p&gt;O BPE, usado inicialmente como um algoritmo para comprimir textos, achou seu sucesso nos modelos de linguagens localizando-se no entre-meio da representação por letras e por palavras. Na codificação BPE inicialmente todas as letras são incluídas, em seguida uma &lt;strong&gt;pesquisa&lt;/strong&gt; em uma grande quantidade de textos determinará as palavras e os RADICAIS frequentemente presentes nesses textos que serão incluídos na representação.&lt;/p&gt;
 
-&lt;p&gt;Em português é extremamente comum o uso das preposições “do”, “da”, “em”; os artigos “um”, “uma”; os advérbios “não”, “sim”, “talvez”.&lt;/p&gt;
+&lt;p&gt;Em português é extremamente comum o uso das preposições “do”, “da”, “em”; os artigos “um”, “uma”; os advérbios “não”, “sim”, “talvez”, em inglês é imperativo a presença do “the”, “were”, “have”, logo essas palavras são bons candidatos a serem incluídos no vocabulário.&lt;/p&gt;
 
-&lt;p&gt;Aprendemos na escola a formação das palavras com os prefixos, sufixos, radicais e outras formas, partindo disso, os prefixos “íssimo”,”an”, “anti”, “endo”, “hiper” bem como os sufixos “ismo”, “ença”, “ário” e tantos outros são fortes candidatos a serem representados pelo BPE. Por sorte nossa lingua tem radicais muito comuns que também podem ser incluídos na representação.&lt;/p&gt;
+&lt;p&gt;Aprendemos na escola a formação das palavras utilizando prefixos, sufixos e radicais, partindo disso, os prefixos “íssimo”,”an”, “anti”, “endo”, “hiper” bem como os sufixos “ismo”, “ença”, “ário” e tantos outros são fortes candidatos a serem representados pelo BPE. Por sorte nossa lingua tem radicais muito comuns que também podem ser incluídos na representação.&lt;/p&gt;
 
 &lt;p&gt;Vejamos o exemplo da frase “Qual o sentido da vida?” na codificação BPE usada pelo GPT:&lt;/p&gt;
 
@@ -1080,10 +1137,15 @@ tokenizer.save(&quot;byte-level-bpe.tokenizer.32k.json&quot;, pretty=True)
 
 &lt;h3 id=&quot;usando-o-vocabulário-gerado&quot;&gt;Usando o vocabulário gerado&lt;/h3&gt;
 
-&lt;p&gt;Para carregar o arquivo o &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;from_file&lt;/code&gt; do Tokenizer é usado. 
-Para transformar um texto em números usa-se o &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tokenizer.encode(texto)&lt;/code&gt; que retornará na lista &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.ids&lt;/code&gt;.
-Para transformar uma sequência de números em texto novamente o &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;decode&lt;/code&gt; é usado.
-Como se pode ver no exemplo abaixo:&lt;/p&gt;
+&lt;p&gt;Para carregar o json do vocabulário o Tokenizer tem a função &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;from_file&lt;/code&gt; e para codificar um texto qualquer no vocabulário carregado usa-se o &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tokenizer.encode(texto)&lt;/code&gt; que retornará a lista &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.ids&lt;/code&gt; contendo os números dos tokens do texto convertido.
+O processo inverso, ou seja, transformar uma lista de números obtidos da conversão de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tokenizer.encode(texto).ids&lt;/code&gt; em texto novamente é feito utilizando &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;decode&lt;/code&gt;.
+Lembre-se:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tokenizer.encode - Transforma o texto em tokens do vocabulário carregado
+tokenizer.decode - Transforma uma lista de números em texto dos tokens representados pelo vocabulário carregado.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Como se pode ver no exemplo abaixo:&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import tokenizers
 from tokenizers import Tokenizer
@@ -1628,82 +1690,4 @@ Os escritórios de advocacia e os tribunais tem registro de milhares de processo
       &lt;p&gt;Read, D. (2005). Judgment and Choice. In K. Kempf-Leonard (Ed.), Encyclopedia of Social Measurement (pp. 401–407). Elsevier. &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="aplicadas" /><category term="matemática" /><category term="probabilidade" /><summary type="html">Todas as coisas são números. Transformando idéias e sensações em números</summary></entry><entry><title type="html">Inferência estatística - Matemática</title><link href="http://0.0.0.0:4000/aplicadas/2022/08/01/infer%C3%AAncia-estatistica.html" rel="alternate" type="text/html" title="Inferência estatística - Matemática" /><published>2022-08-01T00:00:00-05:00</published><updated>2022-08-01T00:00:00-05:00</updated><id>http://0.0.0.0:4000/aplicadas/2022/08/01/infer%C3%AAncia-estatistica</id><content type="html" xml:base="http://0.0.0.0:4000/aplicadas/2022/08/01/infer%C3%AAncia-estatistica.html">&lt;h2 id=&quot;uma-introdução-à-inferência-estatística&quot;&gt;Uma Introdução à Inferência Estatística&lt;/h2&gt;
-
-&lt;p&gt;Inferência estatística é uma parte crucial da estatística que nos permite tomar decisões a partir dos dados. É uma ferramenta essencial para analisar uma grande variedade de dados e encontrar respostas a questões específicas.&lt;/p&gt;
-
-&lt;h3 id=&quot;definição-de-inferência-estatística&quot;&gt;Definição de Inferência Estatística&lt;/h3&gt;
-
-&lt;p&gt;A Inferência estatística é o processo de usar a análise de dados para deduzir propriedades de uma população ou distribuição de probabilidade. Envolve análise estatística de uma amostra dos dados, gerada pela população. A inferência estatística inclui estimativa de parâmetros e teste de hipóteses.&lt;/p&gt;
-
-&lt;h3 id=&quot;tipos-de-inferência-estatística&quot;&gt;Tipos de Inferência Estatística&lt;/h3&gt;
-
-&lt;p&gt;Existem dois tipos principais de inferência estatística: &lt;strong&gt;estimação de parâmetros&lt;/strong&gt; e &lt;strong&gt;teste de hipóteses&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Estimação de parâmetros&lt;/strong&gt;: Isso envolve chegar a uma estimativa da medida de um população a partir de uma amostra. A estimativa pode ser expressa através de um único valor (estimativa pontual) ou um intervalo de valores (estimação intervalar ou intervalo de confiança).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Por exemplo, suponha que você queira saber a altura média dos alunos em uma universidade. Para isso, em vez de medir a altura de todos os alunos, você mede a altura de 100 alunos selecionados aleatoriamente (a amostra) e, com base nesses dados, você estima a altura média de todos os alunos (a população).&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Teste de hipóteses&lt;/strong&gt;: Com base na amostra, uma afirmação é feita sobre a população. Essa afirmação (chamada de hipótese) é testada para aceitação ou rejeição. A hipótese de teste é apenas uma suposição sobre a população de onde a amostra foi retirada.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Por exemplo, se uma empresa de laticínios afirma que a média do teor de gordura de seu leite é de 3,5%, um consumidor preocupado com a saúde pode pegar uma amostra do leite e testar a hipótese de que o teor de gordura média é realmente esse valor.&lt;/p&gt;
-
-&lt;h3 id=&quot;por-que-a-inferência-estatística-é-importante&quot;&gt;Por que a Inferência Estatística é Importante?&lt;/h3&gt;
-
-&lt;p&gt;A inferência estatística desempenha um papel vital na análise de dados. Ela fornece métodos para quantificar a incerteza nas conclusões e usar os dados para tomar decisões informadas. É uma ferramenta fundamental para prever tendências futuras, testar teorias e hipóteses, e tomar decisões estratégicas em negócios e pesquisa.&lt;/p&gt;
-
-&lt;h3 id=&quot;exemplo&quot;&gt;Exemplo&lt;/h3&gt;
-
-&lt;p&gt;Digamos que uma empresa deseja entender quanto tempo seus funcionários gastam em uma tarefa específica para melhorar a eficácia, e para isso colheu uma amostra de 25 funcionários.&lt;/p&gt;
-
-&lt;p&gt;Dado os tempos em minutos:&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Tempo em minutos&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;20, 24, 22, 25, 23, 23, 21, 21, 22, 24, 22, 21, 24, 26, 25, 23, 22, 24, 23, 26, 27, 22, 24, 23, 22&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;Primeiro, calculamos a média e o desvio padrão dessa amostra:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Média&lt;/strong&gt; $\bar{X} = {\text{soma de todos os tempos} \over \text{número de amostras}}$&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Desvio padrão&lt;/strong&gt; $s = {\sqrt {\sum{(X_i - \bar{X})^2} \over {\text{número de amostras} - 1}}}$&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Calculando com os valores dados obtemos as seguintes informações:&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Média $\bar{X}$&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;23.16&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Desvio padrão $s$&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;1.71&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;Em seguida, podemos usar essas informações para criar um intervalo de confiança de 95% para o tempo médio que todos os funcionários gastam na tarefa. Supomos que as medidas seguem uma distribuição normal.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;$Z_{score}$ para a confiança de $95\% = 1.96$ (Consultando a tabela Z-Score)&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Erro padrão&lt;/strong&gt; $SE = {s \over \sqrt{\text{número de amostras}}}$&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Intervalo de confiança&lt;/strong&gt; = $(\bar{X}) ± Z_{score} \times SE$&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Uma vez que calculamos o intervalo de confiança, podemos dizer que estamos 95% confiantes de que o tempo médio real que todos os funcionários gastam na tarefa está dentro do intervalo de confiança.&lt;/p&gt;
-
-&lt;p&gt;Observe que as fórmulas acima são simplificações e assumem uma distribuição normal e uma amostra grande o suficiente. Os cálculos exatos podem ser mais complexos dependendo dos aspectos específicos dos dados e do que planejamos inferir.&lt;/p&gt;
-
-&lt;p&gt;A inferência estatística é uma parte indispensável da estatística e é usada em várias disciplinas que envolvem tomada de decisões baseadas em dados. Também é essencial para traduzir os dados recolhidos em informações compreensíveis e gerenciáveis, e para transformar essas informações em conhecimento para a tomada de decisões.&lt;/p&gt;
-
-&lt;p&gt;Independentemente de se tratar de negócios, medicina, engenharia ou ciências sociais, a inferência estatística continuará a ser um componente fundamental na coleta, análise e interpretação de dados, permitindo que as pessoas tomem decisões bem fundamentadas.&lt;/p&gt;</content><author><name></name></author><category term="aplicadas" /><category term="matemática" /><category term="estatística" /><summary type="html">Uma Introdução à Inferência Estatística</summary></entry></feed>
+&lt;/div&gt;</content><author><name></name></author><category term="aplicadas" /><category term="matemática" /><category term="probabilidade" /><summary type="html">Todas as coisas são números. Transformando idéias e sensações em números</summary></entry></feed>

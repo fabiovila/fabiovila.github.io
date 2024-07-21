@@ -91,6 +91,7 @@
 
   <header class="mb-5">
     <h1 class="title">Criando seu próprio vocabulário BPE no Tokenizers - Python</h1>
+    <h4 class="subtitle has-text-weight-light is-family-sans-serif"></h4>
     
     <h4 class="subtitle has-text-weight-light is-family-sans-serif">Entenda a codificação usada pelos modelos de linguagem e crie seu próprio vocabulário.</h4>
     
@@ -130,7 +131,7 @@
   </tbody>
 </table>
 
-<p>Porém essa representação não funciona muito bem.  Na entrada de exemplo “Qual o sentido d” na codificação de letras sugerida o próximo token poderá ser o <em>“a”</em>, <em>“e”</em> e <em>“o”</em> como nas frases <em>“Qual o sentido de …”</em> e <em>“Qual o sentido do …”</em> e porque não o <em>“i”</em> em <em>“Qual o sentido disso …“</em>, ou seja, a probabilidade do próximo token nessa codificação se diluí dificultando prever o próximo token. Imagine o espaço <em>” “</em> ou o artigo <em>“a”</em>, praticamente todas as letras/tokens tem a mesma probabilidade de ocorrerem depois deles.</p>
+<p>Porém essa representação não funciona muito bem.  Se por exemplo na entrada “Qual o sentido d” nessa codificação por letras sugerida o próximo token poderá ser o <em>“a”</em>, <em>“e”</em> e <em>“o”</em> como nas frases <em>“Qual o sentido de …”</em> e <em>“Qual o sentido do …”</em> e porque não o <em>“i”</em> em <em>“Qual o sentido disso …“</em>, ou seja, a probabilidade do próximo token nessa codificação se diluí dificultando prever o próximo token. A situação piora com o espaço <em>” “</em> ou o artigo <em>“a”</em>, praticamente todas as letras/tokens tem a mesma probabilidade de ocorrerem depois deles.</p>
 
 <p>Outro problema é o contexto. As redes neurais vão perdendo o contexto ao longo das previsões e uma codificação como essa que precise de muitas iterações para formar uma frase fará a rede perder o ‘tema do assunto’.</p>
 
@@ -169,11 +170,11 @@
 
 <h3 id="byte-pair-encoding-bpe">Byte-Pair Encoding (BPE)</h3>
 
-<p>Usado inicialmente como um algoritmo para comprimir textos ele achou seu sucesso nos modelos de linguagens localizando-se no entre-meio da representação por letras e por palavras. Na codificação BPE inicialmente todas as letras são incluídas, depois uma pesquisa em uma grande quantidade de textos determinará as palavras e RADICAIS de palavras mais frequentemente usadas que serão incluídas na representação.</p>
+<p>O BPE, usado inicialmente como um algoritmo para comprimir textos, achou seu sucesso nos modelos de linguagens localizando-se no entre-meio da representação por letras e por palavras. Na codificação BPE inicialmente todas as letras são incluídas, em seguida uma <strong>pesquisa</strong> em uma grande quantidade de textos determinará as palavras e os RADICAIS frequentemente presentes nesses textos que serão incluídos na representação.</p>
 
-<p>Em português é extremamente comum o uso das preposições “do”, “da”, “em”; os artigos “um”, “uma”; os advérbios “não”, “sim”, “talvez”.</p>
+<p>Em português é extremamente comum o uso das preposições “do”, “da”, “em”; os artigos “um”, “uma”; os advérbios “não”, “sim”, “talvez”, em inglês é imperativo a presença do “the”, “were”, “have”, logo essas palavras são bons candidatos a serem incluídos no vocabulário.</p>
 
-<p>Aprendemos na escola a formação das palavras com os prefixos, sufixos, radicais e outras formas, partindo disso, os prefixos “íssimo”,”an”, “anti”, “endo”, “hiper” bem como os sufixos “ismo”, “ença”, “ário” e tantos outros são fortes candidatos a serem representados pelo BPE. Por sorte nossa lingua tem radicais muito comuns que também podem ser incluídos na representação.</p>
+<p>Aprendemos na escola a formação das palavras utilizando prefixos, sufixos e radicais, partindo disso, os prefixos “íssimo”,”an”, “anti”, “endo”, “hiper” bem como os sufixos “ismo”, “ença”, “ário” e tantos outros são fortes candidatos a serem representados pelo BPE. Por sorte nossa lingua tem radicais muito comuns que também podem ser incluídos na representação.</p>
 
 <p>Vejamos o exemplo da frase “Qual o sentido da vida?” na codificação BPE usada pelo GPT:</p>
 
@@ -308,10 +309,15 @@ tokenizer.save("byte-level-bpe.tokenizer.32k.json", pretty=True)
 
 <h3 id="usando-o-vocabulário-gerado">Usando o vocabulário gerado</h3>
 
-<p>Para carregar o arquivo o <code class="language-plaintext highlighter-rouge">from_file</code> do Tokenizer é usado. 
-Para transformar um texto em números usa-se o <code class="language-plaintext highlighter-rouge">tokenizer.encode(texto)</code> que retornará na lista <code class="language-plaintext highlighter-rouge">.ids</code>.
-Para transformar uma sequência de números em texto novamente o <code class="language-plaintext highlighter-rouge">decode</code> é usado.
-Como se pode ver no exemplo abaixo:</p>
+<p>Para carregar o json do vocabulário o Tokenizer tem a função <code class="language-plaintext highlighter-rouge">from_file</code> e para codificar um texto qualquer no vocabulário carregado usa-se o <code class="language-plaintext highlighter-rouge">tokenizer.encode(texto)</code> que retornará a lista <code class="language-plaintext highlighter-rouge">.ids</code> contendo os números dos tokens do texto convertido.
+O processo inverso, ou seja, transformar uma lista de números obtidos da conversão de <code class="language-plaintext highlighter-rouge">tokenizer.encode(texto).ids</code> em texto novamente é feito utilizando <code class="language-plaintext highlighter-rouge">decode</code>.
+Lembre-se:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tokenizer.encode - Transforma o texto em tokens do vocabulário carregado
+tokenizer.decode - Transforma uma lista de números em texto dos tokens representados pelo vocabulário carregado.
+</code></pre></div></div>
+
+<p>Como se pode ver no exemplo abaixo:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import tokenizers
 from tokenizers import Tokenizer

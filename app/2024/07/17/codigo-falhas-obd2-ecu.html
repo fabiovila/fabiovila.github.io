@@ -4,24 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Primary Meta Tags -->
-    <title>Indução e Falseabilidade - Filosofia da Ciência</title>
-    <meta name="title" content="Indução e Falseabilidade - Filosofia da Ciência" />
+    <title>Significado dos códigos de falha OBD2 da ECU - Aplicativo</title>
+    <meta name="title" content="Significado dos códigos de falha OBD2 da ECU - Aplicativo" />
     <meta name="description" content="" />
     
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="/ci%C3%AAncias/2020/06/10/indu%C3%A7%C3%A3o-falseabilidade.html" />
-    <meta property="og:title" content="Indução e Falseabilidade - Filosofia da Ciência" />
-    <meta property="og:description" content="A hipótese desempenha um papel fundamental na ciência, sendo uma proposição ainda sem valor conhecido, aguardando evidências adicionais para determinar sua veracidade ou falsidade. O processo de formular hipóteses muitas vezes envolve o raciocínio indutivo, onde a observação de casos particulares leva à proposição de uma afirmação geral. No entanto,..."  />
-    <meta property="og:image" content="/assets/imgs/7.jpeg" />
+    <meta property="og:url" content="/app/2024/07/17/codigo-falhas-obd2-ecu.html" />
+    <meta property="og:title" content="Significado dos códigos de falha OBD2 da ECU - Aplicativo" />
+    <meta property="og:description" content="Aplicação para achar o significado do número da falha indicado pelos scanners OBD2"  />
+    <meta property="og:image" content="/assets/imgs/obd104.jpg" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="/ci%C3%AAncias/2020/06/10/indu%C3%A7%C3%A3o-falseabilidade.html" />
-    <meta property="twitter:title" content="Indução e Falseabilidade - Filosofia da Ciência"  />
-    <meta property="twitter:description" content="A hipótese desempenha um papel fundamental na ciência, sendo uma proposição ainda sem valor conhecido, aguardando evidências adicionais para determinar sua veracidade ou falsidade. O processo de formular hipóteses muitas vezes envolve o raciocínio indutivo, onde a observação de casos particulares leva à proposição de uma afirmação geral. No entanto,..." />
-    <meta property="twitter:image" content="/assets/imgs/7.jpeg"/>
+    <meta property="twitter:url" content="/app/2024/07/17/codigo-falhas-obd2-ecu.html" />
+    <meta property="twitter:title" content="Significado dos códigos de falha OBD2 da ECU - Aplicativo"  />
+    <meta property="twitter:description" content="Aplicação para achar o significado do número da falha indicado pelos scanners OBD2" />
+    <meta property="twitter:image" content="/assets/imgs/obd104.jpg"/>
 
     <!-- Meta Tags Generated with https://metatags.io -->
 
@@ -90,7 +90,9 @@
 <div class="content is-fluid">
 
   <header class="mb-5">
-    <h1 class="title">Indução e Falseabilidade - Filosofia da Ciência</h1>
+    <h1 class="title">Significado dos códigos de falha OBD2 da ECU - Aplicativo</h1>
+    
+    <h4 class="subtitle has-text-weight-light is-family-sans-serif">Aplicação para achar o significado do número da falha indicado pelos scanners OBD2</h4>
     
     <hr class="m-1"/>
     <small class="pl-2 has-text-dark-grey" ><span class="icon "><i class="fa fa-user "></i></span>
@@ -98,40 +100,82 @@
       Fabio
          
     <span class="icon"><i class="fa fa-calendar"></i></span>  
-     10 Jun 2020
+     17 Jul 2024
      <span class="icon"><i class="fa fa-bars"></i></span>
-    ciências
+    app
     <span class="icon"><i class="fa fa-tag"></i></span>  
-    filosofia e ciências
+    auto, obd2, e ecu
     </small>
-    <hr class="mt-1 mb-5"/>
+    <hr class="mt-1 mb-1"/>
     <div class="h-400">
         
-        <img class="image" src="/assets/imgs/7.jpeg"/>
+        <img class="image" src="/assets/imgs/obd104.jpg"/>
         
     </div>
 
 
   </header>
 
-  <article class="mt-5">
-    <p>A hipótese desempenha um papel fundamental na ciência, sendo uma proposição ainda sem valor conhecido, aguardando evidências adicionais para determinar sua veracidade ou falsidade. O processo de formular hipóteses muitas vezes envolve o raciocínio indutivo, onde a observação de casos particulares leva à proposição de uma afirmação geral. No entanto, a validade dessas hipóteses depende da verificação cuidadosa por meio de testes e evidências.</p>
+  <article class="">
+    <script>
+  var codigos;
 
-<p>Enquanto o senso comum muitas vezes aceita hipóteses sem questionamento, o método científico exige rigor. As hipóteses devem ser testadas e verificadas de maneira exaustiva. A origem duvidosa de uma hipótese é desconsiderada no método científico, algo que o senso comum muitas vezes negligencia.</p>
+function procurar(texto) {
+  var html = "<tr><th>Código</th><th>Descrição</th></tr>";
+  $('tresult').innerHTML = "";
+  for (const codigo of codigos) {
+    const cdescr = codigo.cdescr || ""; 
+    if (codigo.Code.includes(texto) || codigo.Description.includes(texto) || cdescr.includes(texto)){
+      if ("cdescr" in codigo) {
+        html += "<tr><td class='has-text-weight-bold'>" + codigo.Code + "</td><td class='has-text-weight-bold'>" + codigo.Description + "</td></tr><tr><td></td><td>"+codigo.cdescr+"</td></tr>";
+      } else {
+        html += "<tr><td>" + codigo.Code + "</td><td>" + codigo.Description + "</td></tr>";
+      }
+      
+    }
+  }    
+  $('tresult').innerHTML = html;
+}
 
-<p>O rigor do método científico inclui não apenas a verificação da hipótese, mas também a documentação detalhada do processo de teste. Isso é essencial para garantir a transparência e a replicabilidade dos resultados. Um exemplo notável foi a hipótese sobre os efeitos prejudiciais do chumbo na gasolina<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>, onde a comunidade científica enfrentou resistência de grandes empresas, destacando a importância de uma abordagem meticulosa e documentada para validar as hipóteses.</p>
+window.addEventListener("load", function(){
+   fetch('/assets/json/codigos.json')
+    .then((response) => response.json())
+    .then((json) => codigos = json);
+});
+</script>
 
-<p>A questão da validação de hipóteses levanta o Problema da Demarcação, questionando como determinar o que é considerado ciência. Karl Popper propôs que uma característica crucial da ciência é a falsificabilidade - a capacidade de uma hipótese ser refutada. Se uma hipótese não pode ser falseada de alguma forma, ela não pode ser considerada científica. As ciências sociais são frequentemente criticadas por essa razão, pois algumas alegam que falta um método claro para rejeitar suas bases e hipóteses.</p>
+<hr class="m-1" />
 
-<p>Em resumo, a ciência exige rigor na formulação e verificação de hipóteses, com ênfase na falsificabilidade como critério distintivo. O método científico busca garantir que as afirmações sejam testadas de maneira objetiva e transparente, contribuindo para o avanço do conhecimento científico.</p>
-
-<div class="footnotes" role="doc-endnotes">
-  <ol>
-    <li id="fn:1" role="doc-endnote">
-      <p>Barrett, G. (2022, April 22). The man who accidentally killed the most people in history —. Veritasium. <a href="https://www.veritasium.com/videos/2022/4/22/the-man-who-accidentally-killed-the-most-people-in-history">Verisatium</a> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-  </ol>
+<h3 id="digite-o-código-ou-alguma-palavra">Digite o código ou alguma palavra</h3>
+<form onsubmit="return false;">
+<div class="field">
+<div class="control has-icons-left has-icons-right">
+  <input class="input" onkeyup="procurar(this.value)" id="tx" type="text" placeholder="Exemplo: P104 ou 104 ou sonda lambda" />
+  <span class="icon is-medium is-left">
+    <i class="fas fa-search"></i>
+  </span>
+  <span class="icon is-medium is-right">
+    <i class="fas fa-check"></i>
+  </span>
 </div>
+</div>
+
+<div class="field is-grouped">
+  <div class="control">
+    <button class="button is-rounded is-success" onkeyup="procurar($('tx').value)">Procurar</button>
+  </div>
+</div>
+</form>
+
+<h3 id="resultado">Resultado</h3>
+
+<p><em>Os comentários, soluções e descrições abaixo são genéricos. Cada carro e seu defeito tem suas particularidades que a soluções descritas podem não resolver ou ainda piorar o problema. Algumas atividades de manutenção requerem conhecimento técnico prévio, ferramentas adequadas e experiência do operador. Se não sabe o que está fazendo consulte um profissional.</em></p>
+
+<div class="content">
+<table id="tresult">
+</table> 
+</div>
+
 
   </article>
 
@@ -149,8 +193,8 @@
       
       <div>
         <p class="heading"><strong>Veja Também:</strong></p>
-        <small>O técnico que chutou a máquina - Filosofia da Ciência</small></br>
-        <small>Filtros FIR - Processamento de sinais</small>
+        <small>Cálculo de resistência pelas cores do resistor - Aplicativo</small></br>
+        <small></small>
       </div>
     </div>
   </nav>

@@ -4,5 +4,8 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"editor.formatOnType": true,
+		"languageToolLinter.smartFormat.onType": true
+	}
 }
