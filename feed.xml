@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2024-10-17T19:07:34-05:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Explorando o método Runge-Kutta em javascript</title><link href="http://0.0.0.0:4000/aplicadas/2024/10/17/runge-kutta-em-javascript.html" rel="alternate" type="text/html" title="Explorando o método Runge-Kutta em javascript" /><published>2024-10-17T00:00:00-05:00</published><updated>2024-10-17T00:00:00-05:00</updated><id>http://0.0.0.0:4000/aplicadas/2024/10/17/runge-kutta-em-javascript</id><content type="html" xml:base="http://0.0.0.0:4000/aplicadas/2024/10/17/runge-kutta-em-javascript.html">&lt;h2 id=&quot;bricando-com-equações-diferenciais-pelo-método-rk4&quot;&gt;Bricando com equações diferenciais pelo método RK4&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2024-10-18T10:21:36-05:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Explorando o método Runge-Kutta em javascript</title><link href="http://0.0.0.0:4000/aplicadas/2024/10/17/runge-kutta-em-javascript.html" rel="alternate" type="text/html" title="Explorando o método Runge-Kutta em javascript" /><published>2024-10-17T00:00:00-05:00</published><updated>2024-10-17T00:00:00-05:00</updated><id>http://0.0.0.0:4000/aplicadas/2024/10/17/runge-kutta-em-javascript</id><content type="html" xml:base="http://0.0.0.0:4000/aplicadas/2024/10/17/runge-kutta-em-javascript.html">&lt;h2 id=&quot;bricando-com-equações-diferenciais-pelo-método-rk4&quot;&gt;Bricando com equações diferenciais pelo método RK4&lt;/h2&gt;
 
-&lt;p&gt;Equações diferenciais frequentemente surgem em modelos que estão associados a sistemas fisicos que armazenam energia, porém econtrar a solução de uma equação diferencial não é trivial e muitas equações ainda não tem solução algébrica conhecida. Essas equações foram e são ainda um campo de interesse em uma corrida para encontrar soluções para algumas famílias de equações diferenciais. Todavia, não ter uma solução algébrica não impede de obter os valores dessas equações, para tanto, métodos iterativos foram desenvolvidos para esse fim.&lt;/p&gt;
+&lt;p&gt;Equações diferenciais frequentemente surgem em modelos que estão associados a sistemas fisicos que armazenam energia, como por exemplo modelos matemáticos com molas, capacitores, pneumáticos, etc…. Entretanto encontrar a solução de uma equação diferencial não é trivial e muitas delas ainda não tem solução algébrica conhecida e por isso esses modelos matemáticos são um campo ativo de estudos. Todavia, não ter uma solução algébrica não impede de se obter seus valores, para tanto, métodos iterativos foram desenvolvidos com este fim.&lt;/p&gt;
 
-&lt;p&gt;Antes de ver alguns desses métodos em Java Script, abaixo você poderá explorar graficamente equações diferenciais resolvidas pelo método Runge-Kutta.&lt;/p&gt;
+&lt;p&gt;Antes de ver alguns desses métodos em Java Script, abaixo você poderá explorar graficamente equações diferenciais resolvidas pelo método Runge-Kutta implementado aqui.&lt;/p&gt;
 
-&lt;p&gt;Utilize o formato javascript, Math pode ser suprimido.&lt;/p&gt;
+&lt;p&gt;Utilize o formato javascript. O namespace Math pode ser suprimido.&lt;/p&gt;
 
 &lt;div&gt;
 &lt;div class=&quot;field is-horizontal&quot;&gt;
@@ -52,9 +52,9 @@
 
 &lt;h3 id=&quot;método-de-euler&quot;&gt;Método de Euler&lt;/h3&gt;
 
-&lt;p&gt;Os algoritmos iteram através de estimativas do próximo valor que, então, é utilizado na próxima iteração. Esses métodos partem de uma condição inicial definida pelo usuário e a cada iteração uma estimativa do próximo valor é calculado repetindo-se o processo com o valor anterior.&lt;/p&gt;
+&lt;p&gt;O primeiro método iterativo para solução de equações diferenciais foi criado pelo famoso matemático Euler; conhecido justamente como Método de Euler. Esse método faz apenas uma estimativa pontual do próximo valor e continua o processo a partir do último estimado. Como sua estimativa é fraca, erros se acumulam a cada iteração tornando inútil os valores por explodirem ou oscilarem. Entretanto por ser simples e fácil de implementar o método de Euler costuma ser exemplo de partida para estudos desses algoritmos.&lt;/p&gt;
 
-&lt;p&gt;O primeiro método foi criado pelo famoso matemático Euler cujo nome é Método de Euler. Esse método faz apenas uma estimativa pontual do próximo e continua o processo. Como sua estimativa é fraca, erros se acumulam a cada iteração tornando inútil os valores por explodirem ou oscilarem. Entretanto por ser simples e fácil de implementar o método de Euler costuma exemplo de partida para estudos desses algoritmos.&lt;/p&gt;
+&lt;p&gt;Como toda equação diferencial que modela um sistema fisico esses métodos partem de uma condição inicial definida pelo usuário e a cada iteração uma estimativa do próximo valor é calculado repetindo-se o processo com o valor anterior.&lt;/p&gt;
 
 &lt;p&gt;Como este site é primariamente de eletrônica, vamos partir do exemplo do circuito RL abaixo que foi tema de artigo &lt;sup id=&quot;fnref:anterior&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:anterior&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; para começar a explorar alguns métodos:&lt;/p&gt;
 
@@ -68,9 +68,8 @@
 
 &lt;p&gt;${di(t) \over dt} = \frac{5 - 4700 * i(t)}{0.0001}$&lt;/p&gt;
 
-&lt;h2 id=&quot;método-de-euler-1&quot;&gt;Método de Euler&lt;/h2&gt;
-
-&lt;p&gt;O método de Euler é um método simples e didático. Primeiramente precisamos definir a função com a equaçao diferencial que será chamada a cada iteração para se obter o próximo valor. A função didt(t,i) definida abaixo é a equação do circuito RL visto acima.&lt;/p&gt;
+&lt;p&gt;O método de Euler é um método simples e didático. Primeiramente precisamos definir a função com a equaçao diferencial que será chamada a cada iteração para se obter o próximo valor. A função &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;didt(t,i)&lt;/code&gt; definida abaixo é a equação do circuito RL visto acima.
+As condições iniciais são passadas pelos parametros &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;y0&lt;/code&gt; e &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;x0&lt;/code&gt;. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;h&lt;/code&gt; é o passo que será dado a cada iteração, pense nisso como uma quantidade do tempo incrementado, e isso é importante, porque em um sistema rápido, digamos o circuito RL com indutância pequena, os valores acontecem rapidamente, enquanto em um modelo muito lento, como por exemplo modelos metereológicos, o tempo é da ordem de horas.&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function didt(t, i) {
 return (5 - 4700 * i) / 0.0001;
@@ -95,12 +94,12 @@ r = Euler(0, 0, 0.0001, 0.1, didt);
 console.log(r);
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Os parametros $x0$ e $y0$ são as condições iniciais da equação. Você também pode pensar como as condições iniciais do circuito, ou seja, no primeiro instante $t = 0$ e não há corrente no circuito, logo $y0 = 0$ e $x0 = 0$. Como o algoritmo é iterativo cada passo representa uma quantidade no tempo, dessa forma $h$ é a quantidade do passo dado no tempo. Como um circuito como esse se estabiliza rapidamente, $h$ deverá ser da ordem dos micro segundos ou nano segundos. $final$ informa ao algoritmo quando terminar.
+&lt;p&gt;As condições iniciais do circuito no primeiro instante (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;t = 0&lt;/code&gt;) a corrente é igual a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;, logo &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;y0 = 0&lt;/code&gt; e &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;x0 = 0&lt;/code&gt;. Como o algoritmo é iterativo cada passo representa uma quantidade no tempo, dessa forma &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;h&lt;/code&gt; é a quantidade do passo dado no tempo. Como um circuito como esse se estabiliza rapidamente, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;h&lt;/code&gt; deverá ser da ordem dos micro segundos ou nano segundos. O parametro &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;final&lt;/code&gt; informa ao algoritmo quando terminar.
 O método de Euler é puramente didático. Ele faz péssimas estimativas do próximo valor que vão se acumulando, retornando, então, valores irreais e oscilatórios. De fato no programa acima em poucas iterações os valores se tornam irreais e explosivos.&lt;/p&gt;
 
 &lt;h3 id=&quot;método-de-runge-kutta&quot;&gt;Método de Runge-Kutta&lt;/h3&gt;
 
-&lt;p&gt;Amplamente utilizado, o método de Runge-Kutta converge adequadamente, não acumula muitos erros e tem poucas chances de oscilar. Em contraste ao método de Euler as estimativas são feitas através de média aritmética ponderada de 4 valores ($K_n$).&lt;/p&gt;
+&lt;p&gt;Amplamente utilizado, o método de Runge-Kutta converge adequadamente, não acumula muitos erros e tem poucas chances de oscilar. Em contraste ao método de Euler as estimativas são feitas através de média aritmética ponderada de 4 valores (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;K_n&lt;/code&gt;).&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function didt(t, i) {
 return (5 - 4700 * i) / 0.0001;
@@ -127,10 +126,12 @@ while (x &amp;lt; final) {
 return r;
 }
 
-r = Euler(0, 0, 0.0001, 0.1, didt);
+r = RK(0, 0, 0.0001, 0.1, didt);
 
 console.log(r);
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Certamente o array pode ser descartado e os valores usados dinamicamente para plotar um gráfico ou apenas o valor final seja de interesse.&lt;/p&gt;
 
 &lt;script&gt;
 var func;

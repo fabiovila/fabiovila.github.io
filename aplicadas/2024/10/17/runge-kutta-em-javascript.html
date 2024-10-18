@@ -13,14 +13,14 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="/aplicadas/2024/10/17/runge-kutta-em-javascript.html" />
     <meta property="og:title" content="Explorando o método Runge-Kutta em javascript" />
-    <meta property="og:description" content="Bricando com equações diferenciais pelo método RK4 Equações diferenciais frequentemente surgem em modelos que estão associados a sistemas fisicos que armazenam energia, porém econtrar a solução de uma equação diferencial não é trivial e muitas equações ainda não tem solução algébrica conhecida. Essas equações foram e são ainda um campo..."  />
+    <meta property="og:description" content="Implementação e uso do método Rugge-Kutta e Euler."  />
     <meta property="og:image" content="/assets/imgs/429fb1d8-89d4-49c6-8214-a128530e1430.jpeg" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="/aplicadas/2024/10/17/runge-kutta-em-javascript.html" />
     <meta property="twitter:title" content="Explorando o método Runge-Kutta em javascript"  />
-    <meta property="twitter:description" content="Bricando com equações diferenciais pelo método RK4 Equações diferenciais frequentemente surgem em modelos que estão associados a sistemas fisicos que armazenam energia, porém econtrar a solução de uma equação diferencial não é trivial e muitas equações ainda não tem solução algébrica conhecida. Essas equações foram e são ainda um campo..." />
+    <meta property="twitter:description" content="Implementação e uso do método Rugge-Kutta e Euler." />
     <meta property="twitter:image" content="/assets/imgs/429fb1d8-89d4-49c6-8214-a128530e1430.jpeg"/>
 
     <!-- Meta Tags Generated with https://metatags.io -->
@@ -93,6 +93,8 @@
     <h1 class="title">Explorando o método Runge-Kutta em javascript</h1>
     <h4 class="subtitle has-text-weight-light is-family-sans-serif"></h4>
     
+    <h4 class="subtitle has-text-weight-light is-family-sans-serif">Implementação e uso do método Rugge-Kutta e Euler.</h4>
+    
     <hr class="m-1"/>
     <small class="pl-2 has-text-dark-grey" ><span class="icon "><i class="fa fa-user "></i></span>
       
@@ -118,11 +120,11 @@
   <article class="mt-5">
     <h2 id="bricando-com-equações-diferenciais-pelo-método-rk4">Bricando com equações diferenciais pelo método RK4</h2>
 
-<p>Equações diferenciais frequentemente surgem em modelos que estão associados a sistemas fisicos que armazenam energia, porém econtrar a solução de uma equação diferencial não é trivial e muitas equações ainda não tem solução algébrica conhecida. Essas equações foram e são ainda um campo de interesse em uma corrida para encontrar soluções para algumas famílias de equações diferenciais. Todavia, não ter uma solução algébrica não impede de obter os valores dessas equações, para tanto, métodos iterativos foram desenvolvidos para esse fim.</p>
+<p>Equações diferenciais frequentemente surgem em modelos que estão associados a sistemas fisicos que armazenam energia, como por exemplo modelos matemáticos com molas, capacitores, pneumáticos, etc…. Entretanto encontrar a solução de uma equação diferencial não é trivial e muitas delas ainda não tem solução algébrica conhecida e por isso esses modelos matemáticos são um campo ativo de estudos. Todavia, não ter uma solução algébrica não impede de se obter seus valores, para tanto, métodos iterativos foram desenvolvidos com este fim.</p>
 
-<p>Antes de ver alguns desses métodos em Java Script, abaixo você poderá explorar graficamente equações diferenciais resolvidas pelo método Runge-Kutta.</p>
+<p>Antes de ver alguns desses métodos em Java Script, abaixo você poderá explorar graficamente equações diferenciais resolvidas pelo método Runge-Kutta implementado aqui.</p>
 
-<p>Utilize o formato javascript, Math pode ser suprimido.</p>
+<p>Utilize o formato javascript. O namespace Math pode ser suprimido.</p>
 
 <div>
 <div class="field is-horizontal">
@@ -170,9 +172,9 @@
 
 <h3 id="método-de-euler">Método de Euler</h3>
 
-<p>Os algoritmos iteram através de estimativas do próximo valor que, então, é utilizado na próxima iteração. Esses métodos partem de uma condição inicial definida pelo usuário e a cada iteração uma estimativa do próximo valor é calculado repetindo-se o processo com o valor anterior.</p>
+<p>O primeiro método iterativo para solução de equações diferenciais foi criado pelo famoso matemático Euler; conhecido justamente como Método de Euler. Esse método faz apenas uma estimativa pontual do próximo valor e continua o processo a partir do último estimado. Como sua estimativa é fraca, erros se acumulam a cada iteração tornando inútil os valores por explodirem ou oscilarem. Entretanto por ser simples e fácil de implementar o método de Euler costuma ser exemplo de partida para estudos desses algoritmos.</p>
 
-<p>O primeiro método foi criado pelo famoso matemático Euler cujo nome é Método de Euler. Esse método faz apenas uma estimativa pontual do próximo e continua o processo. Como sua estimativa é fraca, erros se acumulam a cada iteração tornando inútil os valores por explodirem ou oscilarem. Entretanto por ser simples e fácil de implementar o método de Euler costuma exemplo de partida para estudos desses algoritmos.</p>
+<p>Como toda equação diferencial que modela um sistema fisico esses métodos partem de uma condição inicial definida pelo usuário e a cada iteração uma estimativa do próximo valor é calculado repetindo-se o processo com o valor anterior.</p>
 
 <p>Como este site é primariamente de eletrônica, vamos partir do exemplo do circuito RL abaixo que foi tema de artigo <sup id="fnref:anterior" role="doc-noteref"><a href="#fn:anterior" class="footnote" rel="footnote">1</a></sup> para começar a explorar alguns métodos:</p>
 
@@ -186,9 +188,8 @@
 
 <p>${di(t) \over dt} = \frac{5 - 4700 * i(t)}{0.0001}$</p>
 
-<h2 id="método-de-euler-1">Método de Euler</h2>
-
-<p>O método de Euler é um método simples e didático. Primeiramente precisamos definir a função com a equaçao diferencial que será chamada a cada iteração para se obter o próximo valor. A função didt(t,i) definida abaixo é a equação do circuito RL visto acima.</p>
+<p>O método de Euler é um método simples e didático. Primeiramente precisamos definir a função com a equaçao diferencial que será chamada a cada iteração para se obter o próximo valor. A função <code class="language-plaintext highlighter-rouge">didt(t,i)</code> definida abaixo é a equação do circuito RL visto acima.
+As condições iniciais são passadas pelos parametros <code class="language-plaintext highlighter-rouge">y0</code> e <code class="language-plaintext highlighter-rouge">x0</code>. <code class="language-plaintext highlighter-rouge">h</code> é o passo que será dado a cada iteração, pense nisso como uma quantidade do tempo incrementado, e isso é importante, porque em um sistema rápido, digamos o circuito RL com indutância pequena, os valores acontecem rapidamente, enquanto em um modelo muito lento, como por exemplo modelos metereológicos, o tempo é da ordem de horas.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function didt(t, i) {
 return (5 - 4700 * i) / 0.0001;
@@ -213,12 +214,12 @@ r = Euler(0, 0, 0.0001, 0.1, didt);
 console.log(r);
 </code></pre></div></div>
 
-<p>Os parametros $x0$ e $y0$ são as condições iniciais da equação. Você também pode pensar como as condições iniciais do circuito, ou seja, no primeiro instante $t = 0$ e não há corrente no circuito, logo $y0 = 0$ e $x0 = 0$. Como o algoritmo é iterativo cada passo representa uma quantidade no tempo, dessa forma $h$ é a quantidade do passo dado no tempo. Como um circuito como esse se estabiliza rapidamente, $h$ deverá ser da ordem dos micro segundos ou nano segundos. $final$ informa ao algoritmo quando terminar.
+<p>As condições iniciais do circuito no primeiro instante (<code class="language-plaintext highlighter-rouge">t = 0</code>) a corrente é igual a <code class="language-plaintext highlighter-rouge">0</code>, logo <code class="language-plaintext highlighter-rouge">y0 = 0</code> e <code class="language-plaintext highlighter-rouge">x0 = 0</code>. Como o algoritmo é iterativo cada passo representa uma quantidade no tempo, dessa forma <code class="language-plaintext highlighter-rouge">h</code> é a quantidade do passo dado no tempo. Como um circuito como esse se estabiliza rapidamente, <code class="language-plaintext highlighter-rouge">h</code> deverá ser da ordem dos micro segundos ou nano segundos. O parametro <code class="language-plaintext highlighter-rouge">final</code> informa ao algoritmo quando terminar.
 O método de Euler é puramente didático. Ele faz péssimas estimativas do próximo valor que vão se acumulando, retornando, então, valores irreais e oscilatórios. De fato no programa acima em poucas iterações os valores se tornam irreais e explosivos.</p>
 
 <h3 id="método-de-runge-kutta">Método de Runge-Kutta</h3>
 
-<p>Amplamente utilizado, o método de Runge-Kutta converge adequadamente, não acumula muitos erros e tem poucas chances de oscilar. Em contraste ao método de Euler as estimativas são feitas através de média aritmética ponderada de 4 valores ($K_n$).</p>
+<p>Amplamente utilizado, o método de Runge-Kutta converge adequadamente, não acumula muitos erros e tem poucas chances de oscilar. Em contraste ao método de Euler as estimativas são feitas através de média aritmética ponderada de 4 valores (<code class="language-plaintext highlighter-rouge">K_n</code>).</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function didt(t, i) {
 return (5 - 4700 * i) / 0.0001;
@@ -245,10 +246,12 @@ while (x &lt; final) {
 return r;
 }
 
-r = Euler(0, 0, 0.0001, 0.1, didt);
+r = RK(0, 0, 0.0001, 0.1, didt);
 
 console.log(r);
 </code></pre></div></div>
+
+<p>Certamente o array pode ser descartado e os valores usados dinamicamente para plotar um gráfico ou apenas o valor final seja de interesse.</p>
 
 <script>
 var func;
