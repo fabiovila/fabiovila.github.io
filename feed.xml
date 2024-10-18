@@ -1,7 +1,205 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2024-07-21T10:57:31-05:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Significado dos códigos de falha OBD2 da ECU - Aplicativo</title><link href="http://0.0.0.0:4000/app/2024/07/17/codigo-falhas-obd2-ecu.html" rel="alternate" type="text/html" title="Significado dos códigos de falha OBD2 da ECU - Aplicativo" /><published>2024-07-17T00:00:00-05:00</published><updated>2024-07-17T00:00:00-05:00</updated><id>http://0.0.0.0:4000/app/2024/07/17/codigo-falhas-obd2-ecu</id><content type="html" xml:base="http://0.0.0.0:4000/app/2024/07/17/codigo-falhas-obd2-ecu.html">&lt;script&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2024-10-17T19:07:34-05:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Explorando o método Runge-Kutta em javascript</title><link href="http://0.0.0.0:4000/aplicadas/2024/10/17/runge-kutta-em-javascript.html" rel="alternate" type="text/html" title="Explorando o método Runge-Kutta em javascript" /><published>2024-10-17T00:00:00-05:00</published><updated>2024-10-17T00:00:00-05:00</updated><id>http://0.0.0.0:4000/aplicadas/2024/10/17/runge-kutta-em-javascript</id><content type="html" xml:base="http://0.0.0.0:4000/aplicadas/2024/10/17/runge-kutta-em-javascript.html">&lt;h2 id=&quot;bricando-com-equações-diferenciais-pelo-método-rk4&quot;&gt;Bricando com equações diferenciais pelo método RK4&lt;/h2&gt;
+
+&lt;p&gt;Equações diferenciais frequentemente surgem em modelos que estão associados a sistemas fisicos que armazenam energia, porém econtrar a solução de uma equação diferencial não é trivial e muitas equações ainda não tem solução algébrica conhecida. Essas equações foram e são ainda um campo de interesse em uma corrida para encontrar soluções para algumas famílias de equações diferenciais. Todavia, não ter uma solução algébrica não impede de obter os valores dessas equações, para tanto, métodos iterativos foram desenvolvidos para esse fim.&lt;/p&gt;
+
+&lt;p&gt;Antes de ver alguns desses métodos em Java Script, abaixo você poderá explorar graficamente equações diferenciais resolvidas pelo método Runge-Kutta.&lt;/p&gt;
+
+&lt;p&gt;Utilize o formato javascript, Math pode ser suprimido.&lt;/p&gt;
+
+&lt;div&gt;
+&lt;div class=&quot;field is-horizontal&quot;&gt;
+  &lt;div class=&quot;field-label is-normal&quot;&gt;
+    &lt;label class=&quot;label&quot;&gt;Parametros&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;field-body&quot;&gt;
+    &lt;div class=&quot;field&quot;&gt;
+      &lt;div class=&quot;control&quot;&gt;
+        &lt;input id=&quot;h&quot; class=&quot;input is-primary&quot; type=&quot;text&quot; placeholder=&quot;Valor de H&quot; value=&quot;0.0001&quot; /&gt;
+        &lt;p class=&quot;help&quot;&gt;Passo para cada iteração (H)&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;field&quot;&gt;
+      &lt;div class=&quot;control&quot;&gt;
+        &lt;input id=&quot;t&quot; class=&quot;input is-primary&quot; type=&quot;text&quot; placeholder=&quot;Tempo&quot; value=&quot;10.0&quot; /&gt;
+        &lt;p class=&quot;help&quot;&gt;Tempo limite&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+        &lt;div class=&quot;field&quot;&gt;
+      &lt;div class=&quot;control&quot;&gt;
+        &lt;input id=&quot;x0&quot; class=&quot;input is-primary&quot; type=&quot;text&quot; placeholder=&quot;x0&quot; value=&quot;0&quot; /&gt;
+        &lt;p class=&quot;help&quot;&gt;Valor inicial de x0&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+        &lt;div class=&quot;field&quot;&gt;
+      &lt;div class=&quot;control&quot;&gt;
+        &lt;input id=&quot;y0&quot; class=&quot;input is-primary&quot; type=&quot;text&quot; placeholder=&quot;y0&quot; value=&quot;0&quot; /&gt;
+        &lt;p class=&quot;help&quot;&gt;Valor inicial de y0&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;field has-addons&quot;&gt;
+  &lt;div class=&quot;control is-expanded&quot;&gt;
+    &lt;input id=&quot;eq&quot; class=&quot;input is-primary&quot; type=&quot;text&quot; placeholder=&quot;Equação formato JavaScript&quot; value=&quot;y+cos(x**2)&quot; /&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;control&quot;&gt;
+    &lt;button id=&quot;calcular&quot; class=&quot;button is-link&quot;&gt;Calcular&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;gd&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;método-de-euler&quot;&gt;Método de Euler&lt;/h3&gt;
+
+&lt;p&gt;Os algoritmos iteram através de estimativas do próximo valor que, então, é utilizado na próxima iteração. Esses métodos partem de uma condição inicial definida pelo usuário e a cada iteração uma estimativa do próximo valor é calculado repetindo-se o processo com o valor anterior.&lt;/p&gt;
+
+&lt;p&gt;O primeiro método foi criado pelo famoso matemático Euler cujo nome é Método de Euler. Esse método faz apenas uma estimativa pontual do próximo e continua o processo. Como sua estimativa é fraca, erros se acumulam a cada iteração tornando inútil os valores por explodirem ou oscilarem. Entretanto por ser simples e fácil de implementar o método de Euler costuma exemplo de partida para estudos desses algoritmos.&lt;/p&gt;
+
+&lt;p&gt;Como este site é primariamente de eletrônica, vamos partir do exemplo do circuito RL abaixo que foi tema de artigo &lt;sup id=&quot;fnref:anterior&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:anterior&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; para começar a explorar alguns métodos:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/imgs/circuit-rl.png&quot; alt=&quot;Circuito RL&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Para uma fonte DC de 5V o circuito é modelado pela seguinte equação diferencial&lt;/p&gt;
+
+&lt;p&gt;$5 = 4700 i{\left(t \right)} + 0.0001 \frac{d}{d t} i{\left(t \right)}$&lt;/p&gt;
+
+&lt;p&gt;Isolando $di(t) \over {dt}$ obtemos&lt;/p&gt;
+
+&lt;p&gt;${di(t) \over dt} = \frac{5 - 4700 * i(t)}{0.0001}$&lt;/p&gt;
+
+&lt;h2 id=&quot;método-de-euler-1&quot;&gt;Método de Euler&lt;/h2&gt;
+
+&lt;p&gt;O método de Euler é um método simples e didático. Primeiramente precisamos definir a função com a equaçao diferencial que será chamada a cada iteração para se obter o próximo valor. A função didt(t,i) definida abaixo é a equação do circuito RL visto acima.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function didt(t, i) {
+return (5 - 4700 * i) / 0.0001;
+}
+
+function Euler(y0, x0, h, final, f) {
+const r = [];
+let x = x0;
+let y = y0;
+
+r[0] = y;
+while (x &amp;lt; final) {
+    y = y + h * f(x, y);
+    x = x + h;
+    r.push(y);
+}
+return r;
+}
+
+r = Euler(0, 0, 0.0001, 0.1, didt);
+
+console.log(r);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Os parametros $x0$ e $y0$ são as condições iniciais da equação. Você também pode pensar como as condições iniciais do circuito, ou seja, no primeiro instante $t = 0$ e não há corrente no circuito, logo $y0 = 0$ e $x0 = 0$. Como o algoritmo é iterativo cada passo representa uma quantidade no tempo, dessa forma $h$ é a quantidade do passo dado no tempo. Como um circuito como esse se estabiliza rapidamente, $h$ deverá ser da ordem dos micro segundos ou nano segundos. $final$ informa ao algoritmo quando terminar.
+O método de Euler é puramente didático. Ele faz péssimas estimativas do próximo valor que vão se acumulando, retornando, então, valores irreais e oscilatórios. De fato no programa acima em poucas iterações os valores se tornam irreais e explosivos.&lt;/p&gt;
+
+&lt;h3 id=&quot;método-de-runge-kutta&quot;&gt;Método de Runge-Kutta&lt;/h3&gt;
+
+&lt;p&gt;Amplamente utilizado, o método de Runge-Kutta converge adequadamente, não acumula muitos erros e tem poucas chances de oscilar. Em contraste ao método de Euler as estimativas são feitas através de média aritmética ponderada de 4 valores ($K_n$).&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function didt(t, i) {
+return (5 - 4700 * i) / 0.0001;
+}
+
+function RK(y0, x0, h, final, f) {
+const r = [];
+let x = x0;
+let y = y0;
+let k1, k2, k3, k4;
+
+r.push(y);
+while (x &amp;lt; final) {
+    k1 = h * f(x, y);
+    h2 = h / 2; // Uma pequena otimização
+    k2 = h * f(x + h2, y + h2 * k1);
+    k3 = h * f(x + h2, y + h2 * k2);
+    k4 = h * f(x + h, y + h * k1);
+    y = y + (h * (k1 + 2 * k2 + 2 * k3 + k4)) / 6;
+    x = x + h;
+
+    r.push(y);
+}
+return r;
+}
+
+r = Euler(0, 0, 0.0001, 0.1, didt);
+
+console.log(r);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;script&gt;
+var func;
+const ctx = $(&quot;mycanvas&quot;);
+
+function RK(y0, x0, h, final, f) {
+    console.log(y0,x0,h,final);
+const r = [];
+let x = x0;
+let y = y0;
+let k1, k2, k3, k4;
+
+r.push(y);
+while (x &lt; final) {
+    k1 = h * f(x, y);
+    h2 = h / 2; // Uma pequena otimização
+    k2 = h * f(x + h2, y + h2 * k1);
+    k3 = h * f(x + h2, y + h2 * k2);
+    k4 = h * f(x + h, y + h * k1);
+    y = y + (h * (k1 + 2 * k2 + 2 * k3 + k4)) / 6;
+    x = x + h;
+
+    r.push(y);
+}
+return r;
+}
+
+$(&quot;calcular&quot;).onmouseup = (e) =&gt; {
+    let equacao = $(&quot;eq&quot;).value;
+    try {
+        with(Math) {
+            equacao = equacao.replace(&apos;²&apos;,&quot;**2&quot;);
+            equacao = equacao.replace(&apos;³&apos;,&quot;**3&quot;);
+            equacao = equacao.replace(&apos;^&apos;,&quot;**&quot;);
+            func = new Function(&quot;x,y&quot;,&quot;with(Math) { return (&quot; + equacao + &quot;);}&quot;);
+            let r = RK(parseFloat($(&quot;y0&quot;).value), parseFloat($(&quot;x0&quot;).value), parseFloat($(&quot;h&quot;).value), parseFloat($(&quot;t&quot;).value), func);
+
+            Plotly.newPlot(&quot;gd&quot;, { &quot;data&quot;: [{ &quot;y&quot;: r }], });
+        }
+    }
+    catch(e) {
+        console.log(e);
+    }    
+};
+
+(function () {
+
+})();
+
+
+&lt;/script&gt;
+
+&lt;script type=&quot;module&quot; charset=&quot;utf-8&quot;&gt;
+import &quot;https://cdn.plot.ly/plotly-2.35.2.min.js&quot;
+    let r = RK(0, 0, 0.0001, 10, (x,y) =&gt;{return y+Math.cos(x**2);});
+    Plotly.newPlot(&quot;gd&quot;, {&quot;data&quot;: [{ &quot;y&quot;: r }],})
+&lt;/script&gt;
+
+&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:anterior&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://fabiovila.github.io/eletr%C3%B4nica/2021/02/10/simulacao-circuito-RL-python.html&quot;&gt;Usando Python para resolver ODEs de circuitos elétricos: RL - Python&lt;/a&gt; &lt;a href=&quot;#fnref:anterior&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="aplicadas" /><category term="matemática" /><category term="javascript" /><summary type="html">Bricando com equações diferenciais pelo método RK4</summary></entry><entry><title type="html">Significado dos códigos de falha DTC OBD2 da ECU - Aplicativo</title><link href="http://0.0.0.0:4000/app/2024/07/17/codigo-falhas-obd2-ecu.html" rel="alternate" type="text/html" title="Significado dos códigos de falha DTC OBD2 da ECU - Aplicativo" /><published>2024-07-17T00:00:00-05:00</published><updated>2024-07-17T00:00:00-05:00</updated><id>http://0.0.0.0:4000/app/2024/07/17/codigo-falhas-obd2-ecu</id><content type="html" xml:base="http://0.0.0.0:4000/app/2024/07/17/codigo-falhas-obd2-ecu.html">&lt;script&gt;
   var codigos;
 
 function procurar(texto) {
+  if (texto.length &lt; 3) return;
   var html = &quot;&lt;tr&gt;&lt;th&gt;Código&lt;/th&gt;&lt;th&gt;Descrição&lt;/th&gt;&lt;/tr&gt;&quot;;
   $(&apos;tresult&apos;).innerHTML = &quot;&quot;;
   for (const codigo of codigos) {
@@ -1518,176 +1716,4 @@ print(&quot;Valor de Xi     : &quot;, Xi.value)
 
 &lt;p&gt;O problema da mochila tem muitas aplicações práticas principalmente na logística. Imagine uma transportadora que precisa distribuir seus pacotes utilizando vans e caminhões. Cada pacote tem peso, tamanho, localidade, tempo de espera e valor. Um programa de otimização pode ajudar no preenchimento dos caminhões e em aplicações profissionais traçar a rota de distribuição de cada veículo.&lt;/p&gt;
 
-&lt;p&gt;Programas de otimização não acham o &lt;strong&gt;melhor&lt;/strong&gt; valor, porque em geral é uma tarefa impossível (o mais correto seria improvável) de se achar, devido a explosão combinatória. Por isso são chamados ‘otimizadores’ pois eles buscam a melhor solução possível, ou seja, uma &lt;strong&gt;solução ótima&lt;/strong&gt;.&lt;/p&gt;</content><author><name></name></author><category term="aplicadas" /><category term="python" /><category term="otimização" /><category term="CVXPY" /><summary type="html">O problema da mochila ou em inglês “knapsack” é um problema clássico de otimização combinatória.</summary></entry><entry><title type="html">Probabilidade clássica frequentista e subjetiva - Matemática</title><link href="http://0.0.0.0:4000/aplicadas/2022/08/02/probabilidade-classica-frequentista-e-subjetiva.html" rel="alternate" type="text/html" title="Probabilidade clássica frequentista e subjetiva - Matemática" /><published>2022-08-02T00:00:00-05:00</published><updated>2022-08-02T00:00:00-05:00</updated><id>http://0.0.0.0:4000/aplicadas/2022/08/02/probabilidade-classica-frequentista-e-subjetiva</id><content type="html" xml:base="http://0.0.0.0:4000/aplicadas/2022/08/02/probabilidade-classica-frequentista-e-subjetiva.html">&lt;h2 id=&quot;todas-as-coisas-são-números&quot;&gt;Todas as coisas são números.&lt;/h2&gt;
-&lt;h5 id=&quot;transformando-idéias-e-sensações-em-números&quot;&gt;Transformando idéias e sensações em números&lt;/h5&gt;
-
-&lt;p&gt;O mundo não é &lt;strong&gt;determinístico&lt;/strong&gt; para &lt;em&gt;nós&lt;/em&gt;. Não temos as fórmulas, as regras, as leis, ou a onisciência de saber &lt;strong&gt;quando&lt;/strong&gt;, &lt;strong&gt;quanto&lt;/strong&gt; e &lt;strong&gt;se&lt;/strong&gt; a coisas acontecerão no futuro, entretanto ainda conseguimos perceber que alguns eventos são mais prováveis de ocorrer que outros; sabemos naturalmente que em céu nublado é mais provável de chover do que em céu limpo, que ganhar na loteria é mais improvável que ganhar em um jogo de cartas.&lt;/p&gt;
-
-&lt;p&gt;Porém confiar somente nas vagas sensações de que algo acontecerá poderia trazer prejuízos enormes. Os egipicios buscavam prever as cheias do Rio Nilo para não passarem fome, investidores precisam medir a viabilidade de um negócio novo, transportadoras e agências de seguros não sobrevivem sem mensurar as chances de um acidente ocorrer. Transformar idéias e conceitos em números foi se tornando algo útil e essa quantificação das idéias chegou nas ‘possibilidades’ para nos ajudar a prever o futuro desconhecido.&lt;/p&gt;
-
-&lt;p&gt;E assim na busca pelo dinheiro fácil nos jogos que a matemática de tentar prever o futuro avançou e tornou-se o que conhecemos hoje como &lt;strong&gt;probabilidade&lt;/strong&gt;. Dessa forma era necessário um número fixo e confiável, um valor que mostrasse o quanto uma aposta era mais provável de ganhar que perder, já não bastava apostar um bom dinheiro apenas na intuição “essa jogada tem altas chances de ganhar”, era necessário mais precisão.&lt;/p&gt;
-
-&lt;p&gt;Os jogos em geral são sistemas fáceis de se lidar matematicamente, são poucas as variáveis e seus valores estão acessíveis. Um dado lançado tem 6 valores possíveis, uma carta tirada de um baralho completo virá de uma das 52 cartas. Uma moeda só tem dois lados e quando se lança somente dois resultados possíveis poderão ocorrer: a cara ou a coroa. &lt;strong&gt;Chamamos esses resultados de eventos de um experimento.&lt;/strong&gt; Jogar um dado e anotar a face de cima é um experimento, o valor da face é o evento.&lt;/p&gt;
-
-&lt;p&gt;Imagine que sua chance de ficar rico seja o lançar de um dado de 6 lados. Se você acertar o número que aparecer na face de cima após um lançamento você ficará rico. Se o dado tem 6 lados então temos 5 possibilidades de perder e somente 1 possibilidade de ganhar. E se for um dado de 20 lados? Agora são 19 para 1 a possibilidade de perder. E se lhe fosse permitido escolher 5 números no dado de 6? Então neste caso você teria 5 chances de ganhar e 1 de perder. Seria muito azar não ficar rico.&lt;/p&gt;
-&lt;div class=&quot;quadro&quot;&gt;
-Não confunda as chances, possibilidades e tentativas. Há apenas uma tentativa em nosso jogo. Perdeu no primeiro lançamento, acabou o sonho. Se for uma moeda você já abre o champanhe antes mesmo de lançar pois as chances são grandes. Se for na Mega Sena você não dá bola, pois sabe que vai perder.
-&lt;/div&gt;
-
-&lt;h5 id=&quot;probabilidade-clássica&quot;&gt;Probabilidade Clássica&lt;/h5&gt;
-
-&lt;p&gt;Na probabilidade clássica considera-se que os eventos tem a mesma probabilidade de ocorrerem, ou seja, são equiprováveis. Se você pensar no lançamento do dado a chance de cair qualquer número é igual para todos. É o mesmo caso do lançamento da moeda no cara e coroa ou na retirada do baralho.&lt;/p&gt;
-
-&lt;p&gt;O conjunto de valores possíveis que um evento pode ser se chama Espaço Amostral e é abreviado pela letra &lt;em&gt;‘S’&lt;/em&gt;. A tabela a seguir ilustra o espaço amostral dos exemplos mais comuns:&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt; &lt;/th&gt;
-      &lt;th&gt;Valores possíveis&lt;/th&gt;
-      &lt;th&gt;Espaço amostral&lt;/th&gt;
-      &lt;th&gt;Número&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Elementos&lt;/td&gt;
-      &lt;td&gt;1,2,3,4,5,6&lt;/td&gt;
-      &lt;td&gt;$S={1,2,3,4,5,6}$&lt;/td&gt;
-      &lt;td&gt;6&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Moeda&lt;/td&gt;
-      &lt;td&gt;Cara,Coroa&lt;/td&gt;
-      &lt;td&gt;$S={Cara,Coroa}$&lt;/td&gt;
-      &lt;td&gt;2&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Baralho 52 cartas&lt;/td&gt;
-      &lt;td&gt;Às de espada,Reis de ouro, 2 de copas, …&lt;/td&gt;
-      &lt;td&gt;$S={\text{Às de espada}, …\ \text{Reis de Ouro}}$&lt;/td&gt;
-      &lt;td&gt;52&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;Na probabilidade clássica como cada elemento do conjunto do espaço tem a mesma probabilidade de ocorrer dividimos 1 (ou 100%) pelo número de eventos possíveis, ou seja, a quantidade de elementos do Espaço amostral para se obter a probabilidade da ocorrência de cada elemento.
-Quanto maior o Espaço Amostral menores as chances de um evento ocorrer, como se vê na tabela a seguir.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt; &lt;/th&gt;
-      &lt;th&gt;Valores possíveis&lt;/th&gt;
-      &lt;th&gt;Espaço amostral&lt;/th&gt;
-      &lt;th&gt;Probabilidade&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Dado&lt;/td&gt;
-      &lt;td&gt;$S={1,2,3,4,5,6}$&lt;/td&gt;
-      &lt;td&gt;6&lt;/td&gt;
-      &lt;td&gt;$P=\frac{1}{6}=0.16…$&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Moeda&lt;/td&gt;
-      &lt;td&gt;$S={Cara,Coroa}$&lt;/td&gt;
-      &lt;td&gt;2&lt;/td&gt;
-      &lt;td&gt;$P=\frac{1}{2}=0.50$&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Baralho&lt;/td&gt;
-      &lt;td&gt;$S={\text{Às de espada}, …\ \text{Reis de Ouro}}$&lt;/td&gt;
-      &lt;td&gt;52&lt;/td&gt;
-      &lt;td&gt;$P=\frac{1}{52}=0.019$&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;Como se pode ver a probabilidade clássica atribui um número igual para todos os eventos.&lt;/p&gt;
-
-&lt;p&gt;O problema da probabilidade clássica é assumir que todos os elementos do espaço amostral tem a mesma probabilidade e conhecer o número de elementos do espaço amostral, o que nem sempre ocorre na vida real.&lt;/p&gt;
-
-&lt;h4 id=&quot;probabilidade-frequentista&quot;&gt;Probabilidade frequentista&lt;/h4&gt;
-
-&lt;p&gt;A probabilidade se mostrou útil para outras áreas além dos jogos, porém em outras áreas não é possível calcular a probabilidade de um evento ocorrer com uma simples divisão. Em uma indústria de lampadas como saber qual a probabilidade de uma lampada queimar depois de 1000 horas de uso? O senso comum costuma dizer que &lt;em&gt;“Queima ou não queima, então são 50% de queimar.”&lt;/em&gt;. Não, não é assim que funciona.&lt;/p&gt;
-
-&lt;p&gt;Uma outra forma de atribuir probabilidades a eventos é observando diversos experimentos reais e calcular os eventos ocorridos pelo número de observações.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Exemplos:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;destaque br bl&quot;&gt;Uma indústria testou 100 lampadas ligadas por 1000 horas e depois de 1000 horas 7 delas queimaram.  Qual a probabilidade que uma lampada dessa indústria queime com 1000 horas de uso?&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;Efetuando os cálculos:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;$P=\frac{7}{100}=0.07=7\%$&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Há 7% de chance de uma lampada dessa indústria queimar com 1000 horas de uso.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;destaque br bl&quot;&gt;&lt;p&gt;Um cassino estava sob suspeita de fraude e desconfiou-se que seus dados não são confiáveis. Para dirimir as dúvidas foram lançados 50 vezes o dado e obtido os seguintes valores:&lt;/p&gt;
-&lt;table&gt;
-&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Valor&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;5&lt;/td&gt;&lt;td&gt;6&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Exibições&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;9&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;td&gt;9&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Probabilidade&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;9&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;td&gt;9&lt;/td&gt;&lt;/tr&gt;
-&lt;/table&gt;
-&lt;p&gt;Determine se o dado é confiável.&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;Efetuando os cálculos:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Exibições&lt;/td&gt;
-      &lt;td&gt;9&lt;/td&gt;
-      &lt;td&gt;8&lt;/td&gt;
-      &lt;td&gt;8&lt;/td&gt;
-      &lt;td&gt;8&lt;/td&gt;
-      &lt;td&gt;8&lt;/td&gt;
-      &lt;td&gt;9&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Probabilidade&lt;/td&gt;
-      &lt;td&gt;$\frac{9}{50}=0.18$&lt;/td&gt;
-      &lt;td&gt;$\frac{8}{50}=0.16$&lt;/td&gt;
-      &lt;td&gt;$\frac{8}{50}=0.16$&lt;/td&gt;
-      &lt;td&gt;$\frac{8}{50}=0.16$&lt;/td&gt;
-      &lt;td&gt;$\frac{8}{50}=0.16$&lt;/td&gt;
-      &lt;td&gt;$\frac{9}{50}=0.18$&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;&lt;strong&gt;Como a probabilidade de um dado confiável (dado pela probabilidade clássica) é $\frac{1}{6}=0.16$ podemos concluir que o dado é confiável.&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;A probabilidade frequentista tem a desvantagem de ser necessário realizar os experimentos para a obtenção dos dados o que em alguns casos é impraticável, no exemplo da indústria de lâmpadas seria preciso esperar um bom tempo e destruir as lampadas para a obtenção dos dados. Outro problema é saber quantos experimentos realizar. A teoria diz que o correto é a realização de infinitos testes, algo impossível de se realizar.&lt;/p&gt;
-
-&lt;p&gt;Comparada a anterior, a visão frequentista é mais eficiente em determinar as probabilidades de eventos diferentes do espaço amostral do que simplesmente assumir que os eventos são equiprováveis.&lt;/p&gt;
-
-&lt;h4 id=&quot;probabilidade-subjetiva&quot;&gt;Probabilidade subjetiva&lt;/h4&gt;
-
-&lt;p&gt;Enquanto a probabilidade clássica tem total controle sobre o espaço amostral e seus valores e na probabilidade frequentista experimentos são feitos para se obter as probabilidades dos eventos, na probabilidade subjetiva as chances dos eventos ocorrerem é uma opinião pessoal.&lt;/p&gt;
-
-&lt;p&gt;De fato é preferível valores precisos da visão frequentista mas em alguns casos não há histórico das observações ou a possibilidade de realizar os experimentos. Suponha um escritório de advocacia que recebeu um processo de um cliente e este pergunta as chances de se ter vitória? Como calcular isso matematicamente? Em geral, o advogado mais experiente faz as melhores previsões.&lt;/p&gt;
-
-&lt;p&gt;Nos cargos de gerência e situações de tomada de decisões um dos atributos mais importantes é perceber corretamente as probabilidades dos eventos. &lt;sup id=&quot;fnref:2&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
-
-&lt;div class=&quot;destaque amarelo bt&quot;&gt;
-&lt;strong&gt;Curiosidade:&lt;/strong&gt;
-
-O &lt;strong&gt;big data&lt;/strong&gt; é uma grande quantidade de dados de alguma área registrados em computador. Ao dirigir usando o GPS este registra o trânsito, tempo de viagem, percurso e ocorrências de todas as pessoas que usam ele; essa grande quantidade de dados com o uso de computadores ajuda o GPS a calcular a probabilidade e o tempo de viagem em um dado dia e horário.
-
-Os escritórios de advocacia e os tribunais tem registro de milhares de processos que estão sendo fontes de big data para que programas calculem, usando métodos frequentistas e de processamento de linguagem, as chances dos litígios.
-&lt;/div&gt;
-
-&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
-  &lt;ol&gt;
-    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;Para um leitor de nível superior a conclusão não segue o rito normal da inferência estatística. Porém o artigo é direcionado ao nível médio e o leitor pode concordar que intuitivamente é uma conclusão válida. &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:2&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;Read, D. (2005). Judgment and Choice. In K. Kempf-Leonard (Ed.), Encyclopedia of Social Measurement (pp. 401–407). Elsevier. &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="aplicadas" /><category term="matemática" /><category term="probabilidade" /><summary type="html">Todas as coisas são números. Transformando idéias e sensações em números</summary></entry></feed>
+&lt;p&gt;Programas de otimização não acham o &lt;strong&gt;melhor&lt;/strong&gt; valor, porque em geral é uma tarefa impossível (o mais correto seria improvável) de se achar, devido a explosão combinatória. Por isso são chamados ‘otimizadores’ pois eles buscam a melhor solução possível, ou seja, uma &lt;strong&gt;solução ótima&lt;/strong&gt;.&lt;/p&gt;</content><author><name></name></author><category term="aplicadas" /><category term="python" /><category term="otimização" /><category term="CVXPY" /><summary type="html">O problema da mochila ou em inglês “knapsack” é um problema clássico de otimização combinatória.</summary></entry></feed>

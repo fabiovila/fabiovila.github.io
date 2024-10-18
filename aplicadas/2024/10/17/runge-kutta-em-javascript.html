@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Primary Meta Tags -->
+    <title>Explorando o método Runge-Kutta em javascript</title>
+    <meta name="title" content="Explorando o método Runge-Kutta em javascript" />
+    <meta name="description" content="" />
+    
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="/aplicadas/2024/10/17/runge-kutta-em-javascript.html" />
+    <meta property="og:title" content="Explorando o método Runge-Kutta em javascript" />
+    <meta property="og:description" content="Bricando com equações diferenciais pelo método RK4 Equações diferenciais frequentemente surgem em modelos que estão associados a sistemas fisicos que armazenam energia, porém econtrar a solução de uma equação diferencial não é trivial e muitas equações ainda não tem solução algébrica conhecida. Essas equações foram e são ainda um campo..."  />
+    <meta property="og:image" content="/assets/imgs/429fb1d8-89d4-49c6-8214-a128530e1430.jpeg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="/aplicadas/2024/10/17/runge-kutta-em-javascript.html" />
+    <meta property="twitter:title" content="Explorando o método Runge-Kutta em javascript"  />
+    <meta property="twitter:description" content="Bricando com equações diferenciais pelo método RK4 Equações diferenciais frequentemente surgem em modelos que estão associados a sistemas fisicos que armazenam energia, porém econtrar a solução de uma equação diferencial não é trivial e muitas equações ainda não tem solução algébrica conhecida. Essas equações foram e são ainda um campo..." />
+    <meta property="twitter:image" content="/assets/imgs/429fb1d8-89d4-49c6-8214-a128530e1430.jpeg"/>
+
+    <!-- Meta Tags Generated with https://metatags.io -->
+
+    <link rel="preload"  href='/assets/css/style.css' as="style" type="text/css">
+    <link rel="stylesheet"  href='/assets/css/style.css'>
+    <link rel="stylesheet"  href='/assets/css/github.css'>
+    <script rel="preload" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js" integrity="sha512-6sSYJqDreZRZGkJ3b+YfdhB3MzmuP9R7X1QZ6g5aIXhRvR1Y/N/P47jmnkENm7YL3oqsmI6AK+V6AD99uWDnIw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        var $ = function(id){return document.getElementById(id)};
+        MathJax = {
+          jax: ["input/TeX","output/HTML-CSS"],
+          chtml: { displayAlign: 'left'      },
+          tex: {
+            inlineMath: [['$', '$']],
+            displayMath:[['$$', '$$'], ['\\[', '\\]']]
+          }
+          };
+    </script>
+        <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+        </script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>      
+        <script>hljs.highlightAll();</script>
+         <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PY9DT1RWSW"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-PY9DT1RWSW');
+        </script>
+</head>
+
+    <body>
+        <nav class="navbar has-shadow">
+            <div class="container">
+                <div class="navbar-brand"><a class="navbar-item" href="/">Fabio Vila</a>
+                <div class="navbar-burger burger" data-target="navMenu"><span></span><span></span><span></span></div>
+            </div>
+            <div class="navbar-menu" id="navMenu">
+                <div class="navbar-end">
+                    <div class="navbar-item has-dropdown is-hoverable"><a class="navbar-link">Search</a>
+                    <div class="navbar-dropdown"><a class="navbar-item">Dashboard</a><a class="navbar-item">Profile</a><a class="navbar-item">Settings</a>
+                    <hr class="navbar-divider" />
+                    <!--div class="navbar-item">Logout</div-->
+                    <div class="navbar-item">
+                    <p class="control has-icons-left">
+                        <input class="input" type="text" placeholder="Search">
+                        <span class="icon is-left">
+                          <i class="fas fa-search" aria-hidden="true"></i>
+                        </span>
+                      </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</nav>
+<section class="mt-6 container has-background-white">
+
+<section class="section ">
+<div class="columns is-centered">
+<div class="column is-9 ">
+<div class="content is-fluid">
+
+  <header class="mb-5">
+    <h1 class="title">Explorando o método Runge-Kutta em javascript</h1>
+    <h4 class="subtitle has-text-weight-light is-family-sans-serif"></h4>
+    
+    <hr class="m-1"/>
+    <small class="pl-2 has-text-dark-grey" ><span class="icon "><i class="fa fa-user "></i></span>
+      
+      Fabio
+         
+    <span class="icon"><i class="fa fa-calendar"></i></span>  
+     17 Oct 2024
+     <span class="icon"><i class="fa fa-bars"></i></span>
+    aplicadas
+    <span class="icon"><i class="fa fa-tag"></i></span>  
+    matemática e javascript
+    </small>
+    <hr class="mt-1 mb-5"/>
+    <div class="h-400">
+        
+        <img class="image" src="/assets/imgs/429fb1d8-89d4-49c6-8214-a128530e1430.jpeg"/>
+        
+    </div>
+
+
+  </header>
+
+  <article class="mt-5">
+    <h2 id="bricando-com-equações-diferenciais-pelo-método-rk4">Bricando com equações diferenciais pelo método RK4</h2>
+
+<p>Equações diferenciais frequentemente surgem em modelos que estão associados a sistemas fisicos que armazenam energia, porém econtrar a solução de uma equação diferencial não é trivial e muitas equações ainda não tem solução algébrica conhecida. Essas equações foram e são ainda um campo de interesse em uma corrida para encontrar soluções para algumas famílias de equações diferenciais. Todavia, não ter uma solução algébrica não impede de obter os valores dessas equações, para tanto, métodos iterativos foram desenvolvidos para esse fim.</p>
+
+<p>Antes de ver alguns desses métodos em Java Script, abaixo você poderá explorar graficamente equações diferenciais resolvidas pelo método Runge-Kutta.</p>
+
+<p>Utilize o formato javascript, Math pode ser suprimido.</p>
+
+<div>
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label">Parametros</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control">
+        <input id="h" class="input is-primary" type="text" placeholder="Valor de H" value="0.0001" />
+        <p class="help">Passo para cada iteração (H)</p>
+      </div>
+    </div>
+    <div class="field">
+      <div class="control">
+        <input id="t" class="input is-primary" type="text" placeholder="Tempo" value="10.0" />
+        <p class="help">Tempo limite</p>
+      </div>
+    </div>
+        <div class="field">
+      <div class="control">
+        <input id="x0" class="input is-primary" type="text" placeholder="x0" value="0" />
+        <p class="help">Valor inicial de x0</p>
+      </div>
+    </div>
+        <div class="field">
+      <div class="control">
+        <input id="y0" class="input is-primary" type="text" placeholder="y0" value="0" />
+        <p class="help">Valor inicial de y0</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="field has-addons">
+  <div class="control is-expanded">
+    <input id="eq" class="input is-primary" type="text" placeholder="Equação formato JavaScript" value="y+cos(x**2)" />
+  </div>
+  <div class="control">
+    <button id="calcular" class="button is-link">Calcular</button>
+  </div>
+</div>
+<div id="gd"></div>
+</div>
+
+<h3 id="método-de-euler">Método de Euler</h3>
+
+<p>Os algoritmos iteram através de estimativas do próximo valor que, então, é utilizado na próxima iteração. Esses métodos partem de uma condição inicial definida pelo usuário e a cada iteração uma estimativa do próximo valor é calculado repetindo-se o processo com o valor anterior.</p>
+
+<p>O primeiro método foi criado pelo famoso matemático Euler cujo nome é Método de Euler. Esse método faz apenas uma estimativa pontual do próximo e continua o processo. Como sua estimativa é fraca, erros se acumulam a cada iteração tornando inútil os valores por explodirem ou oscilarem. Entretanto por ser simples e fácil de implementar o método de Euler costuma exemplo de partida para estudos desses algoritmos.</p>
+
+<p>Como este site é primariamente de eletrônica, vamos partir do exemplo do circuito RL abaixo que foi tema de artigo <sup id="fnref:anterior" role="doc-noteref"><a href="#fn:anterior" class="footnote" rel="footnote">1</a></sup> para começar a explorar alguns métodos:</p>
+
+<p><img src="/assets/imgs/circuit-rl.png" alt="Circuito RL" /></p>
+
+<p>Para uma fonte DC de 5V o circuito é modelado pela seguinte equação diferencial</p>
+
+<p>$5 = 4700 i{\left(t \right)} + 0.0001 \frac{d}{d t} i{\left(t \right)}$</p>
+
+<p>Isolando $di(t) \over {dt}$ obtemos</p>
+
+<p>${di(t) \over dt} = \frac{5 - 4700 * i(t)}{0.0001}$</p>
+
+<h2 id="método-de-euler-1">Método de Euler</h2>
+
+<p>O método de Euler é um método simples e didático. Primeiramente precisamos definir a função com a equaçao diferencial que será chamada a cada iteração para se obter o próximo valor. A função didt(t,i) definida abaixo é a equação do circuito RL visto acima.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function didt(t, i) {
+return (5 - 4700 * i) / 0.0001;
+}
+
+function Euler(y0, x0, h, final, f) {
+const r = [];
+let x = x0;
+let y = y0;
+
+r[0] = y;
+while (x &lt; final) {
+    y = y + h * f(x, y);
+    x = x + h;
+    r.push(y);
+}
+return r;
+}
+
+r = Euler(0, 0, 0.0001, 0.1, didt);
+
+console.log(r);
+</code></pre></div></div>
+
+<p>Os parametros $x0$ e $y0$ são as condições iniciais da equação. Você também pode pensar como as condições iniciais do circuito, ou seja, no primeiro instante $t = 0$ e não há corrente no circuito, logo $y0 = 0$ e $x0 = 0$. Como o algoritmo é iterativo cada passo representa uma quantidade no tempo, dessa forma $h$ é a quantidade do passo dado no tempo. Como um circuito como esse se estabiliza rapidamente, $h$ deverá ser da ordem dos micro segundos ou nano segundos. $final$ informa ao algoritmo quando terminar.
+O método de Euler é puramente didático. Ele faz péssimas estimativas do próximo valor que vão se acumulando, retornando, então, valores irreais e oscilatórios. De fato no programa acima em poucas iterações os valores se tornam irreais e explosivos.</p>
+
+<h3 id="método-de-runge-kutta">Método de Runge-Kutta</h3>
+
+<p>Amplamente utilizado, o método de Runge-Kutta converge adequadamente, não acumula muitos erros e tem poucas chances de oscilar. Em contraste ao método de Euler as estimativas são feitas através de média aritmética ponderada de 4 valores ($K_n$).</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function didt(t, i) {
+return (5 - 4700 * i) / 0.0001;
+}
+
+function RK(y0, x0, h, final, f) {
+const r = [];
+let x = x0;
+let y = y0;
+let k1, k2, k3, k4;
+
+r.push(y);
+while (x &lt; final) {
+    k1 = h * f(x, y);
+    h2 = h / 2; // Uma pequena otimização
+    k2 = h * f(x + h2, y + h2 * k1);
+    k3 = h * f(x + h2, y + h2 * k2);
+    k4 = h * f(x + h, y + h * k1);
+    y = y + (h * (k1 + 2 * k2 + 2 * k3 + k4)) / 6;
+    x = x + h;
+
+    r.push(y);
+}
+return r;
+}
+
+r = Euler(0, 0, 0.0001, 0.1, didt);
+
+console.log(r);
+</code></pre></div></div>
+
+<script>
+var func;
+const ctx = $("mycanvas");
+
+function RK(y0, x0, h, final, f) {
+    console.log(y0,x0,h,final);
+const r = [];
+let x = x0;
+let y = y0;
+let k1, k2, k3, k4;
+
+r.push(y);
+while (x < final) {
+    k1 = h * f(x, y);
+    h2 = h / 2; // Uma pequena otimização
+    k2 = h * f(x + h2, y + h2 * k1);
+    k3 = h * f(x + h2, y + h2 * k2);
+    k4 = h * f(x + h, y + h * k1);
+    y = y + (h * (k1 + 2 * k2 + 2 * k3 + k4)) / 6;
+    x = x + h;
+
+    r.push(y);
+}
+return r;
+}
+
+$("calcular").onmouseup = (e) => {
+    let equacao = $("eq").value;
+    try {
+        with(Math) {
+            equacao = equacao.replace('²',"**2");
+            equacao = equacao.replace('³',"**3");
+            equacao = equacao.replace('^',"**");
+            func = new Function("x,y","with(Math) { return (" + equacao + ");}");
+            let r = RK(parseFloat($("y0").value), parseFloat($("x0").value), parseFloat($("h").value), parseFloat($("t").value), func);
+
+            Plotly.newPlot("gd", { "data": [{ "y": r }], });
+        }
+    }
+    catch(e) {
+        console.log(e);
+    }    
+};
+
+(function () {
+
+})();
+
+
+</script>
+
+<script type="module" charset="utf-8">
+import "https://cdn.plot.ly/plotly-2.35.2.min.js"
+    let r = RK(0, 0, 0.0001, 10, (x,y) =>{return y+Math.cos(x**2);});
+    Plotly.newPlot("gd", {"data": [{ "y": r }],})
+</script>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:anterior" role="doc-endnote">
+      <p><a href="https://fabiovila.github.io/eletr%C3%B4nica/2021/02/10/simulacao-circuito-RL-python.html">Usando Python para resolver ODEs de circuitos elétricos: RL - Python</a> <a href="#fnref:anterior" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+  </article>
+
+</div>
+</div>
+</div>
+</section>
+
+<section class="section">
+  <hr/>
+  <nav class="level is-mobile">
+
+    <div class="level-item">      
+      
+      
+      <div>
+        <p class="heading"><strong>Veja Também:</strong></p>
+        <small>Significado dos códigos de falha DTC OBD2 da ECU - Aplicativo</small></br>
+        <small></small>
+      </div>
+    </div>
+  </nav>
+</section>
+<section class="section">
+  <div id="disqus_thread"></div>
+<script>
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://fabiovila-github-io.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+<!--
+    <aside class="column is-3-desktop block">
+        
+    
+    <div class="block">
+        <div class="aside-title"><span>Assuntos</span></div>
+        
+         
+          <a class="ml-1 is-capitalized has-text-grey" href="/">eletrônica</a>
+        <hr class="mt-1 mb-1"/>
+        
+         
+          <a class="ml-1 is-capitalized has-text-grey" href="/">aplicadas</a>
+        <hr class="mt-1 mb-1"/>
+        
+         
+          <a class="ml-1 is-capitalized has-text-grey" href="/">python</a>
+        <hr class="mt-1 mb-1"/>
+        
+         
+          <a class="ml-1 is-capitalized has-text-grey" href="/">eletronica</a>
+        <hr class="mt-1 mb-1"/>
+        
+         
+          <a class="ml-1 is-capitalized has-text-grey" href="/">app</a>
+        <hr class="mt-1 mb-1"/>
+        
+    </div>
+    <div class="block mt-5">
+            <div class="aside-title"><span>Ultimos</span></div>
+            
+             
+              <a class="ml-1 is-capitalized c" href="/">eletrônica</a>
+            <hr class="mt-1 mb-1"/>
+            
+             
+              <a class="ml-1 is-capitalized c" href="/">aplicadas</a>
+            <hr class="mt-1 mb-1"/>
+            
+             
+              <a class="ml-1 is-capitalized c" href="/">python</a>
+            <hr class="mt-1 mb-1"/>
+            
+             
+              <a class="ml-1 is-capitalized c" href="/">eletronica</a>
+            <hr class="mt-1 mb-1"/>
+            
+             
+              <a class="ml-1 is-capitalized c" href="/">app</a>
+            <hr class="mt-1 mb-1"/>
+            
+    </div>
+
+</aside>
+
+-->
+
+</section>
+<section>
+    <footer class="footer is-primary">
+    </footer>
+</section>
+
+</body>
+</html>
