@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Primary Meta Tags -->
+    <title>Entendendo o padrão NEMA em motores de passo na construção de CNC e Impressoras 3D - Automação</title>
+    <meta name="title" content="Entendendo o padrão NEMA em motores de passo na construção de CNC e Impressoras 3D - Automação" />
+    <meta name="description" content="" />
+    
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="/automa%C3%A7%C3%A3o/2023/12/29/motores-passo-padrao-NEMA-CNC-impressao-3d.html" />
+    <meta property="og:title" content="Entendendo o padrão NEMA em motores de passo na construção de CNC e Impressoras 3D - Automação" />
+    <meta property="og:description" content="Entendendo os Padrões NEMA para Motores Elétricos Os padrões da NEMA (National Electrical Manufacturers Association) são fundamentais para especificar e avaliar motores elétricos em diversas aplicações industriais e comerciais. Este artigo apresenta um resumo desses padrões e como eles ajudam na escolha e utilização de motores elétricos. Categorias de Motores..."  />
+    <meta property="og:image" content="/assets/imgs/c7997e25-c7cb-4217-a81d-80217e1e8b82.jpeg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="/automa%C3%A7%C3%A3o/2023/12/29/motores-passo-padrao-NEMA-CNC-impressao-3d.html" />
+    <meta property="twitter:title" content="Entendendo o padrão NEMA em motores de passo na construção de CNC e Impressoras 3D - Automação"  />
+    <meta property="twitter:description" content="Entendendo os Padrões NEMA para Motores Elétricos Os padrões da NEMA (National Electrical Manufacturers Association) são fundamentais para especificar e avaliar motores elétricos em diversas aplicações industriais e comerciais. Este artigo apresenta um resumo desses padrões e como eles ajudam na escolha e utilização de motores elétricos. Categorias de Motores..." />
+    <meta property="twitter:image" content="/assets/imgs/c7997e25-c7cb-4217-a81d-80217e1e8b82.jpeg"/>
+
+    <!-- Meta Tags Generated with https://metatags.io -->
+
+    <link rel="preload"  href='/assets/css/style.css' as="style" type="text/css">
+    <link rel="stylesheet"  href='/assets/css/style.css'>
+    <link rel="stylesheet"  href='/assets/css/github.css'>
+    <script rel="preload" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js" integrity="sha512-6sSYJqDreZRZGkJ3b+YfdhB3MzmuP9R7X1QZ6g5aIXhRvR1Y/N/P47jmnkENm7YL3oqsmI6AK+V6AD99uWDnIw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        var $ = function(id){return document.getElementById(id)};
+        MathJax = {
+          jax: ["input/TeX","output/HTML-CSS"],
+          chtml: { displayAlign: 'left'      },
+          tex: {
+            inlineMath: [['$', '$']],
+            displayMath:[['$$', '$$'], ['\\[', '\\]']]
+          }
+          };
+    </script>
+        <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+        </script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>      
+        <script>hljs.highlightAll();</script>
+         <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PY9DT1RWSW"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-PY9DT1RWSW');
+        </script>
+</head>
+
+    <body>
+        <nav class="navbar has-shadow">
+            <div class="container">
+                <div class="navbar-brand"><a class="navbar-item" href="/">Fabio Vila</a>
+                <div class="navbar-burger burger" data-target="navMenu"><span></span><span></span><span></span></div>
+            </div>
+            <div class="navbar-menu" id="navMenu">
+                <div class="navbar-end">
+                    <div class="navbar-item has-dropdown is-hoverable"><a class="navbar-link">Search</a>
+                    <div class="navbar-dropdown"><a class="navbar-item">Dashboard</a><a class="navbar-item">Profile</a><a class="navbar-item">Settings</a>
+                    <hr class="navbar-divider" />
+                    <!--div class="navbar-item">Logout</div-->
+                    <div class="navbar-item">
+                    <p class="control has-icons-left">
+                        <input class="input" type="text" placeholder="Search">
+                        <span class="icon is-left">
+                          <i class="fas fa-search" aria-hidden="true"></i>
+                        </span>
+                      </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</nav>
+<section class="mt-6 container has-background-white">
+
+<section class="section ">
+<div class="columns is-centered">
+<div class="column is-9 ">
+<div class="content is-fluid">
+
+  <header class="mb-5">
+    <h1 class="title">Entendendo o padrão NEMA em motores de passo na construção de CNC e Impressoras 3D - Automação</h1>
+    <h4 class="subtitle has-text-weight-light is-family-sans-serif"></h4>
+    
+    <hr class="m-1"/>
+    <small class="pl-2 has-text-dark-grey" ><span class="icon "><i class="fa fa-user "></i></span>
+      
+      Fabio
+         
+    <span class="icon"><i class="fa fa-calendar"></i></span>  
+     29 Dec 2023
+     <span class="icon"><i class="fa fa-bars"></i></span>
+    automação
+    <span class="icon"><i class="fa fa-tag"></i></span>  
+    motores passo, cnc, e impressão 3d
+    </small>
+    <hr class="mt-1 mb-5"/>
+    <div class="h-400">
+        
+        <img class="image" src="/assets/imgs/c7997e25-c7cb-4217-a81d-80217e1e8b82.jpeg"/>
+        
+    </div>
+
+
+  </header>
+
+  <article class="mt-5">
+    <h2 id="entendendo-os-padrões-nema-para-motores-elétricos">Entendendo os Padrões NEMA para Motores Elétricos</h2>
+
+<p>Os padrões da <strong>NEMA (National Electrical Manufacturers Association)</strong> são fundamentais para especificar e avaliar motores elétricos em diversas aplicações industriais e comerciais. Este artigo apresenta um resumo desses padrões e como eles ajudam na escolha e utilização de motores elétricos.</p>
+
+<h4 id="categorias-de-motores-segundo-os-padrões-nema">Categorias de Motores Segundo os Padrões NEMA</h4>
+
+<p>Os motores NEMA são classificados em quatro classes principais, cada uma com características específicas de torque, corrente de partida e deslizamento:</p>
+
+<ol>
+  <li><strong>Classe A</strong>: Máximo de 5% de deslizamento, corrente de partida alta ou média, torque normal. Usados em ventiladores e bombas.</li>
+  <li><strong>Classe B</strong>: Similar à Classe A, mas com corrente de partida baixa. Comum em sistemas de HVAC.</li>
+  <li><strong>Classe C</strong>: Máximo de 5% de deslizamento, corrente de partida baixa e torque de rotor bloqueado elevado. Ideal para transportadores e bombas de deslocamento positivo.</li>
+  <li><strong>Classe D</strong>: Deslizamento de 5 a 13%, corrente de partida baixa, torque de rotor bloqueado muito alto. Usados em guindastes e sistemas de alta inércia.</li>
+</ol>
+
+<p>Além disso, há os motores <strong>Above-NEMA</strong> (ANEMA), que não seguem classificações padrão e são projetados para aplicações específicas.</p>
+
+<h4 id="estruturas-e-dimensões-dos-motores-nema">Estruturas e Dimensões dos Motores NEMA</h4>
+
+<p>Os motores são especificados por tamanhos de estrutura (frames), que definem dimensões como altura do eixo, diâmetro, e padrões de montagem. Esses tamanhos são identificados por números e sufixos, como:</p>
+
+<ul>
+  <li><strong>T</strong>: Dimensões padronizadas.</li>
+  <li><strong>C</strong>: Montagem frontal com flange.</li>
+  <li><strong>JM/JP</strong>: Usados em bombas acopladas.</li>
+  <li><strong>TEFC</strong> (Totally Enclosed Fan Cooled): Enclausurados com ventilação externa para ambientes contaminados.</li>
+</ul>
+
+<h4 id="tipos-de-carcaças-e-proteções">Tipos de Carcaças e Proteções</h4>
+
+<p>Os motores são protegidos contra contaminantes e condições ambientais por diferentes tipos de carcaça:</p>
+
+<ul>
+  <li><strong>ODP (Open Drip Proof)</strong>: Para ambientes limpos e internos.</li>
+  <li><strong>WPI/WPII (Weather Protected)</strong>: Protegidos contra partículas grandes e água.</li>
+  <li><strong>TEFC/TENV</strong>: Totalmente fechados para ambientes severos.</li>
+  <li><strong>XPRF (Explosion-Proof)</strong>: Resistentes a explosões internas.</li>
+</ul>
+
+<h4 id="classes-de-isolamento-térmico">Classes de Isolamento Térmico</h4>
+
+<p>Os padrões NEMA também classificam o isolamento térmico, que determina a capacidade de suportar calor:</p>
+
+<ul>
+  <li><strong>Classe A</strong>: Até 105°C.</li>
+  <li><strong>Classe B</strong>: Até 130°C.</li>
+  <li><strong>Classe F</strong>: Até 155°C.</li>
+  <li><strong>Classe H</strong>: Até 180°C.</li>
+</ul>
+
+<p>A escolha da classe depende da temperatura ambiente e das condições de operação.</p>
+
+<h4 id="importância-dos-padrões-nema">Importância dos Padrões NEMA</h4>
+
+<p>Os padrões NEMA garantem que motores de diferentes fabricantes sejam intercambiáveis, com dimensões e especificações padronizadas. Isso facilita a manutenção, reposição e adaptação em projetos industriais.</p>
+
+<p>Além disso, o uso correto desses padrões ajuda a melhorar a eficiência energética e a confiabilidade dos sistemas motorizados.</p>
+
+<h2 id="uso-em-impressão-3d-e-cnc">Uso em Impressão 3D e CNC</h2>
+
+<p>Assim como outros motores, os motores de passo utilizados em CNC e impressoras 3D seguem os tamanhos de estrutura definidos pelos padrões NEMA. Entre os tamanhos mais comuns para aplicações em CNCs e impressoras 3D destacamos:</p>
+
+<ul>
+  <li><strong>NEMA 17</strong>: Muito usado em impressoras 3D e pequenas máquinas CNC. Oferece um equilíbrio entre torque e tamanho compacto.</li>
+  <li><strong>NEMA 23</strong>: Mais potente que o NEMA 17, frequentemente usado em máquinas CNC de médio porte e cortadores a laser.</li>
+  <li><strong>NEMA 34</strong>: Usado em máquinas CNC maiores ou em aplicações que exigem alto torque.</li>
+</ul>
+
+<p>Esses tamanhos determinam as dimensões físicas e os padrões de montagem, facilitando a integração com os sistemas mecânicos. Dessa forma ao escolher um motor de passo para esses dispositivos, é importante considerar os seguintes fatores:</p>
+
+<ol>
+  <li>
+    <p><strong>Torque</strong>: Essencial para mover e manter o posicionamento de cargas mecânicas, como mesas de trabalho ou eixos de impressão. O torque do motor deve ser suficiente para superar a resistência mecânica e manter a precisão.</p>
+  </li>
+  <li>
+    <p><strong>Resolução</strong>: Medida em passos por rotação. Motores de passo típicos têm 200 passos por rotação (1,8° por passo), mas podem alcançar resoluções maiores com drivers que suportam microstepping.</p>
+  </li>
+  <li>
+    <p><strong>Drivers de Motor</strong>: Os drivers controlam os pulsos enviados ao motor. Para CNCs e impressoras 3D, drivers com suporte a microstepping (como <a href="https://www.allegromicro.com/~/media/Files/Datasheets/A4988-Datasheet.ashx">A4988</a> ou <a href="https://www.analog.com/media/en/technical-documentation/data-sheets/TMC2209_datasheet_rev1.08.pdf">TMC2209</a>) ajudam a suavizar os movimentos e reduzir vibrações.</p>
+  </li>
+  <li>
+    <p><strong>Corrente e Tensão</strong>: Determinam a potência do motor. Certifique-se de que a fonte de alimentação e o driver sejam compatíveis com os requisitos do motor.</p>
+  </li>
+  <li>
+    <p><strong>Backlash e Precisão</strong>: Embora os motores de passo sejam precisos, o backlash em sistemas mecânicos, como fusos e correias, pode afetar a exatidão. O design mecânico deve minimizar esse efeito.</p>
+  </li>
+</ol>
+
+<h4 id="benefícios-dos-motores-de-passo-em-cncs-e-impressoras-3d">Benefícios dos Motores de Passo em CNCs e Impressoras 3D</h4>
+
+<ul>
+  <li><strong>Controle Preciso</strong>: Ideal para operações que exigem movimentos finos e repetitivos, como cortes detalhados em CNCs ou camadas de impressão em 3D.</li>
+  <li><strong>Custo Acessível</strong>: Comparados a servomotores, os motores de passo são mais baratos e suficientes para a maioria das aplicações.</li>
+  <li><strong>Fácil Integração</strong>: Interfaces padrão, como as controladoras GRBL e Marlin, simplificam a integração com drivers e software de controle.</li>
+</ul>
+
+<h4 id="limitações-dos-motores-de-passo">Limitações dos Motores de Passo</h4>
+
+<p>Apesar das vantagens, é importante considerar as limitações:</p>
+
+<ul>
+  <li><strong>Perda de Passos</strong>: Em condições de carga excessiva, o motor pode perder passos, prejudicando a precisão.</li>
+  <li><strong>Baixa Eficiência em Alta Velocidade</strong>: O torque diminui à medida que a velocidade aumenta.</li>
+  <li><strong>Ruído e Vibração</strong>: Especialmente em modos de passo inteiro. Drivers avançados ajudam a mitigar esse problema.</li>
+</ul>
+
+<h4 id="dicas-para-escolha-e-configuração">Dicas para Escolha e Configuração</h4>
+
+<p>É importante calcular o torque necessário considerando o peso da carga e a resistência do sistema para não sobrecarregar os drivers e o motor. Drivers como <a href="https://www.analog.com/media/en/technical-documentation/data-sheets/TMC2209_datasheet_rev1.08.pdf">TMC2209</a> são ideais para impressoras 3D devido ao funcionamento silencioso, enquanto <a href="https://www.ti.com/product/DRV8825">DRV8825</a> ou <a href="https://www.omc-stepperonline.com/download/DM542T.pdf">DM542</a> são comuns em CNCs. Utilizar microstepping melhora a suavidade dos movimentos e a resolução. Também é importante levar em conta a temperatura de trabalho dos drivers e motores necessitando da instalação de dissipadores de calor ou ventoinhas nos drivers e motores.</p>
+
+<h4 id="conclusão">Conclusão</h4>
+
+<p>Os motores de passo, especialmente os padronizados pela NEMA, são a escolha ideal para aplicações como CNCs e impressoras 3D devido ao seu equilíbrio entre custo, precisão e confiabilidade. Escolher o modelo certo e configurá-lo corretamente é crucial para o sucesso de qualquer projeto.</p>
+
+  </article>
+
+</div>
+</div>
+</div>
+</section>
+
+<section class="section">
+  <hr/>
+  <nav class="level is-mobile">
+
+    <div class="level-item">      
+      
+      
+      <div>
+        <p class="heading"><strong>Veja Também:</strong></p>
+        <small>Órgãos Antigos dos Anos 70: Geradores e Divisores de Oitavas - Música Eletrônica</small></br>
+        <small>Código de Cores de capacitores - Aplicativo</small>
+      </div>
+    </div>
+  </nav>
+</section>
+<section class="section">
+  <div id="disqus_thread"></div>
+<script>
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://fabiovila-github-io.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+<!--
+    <aside class="column is-3-desktop block">
+        
+    
+    <div class="block">
+        <div class="aside-title"><span>Assuntos</span></div>
+        
+         
+          <a class="ml-1 is-capitalized has-text-grey" href="/">eletrônica</a>
+        <hr class="mt-1 mb-1"/>
+        
+         
+          <a class="ml-1 is-capitalized has-text-grey" href="/">aplicadas</a>
+        <hr class="mt-1 mb-1"/>
+        
+         
+          <a class="ml-1 is-capitalized has-text-grey" href="/">python</a>
+        <hr class="mt-1 mb-1"/>
+        
+         
+          <a class="ml-1 is-capitalized has-text-grey" href="/">eletronica</a>
+        <hr class="mt-1 mb-1"/>
+        
+         
+          <a class="ml-1 is-capitalized has-text-grey" href="/">automação</a>
+        <hr class="mt-1 mb-1"/>
+        
+         
+          <a class="ml-1 is-capitalized has-text-grey" href="/">app</a>
+        <hr class="mt-1 mb-1"/>
+        
+    </div>
+    <div class="block mt-5">
+            <div class="aside-title"><span>Ultimos</span></div>
+            
+             
+              <a class="ml-1 is-capitalized c" href="/">eletrônica</a>
+            <hr class="mt-1 mb-1"/>
+            
+             
+              <a class="ml-1 is-capitalized c" href="/">aplicadas</a>
+            <hr class="mt-1 mb-1"/>
+            
+             
+              <a class="ml-1 is-capitalized c" href="/">python</a>
+            <hr class="mt-1 mb-1"/>
+            
+             
+              <a class="ml-1 is-capitalized c" href="/">eletronica</a>
+            <hr class="mt-1 mb-1"/>
+            
+             
+              <a class="ml-1 is-capitalized c" href="/">automação</a>
+            <hr class="mt-1 mb-1"/>
+            
+             
+              <a class="ml-1 is-capitalized c" href="/">app</a>
+            <hr class="mt-1 mb-1"/>
+            
+    </div>
+
+</aside>
+
+-->
+
+</section>
+<section>
+    <footer class="footer is-primary">
+    </footer>
+</section>
+
+</body>
+</html>
