@@ -2834,6 +2834,10 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus { color: #ee2049 !imp
 
 .footer { background-color: #fafafa; padding: 3rem 1.5rem 6rem; }
 
+body { font-size: 1.1em; }
+@media screen and (min-width: 769px), print { body { font-size: 1.1em; } }
+@media screen and (min-width: 1024px) { body { font-size: 1.1em; } }
+
 h1, h2, h3, h4, h5, h6 .title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; margin-left: 0.5rem; letter-spacing: .02rem; line-height: 1.2; margin-top: 2.9333333333rem; }
 
 .aside-title::before { content: ""; white-space: pre; position: absolute; content: ""; right: 0; height: 1px; width: 100%; top: 50%; border-top: 2px dotted #ccc; }
@@ -2898,7 +2902,7 @@ h1, h2, h3, h4, h5, h6 .title { font-family: -apple-system, BlinkMacSystemFont, 
 
 .footnotes p { font-size: 0.525rem; font-weight: 200; }
 
-.title-header { align-items: stretch; display: flex; margin: -1.3em 0em 1em -0.5em; letter-spacing: 1px; font-variant: small-caps; color: #666666; font-size: 0.8rem; line-height: 2em; }
+.title-header { display: table-cell; align-items: stretch; display: flex; letter-spacing: 1px; font-variant: small-caps; color: #666666; font-size: 0.8rem; line-height: 2em; vertical-align: bottom; }
 
 .MJX-TEX { color: rgba(0, 86, 95, 0.7215686275) !important; }
 
