@@ -2904,7 +2904,7 @@ h1, h2, h3, h4, h5, h6 .title { font-family: -apple-system, BlinkMacSystemFont, 
 
 .title-header { display: table-cell; align-items: stretch; display: flex; letter-spacing: 1px; font-variant: small-caps; color: #666666; font-size: 0.8rem; line-height: 2em; vertical-align: bottom; }
 
-.MJX-TEX { color: rgba(0, 86, 95, 0.7215686275) !important; }
+.MJX-TEX { color: rgba(0, 40, 44, 0.7215686275) !important; }
 
 strong { color: #1a1a1a; font-weight: 800; }
 
@@ -2916,11 +2916,13 @@ pre { margin-top: 1.6rem; margin-bottom: 2.13rem; border: 1px solid beige; borde
 
 .hljs { background-color: white !important; }
 
-.destaque { padding: 2.5%; font-size: initial; font-weight: 300; border-radius: 5px; margin-top: 10%; margin: 5% 1% 5% 1%; }
+.destaque { padding: 2.5%; font-size: initial; letter-spacing: -5%; border-radius: 5px; margin-top: 10%; margin: 5% 1% 5% 1%; }
 
 .grad-royal p, .grad-royal strong, .grad-royal h1, .grad-royal h2, .grad-royal h3, .grad-royal h4, .grad-royal h5, .grad-royal h6, .grad-royal span, .grad-royal small, .grad-royal li, .grad-royal a { color: white !important; margin-top: 0; }
 
 .grad-royal a:hover { color: #8f8f8f !important; margin-top: 0; }
+
+.grad-orange p, .grad-orange strong, .grad-orange h1, .grad-orange h2, .grad-orange h3, .grad-orange h4, .grad-orange h5, .grad-orange h6, .grad-orange span, .grad-orange small, .grad-orange li, .grad-orange a { color: white !important; margin-top: 0; }
 
 .image.is-150x150 { height: 150px; width: 150px; }
 

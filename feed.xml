@@ -1,4 +1,333 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2024-12-14T14:27:56-06:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Padrão NEMA em motores de passo na construção de CNC e Impressoras 3D - Automação</title><link href="http://0.0.0.0:4000/automa%C3%A7%C3%A3o/2024/12/29/motores-passo-padrao-NEMA-CNC-impressao-3d.html" rel="alternate" type="text/html" title="Padrão NEMA em motores de passo na construção de CNC e Impressoras 3D - Automação" /><published>2024-12-29T00:00:00-06:00</published><updated>2024-12-29T00:00:00-06:00</updated><id>http://0.0.0.0:4000/automa%C3%A7%C3%A3o/2024/12/29/motores-passo-padrao-NEMA-CNC-impressao-3d</id><content type="html" xml:base="http://0.0.0.0:4000/automa%C3%A7%C3%A3o/2024/12/29/motores-passo-padrao-NEMA-CNC-impressao-3d.html">&lt;h2 id=&quot;entendendo-os-padrões-nema-para-motores-elétricos&quot;&gt;Entendendo os Padrões NEMA para Motores Elétricos&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2024-12-21T10:57:58-06:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">10 Questões de probabilidade resolvidas da Banca Quadrix - Matemática</title><link href="http://0.0.0.0:4000/educa%C3%A7%C3%A3o/2024/12/14/10-exerc%C3%ADcios-probabilidade-banca-quadrix.html" rel="alternate" type="text/html" title="10 Questões de probabilidade resolvidas da Banca Quadrix - Matemática" /><published>2024-12-14T00:00:00-06:00</published><updated>2024-12-14T00:00:00-06:00</updated><id>http://0.0.0.0:4000/educa%C3%A7%C3%A3o/2024/12/14/10-exerc%C3%ADcios-probabilidade-banca-quadrix</id><content type="html" xml:base="http://0.0.0.0:4000/educa%C3%A7%C3%A3o/2024/12/14/10-exerc%C3%ADcios-probabilidade-banca-quadrix.html">&lt;div class=&quot;destaque br bl&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Quadrix - 2024 - CRQ - 12ª Região (GO, TO e DF) - Agente Fiscal - 2024&lt;/strong&gt;&lt;/p&gt;Bárbara é proprietária de uma coleção de pedras preciosas, composta de 5 rubis e de 5 esmeraldas, sendo cada uma única e distintiva. Recentemente, Bárbara adquiriu um elegante porta‑joias com 10 compartimentos dispostos em fileira para exibir suas preciosidades. Bárbara, então, pretende alocar uma joia em cada espaço.
+Com base nessa situação hipotética, julgue o item.&lt;br /&gt;Se Bárbara decidir alocar suas joias de forma aleatória, a probabilidade de que todos os rubis fiquem juntos é de 1 em 42.
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;Certo&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Errado&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Solução&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Fileiras nesta questão refere-se a compartimentos dispostos lado-a-lado em linha reta, dessa forma, se as jóias forem dispostas aleatoriamente a questão afirma a probabilidade igual a $1 \over 42$ dos rubis estarem lado-a-lado, ou seja, juntos.&lt;/p&gt;
+
+&lt;p&gt;Primeiramente vamos calcular o número de possibilidades de disposição das jóias nos 10 compartimentos para fins didáticos. Como todas as 10 jóias são utilizadas nos 10 compartimentos e há elemento repetidos esse é um caso de &lt;strong&gt;Permutação com elementos repetidos&lt;/strong&gt;, cuja fórmula é&lt;/p&gt;
+
+\[P_{n}^{k,j} = {n! \over k!j!}\]
+
+&lt;p&gt;Sendo n = 10, k = 5 e j = 5, então&lt;/p&gt;
+
+\[P_{10}^{5,5} = {10! \over 5!5!} = 252\]
+
+&lt;p&gt;Para saber o número de possibilidades de se agrupar os 5 rubis em 10 compartimentos podemos pensar nos 5 rubis como uma unidade só como um bloco. Se considerarmos o inicio do bloco fica fácil contar as possibilidades ao colocar o bloco nos compartimentos 1,2,3,4,5 ou 6, logo são no total 6 possibilidades de disposição, logo a probabilidade dos rubis estarem juntos será&lt;/p&gt;
+
+\[P = {6 \over 252} = {1 \over 42}\]
+
+&lt;p&gt;A afirmação está &lt;strong&gt;Certa&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;destaque br bl&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Quadrix - 2012 - CREFONO-4ª Região - Fiscal - 2012&lt;/strong&gt;&lt;/p&gt;Numa urna estão 100 (cem) bolinhas numeradas de 1 a 100. Retiram-se 2 delas, sem reposição. A probabilidade de que a soma das 2 bolinhas tiradas seja 100 é de:
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;A) 1/200&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;B) 32/4501&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;C) 32/99&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;D) 49/4950&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;E) 49/99&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Solução&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Questão clássica de urnas e bolinhas numeradas. Retirar duas bolinhas sem reposição é um caso de combinação $C(100,2)$,&lt;/p&gt;
+
+\[C(n,k) = C(100,2) = {n! \over k!(m-k)!}  = {100! \over 2!(100-2)!} = 4950\]
+
+&lt;p&gt;Dessa forma serão 4950 possibilidades de se retirar 2 bolinhas quaisquer sem qualquer distinção.&lt;/p&gt;
+
+&lt;p&gt;Precisamos saber então quais os casos em que dois números até 100 somam 100.
+A bolinha de numero 100 com outra qualquer somam mais de 100, logo a descartamos.
+A bolinha 50, se retirada, não terá outra bolinha 50 para somarem 100, logo a descartamos também.
+Todas as outras bolinhas tem um par que juntas somam 100, logo os números incluidos são [1,49] e [51,99].&lt;/p&gt;
+
+&lt;p&gt;O primeiro evento terá sucesso se uma bolinha desse intervalo for retirado logo&lt;/p&gt;
+
+\[P_{1° Evento A} = {98 \over 100}\]
+
+&lt;p&gt;O segundo evento terá sucesso novamente se uma bolinha que some 100 com a primeira for retirada logo&lt;/p&gt;
+
+\[P_{2° Evento B} = {1 \over 99}\]
+
+&lt;p&gt;O que é pedido é a probabilidade da intersecção de dois eventos sucessivos cuja fórmula é&lt;/p&gt;
+
+\[P(A \cap B) = P(B|A) \times P(A) =  P(A|B) \times P(B)\]
+
+&lt;p&gt;$P(B|A)$ é a probabilidade de B ocorrer dado que A já ocorreu, isso demonstra que o 1° evento é independente, porém o 2° evento é dependente do 1°. Substituindo os valores temos:&lt;/p&gt;
+
+\[P(A \cap B) = {1 \over 99} \times {98 \over 100} = {98 \over 9900} = {49 \over 4950}\]
+
+&lt;p&gt;&lt;strong&gt;Alternativa D.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;destaque br bl&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Quadrix - 2023 - CRM - MG - Estatístico - 2023&lt;/strong&gt;&lt;/p&gt; Gael possui três moedas distintas: a primeira tem duas caras; a segunda tem uma cara e uma coroa; e a terceira tem duas coroas. Uma dessas moedas foi escolhida aleatoriamente e lançada, resultando em cara.
+Com base nessa situação hipotética, a probabilidade de que o outro lado dessa moeda também seja cara é de
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;A) 1/4&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;B) 1/3&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;C) 1/2&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;D) 2/3&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;E) 3/4&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Solução&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Para auxiliar é útil montar a árvore de probabilidade, como são eventos &lt;strong&gt;equiprováveis&lt;/strong&gt; as probabilidades estão expressas em cima de cada evento, veja que o evento valor da face da moeda é posterior a escolha da moeda por isso cada face tem probabilidade ${1 \over 3}\times {1\over2} = {1\over6}$.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;            1/3         1/6 (1/3 * 1/2)
+                    -&amp;gt; Cara  
+    -&amp;gt; Primeira Moeda M1
+                    -&amp;gt; Cara
+                    -&amp;gt; Cara  
+    -&amp;gt; Segunda  Moeda M2
+                    -&amp;gt; Coroa  
+                    -&amp;gt; Coroa  
+    -&amp;gt; Terceira Moeda M3
+                    -&amp;gt; Coroa  
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;A questão pede $P(M1|\text{”Cara”})$, ou seja, a probabilidade da Primeira Moeda ocorrer dado que um &lt;strong&gt;Cara&lt;/strong&gt; aconteceu. Resolvemos a questão aplicando o Teorema de Bayes&lt;/p&gt;
+
+\[P(M1|\text{”Cara”}) = {P(\text{”Cara”}|M1)P(M1) \over P(\text{”Cara”})}\]
+
+&lt;p&gt;Antes precisamos calcular os valores &lt;em&gt;a priori&lt;/em&gt;:&lt;/p&gt;
+
+&lt;p&gt;$P(M1) = {1 \over 3}$&lt;/p&gt;
+
+&lt;p&gt;$P(\text{“Cara”})=P(\text{“Cara”}∣M1)P(M1)+P(\text{“Cara”}∣M2)P(M2)+P(\text{“Cara”}∣M3)P(M3) =$&lt;/p&gt;
+
+&lt;p&gt;$= {1 \over 3} + {1 \over 6} + 0 = {1 \over 2}$&lt;/p&gt;
+
+\[P(\text{”Cara”}|M1) = 1\]
+
+&lt;p&gt;Calculando,&lt;/p&gt;
+
+\[P(M1|\text{”Cara”}) = { 1 \times {1 \over 3} \over {1 \over 2} } = {2 \over 3}\]
+
+&lt;p&gt;&lt;strong&gt;Alternativa D.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;destaque br bl&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Quadrix - 2022 - CRP - 11ª Região (CE) - Assistente Administrativo  - 2022&lt;/strong&gt;&lt;/p&gt;As irmãs Bianca e Sofia estão jogando um jogo de cartas com um baralho que possui dez cartas, no total. Conforme as regras desse jogo, deve-se tirar três cartas desse baralho, memorizá-las e devolvê-las ao baralho, embaralhando-o. Em seguida, deve-se escolher três novas cartas e anotar o número de cartas que vierem repetidas nesse grupo. Então, embaralha-se novamente o baralho, e a outra irmã repete o mesmo processo. Quem tiver mais cartas repetidas vence o jogo. Se as duas irmãs tirarem o mesmo número de cartas repetidas, o jogo termina empatado.&lt;br /&gt;Com base nessa situação hipotética, julgue o item.&lt;br /&gt;A chance de se tirar exatamente uma carta repetida é menor que 50%. 
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;Certo&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Errado&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Solução&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Questão que envolve interpretar bem o texto para não se perder. O jogo é feito em 4 rodadas onde as duas primeiras a mesma pessoa retira na primeira rodada 3 cartas, memoriza e devolve as cartas ao baralho e faz outra retirada anotando as cartas repetidas.&lt;/p&gt;
+
+&lt;p&gt;Há $C(10,3) = 120$ combinações possíveis de se retirar 3 cartas de um baralho com 10 o que dá uma probabilidade de cada jogo de $1 \over 120$, porém a questão não pergunta isso, ela pergunta qual a chance de somente UMA carta seja repetida no segundo jogo.&lt;/p&gt;
+
+&lt;p&gt;A carta repetida pode ser qualquer uma das 3 primeiras, restando duas não repetidas que tem $C(7,2) = 21$ combinações possíveis e como são 3 cartas para cada dessas 21 combinações obtem-se, então, no total $21 \times 3 = 63$ combinações de jogos com apenas uma carta repetida.&lt;/p&gt;
+
+&lt;p&gt;Logo a probabilidade é $P = {63 \over 120} = 52,5%$, dessa forma a afirmação está &lt;strong&gt;Errada&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;destaque br bl&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Quadrix - 2021 - CRESS-PB - Agente Fiscal - 2021&lt;/strong&gt;&lt;/p&gt;Em um grupo de amigos, 10 assistem a jogos de futebol, 6 assistem a jogos de tênis e 7 assistem a jogos de basquete. Há 3 amigos que assistem aos jogos de futebol e de tênis, 5 que assistem aos jogos de futebol e de basquete e 2 que assistem aos jogos de basquete e de tênis. Todos do grupo assistem a jogos de pelo menos 1 desses esportes, mas apenas 1 dos amigos acompanha todos os 3.&lt;br /&gt;&lt;br /&gt;Com base nesse caso hipotético, julgue o item.&lt;br /&gt;&lt;br /&gt;Selecionando-se um subgrupo de 3 desses amigos aleatoriamente, a probabilidade de ao menos 1 gostar de tênis é de 11/13 . 
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;Certo&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Errado&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Solução&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Essa é uma ótima oportunidade para se aplicar o &lt;strong&gt;&lt;a href=&quot;https://impa.br/wp-content/uploads/2021/07/PAPMEM_Julho_2021_Cicero-Thiago_Principio-da-Inclusao-e-Exclusao.pdf&quot;&gt;princípio da inclusão-exclusão&lt;/a&gt;&lt;/strong&gt; para determinar a quantidade dos amigos:&lt;/p&gt;
+
+&lt;p&gt;$n(A\cup B\cup C) = n(A) + n(B) + n(C) - n(A \cap B) - n(A \cap C) - n(B \cap C) + n(A \cap B \cap C)$&lt;/p&gt;
+
+&lt;p&gt;Substituindo,&lt;/p&gt;
+
+&lt;p&gt;$n(F\cup T\cup B) = 10 + 6 + 7 - 3 - 2 - 5 + 1 = 14$&lt;/p&gt;
+
+&lt;p&gt;Antes é preciso resolver os conjuntos das preferências utilizando o diagrama de Venn ilustrado na figura abaixo:&lt;/p&gt;
+
+&lt;div class=&quot;block&quot;&gt;
+&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;167.293&quot; height=&quot;185.79&quot; viewBox=&quot;0 0 44.263 49.157&quot; xmlns:v=&quot;https://vecta.io/nano&quot;&gt;&lt;style&gt;&lt;![CDATA[.B{writing-mode:lr-tb}.C{direction:ltr}.D{font-weight:bold}.E{font-family:Sans}.F{word-spacing:normal}.G{dominant-baseline:auto}.H{baseline-shift:baseline}.I{stroke:#000}.J{font-size:6.672px}.K{fill:#fff}.L{stroke-dashoffset:12.2477}.M{stroke-width:.265}.N{font-size:3.175px}.O{font-size:4.582px}.P{stroke-dashoffset:46.2905}.Q{stroke-width:.182}]]&gt;&lt;/style&gt;&lt;circle cx=&quot;14.402&quot; cy=&quot;17.565&quot; r=&quot;14.214&quot; fill=&quot;#faa&quot; /&gt;&lt;circle style=&quot;mix-blend-mode:multiply&quot; cx=&quot;30.049&quot; cy=&quot;18.269&quot; r=&quot;14.214&quot; fill=&quot;#cfa&quot; /&gt;&lt;circle style=&quot;mix-blend-mode:multiply&quot; cx=&quot;21.328&quot; cy=&quot;30.685&quot; r=&quot;14.214&quot; fill=&quot;#ffb380&quot; /&gt;&lt;text xml:space=&quot;preserve&quot; style=&quot;text-transform:none;white-space:normal&quot; x=&quot;53.9&quot; y=&quot;91.908&quot; letter-spacing=&quot;normal&quot; class=&quot;B C D E F G H I J K&quot;&gt;&lt;tspan style=&quot;text-transform:none;white-space:normal&quot; x=&quot;6.396&quot; y=&quot;15.959&quot; letter-spacing=&quot;normal&quot; vector-effect=&quot;none&quot; stop-color=&quot;#000&quot; stop-opacity=&quot;1&quot; class=&quot;B C F G H L M&quot;&gt;3&lt;/tspan&gt;&lt;/text&gt;&lt;text xml:space=&quot;preserve&quot; x=&quot;81.18&quot; y=&quot;92.81&quot; stroke=&quot;#1a1a1a&quot; class=&quot;B C D E J K&quot;&gt;&lt;tspan x=&quot;33.676&quot; y=&quot;16.861&quot; class=&quot;L M&quot;&gt;2&lt;/tspan&gt;&lt;/text&gt;&lt;text xml:space=&quot;preserve&quot; x=&quot;67.497&quot; y=&quot;90.828&quot; class=&quot;B C D E I J K&quot;&gt;&lt;tspan x=&quot;19.993&quot; y=&quot;14.879&quot; class=&quot;L M&quot;&gt;2&lt;/tspan&gt;&lt;/text&gt;&lt;text xml:space=&quot;preserve&quot; style=&quot;text-transform:none;white-space:normal&quot; x=&quot;66.37&quot; y=&quot;116.651&quot; letter-spacing=&quot;normal&quot; class=&quot;B C D E F G H I J K&quot;&gt;&lt;tspan style=&quot;text-transform:none;white-space:normal&quot; x=&quot;18.866&quot; y=&quot;40.702&quot; letter-spacing=&quot;normal&quot; vector-effect=&quot;none&quot; stop-color=&quot;#000&quot; stop-opacity=&quot;1&quot; class=&quot;B C F G H L M&quot;&gt;1&lt;/tspan&gt;&lt;/text&gt;&lt;text xml:space=&quot;preserve&quot; x=&quot;47.213&quot; y=&quot;78.423&quot; fill=&quot;#000&quot; class=&quot;B C D E N&quot;&gt;&lt;tspan x=&quot;-0.291&quot; y=&quot;2.474&quot;&gt;Futebol&lt;/tspan&gt;&lt;/text&gt;&lt;text xml:space=&quot;preserve&quot; x=&quot;78.824&quot; y=&quot;78.488&quot; fill=&quot;#000&quot; class=&quot;B C D E N&quot;&gt;&lt;tspan x=&quot;31.32&quot; y=&quot;2.539&quot;&gt;Tênis&lt;/tspan&gt;&lt;/text&gt;&lt;text xml:space=&quot;preserve&quot; x=&quot;61.231&quot; y=&quot;124.446&quot; fill=&quot;#000&quot; class=&quot;B C D E N&quot;&gt;&lt;tspan x=&quot;13.727&quot; y=&quot;48.497&quot;&gt;Basquete&lt;/tspan&gt;&lt;/text&gt;&lt;text xml:space=&quot;preserve&quot; style=&quot;text-transform:none;white-space:normal&quot; x=&quot;58.152&quot; y=&quot;104.784&quot; letter-spacing=&quot;normal&quot; class=&quot;B C D E F G H I J K&quot;&gt;&lt;tspan style=&quot;text-transform:none;white-space:normal&quot; x=&quot;10.648&quot; y=&quot;28.835&quot; letter-spacing=&quot;normal&quot; vector-effect=&quot;none&quot; stop-color=&quot;#000&quot; stop-opacity=&quot;1&quot; class=&quot;B C F G H L M&quot;&gt;4&lt;/tspan&gt;&lt;/text&gt;&lt;text xml:space=&quot;preserve&quot; style=&quot;text-transform:none;white-space:normal&quot; x=&quot;75.33&quot; y=&quot;106.138&quot; letter-spacing=&quot;normal&quot; class=&quot;B C D E F G H I J K&quot;&gt;&lt;tspan style=&quot;text-transform:none;white-space:normal&quot; x=&quot;27.826&quot; y=&quot;30.189&quot; letter-spacing=&quot;normal&quot; vector-effect=&quot;none&quot; stop-color=&quot;#000&quot; stop-opacity=&quot;1&quot; class=&quot;B C F G H L M&quot;&gt;1&lt;/tspan&gt;&lt;/text&gt;&lt;text xml:space=&quot;preserve&quot; style=&quot;text-transform:none;white-space:normal&quot; x=&quot;66.309&quot; y=&quot;101.448&quot; letter-spacing=&quot;normal&quot; class=&quot;B C D E F G H I J K&quot;&gt;&lt;tspan style=&quot;text-transform:none;white-space:normal&quot; x=&quot;18.805&quot; y=&quot;25.499&quot; letter-spacing=&quot;normal&quot; vector-effect=&quot;none&quot; stop-color=&quot;#000&quot; stop-opacity=&quot;1&quot; class=&quot;B C F G H L M&quot;&gt;1&lt;/tspan&gt;&lt;/text&gt;&lt;text xml:space=&quot;preserve&quot; x=&quot;58.73&quot; y=&quot;95.282&quot; fill=&quot;#fd5&quot; class=&quot;B C D E I O&quot;&gt;&lt;tspan x=&quot;11.226&quot; y=&quot;19.333&quot; class=&quot;P Q&quot;&gt;10&lt;/tspan&gt;&lt;/text&gt;&lt;text xml:space=&quot;preserve&quot; x=&quot;67.095&quot; y=&quot;108.286&quot; fill=&quot;#ffd42a&quot; class=&quot;B C D E I O&quot;&gt;&lt;tspan x=&quot;19.591&quot; y=&quot;32.337&quot; class=&quot;P Q&quot;&gt;7&lt;/tspan&gt;&lt;/text&gt;&lt;text xml:space=&quot;preserve&quot; x=&quot;75.089&quot; y=&quot;95.804&quot; fill=&quot;#fd5&quot; class=&quot;B C D E I O&quot;&gt;&lt;tspan x=&quot;27.585&quot; y=&quot;19.855&quot; class=&quot;P Q&quot;&gt;6&lt;/tspan&gt;&lt;/text&gt;&lt;/svg&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Dessa forma, no total são 14 amigos. Se 3 amigos são selecionados de 14, então serão $C(14,3) = 364$ combinações diferentes.&lt;/p&gt;
+
+&lt;p&gt;Uma forma rápida de calcular a probabilidade é descobrir a razão dos que não assistem tênis e achar então através de $1-P$ a razão desejada, dessa forma&lt;/p&gt;
+
+\[C(8,3) = 56 \rightarrow P = 1- {56\over364} = {11\over13}\]
+
+&lt;p&gt;Portanto a afirmação está &lt;strong&gt;Certa&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;destaque br bl&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Quadrix - 2022 - Câmara de Goianésia - GO - Auxiliar Administrativo Legislativo - 2022&lt;/strong&gt;&lt;/p&gt;Sendo A e B eventos independentes, se P(A) = 0,4  e  P(B) = 0,3, então  P( A ∪ B ) é igual a
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;A) 0,46&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;B) 0,52&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;C) 0,58&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;D) 0,64&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;E) 0,70&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Solução&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;A união de eventos independentes é calculado pela fórmula:&lt;/p&gt;
+
+\[P(A\cup B) = P(A) + P(B) - P(A)P(B)\]
+
+&lt;p&gt;O enunciado diz que os eventos são independentes, basta então aplicar a fórmula e obter o valor:&lt;/p&gt;
+
+\[P(A\cup B) = 0,4 + 0,3 - 0,4\times 0,3 = 0,58\]
+
+&lt;p&gt;&lt;strong&gt;Alternativa C.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;destaque br bl&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Quadrix - 2023 - CAU-TO - Agente de Fiscalização&lt;/strong&gt;&lt;/p&gt;Anderson adotou quatro tartarugas e as batizou de Leonardo, Donatello, Michelangelo e Raphael. Para diferenciá-las, ele decidiu colocar uma faixa colorida em cada uma delas: uma faixa azul em Leonardo; uma faixa roxa em Donatello; uma faixa laranja em Michelangelo; e uma faixa vermelha em Raphael. No entanto, no dia seguinte, as faixas haviam caído e Anderson não conseguia determinar qual tartaruga correspondia a cada faixa. Ele resolveu, então, colocar as faixas novamente, mas agora não tem certeza de as ter colocado nas tartarugas corretas.
+Com base nessa situação hipotética, julgue o item.&lt;br /&gt;A probabilidade de Anderson ter acertado a faixa de apenas uma tartaruga é de 1/3 . 
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;Certo&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Errado&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Solução&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Como todos as faixas são usadas e a ordem importa o conjunto universo das atribuições das faixas é obtido calculando as Permutações cuja fórmula é somente o Fatorial da quantidade de elementos, ou seja, 4 faixas.&lt;/p&gt;
+
+\[n(U) = 4! = 24\]
+
+&lt;p&gt;então a probabilidade de acertar todas as faixas é de $P = {1 \over 24}$, porém a questão pede a probabilidade de acertar apenas uma faixa, neste caso fixando-se uma faixa correta há 4 casos como este. Essa é uma boa hora para introduzir a Permutação Caótica ou Desarranjo; método para calcular o número de permutações em que os elementos estão fora da posição original. Fixando 1 faixa é necessário saber quantas combinações não tem nenhum faixa correta.
+A fórmula do desarranjo é dada por:&lt;/p&gt;
+
+\[!n = n! \sum {(-1)^k \over k!}, \text{onde k = 0 até n}\]
+
+&lt;p&gt;Como uma fita foi fixada, o desarranjo é calculado para as 3 fitas restantes, assim&lt;/p&gt;
+
+\[!3 = 3! ( 1 - {1 \over 1!} + {1 \over 2!} - {1 \over 3!}) = 2\]
+
+&lt;p&gt;Na prática alterna-se os sinais das frações com um fatorial incremental no denominador.&lt;/p&gt;
+
+&lt;p&gt;Outra forma é fazer manualmente a contagem&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;A B C D ( Todas corretas )&lt;/li&gt;
+  &lt;li&gt;A B D C&lt;/li&gt;
+  &lt;li&gt;A C B D&lt;/li&gt;
+  &lt;li&gt;A C D B (1 Correta)&lt;/li&gt;
+  &lt;li&gt;A D B C (1 Correta)&lt;/li&gt;
+  &lt;li&gt;A D C B&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Logo são 2 casos de sucesso para cada fita, consequentemente serão $4 \times 2 = 8$ &lt;strong&gt;união&lt;/strong&gt; de eventos, o que resulta em&lt;/p&gt;
+
+\[P(\text{’1 fita certa’}) = {8 \over 24} = {1 \over 3}\]
+
+&lt;p&gt;Portanto a afirmação da questão está &lt;strong&gt;Certa.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;destaque br bl&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Quadrix - 2022 - SEDF - Professor de Educação Básica - Matemática - Edital nº 31&lt;/strong&gt;&lt;/p&gt;Vinícius afirmou que leva de 15 a 20 minutos para sair de sua casa e chegar à casa de Pedro, seu amigo, andando em linha reta a uma velocidade de 1 m/s. Isso fez Pedro refletir sobre a área em que a casa de Vinícius pode estar localizada. 
+Com base nessa situação hipotética, julgue o item.&lt;br /&gt;Considerando-se que a probabilidade de Vinícius morar em qualquer ponto dessa área seja idêntica, então a probabilidade de ele morar a exatamente 15 minutos da casa de Pedro é igual a 3/5 da probabilidade de ele morar a exatamente 20 minutos da casa deste amigo, caso faça o percurso andando. 
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;Certo&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Errado&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Solução&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Questão com um texto que pode confundir na primeira leitura.
+Vinícius vai em linha reta a 1m/s a casa de Pedro. Vinícius então está entre&lt;/p&gt;
+
+\[1_{m \over s} \times 15_{M} \times 60_{s} = 900_{m}\]
+
+&lt;p&gt;E&lt;/p&gt;
+
+\[1_{m \over s} \times 20_{M} \times 60_{s} = 1200_{m}\]
+
+&lt;p&gt;ou seja, a casa de Vinícius está contida em uma linha com $1200 - 900 = 300$ metros de comprimento a partir de 900m da casa de Pedro.&lt;/p&gt;
+
+&lt;p&gt;A questão informa que &lt;em&gt;“Considerando-se que a probabilidade de Vinícius morar em qualquer ponto dessa área seja idêntica”&lt;/em&gt; então a probabilidade da casa de Vinícius estar em qualquer ponto desses 300 metros é de ${1 \over 300}$.&lt;/p&gt;
+
+&lt;p&gt;A afirmação &lt;em&gt;”então a probabilidade de ele morar a exatamente 15 minutos da casa de Pedro é igual a 3/5 da probabilidade de ele morar a exatamente 20 minutos da casa deste amigo…”&lt;/em&gt; está incorreta, porque a probabilidade de ele morar a exatamente 15 minutos é &lt;strong&gt;igual&lt;/strong&gt; probabilidade dele morar exatamente a 20 minutos como dito acima.&lt;/p&gt;
+
+&lt;p&gt;Portanto a afirmação está &lt;strong&gt;Errada&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;destaque br bl&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Quadrix - 2022 - SEDF - Professor de Educação Básica - Matemática - Edital nº 31&lt;/strong&gt;&lt;/p&gt;Chama-se sequência de Narayana a sequência infinita dada pela seguinte fórmula de recorrência: $G_1 = G_2 = G_3 = 1, G_4 = 2 \text{ e } G_n = G_{n-1} + G_{n-3}, \forall n \in \mathbb{N} \text{ e } n \geqslant 5$ Com base nessas informações, julgue o item.&lt;br /&gt;Selecionando-se um dos dez termos iniciais da sequência de Narayana ao acaso, a probabilidade de ele ser par é de 30%.
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;Certo&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Errado&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Solução&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Questões para professores costumam cobrar entendimento da notação matemática e leitura.&lt;/p&gt;
+
+&lt;p&gt;Seguindo a notação da sequência, os 10 primeiros valores da sequência dada serão:&lt;/p&gt;
+
+\[N_{10} = (1,1,1,2,2+1=3,3+1=4,4+2=6,6+3=9,9+4=13,13+6=19)\]
+
+\[N_{10} = (1,1,1,2,3,4,6,9,13,19)\]
+
+&lt;p&gt;Como se observa há 3 números pares $(2,4,6)$, logo a probabilidade de selecionar um número par da sequência será igual a $P(Par) = 3\times{1 \over 10} = 30\%$&lt;/p&gt;
+
+&lt;p&gt;Portanto a afirmação está &lt;strong&gt;Certa&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;destaque br bl&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Quadrix - 2019 - CRO-GO - Fiscal Regional &lt;/strong&gt;&lt;/p&gt;Em uma pesquisa,  70% dos 200 entrevistados são mulheres. 2/5 das mulheres não sabem cozinhar e 1/3 dos homens é casado.  
+Com base nessa situação hipotética, julgue o item.&lt;br /&gt;Se, entre os entrevistados, há 24 homens que sabem cozinhar, então mais de 51% dos entrevistados sabe cozinhar.
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;Certo&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Errado&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Solução&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Preenchendo a tabela para treinar e auxiliar na resolução:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Mulheres&lt;/td&gt;
+      &lt;td&gt;Homens&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;$200 \times {7 \over 10} = 140$&lt;br /&gt;140&lt;/td&gt;
+      &lt;td&gt;$200-140 = 60$&lt;br /&gt;60&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Mulheres sabem cozinhar&lt;/td&gt;
+      &lt;td&gt;Homens sabem cozinhar&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;$140 - (140 \times {2 \over 5}) = 84$&lt;br /&gt;84&lt;/td&gt;
+      &lt;td&gt;24&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Mulheres casadas&lt;/td&gt;
+      &lt;td&gt;Homens casados&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;?&lt;/td&gt;
+      &lt;td&gt;$60 \times {1 \over 3} = 20$&lt;br /&gt;20&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Dessa forma $24 + 84 = 108$ pessoas sabem cozinhar; calculando a porcentagem&lt;/p&gt;
+
+\[{200 \over 108} - {100\% \over x\%}\]
+
+&lt;p&gt;obtem-se 54% das pessoas na entrevista sabem cozinhar, portanto a afirmação está &lt;strong&gt;Certa&lt;/strong&gt;.&lt;/p&gt;</content><author><name></name></author><category term="educação" /><category term="matemática" /><category term="probabilidade" /><summary type="html">Quadrix - 2024 - CRQ - 12ª Região (GO, TO e DF) - Agente Fiscal - 2024Bárbara é proprietária de uma coleção de pedras preciosas, composta de 5 rubis e de 5 esmeraldas, sendo cada uma única e distintiva. Recentemente, Bárbara adquiriu um elegante porta‑joias com 10 compartimentos dispostos em fileira para exibir suas preciosidades. Bárbara, então, pretende alocar uma joia em cada espaço. Com base nessa situação hipotética, julgue o item.Se Bárbara decidir alocar suas joias de forma aleatória, a probabilidade de que todos os rubis fiquem juntos é de 1 em 42. Certo Errado</summary></entry><entry><title type="html">Padrão NEMA em motores de passo na construção de CNC e Impressoras 3D - Automação</title><link href="http://0.0.0.0:4000/automa%C3%A7%C3%A3o/2024/11/29/motores-passo-padrao-NEMA-CNC-impressao-3d.html" rel="alternate" type="text/html" title="Padrão NEMA em motores de passo na construção de CNC e Impressoras 3D - Automação" /><published>2024-11-29T00:00:00-06:00</published><updated>2024-11-29T00:00:00-06:00</updated><id>http://0.0.0.0:4000/automa%C3%A7%C3%A3o/2024/11/29/motores-passo-padrao-NEMA-CNC-impressao-3d</id><content type="html" xml:base="http://0.0.0.0:4000/automa%C3%A7%C3%A3o/2024/11/29/motores-passo-padrao-NEMA-CNC-impressao-3d.html">&lt;h2 id=&quot;entendendo-os-padrões-nema-para-motores-elétricos&quot;&gt;Entendendo os Padrões NEMA para Motores Elétricos&lt;/h2&gt;
 
 &lt;p&gt;Os padrões da &lt;strong&gt;NEMA (National Electrical Manufacturers Association)&lt;/strong&gt; são fundamentais para especificar e avaliar motores elétricos em diversas aplicações industriais e comerciais. Este artigo apresenta um resumo desses padrões e como eles ajudam na escolha e utilização de motores elétricos.&lt;/p&gt;
 
@@ -311,13 +640,13 @@ import &quot;https://cdn.plot.ly/plotly-2.35.2.min.js&quot;
 &lt;/div&gt;</content><author><name></name></author><category term="aplicadas" /><category term="matemática" /><category term="javascript" /><summary type="html">Bricando com equações diferenciais pelo método RK4</summary></entry><entry><title type="html">Significado dos códigos de falha DTC OBD2 da ECU - Aplicativo</title><link href="http://0.0.0.0:4000/app/2024/07/17/codigo-falhas-obd2-ecu.html" rel="alternate" type="text/html" title="Significado dos códigos de falha DTC OBD2 da ECU - Aplicativo" /><published>2024-07-17T00:00:00-05:00</published><updated>2024-07-17T00:00:00-05:00</updated><id>http://0.0.0.0:4000/app/2024/07/17/codigo-falhas-obd2-ecu</id><content type="html" xml:base="http://0.0.0.0:4000/app/2024/07/17/codigo-falhas-obd2-ecu.html">&lt;script&gt;
   var codigos;
 
-function procurar(texto) {
-  if (texto.length &lt; 3) return;
+function procurar(texto,initial = false) {
+  if (texto.length &lt; 3 &amp;&amp; initial == false) return;
   var html = &quot;&lt;tr&gt;&lt;th&gt;Código&lt;/th&gt;&lt;th&gt;Descrição&lt;/th&gt;&lt;/tr&gt;&quot;;
   $(&apos;tresult&apos;).innerHTML = &quot;&quot;;
   for (const codigo of codigos) {
     const cdescr = codigo.cdescr || &quot;&quot;; 
-    if (codigo.Code.includes(texto) || codigo.Description.includes(texto) || cdescr.includes(texto)){
+    if (codigo.Code.includes(texto.toUpperCase()) || codigo.Description.includes(texto) || cdescr.includes(texto)){
       if (&quot;cdescr&quot; in codigo) {
         html += &quot;&lt;tr&gt;&lt;td class=&apos;has-text-weight-bold&apos;&gt;&quot; + codigo.Code + &quot;&lt;/td&gt;&lt;td class=&apos;has-text-weight-bold&apos;&gt;&quot; + codigo.Description + &quot;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&quot;+codigo.cdescr+&quot;&lt;/td&gt;&lt;/tr&gt;&quot;;
       } else {
@@ -334,15 +663,17 @@ window.addEventListener(&quot;load&quot;, function(){
     .then((response) =&gt; response.json())
     .then((json) =&gt; codigos = json);
 });
+
+
 &lt;/script&gt;
 
 &lt;hr class=&quot;m-1&quot; /&gt;
 
-&lt;h3 id=&quot;digite-o-código-ou-alguma-palavra&quot;&gt;Digite o código ou alguma palavra&lt;/h3&gt;
+&lt;h3 id=&quot;digite-o-código-ou-alguma-palavra-para-filtrar&quot;&gt;Digite o código ou alguma palavra para filtrar&lt;/h3&gt;
 &lt;form onsubmit=&quot;return false;&quot;&gt;
 &lt;div class=&quot;field&quot;&gt;
 &lt;div class=&quot;control has-icons-left has-icons-right&quot;&gt;
-  &lt;input class=&quot;input&quot; onkeyup=&quot;procurar(this.value)&quot; id=&quot;tx&quot; type=&quot;text&quot; placeholder=&quot;Exemplo: P104 ou 104 ou sonda lambda&quot; /&gt;
+  &lt;input class=&quot;input&quot; onkeyup=&quot;procurar(this.value)&quot; id=&quot;tx&quot; type=&quot;text&quot; placeholder=&quot;Exemplo: P0104 ou 104 ou sonda lambda&quot; /&gt;
   &lt;span class=&quot;icon is-medium is-left&quot;&gt;
     &lt;i class=&quot;fas fa-search&quot;&gt;&lt;/i&gt;
   &lt;/span&gt;
@@ -359,14 +690,13 @@ window.addEventListener(&quot;load&quot;, function(){
 &lt;/div&gt;
 &lt;/form&gt;
 
-&lt;h3 id=&quot;resultado&quot;&gt;Resultado&lt;/h3&gt;
-
-&lt;p&gt;&lt;em&gt;Os comentários, soluções e descrições abaixo são genéricos. Cada carro e defeito tem particularidades que as soluções descritas podem não resolver ou ainda piorar o problema. Algumas atividades de manutenção requerem conhecimento técnico prévio, ferramentas adequadas e experiência do operador. Se não sabe o que está fazendo consulte um profissional.&lt;/em&gt;&lt;/p&gt;
-
 &lt;div class=&quot;content&quot;&gt;
 &lt;table id=&quot;tresult&quot;&gt;
 &lt;/table&gt; 
-&lt;/div&gt;</content><author><name></name></author><category term="app" /><category term="auto" /><category term="obd2" /><category term="ecu" /><summary type="html"></summary></entry><entry><title type="html">Cálculo de resistência pelas cores do resistor - Aplicativo</title><link href="http://0.0.0.0:4000/app/2024/01/24/calculo-resistores.html" rel="alternate" type="text/html" title="Cálculo de resistência pelas cores do resistor - Aplicativo" /><published>2024-01-24T00:00:00-06:00</published><updated>2024-01-24T00:00:00-06:00</updated><id>http://0.0.0.0:4000/app/2024/01/24/calculo-resistores</id><content type="html" xml:base="http://0.0.0.0:4000/app/2024/01/24/calculo-resistores.html">&lt;link href=&quot;/assets/css/colormenu.css&quot; type=&quot;text/css&quot; rel=&quot;stylesheet&quot; /&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;&lt;em&gt;Os comentários, soluções e descrições são genéricos. Cada carro e defeito tem particularidades que as soluções descritas podem não resolver ou ainda piorar o problema. Algumas atividades de manutenção requerem conhecimento técnico prévio, ferramentas adequadas e experiência do operador. Se não sabe o que está fazendo consulte um profissional.&lt;/em&gt;&lt;/p&gt;</content><author><name></name></author><category term="app" /><category term="auto" /><category term="obd2" /><category term="ecu" /><summary type="html"></summary></entry><entry><title type="html">Cálculo de resistência pelas cores do resistor - Aplicativo</title><link href="http://0.0.0.0:4000/app/2024/01/24/calculo-resistores.html" rel="alternate" type="text/html" title="Cálculo de resistência pelas cores do resistor - Aplicativo" /><published>2024-01-24T00:00:00-06:00</published><updated>2024-01-24T00:00:00-06:00</updated><id>http://0.0.0.0:4000/app/2024/01/24/calculo-resistores</id><content type="html" xml:base="http://0.0.0.0:4000/app/2024/01/24/calculo-resistores.html">&lt;link href=&quot;/assets/css/colormenu.css&quot; type=&quot;text/css&quot; rel=&quot;stylesheet&quot; /&gt;
 
 &lt;script&gt;
 var valor = 220000;
@@ -1619,135 +1949,4 @@ tokenizer.save(&quot;byte-level-bpe.tokenizer.32k.json&quot;, pretty=True)
 
 &lt;p&gt;Se ambos os problemas alcançam seus valores ótimos, então há igualdade entre eles. Esta relação é conhecida como dualidade forte.&lt;/p&gt;
 
-&lt;p&gt;A dualidade não apenas fornece uma maneira de verificar a solução ótima, mas também oferece informações valiosas sobre a sensibilidade do problema às mudanças nos parâmetros e fornece soluções alternativas.&lt;/p&gt;</content><author><name></name></author><category term="aplicadas" /><category term="programação linear" /><category term="otimização" /><category term="pesquisa operacional" /><summary type="html">Os problemas primal e dual estão intrinsecamente ligados na teoria da dualidade em programação linear. Eles representam duas formulações diferentes de um mesmo problema de otimização linear, sendo inter-relacionados de maneira específica.</summary></entry><entry><title type="html">Usando os serviços OpenAI para criar um ChatBot - Python</title><link href="http://0.0.0.0:4000/python/2023/01/02/usando-servicos-openai.html" rel="alternate" type="text/html" title="Usando os serviços OpenAI para criar um ChatBot - Python" /><published>2023-01-02T00:00:00-06:00</published><updated>2023-01-02T00:00:00-06:00</updated><id>http://0.0.0.0:4000/python/2023/01/02/usando-servicos-openai</id><content type="html" xml:base="http://0.0.0.0:4000/python/2023/01/02/usando-servicos-openai.html">&lt;p&gt;Em 2023 Taylor Swift foi eleita a personalidade do ano, mas há quem diga que 2023 foi mesmo o ano da &lt;strong&gt;Inteligência Artificial&lt;/strong&gt;. E de fato há uma corrida das empresas que ficaram para trás do lançamento do modelo  &lt;strong&gt;text-davinci&lt;/strong&gt; da OpenAI,era um modelo rudimentar comparado aos &lt;strong&gt;gpt-turbo-3.5&lt;/strong&gt; e o &lt;strong&gt;gpt-4&lt;/strong&gt; usados hoje, mas fez barulho e mexeu no mercado. Quem se lembra que o lançamento ocorreu quando o mundo ainda estava assutado com a COVID-19 e a Guerra na Ulcrânia, tudo isso acontecia e assustava, mas as atenções e esperanças estavam mesmo para o futuro que já que tinha chegado. O Google lançou o Bard mas não impressionou. A Baidu lançou seu modelo porém restrito ainda a sua área, enquanto a Amazon e a Apple correm atrás do prejuízo. Elon Musk lançou o Grok&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;, mas até o momento tinha fila de espera para usar. A Apple tenta negociar um acordo milionário para poder usar os artigos da imprensa americana para seu modelo de linguagem&lt;sup id=&quot;fnref:2&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;. A Microsoft foi astuta e financiou a OpenAI quando percebeu o potencial do &lt;strong&gt;GPT-2&lt;/strong&gt; e hoje oferece os modernos modelos como serviço pago ou gratuito.&lt;/p&gt;
-
-&lt;h3 id=&quot;fazendo-um-chatbot-usando-o-openai&quot;&gt;Fazendo um chatbot usando o OpenAI&lt;/h3&gt;
-
-&lt;p&gt;Fazer um chatbot usando os serviços da OpenAI é simples, usa-se somente UMA chamada de função do módulo da openai em python.&lt;/p&gt;
-&lt;h4 id=&quot;cadastro-e-criação-da-secret-key&quot;&gt;Cadastro e criação da Secret Key&lt;/h4&gt;
-&lt;p&gt;Primeiro é preciso fazer o cadastro na plataforma de serviço OpenAI API no site &lt;a href=&quot;https://platform.openai.com/signup&quot;&gt;https://platform.openai.com/signup&lt;/a&gt;. Até o momento eles oferecem créditos para avaliação do serviço e não é preciso cartão de crédito para usar esses créditos. Entretanto a avaliação fica restrista ao modelo &lt;strong&gt;gpt-3.5-turbo&lt;/strong&gt; que não deixa de ser um modelo capaz e poderoso. Se você usa a versão gratuita do site você usa esse modelo.&lt;/p&gt;
-
-&lt;p&gt;Feito o cadastro é preciso gerar a OpenAI KEY para que se possa usar os serviços.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/imgs/openaikey.png&quot; alt=&quot;Página para criar a Secret Key da OpenAI&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Clique em “&lt;strong&gt;Create new Secret Key&lt;/strong&gt;” para criar sua Secret Key, como visto na figura acima.&lt;/p&gt;
-
-&lt;h4 id=&quot;instalação-do-módulo-de-acesso&quot;&gt;Instalação do módulo de acesso&lt;/h4&gt;
-&lt;p&gt;Em seguida é necessário instalar o módulo da openai. Isso pode ser feito pelo PIP ou preferencialmente pelo seu gerenciador de pacotes em sua distribuição Linux.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;pip install openai&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&quot;fazendo-sua-primeira-conversa&quot;&gt;Fazendo sua primeira conversa&lt;/h4&gt;
-
-&lt;p&gt;Finalmente podemos fazer a primeira chamada para a OpenAI. Primeiramente é preciso criar uma instância OpenAI usando sua SECRET_KEY do passo anterior. Para fazer uma requisição usa-se o &lt;strong&gt;chat.completions.create&lt;/strong&gt; como visto no código abaixo:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;
-# Importa o módulo OpenAI instalado com pip anteriormente
-from openai import OpenAI
-# Cria uma instância OpenAI. Utilize aqui sua Secret Key no lugar de SUA_SECRET_KEY ( entre aspas )
-client = OpenAI(SUA_SECRET_KEY)
-
-# Finalmente fazemos uma requisição ao serviço de chat
-completion = client.chat.completions.create(
-model=&quot;gpt-3.5-turbo&quot;,  # Modelo usado.
-# A personalidade e o texto enviado ao chat.
-messages=[
-    {&quot;role&quot;: &quot;system&quot;, &quot;content&quot;: &quot;Você é um assistente virtual divertido e bem humorado.&quot;},
-    {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Qual o sentido da vida?&quot;}
-]
-)
-
-# E finalmente exibimos a resposta do modelo &quot;gpt-3.5-turbo&quot; a questão &quot;Qual o sentido da vida?&quot;
-print(completion.choices[0].message)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&quot;personalizando-e-embutindo-informações&quot;&gt;Personalizando e embutindo informações&lt;/h4&gt;
-&lt;p&gt;Basicamente é só isso. Configura a Key e chama os serviço de complementação de texto &lt;strong&gt;completions.create&lt;/strong&gt; com a personalidade e a mensagem. Fácil não?!&lt;/p&gt;
-
-&lt;p&gt;Agora é uma boa hora para explicar os roles da requisição. Como se pode ver no código temos uma &lt;em&gt;list&lt;/em&gt; com duas &lt;em&gt;dict&lt;/em&gt; com as chaves “role” e “content”. Essas informações serão enviadas ao modelo para configurá-lo com a personalidade e informações que se deseja.&lt;/p&gt;
-
-&lt;h5 id=&quot;role-system&quot;&gt;Role System&lt;/h5&gt;
-
-&lt;p&gt;O role system é o mais forte e determina a personalidade do assistente. Veja alguns exemplos de role system:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;em&gt;“Você é uma IA da empresa Octopus S.A.. A Empresa está localizada no endereço X e tem o telefone Y.”&lt;/em&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;“Você é um bot do telegram divertido e bem humorado. Sua personalidade é ácida e irônica”&lt;/em&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;“Você é um assistente virtual no twitch do Gamer Lucão, você adora Minecraft e Playstation 5”&lt;/em&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Esse role é opcional. Não é preciso enviar nada se não quiser.&lt;/p&gt;
-
-&lt;h5 id=&quot;role-assistant&quot;&gt;Role Assistant&lt;/h5&gt;
-
-&lt;p&gt;O role assistant é útil para enviar a conversa anterior e informações relevantes. Em geral usa-se formatação de strings no python para embutir informações e o texto anterior. Veja alguns exemplos:&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;EXPEDIENTE&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;estamos abertos até as 18:00hrs&quot;&lt;/span&gt; 
-&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;role&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;system&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;content&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;sa&quot;&gt;F&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hoje é &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;now&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; e hoje &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;EXPEDIENTE&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;.&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;REQ_ANT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Onde compro o Dipirona?&quot;&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;RESP_ANT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Olá, Você pode comprar na farmácia ...&quot;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;role&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;system&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;content&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;sa&quot;&gt;F&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Anteriormente o usuário solicitou &apos;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;REQ_ANT&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos; e você respondeu &apos;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RESP_ANT&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;.&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h5 id=&quot;role-user&quot;&gt;Role User&lt;/h5&gt;
-
-&lt;p&gt;O role user é onde as mensagens do usuário serão inseridas. No exemplo acima foi a mensagem “Qual o sentido da vida?”.&lt;/p&gt;
-
-&lt;h3 id=&quot;limitações&quot;&gt;Limitações&lt;/h3&gt;
-
-&lt;p&gt;Cada requisição é única e não tem memória. Ele não se lembra das requisições anteriores. Para que o modelo saiba o que foi dito anteriormente e ele possa continuar a conversa o histórico deve ser passado no role assistant.
-Também há um limite de informações que pode ser colocado nos roles. O conjunto dos roles é chamado &lt;strong&gt;contexto&lt;/strong&gt;.  O limite do contexto é dado em tokens e atualmente é 4096 tokens, mas há modelos que tem 16k tokens.&lt;/p&gt;
-
-&lt;p&gt;Tokens podem ser uma letra ou uma palavra inteira, depende do vocabulário usado pelo modelo. Não conte as letras para verificar o limite de tokens, pois como dito, os tokens podem ser uma letra ou um pedaço de uma palavra ou uma palavra inteira.&lt;/p&gt;
-
-&lt;p&gt;Os modelos tem controle de conversas tóxicas, ilegais, abusivas e temas sensíveis. Não peça para o modelo contar um conto erótico que dificilmente ele o fará. Também não é possível inventar histórias mentirosas de pessoas ou temas sensíveis. O modelo tem personalidade multicultural, feminista e woke.&lt;/p&gt;
-
-&lt;p&gt;Quando acabar seus créditos só será possível continuar requisitando com um cartão de crédito onde será cobrado por tokens. Não é muito, você brincando sozinho consumirá menos de \$ 1,00 ou em uso mais intensivo \$ 5,00. Você pode configurar um limite no site para no caso de passar desse valor ele pare de responder as requisições.&lt;/p&gt;
-
-&lt;h3 id=&quot;empresas&quot;&gt;Empresas&lt;/h3&gt;
-
-&lt;p&gt;Algumas observações são importantes quando for usar o chatbot em empresas. Vamos imaginar um cenário onde o chatbot deverá ser usado para consultar um grande banco de dados de produtos e como se percebeu a limitação do contexto (os roles system, assistant e user) não tem como colocar todos os produtos e suas caracteristicas no contexto da requisição, isso é impraticável.&lt;/p&gt;
-
-&lt;p&gt;Para que uma grande base de dados seja ‘ligada’ ao chatbot deverá ser usado um &lt;em&gt;Langchain&lt;/em&gt; ou um &lt;em&gt;Information Extration&lt;/em&gt;.
-O &lt;em&gt;Langchain&lt;/em&gt; usa duas camadas. A primeira etapa é a indexação da base de dados que você quer disponibilizar ao chatbot. Nesta etapa documentos, pdfs, textos, planilhas são indexadas por um &lt;em&gt;modelo de embedded&lt;/em&gt; que gerará um grande vetor de números de ponto flutuante. Esse vetor representará uma sentença do texto e será armazenado em um banco de dados vetorial ( Vector Database ).&lt;/p&gt;
-
-&lt;p&gt;Quando o usuário fizer uma requisição a requisição irá novamente para esse modelo embedded que gerará um vetor embedded representando a requisição e o banco de dados será consultado com o valor que mais se aproxima do vetor da requisição.
-Encontrado a informação, a informação é retornada para o chatbot para ele gerar uma resposta com a informação obtida do banco de dados.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Exemplo:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Um escritório de advocacia quer um chatbot ajudando seus advogados.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Primeira etapa ( pode ser feita somente uma vez ):&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Reunir todos os documentos, leis, sentenças e diário oficiais que achar necessário.&lt;/li&gt;
-  &lt;li&gt;Extrair as sentenças ( por exemplo fazendo um &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.split(&quot;.&quot;)&lt;/code&gt; no texto ).&lt;/li&gt;
-  &lt;li&gt;Gerar um vetor embedded para cada sentença.&lt;/li&gt;
-  &lt;li&gt;Amazenar os vetores embedded em um banco de dados vetorial.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Segunda etapa (a cada requisição ):&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;O usuário digita uma requisição por exemplo &lt;em&gt;“O Sr. Antonio de oliveira tem algum processo cível?”&lt;/em&gt;&lt;/li&gt;
-  &lt;li&gt;O modelo embedded gera um vetor com o texto da requisição.&lt;/li&gt;
-  &lt;li&gt;O banco de dados é consultado com esse vetor para achar a sentença mais próxima.&lt;/li&gt;
-  &lt;li&gt;Ele achou por exemplo &lt;em&gt;“Antonio de oliveira x José no nascimento”&lt;/em&gt;&lt;/li&gt;
-  &lt;li&gt;A informação é adicionada ao role assistant para o chatbot gerar uma resposta.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;O Information Extration é diferente este não usa um modelo embedded. Ele extrai a intenção do usuário e as palavras chaves que serão usados para montar diretamente uma requisição SQL ao banco de dados que então retornará a informação a ser inserida nos roles da requisição da resposta.&lt;/p&gt;
-
-&lt;p&gt;Langchain e Information Extraction são áreas e ferramentas diferentes mas auxiliares do modelos de linguagem. A OpenAI e outras empresas disponibilizam esses serviços pagos.&lt;/p&gt;
-
-&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
-  &lt;ol&gt;
-    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;&lt;a href=&quot;https://grok.x.ai/&quot;&gt;https://grok.x.ai/&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:2&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;&lt;a href=&quot;https://www.nytimes.com/2023/12/22/technology/apple-ai-news-publishers.html&quot;&gt;https://www.nytimes.com/2023/12/22/technology/apple-ai-news-publishers.html&lt;/a&gt; &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="python" /><category term="AI" /><category term="ChatGPT" /><category term="python" /><summary type="html">Em 2023 Taylor Swift foi eleita a personalidade do ano, mas há quem diga que 2023 foi mesmo o ano da Inteligência Artificial. E de fato há uma corrida das empresas que ficaram para trás do lançamento do modelo text-davinci da OpenAI,era um modelo rudimentar comparado aos gpt-turbo-3.5 e o gpt-4 usados hoje, mas fez barulho e mexeu no mercado. Quem se lembra que o lançamento ocorreu quando o mundo ainda estava assutado com a COVID-19 e a Guerra na Ulcrânia, tudo isso acontecia e assustava, mas as atenções e esperanças estavam mesmo para o futuro que já que tinha chegado. O Google lançou o Bard mas não impressionou. A Baidu lançou seu modelo porém restrito ainda a sua área, enquanto a Amazon e a Apple correm atrás do prejuízo. Elon Musk lançou o Grok1, mas até o momento tinha fila de espera para usar. A Apple tenta negociar um acordo milionário para poder usar os artigos da imprensa americana para seu modelo de linguagem2. A Microsoft foi astuta e financiou a OpenAI quando percebeu o potencial do GPT-2 e hoje oferece os modernos modelos como serviço pago ou gratuito. https://grok.x.ai/ &amp;#8617; https://www.nytimes.com/2023/12/22/technology/apple-ai-news-publishers.html &amp;#8617;</summary></entry></feed>
+&lt;p&gt;A dualidade não apenas fornece uma maneira de verificar a solução ótima, mas também oferece informações valiosas sobre a sensibilidade do problema às mudanças nos parâmetros e fornece soluções alternativas.&lt;/p&gt;</content><author><name></name></author><category term="aplicadas" /><category term="programação linear" /><category term="otimização" /><category term="pesquisa operacional" /><summary type="html">Os problemas primal e dual estão intrinsecamente ligados na teoria da dualidade em programação linear. Eles representam duas formulações diferentes de um mesmo problema de otimização linear, sendo inter-relacionados de maneira específica.</summary></entry></feed>
