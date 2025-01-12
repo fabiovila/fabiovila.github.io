@@ -1,4 +1,80 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2024-12-21T10:57:58-06:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">10 Questões de probabilidade resolvidas da Banca Quadrix - Matemática</title><link href="http://0.0.0.0:4000/educa%C3%A7%C3%A3o/2024/12/14/10-exerc%C3%ADcios-probabilidade-banca-quadrix.html" rel="alternate" type="text/html" title="10 Questões de probabilidade resolvidas da Banca Quadrix - Matemática" /><published>2024-12-14T00:00:00-06:00</published><updated>2024-12-14T00:00:00-06:00</updated><id>http://0.0.0.0:4000/educa%C3%A7%C3%A3o/2024/12/14/10-exerc%C3%ADcios-probabilidade-banca-quadrix</id><content type="html" xml:base="http://0.0.0.0:4000/educa%C3%A7%C3%A3o/2024/12/14/10-exerc%C3%ADcios-probabilidade-banca-quadrix.html">&lt;div class=&quot;destaque br bl&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2025-01-11T19:36:09-06:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Sobre tohost e fromhost - RISCV</title><link href="http://0.0.0.0:4000/python/2025/01/11/sobre-tohost-fromhost.html" rel="alternate" type="text/html" title="Sobre tohost e fromhost - RISCV" /><published>2025-01-11T00:00:00-06:00</published><updated>2025-01-11T00:00:00-06:00</updated><id>http://0.0.0.0:4000/python/2025/01/11/sobre-tohost-fromhost</id><content type="html" xml:base="http://0.0.0.0:4000/python/2025/01/11/sobre-tohost-fromhost.html">&lt;h3 id=&quot;resumo-e-explicação-da-funcionalidade-de-tohost-e-fromhost-no-spike-e-em-ambientes-risc-v&quot;&gt;Resumo e Explicação da Funcionalidade de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tohost&lt;/code&gt; e &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fromhost&lt;/code&gt; no Spike e em Ambientes RISC-V&lt;/h3&gt;
+
+&lt;p&gt;A comunicação entre o simulador Spike e o programa em execução é realizada por meio de dois registradores especiais: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tohost&lt;/code&gt; e &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fromhost&lt;/code&gt;. Esses registradores não fazem parte de um padrão oficial do RISC-V, mas são uma convenção adotada pela equipe da UC Berkeley para permitir a interação entre o host (sistema que executa o simulador) e o target (código RISC-V em execução no simulador).&lt;/p&gt;
+
+&lt;h4 id=&quot;definição-e-função&quot;&gt;Definição e Função&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tohost&lt;/code&gt;&lt;/strong&gt;: Este registrador é utilizado para enviar comandos e dados do target para o host. A escrita de valores específicos em &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tohost&lt;/code&gt; pode disparar a realização de uma chamada de sistema (syscall) ou a terminação do programa em execução.&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Se o bit menos significativo (LSB) for 0, os bits superiores representam um ponteiro para uma estrutura que descreve a chamada de sistema.&lt;/li&gt;
+      &lt;li&gt;Se o LSB for 1, os bits superiores contêm o código de saída do programa, onde o valor 0 indica sucesso e qualquer outro valor indica falha.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fromhost&lt;/code&gt;&lt;/strong&gt;: Este registrador é usado pelo host para enviar respostas ou comandos ao target. O target deve verificar periodicamente o valor de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fromhost&lt;/code&gt; para identificar novos comandos recebidos.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;exemplo-de-uso&quot;&gt;Exemplo de Uso&lt;/h4&gt;
+
+&lt;p&gt;Suponha que temos um programa bare-metal que precisa realizar uma chamada de sistema para imprimir um caractere no console. O processo seria semelhante ao seguinte:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;O programa escreve um valor especial em &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tohost&lt;/code&gt;, indicando que deseja realizar uma operação de saída de caractere.&lt;/li&gt;
+  &lt;li&gt;O Spike detecta a escrita em &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tohost&lt;/code&gt; e interpreta o comando.&lt;/li&gt;
+  &lt;li&gt;O Spike executa a ação correspondente (por exemplo, imprime o caractere no console).&lt;/li&gt;
+  &lt;li&gt;Se necessário, o Spike pode responder ao programa por meio de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fromhost&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;estrutura-do-registro-tohost&quot;&gt;Estrutura do Registro &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tohost&lt;/code&gt;&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Bits 63:56&lt;/strong&gt;: Indicam o dispositivo. Existem dois dispositivos principais:
+    &lt;ul&gt;
+      &lt;li&gt;Dispositivo 0: Usado para chamadas de sistema (syscalls).&lt;/li&gt;
+      &lt;li&gt;Dispositivo 1: Dispositivo de caractere bloqueante (para leitura/escrita de caracteres).&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Bits 55:48&lt;/strong&gt;: Indicam o comando:
+    &lt;ul&gt;
+      &lt;li&gt;Comando 0: Leitura de caractere (somente dispositivo 1).&lt;/li&gt;
+      &lt;li&gt;Comando 1: Escrita de caractere (somente dispositivo 1).&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Bits 47:0&lt;/strong&gt;: Contêm o payload, que pode ser um ponteiro para uma estrutura de chamada de sistema ou um caractere a ser escrito.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;considerações-para-rv32&quot;&gt;Considerações para RV32&lt;/h4&gt;
+
+&lt;p&gt;Embora &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tohost&lt;/code&gt; e &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fromhost&lt;/code&gt; tenham um formato de 64 bits, em sistemas RV32 esses registradores são acessados como duas palavras de 32 bits. Isso pode causar problemas de concorrência ao escrever valores de 64 bits em sistemas RV32, pois a escrita ocorre em duas etapas. No entanto, devido ao fato de o Spike processar blocos de instruções (geralmente em lotes de 5000), esse problema raramente se manifesta.&lt;/p&gt;
+
+&lt;h4 id=&quot;exemplo-de-implementação-no-freertos&quot;&gt;Exemplo de Implementação no FreeRTOS&lt;/h4&gt;
+
+&lt;p&gt;Em uma demonstração do FreeRTOS executando no Spike, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tohost&lt;/code&gt; e &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fromhost&lt;/code&gt; são utilizados para permitir que o sistema operacional emule chamadas de sistema Unix-like, possibilitando a saída de informações para o console e a interação com o host.&lt;/p&gt;
+
+&lt;h4 id=&quot;limitações-e-alternativas&quot;&gt;Limitações e Alternativas&lt;/h4&gt;
+
+&lt;p&gt;Embora &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tohost&lt;/code&gt; e &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fromhost&lt;/code&gt; sejam mecanismos útis, eles apresentam algumas limitações:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;A falta de suporte completo para dispositivos em RV32.&lt;/li&gt;
+  &lt;li&gt;O uso de “magic numbers” (valores mágicos) que não são bem documentados.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Como alternativa, recomenda-se o uso de chamadas de sistema por proxy (proxy syscalls), que oferecem uma interface mais padronizada e flexível para a comunicação entre o target e o host.&lt;/p&gt;
+
+&lt;h4 id=&quot;conclusão&quot;&gt;Conclusão&lt;/h4&gt;
+
+&lt;p&gt;A funcionalidade de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tohost&lt;/code&gt; e &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fromhost&lt;/code&gt; é essencial para a execução e interação de programas bare-metal e sistemas operacionais no simulador Spike. Embora seja um mecanismo eficiente, a falta de documentação adequada torna seu uso complexo para novos desenvolvedores. Alternativas como proxy syscalls podem ser mais apropriadas em aplicações modernas.&lt;/p&gt;
+
+&lt;h3 id=&quot;referências&quot;&gt;Referências&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Código-fonte do Spike e exemplos de uso de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tohost&lt;/code&gt; e &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fromhost&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;Documentação do OpenSBI e do FreeRTOS para RISC-V.&lt;/li&gt;
+  &lt;li&gt;Discussões em repositórios de projetos relacionados ao ecossistema RISC-V.&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="python" /><category term="riscv" /><summary type="html">Resumo e Explicação da Funcionalidade de tohost e fromhost no Spike e em Ambientes RISC-V</summary></entry><entry><title type="html">10 Questões de probabilidade resolvidas da Banca Quadrix - Matemática</title><link href="http://0.0.0.0:4000/educa%C3%A7%C3%A3o/2024/12/14/10-exerc%C3%ADcios-probabilidade-banca-quadrix.html" rel="alternate" type="text/html" title="10 Questões de probabilidade resolvidas da Banca Quadrix - Matemática" /><published>2024-12-14T00:00:00-06:00</published><updated>2024-12-14T00:00:00-06:00</updated><id>http://0.0.0.0:4000/educa%C3%A7%C3%A3o/2024/12/14/10-exerc%C3%ADcios-probabilidade-banca-quadrix</id><content type="html" xml:base="http://0.0.0.0:4000/educa%C3%A7%C3%A3o/2024/12/14/10-exerc%C3%ADcios-probabilidade-banca-quadrix.html">&lt;div class=&quot;destaque br bl&quot;&gt;
 &lt;p&gt;&lt;strong&gt;Quadrix - 2024 - CRQ - 12ª Região (GO, TO e DF) - Agente Fiscal - 2024&lt;/strong&gt;&lt;/p&gt;Bárbara é proprietária de uma coleção de pedras preciosas, composta de 5 rubis e de 5 esmeraldas, sendo cada uma única e distintiva. Recentemente, Bárbara adquiriu um elegante porta‑joias com 10 compartimentos dispostos em fileira para exibir suas preciosidades. Bárbara, então, pretende alocar uma joia em cada espaço.
 Com base nessa situação hipotética, julgue o item.&lt;br /&gt;Se Bárbara decidir alocar suas joias de forma aleatória, a probabilidade de que todos os rubis fiquem juntos é de 1 em 42.
 &lt;hr /&gt;
@@ -1903,50 +1979,4 @@ tokenizer.save(&quot;byte-level-bpe.tokenizer.32k.json&quot;, pretty=True)
       &lt;td&gt;O protocolo de comunicação utilizado pelo OBD&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
-&lt;/table&gt;</content><author><name></name></author><category term="eletronica" /><category term="obd2" /><summary type="html">Se você tem um leitor OBD2 em inglês essa lista pode te ajudar a desvendar as siglas na leitura.</summary></entry><entry><title type="html">O problema dual e primal - Otimização Matemática</title><link href="http://0.0.0.0:4000/aplicadas/2023/01/10/problema-dual-primal.html" rel="alternate" type="text/html" title="O problema dual e primal - Otimização Matemática" /><published>2023-01-10T00:00:00-06:00</published><updated>2023-01-10T00:00:00-06:00</updated><id>http://0.0.0.0:4000/aplicadas/2023/01/10/problema-dual-primal</id><content type="html" xml:base="http://0.0.0.0:4000/aplicadas/2023/01/10/problema-dual-primal.html">&lt;p&gt;Os &lt;strong&gt;problemas primal&lt;/strong&gt; e &lt;strong&gt;dual&lt;/strong&gt; estão intrinsecamente ligados na teoria da dualidade em &lt;strong&gt;programação linear&lt;/strong&gt;. Eles representam duas formulações diferentes de um mesmo problema de otimização linear, sendo inter-relacionados de maneira específica.&lt;/p&gt;
-
-&lt;h3 id=&quot;problema-primal&quot;&gt;Problema Primal&lt;/h3&gt;
-
-&lt;p&gt;O problema primal é a formulação original do problema de otimização linear. Geralmente, é expresso na forma padrão:&lt;/p&gt;
-
-&lt;p&gt;\[\text{Maximize } \quad c^Tx\]
-\[\text{sujeito a } \quad Ax \leq b\]
-\[x \geq 0\]&lt;/p&gt;
-
-&lt;p&gt;onde:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;$c$ é um vetor de coeficientes da função objetivo,&lt;/li&gt;
-  &lt;li&gt;$x$ é o vetor de variáveis de decisão,&lt;/li&gt;
-  &lt;li&gt;$A$ é uma matriz de coeficientes das restrições,&lt;/li&gt;
-  &lt;li&gt;$b$ é o vetor de limites das restrições.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;A meta é maximizar ou minimizar a função objetivo $c^Tx$ sujeita a um conjunto de restrições lineares.&lt;/p&gt;
-
-&lt;h3 id=&quot;problema-dual&quot;&gt;Problema Dual&lt;/h3&gt;
-
-&lt;p&gt;O problema dual é uma formulação alternativa derivada do problema primal usando a teoria de dualidade. Introduz-se multiplicadores de Lagrange para as restrições do problema primal, gerando assim o problema dual. A formulação geral do problema dual é:&lt;/p&gt;
-
-&lt;p&gt;\[\text{Minimize } \quad b^Ty\]
-\[\text{sujeito a } \quad A^Ty \geq c\]
-\[y \geq 0\]&lt;/p&gt;
-
-&lt;p&gt;onde:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;$y$ é o vetor de multiplicadores de Lagrange (ou variáveis duais),&lt;/li&gt;
-  &lt;li&gt;$b$ é o vetor de termos constantes das restrições do primal,&lt;/li&gt;
-  &lt;li&gt;$A^T$ é a matriz transposta de $A$,&lt;/li&gt;
-  &lt;li&gt;$c$ é o vetor de coeficientes da função objetivo do primal.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;O objetivo do problema dual é encontrar os multiplicadores de Lagrange que minimizam $b^Ty$ sujeito às restrições lineares.&lt;/p&gt;
-
-&lt;h3 id=&quot;relação-de-dualidade&quot;&gt;Relação de Dualidade&lt;/h3&gt;
-
-&lt;p&gt;A relação fundamental entre os problemas primal e dual é expressa pelo Teorema da Dualidade, que estabelece que o valor ótimo do problema primal é sempre maior ou igual ao valor ótimo do problema dual, e vice-versa. Matematicamente, isso é expresso como:&lt;/p&gt;
-
-&lt;p&gt;\[\text{Para todo } x \text{ factível no primal e para todo } y \text{ factível no dual, temos } c^Tx \geq b^Ty\]&lt;/p&gt;
-
-&lt;p&gt;Se ambos os problemas alcançam seus valores ótimos, então há igualdade entre eles. Esta relação é conhecida como dualidade forte.&lt;/p&gt;
-
-&lt;p&gt;A dualidade não apenas fornece uma maneira de verificar a solução ótima, mas também oferece informações valiosas sobre a sensibilidade do problema às mudanças nos parâmetros e fornece soluções alternativas.&lt;/p&gt;</content><author><name></name></author><category term="aplicadas" /><category term="programação linear" /><category term="otimização" /><category term="pesquisa operacional" /><summary type="html">Os problemas primal e dual estão intrinsecamente ligados na teoria da dualidade em programação linear. Eles representam duas formulações diferentes de um mesmo problema de otimização linear, sendo inter-relacionados de maneira específica.</summary></entry></feed>
+&lt;/table&gt;</content><author><name></name></author><category term="eletronica" /><category term="obd2" /><summary type="html">Se você tem um leitor OBD2 em inglês essa lista pode te ajudar a desvendar as siglas na leitura.</summary></entry></feed>
