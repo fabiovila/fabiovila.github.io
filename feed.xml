@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2025-01-11T20:01:15-06:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Sobre tohost e fromhost - RISCV</title><link href="http://0.0.0.0:4000/programa%C3%A7%C3%A3o/2025/01/11/sobre-tohost-fromhost.html" rel="alternate" type="text/html" title="Sobre tohost e fromhost - RISCV" /><published>2025-01-11T00:00:00-06:00</published><updated>2025-01-11T00:00:00-06:00</updated><id>http://0.0.0.0:4000/programa%C3%A7%C3%A3o/2025/01/11/sobre-tohost-fromhost</id><content type="html" xml:base="http://0.0.0.0:4000/programa%C3%A7%C3%A3o/2025/01/11/sobre-tohost-fromhost.html">&lt;h3 id=&quot;resumo-e-explicação-da-funcionalidade-de-tohost-e-fromhost-no-spike-e-em-ambientes-risc-v&quot;&gt;Resumo e Explicação da Funcionalidade de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tohost&lt;/code&gt; e &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fromhost&lt;/code&gt; no Spike e em Ambientes RISC-V&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2025-01-16T11:14:08-06:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Sobre tohost e fromhost - RISCV</title><link href="http://0.0.0.0:4000/programa%C3%A7%C3%A3o/2025/01/11/sobre-tohost-fromhost.html" rel="alternate" type="text/html" title="Sobre tohost e fromhost - RISCV" /><published>2025-01-11T00:00:00-06:00</published><updated>2025-01-11T00:00:00-06:00</updated><id>http://0.0.0.0:4000/programa%C3%A7%C3%A3o/2025/01/11/sobre-tohost-fromhost</id><content type="html" xml:base="http://0.0.0.0:4000/programa%C3%A7%C3%A3o/2025/01/11/sobre-tohost-fromhost.html">&lt;h3 id=&quot;resumo-e-explicação-da-funcionalidade-de-tohost-e-fromhost-no-spike-e-em-ambientes-risc-v&quot;&gt;Resumo e Explicação da Funcionalidade de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tohost&lt;/code&gt; e &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fromhost&lt;/code&gt; no Spike e em Ambientes RISC-V&lt;/h3&gt;
 
 &lt;p&gt;A comunicação entre o simulador Spike e o programa em execução é realizada por meio de dois registradores especiais: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tohost&lt;/code&gt; e &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fromhost&lt;/code&gt;. Esses registradores não fazem parte de um padrão oficial do RISC-V, mas são uma convenção adotada pela equipe da UC Berkeley para permitir a interação entre o host (sistema que executa o simulador) e o target (código RISC-V em execução no simulador).&lt;/p&gt;
 
@@ -17,6 +17,62 @@
     &lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fromhost&lt;/code&gt;&lt;/strong&gt;: Este registrador é usado pelo host para enviar respostas ou comandos ao target. O target deve verificar periodicamente o valor de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fromhost&lt;/code&gt; para identificar novos comandos recebidos.&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
+
+&lt;h4 id=&quot;definição-de-tohost-e-fromhost&quot;&gt;Definição de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tohost&lt;/code&gt; e &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fromhost&lt;/code&gt;&lt;/h4&gt;
+
+&lt;p&gt;Para se comunicar com o simulador uma região da memória precisa ter o simbolo associado a estas duas localidades. Há duas formas de se fazer isso. A primeira é através do linker script:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-linker&quot;&gt;OUTPUT_ARCH(&quot;riscv&quot;)
+
+ENTRY(_start)
+EXTERN(_vectors)
+SECTIONS
+{
+
+    . = 0x80000000;
+
+    .tohost : ALIGN(0x1000)
+    {
+        *(.tohost)
+    }
+
+    .fromhost : ALIGN(0x1000)
+    {
+        *(.fromhost)
+    }
+
+    .text : ALIGN(0x1000)  {DEFINIÇÕES DA SEÇÃO .text}
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;E no código em C associamos uma variável a essas seções:&lt;/p&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;volatile&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;unsigned&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tohost&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;__attribute__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;section&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;.tohost&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)));&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;volatile&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;unsigned&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fromhost&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;__attribute__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;section&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;.fromhost&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)));&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Então basta escrever nessas variáveis que o simulador estará monitorando.&lt;/p&gt;
+
+&lt;p&gt;A segunda forma é através de código em assembly:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-assembly&quot;&gt;.section .text
+
+.globl exit
+# Função void exit(long) RV64
+exit:
+        slli a0, a0, 1
+        ori a0, a0, 1
+        la t0, tohost
+        sd a0, 0(t0)
+        1: j 1b
+
+.align 6
+.globl tohost
+tohost: .dword 0
+
+.align 6
+.globl fromhost
+fromhost: .dword 0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Onde se ve as definições de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fromhost&lt;/code&gt; e &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tohost&lt;/code&gt;bem como um exemplo de aplicação definindo a função exit que informa o fim da simulação.&lt;/p&gt;
 
 &lt;h4 id=&quot;exemplo-de-uso&quot;&gt;Exemplo de Uso&lt;/h4&gt;
 

@@ -137,6 +137,62 @@
   </li>
 </ol>
 
+<h4 id="definição-de-tohost-e-fromhost">Definição de <code class="language-plaintext highlighter-rouge">tohost</code> e <code class="language-plaintext highlighter-rouge">fromhost</code></h4>
+
+<p>Para se comunicar com o simulador uma região da memória precisa ter o simbolo associado a estas duas localidades. Há duas formas de se fazer isso. A primeira é através do linker script:</p>
+
+<pre><code class="language-linker">OUTPUT_ARCH("riscv")
+
+ENTRY(_start)
+EXTERN(_vectors)
+SECTIONS
+{
+
+    . = 0x80000000;
+
+    .tohost : ALIGN(0x1000)
+    {
+        *(.tohost)
+    }
+
+    .fromhost : ALIGN(0x1000)
+    {
+        *(.fromhost)
+    }
+
+    .text : ALIGN(0x1000)  {DEFINIÇÕES DA SEÇÃO .text}
+}
+</code></pre>
+<p>E no código em C associamos uma variável a essas seções:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">volatile</span> <span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">tohost</span> <span class="nf">__attribute__</span><span class="p">((</span><span class="n">section</span><span class="p">(</span><span class="s">".tohost"</span><span class="p">)));</span>
+<span class="k">volatile</span> <span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">fromhost</span> <span class="nf">__attribute__</span><span class="p">((</span><span class="n">section</span><span class="p">(</span><span class="s">".fromhost"</span><span class="p">)));</span>
+</code></pre></div></div>
+<p>Então basta escrever nessas variáveis que o simulador estará monitorando.</p>
+
+<p>A segunda forma é através de código em assembly:</p>
+
+<pre><code class="language-assembly">.section .text
+
+.globl exit
+# Função void exit(long) RV64
+exit:
+        slli a0, a0, 1
+        ori a0, a0, 1
+        la t0, tohost
+        sd a0, 0(t0)
+        1: j 1b
+
+.align 6
+.globl tohost
+tohost: .dword 0
+
+.align 6
+.globl fromhost
+fromhost: .dword 0
+</code></pre>
+<p>Onde se ve as definições de <code class="language-plaintext highlighter-rouge">fromhost</code> e <code class="language-plaintext highlighter-rouge">tohost</code>bem como um exemplo de aplicação definindo a função exit que informa o fim da simulação.</p>
+
 <h4 id="exemplo-de-uso">Exemplo de Uso</h4>
 
 <p>Suponha que temos um programa bare-metal que precisa realizar uma chamada de sistema para imprimir um caractere no console. O processo seria semelhante ao seguinte:</p>
