@@ -176,6 +176,7 @@ SECTIONS
 
 .globl exit
 # Função void exit(long) RV64
+.globl exit
 exit:
         slli a0, a0, 1
         ori a0, a0, 1
@@ -183,6 +184,15 @@ exit:
         sd a0, 0(t0)
         1: j 1b
 
+.globl putchar
+putchar:
+        li  t1, 0x0101000000000000
+        or  a0, t1, a0
+        la  t0, tohost
+        sd  a0, 0(t0) # Cuidado não é sb!! sb grava bytes.
+        ret
+
+.section .tohost, "aw", @progbits
 .align 6
 .globl tohost
 tohost: .dword 0
