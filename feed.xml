@@ -1,4 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2025-03-16T13:14:57-05:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Receptor FM de conversão direta - RF</title><link href="http://0.0.0.0:4000/eletr%C3%B4nica/2025/03/16/radio-conversao-direta-fm.html" rel="alternate" type="text/html" title="Receptor FM de conversão direta - RF" /><published>2025-03-16T00:00:00-05:00</published><updated>2025-03-16T00:00:00-05:00</updated><id>http://0.0.0.0:4000/eletr%C3%B4nica/2025/03/16/radio-conversao-direta-fm</id><content type="html" xml:base="http://0.0.0.0:4000/eletr%C3%B4nica/2025/03/16/radio-conversao-direta-fm.html">&lt;h2 id=&quot;receptor-de-conversão-direta&quot;&gt;Receptor de Conversão Direta&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2025-03-17T11:44:21-05:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Armazenamento Térmico com Pistão Bombeado (TPPS) - Energia</title><link href="http://0.0.0.0:4000/energia/2025/03/16/armazenamento-termico-pistao-bombeado.html" rel="alternate" type="text/html" title="Armazenamento Térmico com Pistão Bombeado (TPPS) - Energia" /><published>2025-03-16T00:00:00-05:00</published><updated>2025-03-16T00:00:00-05:00</updated><id>http://0.0.0.0:4000/energia/2025/03/16/armazenamento-termico-pistao-bombeado</id><content type="html" xml:base="http://0.0.0.0:4000/energia/2025/03/16/armazenamento-termico-pistao-bombeado.html">&lt;h3 id=&quot;armazenamento-térmico-com-pistão-bombeado-tpps&quot;&gt;Armazenamento Térmico com Pistão Bombeado (TPPS)&lt;/h3&gt;
+
+&lt;h4 id=&quot;introdução&quot;&gt;Introdução&lt;/h4&gt;
+&lt;p&gt;O armazenamento de energia é um dos desafios críticos na transição para fontes renováveis, especialmente em regiões onde a geração solar e eólica são intermitentes. O conceito de Armazenamento Térmico com Pistão Bombeado (TPPS) combina armazenamento de energia potencial com armazenamento térmico de água quente em uma estrutura subterrânea, proporcionando solução híbrida para suprimento de eletricidade e calor.&lt;/p&gt;
+
+&lt;h4 id=&quot;princípio-de-funcionamento&quot;&gt;Princípio de Funcionamento&lt;/h4&gt;
+&lt;p&gt;O TPPS consiste em um cilindro subterrâneo preenchido com água, onde um pistão pode ser hidraulicamente elevado ou rebaixado para armazenar e liberar energia potencial. O sistema está integrado a uma rede de calor, permitindo armazenar e transferir energia térmica conforme a demanda. O funcionamento ocorre da seguinte forma:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Carregamento&lt;/strong&gt;: O pistão é elevado bombeando água sob pressão. Durante esse processo, a energia elétrica excedente é convertida em energia potencial.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Armazenamento de Calor&lt;/strong&gt;: A água contida no reservatório subterrâneo é aquecida por painéis solares térmicos ou por resistências elétricas, armazenando energia térmica para uso posterior.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Descarga&lt;/strong&gt;: O pistão é rebaixado para acionar um gerador, convertendo a energia potencial em eletricidade. Simultaneamente, a água quente pode ser distribuída para consumo térmico.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;modelagem-matemática-e-simulação&quot;&gt;Modelagem Matemática e Simulação&lt;/h4&gt;
+&lt;p&gt;A modelagem dinâmica do TPPS envolve a análise de fenômenos de transporte de calor, incluindo condução e convecção no meio líquido, perda de calor para o solo e interação entre os elementos do sistema. Os principais parâmetros considerados incluem:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Energia Potencial&lt;/strong&gt;: ( E_{pot} = m g h )&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Energia Térmica&lt;/strong&gt;: ( Q = m c_p \Delta T )&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Eficiência da Armazenagem&lt;/strong&gt;: Considera perdas térmicas e conversão de energia mecânica em elétrica.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Simulações numéricas demonstram que o TPPS pode garantir um fornecimento confiável de energia renovável para regiões urbanas e industriais. Quanto maior a escala do sistema, maior a eficiência térmica devido à menor relação entre a superfície de perda e o volume de armazenamento.&lt;/p&gt;
+
+&lt;h4 id=&quot;aplicabilidades-e-benefícios&quot;&gt;Aplicabilidades e Benefícios&lt;/h4&gt;
+&lt;p&gt;O TPPS apresenta vantagens significativas para armazenamento de energia sazonal e estabilização da rede elétrica. Entre as aplicações destacam-se:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Redução de Dependência de Combustíveis Fósseis&lt;/strong&gt;: Fornece uma fonte contínua de energia renovável sem necessidade de backup fóssil.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Armazenamento Híbrido&lt;/strong&gt;: Integra armazenamento térmico e elétrico, aumentando a flexibilidade da rede.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Infraestrutura Subterrânea&lt;/strong&gt;: Minimiza impacto ambiental e ocupação de superfície.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;conclusão&quot;&gt;Conclusão&lt;/h4&gt;
+&lt;p&gt;O TPPS é uma solução inovadora para armazenamento de energia, permitindo um suprimento eficiente e sustentável de eletricidade e calor. A modelagem e simulação demonstram sua viabilidade em larga escala, contribuindo para a estabilidade da rede elétrica e redução das emissões de carbono. Com estudos avançados de otimização e implementação em cenários reais, o TPPS pode desempenhar um papel essencial na transição energética global.&lt;/p&gt;
+
+&lt;h4 id=&quot;referência&quot;&gt;Referência&lt;/h4&gt;
+&lt;p&gt;Este artigo foi baseado no estudo: Haeuslein, D., Schmidt-Vollus, R., Popp, M., &amp;amp; Schaefer, M. (2024). “Dynamic modeling, design and simulation of a thermal pumped piston storage within a renewable energy distribution system.” &lt;em&gt;Journal of Energy Storage, 100&lt;/em&gt;, 113348. https://doi.org/10.1016/j.est.2024.113348&lt;/p&gt;</content><author><name></name></author><category term="energia" /><category term="energia" /><category term="ciências" /><summary type="html">Armazenamento Térmico com Pistão Bombeado (TPPS)</summary></entry><entry><title type="html">Receptor FM de conversão direta - RF</title><link href="http://0.0.0.0:4000/eletr%C3%B4nica/2025/03/16/radio-conversao-direta-fm.html" rel="alternate" type="text/html" title="Receptor FM de conversão direta - RF" /><published>2025-03-16T00:00:00-05:00</published><updated>2025-03-16T00:00:00-05:00</updated><id>http://0.0.0.0:4000/eletr%C3%B4nica/2025/03/16/radio-conversao-direta-fm</id><content type="html" xml:base="http://0.0.0.0:4000/eletr%C3%B4nica/2025/03/16/radio-conversao-direta-fm.html">&lt;h2 id=&quot;receptor-de-conversão-direta&quot;&gt;Receptor de Conversão Direta&lt;/h2&gt;
 
 &lt;p&gt;Os receptores de conversão direta diferem dos super-heteródinos por operarem com um oscilador sintonizado exatamente na mesma frequência do sinal que se deseja receber, convertendo-o diretamente para a faixa de áudio. Nos receptores super-heteródinos, a frequência do oscilador local é deslocada em relação à frequência de sintonia, gerando uma Frequência Intermediária (FI) após o processo de mistura. A FI passa por diversos estágios de amplificação e filtragem antes da demodulação final do sinal de áudio.&lt;/p&gt;
 
@@ -1760,253 +1798,4 @@ As divisões podem ser conferidas na tabela abaixo:&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;S50240 e S10430 Datasheets&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;Wikipedia&lt;/em&gt;&lt;/p&gt;</content><author><name></name></author><category term="eletronica" /><category term="música eletrônica" /><category term="sintetizadores" /><summary type="html">Órgãos Antigos dos Anos 70: Geradores e Divisores de Oitavas</summary></entry><entry><title type="html">Criando seu próprio vocabulário BPE no Tokenizers - Python</title><link href="http://0.0.0.0:4000/aplicadas/2023/12/01/criando-seu-proprio-vocabulario-no.html" rel="alternate" type="text/html" title="Criando seu próprio vocabulário BPE no Tokenizers - Python" /><published>2023-12-01T00:00:00-06:00</published><updated>2023-12-01T00:00:00-06:00</updated><id>http://0.0.0.0:4000/aplicadas/2023/12/01/criando-seu-proprio-vocabulario-no-</id><content type="html" xml:base="http://0.0.0.0:4000/aplicadas/2023/12/01/criando-seu-proprio-vocabulario-no.html">&lt;h2 id=&quot;tokenização&quot;&gt;Tokenização&lt;/h2&gt;
-
-&lt;p&gt;Ao longo da evolução das aplicações NLP várias formas de se representar um texto foram abordadas. Imagine a seguinte frase &lt;strong&gt;“Qual o sentido da vida?”&lt;/strong&gt; como deveríamos representa-lá para ser usada em algum Modelo de Linguagem Natural? Um modelo de linguagem ‘lê’ uma parte do texto e prevê o próximo token, então a primeira abordagem talvez seja óbvia: Atribuir um número a cada letra e usar a sequência de números para representar a frase. Boa notícia, não precisamos atribuir número algum, eles já existem na codificação UTF-8 como vemos abaixo:&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Qual o sentido da vida?&lt;/td&gt;
-      &lt;td&gt;0x51 0x75 0x61 0x6c 0x20 0x6f 0x20 0x73 0x65 0x6e 0x74 0x69 0x64 0x6f 0x20 0x64 0x61 0x20 0x76 0x69 0x64 0x61 0x3f&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;Porém essa representação não funciona muito bem.  Se por exemplo na entrada “Qual o sentido d” nessa codificação por letras sugerida o próximo token poderá ser o &lt;em&gt;“a”&lt;/em&gt;, &lt;em&gt;“e”&lt;/em&gt; e &lt;em&gt;“o”&lt;/em&gt; como nas frases &lt;em&gt;“Qual o sentido de …”&lt;/em&gt; e &lt;em&gt;“Qual o sentido do …”&lt;/em&gt; e porque não o &lt;em&gt;“i”&lt;/em&gt; em &lt;em&gt;“Qual o sentido disso …“&lt;/em&gt;, ou seja, a probabilidade do próximo token nessa codificação se diluí dificultando prever o próximo token. A situação piora com o espaço &lt;em&gt;” “&lt;/em&gt; ou o artigo &lt;em&gt;“a”&lt;/em&gt;, praticamente todas as letras/tokens tem a mesma probabilidade de ocorrerem depois deles.&lt;/p&gt;
-
-&lt;p&gt;Outro problema é o contexto. As redes neurais vão perdendo o contexto ao longo das previsões e uma codificação como essa que precise de muitas iterações para formar uma frase fará a rede perder o ‘tema do assunto’.&lt;/p&gt;
-
-&lt;p&gt;Outra forma sugerida para resolver esses problemas é atribuir um número as palavras (words) de um vocabulário como no exemplo abaixo:&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Qual o sentido da vida?&lt;/td&gt;
-      &lt;td&gt;0x13 0x03 0x123 0x10 0x54&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;“Qual “&lt;/td&gt;
-      &lt;td&gt;0x13&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;“o “&lt;/td&gt;
-      &lt;td&gt;0x03&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;“sentido “&lt;/td&gt;
-      &lt;td&gt;0x123&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;“da “&lt;/td&gt;
-      &lt;td&gt;0x10&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;“vida?”&lt;/td&gt;
-      &lt;td&gt;0x54&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;Na tabela acima cada palavra+pontuação tem um número associado. São 5 tokens então serão 5 números representando a frase toda. Nessa representação a rede neural faz poucas iterações e não se perde no contexto. De bônus ocupa pouco espaço e consome menos CPU correto? Sim. Mas alguns problemas surgem. Enquanto na representação por letras qualquer palavra do vocabulário pode ser representada, precisaríamos de uma enorme quantidade de números para representar todas as palavras existentes. Normalmente um vocabulário útil desses teria alguns Gigas de tamanho. E o que acontece se alguma palavra não conhecida aparecer? Há quem tenha usado o token &amp;lt;UNK&amp;gt; para representar uma palavra desconhecida … deselegante não?&lt;/p&gt;
-
-&lt;h3 id=&quot;byte-pair-encoding-bpe&quot;&gt;Byte-Pair Encoding (BPE)&lt;/h3&gt;
-
-&lt;p&gt;O BPE, usado inicialmente como um algoritmo para comprimir textos, achou seu sucesso nos modelos de linguagens localizando-se no entre-meio da representação por letras e por palavras. Na codificação BPE inicialmente todas as letras são incluídas, em seguida uma &lt;strong&gt;pesquisa&lt;/strong&gt; em uma grande quantidade de textos determinará as palavras e os RADICAIS frequentemente presentes nesses textos que serão incluídos na representação.&lt;/p&gt;
-
-&lt;p&gt;Em português é extremamente comum o uso das preposições “do”, “da”, “em”; os artigos “um”, “uma”; os advérbios “não”, “sim”, “talvez”, em inglês é imperativo a presença do “the”, “were”, “have”, logo essas palavras são bons candidatos a serem incluídos no vocabulário.&lt;/p&gt;
-
-&lt;p&gt;Aprendemos na escola a formação das palavras utilizando prefixos, sufixos e radicais, partindo disso, os prefixos “íssimo”,”an”, “anti”, “endo”, “hiper” bem como os sufixos “ismo”, “ença”, “ário” e tantos outros são fortes candidatos a serem representados pelo BPE. Por sorte nossa lingua tem radicais muito comuns que também podem ser incluídos na representação.&lt;/p&gt;
-
-&lt;p&gt;Vejamos o exemplo da frase “Qual o sentido da vida?” na codificação BPE usada pelo GPT:&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Token&lt;/th&gt;
-      &lt;th&gt;Index&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;“Qual”&lt;/td&gt;
-      &lt;td&gt;46181&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;” o”&lt;/td&gt;
-      &lt;td&gt;267&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;” sent”&lt;/td&gt;
-      &lt;td&gt;1908&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;“ido”&lt;/td&gt;
-      &lt;td&gt;17305&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;” da”&lt;/td&gt;
-      &lt;td&gt;12379&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;” v”&lt;/td&gt;
-      &lt;td&gt;410&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;“ida”&lt;/td&gt;
-      &lt;td&gt;3755&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;”?”&lt;/td&gt;
-      &lt;td&gt;30&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;Como se pode ver a palavra “sentido” foi quebrada em dois tokens “ sent” e “ido”, “vida” foi quebrado em “ v” e “ida”; faria mais sentido representar “vida” por “vida”? Sim, mas o vocabulário usado é do GPT-4 e apesar dele ser multilingual ele foi primariamente treinado para o inglês e com poucos textos em português, consequentemente ele tem mais radicais e palavras em inglês que em qualquer outra língua.&lt;/p&gt;
-
-&lt;p&gt;Como todas a letras estão incluídas qualquer palavra pode ser formada e como os radicais e as palavras mais usadas estão incluídas o contexto fica pequeno. Há um balanço entre flexibilização e tamanho.&lt;/p&gt;
-
-&lt;div class=&quot;destaque azul&quot;&gt;
-&lt;p&gt;Se quiser explorar mais a tokenização usada pelo ChatGPT use o site &lt;a href=&quot;https://observablehq.com/@simonw/gpt-tokenizer&quot; target=&quot;_blank&quot;&gt;https://observablehq.com/@simonw/gpt-tokenizer&lt;/a&gt; exemplificado na imagem abaixo:&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://observablehq.com/@simonw/gpt-tokenizer&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/assets/imgs/Captura de tela de 2024-01-22 17-27-40.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;treinando-seu-próprio-vocabulário&quot;&gt;Treinando seu próprio vocabulário&lt;/h3&gt;
-
-&lt;p&gt;Para treinar seu próprio vocabulário será necessário o módulo python &lt;strong&gt;tokenizers&lt;/strong&gt;. Primeiramente instale o módulo via pip ou usando seu gerenciador de pacotes ( preferido ).&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip install tokenizers
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Incluiremos os módulos necessários no cabeçalho do arquivo:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;from tokenizers import Tokenizer, models, pre_tokenizers, decoders, trainers, processors
-import glob
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;O glob é excelente para essas tarefas ao facilitar adicionar novos arquivos simplesmente jogando eles em um diretório.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Initialize a tokenizer
-tokenizer = Tokenizer(models.BPE())
-
-# Customize pre-tokenization and decoding
-tokenizer.pre_tokenizer = pre_tokenizers.ByteLevel(add_prefix_space=True)
-tokenizer.decoder = decoders.ByteLevel()
-tokenizer.post_processor = processors.ByteLevel(trim_offsets=True)
-
-# And then train
-trainer = trainers.BpeTrainer(
-    vocab_size=32000,
-    min_frequency=4,
-    initial_alphabet=pre_tokenizers.ByteLevel.alphabet()
-)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Inicializamos o módulo com os parâmetros desejados. Os parâmetros mais importantes são&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;vocab_size=32000&lt;/strong&gt; - Diz qual o tamanho do vocabulário. Muito pequeno ajuda na velocidade da rede mas diminui a quantidade de palavras e radicais. O GPT usa tamanhos de 50k (~50.000) e 100k (~100.000) para seus vocabulários. Não esqueça que as letras serão incluídas, então o tamanho deve contar essas letras obrigatórias.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;min_frequency=4&lt;/strong&gt; - Frequência minima para um token ser incluído. Se alguém fizer um treinamento com diálogos de internet é muito provável que palavras digitadas erradas apareçam e outras somente uma vez, ou os famigerados kkkkkkkkkk+. É melhor deixar palavras poucos usadas de fora. Porém se o vocab_size for pequeno e a quantidade de textos grande e com muitas palavras é provável que somente palavras com muita frequência sejam incluídas.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;initial_alphabet=pre_tokenizers.ByteLevel.alphabet()&lt;/strong&gt; - Lembra das letras automaticamente incluídas? Não é automático. Elas são incluídas aqui.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Como glob será usado …&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;l = glob.glob(&quot;./**/*.txt&quot;, recursive=True)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Que fará uma lista chamada “l” com todos os aquivos *.txt no diretório e sub-diretório atual.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;specials = [
-    &apos;&amp;lt;|query|&amp;gt;&apos;,
-    &apos;&amp;lt;|answer|&amp;gt;&apos;,
-    &apos;&amp;lt;|endoftext|&amp;gt;&apos;,
-    &apos;&amp;lt;|code|&amp;gt;&apos;,
-    &apos;&amp;lt;|system|&amp;gt;&apos;,
-    &apos;&amp;lt;|hole|&amp;gt;&apos;
-]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;Essa etapa é importante.&lt;/strong&gt; A OpenAI usa muito o token &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;|endoftext|&amp;gt;&lt;/code&gt; para finalizar um texto e começar outro. Também é usado durante a inferência para informar que ela terminou. O token deve ser algo estranho aos textos das linguagens que ele suporta então foi escolhido esse formato estranho &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;|endoftext|&amp;gt;&lt;/code&gt;. Porém essa palavra tem 13 caracteres e ocuparia muito espaço bem como CPU para operá-la. Não seria melhor transformar esse token em um só número como é feito nas palavras e radicais mais usados?&lt;/p&gt;
-
-&lt;p&gt;Pois é isso que é feito nessa fase. Adiciona-se os &lt;strong&gt;specials tokens&lt;/strong&gt; ou tokens especiais que serão usados para alguma finalidade.&lt;/p&gt;
-
-&lt;div class=&quot;destaque azul&quot;&gt;
-&lt;p&gt;Eu uso o &lt;strong&gt;&amp;lt;|query|&amp;gt;&lt;/strong&gt;, &lt;strong&gt;&amp;lt;|endoftext|&amp;gt;&lt;/strong&gt; e &lt;strong&gt;&amp;lt;|answer|&amp;gt;&lt;/strong&gt; para montar datasets com perguntas e respostas como no exemplo:&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;&amp;lt;|query|&amp;gt;Quem descobriu o Brasil?&amp;lt;|answer|&amp;gt;Pedro Álvares Cabral&amp;lt;|endoftext|&amp;gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;E o três tokens serão convertidos em um só número (cada) do que uma sequência de characteres.&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Configurado os parâmetros agora é feito o processo de pesquisa e quando acabar o processo salvamos o *.json do vocabulário gerado para uso posterior.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tokenizer.add_special_tokens(specials)
-tokenizer.train(l, trainer=trainer)
-
-# And Save it
-tokenizer.save(&quot;byte-level-bpe.tokenizer.32k.json&quot;, pretty=True)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;O arquivo &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;byte-level-bpe.tokenizer.32k.json&lt;/code&gt; deverá aparecer no diretório atual ao final do processo com o vocabulário gerado.&lt;/p&gt;
-
-&lt;h3 id=&quot;usando-o-vocabulário-gerado&quot;&gt;Usando o vocabulário gerado&lt;/h3&gt;
-
-&lt;p&gt;Para carregar o json do vocabulário o Tokenizer tem a função &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;from_file&lt;/code&gt; e para codificar um texto qualquer no vocabulário carregado usa-se o &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tokenizer.encode(texto)&lt;/code&gt; que retornará a lista &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.ids&lt;/code&gt; contendo os números dos tokens do texto convertido.
-O processo inverso, ou seja, transformar uma lista de números obtidos da conversão de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tokenizer.encode(texto).ids&lt;/code&gt; em texto novamente é feito utilizando &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;decode&lt;/code&gt;.
-Lembre-se:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tokenizer.encode - Transforma o texto em tokens do vocabulário carregado
-tokenizer.decode - Transforma uma lista de números em texto dos tokens representados pelo vocabulário carregado.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Como se pode ver no exemplo abaixo:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import tokenizers
-from tokenizers import Tokenizer
-from tokenizers.models import BPE
-tokenizer = Tokenizer.from_file(&quot;byte-level-bpe.tokenizer.32k.json&quot;)
-encode = lambda s: tokenizer.encode(s).ids
-decode = lambda l: tokenizer.decode(l)
-
-A = encode(&quot;Qual o sentido da vida?&quot;)
-B = decode(A)
-
-print(A,B)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;programa-completo&quot;&gt;Programa completo&lt;/h3&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;from tokenizers import Tokenizer, models, pre_tokenizers, decoders, trainers, processors
-import glob
-# Initialize a tokenizer
-tokenizer = Tokenizer(models.BPE())
-
-# Customize pre-tokenization and decoding
-tokenizer.pre_tokenizer = pre_tokenizers.ByteLevel(add_prefix_space=True)
-tokenizer.decoder = decoders.ByteLevel()
-tokenizer.post_processor = processors.ByteLevel(trim_offsets=True)
-
-# And then train
-trainer = trainers.BpeTrainer(
-    vocab_size=32000,
-    min_frequency=4,
-    initial_alphabet=pre_tokenizers.ByteLevel.alphabet()
-)
-
-l = glob.glob(&quot;./**/*.txt&quot;, recursive=True)
-
-specials = [
-    &apos;&amp;lt;|query|&amp;gt;&apos;,
-    &apos;&amp;lt;|answer|&amp;gt;&apos;,
-    &apos;&amp;lt;|endoftext|&amp;gt;&apos;,
-    &apos;&amp;lt;|code|&amp;gt;&apos;,
-    &apos;&amp;lt;|system|&amp;gt;&apos;,
-    &apos;&amp;lt;|hole|&amp;gt;&apos;
-]
-
-tokenizer.add_special_tokens(specials)
-tokenizer.train(l, trainer=trainer)
-
-# And Save it
-tokenizer.save(&quot;byte-level-bpe.tokenizer.32k.json&quot;, pretty=True)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="aplicadas" /><category term="python" /><category term="IA" /><category term="tokenizers" /><category term="llm" /><summary type="html">Tokenização</summary></entry></feed>
+&lt;p&gt;&lt;em&gt;Wikipedia&lt;/em&gt;&lt;/p&gt;</content><author><name></name></author><category term="eletronica" /><category term="música eletrônica" /><category term="sintetizadores" /><summary type="html">Órgãos Antigos dos Anos 70: Geradores e Divisores de Oitavas</summary></entry></feed>
