@@ -2834,6 +2834,8 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus { color: #ee2049 !imp
 
 .footer { background-color: #fafafa; padding: 3rem 1.5rem 6rem; }
 
+html { font-size: 17.6px; /* Define base para rem */ }
+
 body { font-size: 1.2em; }
 @media screen and (min-width: 769px), print { body { font-size: 1.0em; } }
 @media screen and (min-width: 1024px) { body { font-size: 1.2em; } }

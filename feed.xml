@@ -1,26 +1,623 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2025-03-30T09:27:35-05:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Perdi uma placa por utilizar um estimador estatístico errado - Matemática</title><link href="http://0.0.0.0:4000/aplicadas/2025/03/29/estimar-raio-capacitor-jargao-estatistica.html" rel="alternate" type="text/html" title="Perdi uma placa por utilizar um estimador estatístico errado - Matemática" /><published>2025-03-29T00:00:00-05:00</published><updated>2025-03-29T00:00:00-05:00</updated><id>http://0.0.0.0:4000/aplicadas/2025/03/29/estimar-raio-capacitor-jargao-estatistica</id><content type="html" xml:base="http://0.0.0.0:4000/aplicadas/2025/03/29/estimar-raio-capacitor-jargao-estatistica.html">&lt;h2 id=&quot;como-perdi-uma-placa-por-utilizar-o-estimador-estatistico-errado&quot;&gt;Como perdi uma placa por utilizar o estimador estatistico errado&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2025-05-18T20:31:11-05:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Super guia ilustrado das instruções RISC-V RVI32 - Verilog</title><link href="http://0.0.0.0:4000/verilog/2025/03/30/riscv-guia-rapido-instrucoes.html" rel="alternate" type="text/html" title="Super guia ilustrado das instruções RISC-V RVI32 - Verilog" /><published>2025-03-30T00:00:00-05:00</published><updated>2025-03-30T00:00:00-05:00</updated><id>http://0.0.0.0:4000/verilog/2025/03/30/riscv-guia-rapido-instrucoes</id><content type="html" xml:base="http://0.0.0.0:4000/verilog/2025/03/30/riscv-guia-rapido-instrucoes.html">&lt;p&gt;Cada vez mais processadores e microcontroladores RISC-V estão surgindo no mercado como alternativa ao ARM e MIPS. De livre implementação, sem Royalties ou custos o conjunto de instruções RISC-V tem ganhado atenção. O termo RISC-V em sí não se refere a uma CPU ou Empresa, mas ao &lt;strong&gt;Conjunto de Instruções aberto e de livre implementação administrado pela RISC-V International&lt;/strong&gt;. RISC-V International é uma organização sem fins lucrativos que gerencia a arquitetura aberta RISC-V e suas especificações. Com mais de 4.500 membros em 70 países, promove inovação acessível sem royalties. Fundada como RISC-V Foundation em 2015 e realocada para a Suíça em 2020, garante continuidade e colaboração global.&lt;/p&gt;
 
-&lt;p&gt;Envolvo em mais um projeto de um inversor de frequência para motores trifásicos onde sou responsável por tudo novamente: projeto, roteamento e programação. Quando chegou a hora de rotear a placa era necessário usar uma fonte chaveada de confiança do cliente ( que posteriormente deu problemas ).
-Havia no circuito um capacitor de filtro &lt;strong&gt;22uF - 400V&lt;/strong&gt; responsável pelo AC-DC.
-O local onde este capacitor iria ficar era apertado e não era um dos que eu estava acostumado. Em geral nesses projetos ou estava roteando capacitores de até 36V ou os já conhecidos capacitores de 1000uF - 250V, que sempre coloquei 35mm de diâmetro e as vezes sobrava.&lt;/p&gt;
+&lt;p&gt;A arquitetura permite liberdade de design, sendo usada tanto em projetos abertos quanto proprietários. O conjunto de instruções RISC-V foi iniciado em 2010 por Krste Asanović, Yunsup Lee e Andrew Waterman no Par Lab da UC Berkeley, liderado por David Patterson. O Par Lab, financiado por Intel e Microsoft, visava avanços em computação paralela entre 2008 e 2013. O projeto RISC-V e a linguagem Chisel foram desenvolvidos como open source sob a licença BSD. Parte do financiamento veio da DARPA para implementação de processadores, mas não para a ISA RISC-V.&lt;/p&gt;
+
+&lt;p&gt;Na prática isso quer dizer que as instruções são abertas e livres para implementação, porém &lt;strong&gt;não há nenhuma CPU com a marca RISC-V&lt;/strong&gt;, as CPUs disponíveis no mercado com &lt;strong&gt;as instruções e extensões RISC-V&lt;/strong&gt; são CPUs de empresas como SiFive, GigaDevices, Microchip, entre outras com projeto fechado e proprietário, e não deixariam de ser, visto que a fabricação fisica de uma CPU envolve projeto e processos fabris em microeletrônica protegidos e caros.&lt;/p&gt;
+
+&lt;p&gt;O interesse no RISC-V aliado a sua liberdade de uso faz com que algumas pessoas implementem sua própria CPU RISC-V, seja com emuladores, em Verilog ou VHDL simulando em software ou sintetizados para alguma FPGA. De fato pode-se inclusive comercializar uma implementação em FPGA, ao contrário do conjunto de instruções ARM.&lt;/p&gt;
+
+&lt;p&gt;Como fazer uma CPU envolve processos complexos, como conhecer uma linguagem de descrição de hardware (Verilog ou VHDL), conhecer arquitetura de CPUs, memória, barramento e eletrônica digital, este artigo foi feito para ajudar no entendimento da arquitetura RISC-V com ilustrações e trechos de códigos em Verilog e C. E espero que seja de grande ajuda!&lt;/p&gt;
+
+&lt;div class=&quot;destaque amarelo br bl&quot;&gt;
+Escrever sua própria CPU é um exercício de gente grande! Extremamente útil na compreensão do funcionamento interno das CPUs e arquitetura de computadores.
+&lt;/div&gt;
+
+&lt;h3 id=&quot;instruções-base-rvi32&quot;&gt;Instruções Base RVI32&lt;/h3&gt;
+
+&lt;p&gt;A especificação RISC-V divide-se em instruções Base e Extensões. Em 32 bits as instruções Base são conhecidas como RVI32, que contem instruções de Movimentação, Soma, Lógicas, Saltos e de Sistema (não-protegido). Elas são divididas em 6 grupos de codificação de imediatos chamados R, I, S, B, U e J cujos formatos são ilustrados abaixo:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/imgs/riscv/RISBUJ.svg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;opcode&lt;/strong&gt; - 7 bits identificando cada grupo de instruções. &lt;strong&gt;opcode&lt;/strong&gt; pode indicar um grupo de instruções ou uma instrução somente&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;rd&lt;/strong&gt; - 5 bits identificando um dos 32 registradores de destino do resultado da instrução&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;rs1&lt;/strong&gt; - 5 bits identificando um dos 32 registradores fonte (source) numero 1&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;rs2&lt;/strong&gt; - 5 bits identificando um dos 32 registradores fonte (source) numero 2&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;funct3&lt;/strong&gt; - 3 bits que junto de &lt;strong&gt;funct7&lt;/strong&gt; identifica a instrução a ser executada do tipo determinado por &lt;strong&gt;opcode&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;funct7&lt;/strong&gt; - 7 bits que junto de &lt;strong&gt;funct3&lt;/strong&gt; identifica a instrução a ser executada do tipo determinado por &lt;strong&gt;opcode&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;imm[:] ou []&lt;/strong&gt; - São os valores numéricos da instrução que serão usados em algum cálculo interno de deslocamento ou armazenamento.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Como se pode observar as intruções são todas em 32 bits o que facilita no fetch e decodificação da instrução. Como toda arquitetura RISC pura, o campo rs1, rs2 indicam os registradores que contém os operandos das instruções e rd o destino do resultado; não há instruções que efetuam cálculos com operandos ou destinos direto na memória, esses valores devem antes ser carregados nos registradores rs1 ou rs2 e o resultado da operação será guardado em rd e quando então a instrução store poderá gravar o conteúdo de qualquer registrador na memória. Se fosse o caso de um processador CISC poderiamos ter instruções de outros tamanhos além dos 32 bits e imediatos que sirvam de endereços para execução da instrução direto na memória.&lt;/p&gt;
+
+&lt;p&gt;Agora exploraremos esses 6 tipos detalhadamente.&lt;/p&gt;
+
+&lt;h3 id=&quot;tipo-r&quot;&gt;Tipo R&lt;/h3&gt;
+
+&lt;p&gt;As instruções do tipo R são as mais fáceis de se entender e um ótimo ponto de partida. São denominadas R justamente por operarem em operandos contidos em registradores, que foram previamente carregados pelas instruções tipo I, U ou resultado de uma operação anterior tipo R.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/imgs/riscv/riscv-tipo-r.svg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Na ilustração acima ALU é a unidade aritmética que faz diversas operações como soma, diferença, xor, and entre outras. O campo &lt;strong&gt;opcode&lt;/strong&gt; da instrução em RV32I com valor &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0110011&lt;/code&gt;identifica as instruções tipo R. Quem determinará qual operação a ALU efetuará será a combinação de &lt;strong&gt;funct7&lt;/strong&gt; e &lt;strong&gt;funct3&lt;/strong&gt; conforme tabela abaixo. &lt;strong&gt;rs1&lt;/strong&gt; e &lt;strong&gt;rs2&lt;/strong&gt; são o identificador de um dos 32 registradores que serão respectivamente o valor rs1 e rs2 da ALU e finalmente o resultado da operação aritmética será armazenado no registrador indexado por &lt;strong&gt;rd&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;funct7&lt;/th&gt;
+      &lt;th&gt;rs2&lt;/th&gt;
+      &lt;th&gt;rs1&lt;/th&gt;
+      &lt;th&gt;funct3&lt;/th&gt;
+      &lt;th&gt;rd&lt;/th&gt;
+      &lt;th&gt;op&lt;/th&gt;
+      &lt;th&gt;instrução&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;0000000&lt;/td&gt;
+      &lt;td&gt;rs2&lt;/td&gt;
+      &lt;td&gt;rs1&lt;/td&gt;
+      &lt;td&gt;000&lt;/td&gt;
+      &lt;td&gt;rd&lt;/td&gt;
+      &lt;td&gt;0110011&lt;/td&gt;
+      &lt;td&gt;ADD&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;0100000&lt;/td&gt;
+      &lt;td&gt;rs2&lt;/td&gt;
+      &lt;td&gt;rs1&lt;/td&gt;
+      &lt;td&gt;000&lt;/td&gt;
+      &lt;td&gt;rd&lt;/td&gt;
+      &lt;td&gt;0110011&lt;/td&gt;
+      &lt;td&gt;SUB&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;0000000&lt;/td&gt;
+      &lt;td&gt;rs2&lt;/td&gt;
+      &lt;td&gt;rs1&lt;/td&gt;
+      &lt;td&gt;001&lt;/td&gt;
+      &lt;td&gt;rd&lt;/td&gt;
+      &lt;td&gt;0110011&lt;/td&gt;
+      &lt;td&gt;SLL&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;0000000&lt;/td&gt;
+      &lt;td&gt;rs2&lt;/td&gt;
+      &lt;td&gt;rs1&lt;/td&gt;
+      &lt;td&gt;010&lt;/td&gt;
+      &lt;td&gt;rd&lt;/td&gt;
+      &lt;td&gt;0110011&lt;/td&gt;
+      &lt;td&gt;SLT&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;0000000&lt;/td&gt;
+      &lt;td&gt;rs2&lt;/td&gt;
+      &lt;td&gt;rs1&lt;/td&gt;
+      &lt;td&gt;011&lt;/td&gt;
+      &lt;td&gt;rd&lt;/td&gt;
+      &lt;td&gt;0110011&lt;/td&gt;
+      &lt;td&gt;SLTU&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;0000000&lt;/td&gt;
+      &lt;td&gt;rs2&lt;/td&gt;
+      &lt;td&gt;rs1&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;rd&lt;/td&gt;
+      &lt;td&gt;0110011&lt;/td&gt;
+      &lt;td&gt;XOR&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;0000000&lt;/td&gt;
+      &lt;td&gt;rs2&lt;/td&gt;
+      &lt;td&gt;rs1&lt;/td&gt;
+      &lt;td&gt;101&lt;/td&gt;
+      &lt;td&gt;rd&lt;/td&gt;
+      &lt;td&gt;0110011&lt;/td&gt;
+      &lt;td&gt;SRL&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;0100000&lt;/td&gt;
+      &lt;td&gt;rs2&lt;/td&gt;
+      &lt;td&gt;rs1&lt;/td&gt;
+      &lt;td&gt;101&lt;/td&gt;
+      &lt;td&gt;rd&lt;/td&gt;
+      &lt;td&gt;0110011&lt;/td&gt;
+      &lt;td&gt;SRA&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;0000000&lt;/td&gt;
+      &lt;td&gt;rs2&lt;/td&gt;
+      &lt;td&gt;rs1&lt;/td&gt;
+      &lt;td&gt;110&lt;/td&gt;
+      &lt;td&gt;rd&lt;/td&gt;
+      &lt;td&gt;0110011&lt;/td&gt;
+      &lt;td&gt;OR&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;0000000&lt;/td&gt;
+      &lt;td&gt;rs2&lt;/td&gt;
+      &lt;td&gt;rs1&lt;/td&gt;
+      &lt;td&gt;111&lt;/td&gt;
+      &lt;td&gt;rd&lt;/td&gt;
+      &lt;td&gt;0110011&lt;/td&gt;
+      &lt;td&gt;AND&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Veja que &lt;strong&gt;funct7&lt;/strong&gt; somente faz distinção das instruções ADD/SUB e SRL/SRA cujo &lt;strong&gt;funct3&lt;/strong&gt; são iguais.&lt;/p&gt;
+
+&lt;p&gt;Para extrair esse valores em Verilog utilize o código abaixo:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Verilog&quot;&gt;wire [6:0]  OPCODE          =   INS[6:0];
+wire [2:0]  FUNCT3          =   INS[14:12];
+wire [6:0]  FUNCT7          =   INS[31:25];
+wire [4:0]  RS1_INDEX       =   INS[19:15];
+wire [4:0]  RS2_INDEX       =   INS[24:20];
+wire [4:0]  RD_INDEX        =   INS[11:7];
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;E no caso de uma emulador C/C++:&lt;/p&gt;
+
+&lt;div class=&quot;language-c++ highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;opcode&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ins&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;127&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;funct3&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ins&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;28672&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;funct7&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ins&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4261412864&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rs1_index&lt;/span&gt;   &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ins&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1015808&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rs2_index&lt;/span&gt;   &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ins&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;32505856&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rd_index&lt;/span&gt;    &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ins&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3968&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Esses imediatos e indexadores serão utilizados em outras instruções sendo então reaproveitados nos outros tipos. Sendo essa uma das vantagens de um processador RISC moderno como o RISC-V, os imediatos tem posições fixas que facilitam a decodificação sem precisar de máquinas de estado (micro-código) e lógicas adicionais, o que torna o uso de portas lógicas o minimo possível no RISC-V, permitindo então, fazer vários processadores, chamados harts, em uma pastilha de silicio ou sintetizados em FPGA, ou seja, um multi-processador.&lt;/p&gt;
+
+&lt;h3 id=&quot;tipo-i&quot;&gt;Tipo I&lt;/h3&gt;
+
+&lt;p&gt;Instruções tipo I ou Immediato permitem carregar os registradores com valores através da ALU. Todas as instruções do tipo I fazem alguma operação aritmética no imediato da instrução, porém se o programador não quiser efetuar operação alguma no valor, basta somar com o registrador zero, e como toda soma de um número com zero é ele mesmo, então esse valor numérico imediato será armazenado no registrador sem alteração alguma. O x86 tem as instruções MOV, porém o RISC-V não tem uma instrução de carga explicita, somente aritméticas! Sim! Se você quer carregar um valor some ele com zero!&lt;/p&gt;
+
+&lt;div class=&quot;destaque amarelo bl br&quot;&gt;
+Alguns acham estranho não ter uma instrução de carga explicita como é no x86 ou mesmo no ARM. No RISC-V não há instruções de Load ou Movimento, o mais próximo disso é a instrução tipo U que armazena o imediato nos 20 bits de cima de um registrador.
+&lt;/div&gt;
+
+&lt;p&gt;As instruções tipo I apenas diferem das tipo R por não usarem &lt;strong&gt;rs2&lt;/strong&gt; como operando, porém usam o valor imediato presente na instrução que deve ser extraido pelo decodificado de instruções.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/imgs/riscv/riscv-tipo-i.svg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Percebe-se na ilustração que a única diferença é a ausência de &lt;strong&gt;rs2&lt;/strong&gt; que foi substituido pela palavra de 32 bits montada através dos bits &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;31:20&lt;/code&gt; da instrução que foram extraídos e concatenados nos bits &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;12:0&lt;/code&gt; da palavra de 32 bits.&lt;/p&gt;
+
+&lt;p&gt;O sinal de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;imm[11:0]&lt;/code&gt;, ou seja, o bit &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;imm[11]&lt;/code&gt; é extendido para o restante dos 32 bits da palavra, na prática se copia esse bit aos 20 bits restantes da palavra. Algo fácil de se fazer em Verilog porém em software é custoso. 
+Em seguida executa-se a operação da ALU com os operandos &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;imm_i&lt;/code&gt; e &lt;strong&gt;rs1&lt;/strong&gt; com destino em &lt;strong&gt;rd&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;imm[11:0]&lt;/th&gt;
+      &lt;th&gt;rs1&lt;/th&gt;
+      &lt;th&gt;funct3&lt;/th&gt;
+      &lt;th&gt;rd&lt;/th&gt;
+      &lt;th&gt;op&lt;/th&gt;
+      &lt;th&gt;instrução&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;xxxxxxxxxxxx&lt;/td&gt;
+      &lt;td&gt;rs1&lt;/td&gt;
+      &lt;td&gt;000&lt;/td&gt;
+      &lt;td&gt;rd&lt;/td&gt;
+      &lt;td&gt;0010011&lt;/td&gt;
+      &lt;td&gt;ADDI&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;xxxxxxxxxxxx&lt;/td&gt;
+      &lt;td&gt;rs1&lt;/td&gt;
+      &lt;td&gt;010&lt;/td&gt;
+      &lt;td&gt;rd&lt;/td&gt;
+      &lt;td&gt;0010011&lt;/td&gt;
+      &lt;td&gt;SLTI&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;xxxxxxxxxxxx&lt;/td&gt;
+      &lt;td&gt;rs1&lt;/td&gt;
+      &lt;td&gt;011&lt;/td&gt;
+      &lt;td&gt;rd&lt;/td&gt;
+      &lt;td&gt;0010011&lt;/td&gt;
+      &lt;td&gt;SLTIU&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;xxxxxxxxxxxx&lt;/td&gt;
+      &lt;td&gt;rs1&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;rd&lt;/td&gt;
+      &lt;td&gt;0010011&lt;/td&gt;
+      &lt;td&gt;XORI&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;xxxxxxxxxxxx&lt;/td&gt;
+      &lt;td&gt;rs1&lt;/td&gt;
+      &lt;td&gt;110&lt;/td&gt;
+      &lt;td&gt;rd&lt;/td&gt;
+      &lt;td&gt;0010011&lt;/td&gt;
+      &lt;td&gt;ORI&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;xxxxxxxxxxxx&lt;/td&gt;
+      &lt;td&gt;rs1&lt;/td&gt;
+      &lt;td&gt;111&lt;/td&gt;
+      &lt;td&gt;rd&lt;/td&gt;
+      &lt;td&gt;0010011&lt;/td&gt;
+      &lt;td&gt;ANDI&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Para montar o &lt;strong&gt;Imediato&lt;/strong&gt; segue código sugestivo em Verilog e C/C++:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Verilog&quot;&gt;wire [31:0]  IMM_I             =   {{20{INS[31]}},INS[31:20]};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;E no caso de uma emulador C/C++:&lt;/p&gt;
+
+&lt;div class=&quot;language-c++ highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;int32_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;imm_i&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ins&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0xfff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;imm_i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0x800&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;          &lt;span class=&quot;c1&quot;&gt;// se o bit 11 tá setado&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;imm_i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|=&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0xFFFFF000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;// preenche o restante com 1s&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Há outras formas em C/C++ de se fazer isso e é possível ainda otimizar utilizando instruções assembly que extraem bits com sinal extendido se houver na CPU que se escreve o emulador.&lt;/p&gt;
+
+&lt;p&gt;A instrução de salto incondicional JALR também utiliza o Tipo I de codificação de imediato, porém será explicada posteriormente.&lt;/p&gt;
+
+&lt;h4 id=&quot;o-caso-slli-srli-e-srai&quot;&gt;O caso SLLI, SRLI e SRAI&lt;/h4&gt;
+
+&lt;p&gt;As instruções de deslocamento a direita e a esquerda são do tipo I porém tem tratamento diferente. 
+O &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;imm[11:0]&lt;/code&gt; contém duas informações, o &lt;strong&gt;shamt&lt;/strong&gt; que localiza-se no &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;imm[4:0]&lt;/code&gt; contendo a quantidade de deslocamento que pode ser 0 a 31 e a distinção entre &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SRLI&lt;/code&gt; e &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SRAI&lt;/code&gt;. Lembre-se que não há sentido deslocar mais que 31 bits pois a palavra tem somente 32 bits, logo &lt;strong&gt;shamt&lt;/strong&gt; tem tamanho de 5 bits.
+Finalmente &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;imm[30]&lt;/code&gt;diferencia &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SRLI&lt;/code&gt;de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SRAI&lt;/code&gt; já que ambos têm o mesmo &lt;strong&gt;funct3&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt; &lt;/th&gt;
+      &lt;th&gt;shamt&lt;/th&gt;
+      &lt;th&gt;rs1&lt;/th&gt;
+      &lt;th&gt;funct3&lt;/th&gt;
+      &lt;th&gt;rd&lt;/th&gt;
+      &lt;th&gt;op&lt;/th&gt;
+      &lt;th&gt;instrução&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;0000000&lt;/td&gt;
+      &lt;td&gt;xxxxx&lt;/td&gt;
+      &lt;td&gt;rs1&lt;/td&gt;
+      &lt;td&gt;001&lt;/td&gt;
+      &lt;td&gt;rd&lt;/td&gt;
+      &lt;td&gt;0010011&lt;/td&gt;
+      &lt;td&gt;SLLI&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;0000000&lt;/td&gt;
+      &lt;td&gt;xxxxx&lt;/td&gt;
+      &lt;td&gt;rs1&lt;/td&gt;
+      &lt;td&gt;101&lt;/td&gt;
+      &lt;td&gt;rd&lt;/td&gt;
+      &lt;td&gt;0010011&lt;/td&gt;
+      &lt;td&gt;SRLI&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;0100000&lt;/td&gt;
+      &lt;td&gt;xxxxx&lt;/td&gt;
+      &lt;td&gt;rs1&lt;/td&gt;
+      &lt;td&gt;101&lt;/td&gt;
+      &lt;td&gt;rd&lt;/td&gt;
+      &lt;td&gt;0010011&lt;/td&gt;
+      &lt;td&gt;SRAI&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;A extração de &lt;strong&gt;shamt&lt;/strong&gt; pode ser otimizada utilizando o mesmo código de &lt;strong&gt;rs2&lt;/strong&gt; e o discriminador com o mesmo código &lt;strong&gt;funct7&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;load-e-store&quot;&gt;Load e Store&lt;/h3&gt;
+
+&lt;p&gt;As instruções de movimento da memória para o registrador e do registrador para a memória, &lt;strong&gt;Load&lt;/strong&gt; e &lt;strong&gt;Store&lt;/strong&gt;, têm o endereço armazenado em um dos registradores, que será denominado &lt;em&gt;base&lt;/em&gt;, com a adição do imediato, denominado &lt;em&gt;offset&lt;/em&gt;, de 12 bits codificado na instrução, também com sinal extendido, o que permite, então, apontar o endereço para cima ou para baixo do endereço apontado pelo registrador &lt;em&gt;base&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h4 id=&quot;load&quot;&gt;Load&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Load&lt;/strong&gt; tem formato igual ao tipo I visto anteriormente. O imediato (&lt;em&gt;offset&lt;/em&gt;) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;imm[11:0]&lt;/code&gt; é somado ao registrador &lt;strong&gt;rs1&lt;/strong&gt; e o resultado é usado como endereço de leitura da memória para ser armazenado no registrador &lt;strong&gt;rd&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/imgs/riscv/riscv-load.svg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;funct3&lt;/strong&gt; faz distinção de 5 tamanhos de leitura sendo eles bytes (8 bits) &lt;strong&gt;LB&lt;/strong&gt; e &lt;strong&gt;LBU&lt;/strong&gt;, half-words (16 bits) &lt;strong&gt;LH&lt;/strong&gt; e &lt;strong&gt;LHU&lt;/strong&gt; e words (32 bits) &lt;strong&gt;LW&lt;/strong&gt; e se os tipos bytes e half-words fazem extensão do sinal ou não (&lt;strong&gt;LBU&lt;/strong&gt; e &lt;strong&gt;LHU&lt;/strong&gt;) no armazenamento. Não confundir com o sinal extendido do imediato/offset, aqui me refiro ao valor carregado da memória que se for por exemplo um byte o bit de sinal desse byte ( bit 7 ) será extendido no registrador &lt;strong&gt;rd&lt;/strong&gt; ou não.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;imm[11:0]&lt;/th&gt;
+      &lt;th&gt;rs1&lt;/th&gt;
+      &lt;th&gt;funct3&lt;/th&gt;
+      &lt;th&gt;rd&lt;/th&gt;
+      &lt;th&gt;op&lt;/th&gt;
+      &lt;th&gt;instrução&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;xxxxxxxxxxxx&lt;/td&gt;
+      &lt;td&gt;rs1&lt;/td&gt;
+      &lt;td&gt;000&lt;/td&gt;
+      &lt;td&gt;rd&lt;/td&gt;
+      &lt;td&gt;0000011&lt;/td&gt;
+      &lt;td&gt;LB&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;xxxxxxxxxxxx&lt;/td&gt;
+      &lt;td&gt;rs1&lt;/td&gt;
+      &lt;td&gt;001&lt;/td&gt;
+      &lt;td&gt;rd&lt;/td&gt;
+      &lt;td&gt;0000011&lt;/td&gt;
+      &lt;td&gt;LH&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;xxxxxxxxxxxx&lt;/td&gt;
+      &lt;td&gt;rs1&lt;/td&gt;
+      &lt;td&gt;010&lt;/td&gt;
+      &lt;td&gt;rd&lt;/td&gt;
+      &lt;td&gt;0000011&lt;/td&gt;
+      &lt;td&gt;LW&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;xxxxxxxxxxxx&lt;/td&gt;
+      &lt;td&gt;rs1&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;rd&lt;/td&gt;
+      &lt;td&gt;0000011&lt;/td&gt;
+      &lt;td&gt;LBU&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;xxxxxxxxxxxx&lt;/td&gt;
+      &lt;td&gt;rs1&lt;/td&gt;
+      &lt;td&gt;101&lt;/td&gt;
+      &lt;td&gt;rd&lt;/td&gt;
+      &lt;td&gt;0000011&lt;/td&gt;
+      &lt;td&gt;LHU&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&quot;store&quot;&gt;Store&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Store&lt;/strong&gt; tem tipo próprio denominado tipo S. O imediato (&lt;em&gt;offset&lt;/em&gt;) foi divido em duas partes na instrução e localiza-se nos bits &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ins[31:25]&lt;/code&gt; e &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ins[11:7]&lt;/code&gt; que juntos montam o imediato de 12 bits que novamente tem seu sinal extendido e é somado ao conteúdo do registrador &lt;strong&gt;rs1&lt;/strong&gt; para indicar o endereço da memória que será gravada com o conteúdo do registrador &lt;strong&gt;rs2&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/imgs/riscv/riscv-store.svg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Por ser uma CPU moderna e bem projetada percebe-se que &lt;strong&gt;rd&lt;/strong&gt; de outros tipos virou &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;imm[4:0]&lt;/code&gt; o que facilita na extração desses bits permitindo utilizar código já existente.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;imm[11:5]&lt;/th&gt;
+      &lt;th&gt;rs2&lt;/th&gt;
+      &lt;th&gt;rs1&lt;/th&gt;
+      &lt;th&gt;funct3&lt;/th&gt;
+      &lt;th&gt;imm[4:0]&lt;/th&gt;
+      &lt;th&gt;op&lt;/th&gt;
+      &lt;th&gt;instrução&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;xxxxxxx&lt;/td&gt;
+      &lt;td&gt;rs2&lt;/td&gt;
+      &lt;td&gt;rs1&lt;/td&gt;
+      &lt;td&gt;000&lt;/td&gt;
+      &lt;td&gt;xxxxx&lt;/td&gt;
+      &lt;td&gt;0100011&lt;/td&gt;
+      &lt;td&gt;SB&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;xxxxxxx&lt;/td&gt;
+      &lt;td&gt;rs2&lt;/td&gt;
+      &lt;td&gt;rs1&lt;/td&gt;
+      &lt;td&gt;001&lt;/td&gt;
+      &lt;td&gt;xxxxx&lt;/td&gt;
+      &lt;td&gt;0100011&lt;/td&gt;
+      &lt;td&gt;SH&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;xxxxxxx&lt;/td&gt;
+      &lt;td&gt;rs2&lt;/td&gt;
+      &lt;td&gt;rs1&lt;/td&gt;
+      &lt;td&gt;010&lt;/td&gt;
+      &lt;td&gt;xxxxx&lt;/td&gt;
+      &lt;td&gt;0100011&lt;/td&gt;
+      &lt;td&gt;SW&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;tipo-b&quot;&gt;Tipo B&lt;/h3&gt;
+
+&lt;p&gt;Esse conjunto reúne as instruções de salto condicional. Novamente aqui temos algumas diferenças que podem surpreender aqueles acostumados com x86, m68k: Não há flags condicionais, as operações lógicas são efetuadas entre rs1 e rs2. BEQ, por exemplo, compara rs1 e rs2, se forem iguais então salta para o destino, se diferente continua na próxima instrução.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/imgs/riscv/riscv-b.svg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;As instruções B carregam um &lt;em&gt;imediato&lt;/em&gt; de 12 bits com sinal e como se pode ver na figura acima eles estão espalhados pela instrução. Perceba que no &lt;em&gt;deslocamento&lt;/em&gt; final (32 bits) o &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bit 0&lt;/code&gt; tem valor &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;; como as instruções no RISC-V tem tamanho 32 bits ou 16 bits, nenhuma instrução estará em endereço com &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bit[0] = 1&lt;/code&gt;, sempre será com &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bit[0] = 0&lt;/code&gt;, então justifica-se deslocar o &lt;em&gt;deslocamento&lt;/em&gt; de 12 bits um bit a esquerda para aumentar o range de deslocamento do salto.
+Novamente o sinal é extendido no imediato final.&lt;/p&gt;
+
+&lt;p&gt;Montado o &lt;em&gt;deslocamento&lt;/em&gt; final, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;funct3&lt;/code&gt; seleciona a operação lógica entre &lt;strong&gt;rs1&lt;/strong&gt; e &lt;strong&gt;rs2&lt;/strong&gt;, o resultado da operação é descartado, porém ser for verdadeira o &lt;em&gt;deslocamento&lt;/em&gt; somado ao PC da instrução será o pŕoximo PC, caso contrário a próxima instrução será executada (PC+4). Como o sinal é extendido o deslocamento pode ocorrer para frente do PC ou para trás em uma faixa (range) de +-4KiB.&lt;/p&gt;
+
+&lt;p&gt;Na ilustração eu não atribui a soma do &lt;em&gt;deslocamento&lt;/em&gt; à ALU, isso é uma decisão do projetista, ele pode usar a ALU para somar o &lt;em&gt;deslocamento&lt;/em&gt; ou usar um circuito separado para essa soma. As operações lógicas também podem ser executadas pela ALU ou em circuito separado.&lt;/p&gt;
+
+&lt;p&gt;Em arquitetura com pipeline saltar para um instrução significa descartar as instruções que já estão no pipeline.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;[12]&lt;/th&gt;
+      &lt;th&gt;imm[10:5]&lt;/th&gt;
+      &lt;th&gt;rs2&lt;/th&gt;
+      &lt;th&gt;rs1&lt;/th&gt;
+      &lt;th&gt;funct3&lt;/th&gt;
+      &lt;th&gt;imm[4:1]&lt;/th&gt;
+      &lt;th&gt;[11]&lt;/th&gt;
+      &lt;th&gt;op&lt;/th&gt;
+      &lt;th&gt;instrução&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;x&lt;/td&gt;
+      &lt;td&gt;xxxxxx&lt;/td&gt;
+      &lt;td&gt;rs2&lt;/td&gt;
+      &lt;td&gt;rs1&lt;/td&gt;
+      &lt;td&gt;000&lt;/td&gt;
+      &lt;td&gt;xxxx&lt;/td&gt;
+      &lt;td&gt;x&lt;/td&gt;
+      &lt;td&gt;1100011&lt;/td&gt;
+      &lt;td&gt;BEQ&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;x&lt;/td&gt;
+      &lt;td&gt;xxxxxx&lt;/td&gt;
+      &lt;td&gt;rs2&lt;/td&gt;
+      &lt;td&gt;rs1&lt;/td&gt;
+      &lt;td&gt;001&lt;/td&gt;
+      &lt;td&gt;xxxx&lt;/td&gt;
+      &lt;td&gt;x&lt;/td&gt;
+      &lt;td&gt;1100011&lt;/td&gt;
+      &lt;td&gt;BNE&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;x&lt;/td&gt;
+      &lt;td&gt;xxxxxx&lt;/td&gt;
+      &lt;td&gt;rs2&lt;/td&gt;
+      &lt;td&gt;rs1&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;xxxx&lt;/td&gt;
+      &lt;td&gt;x&lt;/td&gt;
+      &lt;td&gt;1100011&lt;/td&gt;
+      &lt;td&gt;BLT&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;x&lt;/td&gt;
+      &lt;td&gt;xxxxxx&lt;/td&gt;
+      &lt;td&gt;rs2&lt;/td&gt;
+      &lt;td&gt;rs1&lt;/td&gt;
+      &lt;td&gt;101&lt;/td&gt;
+      &lt;td&gt;xxxx&lt;/td&gt;
+      &lt;td&gt;x&lt;/td&gt;
+      &lt;td&gt;1100011&lt;/td&gt;
+      &lt;td&gt;BGE&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;x&lt;/td&gt;
+      &lt;td&gt;xxxxxx&lt;/td&gt;
+      &lt;td&gt;rs2&lt;/td&gt;
+      &lt;td&gt;rs1&lt;/td&gt;
+      &lt;td&gt;110&lt;/td&gt;
+      &lt;td&gt;xxxx&lt;/td&gt;
+      &lt;td&gt;x&lt;/td&gt;
+      &lt;td&gt;1100011&lt;/td&gt;
+      &lt;td&gt;BLTU&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;x&lt;/td&gt;
+      &lt;td&gt;xxxxxx&lt;/td&gt;
+      &lt;td&gt;rs2&lt;/td&gt;
+      &lt;td&gt;rs1&lt;/td&gt;
+      &lt;td&gt;111&lt;/td&gt;
+      &lt;td&gt;xxxx&lt;/td&gt;
+      &lt;td&gt;x&lt;/td&gt;
+      &lt;td&gt;1100011&lt;/td&gt;
+      &lt;td&gt;BGEU&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Em verilog a extração dos bits do imediato pode ser feita facilmente com o código sugerido abaixo:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Verilog&quot;&gt;wire [31:0]  IMM_B             =   {{20{INS[31]}},INS[7],INS[30:25],INS[11:8],1&apos;b0};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;E no caso de uma emulador C/C++:&lt;/p&gt;
+
+&lt;div class=&quot;language-c++ highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;int32_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;imm_b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;imm_b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;INS&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;31&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0x1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;          &lt;span class=&quot;c1&quot;&gt;// bit 12 (bit de sinal)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;imm_b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;imm_b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;INS&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0x1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;           &lt;span class=&quot;c1&quot;&gt;// bit 11&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;imm_b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;imm_b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;INS&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0x3F&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;         &lt;span class=&quot;c1&quot;&gt;// bits 10:5&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;imm_b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;imm_b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;INS&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0xF&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;           &lt;span class=&quot;c1&quot;&gt;// bits 4:1&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;imm_b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;                         &lt;span class=&quot;c1&quot;&gt;// bit 0 sempre zero (1&apos;b0)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Sinaliza (sign-extend) se bit 12 estava setado&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;imm_b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;             &lt;span class=&quot;c1&quot;&gt;// se bit 12 está em 1&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;imm_b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|=&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0xFFFFE000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;             &lt;span class=&quot;c1&quot;&gt;// extende o sinal até 32 bits&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;tipo-j-jal-e-jalr&quot;&gt;Tipo J, JAL e JALR&lt;/h3&gt;
+
+&lt;p&gt;Há duas instruções de salto incondicional: JAL e JALR. JAL tem codificação do Tipo J e JALR do Tipo I. Ambas as intruções salvam o endereço da próxima instrução no registrador &lt;strong&gt;rd&lt;/strong&gt; e somam um deslocamento ao PC atual.&lt;/p&gt;
+
+&lt;h4 id=&quot;jal&quot;&gt;JAL&lt;/h4&gt;
+
+&lt;p&gt;O deslocamento de JAL é diretamente extraído do imediato de 20 bits contido em sua instrução, enquanto na instrução JALR o deslocamento é uma soma do imediato de 12 bits e o registrador &lt;strong&gt;rs1&lt;/strong&gt;. Dessa forma JAL pode saltar em uma faixa (range) de até +-1MiB enquanto JALR pode saltar em toda a faixa de 32 bits desde que &lt;strong&gt;rs1&lt;/strong&gt; seja previamente carregado.&lt;/p&gt;
+
+&lt;p&gt;Observe que salvar a próxima instrução e saltar é uma chamada de sub-rotina com retorno, porém não há nenhum salvamento automático da próxima instrução na memória, a sub-rotina é que deverá preservar &lt;strong&gt;rd&lt;/strong&gt; para poder retornar ao ponto posterior a chamada.
+Se o salto não for para uma sub-rotina com retorno basta chamar JAL/JALR com &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rd=x0&lt;/code&gt;descartando assim &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PC+4&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/imgs/riscv/riscv-jal.svg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;jalr&quot;&gt;JALR&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/imgs/riscv/riscv-jalr.svg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><category term="Verilog" /><category term="Verilog" /><category term="riscv" /><summary type="html">Cada vez mais processadores e microcontroladores RISC-V estão surgindo no mercado como alternativa ao ARM e MIPS. De livre implementação, sem Royalties ou custos o conjunto de instruções RISC-V tem ganhado atenção. O termo RISC-V em sí não se refere a uma CPU ou Empresa, mas ao Conjunto de Instruções aberto e de livre implementação administrado pela RISC-V International. RISC-V International é uma organização sem fins lucrativos que gerencia a arquitetura aberta RISC-V e suas especificações. Com mais de 4.500 membros em 70 países, promove inovação acessível sem royalties. Fundada como RISC-V Foundation em 2015 e realocada para a Suíça em 2020, garante continuidade e colaboração global.</summary></entry><entry><title type="html">10 Questões de estatísticas de concursos dificeis - Matemática</title><link href="http://0.0.0.0:4000/educa%C3%A7%C3%A3o/2025/03/30/exerc%C3%ADcios-estatisticas-dificeis-concursos.html" rel="alternate" type="text/html" title="10 Questões de estatísticas de concursos dificeis - Matemática" /><published>2025-03-30T00:00:00-05:00</published><updated>2025-03-30T00:00:00-05:00</updated><id>http://0.0.0.0:4000/educa%C3%A7%C3%A3o/2025/03/30/exerc%C3%ADcios-estatisticas-dificeis-concursos</id><content type="html" xml:base="http://0.0.0.0:4000/educa%C3%A7%C3%A3o/2025/03/30/exerc%C3%ADcios-estatisticas-dificeis-concursos.html">&lt;div class=&quot;destaque br bl&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Quadrix - 2024 - CRQ - 12ª Região (GO, TO e DF) - Agente Fiscal - 2024&lt;/strong&gt;&lt;/p&gt;Bárbara é proprietária de uma coleção de pedras preciosas, composta de 5 rubis e de 5 esmeraldas, sendo cada uma única e distintiva. Recentemente, Bárbara adquiriu um elegante porta‑joias com 10 compartimentos dispostos em fileira para exibir suas preciosidades. Bárbara, então, pretende alocar uma joia em cada espaço.
+Com base nessa situação hipotética, julgue o item.&lt;br /&gt;Se Bárbara decidir alocar suas joias de forma aleatória, a probabilidade de que todos os rubis fiquem juntos é de 1 em 42.
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;Certo&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Errado&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Solução&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Fileiras nesta questão refere-se a compartimentos dispostos lado-a-lado em linha reta, dessa forma, se as jóias forem dispostas aleatoriamente a questão afirma a probabilidade igual a $1 \over 42$ dos rubis estarem lado-a-lado, ou seja, juntos.&lt;/p&gt;
+
+&lt;p&gt;Primeiramente vamos calcular o número de possibilidades de disposição das jóias nos 10 compartimentos para fins didáticos. Como todas as 10 jóias são utilizadas nos 10 compartimentos e há elemento repetidos esse é um caso de &lt;strong&gt;Permutação com elementos repetidos&lt;/strong&gt;, cuja fórmula é&lt;/p&gt;
+
+\[P_{n}^{k,j} = {n! \over k!j!}\]
+
+&lt;p&gt;Sendo n = 10, k = 5 e j = 5, então&lt;/p&gt;
+
+\[P_{10}^{5,5} = {10! \over 5!5!} = 252\]
+
+&lt;p&gt;Para saber o número de possibilidades de se agrupar os 5 rubis em 10 compartimentos podemos pensar nos 5 rubis como uma unidade só como um bloco. Se considerarmos o inicio do bloco fica fácil contar as possibilidades ao colocar o bloco nos compartimentos 1,2,3,4,5 ou 6, logo são no total 6 possibilidades de disposição, logo a probabilidade dos rubis estarem juntos será&lt;/p&gt;
+
+\[P = {6 \over 252} = {1 \over 42}\]
+
+&lt;p&gt;A afirmação está &lt;strong&gt;Certa&lt;/strong&gt;.&lt;/p&gt;</content><author><name></name></author><category term="educação" /><category term="matemática" /><category term="estatística" /><summary type="html">Quadrix - 2024 - CRQ - 12ª Região (GO, TO e DF) - Agente Fiscal - 2024Bárbara é proprietária de uma coleção de pedras preciosas, composta de 5 rubis e de 5 esmeraldas, sendo cada uma única e distintiva. Recentemente, Bárbara adquiriu um elegante porta‑joias com 10 compartimentos dispostos em fileira para exibir suas preciosidades. Bárbara, então, pretende alocar uma joia em cada espaço. Com base nessa situação hipotética, julgue o item.Se Bárbara decidir alocar suas joias de forma aleatória, a probabilidade de que todos os rubis fiquem juntos é de 1 em 42. Certo Errado</summary></entry><entry><title type="html">Perdi uma placa por utilizar um estimador estatístico errado - Matemática</title><link href="http://0.0.0.0:4000/aplicadas/2025/03/29/estimar-raio-capacitor-jargao-estatistica.html" rel="alternate" type="text/html" title="Perdi uma placa por utilizar um estimador estatístico errado - Matemática" /><published>2025-03-29T00:00:00-05:00</published><updated>2025-03-29T00:00:00-05:00</updated><id>http://0.0.0.0:4000/aplicadas/2025/03/29/estimar-raio-capacitor-jargao-estatistica</id><content type="html" xml:base="http://0.0.0.0:4000/aplicadas/2025/03/29/estimar-raio-capacitor-jargao-estatistica.html">&lt;h2 id=&quot;como-perdi-uma-placa-por-utilizar-o-estimador-estatístico-errado&quot;&gt;Como perdi uma placa por utilizar o estimador estatístico errado&lt;/h2&gt;
+
+&lt;p&gt;Me envolvi em mais um projeto de inversor de frequência para motores trifásicos, onde fui novamente responsável por tudo: projeto, roteamento e programação. Quando chegou a hora de rotear a placa, era necessário usar uma fonte chaveada indicada pelo cliente (que posteriormente apresentou problemas).&lt;br /&gt;
+Havia no circuito um capacitor de filtro &lt;strong&gt;22uF - 400V&lt;/strong&gt;, responsável pelo AC-DC.&lt;br /&gt;
+O local onde este capacitor iria ficar era apertado e não era um dos padrões que eu estava acostumado. Em geral, nesses projetos, ou eu roteava capacitores de até 36V, ou os já conhecidos capacitores de &lt;strong&gt;1000uF - 250V&lt;/strong&gt;, para os quais eu sempre deixava 35mm de diâmetro — e às vezes ainda sobrava espaço.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Então qual era o diâmetro desse desconhecido 22uF - 400V?&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;inferência-estatistica&quot;&gt;Inferência estatistica&lt;/h2&gt;
+&lt;h2 id=&quot;inferência-estatística&quot;&gt;Inferência estatística&lt;/h2&gt;
 
-&lt;p&gt;Quando estamos diante de um parametro numérico desconhecido de algo que tem variação desse parametro e precisamos saber algo sobre esse valor estamos diante de uma inferência estatistica. De fato isso ocorre na vida a todo momento porém sabemos que não há especialistas em estatisticas por ai, não podemos nem admitir que haja pessoas que conheçam matemática, entretanto as pessoas tem alguma forma de &lt;em&gt;saber&lt;/em&gt; esse valor desconhecido seja por uma intuição, uma experiência ou um chute mesmo.&lt;/p&gt;
+&lt;p&gt;Quando estamos diante de um parâmetro numérico desconhecido de algo que apresenta variação e precisamos estimar esse valor, estamos lidando com uma inferência estatística. Isso acontece na vida o tempo todo, mas sabemos que não há especialistas em estatística por aí — na verdade, nem podemos admitir que haja muitas pessoas que conheçam matemática. Ainda assim, as pessoas têm alguma forma de &lt;em&gt;saber&lt;/em&gt; esse valor desconhecido, seja por intuição, experiência ou puro chute.&lt;/p&gt;
 
-&lt;p&gt;No meu caso eu entrei no site da Mouser e utilizando os filtros &lt;em&gt;Capacitores eletroliticos&lt;/em&gt;, &lt;em&gt;400V&lt;/em&gt; e &lt;em&gt;22uF&lt;/em&gt; cheguei aos seguintes valores:&lt;/p&gt;
+&lt;p&gt;No meu caso, entrei no site da Mouser e, utilizando os filtros &lt;em&gt;Capacitores eletrolíticos&lt;/em&gt;, &lt;em&gt;400V&lt;/em&gt; e &lt;em&gt;22uF&lt;/em&gt;, cheguei aos seguintes valores:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/imgs/mouser-capacitor-tamanho.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;Resultado da pesquisa de Capacitor Eletrolitico 22uF 400V na Mouser&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Resultado da pesquisa de Capacitor Eletrolítico 22uF 400V na Mouser&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;Veja só … de 8mm a 18mm de diâmetro, &lt;em&gt;só pode ser brincadeira?!&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Veja só… de 8mm a 18mm de diâmetro. &lt;em&gt;Só pode ser brincadeira?!&lt;/em&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;qual-valor-usar&quot;&gt;Qual valor usar?&lt;/h2&gt;
 
-&lt;p&gt;Clicando em cada opção no listbox do site aparece em cima a quantidade de ofertas, o que ajudou a montar uma tabela de frequência que segue abaixo:&lt;/p&gt;
+&lt;p&gt;Clicando em cada opção do listbox do site, aparece em cima a quantidade de ofertas, o que me permitiu montar uma tabela de frequências, mostrada abaixo:&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -34,58 +631,58 @@ O local onde este capacitor iria ficar era apertado e não era um dos que eu est
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;8 mm&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;4&lt;/td&gt;
-      &lt;td&gt;0.044&lt;/td&gt;
+      &lt;td&gt;0,044&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;10 mm&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;11&lt;/td&gt;
-      &lt;td&gt;0.122&lt;/td&gt;
+      &lt;td&gt;0,122&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;12 mm&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;1&lt;/td&gt;
-      &lt;td&gt;0.0111&lt;/td&gt;
+      &lt;td&gt;0,011&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;12.5 mm&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;12,5 mm&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;42&lt;/td&gt;
-      &lt;td&gt;0.466&lt;/td&gt;
+      &lt;td&gt;0,466&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;12.95 mm&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;12,95 mm&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;1&lt;/td&gt;
-      &lt;td&gt;0.011&lt;/td&gt;
+      &lt;td&gt;0,011&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;13 mm&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;7&lt;/td&gt;
-      &lt;td&gt;0.077&lt;/td&gt;
+      &lt;td&gt;0,077&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;16 mm&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;19&lt;/td&gt;
-      &lt;td&gt;0.211&lt;/td&gt;
+      &lt;td&gt;0,211&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;18 mm&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;5&lt;/td&gt;
-      &lt;td&gt;0.055&lt;/td&gt;
+      &lt;td&gt;0,055&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt;90&lt;/td&gt;
-      &lt;td&gt;1.0&lt;/td&gt;
+      &lt;td&gt;1,0&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;A distribuição das ofertas indicava que o diâmetro mais frequente era &lt;strong&gt;12.5mm&lt;/strong&gt;, correspondendo a &lt;strong&gt;46.6%&lt;/strong&gt; das opções disponíveis. Fazendo uma escolha baseada nesse dado, defini esse valor para o layout da minha placa.&lt;/p&gt;
+&lt;p&gt;A distribuição das ofertas indicava que o diâmetro mais frequente era &lt;strong&gt;12,5 mm&lt;/strong&gt;, correspondendo a &lt;strong&gt;46,6%&lt;/strong&gt; das opções disponíveis. Com base nesse dado, decidi usar esse valor para o layout da minha placa.&lt;/p&gt;
 
-&lt;p&gt;Mas para minha surpresa o montador responsável pelas placas do cliente tinha capacitor bem maior o que fez o capacitor ter que ficar aéreo praticamente inviabilizando a placa.&lt;/p&gt;
+&lt;p&gt;Mas, para minha surpresa, o montador responsável pelas placas do cliente utilizou um capacitor bem maior, o que fez com que ele precisasse ficar “aéreo”, praticamente inviabilizando a placa.&lt;/p&gt;
 
-&lt;p&gt;O problema estava na métrica usada para a inferência. A &lt;strong&gt;moda&lt;/strong&gt; é um bom estimador em muitas situações, mas, nesse caso, não levou em conta que a distribuição dos valores era assimétrica e que fabricantes podem priorizar determinados tamanhos com base em fatores não refletidos apenas na frequência das ofertas.&lt;/p&gt;
+&lt;p&gt;O erro estava na métrica usada para a inferência. A &lt;strong&gt;moda&lt;/strong&gt; é um bom estimador em muitas situações, mas, nesse caso, não levou em conta que a distribuição dos valores era assimétrica e que fabricantes podem priorizar determinados tamanhos com base em fatores não refletidos apenas na frequência das ofertas.&lt;/p&gt;
 
-&lt;p&gt;Talvez, uma abordagem ainda mais conservadora teria sido considerar o &lt;strong&gt;percentil superior&lt;/strong&gt; ou mesmo um espaço de segurança com base na variabilidade dos dados.&lt;/p&gt;</content><author><name></name></author><category term="aplicadas" /><category term="matemática" /><category term="estatística" /><summary type="html">Como perdi uma placa por utilizar o estimador estatistico errado</summary></entry><entry><title type="html">Receptor FM de conversão direta - RF</title><link href="http://0.0.0.0:4000/eletr%C3%B4nica/2025/03/16/radio-conversao-direta-fm.html" rel="alternate" type="text/html" title="Receptor FM de conversão direta - RF" /><published>2025-03-16T00:00:00-05:00</published><updated>2025-03-16T00:00:00-05:00</updated><id>http://0.0.0.0:4000/eletr%C3%B4nica/2025/03/16/radio-conversao-direta-fm</id><content type="html" xml:base="http://0.0.0.0:4000/eletr%C3%B4nica/2025/03/16/radio-conversao-direta-fm.html">&lt;h2 id=&quot;receptor-de-conversão-direta&quot;&gt;Receptor de Conversão Direta&lt;/h2&gt;
+&lt;p&gt;Talvez uma abordagem mais conservadora teria sido considerar o &lt;strong&gt;percentil superior&lt;/strong&gt; ou reservar um espaço extra com base na variabilidade dos dados.&lt;/p&gt;</content><author><name></name></author><category term="aplicadas" /><category term="matemática" /><category term="estatística" /><summary type="html">Como perdi uma placa por utilizar o estimador estatístico errado</summary></entry><entry><title type="html">Receptor FM de conversão direta - RF</title><link href="http://0.0.0.0:4000/eletr%C3%B4nica/2025/03/16/radio-conversao-direta-fm.html" rel="alternate" type="text/html" title="Receptor FM de conversão direta - RF" /><published>2025-03-16T00:00:00-05:00</published><updated>2025-03-16T00:00:00-05:00</updated><id>http://0.0.0.0:4000/eletr%C3%B4nica/2025/03/16/radio-conversao-direta-fm</id><content type="html" xml:base="http://0.0.0.0:4000/eletr%C3%B4nica/2025/03/16/radio-conversao-direta-fm.html">&lt;h2 id=&quot;receptor-de-conversão-direta&quot;&gt;Receptor de Conversão Direta&lt;/h2&gt;
 
 &lt;p&gt;Os receptores de conversão direta diferem dos super-heteródinos por operarem com um oscilador sintonizado exatamente na mesma frequência do sinal que se deseja receber, convertendo-o diretamente para a faixa de áudio. Nos receptores super-heteródinos, a frequência do oscilador local é deslocada em relação à frequência de sintonia, gerando uma Frequência Intermediária (FI) após o processo de mistura. A FI passa por diversos estágios de amplificação e filtragem antes da demodulação final do sinal de áudio.&lt;/p&gt;
 
@@ -994,724 +1591,4 @@ window.addEventListener(&quot;load&quot;, function(){
 
 &lt;/div&gt;
 
-&lt;p&gt;&lt;em&gt;Os comentários, soluções e descrições são genéricos. Cada carro e defeito tem particularidades que as soluções descritas podem não resolver ou ainda piorar o problema. Algumas atividades de manutenção requerem conhecimento técnico prévio, ferramentas adequadas e experiência do operador. Se não sabe o que está fazendo consulte um profissional.&lt;/em&gt;&lt;/p&gt;</content><author><name></name></author><category term="app" /><category term="auto" /><category term="obd2" /><category term="ecu" /><summary type="html"></summary></entry><entry><title type="html">Cálculo de resistência pelas cores do resistor - Aplicativo</title><link href="http://0.0.0.0:4000/app/2024/01/24/calculo-resistores.html" rel="alternate" type="text/html" title="Cálculo de resistência pelas cores do resistor - Aplicativo" /><published>2024-01-24T00:00:00-06:00</published><updated>2024-01-24T00:00:00-06:00</updated><id>http://0.0.0.0:4000/app/2024/01/24/calculo-resistores</id><content type="html" xml:base="http://0.0.0.0:4000/app/2024/01/24/calculo-resistores.html">&lt;link href=&quot;/assets/css/colormenu.css&quot; type=&quot;text/css&quot; rel=&quot;stylesheet&quot; /&gt;
-
-&lt;script&gt;
-var valor = 220000;
-var unidade = &quot;&quot;;
-var faixas = [2,2,10000,20];
-
-function formata (valor) {
-    if (valor &lt; 1000) {
-    unidade = &quot; Ω&quot;;
-  } else if (valor &gt;= 1000 &amp;&amp; valor &lt; 1000000) {
-    unidade = &quot; KΩ&quot;;
-    valor = valor / 1000;
-  } else if (valor &gt;= 1000000 &amp;&amp; valor &lt; 1000000000) {
-    unidade = &quot; MΩ&quot;;
-    valor = valor / 1000000;
-  } else if (valor &gt;= 1000000000 &amp;&amp; valor &lt; 1000000000000) {
-    unidade = &quot; GΩ&quot;;
-    valor = valor / 1000000000;
-  }
-  valor = valor.toLocaleString(&apos;pt-BR&apos;, {minimumFractionDigits:0, maximumFractionDigits:2}) + unidade;
-  return valor;
-}
-
-function updateValor(cor,index,v) {
-
-  faixas[index] = v;
-  valor = (faixas[0]*10+faixas[1])*faixas[2];
-
-  if (valor &lt;= 100) { substituto = valor; } 
-  if (valor &gt; 100)  { substituto = faixas[0]*100 + faixas[1]*10 + (Math.log10(Number(faixas[2])))   ; }
-
-
-  console.log(cor,index,valor);
-  tolerancia = faixas[3] + &quot;%&quot;;
-
-
-  var alta  =  formata(valor * (1 + Number(faixas[3])/100));
-  var baixa =  formata(valor * (1 - Number(faixas[3])/100));
-  $(&quot;tolerancia&quot;).innerText = tolerancia  + &quot; &quot; + &quot;[ &quot; + alta + &quot;,&quot; + baixa + &quot; ]&quot;;
-  valor = formata(valor);
-  document.faixas[index].style.fill = cor;
-  document.texto.innerHTML = valor;
-  $(&quot;valor&quot;).innerText = valor;
-  
-}
-
-
-&lt;/script&gt;
-
-&lt;div class=&quot;section&quot;&gt;
-&lt;div class=&quot;field is-grouped is-grouped-centered&quot;&gt;
-  &lt;div class=&quot;control&quot;&gt;
-      &lt;small&gt;1° Faixa&lt;/small&gt;
-      &lt;div class=&quot;is-multiple&quot;&gt;
-
-      &lt;label style=&quot;background-color: black; color: dark-grey;&quot; class=&quot;colorContainer&quot;&gt;Preto
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; disabled=&quot;disabled&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: brown; color: white;&quot; class=&quot;colorContainer&quot;&gt;Marrom
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;brown&apos;,0,1);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: red; color: white;&quot; class=&quot;colorContainer&quot;&gt;Vermelho
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;red&apos;,0,2);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: orange; color: white;&quot; class=&quot;colorContainer&quot;&gt;Laranja
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;orange&apos;,0,3);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: yellow; color: black;&quot; class=&quot;colorContainer&quot;&gt;Amarelo
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;yellow&apos;,0,4);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: green; color: white;&quot; class=&quot;colorContainer&quot;&gt;Verde
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;green&apos;,0,5);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;      
-
-      &lt;label style=&quot;background-color: blue; color: white;&quot; class=&quot;colorContainer&quot;&gt;Azul
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;blue&apos;,0,6);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: violet; color: white;&quot; class=&quot;colorContainer&quot;&gt;Violeta
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;violet&apos;,0,7);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: grey; color: white;&quot; class=&quot;colorContainer&quot;&gt;Cinza
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;grey&apos;,0,8);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: white; color: black;&quot; class=&quot;colorContainer&quot;&gt;Branco
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;white&apos;,0,9);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;/div&gt;
-  &lt;/div&gt;
-
-    &lt;div class=&quot;control&quot;&gt;
-    &lt;small&gt;2° Faixa&lt;/small&gt;
-    &lt;div class=&quot;is-multiple&quot;&gt;
-      
-      &lt;label style=&quot;background-color: black; color: white;&quot; class=&quot;colorContainer&quot;&gt;Preto
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;black&apos;,1,0);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: brown; color: white;&quot; class=&quot;colorContainer&quot;&gt;Marrom
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;brown&apos;,1,1);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: red; color: white;&quot; class=&quot;colorContainer&quot;&gt;Vermelho
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;red&apos;,1,2);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: orange; color: white;&quot; class=&quot;colorContainer&quot;&gt;Laranja
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;orange&apos;,1,3);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: yellow; color: black;&quot; class=&quot;colorContainer&quot;&gt;Amarelo
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;yellow&apos;,1,4);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: green; color: white;&quot; class=&quot;colorContainer&quot;&gt;Verde
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;green&apos;,1,5);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;      
-
-      &lt;label style=&quot;background-color: blue; color: white;&quot; class=&quot;colorContainer&quot;&gt;Azul
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;blue&apos;,1,6);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: violet; color: white;&quot; class=&quot;colorContainer&quot;&gt;Violeta
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;violet&apos;,1,7);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: grey; color: white;&quot; class=&quot;colorContainer&quot;&gt;Cinza
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;grey&apos;,1,8);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: white; color: black;&quot; class=&quot;colorContainer&quot;&gt;Branco
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;white&apos;,1,9);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-    &lt;/div&gt;
-  &lt;/div&gt;
-
-    &lt;div class=&quot;control&quot;&gt;
-      &lt;small&gt;3° Faixa&lt;/small&gt;
-    &lt;div class=&quot;is-multiple&quot;&gt;
-    
-      &lt;label style=&quot;background-color: black; color: white;&quot; class=&quot;colorContainer&quot;&gt;Preto
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;black&apos;,2,1);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: brown; color: white;&quot; class=&quot;colorContainer&quot;&gt;Marrom
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;brown&apos;,2,10);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: red; color: white;&quot; class=&quot;colorContainer&quot;&gt;Vermelho
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;red&apos;,2,100);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: orange; color: white;&quot; class=&quot;colorContainer&quot;&gt;Laranja
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;orange&apos;,2,1000);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: yellow; color: black;&quot; class=&quot;colorContainer&quot;&gt;Amarelo
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;yellow&apos;,2,10000);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: green; color: white;&quot; class=&quot;colorContainer&quot;&gt;Verde
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;green&apos;,2,100000);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;      
-
-      &lt;label style=&quot;background-color: blue; color: white;&quot; class=&quot;colorContainer&quot;&gt;Azul
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;blue&apos;,2,1000000);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: violet; color: white;&quot; class=&quot;colorContainer&quot;&gt;Violeta
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;violet&apos;,2,10000000);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: grey; color: white;&quot; class=&quot;colorContainer&quot;&gt;Cinza
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;grey&apos;,2,100000000);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: white; color: black;&quot; class=&quot;colorContainer&quot;&gt;Branco
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;white&apos;,2,1000000000);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: gold; color: black;&quot; class=&quot;colorContainer&quot;&gt;Ouro
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;gold&apos;,2,0.1);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: silver; color: black;&quot; class=&quot;colorContainer&quot;&gt;Prata
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;silver&apos;,2,0.01);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-
-    &lt;div class=&quot;control&quot;&gt;
-      &lt;small&gt;4° Faixa&lt;/small&gt;
-    &lt;div class=&quot;is-multiple&quot;&gt;    
-      &lt;label style=&quot;background-color: black; color: white;&quot; class=&quot;colorContainer&quot;&gt;Preto
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;black&apos;,3,20);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: brown; color: white;&quot; class=&quot;colorContainer&quot;&gt;Marrom
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;brown&apos;,3,1);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: red; color: white;&quot; class=&quot;colorContainer&quot;&gt;Vermelho
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;red&apos;,3,2);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: orange; color: white;&quot; class=&quot;colorContainer&quot;&gt;Laranja
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;orange&apos;,3,3);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: yellow; color: black;&quot; class=&quot;colorContainer&quot;&gt;Amarelo
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;yellow&apos;,3,4);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: green; color: white;&quot; class=&quot;colorContainer&quot;&gt;Verde
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;green&apos;,3,0.5);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;      
-
-      &lt;label style=&quot;background-color: blue; color: white;&quot; class=&quot;colorContainer&quot;&gt;Azul
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;blue&apos;,3,0.25);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: violet; color: white;&quot; class=&quot;colorContainer&quot;&gt;Violeta
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;violet&apos;,3,0.1);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: grey; color: white;&quot; class=&quot;colorContainer&quot;&gt;Cinza
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;grey&apos;,3,0.05);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: white; color: black;&quot; class=&quot;colorContainer&quot;&gt;Branco
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;white&apos;,3,10);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: gold; color: black;&quot; class=&quot;colorContainer&quot;&gt;Ouro
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;gold&apos;,3,5);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: silver; color: black;&quot; class=&quot;colorContainer&quot;&gt;Prata
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;silver&apos;,3,10);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;section&quot;&gt;
-&lt;div class=&quot;subtitle has-text-centered&quot;&gt;Selecione as cores acima para obter o resultado&lt;/div&gt;
-&lt;table&gt;
-  &lt;tr&gt;
-    &lt;th&gt;Valor&lt;/th&gt;
-    &lt;th&gt;Tolerância&lt;/th&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-    &lt;td id=&quot;valor&quot; class=&quot;subtitle&quot;&gt;&lt;/td&gt;
-    &lt;td id=&quot;tolerancia&quot; class=&quot;subtitle&quot;&gt;&lt;/td&gt;
-  &lt;/tr&gt;
-&lt;/table&gt; 
-&lt;/div&gt;
-
-&lt;h3 id=&quot;valores-comuns-de-resistores&quot;&gt;Valores comuns de resistores&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;330Ω&lt;/strong&gt; é um valor comum para alimentar um LED em 5V com corrente de 10mA&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;1kΩ&lt;/strong&gt; é um valor comum para alimentar um LED em 5V com corrente de aproximadamente 3mA
-    &lt;ul&gt;
-      &lt;li&gt;Esse valor é usado pelo Arduino em série com os LEDs&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;1k2Ω&lt;/strong&gt; é um valor comum para alimentar um LED em 12V com corrente de aproximadamente 3mA&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;10KΩ&lt;/strong&gt; é um valor comum para Pull Up e Pull Down
-    &lt;ul&gt;
-      &lt;li&gt;Esse valor é usado pelo Arduino como Pull Up&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;510Ω&lt;/strong&gt; é usado pela placa BluePill (STM32 a 3,3 Volts) como resistor de LEDs&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;0.18Ω&lt;/strong&gt; e &lt;strong&gt;0.01Ω&lt;/strong&gt; são valores comuns para resistores Shunt ( sensores de corrente )&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;1MΩ&lt;/strong&gt; é normalmente usado em paralelo com cristais de clock&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;valores-comerciais&quot;&gt;Valores Comerciais&lt;/h3&gt;
-
-&lt;p&gt;O comércio não comercializa todos os valores possíveis. A indústria padronizou alguns valores que são multiplicados pela 3° Faixa, por exemplo, o valor 8.2 pode ser 8.2Ω, 82Ω, 820Ω, 8,2KΩ e assim por diante. Na tabela abaixo pode-se conferir esses valores.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Padrão&lt;/th&gt;
-      &lt;th&gt;E6, E12 e E24&lt;/th&gt;
-      &lt;th&gt; &lt;/th&gt;
-      &lt;th&gt; &lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;1.0&lt;/td&gt;
-      &lt;td&gt;1.1&lt;/td&gt;
-      &lt;td&gt;1.2&lt;/td&gt;
-      &lt;td&gt;1.3&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;1.5&lt;/td&gt;
-      &lt;td&gt;1.6&lt;/td&gt;
-      &lt;td&gt;1.8&lt;/td&gt;
-      &lt;td&gt;2.0&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;2.2&lt;/td&gt;
-      &lt;td&gt;2.4&lt;/td&gt;
-      &lt;td&gt;2.7&lt;/td&gt;
-      &lt;td&gt;3.0&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;3.3&lt;/td&gt;
-      &lt;td&gt;3.6&lt;/td&gt;
-      &lt;td&gt;3.9&lt;/td&gt;
-      &lt;td&gt;4.3&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;6.8&lt;/td&gt;
-      &lt;td&gt;7.5&lt;/td&gt;
-      &lt;td&gt;8.2&lt;/td&gt;
-      &lt;td&gt;9.1&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;Esses valores são para resistores de tolerância entre 5% e 20%. Para tolerâncias menores entre 1% e 0.1% a quantidade de valores comerciais é maior e neste caso uma faixa adicional é usada para indicar a maior precisão de valores.&lt;/p&gt;
-
-&lt;script&gt;
-document.obj = $(&quot;obj&quot;);
-document.obj.addEventListener(&quot;load&quot;,function(){
-  var svg = document.obj.contentDocument;
-  document.faixas = [svg.getElementById(&quot;faixa1&quot;), svg.getElementById(&quot;faixa2&quot;), svg.getElementById(&quot;faixa3&quot;), svg.getElementById(&quot;faixa4&quot;)];
-  document.texto = svg.getElementById(&quot;tspan13&quot;);
-},false);
-&lt;/script&gt;</content><author><name></name></author><category term="app" /><category term="eletrônica" /><category term="resistores" /><category term="código de cores" /><summary type="html"></summary></entry><entry><title type="html">Código de Cores de capacitores - Aplicativo</title><link href="http://0.0.0.0:4000/app/2024/01/23/calculo-capacitores.html" rel="alternate" type="text/html" title="Código de Cores de capacitores - Aplicativo" /><published>2024-01-23T00:00:00-06:00</published><updated>2024-01-23T00:00:00-06:00</updated><id>http://0.0.0.0:4000/app/2024/01/23/calculo-capacitores</id><content type="html" xml:base="http://0.0.0.0:4000/app/2024/01/23/calculo-capacitores.html">&lt;link href=&quot;/assets/css/colormenu.css&quot; type=&quot;text/css&quot; rel=&quot;stylesheet&quot; /&gt;
-
-&lt;script&gt;
-var valor = 220000;
-var unidade = &quot;&quot;;
-var faixas = [2,2,10000,0,0];
-
-function formata (valor) {
-    if (valor &lt; 1000) {
-    unidade = &quot; pF&quot;;
-  } else if (valor &gt;= 1000 &amp;&amp; valor &lt; 1000000) {
-    unidade = &quot; nF&quot;;
-    valor = valor / 1000;
-  } else if (valor &gt;= 1000000 &amp;&amp; valor &lt; 1000000000) {
-    unidade = &quot; uF&quot;;
-    valor = valor / 1000000;
-  } else if (valor &gt;= 1000000000 &amp;&amp; valor &lt; 1000000000000) {
-    unidade = &quot; mF&quot;;
-    valor = valor / 1000000000;
-  }
-  valor = valor.toLocaleString(&apos;pt-BR&apos;, {minimumFractionDigits:0, maximumFractionDigits:2}) + unidade;
-  return valor;
-}
-
-function updateValor(cor,index,v) {
-
-  faixas[index] = v;
-  valor = (faixas[0]*10+faixas[1])*faixas[2];
-
-  if (valor &lt;= 100) { substituto = valor; } 
-  if (valor &gt; 100)  { substituto = faixas[0]*100 + faixas[1]*10 + (Math.log10(Number(faixas[2])))   ; }
-
-
-  console.log(cor,index,valor);
-  tolerancia = faixas[3] + &quot;%&quot;;
-
-
-  var alta  =  formata(valor * (1 + Number(faixas[3])/100));
-  var baixa =  formata(valor * (1 - Number(faixas[3])/100));
-  $(&quot;tolerancia&quot;).innerText = tolerancia  + &quot; &quot; + &quot;[ &quot; + alta + &quot;,&quot; + baixa + &quot; ]&quot;;
-  valor = formata(valor);
-  document.faixas[index].style.fill = cor;
-  document.texto.innerHTML = valor;
-  $(&quot;valor&quot;).innerText = valor;
-  $(&quot;equivalente&quot;).innerText = substituto.toLocaleString(&apos;en-US&apos;, {minimumFractionDigits:0, maximumFractionDigits:2});
-  
-}
-
-
-&lt;/script&gt;
-
-&lt;div class=&quot;section&quot;&gt;
-&lt;div class=&quot;field is-grouped is-grouped-centered&quot;&gt;
-  &lt;div class=&quot;control&quot;&gt;
-      &lt;small&gt;1° Faixa&lt;/small&gt;
-      &lt;div class=&quot;is-multiple&quot;&gt;
-
-      &lt;label style=&quot;background-color: black; color: dark-grey;&quot; class=&quot;colorContainer&quot;&gt;Preto
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; disabled=&quot;disabled&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: brown; color: white;&quot; class=&quot;colorContainer&quot;&gt;Marrom
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;brown&apos;,0,1);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: red; color: white;&quot; class=&quot;colorContainer&quot;&gt;Vermelho
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;red&apos;,0,2);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: orange; color: white;&quot; class=&quot;colorContainer&quot;&gt;Laranja
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;orange&apos;,0,3);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: yellow; color: black;&quot; class=&quot;colorContainer&quot;&gt;Amarelo
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;yellow&apos;,0,4);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: green; color: white;&quot; class=&quot;colorContainer&quot;&gt;Verde
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;green&apos;,0,5);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;      
-
-      &lt;label style=&quot;background-color: blue; color: white;&quot; class=&quot;colorContainer&quot;&gt;Azul
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;blue&apos;,0,6);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: violet; color: white;&quot; class=&quot;colorContainer&quot;&gt;Violeta
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;violet&apos;,0,7);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: grey; color: white;&quot; class=&quot;colorContainer&quot;&gt;Cinza
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;grey&apos;,0,8);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: white; color: black;&quot; class=&quot;colorContainer&quot;&gt;Branco
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;white&apos;,0,9);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;/div&gt;
-  &lt;/div&gt;
-
-    &lt;div class=&quot;control&quot;&gt;
-    &lt;small&gt;2° Faixa&lt;/small&gt;
-    &lt;div class=&quot;is-multiple&quot;&gt;
-      
-      &lt;label style=&quot;background-color: black; color: white;&quot; class=&quot;colorContainer&quot;&gt;Preto
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;black&apos;,1,0);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: brown; color: white;&quot; class=&quot;colorContainer&quot;&gt;Marrom
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;brown&apos;,1,1);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: red; color: white;&quot; class=&quot;colorContainer&quot;&gt;Vermelho
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;red&apos;,1,2);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: orange; color: white;&quot; class=&quot;colorContainer&quot;&gt;Laranja
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;orange&apos;,1,3);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: yellow; color: black;&quot; class=&quot;colorContainer&quot;&gt;Amarelo
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;yellow&apos;,1,4);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: green; color: white;&quot; class=&quot;colorContainer&quot;&gt;Verde
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;green&apos;,1,5);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;      
-
-      &lt;label style=&quot;background-color: blue; color: white;&quot; class=&quot;colorContainer&quot;&gt;Azul
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;blue&apos;,1,6);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: violet; color: white;&quot; class=&quot;colorContainer&quot;&gt;Violeta
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;violet&apos;,1,7);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: grey; color: white;&quot; class=&quot;colorContainer&quot;&gt;Cinza
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;grey&apos;,1,8);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: white; color: black;&quot; class=&quot;colorContainer&quot;&gt;Branco
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;white&apos;,1,9);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-    &lt;/div&gt;
-  &lt;/div&gt;
-
-    &lt;div class=&quot;control&quot;&gt;
-      &lt;small&gt;3° Faixa&lt;/small&gt;
-    &lt;div class=&quot;is-multiple&quot;&gt;
-    
-      &lt;label style=&quot;background-color: black; color: white;&quot; class=&quot;colorContainer&quot;&gt;Preto
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;black&apos;,2,1);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: brown; color: white;&quot; class=&quot;colorContainer&quot;&gt;Marrom
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;brown&apos;,2,10);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: red; color: white;&quot; class=&quot;colorContainer&quot;&gt;Vermelho
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;red&apos;,2,100);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: orange; color: white;&quot; class=&quot;colorContainer&quot;&gt;Laranja
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;orange&apos;,2,1000);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: yellow; color: black;&quot; class=&quot;colorContainer&quot;&gt;Amarelo
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;yellow&apos;,2,10000);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: green; color: white;&quot; class=&quot;colorContainer&quot;&gt;Verde
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;green&apos;,2,100000);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;      
-
-      &lt;label style=&quot;background-color: blue; color: white;&quot; class=&quot;colorContainer&quot;&gt;Azul
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;blue&apos;,2,1000000);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: violet; color: white;&quot; class=&quot;colorContainer&quot;&gt;Violeta
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;violet&apos;,2,10000000);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: grey; color: white;&quot; class=&quot;colorContainer&quot;&gt;Cinza
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;grey&apos;,2,100000000);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: white; color: black;&quot; class=&quot;colorContainer&quot;&gt;Branco
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;white&apos;,2,1000000000);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: gold; color: black;&quot; class=&quot;colorContainer&quot;&gt;Ouro
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;gold&apos;,2,0.1);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: silver; color: black;&quot; class=&quot;colorContainer&quot;&gt;Prata
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;silver&apos;,2,0.01);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-
-    &lt;div class=&quot;control&quot;&gt;
-      &lt;small&gt;4° Faixa&lt;/small&gt;
-    &lt;div class=&quot;is-multiple&quot;&gt;    
-      &lt;label style=&quot;background-color: black; color: white;&quot; class=&quot;colorContainer&quot;&gt;Preto
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;black&apos;,3,20);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: brown; color: white;&quot; class=&quot;colorContainer&quot;&gt;Marrom
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;brown&apos;,3,1);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: red; color: white;&quot; class=&quot;colorContainer&quot;&gt;Vermelho
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;red&apos;,3,2);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: orange; color: white;&quot; class=&quot;colorContainer&quot;&gt;Laranja
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;orange&apos;,3,3);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: yellow; color: black;&quot; class=&quot;colorContainer&quot;&gt;Amarelo
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;yellow&apos;,3,4);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: green; color: white;&quot; class=&quot;colorContainer&quot;&gt;Verde
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;green&apos;,3,5);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;      
-
-      &lt;label style=&quot;background-color: blue; color: white;&quot; class=&quot;colorContainer&quot;&gt;Azul
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;blue&apos;,3,6);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: violet; color: white;&quot; class=&quot;colorContainer&quot;&gt;Violeta
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;violet&apos;,3,7);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: grey; color: white;&quot; class=&quot;colorContainer&quot;&gt;Cinza
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;grey&apos;,3,8);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: white; color: black;&quot; class=&quot;colorContainer&quot;&gt;Branco
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;white&apos;,3,10);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: gold; color: black;&quot; class=&quot;colorContainer&quot;&gt;Ouro
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;gold&apos;,3,5);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: silver; color: black;&quot; class=&quot;colorContainer&quot;&gt;Prata
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;silver&apos;,3,10);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;section&quot;&gt;
-&lt;div class=&quot;subtitle has-text-centered&quot;&gt;Selecione as cores acima para obter o resultado&lt;/div&gt;
-  &lt;table&gt;
-  &lt;tr&gt;
-    &lt;th&gt;Valor&lt;/th&gt;
-    &lt;th&gt;Tolerância&lt;/th&gt;
-    &lt;th&gt;Equivalente Atual&lt;/th&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-    &lt;td id=&quot;valor&quot; class=&quot;subtitle&quot;&gt;&lt;/td&gt;
-    &lt;td id=&quot;tolerancia&quot; class=&quot;subtitle&quot;&gt;&lt;/td&gt;
-    &lt;td id=&quot;equivalente&quot; class=&quot;subtitle&quot;&gt;&lt;/td&gt;
-  &lt;/tr&gt;
-&lt;/table&gt; 
-&lt;/div&gt;
-
-&lt;h3 id=&quot;substituição&quot;&gt;Substituição&lt;/h3&gt;
-
-&lt;p&gt;Capacitores com código de cores são antigos e muito encontrados por quem restaura rádios, órgãos ou amplificadores antigos. Para substituir sugere-se os capacitores de &lt;strong&gt;poliéster&lt;/strong&gt; com a &lt;strong&gt;capacitância&lt;/strong&gt; e &lt;strong&gt;tensão indicada&lt;/strong&gt;. Em alguns casos capacitores de cerâmica podem ser usados como substitutos.&lt;/p&gt;
-
-&lt;p&gt;O ideal é trocar todos os capacitores de equipamentos como esse. É comum encontrar alguns já estourados, rachados, descascando ou com boa aparência mas internamente já deteriorados pelo tempo.&lt;/p&gt;
-
-&lt;script&gt;
-document.obj = $(&quot;obj&quot;);
-document.obj.addEventListener(&quot;load&quot;,function(){
-  var svg = document.obj.contentDocument;
-  document.faixas = [svg.getElementById(&quot;rect1-6&quot;), svg.getElementById(&quot;rect3&quot;), svg.getElementById(&quot;rect2&quot;), svg.getElementById(&quot;rect1-6-3&quot;)];
-  document.texto = svg.getElementById(&quot;tspan1&quot;);
-},false);
-&lt;/script&gt;</content><author><name></name></author><category term="app" /><category term="eletrônica" /><category term="capacitores" /><category term="código de cores" /><summary type="html"></summary></entry></feed>
+&lt;p&gt;&lt;em&gt;Os comentários, soluções e descrições são genéricos. Cada carro e defeito tem particularidades que as soluções descritas podem não resolver ou ainda piorar o problema. Algumas atividades de manutenção requerem conhecimento técnico prévio, ferramentas adequadas e experiência do operador. Se não sabe o que está fazendo consulte um profissional.&lt;/em&gt;&lt;/p&gt;</content><author><name></name></author><category term="app" /><category term="auto" /><category term="obd2" /><category term="ecu" /><summary type="html"></summary></entry></feed>
