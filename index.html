@@ -661,12 +661,14 @@ Novamente o sinal é extendido no imediato final.</p>
 <p>E no caso de uma emulador C/C++:</p>
 
 <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int32_t</span> <span class="n">imm_b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="n">imm_b</span>        <span class="o">|=</span> <span class="p">(</span><span class="n">INS</span> <span class="o">&amp;</span> <span class="mb">0b01111111111000000000000000000000</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">20</span><span class="p">;</span> <span class="c1">// imm10_1</span>
-<span class="n">imm_b</span>        <span class="o">|=</span> <span class="p">(</span><span class="n">INS</span> <span class="o">&amp;</span> <span class="mb">0b00000000000011111111000000000000</span><span class="p">);</span>       <span class="c1">// imm19_12  </span>
-<span class="n">imm_b</span>        <span class="o">|=</span> <span class="p">(</span><span class="n">INS</span> <span class="o">&amp;</span> <span class="mb">0b00000000000100000000000000000000</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">9</span><span class="p">;</span>  <span class="c1">// imm11  </span>
+<span class="n">imm_b</span>        <span class="o">|=</span>  <span class="p">(</span><span class="n">INS</span> <span class="o">&amp;</span> <span class="mh">0x80</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">4</span><span class="p">;</span>  <span class="c1">// imm11</span>
+<span class="n">imm_b</span>        <span class="o">|=</span>  <span class="p">(</span><span class="n">INS</span> <span class="o">&amp;</span> <span class="mh">0xf00</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">7</span><span class="p">;</span> <span class="c1">// imm4_1</span>
+<span class="n">imm_b</span>        <span class="o">|=</span>  <span class="p">(</span><span class="n">INS</span> <span class="o">&amp;</span> <span class="mh">0x7E000000</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">20</span><span class="p">;</span> <span class="c1">// imm4_1</span>
 
-<span class="k">if</span> <span class="p">((</span><span class="n">INS</span> <span class="o">&amp;</span> <span class="mh">0x80000000</span><span class="p">))</span>
-    <span class="n">imm_b</span> <span class="o">|=</span> <span class="mh">0xFFF00000</span><span class="p">;</span>
+<span class="c1">// Sinaliza (sign-extend) se bit 12 estava setado</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">INS</span> <span class="o">&amp;</span> <span class="mh">0x80000000</span><span class="p">)</span> <span class="p">{</span>             <span class="c1">// se bit 12 está em 1</span>
+    <span class="n">imm_b</span> <span class="o">|=</span> <span class="mh">0xFFFFE000</span><span class="p">;</span>             <span class="c1">// extende o sinal até 32 bits</span>
+<span class="p">}</span>
 </code></pre></div></div>
 
 <h3 id="tipo-j-jal-e-jalr">Tipo J, JAL e JALR</h3>
@@ -681,6 +683,15 @@ Novamente o sinal é extendido no imediato final.</p>
 Se o salto não for para uma sub-rotina com retorno basta chamar JAL/JALR com <code class="language-plaintext highlighter-rouge">rd=x0</code>descartando assim <code class="language-plaintext highlighter-rouge">PC+4</code>.</p>
 
 <p><img src="/assets/imgs/riscv/riscv-jal.svg" alt="" /></p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int32_t</span> <span class="n">imm_b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">imm_b</span>        <span class="o">|=</span> <span class="p">(</span><span class="n">INS</span> <span class="o">&amp;</span> <span class="mb">0b01111111111000000000000000000000</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">20</span><span class="p">;</span> <span class="c1">// imm10_1</span>
+<span class="n">imm_b</span>        <span class="o">|=</span> <span class="p">(</span><span class="n">INS</span> <span class="o">&amp;</span> <span class="mb">0b00000000000011111111000000000000</span><span class="p">);</span>       <span class="c1">// imm19_12  </span>
+<span class="n">imm_b</span>        <span class="o">|=</span> <span class="p">(</span><span class="n">INS</span> <span class="o">&amp;</span> <span class="mb">0b00000000000100000000000000000000</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">9</span><span class="p">;</span>  <span class="c1">// imm11  </span>
+
+<span class="k">if</span> <span class="p">((</span><span class="n">INS</span> <span class="o">&amp;</span> <span class="mh">0x80000000</span><span class="p">))</span>
+    <span class="n">imm_b</span> <span class="o">|=</span> <span class="mh">0xFFF00000</span><span class="p">;</span>
+</code></pre></div></div>
 
 <h4 id="jalr">JALR</h4>
 
