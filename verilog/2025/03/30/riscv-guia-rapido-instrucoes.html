@@ -673,16 +673,48 @@ Novamente o sinal é extendido no imediato final.</p>
 
 <h3 id="tipo-j-jal-e-jalr">Tipo J, JAL e JALR</h3>
 
-<p>Há duas instruções de salto incondicional: JAL e JALR. JAL tem codificação do Tipo J e JALR do Tipo I. Ambas as intruções salvam o endereço da próxima instrução no registrador <strong>rd</strong> e somam um deslocamento ao PC atual.</p>
+<p>Há duas instruções de salto incondicional: JAL e JALR. JAL tem codificação do Tipo J e JALR do Tipo I. Ambas as instruções salvam o endereço da próxima instrução no registrador <strong>rd</strong> e somam um deslocamento ao PC atual.</p>
 
 <h4 id="jal">JAL</h4>
 
 <p>O deslocamento de JAL é diretamente extraído do imediato de 20 bits contido em sua instrução, enquanto na instrução JALR o deslocamento é uma soma do imediato de 12 bits e o registrador <strong>rs1</strong>. Dessa forma JAL pode saltar em uma faixa (range) de até +-1MiB enquanto JALR pode saltar em toda a faixa de 32 bits desde que <strong>rs1</strong> seja previamente carregado.</p>
 
 <p>Observe que salvar a próxima instrução e saltar é uma chamada de sub-rotina com retorno, porém não há nenhum salvamento automático da próxima instrução na memória, a sub-rotina é que deverá preservar <strong>rd</strong> para poder retornar ao ponto posterior a chamada.
-Se o salto não for para uma sub-rotina com retorno basta chamar JAL/JALR com <code class="language-plaintext highlighter-rouge">rd=x0</code>descartando assim <code class="language-plaintext highlighter-rouge">PC+4</code>.</p>
+Se o salto não for para uma sub-rotina com retorno basta chamar JAL/JALR com <code class="language-plaintext highlighter-rouge">rd=x0</code> descartando assim <code class="language-plaintext highlighter-rouge">PC+4</code>.</p>
 
 <p><img src="/assets/imgs/riscv/riscv-jal.svg" alt="" /></p>
+
+<p>Como se pode ver na ilustração, a extração do imediato do JAL é complicada. O deslocamento consiste então em 20 bits com sinal que é somado ao PC atual. O <code class="language-plaintext highlighter-rouge">PC+4</code> é gravado no registrador <strong>rd</strong> que poderá então ser utilizado como retorno na chamada da sub-rotina. Novamente percebe-se que a arquitetura RISC-V é minima, não há instruções de retorno de sub-rotina nem de interrupção.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>[20]</th>
+      <th>imm[10:1]</th>
+      <th>[11]</th>
+      <th>imm[19:12]</th>
+      <th>rd</th>
+      <th>opcode</th>
+      <th>instrução</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>x</td>
+      <td>xxxxxxxxxx</td>
+      <td>x</td>
+      <td>xxxxxxxx</td>
+      <td>xxxxx</td>
+      <td>1101111</td>
+      <td>JAL</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-verilog highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">wire</span> <span class="p">[</span><span class="mi">31</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span>     <span class="n">imm_j</span>   <span class="o">=</span>   <span class="o">{{</span><span class="mi">12</span><span class="o">{</span><span class="n">IF</span><span class="p">[</span><span class="mi">31</span><span class="p">]</span><span class="o">}}</span><span class="p">,</span><span class="n">IF</span><span class="p">[</span><span class="mi">19</span><span class="o">:</span><span class="mi">12</span><span class="p">],</span><span class="n">IF</span><span class="p">[</span><span class="mi">20</span><span class="p">],</span><span class="n">IF</span><span class="p">[</span><span class="mi">30</span><span class="o">:</span><span class="mi">21</span><span class="p">],</span><span class="mb">1'b0</span><span class="o">}</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Em C/C++ a extração pode ser feita com código sugerido abaixo.</p>
 
 <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int32_t</span> <span class="n">imm_b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="n">imm_b</span>        <span class="o">|=</span> <span class="p">(</span><span class="n">INS</span> <span class="o">&amp;</span> <span class="mb">0b01111111111000000000000000000000</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">20</span><span class="p">;</span> <span class="c1">// imm10_1</span>
@@ -695,7 +727,470 @@ Se o salto não for para uma sub-rotina com retorno basta chamar JAL/JALR com <c
 
 <h4 id="jalr">JALR</h4>
 
+<p>Enquanto os saltos condicionais tem um range útil de 4KiB de salto e o JAL de 1MiB o JALR preenche a necessidade de se saltar para toda a faixa de 32 bits de endereçamento. Ela consegue fazer isso utilizando um registrador <strong>rs1</strong> como endereço base que é somado ao imediato da instrução consistindo em 12 bits com sinal, como o imediato só consegue um salto na faixa de 4KiB o conteúdo do registrador <strong>rs1</strong> é que de fato permitirá saltos em toda a faixa de 32 bits. Assim como JAL, JALR guarda <code class="language-plaintext highlighter-rouge">PC+4</code> no registrador <strong>rd</strong>.</p>
+
 <p><img src="/assets/imgs/riscv/riscv-jalr.svg" alt="" /></p>
+
+<p>Como JALR é do Tipo I, a extração de seu imediato de 12 bits já foi explorada e o mesmo código poderá ser utilizado. Como todo a faixa de 32 bits é alcançável através de <strong>rs1</strong>, ao contrário do JAL, JALR não tem o <code class="language-plaintext highlighter-rouge">bit[0] == 0</code>, podendo então inclusive dar saltos em endereços não múltiplos de 2.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>imm[11:0]</th>
+      <th>rs1</th>
+      <th>funct3</th>
+      <th>rd</th>
+      <th>op</th>
+      <th>instrução</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>xxxxxxxxxxxx</td>
+      <td>rs1</td>
+      <td>000</td>
+      <td>rd</td>
+      <td>1100111</td>
+      <td>JALR</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="destaque br bl amarelo">
+No ARM em modo ARM (32 bits) se ocorrer um branch (salto) para um endereço que não seja múltiplo de 4 uma exceção de alinhamento (Alignment Fault) será disparada, no modo Thumb se o endereço não for par ocorre a mesma exceção. E no RISC-V? Uma exceção <em>instruction-address-misaligned</em> é disparada caso um salto tenha endereço que não seja multiplo de 4 ou par no caso da extensão C (compressed) estar presente.
+</div>
+
+<h3 id="tipo-u">Tipo U</h3>
+
+<p>Se você chegou até aqui, percebeu que a única forma de carregar um registrador até agora é com as instruções Tipo I que contém um imediato de 12 bits. Mas como carregar o restante dos 20 bits de um registrador? Há duas instruções que complementam a carga dos registradores: LUI e AUIPC.</p>
+
+<h4 id="lui">LUI</h4>
+
+<p>LUI (load upper immediate) carrega os 20 bits mais significativos do registrador <strong>rd</strong> com o valor imediato, zerando os 12 bits inferiores. Para carregar uma constante de 32 bits a instrução LUI é usada em conjunto com uma instrução do Tipo I, como a ADDI, utiilizando o registrador x0. De fato é um casamento de instruções tão importante que a maioria dos compiladores utiliza uma macro chamada <code class="language-plaintext highlighter-rouge">li</code> (load immediate) para carregar um registrador. Se o compilador detectar que a constante cabe em 12 bits, apenas uma instrução ADDI será emitida. Caso contrário, ele usará uma combinação de LUI e ADDI para compor o valor completo.</p>
+
+<p><img src="/assets/imgs/riscv/riscv-lui.svg" alt="" /></p>
+
+<h4 id="auipc">AUIPC</h4>
+
+<p>A instrução AUIPC (Add Upper Immediate to PC) soma um imediato ao valor atual do contador de programa (PC) e armazena o resultado no registrador rd.</p>
+
+<p>Essa instrução é fundamental para permitir que executáveis sejam independentes da posição de memória (PIE) — como acontece em bibliotecas dinâmicas (DLLs), plugins e sistemas com ASLR.</p>
+
+<p>Suponha que você precise chamar uma sub-rotina que, no momento da compilação, está localizada K bytes abaixo da instrução atual. Como o programa poderá ser carregado em posições diferentes da memória, você não pode usar um endereço absoluto.</p>
+
+<p>Com AUIPC, é possível gerar um endereço relativo ao PC, somando o deslocamento K e armazenando o resultado em um registrador. Em seguida, você pode usar uma instrução como JALR para efetuar o salto para a sub-rotina.</p>
+
+<p><img src="/assets/imgs/riscv/riscv-auipc.svg" alt="" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>imm[31:12] (20 bits)</th>
+      <th>rd (5 bits)</th>
+      <th>opcode (7 bits)</th>
+      <th>Instrução</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>xxxxxxxxxxxxxxxxxxxx</td>
+      <td>xxxxx</td>
+      <td>0110111</td>
+      <td>LUI</td>
+    </tr>
+    <tr>
+      <td>xxxxxxxxxxxxxxxxxxxx</td>
+      <td>xxxxx</td>
+      <td>0010111</td>
+      <td>AUIPC</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>A extração do imediato é direto:</p>
+
+<p>Verilog</p>
+
+<div class="language-verilog highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">wire</span> <span class="p">[</span><span class="mi">31</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span>     <span class="n">imm_u</span>   <span class="o">=</span>   <span class="o">{</span><span class="n">INS</span><span class="p">[</span><span class="mi">31</span><span class="o">:</span><span class="mi">12</span><span class="p">],</span><span class="mb">12'b0</span><span class="o">}</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>C/C++</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int32_t</span> <span class="n">imm_u</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int32_t</span><span class="p">)(</span><span class="n">INS</span> <span class="o">&amp;</span> <span class="mh">0xFFFFF000</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="tabela-resumo-das-instruções">Tabela resumo das instruções</h3>
+
+<table>
+<thead>
+    <tr>
+      <th colspan="13"></th>
+      <th>Opcode [6:0]</th>
+      <th>Instrução</th>
+    </tr>
+  </thead>
+<tbody>
+<tr>
+<td colspan="10"><p>imm[31:12]</p></td>
+<td colspan="2"><p>rd</p></td>
+<td colspan="2"><p>0110111</p></td>
+<td><p>LUI</p></td>
+</tr>
+<tr>
+<td colspan="10"><p>imm[31:12]</p></td>
+<td colspan="2"><p>rd</p></td>
+<td colspan="2"><p>0010111</p></td>
+<td><p>AUIPC</p></td>
+</tr>
+<tr>
+<td colspan="10"><p>imm[20|10:1|11|19:12]</p></td>
+<td colspan="2"><p>rd</p></td>
+<td colspan="2"><p>1101111</p></td>
+<td><p>JAL</p></td>
+</tr>
+<tr>
+<td colspan="6"><p>imm[11:0]</p></td>
+<td colspan="2"><p>rs1</p></td>
+<td colspan="2"><p>000</p></td>
+<td colspan="2"><p>rd</p></td>
+<td colspan="2"><p>1100111</p></td>
+<td><p>JALR</p></td>
+</tr>
+<tr>
+<td colspan="4"><p>imm[12|10:5]</p></td>
+<td colspan="2"><p>rs2</p></td>
+<td colspan="2"><p>rs1</p></td>
+<td colspan="2"><p>000</p></td>
+<td colspan="2"><p>imm[4:1|11]</p></td>
+<td colspan="2"><p>1100011</p></td>
+<td><p>BEQ</p></td>
+</tr>
+<tr>
+<td colspan="4"><p>imm[12|10:5]</p></td>
+<td colspan="2"><p>rs2</p></td>
+<td colspan="2"><p>rs1</p></td>
+<td colspan="2"><p>001</p></td>
+<td colspan="2"><p>imm[4:1|11]</p></td>
+<td colspan="2"><p>1100011</p></td>
+<td><p>BNE</p></td>
+</tr>
+<tr>
+<td colspan="4"><p>imm[12|10:5]</p></td>
+<td colspan="2"><p>rs2</p></td>
+<td colspan="2"><p>rs1</p></td>
+<td colspan="2"><p>100</p></td>
+<td colspan="2"><p>imm[4:1|11]</p></td>
+<td colspan="2"><p>1100011</p></td>
+<td><p>BLT</p></td>
+</tr>
+<tr>
+<td colspan="4"><p>imm[12|10:5]</p></td>
+<td colspan="2"><p>rs2</p></td>
+<td colspan="2"><p>rs1</p></td>
+<td colspan="2"><p>101</p></td>
+<td colspan="2"><p>imm[4:1|11]</p></td>
+<td colspan="2"><p>1100011</p></td>
+<td><p>BGE</p></td>
+</tr>
+<tr>
+<td colspan="4"><p>imm[12|10:5]</p></td>
+<td colspan="2"><p>rs2</p></td>
+<td colspan="2"><p>rs1</p></td>
+<td colspan="2"><p>110</p></td>
+<td colspan="2"><p>imm[4:1|11]</p></td>
+<td colspan="2"><p>1100011</p></td>
+<td><p>BLTU</p></td>
+</tr>
+<tr>
+<td colspan="4"><p>imm[12|10:5]</p></td>
+<td colspan="2"><p>rs2</p></td>
+<td colspan="2"><p>rs1</p></td>
+<td colspan="2"><p>111</p></td>
+<td colspan="2"><p>imm[4:1|11]</p></td>
+<td colspan="2"><p>1100011</p></td>
+<td><p>BGEU</p></td>
+</tr>
+<tr>
+<td colspan="6"><p>imm[11:0]</p></td>
+<td colspan="2"><p>rs1</p></td>
+<td colspan="2"><p>000</p></td>
+<td colspan="2"><p>rd</p></td>
+<td colspan="2"><p>0000011</p></td>
+<td><p>LB</p></td>
+</tr>
+<tr>
+<td colspan="6"><p>imm[11:0]</p></td>
+<td colspan="2"><p>rs1</p></td>
+<td colspan="2"><p>001</p></td>
+<td colspan="2"><p>rd</p></td>
+<td colspan="2"><p>0000011</p></td>
+<td><p>LH</p></td>
+</tr>
+<tr>
+<td colspan="6"><p>imm[11:0]</p></td>
+<td colspan="2"><p>rs1</p></td>
+<td colspan="2"><p>010</p></td>
+<td colspan="2"><p>rd</p></td>
+<td colspan="2"><p>0000011</p></td>
+<td><p>LW</p></td>
+</tr>
+<tr>
+<td colspan="6"><p>imm[11:0]</p></td>
+<td colspan="2"><p>rs1</p></td>
+<td colspan="2"><p>100</p></td>
+<td colspan="2"><p>rd</p></td>
+<td colspan="2"><p>0000011</p></td>
+<td><p>LBU</p></td>
+</tr>
+<tr>
+<td colspan="6"><p>imm[11:0]</p></td>
+<td colspan="2"><p>rs1</p></td>
+<td colspan="2"><p>101</p></td>
+<td colspan="2"><p>rd</p></td>
+<td colspan="2"><p>0000011</p></td>
+<td><p>LHU</p></td>
+</tr>
+<tr>
+<td colspan="4"><p>imm[11:5]</p></td>
+<td colspan="2"><p>rs2</p></td>
+<td colspan="2"><p>rs1</p></td>
+<td colspan="2"><p>000</p></td>
+<td colspan="2"><p>imm[4:0]</p></td>
+<td colspan="2"><p>0100011</p></td>
+<td><p>SB</p></td>
+</tr>
+<tr>
+<td colspan="4"><p>imm[11:5]</p></td>
+<td colspan="2"><p>rs2</p></td>
+<td colspan="2"><p>rs1</p></td>
+<td colspan="2"><p>001</p></td>
+<td colspan="2"><p>imm[4:0]</p></td>
+<td colspan="2"><p>0100011</p></td>
+<td><p>SH</p></td>
+</tr>
+<tr>
+<td colspan="4"><p>imm[11:5]</p></td>
+<td colspan="2"><p>rs2</p></td>
+<td colspan="2"><p>rs1</p></td>
+<td colspan="2"><p>010</p></td>
+<td colspan="2"><p>imm[4:0]</p></td>
+<td colspan="2"><p>0100011</p></td>
+<td><p>SW</p></td>
+</tr>
+<tr>
+<td colspan="6"><p>imm[11:0]</p></td>
+<td colspan="2"><p>rs1</p></td>
+<td colspan="2"><p>000</p></td>
+<td colspan="2"><p>rd</p></td>
+<td colspan="2"><p>0010011</p></td>
+<td><p>ADDI</p></td>
+</tr>
+<tr>
+<td colspan="6"><p>imm[11:0]</p></td>
+<td colspan="2"><p>rs1</p></td>
+<td colspan="2"><p>010</p></td>
+<td colspan="2"><p>rd</p></td>
+<td colspan="2"><p>0010011</p></td>
+<td><p>SLTI</p></td>
+</tr>
+<tr>
+<td colspan="6"><p>imm[11:0]</p></td>
+<td colspan="2"><p>rs1</p></td>
+<td colspan="2"><p>011</p></td>
+<td colspan="2"><p>rd</p></td>
+<td colspan="2"><p>0010011</p></td>
+<td><p>SLTIU</p></td>
+</tr>
+<tr>
+<td colspan="6"><p>imm[11:0]</p></td>
+<td colspan="2"><p>rs1</p></td>
+<td colspan="2"><p>100</p></td>
+<td colspan="2"><p>rd</p></td>
+<td colspan="2"><p>0010011</p></td>
+<td><p>XORI</p></td>
+</tr>
+<tr>
+<td colspan="6"><p>imm[11:0]</p></td>
+<td colspan="2"><p>rs1</p></td>
+<td colspan="2"><p>110</p></td>
+<td colspan="2"><p>rd</p></td>
+<td colspan="2"><p>0010011</p></td>
+<td><p>ORI</p></td>
+</tr>
+<tr>
+<td colspan="6"><p>imm[11:0]</p></td>
+<td colspan="2"><p>rs1</p></td>
+<td colspan="2"><p>111</p></td>
+<td colspan="2"><p>rd</p></td>
+<td colspan="2"><p>0010011</p></td>
+<td><p>ANDI</p></td>
+</tr>
+<tr>
+<td colspan="4"><p>0000000</p></td>
+<td colspan="2"><p>shamt</p></td>
+<td colspan="2"><p>rs1</p></td>
+<td colspan="2"><p>001</p></td>
+<td colspan="2"><p>rd</p></td>
+<td colspan="2"><p>0010011</p></td>
+<td><p>SLLI</p></td>
+</tr>
+<tr>
+<td colspan="4"><p>0000000</p></td>
+<td colspan="2"><p>shamt</p></td>
+<td colspan="2"><p>rs1</p></td>
+<td colspan="2"><p>101</p></td>
+<td colspan="2"><p>rd</p></td>
+<td colspan="2"><p>0010011</p></td>
+<td><p>SRLI</p></td>
+</tr>
+<tr>
+<td colspan="4"><p>0100000</p></td>
+<td colspan="2"><p>shamt</p></td>
+<td colspan="2"><p>rs1</p></td>
+<td colspan="2"><p>101</p></td>
+<td colspan="2"><p>rd</p></td>
+<td colspan="2"><p>0010011</p></td>
+<td><p>SRAI</p></td>
+</tr>
+<tr>
+<td colspan="4"><p>0000000</p></td>
+<td colspan="2"><p>rs2</p></td>
+<td colspan="2"><p>rs1</p></td>
+<td colspan="2"><p>000</p></td>
+<td colspan="2"><p>rd</p></td>
+<td colspan="2"><p>0110011</p></td>
+<td><p>ADD</p></td>
+</tr>
+<tr>
+<td colspan="4"><p>0100000</p></td>
+<td colspan="2"><p>rs2</p></td>
+<td colspan="2"><p>rs1</p></td>
+<td colspan="2"><p>000</p></td>
+<td colspan="2"><p>rd</p></td>
+<td colspan="2"><p>0110011</p></td>
+<td><p>SUB</p></td>
+</tr>
+<tr>
+<td colspan="4"><p>0000000</p></td>
+<td colspan="2"><p>rs2</p></td>
+<td colspan="2"><p>rs1</p></td>
+<td colspan="2"><p>001</p></td>
+<td colspan="2"><p>rd</p></td>
+<td colspan="2"><p>0110011</p></td>
+<td><p>SLL</p></td>
+</tr>
+<tr>
+<td colspan="4"><p>0000000</p></td>
+<td colspan="2"><p>rs2</p></td>
+<td colspan="2"><p>rs1</p></td>
+<td colspan="2"><p>010</p></td>
+<td colspan="2"><p>rd</p></td>
+<td colspan="2"><p>0110011</p></td>
+<td><p>SLT</p></td>
+</tr>
+<tr>
+<td colspan="4"><p>0000000</p></td>
+<td colspan="2"><p>rs2</p></td>
+<td colspan="2"><p>rs1</p></td>
+<td colspan="2"><p>011</p></td>
+<td colspan="2"><p>rd</p></td>
+<td colspan="2"><p>0110011</p></td>
+<td><p>SLTU</p></td>
+</tr>
+<tr>
+<td colspan="4"><p>0000000</p></td>
+<td colspan="2"><p>rs2</p></td>
+<td colspan="2"><p>rs1</p></td>
+<td colspan="2"><p>100</p></td>
+<td colspan="2"><p>rd</p></td>
+<td colspan="2"><p>0110011</p></td>
+<td><p>XOR</p></td>
+</tr>
+<tr>
+<td colspan="4"><p>0000000</p></td>
+<td colspan="2"><p>rs2</p></td>
+<td colspan="2"><p>rs1</p></td>
+<td colspan="2"><p>101</p></td>
+<td colspan="2"><p>rd</p></td>
+<td colspan="2"><p>0110011</p></td>
+<td><p>SRL</p></td>
+</tr>
+<tr>
+<td colspan="4"><p>0100000</p></td>
+<td colspan="2"><p>rs2</p></td>
+<td colspan="2"><p>rs1</p></td>
+<td colspan="2"><p>101</p></td>
+<td colspan="2"><p>rd</p></td>
+<td colspan="2"><p>0110011</p></td>
+<td><p>SRA</p></td>
+</tr>
+<tr>
+<td colspan="4"><p>0000000</p></td>
+<td colspan="2"><p>rs2</p></td>
+<td colspan="2"><p>rs1</p></td>
+<td colspan="2"><p>110</p></td>
+<td colspan="2"><p>rd</p></td>
+<td colspan="2"><p>0110011</p></td>
+<td><p>OR</p></td>
+</tr>
+<tr>
+<td colspan="4"><p>0000000</p></td>
+<td colspan="2"><p>rs2</p></td>
+<td colspan="2"><p>rs1</p></td>
+<td colspan="2"><p>111</p></td>
+<td colspan="2"><p>rd</p></td>
+<td colspan="2"><p>0110011</p></td>
+<td><p>AND</p></td>
+</tr>
+<tr>
+<td colspan="3"><p>fm</p></td>
+<td colspan="2"><p>pred</p></td>
+<td><p>succ</p></td>
+<td colspan="2"><p>rs1</p></td>
+<td colspan="2"><p>000</p></td>
+<td colspan="2"><p>rd</p></td>
+<td colspan="2"><p>0001111</p></td>
+<td><p>FENCE</p></td>
+</tr>
+<tr>
+<td colspan="3"><p>1000</p></td>
+<td colspan="2"><p>0011</p></td>
+<td><p>0011</p></td>
+<td colspan="2"><p>00000</p></td>
+<td colspan="2"><p>000</p></td>
+<td colspan="2"><p>00000</p></td>
+<td colspan="2"><p>0001111</p></td>
+<td><p>FENCE.TSO</p></td>
+</tr>
+<tr>
+<td colspan="3"><p>0000</p></td>
+<td colspan="2"><p>0001</p></td>
+<td><p>0000</p></td>
+<td colspan="2"><p>00000</p></td>
+<td colspan="2"><p>000</p></td>
+<td colspan="2"><p>00000</p></td>
+<td colspan="2"><p>0001111</p></td>
+<td><p>PAUSE</p></td>
+</tr>
+<tr>
+<td colspan="6"><p>000000000000</p></td>
+<td colspan="2"><p>00000</p></td>
+<td colspan="2"><p>000</p></td>
+<td colspan="2"><p>00000</p></td>
+<td colspan="2"><p>1110011</p></td>
+<td><p>ECALL</p></td>
+</tr>
+<tr>
+<td colspan="6"><p>000000000001</p></td>
+<td colspan="2"><p>00000</p></td>
+<td colspan="2"><p>000</p></td>
+<td colspan="2"><p>00000</p></td>
+<td colspan="2"><p>1110011</p></td>
+<td><p>EBREAK</p></td>
+</tr>
+</tbody>
+</table>
+
 
   </article>
 
