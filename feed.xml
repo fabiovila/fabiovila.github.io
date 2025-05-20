@@ -1,10 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2025-05-19T21:36:33-05:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Super guia ilustrado das instruções RISC-V RVI32 - Verilog</title><link href="http://0.0.0.0:4000/verilog/2025/03/30/riscv-guia-rapido-instrucoes.html" rel="alternate" type="text/html" title="Super guia ilustrado das instruções RISC-V RVI32 - Verilog" /><published>2025-03-30T00:00:00-05:00</published><updated>2025-03-30T00:00:00-05:00</updated><id>http://0.0.0.0:4000/verilog/2025/03/30/riscv-guia-rapido-instrucoes</id><content type="html" xml:base="http://0.0.0.0:4000/verilog/2025/03/30/riscv-guia-rapido-instrucoes.html">&lt;p&gt;Cada vez mais processadores e microcontroladores RISC-V estão surgindo no mercado como alternativa ao ARM e MIPS. De livre implementação, sem Royalties ou custos o conjunto de instruções RISC-V tem ganhado atenção. O termo RISC-V em sí não se refere a uma CPU ou Empresa, mas ao &lt;strong&gt;Conjunto de Instruções aberto e de livre implementação administrado pela RISC-V International&lt;/strong&gt;. RISC-V International é uma organização sem fins lucrativos que gerencia a arquitetura aberta RISC-V e suas especificações. Com mais de 4.500 membros em 70 países, promove inovação acessível sem royalties. Fundada como RISC-V Foundation em 2015 e realocada para a Suíça em 2020, garante continuidade e colaboração global.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2025-05-20T09:09:30-05:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Guia ilustrado das instruções RISC-V RVI32 - Verilog</title><link href="http://0.0.0.0:4000/verilog/2025/03/30/riscv-guia-rapido-instrucoes.html" rel="alternate" type="text/html" title="Guia ilustrado das instruções RISC-V RVI32 - Verilog" /><published>2025-03-30T00:00:00-05:00</published><updated>2025-03-30T00:00:00-05:00</updated><id>http://0.0.0.0:4000/verilog/2025/03/30/riscv-guia-rapido-instrucoes</id><content type="html" xml:base="http://0.0.0.0:4000/verilog/2025/03/30/riscv-guia-rapido-instrucoes.html">&lt;p&gt;Cada vez mais processadores e microcontroladores baseados em RISC-V vêm ganhando espaço no mercado como alternativas às arquiteturas ARM e MIPS. O RISC-V não é uma CPU específica nem uma empresa, mas sim um &lt;strong&gt;conjunto de instruções (ISA) aberto e de livre implementação&lt;/strong&gt;, desenvolvido para ser modular, escalável e sem custos de licenciamento.&lt;/p&gt;
+
+&lt;p&gt;Esse padrão é mantido pela RISC-V International, uma organização sem fins lucrativos responsável por coordenar a evolução da arquitetura e suas especificações. Fundada em 2015 como RISC-V Foundation e transferida para a Suíça em 2020, a entidade atua para garantir neutralidade, continuidade e colaboração internacional. Com mais de 4.500 membros distribuídos em 70 países, a RISC-V International promove um ecossistema acessível e voltado à inovação, livre de royalties.&lt;/p&gt;
 
 &lt;p&gt;A arquitetura permite liberdade de design, sendo usada tanto em projetos abertos quanto proprietários. O conjunto de instruções RISC-V foi iniciado em 2010 por Krste Asanović, Yunsup Lee e Andrew Waterman no Par Lab da UC Berkeley, liderado por David Patterson. O Par Lab, financiado por Intel e Microsoft, visava avanços em computação paralela entre 2008 e 2013. O projeto RISC-V e a linguagem Chisel foram desenvolvidos como open source sob a licença BSD. Parte do financiamento veio da DARPA para implementação de processadores, mas não para a ISA RISC-V.&lt;/p&gt;
 
-&lt;p&gt;Na prática isso quer dizer que as instruções são abertas e livres para implementação, porém &lt;strong&gt;não há nenhuma CPU com a marca RISC-V&lt;/strong&gt;, as CPUs disponíveis no mercado com &lt;strong&gt;as instruções e extensões RISC-V&lt;/strong&gt; são CPUs de empresas como SiFive, GigaDevices, Microchip, entre outras com projeto fechado e proprietário, e não deixariam de ser, visto que a fabricação fisica de uma CPU envolve projeto e processos fabris em microeletrônica protegidos e caros.&lt;/p&gt;
+&lt;p&gt;Na prática, isso quer dizer que as instruções são abertas e livres para implementação, porém &lt;strong&gt;não há nenhuma CPU com a marca RISC-V&lt;/strong&gt;, as CPUs disponíveis no mercado com &lt;strong&gt;as instruções e extensões RISC-V&lt;/strong&gt; são CPUs de empresas como SiFive, GigaDevices, Microchip, entre outras com projeto fechado e proprietário, e não deixariam de ser, visto que a fabricação física de uma CPU envolve projeto e processos fabris em microeletrônica protegidos e caros.&lt;/p&gt;
 
-&lt;p&gt;O interesse no RISC-V aliado a sua liberdade de uso faz com que algumas pessoas implementem sua própria CPU RISC-V, seja com emuladores, em Verilog ou VHDL simulando em software ou sintetizados para alguma FPGA. De fato pode-se inclusive comercializar uma implementação em FPGA, ao contrário do conjunto de instruções ARM.&lt;/p&gt;
+&lt;p&gt;O interesse no RISC-V aliado a sua liberdade de uso faz com que algumas pessoas implementem sua própria CPU RISC-V, seja com emuladores, em Verilog ou VHDL, simulando em software ou sintetizados para alguma FPGA. De fato, pode-se inclusive comercializar uma implementação em FPGA, ao contrário do conjunto de instruções ARM.&lt;/p&gt;
 
 &lt;p&gt;Como fazer uma CPU envolve processos complexos, como conhecer uma linguagem de descrição de hardware (Verilog ou VHDL), conhecer arquitetura de CPUs, memória, barramento e eletrônica digital, este artigo foi feito para ajudar no entendimento da arquitetura RISC-V com ilustrações e trechos de códigos em Verilog e C. E espero que seja de grande ajuda!&lt;/p&gt;
 
@@ -14,7 +16,7 @@ Escrever sua própria CPU é um exercício de gente grande! Extremamente útil n
 
 &lt;h3 id=&quot;instruções-base-rvi32&quot;&gt;Instruções Base RVI32&lt;/h3&gt;
 
-&lt;p&gt;A especificação RISC-V divide-se em instruções Base e Extensões. Em 32 bits as instruções Base são conhecidas como RVI32, que contem instruções de Movimentação, Soma, Lógicas, Saltos e de Sistema (não-protegido). Elas são divididas em 6 grupos de codificação de imediatos chamados R, I, S, B, U e J cujos formatos são ilustrados abaixo:&lt;/p&gt;
+&lt;p&gt;A especificação RISC-V divide-se em instruções Base e Extensões. Em 32 bits as instruções Base são conhecidas como RVI32, que contêm instruções de Movimentação, Soma, Lógicas, Saltos e de Sistema (não-protegido). Elas são divididas em 6 grupos de codificação de imediatos chamados R, I, S, B, U e J cujos formatos são ilustrados abaixo:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/imgs/riscv/RISBUJ.svg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
@@ -28,7 +30,7 @@ Escrever sua própria CPU é um exercício de gente grande! Extremamente útil n
   &lt;li&gt;&lt;strong&gt;imm[:] ou []&lt;/strong&gt; - São os valores numéricos da instrução que serão usados em algum cálculo interno de deslocamento ou armazenamento.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Como se pode observar as intruções são todas em 32 bits o que facilita no fetch e decodificação da instrução. Como toda arquitetura RISC pura, o campo rs1, rs2 indicam os registradores que contém os operandos das instruções e rd o destino do resultado; não há instruções que efetuam cálculos com operandos ou destinos direto na memória, esses valores devem antes ser carregados nos registradores rs1 ou rs2 e o resultado da operação será guardado em rd e quando então a instrução store poderá gravar o conteúdo de qualquer registrador na memória. Se fosse o caso de um processador CISC poderiamos ter instruções de outros tamanhos além dos 32 bits e imediatos que sirvam de endereços para execução da instrução direto na memória.&lt;/p&gt;
+&lt;p&gt;Como se pode observar, as instruções são todas em 32 bits o que facilita no fetch e decodificação da instrução. Como toda arquitetura RISC pura, o campo rs1, rs2 indicam os registradores que contém os operandos das instruções e rd o destino do resultado; não há instruções que efetuam cálculos com operandos ou destinos direto na memória, esses valores devem antes ser carregados nos registradores rs1 ou rs2 e o resultado da operação será guardado em rd e quando então a instrução store poderá gravar o conteúdo de qualquer registrador na memória. Se fosse o caso de um processador CISC poderíamos ter instruções de outros tamanhos além dos 32 bits e imediatos que sirvam de endereços para execução da instrução direto na memória.&lt;/p&gt;
 
 &lt;p&gt;Agora exploraremos esses 6 tipos detalhadamente.&lt;/p&gt;
 
@@ -38,7 +40,7 @@ Escrever sua própria CPU é um exercício de gente grande! Extremamente útil n
 
 &lt;p&gt;&lt;img src=&quot;/assets/imgs/riscv/riscv-tipo-r.svg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Na ilustração acima ALU é a unidade aritmética que faz diversas operações como soma, diferença, xor, and entre outras. O campo &lt;strong&gt;opcode&lt;/strong&gt; da instrução em RV32I com valor &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0110011&lt;/code&gt;identifica as instruções tipo R. Quem determinará qual operação a ALU efetuará será a combinação de &lt;strong&gt;funct7&lt;/strong&gt; e &lt;strong&gt;funct3&lt;/strong&gt; conforme tabela abaixo. &lt;strong&gt;rs1&lt;/strong&gt; e &lt;strong&gt;rs2&lt;/strong&gt; são o identificador de um dos 32 registradores que serão respectivamente o valor rs1 e rs2 da ALU e finalmente o resultado da operação aritmética será armazenado no registrador indexado por &lt;strong&gt;rd&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Na ilustração acima, ALU é a unidade aritmética que faz diversas operações como soma, diferença, xor, and entre outras. O campo &lt;strong&gt;opcode&lt;/strong&gt; da instrução em RV32I com valor &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0110011&lt;/code&gt;identifica as instruções tipo R. Quem determinará qual operação a ALU efetuará será a combinação de &lt;strong&gt;funct7&lt;/strong&gt; e &lt;strong&gt;funct3&lt;/strong&gt; conforme tabela abaixo. &lt;strong&gt;rs1&lt;/strong&gt; e &lt;strong&gt;rs2&lt;/strong&gt; são o identificador de um dos 32 registradores que serão respectivamente o valor rs1 e rs2 da ALU e finalmente o resultado da operação aritmética será armazenado no registrador indexado por &lt;strong&gt;rd&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -148,7 +150,7 @@ Escrever sua própria CPU é um exercício de gente grande! Extremamente útil n
 
 &lt;p&gt;Veja que &lt;strong&gt;funct7&lt;/strong&gt; somente faz distinção das instruções ADD/SUB e SRL/SRA cujo &lt;strong&gt;funct3&lt;/strong&gt; são iguais.&lt;/p&gt;
 
-&lt;p&gt;Para extrair esse valores em Verilog utilize o código abaixo:&lt;/p&gt;
+&lt;p&gt;Para extrair esses valores em Verilog utilize o código abaixo:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;language-Verilog&quot;&gt;wire [6:0]  OPCODE          =   INS[6:0];
 wire [2:0]  FUNCT3          =   INS[14:12];
@@ -167,23 +169,23 @@ wire [4:0]  RD_INDEX        =   INS[11:7];
 &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rd_index&lt;/span&gt;    &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ins&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3968&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Esses imediatos e indexadores serão utilizados em outras instruções sendo então reaproveitados nos outros tipos. Sendo essa uma das vantagens de um processador RISC moderno como o RISC-V, os imediatos tem posições fixas que facilitam a decodificação sem precisar de máquinas de estado (micro-código) e lógicas adicionais, o que torna o uso de portas lógicas o minimo possível no RISC-V, permitindo então, fazer vários processadores, chamados harts, em uma pastilha de silicio ou sintetizados em FPGA, ou seja, um multi-processador.&lt;/p&gt;
+&lt;p&gt;Esses imediatos e indexadores serão utilizados em outras instruções, sendo então reaproveitados nos outros tipos. Sendo essa uma das vantagens de um processador RISC moderno como o RISC-V, os imediatos têm posições fixas que facilitam a decodificação sem precisar de máquinas de estado (micro-código) e lógicas adicionais, o que torna o uso de portas lógicas o mínimo possível no RISC-V, permitindo então, fazer vários processadores, chamados harts, em uma pastilha de silício ou sintetizados em FPGA, ou seja, um multi-processador.&lt;/p&gt;
 
 &lt;h3 id=&quot;tipo-i&quot;&gt;Tipo I&lt;/h3&gt;
 
-&lt;p&gt;Instruções tipo I ou Immediato permitem carregar os registradores com valores através da ALU. Todas as instruções do tipo I fazem alguma operação aritmética no imediato da instrução, porém se o programador não quiser efetuar operação alguma no valor, basta somar com o registrador zero, e como toda soma de um número com zero é ele mesmo, então esse valor numérico imediato será armazenado no registrador sem alteração alguma. O x86 tem as instruções MOV, porém o RISC-V não tem uma instrução de carga explicita, somente aritméticas! Sim! Se você quer carregar um valor some ele com zero!&lt;/p&gt;
+&lt;p&gt;Instruções tipo I ou Imediato permitem carregar os registradores com valores através da ALU. Todas as instruções do tipo I fazem alguma operação aritmética no imediato da instrução, porém se o programador não quiser efetuar operação alguma no valor, basta somar com o registrador zero, e como toda soma de um número com zero é ele mesmo, então esse valor numérico imediato será armazenado no registrador sem alteração alguma. O x86 tem as instruções MOV, porém o RISC-V não tem uma instrução de carga explicita, somente aritméticas! Sim! Se você quer carregar um valor some ele com zero!&lt;/p&gt;
 
 &lt;div class=&quot;destaque amarelo bl br&quot;&gt;
 Alguns acham estranho não ter uma instrução de carga explicita como é no x86 ou mesmo no ARM. No RISC-V não há instruções de Load ou Movimento, o mais próximo disso é a instrução tipo U que armazena o imediato nos 20 bits de cima de um registrador.
 &lt;/div&gt;
 
-&lt;p&gt;As instruções tipo I apenas diferem das tipo R por não usarem &lt;strong&gt;rs2&lt;/strong&gt; como operando, porém usam o valor imediato presente na instrução que deve ser extraido pelo decodificado de instruções.&lt;/p&gt;
+&lt;p&gt;As instruções tipo I apenas diferem das tipo R por não usarem &lt;strong&gt;rs2&lt;/strong&gt; como operando, porém usam o valor imediato presente na instrução que deve ser extraído pelo decodificador de instruções.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/imgs/riscv/riscv-tipo-i.svg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Percebe-se na ilustração que a única diferença é a ausência de &lt;strong&gt;rs2&lt;/strong&gt; que foi substituido pela palavra de 32 bits montada através dos bits &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;31:20&lt;/code&gt; da instrução que foram extraídos e concatenados nos bits &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;12:0&lt;/code&gt; da palavra de 32 bits.&lt;/p&gt;
+&lt;p&gt;Percebe-se na ilustração que a única diferença é a ausência de &lt;strong&gt;rs2&lt;/strong&gt; que foi substituído pela palavra de 32 bits montada através dos bits &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;31:20&lt;/code&gt; da instrução que foram extraídos e concatenados nos bits &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;12:0&lt;/code&gt; da palavra de 32 bits.&lt;/p&gt;
 
-&lt;p&gt;O sinal de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;imm[11:0]&lt;/code&gt;, ou seja, o bit &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;imm[11]&lt;/code&gt; é extendido para o restante dos 32 bits da palavra, na prática se copia esse bit aos 20 bits restantes da palavra. Algo fácil de se fazer em Verilog porém em software é custoso. 
+&lt;p&gt;O sinal de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;imm[11:0]&lt;/code&gt;, ou seja, o bit &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;imm[11]&lt;/code&gt; é estendido para o restante dos 32 bits da palavra, na prática, se copia esse bit aos 20 bits restantes da palavra. Algo fácil de se fazer em Verilog, porém em software é custoso. 
 Em seguida executa-se a operação da ALU com os operandos &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;imm_i&lt;/code&gt; e &lt;strong&gt;rs1&lt;/strong&gt; com destino em &lt;strong&gt;rd&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;table&gt;
@@ -254,22 +256,22 @@ Em seguida executa-se a operação da ALU com os operandos &lt;code class=&quot;
 &lt;pre&gt;&lt;code class=&quot;language-Verilog&quot;&gt;wire [31:0]  IMM_I             =   {{20{INS[31]}},INS[31:20]};
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;E no caso de uma emulador C/C++:&lt;/p&gt;
+&lt;p&gt;E no caso de um emulador C/C++:&lt;/p&gt;
 
 &lt;div class=&quot;language-c++ highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;int32_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;imm_i&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ins&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0xfff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;imm_i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0x800&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;          &lt;span class=&quot;c1&quot;&gt;// se o bit 11 tá setado&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;imm_i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|=&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0xFFFFF000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;// preenche o restante com 1s&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Há outras formas em C/C++ de se fazer isso e é possível ainda otimizar utilizando instruções assembly que extraem bits com sinal extendido se houver na CPU que se escreve o emulador.&lt;/p&gt;
+&lt;p&gt;Há outras formas em C/C++ de se fazer isso e é possível ainda otimizar utilizando instruções assembly que extraem bits com sinal estendido se houver na CPU que se escreve o emulador.&lt;/p&gt;
 
 &lt;p&gt;A instrução de salto incondicional JALR também utiliza o Tipo I de codificação de imediato, porém será explicada posteriormente.&lt;/p&gt;
 
 &lt;h4 id=&quot;o-caso-slli-srli-e-srai&quot;&gt;O caso SLLI, SRLI e SRAI&lt;/h4&gt;
 
-&lt;p&gt;As instruções de deslocamento a direita e a esquerda são do tipo I porém tem tratamento diferente. 
-O &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;imm[11:0]&lt;/code&gt; contém duas informações, o &lt;strong&gt;shamt&lt;/strong&gt; que localiza-se no &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;imm[4:0]&lt;/code&gt; contendo a quantidade de deslocamento que pode ser 0 a 31 e a distinção entre &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SRLI&lt;/code&gt; e &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SRAI&lt;/code&gt;. Lembre-se que não há sentido deslocar mais que 31 bits pois a palavra tem somente 32 bits, logo &lt;strong&gt;shamt&lt;/strong&gt; tem tamanho de 5 bits.
-Finalmente &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;imm[30]&lt;/code&gt;diferencia &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SRLI&lt;/code&gt;de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SRAI&lt;/code&gt; já que ambos têm o mesmo &lt;strong&gt;funct3&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;As instruções de deslocamento à direita e a esquerda são do tipo I, porém tem tratamento diferente. 
+O &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;imm[11:0]&lt;/code&gt; contém duas informações, o &lt;strong&gt;shamt&lt;/strong&gt; localizado no &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;imm[4:0]&lt;/code&gt; contendo a quantidade de deslocamento que pode ser 0 a 31 e a distinção entre &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SRLI&lt;/code&gt; e &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SRAI&lt;/code&gt;. Lembre-se de que não há sentido deslocar mais que 31 bits, pois a palavra tem somente 32 bits, logo &lt;strong&gt;shamt&lt;/strong&gt; tem tamanho de 5 bits.
+Finalmente, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;imm[30]&lt;/code&gt;diferencia &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SRLI&lt;/code&gt;de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SRAI&lt;/code&gt; já que ambos têm o mesmo &lt;strong&gt;funct3&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -318,7 +320,7 @@ Finalmente &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;im
 
 &lt;h3 id=&quot;load-e-store&quot;&gt;Load e Store&lt;/h3&gt;
 
-&lt;p&gt;As instruções de movimento da memória para o registrador e do registrador para a memória, &lt;strong&gt;Load&lt;/strong&gt; e &lt;strong&gt;Store&lt;/strong&gt;, têm o endereço armazenado em um dos registradores, que será denominado &lt;em&gt;base&lt;/em&gt;, com a adição do imediato, denominado &lt;em&gt;offset&lt;/em&gt;, de 12 bits codificado na instrução, também com sinal extendido, o que permite, então, apontar o endereço para cima ou para baixo do endereço apontado pelo registrador &lt;em&gt;base&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;As instruções de movimento da memória para o registrador e do registrador para a memória, &lt;strong&gt;Load&lt;/strong&gt; e &lt;strong&gt;Store&lt;/strong&gt;, têm o endereço armazenado em um dos registradores, que será denominado &lt;em&gt;base&lt;/em&gt;, com a adição do imediato, denominado &lt;em&gt;offset&lt;/em&gt;, de 12 bits codificado na instrução, também com sinal estendido, o que permite, então, apontar o endereço para cima ou para baixo do endereço apontado pelo registrador &lt;em&gt;base&lt;/em&gt;.&lt;/p&gt;
 
 &lt;h4 id=&quot;load&quot;&gt;Load&lt;/h4&gt;
 
@@ -326,7 +328,7 @@ Finalmente &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;im
 
 &lt;p&gt;&lt;img src=&quot;/assets/imgs/riscv/riscv-load.svg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;funct3&lt;/strong&gt; faz distinção de 5 tamanhos de leitura sendo eles bytes (8 bits) &lt;strong&gt;LB&lt;/strong&gt; e &lt;strong&gt;LBU&lt;/strong&gt;, half-words (16 bits) &lt;strong&gt;LH&lt;/strong&gt; e &lt;strong&gt;LHU&lt;/strong&gt; e words (32 bits) &lt;strong&gt;LW&lt;/strong&gt; e se os tipos bytes e half-words fazem extensão do sinal ou não (&lt;strong&gt;LBU&lt;/strong&gt; e &lt;strong&gt;LHU&lt;/strong&gt;) no armazenamento. Não confundir com o sinal extendido do imediato/offset, aqui me refiro ao valor carregado da memória que se for por exemplo um byte o bit de sinal desse byte ( bit 7 ) será extendido no registrador &lt;strong&gt;rd&lt;/strong&gt; ou não.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;funct3&lt;/strong&gt; faz distinção de 5 tamanhos de leitura, sendo eles bytes (8 bits) &lt;strong&gt;LB&lt;/strong&gt; e &lt;strong&gt;LBU&lt;/strong&gt;, half-words (16 bits) &lt;strong&gt;LH&lt;/strong&gt; e &lt;strong&gt;LHU&lt;/strong&gt; e words (32 bits) &lt;strong&gt;LW&lt;/strong&gt; e se os tipos bytes e half-words fazem extensão do sinal ou não (&lt;strong&gt;LBU&lt;/strong&gt; e &lt;strong&gt;LHU&lt;/strong&gt;) no armazenamento. Não confundir com o sinal estendido do imediato/offset, aqui me refiro ao valor carregado da memória que, se for ,por exemplo, um byte o bit de sinal desse byte ( bit 7 ) será estendido no registrador &lt;strong&gt;rd&lt;/strong&gt; ou não.&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -385,11 +387,11 @@ Finalmente &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;im
 
 &lt;h4 id=&quot;store&quot;&gt;Store&lt;/h4&gt;
 
-&lt;p&gt;&lt;strong&gt;Store&lt;/strong&gt; tem tipo próprio denominado tipo S. O imediato (&lt;em&gt;offset&lt;/em&gt;) foi divido em duas partes na instrução e localiza-se nos bits &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ins[31:25]&lt;/code&gt; e &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ins[11:7]&lt;/code&gt; que juntos montam o imediato de 12 bits que novamente tem seu sinal extendido e é somado ao conteúdo do registrador &lt;strong&gt;rs1&lt;/strong&gt; para indicar o endereço da memória que será gravada com o conteúdo do registrador &lt;strong&gt;rs2&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Store&lt;/strong&gt; tem tipo próprio denominado tipo S. O imediato (&lt;em&gt;offset&lt;/em&gt;) foi divido em duas partes na instrução e localiza-se nos bits &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ins[31:25]&lt;/code&gt; e &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ins[11:7]&lt;/code&gt; que juntos montam o imediato de 12 bits que novamente tem seu sinal estendido e é somado ao conteúdo do registrador &lt;strong&gt;rs1&lt;/strong&gt; para indicar o endereço da memória que será gravada com o conteúdo do registrador &lt;strong&gt;rs2&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/imgs/riscv/riscv-store.svg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Por ser uma CPU moderna e bem projetada percebe-se que &lt;strong&gt;rd&lt;/strong&gt; de outros tipos virou &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;imm[4:0]&lt;/code&gt; o que facilita na extração desses bits permitindo utilizar código já existente.&lt;/p&gt;
+&lt;p&gt;Por ser uma CPU moderna e bem projetada, percebe-se que &lt;strong&gt;rd&lt;/strong&gt; de outros tipos virou &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;imm[4:0]&lt;/code&gt; o que facilita na extração desses bits, permitindo utilizar código já existente.&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -436,18 +438,18 @@ Finalmente &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;im
 
 &lt;h3 id=&quot;tipo-b&quot;&gt;Tipo B&lt;/h3&gt;
 
-&lt;p&gt;Esse conjunto reúne as instruções de salto condicional. Novamente aqui temos algumas diferenças que podem surpreender aqueles acostumados com x86, m68k: Não há flags condicionais, as operações lógicas são efetuadas entre rs1 e rs2. BEQ, por exemplo, compara rs1 e rs2, se forem iguais então salta para o destino, se diferente continua na próxima instrução.&lt;/p&gt;
+&lt;p&gt;Esse conjunto reúne as instruções de salto condicional. Novamente aqui temos algumas diferenças que podem surpreender aqueles acostumados com x86, m68k: não há flags condicionais, as operações lógicas são efetuadas entre rs1 e rs2. BEQ, por exemplo, compara rs1 e rs2, se forem iguais, então salta para o destino, se diferente, continua na próxima instrução.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/imgs/riscv/riscv-b.svg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;As instruções B carregam um &lt;em&gt;imediato&lt;/em&gt; de 12 bits com sinal e como se pode ver na figura acima eles estão espalhados pela instrução. Perceba que no &lt;em&gt;deslocamento&lt;/em&gt; final (32 bits) o &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bit 0&lt;/code&gt; tem valor &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;; como as instruções no RISC-V tem tamanho 32 bits ou 16 bits, nenhuma instrução estará em endereço com &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bit[0] = 1&lt;/code&gt;, sempre será com &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bit[0] = 0&lt;/code&gt;, então justifica-se deslocar o &lt;em&gt;deslocamento&lt;/em&gt; de 12 bits um bit a esquerda para aumentar o range de deslocamento do salto.
-Novamente o sinal é extendido no imediato final.&lt;/p&gt;
+Novamente, o sinal é estendido no imediato final.&lt;/p&gt;
 
-&lt;p&gt;Montado o &lt;em&gt;deslocamento&lt;/em&gt; final, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;funct3&lt;/code&gt; seleciona a operação lógica entre &lt;strong&gt;rs1&lt;/strong&gt; e &lt;strong&gt;rs2&lt;/strong&gt;, o resultado da operação é descartado, porém ser for verdadeira o &lt;em&gt;deslocamento&lt;/em&gt; somado ao PC da instrução será o pŕoximo PC, caso contrário a próxima instrução será executada (PC+4). Como o sinal é extendido o deslocamento pode ocorrer para frente do PC ou para trás em uma faixa (range) de +-4KiB.&lt;/p&gt;
+&lt;p&gt;Montado o &lt;em&gt;deslocamento&lt;/em&gt; final, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;funct3&lt;/code&gt; seleciona a operação lógica entre &lt;strong&gt;rs1&lt;/strong&gt; e &lt;strong&gt;rs2&lt;/strong&gt;, o resultado da operação é descartado, porém, se for verdadeiro o &lt;em&gt;deslocamento&lt;/em&gt; somado ao PC da instrução será o pŕoximo PC, caso contrário a próxima instrução será executada (PC+4). Como o sinal é estendido o deslocamento pode ocorrer para frente do PC ou para trás em uma faixa (range) de +-4KiB.&lt;/p&gt;
 
-&lt;p&gt;Na ilustração eu não atribui a soma do &lt;em&gt;deslocamento&lt;/em&gt; à ALU, isso é uma decisão do projetista, ele pode usar a ALU para somar o &lt;em&gt;deslocamento&lt;/em&gt; ou usar um circuito separado para essa soma. As operações lógicas também podem ser executadas pela ALU ou em circuito separado.&lt;/p&gt;
+&lt;p&gt;Na ilustração, eu não atribuo a soma do &lt;em&gt;deslocamento&lt;/em&gt; à ALU, isso é uma decisão do projetista, ele pode usar a ALU para somar o &lt;em&gt;deslocamento&lt;/em&gt; ou usar um circuito separado para essa soma. As operações lógicas também podem ser executadas pela ALU ou em circuito separado.&lt;/p&gt;
 
-&lt;p&gt;Em arquitetura com pipeline saltar para um instrução significa descartar as instruções que já estão no pipeline.&lt;/p&gt;
+&lt;p&gt;Em arquitetura com pipeline, saltar para uma instrução significa descartar as instruções que já estão no pipeline.&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -533,12 +535,12 @@ Novamente o sinal é extendido no imediato final.&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;Em verilog a extração dos bits do imediato pode ser feita facilmente com o código sugerido abaixo:&lt;/p&gt;
+&lt;p&gt;Em Verilog a extração dos bits do imediato pode ser feita facilmente com o código sugerido abaixo:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;language-Verilog&quot;&gt;wire [31:0]  IMM_B             =   {{20{INS[31]}},INS[7],INS[30:25],INS[11:8],1&apos;b0};
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;E no caso de uma emulador C/C++:&lt;/p&gt;
+&lt;p&gt;E no caso de um emulador C/C++:&lt;/p&gt;
 
 &lt;div class=&quot;language-c++ highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;int32_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;imm_b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;imm_b&lt;/span&gt;        &lt;span class=&quot;o&quot;&gt;|=&lt;/span&gt;  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;INS&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0x80&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// imm11&lt;/span&gt;
@@ -557,14 +559,14 @@ Novamente o sinal é extendido no imediato final.&lt;/p&gt;
 
 &lt;h4 id=&quot;jal&quot;&gt;JAL&lt;/h4&gt;
 
-&lt;p&gt;O deslocamento de JAL é diretamente extraído do imediato de 20 bits contido em sua instrução, enquanto na instrução JALR o deslocamento é uma soma do imediato de 12 bits e o registrador &lt;strong&gt;rs1&lt;/strong&gt;. Dessa forma JAL pode saltar em uma faixa (range) de até +-1MiB enquanto JALR pode saltar em toda a faixa de 32 bits desde que &lt;strong&gt;rs1&lt;/strong&gt; seja previamente carregado.&lt;/p&gt;
+&lt;p&gt;O deslocamento de JAL é diretamente extraído do imediato de 20 bits contidos em sua instrução, enquanto na instrução JALR o deslocamento é uma soma do imediato de 12 bits e o registrador &lt;strong&gt;rs1&lt;/strong&gt;. Dessa forma, JAL pode saltar em uma faixa (range) de até +-1MiB enquanto JALR pode saltar em toda a faixa de 32 bits desde que &lt;strong&gt;rs1&lt;/strong&gt; seja previamente carregado.&lt;/p&gt;
 
-&lt;p&gt;Observe que salvar a próxima instrução e saltar é uma chamada de sub-rotina com retorno, porém não há nenhum salvamento automático da próxima instrução na memória, a sub-rotina é que deverá preservar &lt;strong&gt;rd&lt;/strong&gt; para poder retornar ao ponto posterior a chamada.
-Se o salto não for para uma sub-rotina com retorno basta chamar JAL/JALR com &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rd=x0&lt;/code&gt; descartando assim &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PC+4&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Observe que salvar a próxima instrução e saltar é uma chamada de sub-rotina com retorno, porém não há nenhum salvamento automático da próxima instrução na memória, a sub-rotina é que deverá preservar &lt;strong&gt;rd&lt;/strong&gt; para poder retornar ao ponto posterior à chamada.
+Se o salto não for para uma sub-rotina com retorno, basta chamar JAL/JALR com &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rd=x0&lt;/code&gt; descartando assim &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PC+4&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/imgs/riscv/riscv-jal.svg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Como se pode ver na ilustração, a extração do imediato do JAL é complicada. O deslocamento consiste então em 20 bits com sinal que é somado ao PC atual. O &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PC+4&lt;/code&gt; é gravado no registrador &lt;strong&gt;rd&lt;/strong&gt; que poderá então ser utilizado como retorno na chamada da sub-rotina. Novamente percebe-se que a arquitetura RISC-V é minima, não há instruções de retorno de sub-rotina nem de interrupção.&lt;/p&gt;
+&lt;p&gt;Como se pode ver na ilustração, a extração do imediato do JAL é complicada. O deslocamento consiste então em 20 bits com sinal somado ao PC atual. O &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PC+4&lt;/code&gt; é gravado no registrador &lt;strong&gt;rd&lt;/strong&gt; que poderá então ser utilizado como retorno na chamada da sub-rotina. Novamente percebe-se que a arquitetura RISC-V é mínima, não há instruções de retorno de sub-rotina nem de interrupção.&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -594,7 +596,7 @@ Se o salto não for para uma sub-rotina com retorno basta chamar JAL/JALR com &l
 &lt;div class=&quot;language-verilog highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;wire&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;31&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;     &lt;span class=&quot;n&quot;&gt;imm_j&lt;/span&gt;   &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;   &lt;span class=&quot;o&quot;&gt;{{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IF&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;31&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;}}&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IF&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;19&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IF&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IF&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;21&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;mb&quot;&gt;1&apos;b0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Em C/C++ a extração pode ser feita com código sugerido abaixo.&lt;/p&gt;
+&lt;p&gt;Em C/C++, a extração pode ser feita com código sugerido abaixo.&lt;/p&gt;
 
 &lt;div class=&quot;language-c++ highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;int32_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;imm_b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;imm_b&lt;/span&gt;        &lt;span class=&quot;o&quot;&gt;|=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;INS&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;mb&quot;&gt;0b01111111111000000000000000000000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// imm10_1&lt;/span&gt;
@@ -607,11 +609,17 @@ Se o salto não for para uma sub-rotina com retorno basta chamar JAL/JALR com &l
 
 &lt;h4 id=&quot;jalr&quot;&gt;JALR&lt;/h4&gt;
 
-&lt;p&gt;Enquanto os saltos condicionais tem um range útil de 4KiB de salto e o JAL de 1MiB o JALR preenche a necessidade de se saltar para toda a faixa de 32 bits de endereçamento. Ela consegue fazer isso utilizando um registrador &lt;strong&gt;rs1&lt;/strong&gt; como endereço base que é somado ao imediato da instrução consistindo em 12 bits com sinal, como o imediato só consegue um salto na faixa de 4KiB o conteúdo do registrador &lt;strong&gt;rs1&lt;/strong&gt; é que de fato permitirá saltos em toda a faixa de 32 bits. Assim como JAL, JALR guarda &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PC+4&lt;/code&gt; no registrador &lt;strong&gt;rd&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Enquanto os saltos condicionais têm um range útil de 4KiB de salto e o JAL de 1MiB o JALR permite saltar por toda a faixa de 32 bits de endereçamento. Ela consegue fazer isso utilizando o registrador &lt;strong&gt;rs1&lt;/strong&gt; como endereço base que será somado ao imediato de 12 bits da instrução. Dessa forma, como o imediato só consegue um salto na faixa de 4KiB o conteúdo do registrador &lt;strong&gt;rs1&lt;/strong&gt; é que de fato permitirá saltos em toda a faixa de 32 bits.&lt;/p&gt;
+
+&lt;p&gt;Assim como JAL, JALR guarda &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PC+4&lt;/code&gt; no registrador &lt;strong&gt;rd&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/imgs/riscv/riscv-jalr.svg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Como JALR é do Tipo I, a extração de seu imediato de 12 bits já foi explorada e o mesmo código poderá ser utilizado. Como todo a faixa de 32 bits é alcançável através de &lt;strong&gt;rs1&lt;/strong&gt;, ao contrário do JAL, JALR não tem o &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bit[0] == 0&lt;/code&gt;, podendo então inclusive dar saltos em endereços não múltiplos de 2.&lt;/p&gt;
+&lt;p&gt;Como JALR é do Tipo I, a extração de seu imediato de 12 bits já foi explorada e o mesmo código poderá ser utilizado. Como toda a faixa de 32 bits é alcançável via &lt;strong&gt;rs1&lt;/strong&gt;, ao contrário do JAL, JALR não tem o &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bit[0] == 0&lt;/code&gt;, podendo então inclusive dar saltos em endereços não múltiplos de 2.&lt;/p&gt;
+
+&lt;div class=&quot;destaque br bl amarelo&quot;&gt;
+No ARM em modo ARM (32 bits) se ocorrer um branch (salto) para um endereço que não seja múltiplo de 4, uma exceção de alinhamento (Alignment Fault) será disparada, no modo Thumb se o endereço não for par, ocorre a mesma exceção. E no RISC-V? Uma exceção &lt;em&gt;instruction-address-misaligned&lt;/em&gt; é disparada caso um salto tenha endereço que não seja múltiplos de 4 ou par, no caso da extensão C (compressed) estar presente.
+&lt;/div&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -636,17 +644,13 @@ Se o salto não for para uma sub-rotina com retorno basta chamar JAL/JALR com &l
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;div class=&quot;destaque br bl amarelo&quot;&gt;
-No ARM em modo ARM (32 bits) se ocorrer um branch (salto) para um endereço que não seja múltiplo de 4 uma exceção de alinhamento (Alignment Fault) será disparada, no modo Thumb se o endereço não for par ocorre a mesma exceção. E no RISC-V? Uma exceção &lt;em&gt;instruction-address-misaligned&lt;/em&gt; é disparada caso um salto tenha endereço que não seja multiplo de 4 ou par no caso da extensão C (compressed) estar presente.
-&lt;/div&gt;
-
 &lt;h3 id=&quot;tipo-u&quot;&gt;Tipo U&lt;/h3&gt;
 
-&lt;p&gt;Se você chegou até aqui, percebeu que a única forma de carregar um registrador até agora é com as instruções Tipo I que contém um imediato de 12 bits. Mas como carregar o restante dos 20 bits de um registrador? Há duas instruções que complementam a carga dos registradores: LUI e AUIPC.&lt;/p&gt;
+&lt;p&gt;Se você chegou até aqui, percebeu que a única forma de carregar um registrador até agora é com as instruções Tipo I que contêm um imediato de 12 bits. Mas como carregar o restante dos 20 bits de um registrador? Há duas instruções que complementam a carga dos registradores: LUI e AUIPC.&lt;/p&gt;
 
 &lt;h4 id=&quot;lui&quot;&gt;LUI&lt;/h4&gt;
 
-&lt;p&gt;LUI (load upper immediate) carrega os 20 bits mais significativos do registrador &lt;strong&gt;rd&lt;/strong&gt; com o valor imediato, zerando os 12 bits inferiores. Para carregar uma constante de 32 bits a instrução LUI é usada em conjunto com uma instrução do Tipo I, como a ADDI, utiilizando o registrador x0. De fato é um casamento de instruções tão importante que a maioria dos compiladores utiliza uma macro chamada &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;li&lt;/code&gt; (load immediate) para carregar um registrador. Se o compilador detectar que a constante cabe em 12 bits, apenas uma instrução ADDI será emitida. Caso contrário, ele usará uma combinação de LUI e ADDI para compor o valor completo.&lt;/p&gt;
+&lt;p&gt;LUI (load upper immediate) carrega os 20 bits mais significativos do registrador &lt;strong&gt;rd&lt;/strong&gt; com o valor imediato, zerando os 12 bits inferiores. Para carregar uma constante de 32 bits, a instrução LUI é usada em conjunto com uma instrução do Tipo I, como a ADDI, utilizando o registrador x0. De fato, é um casamento de instruções tão importante que a maioria dos compiladores utiliza uma macro chamada &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;li&lt;/code&gt; (load immediate) para carregar um registrador. Se o compilador detectar que a constante cabe em 12 bits, apenas uma instrução ADDI será emitida. Caso contrário, ele usará uma combinação de LUI e ADDI para compor o valor completo.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/imgs/riscv/riscv-lui.svg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
@@ -1069,7 +1073,7 @@ No ARM em modo ARM (32 bits) se ocorrer um branch (salto) para um endereço que 
 &lt;td&gt;&lt;p&gt;EBREAK&lt;/p&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
-&lt;/table&gt;</content><author><name></name></author><category term="Verilog" /><category term="Verilog" /><category term="riscv" /><summary type="html">Cada vez mais processadores e microcontroladores RISC-V estão surgindo no mercado como alternativa ao ARM e MIPS. De livre implementação, sem Royalties ou custos o conjunto de instruções RISC-V tem ganhado atenção. O termo RISC-V em sí não se refere a uma CPU ou Empresa, mas ao Conjunto de Instruções aberto e de livre implementação administrado pela RISC-V International. RISC-V International é uma organização sem fins lucrativos que gerencia a arquitetura aberta RISC-V e suas especificações. Com mais de 4.500 membros em 70 países, promove inovação acessível sem royalties. Fundada como RISC-V Foundation em 2015 e realocada para a Suíça em 2020, garante continuidade e colaboração global.</summary></entry><entry><title type="html">Perdi uma placa por utilizar um estimador estatístico errado - Matemática</title><link href="http://0.0.0.0:4000/aplicadas/2025/03/29/estimar-raio-capacitor-jargao-estatistica.html" rel="alternate" type="text/html" title="Perdi uma placa por utilizar um estimador estatístico errado - Matemática" /><published>2025-03-29T00:00:00-05:00</published><updated>2025-03-29T00:00:00-05:00</updated><id>http://0.0.0.0:4000/aplicadas/2025/03/29/estimar-raio-capacitor-jargao-estatistica</id><content type="html" xml:base="http://0.0.0.0:4000/aplicadas/2025/03/29/estimar-raio-capacitor-jargao-estatistica.html">&lt;h2 id=&quot;como-perdi-uma-placa-por-utilizar-o-estimador-estatístico-errado&quot;&gt;Como perdi uma placa por utilizar o estimador estatístico errado&lt;/h2&gt;
+&lt;/table&gt;</content><author><name></name></author><category term="Verilog" /><category term="Verilog" /><category term="riscv" /><summary type="html">Cada vez mais processadores e microcontroladores baseados em RISC-V vêm ganhando espaço no mercado como alternativas às arquiteturas ARM e MIPS. O RISC-V não é uma CPU específica nem uma empresa, mas sim um conjunto de instruções (ISA) aberto e de livre implementação, desenvolvido para ser modular, escalável e sem custos de licenciamento.</summary></entry><entry><title type="html">Perdi uma placa por utilizar um estimador estatístico errado - Matemática</title><link href="http://0.0.0.0:4000/aplicadas/2025/03/29/estimar-raio-capacitor-jargao-estatistica.html" rel="alternate" type="text/html" title="Perdi uma placa por utilizar um estimador estatístico errado - Matemática" /><published>2025-03-29T00:00:00-05:00</published><updated>2025-03-29T00:00:00-05:00</updated><id>http://0.0.0.0:4000/aplicadas/2025/03/29/estimar-raio-capacitor-jargao-estatistica</id><content type="html" xml:base="http://0.0.0.0:4000/aplicadas/2025/03/29/estimar-raio-capacitor-jargao-estatistica.html">&lt;h2 id=&quot;como-perdi-uma-placa-por-utilizar-o-estimador-estatístico-errado&quot;&gt;Como perdi uma placa por utilizar o estimador estatístico errado&lt;/h2&gt;
 
 &lt;p&gt;Me envolvi em mais um projeto de inversor de frequência para motores trifásicos, onde fui novamente responsável por tudo: projeto, roteamento e programação. Quando chegou a hora de rotear a placa, era necessário usar uma fonte chaveada indicada pelo cliente (que posteriormente apresentou problemas).&lt;br /&gt;
 Havia no circuito um capacitor de filtro &lt;strong&gt;22uF - 400V&lt;/strong&gt;, responsável pelo AC-DC.&lt;br /&gt;

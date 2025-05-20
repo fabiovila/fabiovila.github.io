@@ -2827,16 +2827,14 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus { color: #ee2049 !imp
 .hero-body { flex-grow: 1; flex-shrink: 0; padding: 3rem 1.5rem; }
 @media screen and (min-width: 769px), print { .hero-body { padding: 3rem 3rem; } }
 
-.section { padding: 3rem 1.5rem; }
+.section { padding: 1rem 1rem; }
 @media screen and (min-width: 1024px) { .section { padding: 3rem 3rem; }
   .section.is-medium { padding: 9rem 4.5rem; }
   .section.is-large { padding: 18rem 6rem; } }
 
 .footer { background-color: #fafafa; padding: 3rem 1.5rem 6rem; }
 
-html { font-size: 17.6px; /* Define base para rem */ }
-
-body { font-size: 1.2em; }
+body { font-size: 0.9em; }
 @media screen and (min-width: 769px), print { body { font-size: 1.0em; } }
 @media screen and (min-width: 1024px) { body { font-size: 1.2em; } }
 
