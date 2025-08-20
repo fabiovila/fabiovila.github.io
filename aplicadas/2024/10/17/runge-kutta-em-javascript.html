@@ -240,7 +240,7 @@ while (x &lt; final) {
     h2 = h / 2; // Uma pequena otimização
     k2 = h * f(x + h2, y + h2 * k1);
     k3 = h * f(x + h2, y + h2 * k2);
-    k4 = h * f(x + h, y + h * k1);
+    k4 = h * f(x + h, y + h * k3);
     y = y + (h * (k1 + 2 * k2 + 2 * k3 + k4)) / 6;
     x = x + h;
 
@@ -273,7 +273,7 @@ while (x < final) {
     h2 = h / 2; // Uma pequena otimização
     k2 = h * f(x + h2, y + h2 * k1);
     k3 = h * f(x + h2, y + h2 * k2);
-    k4 = h * f(x + h, y + h * k1);
+    k4 = h * f(x + h, y + h * k3);
     y = y + (h * (k1 + 2 * k2 + 2 * k3 + k4)) / 6;
     x = x + h;
 
