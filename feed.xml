@@ -1,4 +1,191 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2025-08-19T19:44:15-05:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Guia ilustrado das instruções RISC-V RVI32 - Verilog</title><link href="http://0.0.0.0:4000/verilog/2025/03/30/riscv-guia-rapido-instrucoes.html" rel="alternate" type="text/html" title="Guia ilustrado das instruções RISC-V RVI32 - Verilog" /><published>2025-03-30T00:00:00-05:00</published><updated>2025-03-30T00:00:00-05:00</updated><id>http://0.0.0.0:4000/verilog/2025/03/30/riscv-guia-rapido-instrucoes</id><content type="html" xml:base="http://0.0.0.0:4000/verilog/2025/03/30/riscv-guia-rapido-instrucoes.html">&lt;p&gt;Cada vez mais processadores e microcontroladores baseados em RISC-V vêm ganhando espaço no mercado como alternativas às arquiteturas ARM e MIPS. O RISC-V não é uma CPU específica nem uma empresa, mas sim um &lt;strong&gt;conjunto de instruções (ISA) aberto e de livre implementação&lt;/strong&gt;, desenvolvido para ser modular, escalável e sem custos de licenciamento.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2025-11-15T10:42:36-06:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">LVDC: A Revolução Silenciosa na Distribuição de Energia para Data Centers e Edifícios - Energia</title><link href="http://0.0.0.0:4000/energia/2025/11/15/LVDC.html" rel="alternate" type="text/html" title="LVDC: A Revolução Silenciosa na Distribuição de Energia para Data Centers e Edifícios - Energia" /><published>2025-11-15T00:00:00-06:00</published><updated>2025-11-15T00:00:00-06:00</updated><id>http://0.0.0.0:4000/energia/2025/11/15/LVDC</id><content type="html" xml:base="http://0.0.0.0:4000/energia/2025/11/15/LVDC.html">&lt;h1 id=&quot;lvdc-a-revolução-silenciosa-na-distribuição-de-energia-para-data-centers-e-edifícios&quot;&gt;LVDC: A Revolução Silenciosa na Distribuição de Energia para Data Centers e Edifícios&lt;/h1&gt;
+
+&lt;p&gt;A forma como distribuímos energia elétrica está passando por uma transformação fundamental. Enquanto a corrente alternada (AC) dominou por mais de um século, a &lt;strong&gt;corrente contínua de baixa tensão (LVDC - Low Voltage Direct Current)&lt;/strong&gt; emerge como uma solução superior para as demandas energéticas do século XXI, especialmente em data centers, edifícios inteligentes e instalações industriais.&lt;/p&gt;
+
+&lt;h2 id=&quot;o-contexto-por-que-mudar-agora&quot;&gt;O Contexto: Por Que Mudar Agora?&lt;/h2&gt;
+
+&lt;h3 id=&quot;data-centers-e-o-consumo-global-de-energia&quot;&gt;Data Centers e o Consumo Global de Energia&lt;/h3&gt;
+
+&lt;p&gt;Os data centers consomem mais de 200 TWh por ano, representando cerca de 1% da demanda global de eletricidade. Com o crescimento exponencial da inteligência artificial e computação em nuvem, essa demanda só tende a aumentar. Os custos de energia dominam os custos totais do ciclo de vida dessas instalações, tornando a eficiência energética não apenas uma questão ambiental, mas também econômica.&lt;/p&gt;
+
+&lt;h3 id=&quot;o-desafio-das-arquiteturas-tradicionais&quot;&gt;O Desafio das Arquiteturas Tradicionais&lt;/h3&gt;
+
+&lt;p&gt;Os racks atuais em data centers de IA dependem de distribuição de energia a 54 VDC, onde barras de cobre volumosas transportam eletricidade das prateleiras de energia montadas em rack para as bandejas de computação. À medida que os racks excedem 200 quilowatts, essa abordagem começa a atingir limites físicos.&lt;/p&gt;
+
+&lt;p&gt;O problema se torna ainda mais crítico: a física do uso de 54 VDC em um único rack de 1 MW requer até 200 kg de barra de cobre, e as barras de rack sozinhas em um único data center de 1 gigawatt poderiam requerer até meio milhão de toneladas de cobre.&lt;/p&gt;
+
+&lt;h2 id=&quot;lvdc-a-solução-emergente&quot;&gt;LVDC: A Solução Emergente&lt;/h2&gt;
+
+&lt;h3 id=&quot;o-que-é-lvdc&quot;&gt;O Que É LVDC?&lt;/h3&gt;
+
+&lt;p&gt;LVDC refere-se a sistemas de distribuição de energia em corrente contínua operando em tensões tipicamente entre 48V e 1500V. Esses sistemas representam uma mudança de paradigma em relação às arquiteturas AC tradicionais, oferecendo múltiplas vantagens em eficiência, densidade de potência e integração com fontes renováveis.&lt;/p&gt;
+
+&lt;h3 id=&quot;níveis-de-tensão-padronizados&quot;&gt;Níveis de Tensão Padronizados&lt;/h3&gt;
+
+&lt;p&gt;Os sistemas Current/OS suportam tensões nominais de 48V DC, 175V DC, 350 VDC e 700 VDC em sistemas unipolares, e 350/700 VDC e 700/1400V DC em sistemas bipolares. Cada nível de tensão é adequado para aplicações específicas:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;48 VDC&lt;/strong&gt;: Sistemas locais pequenos como PoE, USB-C ou aplicações de iluminação&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;350 VDC&lt;/strong&gt;: Instalações onde tradicionalmente seria usado AC monofásico de 230V&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;700 VDC&lt;/strong&gt;: Instalações de alta potência ou circuitos de distribuição&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;800 VDC&lt;/strong&gt;: O novo padrão emergente para data centers de IA&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;a-arquitetura-800-vdc-da-nvidia&quot;&gt;A Arquitetura 800 VDC da NVIDIA&lt;/h2&gt;
+
+&lt;h3 id=&quot;transformando-data-centers-de-ia&quot;&gt;Transformando Data Centers de IA&lt;/h3&gt;
+
+&lt;p&gt;A NVIDIA está liderando a transição para infraestrutura de energia de data center a 800 VDC para suportar racks de TI de 1 MW e além, começando em 2027. Esta iniciativa representa uma mudança fundamental na forma como alimentamos instalações de computação de alto desempenho.&lt;/p&gt;
+
+&lt;h3 id=&quot;benefícios-quantificáveis&quot;&gt;Benefícios Quantificáveis&lt;/h3&gt;
+
+&lt;p&gt;A arquitetura 800 VDC oferece vantagens impressionantes:&lt;/p&gt;
+
+&lt;p&gt;Melhoria de até 5% na eficiência energética de ponta a ponta em comparação com sistemas de 54V atuais&lt;/p&gt;
+
+&lt;p&gt;Custos de manutenção reduzidos em até 70% devido a menos falhas de PSU e menores custos de mão de obra para manutenção de componentes&lt;/p&gt;
+
+&lt;p&gt;Menores despesas de resfriamento pela eliminação de PSUs AC/DC dentro dos racks de TI&lt;/p&gt;
+
+&lt;p&gt;Redução de 45% nos requisitos de cobre, com a capacidade de transmitir 85% mais potência através do mesmo tamanho de condutor&lt;/p&gt;
+
+&lt;h3 id=&quot;como-funciona&quot;&gt;Como Funciona&lt;/h3&gt;
+
+&lt;p&gt;Ao converter energia da rede AC de 13,8 kV diretamente para 800 VDC no perímetro do data center usando retificadores de grau industrial, a maioria das etapas de conversão intermediárias são eliminadas. Esta abordagem simplificada minimiza perdas de energia.&lt;/p&gt;
+
+&lt;h2 id=&quot;comparação-ac-vs-dc-na-distribuição&quot;&gt;Comparação: AC vs. DC na Distribuição&lt;/h2&gt;
+
+&lt;h3 id=&quot;eficiência-no-mundo-real&quot;&gt;Eficiência no Mundo Real&lt;/h3&gt;
+
+&lt;p&gt;A distribuição AC tradicional a 400V atinge uma eficiência total de aproximadamente 97,1% do MVAC até a entrada da conversão DC-DC de 400V/48V no nível do rack.&lt;/p&gt;
+
+&lt;p&gt;Aumentando a tensão de distribuição para 690V AC, a eficiência aumenta para aproximadamente 97,8%.&lt;/p&gt;
+
+&lt;p&gt;Com distribuição DC, os ganhos são ainda mais significativos:&lt;/p&gt;
+
+&lt;p&gt;Um sistema de ±400V DC alimentado por fontes DC (células de combustível, baterias, PV) atinge uma eficiência total de aproximadamente 98,7%&lt;/p&gt;
+
+&lt;p&gt;Quando alimentado pela rede, um sistema de ±400V DC com retificador PFC SiC centralizado alcança aproximadamente 97,9% de eficiência&lt;/p&gt;
+
+&lt;h3 id=&quot;redução-nas-perdas-de-distribuição&quot;&gt;Redução nas Perdas de Distribuição&lt;/h3&gt;
+
+&lt;p&gt;Usando a mesma barra condutora em configuração AC ou DC, a mudança de 400V AC para 800V DC (±400V DC) resulta em redução de 75% nas perdas de distribuição ou 75% na massa de cobre.&lt;/p&gt;
+
+&lt;h2 id=&quot;interfaces-mvac-lvdc-conectando-redes-à-distribuição-dc&quot;&gt;Interfaces MVAC-LVDC: Conectando Redes à Distribuição DC&lt;/h2&gt;
+
+&lt;h3 id=&quot;transformadores-híbridos&quot;&gt;Transformadores Híbridos&lt;/h3&gt;
+
+&lt;p&gt;Os transformadores híbridos MVAC-LVDC utilizam processamento parcial de potência em modo comutado, com módulos de filtro ativo (AF) com aproximadamente 25% da potência nominal para garantir correntes senoidais na rede e compensação de potência reativa.&lt;/p&gt;
+
+&lt;p&gt;Esta solução alcança eficiência de aproximadamente 98,5% com densidade de potência de cerca de 0,2 kW/dm³.&lt;/p&gt;
+
+&lt;h3 id=&quot;lft--retificador-pfc-sic-central&quot;&gt;LFT + Retificador PFC SiC Central&lt;/h3&gt;
+
+&lt;p&gt;Uma solução utilizando retificador PFC centralizado com tecnologia SiC de 1200V e transformador seco/EcoDesign de alta eficiência oferece funcionalidade completa (potência reativa, fluxo de potência bidirecional), alta robustez, baixa complexidade e escalabilidade para níveis MVAC mais altos.&lt;/p&gt;
+
+&lt;p&gt;Esta configuração atinge eficiência de aproximadamente 98,2% com densidade de potência de cerca de 0,25 kW/dm³.&lt;/p&gt;
+
+&lt;h2 id=&quot;currentos-um-padrão-aberto-para-lvdc&quot;&gt;Current/OS: Um Padrão Aberto para LVDC&lt;/h2&gt;
+
+&lt;h3 id=&quot;o-que-é-currentos&quot;&gt;O Que É Current/OS?&lt;/h3&gt;
+
+&lt;p&gt;Current/OS é um conjunto evolutivo de regras para garantir interoperabilidade, segurança, escalabilidade, efetividade e confiabilidade de instalações elétricas DC prosumer com fontes distribuídas. Estas regras definem todos os aspectos do sistema para cargas, fontes e cabos.&lt;/p&gt;
+
+&lt;h3 id=&quot;bandas-de-tensão-inteligentes&quot;&gt;Bandas de Tensão Inteligentes&lt;/h3&gt;
+
+&lt;p&gt;Um dos conceitos mais inovadores do Current/OS é o uso de bandas de tensão para controle distribuído sem necessidade de comunicação central:&lt;/p&gt;
+
+&lt;p&gt;Dentro das bandas nominais, a tensão é usada como um sinal para comunicar a disponibilidade de energia às cargas e fontes conectadas à rede, fazendo-as reagir de acordo.&lt;/p&gt;
+
+&lt;p&gt;As bandas incluem:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Banda de blackout (B1)&lt;/strong&gt;: Sistema desligado, requer reinicialização&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Banda de emergência (B2)&lt;/strong&gt;: Potência disponível apenas suficiente&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Banda nominal (B3)&lt;/strong&gt;: Operação normal&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Banda de sobretensão (B4)&lt;/strong&gt;: Condições temporárias&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Bandas de proteção (B5-B7)&lt;/strong&gt;: Ativação de dispositivos de proteção&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;zonas-dc-para-segurança&quot;&gt;Zonas DC para Segurança&lt;/h3&gt;
+
+&lt;p&gt;Para facilitar o projeto e operação de instalações DC, circuitos ou grupos de circuitos são classificados de acordo com a energia de falta disponível e os meios de proteção em 6 Zonas DC, rotuladas como 0, 1, 2.1, 2.2, 3 e 4.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Zona DC 3&lt;/strong&gt; é particularmente interessante para distribuição:
+Múltiplas fontes distribuídas com OCPD tendo tempo de interrupção menor que 10 μs resultam em correntes de falta ultra-limitadas no barramento DC, permitindo que as fontes sejam distribuídas e mantendo a energia incidente sempre muito pequena.&lt;/p&gt;
+
+&lt;h2 id=&quot;suporte-da-indústria&quot;&gt;Suporte da Indústria&lt;/h2&gt;
+
+&lt;h3 id=&quot;abb-e-a-arquitetura-800-vdc&quot;&gt;ABB e a Arquitetura 800 VDC&lt;/h3&gt;
+
+&lt;p&gt;A multinacional sueco-suíça ABB anunciou uma parceria com a Nvidia que verá seu suporte ao lançamento da arquitetura de energia 800 VDC da Nvidia para racks de servidor de 1 megawatt.&lt;/p&gt;
+
+&lt;p&gt;Por mais de uma década, a ABB tem estado na vanguarda da inovação LVDC, fornecendo tecnologias habilitadoras nos setores marítimo, de carregamento de veículos elétricos, industrial e de edifícios.&lt;/p&gt;
+
+&lt;h3 id=&quot;experiência-marítima&quot;&gt;Experiência Marítima&lt;/h3&gt;
+
+&lt;p&gt;Desde 2013, embarcações marítimas usam sistemas LVDC com 1000 VDC e até 20 MW, relatando economia de energia de 20-40% e custos de manutenção até 30% menores.&lt;/p&gt;
+
+&lt;h3 id=&quot;ecossistema-de-parceiros&quot;&gt;Ecossistema de Parceiros&lt;/h3&gt;
+
+&lt;p&gt;A NVIDIA está colaborando com parceiros-chave da indústria em todo o ecossistema elétrico de data center, incluindo fornecedores de silício como Analog Devices, Infineon, Innoscience, MPS, Navitas, OnSemi, Renesas, ROHM, STMicroelectronics e Texas Instruments.&lt;/p&gt;
+
+&lt;h2 id=&quot;desafios-e-considerações&quot;&gt;Desafios e Considerações&lt;/h2&gt;
+
+&lt;h3 id=&quot;proteção-e-segurança&quot;&gt;Proteção e Segurança&lt;/h3&gt;
+
+&lt;p&gt;A distribuição DC apresenta desafios únicos de proteção. Os requisitos de proteção têm impacto significativo no dimensionamento da eletrônica de potência do lado MV dos SSTs.&lt;/p&gt;
+
+&lt;p&gt;A solução está em disjuntores semicondutores ultrarrápidos e sistemas de proteção inteligentes que podem detectar e isolar faltas em microssegundos.&lt;/p&gt;
+
+&lt;h3 id=&quot;corrosão&quot;&gt;Corrosão&lt;/h3&gt;
+
+&lt;p&gt;Correntes de fuga DC podem ter efeito prejudicial sobre o aço de reforço no concreto dos edifícios. Apenas alguns miliamperes de correntes de fuga já podem causar sérios problemas de corrosão.&lt;/p&gt;
+
+&lt;p&gt;A solução inclui o uso de aterramento TN-S e dispositivos de substituição de célula de polarização (PCR) com diodos para prevenir correntes de fuga DC.&lt;/p&gt;
+
+&lt;h3 id=&quot;padronização&quot;&gt;Padronização&lt;/h3&gt;
+
+&lt;p&gt;Embora existam avanços significativos, a padronização completa ainda está em desenvolvimento. Organizações como IEC, Current/OS Foundation e grupos industriais estão trabalhando ativamente para estabelecer padrões globais.&lt;/p&gt;
+
+&lt;h2 id=&quot;aplicações-além-dos-data-centers&quot;&gt;Aplicações Além dos Data Centers&lt;/h2&gt;
+
+&lt;h3 id=&quot;edifícios-inteligentes&quot;&gt;Edifícios Inteligentes&lt;/h3&gt;
+
+&lt;p&gt;Sistemas DC de 350V são recomendados para instalações onde AC monofásico de 230V seria tipicamente usado, por exemplo, para residências ou usos similares.&lt;/p&gt;
+
+&lt;h3 id=&quot;integração-de-renováveis&quot;&gt;Integração de Renováveis&lt;/h3&gt;
+
+&lt;p&gt;A distribuição DC aproveita a saída DC de células de combustível, baterias e sistemas fotovoltaicos, eliminando uma etapa de conversão DC/AC adicional.&lt;/p&gt;
+
+&lt;h3 id=&quot;infraestrutura-de-recarga-de-ves&quot;&gt;Infraestrutura de Recarga de VEs&lt;/h3&gt;
+
+&lt;p&gt;A experiência com carregadores rápidos DC para veículos elétricos está contribuindo significativamente para o desenvolvimento de padrões e componentes para distribuição LVDC em edifícios.&lt;/p&gt;
+
+&lt;h2 id=&quot;o-futuro-da-distribuição-de-energia&quot;&gt;O Futuro da Distribuição de Energia&lt;/h2&gt;
+
+&lt;h3 id=&quot;timeline-de-implementação&quot;&gt;Timeline de Implementação&lt;/h3&gt;
+
+&lt;p&gt;A produção em escala total de data centers 800 VDC coincidirá com os sistemas rack-scale NVIDIA Kyber em 2027, garantindo escalabilidade perfeita para modelos de IA cada vez mais exigentes.&lt;/p&gt;
+
+&lt;h3 id=&quot;impacto-econômico&quot;&gt;Impacto Econômico&lt;/h3&gt;
+
+&lt;p&gt;À medida que as cargas de trabalho de IA requerem 100x a 1.000x mais computação por consulta, esta arquitetura permite crescimento sustentável enquanto reduz o custo total de propriedade (TCO) em até 30% através de ganhos em eficiência, confiabilidade e melhorias na arquitetura do sistema.&lt;/p&gt;
+
+&lt;h3 id=&quot;sustentabilidade&quot;&gt;Sustentabilidade&lt;/h3&gt;
+
+&lt;p&gt;Transformadores de baixa frequência têm vida útil típica de mais de 40 anos, comparado a aproximadamente 10 anos para SSTs, além de vantagem de reciclabilidade de LFTs e unidades de alta potência.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusão&quot;&gt;Conclusão&lt;/h2&gt;
+
+&lt;p&gt;LVDC não é apenas uma tendência tecnológica passageira, mas uma evolução fundamental na forma como distribuímos e utilizamos energia elétrica. Com benefícios comprovados em eficiência, redução de custos, facilitação de energias renováveis e preparação para as demandas futuras de computação de alto desempenho, LVDC está posicionado para se tornar o padrão dominante em data centers, edifícios inteligentes e instalações industriais nas próximas décadas.&lt;/p&gt;
+
+&lt;p&gt;Enquanto 690V AC é competitivo com ±400V DC, considerações adicionais sobre integração de renováveis, energia de backup de células de combustível e serviços de rede favorecem as soluções DC.&lt;/p&gt;
+
+&lt;p&gt;A transição já começou. Com o suporte de gigantes da indústria como NVIDIA, ABB e um ecossistema crescente de fornecedores, LVDC está pronto para revolucionar a infraestrutura energética do século XXI, tornando-a mais eficiente, sustentável e preparada para o futuro.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;Referências&lt;/strong&gt;: Este artigo foi baseado em publicações técnicas de ETH Zürich, NVIDIA, ABB e documentação Current/OS Foundation, representando o estado da arte em sistemas LVDC até 2025., R., Popp, M., &amp;amp; Schaefer, M. (2024). “Dynamic modeling, design and simulation of a thermal pumped piston storage within a renewable energy distribution system.” &lt;em&gt;Journal of Energy Storage, 100&lt;/em&gt;, 113348. https://doi.org/10.1016/j.est.2024.113348&lt;/p&gt;</content><author><name></name></author><category term="energia" /><category term="energia" /><category term="ciências" /><summary type="html">LVDC: A Revolução Silenciosa na Distribuição de Energia para Data Centers e Edifícios</summary></entry><entry><title type="html">Guia ilustrado das instruções RISC-V RVI32 - Verilog</title><link href="http://0.0.0.0:4000/verilog/2025/03/30/riscv-guia-rapido-instrucoes.html" rel="alternate" type="text/html" title="Guia ilustrado das instruções RISC-V RVI32 - Verilog" /><published>2025-03-30T00:00:00-05:00</published><updated>2025-03-30T00:00:00-05:00</updated><id>http://0.0.0.0:4000/verilog/2025/03/30/riscv-guia-rapido-instrucoes</id><content type="html" xml:base="http://0.0.0.0:4000/verilog/2025/03/30/riscv-guia-rapido-instrucoes.html">&lt;p&gt;Cada vez mais processadores e microcontroladores baseados em RISC-V vêm ganhando espaço no mercado como alternativas às arquiteturas ARM e MIPS. O RISC-V não é uma CPU específica nem uma empresa, mas sim um &lt;strong&gt;conjunto de instruções (ISA) aberto e de livre implementação&lt;/strong&gt;, desenvolvido para ser modular, escalável e sem custos de licenciamento.&lt;/p&gt;
 
 &lt;p&gt;Esse padrão é mantido pela RISC-V International, uma organização sem fins lucrativos responsável por coordenar a evolução da arquitetura e suas especificações. Fundada em 2015 como RISC-V Foundation e transferida para a Suíça em 2020, a entidade atua para garantir neutralidade, continuidade e colaboração internacional. Com mais de 4.500 membros distribuídos em 70 países, a RISC-V International promove um ecossistema acessível e voltado à inovação, livre de royalties.&lt;/p&gt;
 
@@ -1160,7 +1347,38 @@ O local onde este capacitor iria ficar era apertado e não era um dos padrões q
 
 &lt;p&gt;O erro estava na métrica usada para a inferência. A &lt;strong&gt;moda&lt;/strong&gt; é um bom estimador em muitas situações, mas, nesse caso, não levou em conta que a distribuição dos valores era assimétrica e que fabricantes podem priorizar determinados tamanhos com base em fatores não refletidos apenas na frequência das ofertas.&lt;/p&gt;
 
-&lt;p&gt;Talvez uma abordagem mais conservadora teria sido considerar o &lt;strong&gt;percentil superior&lt;/strong&gt; ou reservar um espaço extra com base na variabilidade dos dados.&lt;/p&gt;</content><author><name></name></author><category term="aplicadas" /><category term="matemática" /><category term="estatística" /><summary type="html">Como perdi uma placa por utilizar o estimador estatístico errado</summary></entry><entry><title type="html">Armazenamento Térmico com Pistão Bombeado (TPPS) - Energia</title><link href="http://0.0.0.0:4000/energia/2025/03/16/armazenamento-termico-pistao-bombeado.html" rel="alternate" type="text/html" title="Armazenamento Térmico com Pistão Bombeado (TPPS) - Energia" /><published>2025-03-16T00:00:00-05:00</published><updated>2025-03-16T00:00:00-05:00</updated><id>http://0.0.0.0:4000/energia/2025/03/16/armazenamento-termico-pistao-bombeado</id><content type="html" xml:base="http://0.0.0.0:4000/energia/2025/03/16/armazenamento-termico-pistao-bombeado.html">&lt;h3 id=&quot;armazenamento-térmico-com-pistão-bombeado-tpps&quot;&gt;Armazenamento Térmico com Pistão Bombeado (TPPS)&lt;/h3&gt;
+&lt;p&gt;Talvez uma abordagem mais conservadora teria sido considerar o &lt;strong&gt;percentil superior&lt;/strong&gt; ou reservar um espaço extra com base na variabilidade dos dados.&lt;/p&gt;</content><author><name></name></author><category term="aplicadas" /><category term="matemática" /><category term="estatística" /><summary type="html">Como perdi uma placa por utilizar o estimador estatístico errado</summary></entry><entry><title type="html">Receptor FM de conversão direta - RF</title><link href="http://0.0.0.0:4000/eletr%C3%B4nica/2025/03/16/radio-conversao-direta-fm.html" rel="alternate" type="text/html" title="Receptor FM de conversão direta - RF" /><published>2025-03-16T00:00:00-05:00</published><updated>2025-03-16T00:00:00-05:00</updated><id>http://0.0.0.0:4000/eletr%C3%B4nica/2025/03/16/radio-conversao-direta-fm</id><content type="html" xml:base="http://0.0.0.0:4000/eletr%C3%B4nica/2025/03/16/radio-conversao-direta-fm.html">&lt;h2 id=&quot;receptor-de-conversão-direta&quot;&gt;Receptor de Conversão Direta&lt;/h2&gt;
+
+&lt;p&gt;Os receptores de conversão direta diferem dos super-heteródinos por operarem com um oscilador sintonizado exatamente na mesma frequência do sinal que se deseja receber, convertendo-o diretamente para a faixa de áudio. Nos receptores super-heteródinos, a frequência do oscilador local é deslocada em relação à frequência de sintonia, gerando uma Frequência Intermediária (FI) após o processo de mistura. A FI passa por diversos estágios de amplificação e filtragem antes da demodulação final do sinal de áudio.&lt;/p&gt;
+
+&lt;p&gt;Nos receptores de conversão direta, por outro lado, o oscilador opera exatamente na frequência do sinal de entrada. Quando este é combinado no mixer de radiofrequência, a frequência portadora é suprimida e restam apenas os componentes de áudio modulados, que são extraídos diretamente. Esse tipo de arquitetura simplifica o circuito e reduz a necessidade de filtros complexos, embora seja mais sensível a interferências e ruídos.&lt;/p&gt;
+
+&lt;h2 id=&quot;esquema-do-circuito&quot;&gt;Esquema do Circuito&lt;/h2&gt;
+
+&lt;p&gt;Durante minhas experiências com receptores experimentais, este foi um dos melhores circuitos que testei para a banda de FM. Ele é uma adaptação para o transistor NPN BF199, baseada no circuito original encontrado no site &lt;a href=&quot;https://www.qsl.net/va3iul/&quot;&gt;VA3IUL&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/imgs/receptor-conversao-direta-fm.png&quot; alt=&quot;Esquema do receptor de FM com conversão direta&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;O circuito é composto pelos seguintes blocos principais:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Oscilador Local (Q2 e Q3)&lt;/strong&gt;: A configuração desse oscilador é particularmente interessante, garantindo a estabilidade necessária para uma boa conversão do sinal.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Amplificador e Misturador (Q1)&lt;/strong&gt;: O transistor Q1 amplifica o sinal de RF recebido pela antena e realiza a mistura com a frequência do oscilador, gerando o sinal de áudio na saída.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Bobinas&lt;/strong&gt;: Podem ser enroladas manualmente em um lápis, ajustadas para otimizar a recepção na faixa desejada.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Potenciômetro de Ajuste&lt;/strong&gt;: Deve ser calibrado até que se atinja o ponto ideal de mistura, garantindo a melhor qualidade do sinal de áudio.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;O esquema abaixo ilustra o funcionamento do circuito:&lt;/p&gt;
+
+&lt;h2 id=&quot;oscilador&quot;&gt;Oscilador&lt;/h2&gt;
+
+&lt;p&gt;O oscilador se parece muito com a configuração flip-flop a transistor adicionado de realimentação através de L2 e C5. Quando o circuito é ligado somente Q3 conduz, devido a polarização de sua base com a corrente proveniente de RV1 e R6 e uma pequena fração do sinal de RF através de Q1. L2 e C3 começam a entrar em ressonância com tensão muito baixa inicialmente. A corrente de oscilação de L2 e Q3 começa a subir elevando cada vez mais a amplificação de Q3.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l5YCsA2ATIq0DMB2AnFssjgBx4AsyJWYOOyIykIG5WLApgLRhgBQAd3DlyIVKlHjJEqIOGSU8sTMhzkChuuWjVQsCKXoG+nXK5ZU2pSdlDyJJVy03dVqSHtLVtUTzyWbHjAApnBweGYYEkhkPAj4uAgAJQ4AZwBLVIAXAEMAOwBjDjMjECxCECdRcoZXLlLUEgd6xRrZADdKhqauxVpaqA9mPEHI6EQzLVRIZucDVwaZsT75vgBzZYY20qxES0i5HYqG8gOhKrLj1oq6qdPKrTbVAsYNQ0UdWAjyPF+--4BtVgYGoeBIYCw5F49EgcXmmAQfAANq8rDZ3GNEpUYHBdiQ6KhkFhII0CIhaLIspULFYLhiwjiQWxIIhCHs4GgLJ9ECRkBDobxYjhaDgQL8QAATDgAMxyAFckVk+FT3KrFPSIFxGSRmazkOyYqguZgUHQOZD1Hh9YhRGAWZKZfLFXxUtTLO4pipBrKkaliqd2FxPCdmE9wCQAPpgCOQCNQyA4GOwUjBRBJjnoCM8COoKORrB8ANKR57cCNQZYKMxuN2xNgaBISA-VC0cqoPA4FvphAkHmdrD+PAQnCIFlZ6O5ysF86lQKz+i2SpWxxzUznGz9JfGBd1ZeBPc7wuQQM2LSeYIOZhp6Ox06-KPQTM44+p8c5iNpguulrGAx+ALwswPp+mYG6hDwBibqoQA&quot;&gt;Quem se interessou pelo oscilador siga o link com a versão dele no simulador Falstad.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Os receptores de conversão direta são uma excelente opção para quem deseja um design mais simples e eficiente para recepção de sinais de AM, CW e SSB. Apesar de suas limitações em relação à rejeição de sinais espúrios e ao isolamento de interferências, eles continuam sendo uma alternativa viável para aplicações de radioamadorismo e experimentação eletrônica.&lt;/p&gt;
+
+&lt;p&gt;Este circuito, em particular, mostrou-se robusto e eficiente nos testes, sendo um excelente ponto de partida para quem deseja explorar mais sobre a técnica de conversão direta na recepção de sinais de RF.&lt;/p&gt;</content><author><name></name></author><category term="eletrônica" /><category term="eletrônica" /><category term="receptor" /><category term="rf" /><summary type="html">Receptor de Conversão Direta</summary></entry><entry><title type="html">Armazenamento Térmico com Pistão Bombeado (TPPS) - Energia</title><link href="http://0.0.0.0:4000/energia/2025/03/16/armazenamento-termico-pistao-bombeado.html" rel="alternate" type="text/html" title="Armazenamento Térmico com Pistão Bombeado (TPPS) - Energia" /><published>2025-03-16T00:00:00-05:00</published><updated>2025-03-16T00:00:00-05:00</updated><id>http://0.0.0.0:4000/energia/2025/03/16/armazenamento-termico-pistao-bombeado</id><content type="html" xml:base="http://0.0.0.0:4000/energia/2025/03/16/armazenamento-termico-pistao-bombeado.html">&lt;h3 id=&quot;armazenamento-térmico-com-pistão-bombeado-tpps&quot;&gt;Armazenamento Térmico com Pistão Bombeado (TPPS)&lt;/h3&gt;
 
 &lt;h4 id=&quot;introdução&quot;&gt;Introdução&lt;/h4&gt;
 &lt;p&gt;O armazenamento de energia é um dos desafios críticos na transição para fontes renováveis, especialmente em regiões onde a geração solar e eólica são intermitentes. O conceito de Armazenamento Térmico com Pistão Bombeado (TPPS) combina armazenamento de energia potencial com armazenamento térmico de água quente em uma estrutura subterrânea, proporcionando solução híbrida para suprimento de eletricidade e calor.&lt;/p&gt;
@@ -1198,38 +1416,7 @@ O local onde este capacitor iria ficar era apertado e não era um dos padrões q
 &lt;p&gt;O TPPS é uma solução inovadora para armazenamento de energia, permitindo um suprimento eficiente e sustentável de eletricidade e calor. A modelagem e simulação demonstram sua viabilidade em larga escala, contribuindo para a estabilidade da rede elétrica e redução das emissões de carbono. Com estudos avançados de otimização e implementação em cenários reais, o TPPS pode desempenhar um papel essencial na transição energética global.&lt;/p&gt;
 
 &lt;h4 id=&quot;referência&quot;&gt;Referência&lt;/h4&gt;
-&lt;p&gt;Este artigo foi baseado no estudo: Haeuslein, D., Schmidt-Vollus, R., Popp, M., &amp;amp; Schaefer, M. (2024). “Dynamic modeling, design and simulation of a thermal pumped piston storage within a renewable energy distribution system.” &lt;em&gt;Journal of Energy Storage, 100&lt;/em&gt;, 113348. https://doi.org/10.1016/j.est.2024.113348&lt;/p&gt;</content><author><name></name></author><category term="energia" /><category term="energia" /><category term="ciências" /><summary type="html">Armazenamento Térmico com Pistão Bombeado (TPPS)</summary></entry><entry><title type="html">Receptor FM de conversão direta - RF</title><link href="http://0.0.0.0:4000/eletr%C3%B4nica/2025/03/16/radio-conversao-direta-fm.html" rel="alternate" type="text/html" title="Receptor FM de conversão direta - RF" /><published>2025-03-16T00:00:00-05:00</published><updated>2025-03-16T00:00:00-05:00</updated><id>http://0.0.0.0:4000/eletr%C3%B4nica/2025/03/16/radio-conversao-direta-fm</id><content type="html" xml:base="http://0.0.0.0:4000/eletr%C3%B4nica/2025/03/16/radio-conversao-direta-fm.html">&lt;h2 id=&quot;receptor-de-conversão-direta&quot;&gt;Receptor de Conversão Direta&lt;/h2&gt;
-
-&lt;p&gt;Os receptores de conversão direta diferem dos super-heteródinos por operarem com um oscilador sintonizado exatamente na mesma frequência do sinal que se deseja receber, convertendo-o diretamente para a faixa de áudio. Nos receptores super-heteródinos, a frequência do oscilador local é deslocada em relação à frequência de sintonia, gerando uma Frequência Intermediária (FI) após o processo de mistura. A FI passa por diversos estágios de amplificação e filtragem antes da demodulação final do sinal de áudio.&lt;/p&gt;
-
-&lt;p&gt;Nos receptores de conversão direta, por outro lado, o oscilador opera exatamente na frequência do sinal de entrada. Quando este é combinado no mixer de radiofrequência, a frequência portadora é suprimida e restam apenas os componentes de áudio modulados, que são extraídos diretamente. Esse tipo de arquitetura simplifica o circuito e reduz a necessidade de filtros complexos, embora seja mais sensível a interferências e ruídos.&lt;/p&gt;
-
-&lt;h2 id=&quot;esquema-do-circuito&quot;&gt;Esquema do Circuito&lt;/h2&gt;
-
-&lt;p&gt;Durante minhas experiências com receptores experimentais, este foi um dos melhores circuitos que testei para a banda de FM. Ele é uma adaptação para o transistor NPN BF199, baseada no circuito original encontrado no site &lt;a href=&quot;https://www.qsl.net/va3iul/&quot;&gt;VA3IUL&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/imgs/receptor-conversao-direta-fm.png&quot; alt=&quot;Esquema do receptor de FM com conversão direta&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;O circuito é composto pelos seguintes blocos principais:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Oscilador Local (Q2 e Q3)&lt;/strong&gt;: A configuração desse oscilador é particularmente interessante, garantindo a estabilidade necessária para uma boa conversão do sinal.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Amplificador e Misturador (Q1)&lt;/strong&gt;: O transistor Q1 amplifica o sinal de RF recebido pela antena e realiza a mistura com a frequência do oscilador, gerando o sinal de áudio na saída.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Bobinas&lt;/strong&gt;: Podem ser enroladas manualmente em um lápis, ajustadas para otimizar a recepção na faixa desejada.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Potenciômetro de Ajuste&lt;/strong&gt;: Deve ser calibrado até que se atinja o ponto ideal de mistura, garantindo a melhor qualidade do sinal de áudio.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;O esquema abaixo ilustra o funcionamento do circuito:&lt;/p&gt;
-
-&lt;h2 id=&quot;oscilador&quot;&gt;Oscilador&lt;/h2&gt;
-
-&lt;p&gt;O oscilador se parece muito com a configuração flip-flop a transistor adicionado de realimentação através de L2 e C5. Quando o circuito é ligado somente Q3 conduz, devido a polarização de sua base com a corrente proveniente de RV1 e R6 e uma pequena fração do sinal de RF através de Q1. L2 e C3 começam a entrar em ressonância com tensão muito baixa inicialmente. A corrente de oscilação de L2 e Q3 começa a subir elevando cada vez mais a amplificação de Q3.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l5YCsA2ATIq0DMB2AnFssjgBx4AsyJWYOOyIykIG5WLApgLRhgBQAd3DlyIVKlHjJEqIOGSU8sTMhzkChuuWjVQsCKXoG+nXK5ZU2pSdlDyJJVy03dVqSHtLVtUTzyWbHjAApnBweGYYEkhkPAj4uAgAJQ4AZwBLVIAXAEMAOwBjDjMjECxCECdRcoZXLlLUEgd6xRrZADdKhqauxVpaqA9mPEHI6EQzLVRIZucDVwaZsT75vgBzZYY20qxES0i5HYqG8gOhKrLj1oq6qdPKrTbVAsYNQ0UdWAjyPF+--4BtVgYGoeBIYCw5F49EgcXmmAQfAANq8rDZ3GNEpUYHBdiQ6KhkFhII0CIhaLIspULFYLhiwjiQWxIIhCHs4GgLJ9ECRkBDobxYjhaDgQL8QAATDgAMxyAFckVk+FT3KrFPSIFxGSRmazkOyYqguZgUHQOZD1Hh9YhRGAWZKZfLFXxUtTLO4pipBrKkaliqd2FxPCdmE9wCQAPpgCOQCNQyA4GOwUjBRBJjnoCM8COoKORrB8ANKR57cCNQZYKMxuN2xNgaBISA-VC0cqoPA4FvphAkHmdrD+PAQnCIFlZ6O5ysF86lQKz+i2SpWxxzUznGz9JfGBd1ZeBPc7wuQQM2LSeYIOZhp6Ox06-KPQTM44+p8c5iNpguulrGAx+ALwswPp+mYG6hDwBibqoQA&quot;&gt;Quem se interessou pelo oscilador siga o link com a versão dele no simulador Falstad.&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Os receptores de conversão direta são uma excelente opção para quem deseja um design mais simples e eficiente para recepção de sinais de AM, CW e SSB. Apesar de suas limitações em relação à rejeição de sinais espúrios e ao isolamento de interferências, eles continuam sendo uma alternativa viável para aplicações de radioamadorismo e experimentação eletrônica.&lt;/p&gt;
-
-&lt;p&gt;Este circuito, em particular, mostrou-se robusto e eficiente nos testes, sendo um excelente ponto de partida para quem deseja explorar mais sobre a técnica de conversão direta na recepção de sinais de RF.&lt;/p&gt;</content><author><name></name></author><category term="eletrônica" /><category term="eletrônica" /><category term="receptor" /><category term="rf" /><summary type="html">Receptor de Conversão Direta</summary></entry><entry><title type="html">Sobre tohost e fromhost - RISCV</title><link href="http://0.0.0.0:4000/programa%C3%A7%C3%A3o/2025/01/11/sobre-tohost-fromhost.html" rel="alternate" type="text/html" title="Sobre tohost e fromhost - RISCV" /><published>2025-01-11T00:00:00-06:00</published><updated>2025-01-11T00:00:00-06:00</updated><id>http://0.0.0.0:4000/programa%C3%A7%C3%A3o/2025/01/11/sobre-tohost-fromhost</id><content type="html" xml:base="http://0.0.0.0:4000/programa%C3%A7%C3%A3o/2025/01/11/sobre-tohost-fromhost.html">&lt;h3 id=&quot;resumo-e-explicação-da-funcionalidade-de-tohost-e-fromhost-no-spike-e-em-ambientes-risc-v&quot;&gt;Resumo e Explicação da Funcionalidade de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tohost&lt;/code&gt; e &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fromhost&lt;/code&gt; no Spike e em Ambientes RISC-V&lt;/h3&gt;
+&lt;p&gt;Este artigo foi baseado no estudo: Haeuslein, D., Schmidt-Vollus, R., Popp, M., &amp;amp; Schaefer, M. (2024). “Dynamic modeling, design and simulation of a thermal pumped piston storage within a renewable energy distribution system.” &lt;em&gt;Journal of Energy Storage, 100&lt;/em&gt;, 113348. https://doi.org/10.1016/j.est.2024.113348&lt;/p&gt;</content><author><name></name></author><category term="energia" /><category term="energia" /><category term="ciências" /><summary type="html">Armazenamento Térmico com Pistão Bombeado (TPPS)</summary></entry><entry><title type="html">Sobre tohost e fromhost - RISCV</title><link href="http://0.0.0.0:4000/programa%C3%A7%C3%A3o/2025/01/11/sobre-tohost-fromhost.html" rel="alternate" type="text/html" title="Sobre tohost e fromhost - RISCV" /><published>2025-01-11T00:00:00-06:00</published><updated>2025-01-11T00:00:00-06:00</updated><id>http://0.0.0.0:4000/programa%C3%A7%C3%A3o/2025/01/11/sobre-tohost-fromhost</id><content type="html" xml:base="http://0.0.0.0:4000/programa%C3%A7%C3%A3o/2025/01/11/sobre-tohost-fromhost.html">&lt;h3 id=&quot;resumo-e-explicação-da-funcionalidade-de-tohost-e-fromhost-no-spike-e-em-ambientes-risc-v&quot;&gt;Resumo e Explicação da Funcionalidade de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tohost&lt;/code&gt; e &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fromhost&lt;/code&gt; no Spike e em Ambientes RISC-V&lt;/h3&gt;
 
 &lt;p&gt;A comunicação entre o simulador Spike e o programa em execução é realizada por meio de dois registradores especiais: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tohost&lt;/code&gt; e &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fromhost&lt;/code&gt;. Esses registradores não fazem parte de um padrão oficial do RISC-V, mas são uma convenção adotada pela equipe da UC Berkeley para permitir a interação entre o host (sistema que executa o simulador) e o target (código RISC-V em execução no simulador).&lt;/p&gt;
 
@@ -2069,394 +2256,4 @@ window.addEventListener(&quot;load&quot;, function(){
 
 &lt;/div&gt;
 
-&lt;p&gt;&lt;em&gt;Os comentários, soluções e descrições são genéricos. Cada carro e defeito tem particularidades que as soluções descritas podem não resolver ou ainda piorar o problema. Algumas atividades de manutenção requerem conhecimento técnico prévio, ferramentas adequadas e experiência do operador. Se não sabe o que está fazendo consulte um profissional.&lt;/em&gt;&lt;/p&gt;</content><author><name></name></author><category term="app" /><category term="auto" /><category term="obd2" /><category term="ecu" /><summary type="html"></summary></entry><entry><title type="html">Cálculo de resistência pelas cores do resistor - Aplicativo</title><link href="http://0.0.0.0:4000/app/2024/01/24/calculo-resistores.html" rel="alternate" type="text/html" title="Cálculo de resistência pelas cores do resistor - Aplicativo" /><published>2024-01-24T00:00:00-06:00</published><updated>2024-01-24T00:00:00-06:00</updated><id>http://0.0.0.0:4000/app/2024/01/24/calculo-resistores</id><content type="html" xml:base="http://0.0.0.0:4000/app/2024/01/24/calculo-resistores.html">&lt;link href=&quot;/assets/css/colormenu.css&quot; type=&quot;text/css&quot; rel=&quot;stylesheet&quot; /&gt;
-
-&lt;script&gt;
-var valor = 220000;
-var unidade = &quot;&quot;;
-var faixas = [2,2,10000,20];
-
-function formata (valor) {
-    if (valor &lt; 1000) {
-    unidade = &quot; Ω&quot;;
-  } else if (valor &gt;= 1000 &amp;&amp; valor &lt; 1000000) {
-    unidade = &quot; KΩ&quot;;
-    valor = valor / 1000;
-  } else if (valor &gt;= 1000000 &amp;&amp; valor &lt; 1000000000) {
-    unidade = &quot; MΩ&quot;;
-    valor = valor / 1000000;
-  } else if (valor &gt;= 1000000000 &amp;&amp; valor &lt; 1000000000000) {
-    unidade = &quot; GΩ&quot;;
-    valor = valor / 1000000000;
-  }
-  valor = valor.toLocaleString(&apos;pt-BR&apos;, {minimumFractionDigits:0, maximumFractionDigits:2}) + unidade;
-  return valor;
-}
-
-function updateValor(cor,index,v) {
-
-  faixas[index] = v;
-  valor = (faixas[0]*10+faixas[1])*faixas[2];
-
-  if (valor &lt;= 100) { substituto = valor; } 
-  if (valor &gt; 100)  { substituto = faixas[0]*100 + faixas[1]*10 + (Math.log10(Number(faixas[2])))   ; }
-
-
-  console.log(cor,index,valor);
-  tolerancia = faixas[3] + &quot;%&quot;;
-
-
-  var alta  =  formata(valor * (1 + Number(faixas[3])/100));
-  var baixa =  formata(valor * (1 - Number(faixas[3])/100));
-  $(&quot;tolerancia&quot;).innerText = tolerancia  + &quot; &quot; + &quot;[ &quot; + alta + &quot;,&quot; + baixa + &quot; ]&quot;;
-  valor = formata(valor);
-  document.faixas[index].style.fill = cor;
-  document.texto.innerHTML = valor;
-  $(&quot;valor&quot;).innerText = valor;
-  
-}
-
-
-&lt;/script&gt;
-
-&lt;div class=&quot;section&quot;&gt;
-&lt;div class=&quot;field is-grouped is-grouped-centered&quot;&gt;
-  &lt;div class=&quot;control&quot;&gt;
-      &lt;small&gt;1° Faixa&lt;/small&gt;
-      &lt;div class=&quot;is-multiple&quot;&gt;
-
-      &lt;label style=&quot;background-color: black; color: dark-grey;&quot; class=&quot;colorContainer&quot;&gt;Preto
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; disabled=&quot;disabled&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: brown; color: white;&quot; class=&quot;colorContainer&quot;&gt;Marrom
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;brown&apos;,0,1);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: red; color: white;&quot; class=&quot;colorContainer&quot;&gt;Vermelho
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;red&apos;,0,2);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: orange; color: white;&quot; class=&quot;colorContainer&quot;&gt;Laranja
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;orange&apos;,0,3);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: yellow; color: black;&quot; class=&quot;colorContainer&quot;&gt;Amarelo
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;yellow&apos;,0,4);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: green; color: white;&quot; class=&quot;colorContainer&quot;&gt;Verde
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;green&apos;,0,5);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;      
-
-      &lt;label style=&quot;background-color: blue; color: white;&quot; class=&quot;colorContainer&quot;&gt;Azul
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;blue&apos;,0,6);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: violet; color: white;&quot; class=&quot;colorContainer&quot;&gt;Violeta
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;violet&apos;,0,7);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: grey; color: white;&quot; class=&quot;colorContainer&quot;&gt;Cinza
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;grey&apos;,0,8);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: white; color: black;&quot; class=&quot;colorContainer&quot;&gt;Branco
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;white&apos;,0,9);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;/div&gt;
-  &lt;/div&gt;
-
-    &lt;div class=&quot;control&quot;&gt;
-    &lt;small&gt;2° Faixa&lt;/small&gt;
-    &lt;div class=&quot;is-multiple&quot;&gt;
-      
-      &lt;label style=&quot;background-color: black; color: white;&quot; class=&quot;colorContainer&quot;&gt;Preto
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;black&apos;,1,0);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: brown; color: white;&quot; class=&quot;colorContainer&quot;&gt;Marrom
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;brown&apos;,1,1);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: red; color: white;&quot; class=&quot;colorContainer&quot;&gt;Vermelho
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;red&apos;,1,2);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: orange; color: white;&quot; class=&quot;colorContainer&quot;&gt;Laranja
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;orange&apos;,1,3);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: yellow; color: black;&quot; class=&quot;colorContainer&quot;&gt;Amarelo
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;yellow&apos;,1,4);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: green; color: white;&quot; class=&quot;colorContainer&quot;&gt;Verde
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;green&apos;,1,5);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;      
-
-      &lt;label style=&quot;background-color: blue; color: white;&quot; class=&quot;colorContainer&quot;&gt;Azul
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;blue&apos;,1,6);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: violet; color: white;&quot; class=&quot;colorContainer&quot;&gt;Violeta
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;violet&apos;,1,7);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: grey; color: white;&quot; class=&quot;colorContainer&quot;&gt;Cinza
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;grey&apos;,1,8);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: white; color: black;&quot; class=&quot;colorContainer&quot;&gt;Branco
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;white&apos;,1,9);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-    &lt;/div&gt;
-  &lt;/div&gt;
-
-    &lt;div class=&quot;control&quot;&gt;
-      &lt;small&gt;3° Faixa&lt;/small&gt;
-    &lt;div class=&quot;is-multiple&quot;&gt;
-    
-      &lt;label style=&quot;background-color: black; color: white;&quot; class=&quot;colorContainer&quot;&gt;Preto
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;black&apos;,2,1);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: brown; color: white;&quot; class=&quot;colorContainer&quot;&gt;Marrom
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;brown&apos;,2,10);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: red; color: white;&quot; class=&quot;colorContainer&quot;&gt;Vermelho
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;red&apos;,2,100);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: orange; color: white;&quot; class=&quot;colorContainer&quot;&gt;Laranja
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;orange&apos;,2,1000);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: yellow; color: black;&quot; class=&quot;colorContainer&quot;&gt;Amarelo
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;yellow&apos;,2,10000);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: green; color: white;&quot; class=&quot;colorContainer&quot;&gt;Verde
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;green&apos;,2,100000);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;      
-
-      &lt;label style=&quot;background-color: blue; color: white;&quot; class=&quot;colorContainer&quot;&gt;Azul
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;blue&apos;,2,1000000);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: violet; color: white;&quot; class=&quot;colorContainer&quot;&gt;Violeta
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;violet&apos;,2,10000000);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: grey; color: white;&quot; class=&quot;colorContainer&quot;&gt;Cinza
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;grey&apos;,2,100000000);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: white; color: black;&quot; class=&quot;colorContainer&quot;&gt;Branco
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;white&apos;,2,1000000000);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: gold; color: black;&quot; class=&quot;colorContainer&quot;&gt;Ouro
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;gold&apos;,2,0.1);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: silver; color: black;&quot; class=&quot;colorContainer&quot;&gt;Prata
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;silver&apos;,2,0.01);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-
-    &lt;div class=&quot;control&quot;&gt;
-      &lt;small&gt;4° Faixa&lt;/small&gt;
-    &lt;div class=&quot;is-multiple&quot;&gt;    
-      &lt;label style=&quot;background-color: black; color: white;&quot; class=&quot;colorContainer&quot;&gt;Preto
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;black&apos;,3,20);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: brown; color: white;&quot; class=&quot;colorContainer&quot;&gt;Marrom
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;brown&apos;,3,1);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: red; color: white;&quot; class=&quot;colorContainer&quot;&gt;Vermelho
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;red&apos;,3,2);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: orange; color: white;&quot; class=&quot;colorContainer&quot;&gt;Laranja
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;orange&apos;,3,3);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: yellow; color: black;&quot; class=&quot;colorContainer&quot;&gt;Amarelo
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;yellow&apos;,3,4);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: green; color: white;&quot; class=&quot;colorContainer&quot;&gt;Verde
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;green&apos;,3,0.5);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;      
-
-      &lt;label style=&quot;background-color: blue; color: white;&quot; class=&quot;colorContainer&quot;&gt;Azul
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;blue&apos;,3,0.25);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: violet; color: white;&quot; class=&quot;colorContainer&quot;&gt;Violeta
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;violet&apos;,3,0.1);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: grey; color: white;&quot; class=&quot;colorContainer&quot;&gt;Cinza
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;grey&apos;,3,0.05);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: white; color: black;&quot; class=&quot;colorContainer&quot;&gt;Branco
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;white&apos;,3,10);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: gold; color: black;&quot; class=&quot;colorContainer&quot;&gt;Ouro
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;gold&apos;,3,5);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-
-      &lt;label style=&quot;background-color: silver; color: black;&quot; class=&quot;colorContainer&quot;&gt;Prata
-        &lt;input name=&quot;1&quot; type=&quot;radio&quot; onchange=&quot;updateValor(&apos;silver&apos;,3,10);&quot; /&gt;
-        &lt;span class=&quot;colorBar&quot;&gt;&lt;/span&gt;
-      &lt;/label&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;section&quot;&gt;
-&lt;div class=&quot;subtitle has-text-centered&quot;&gt;Selecione as cores acima para obter o resultado&lt;/div&gt;
-&lt;table&gt;
-  &lt;tr&gt;
-    &lt;th&gt;Valor&lt;/th&gt;
-    &lt;th&gt;Tolerância&lt;/th&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-    &lt;td id=&quot;valor&quot; class=&quot;subtitle&quot;&gt;&lt;/td&gt;
-    &lt;td id=&quot;tolerancia&quot; class=&quot;subtitle&quot;&gt;&lt;/td&gt;
-  &lt;/tr&gt;
-&lt;/table&gt; 
-&lt;/div&gt;
-
-&lt;h3 id=&quot;valores-comuns-de-resistores&quot;&gt;Valores comuns de resistores&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;330Ω&lt;/strong&gt; é um valor comum para alimentar um LED em 5V com corrente de 10mA&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;1kΩ&lt;/strong&gt; é um valor comum para alimentar um LED em 5V com corrente de aproximadamente 3mA
-    &lt;ul&gt;
-      &lt;li&gt;Esse valor é usado pelo Arduino em série com os LEDs&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;1k2Ω&lt;/strong&gt; é um valor comum para alimentar um LED em 12V com corrente de aproximadamente 3mA&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;10KΩ&lt;/strong&gt; é um valor comum para Pull Up e Pull Down
-    &lt;ul&gt;
-      &lt;li&gt;Esse valor é usado pelo Arduino como Pull Up&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;510Ω&lt;/strong&gt; é usado pela placa BluePill (STM32 a 3,3 Volts) como resistor de LEDs&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;0.18Ω&lt;/strong&gt; e &lt;strong&gt;0.01Ω&lt;/strong&gt; são valores comuns para resistores Shunt ( sensores de corrente )&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;1MΩ&lt;/strong&gt; é normalmente usado em paralelo com cristais de clock&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;valores-comerciais&quot;&gt;Valores Comerciais&lt;/h3&gt;
-
-&lt;p&gt;O comércio não comercializa todos os valores possíveis. A indústria padronizou alguns valores que são multiplicados pela 3° Faixa, por exemplo, o valor 8.2 pode ser 8.2Ω, 82Ω, 820Ω, 8,2KΩ e assim por diante. Na tabela abaixo pode-se conferir esses valores.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Padrão&lt;/th&gt;
-      &lt;th&gt;E6, E12 e E24&lt;/th&gt;
-      &lt;th&gt; &lt;/th&gt;
-      &lt;th&gt; &lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;1.0&lt;/td&gt;
-      &lt;td&gt;1.1&lt;/td&gt;
-      &lt;td&gt;1.2&lt;/td&gt;
-      &lt;td&gt;1.3&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;1.5&lt;/td&gt;
-      &lt;td&gt;1.6&lt;/td&gt;
-      &lt;td&gt;1.8&lt;/td&gt;
-      &lt;td&gt;2.0&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;2.2&lt;/td&gt;
-      &lt;td&gt;2.4&lt;/td&gt;
-      &lt;td&gt;2.7&lt;/td&gt;
-      &lt;td&gt;3.0&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;3.3&lt;/td&gt;
-      &lt;td&gt;3.6&lt;/td&gt;
-      &lt;td&gt;3.9&lt;/td&gt;
-      &lt;td&gt;4.3&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;6.8&lt;/td&gt;
-      &lt;td&gt;7.5&lt;/td&gt;
-      &lt;td&gt;8.2&lt;/td&gt;
-      &lt;td&gt;9.1&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;Esses valores são para resistores de tolerância entre 5% e 20%. Para tolerâncias menores entre 1% e 0.1% a quantidade de valores comerciais é maior e neste caso uma faixa adicional é usada para indicar a maior precisão de valores.&lt;/p&gt;
-
-&lt;script&gt;
-document.obj = $(&quot;obj&quot;);
-document.obj.addEventListener(&quot;load&quot;,function(){
-  var svg = document.obj.contentDocument;
-  document.faixas = [svg.getElementById(&quot;faixa1&quot;), svg.getElementById(&quot;faixa2&quot;), svg.getElementById(&quot;faixa3&quot;), svg.getElementById(&quot;faixa4&quot;)];
-  document.texto = svg.getElementById(&quot;tspan13&quot;);
-},false);
-&lt;/script&gt;</content><author><name></name></author><category term="app" /><category term="eletrônica" /><category term="resistores" /><category term="código de cores" /><summary type="html"></summary></entry></feed>
+&lt;p&gt;&lt;em&gt;Os comentários, soluções e descrições são genéricos. Cada carro e defeito tem particularidades que as soluções descritas podem não resolver ou ainda piorar o problema. Algumas atividades de manutenção requerem conhecimento técnico prévio, ferramentas adequadas e experiência do operador. Se não sabe o que está fazendo consulte um profissional.&lt;/em&gt;&lt;/p&gt;</content><author><name></name></author><category term="app" /><category term="auto" /><category term="obd2" /><category term="ecu" /><summary type="html"></summary></entry></feed>

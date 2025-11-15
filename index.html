@@ -58,7 +58,7 @@
 <body>
 
 <div class="hero is-medium " style="border-bottom-right-radius: 1000px">
-  <div class="bgimage" style="filter: blur(10px);  background-image: url('/assets/imgs/uma CPU.png');"></div>      
+  <div class="bgimage" style="filter: blur(10px);  background-image: url('/assets/imgs/rack-datacenter.jpg');"></div>      
   <div class="bgimage" style="background: rgb(0,0,0);background: linear-gradient(180deg, rgba(0,0,0,0.6402894605107668) -10%, rgba(0,0,0,0.20723623922225143) 96%, rgb(255, 255, 255) 100%);"></div>      
 
   <div class="hero-head">
@@ -97,16 +97,16 @@
   <div class="hero-body container">
     <div class="columns">
     <div class="column bl">
-      <a class="title is-5" href="/verilog/2025/03/30/riscv-guia-rapido-instrucoes.html">  
+      <a class="title is-5" href="/energia/2025/11/15/LVDC.html">  
       <article class="media-content " style="padding-bottom: 2em;  text-shadow: 1px 1.5px #4a4a4a;"> 
         <div class="content is-centered has-text-white">
-          <small class="title-header has-text-white">Verilog</small>
-        <p class="is-size-1-tablet has-text-white is-capitalized">Guia ilustrado das instruções RISC-V RVI32 - Verilog</p>
+          <small class="title-header has-text-white">energia</small>
+        <p class="is-size-1-tablet has-text-white is-capitalized">LVDC: A Revolução Silenciosa na Distribuição de Energia para Data Centers e Edifícios - Energia</p>
         <small class="pl-2 has-text-white is-size-6" ><span class="icon "><i class="fa fa-user "></i></span>Fabio   
         <span class="icon has-text-white"><i class="fa fa-calendar"></i></span>  
-         30 Mar 2025
+         15 Nov 2025
         <span class="icon has-text-white"><i class="fa fa-tag"></i></span>  
-        Verilog e riscv
+        energia e ciências
         </small>  
           </div>
        </article>
@@ -121,1083 +121,194 @@
         <div class="column is-9">
           <div class="content" >           
             <article class="mt-5 has-text-justified" >
-              <p>Cada vez mais processadores e microcontroladores baseados em RISC-V vêm ganhando espaço no mercado como alternativas às arquiteturas ARM e MIPS. O RISC-V não é uma CPU específica nem uma empresa, mas sim um <strong>conjunto de instruções (ISA) aberto e de livre implementação</strong>, desenvolvido para ser modular, escalável e sem custos de licenciamento.</p>
+              <h1 id="lvdc-a-revolução-silenciosa-na-distribuição-de-energia-para-data-centers-e-edifícios">LVDC: A Revolução Silenciosa na Distribuição de Energia para Data Centers e Edifícios</h1>
 
-<p>Esse padrão é mantido pela RISC-V International, uma organização sem fins lucrativos responsável por coordenar a evolução da arquitetura e suas especificações. Fundada em 2015 como RISC-V Foundation e transferida para a Suíça em 2020, a entidade atua para garantir neutralidade, continuidade e colaboração internacional. Com mais de 4.500 membros distribuídos em 70 países, a RISC-V International promove um ecossistema acessível e voltado à inovação, livre de royalties.</p>
+<p>A forma como distribuímos energia elétrica está passando por uma transformação fundamental. Enquanto a corrente alternada (AC) dominou por mais de um século, a <strong>corrente contínua de baixa tensão (LVDC - Low Voltage Direct Current)</strong> emerge como uma solução superior para as demandas energéticas do século XXI, especialmente em data centers, edifícios inteligentes e instalações industriais.</p>
 
-<p>A arquitetura permite liberdade de design, sendo usada tanto em projetos abertos quanto proprietários. O conjunto de instruções RISC-V foi iniciado em 2010 por Krste Asanović, Yunsup Lee e Andrew Waterman no Par Lab da UC Berkeley, liderado por David Patterson. O Par Lab, financiado por Intel e Microsoft, visava avanços em computação paralela entre 2008 e 2013. O projeto RISC-V e a linguagem Chisel foram desenvolvidos como open source sob a licença BSD. Parte do financiamento veio da DARPA para implementação de processadores, mas não para a ISA RISC-V.</p>
+<h2 id="o-contexto-por-que-mudar-agora">O Contexto: Por Que Mudar Agora?</h2>
 
-<p>Na prática, isso quer dizer que as instruções são abertas e livres para implementação, porém <strong>não há nenhuma CPU com a marca RISC-V</strong>, as CPUs disponíveis no mercado com <strong>as instruções e extensões RISC-V</strong> são CPUs de empresas como SiFive, GigaDevices, Microchip, entre outras com projeto fechado e proprietário, e não deixariam de ser, visto que a fabricação física de uma CPU envolve projeto e processos fabris em microeletrônica protegidos e caros.</p>
+<h3 id="data-centers-e-o-consumo-global-de-energia">Data Centers e o Consumo Global de Energia</h3>
 
-<p>O interesse no RISC-V aliado a sua liberdade de uso faz com que algumas pessoas implementem sua própria CPU RISC-V, seja com emuladores, em Verilog ou VHDL, simulando em software ou sintetizados para alguma FPGA. De fato, pode-se inclusive comercializar uma implementação em FPGA, ao contrário do conjunto de instruções ARM.</p>
+<p>Os data centers consomem mais de 200 TWh por ano, representando cerca de 1% da demanda global de eletricidade. Com o crescimento exponencial da inteligência artificial e computação em nuvem, essa demanda só tende a aumentar. Os custos de energia dominam os custos totais do ciclo de vida dessas instalações, tornando a eficiência energética não apenas uma questão ambiental, mas também econômica.</p>
 
-<p>Como fazer uma CPU envolve processos complexos, como conhecer uma linguagem de descrição de hardware (Verilog ou VHDL), conhecer arquitetura de CPUs, memória, barramento e eletrônica digital, este artigo foi feito para ajudar no entendimento da arquitetura RISC-V com ilustrações e trechos de códigos em Verilog e C. E espero que seja de grande ajuda!</p>
+<h3 id="o-desafio-das-arquiteturas-tradicionais">O Desafio das Arquiteturas Tradicionais</h3>
 
-<div class="destaque amarelo br bl">
-Escrever sua própria CPU é um exercício de gente grande! Extremamente útil na compreensão do funcionamento interno das CPUs e arquitetura de computadores.
-</div>
+<p>Os racks atuais em data centers de IA dependem de distribuição de energia a 54 VDC, onde barras de cobre volumosas transportam eletricidade das prateleiras de energia montadas em rack para as bandejas de computação. À medida que os racks excedem 200 quilowatts, essa abordagem começa a atingir limites físicos.</p>
 
-<h3 id="instruções-base-rvi32">Instruções Base RVI32</h3>
+<p>O problema se torna ainda mais crítico: a física do uso de 54 VDC em um único rack de 1 MW requer até 200 kg de barra de cobre, e as barras de rack sozinhas em um único data center de 1 gigawatt poderiam requerer até meio milhão de toneladas de cobre.</p>
 
-<p>A especificação RISC-V divide-se em instruções Base e Extensões. Em 32 bits as instruções Base são conhecidas como RVI32, que contêm instruções de Movimentação, Soma, Lógicas, Saltos e de Sistema (não-protegido). Elas são divididas em 6 grupos de codificação de imediatos chamados R, I, S, B, U e J cujos formatos são ilustrados abaixo:</p>
+<h2 id="lvdc-a-solução-emergente">LVDC: A Solução Emergente</h2>
 
-<p><img src="/assets/imgs/riscv/RISBUJ.svg" alt="" /></p>
+<h3 id="o-que-é-lvdc">O Que É LVDC?</h3>
+
+<p>LVDC refere-se a sistemas de distribuição de energia em corrente contínua operando em tensões tipicamente entre 48V e 1500V. Esses sistemas representam uma mudança de paradigma em relação às arquiteturas AC tradicionais, oferecendo múltiplas vantagens em eficiência, densidade de potência e integração com fontes renováveis.</p>
+
+<h3 id="níveis-de-tensão-padronizados">Níveis de Tensão Padronizados</h3>
+
+<p>Os sistemas Current/OS suportam tensões nominais de 48V DC, 175V DC, 350 VDC e 700 VDC em sistemas unipolares, e 350/700 VDC e 700/1400V DC em sistemas bipolares. Cada nível de tensão é adequado para aplicações específicas:</p>
 
 <ul>
-  <li><strong>opcode</strong> - 7 bits identificando cada grupo de instruções. <strong>opcode</strong> pode indicar um grupo de instruções ou uma instrução somente</li>
-  <li><strong>rd</strong> - 5 bits identificando um dos 32 registradores de destino do resultado da instrução</li>
-  <li><strong>rs1</strong> - 5 bits identificando um dos 32 registradores fonte (source) numero 1</li>
-  <li><strong>rs2</strong> - 5 bits identificando um dos 32 registradores fonte (source) numero 2</li>
-  <li><strong>funct3</strong> - 3 bits que junto de <strong>funct7</strong> identifica a instrução a ser executada do tipo determinado por <strong>opcode</strong></li>
-  <li><strong>funct7</strong> - 7 bits que junto de <strong>funct3</strong> identifica a instrução a ser executada do tipo determinado por <strong>opcode</strong></li>
-  <li><strong>imm[:] ou []</strong> - São os valores numéricos da instrução que serão usados em algum cálculo interno de deslocamento ou armazenamento.</li>
+  <li><strong>48 VDC</strong>: Sistemas locais pequenos como PoE, USB-C ou aplicações de iluminação</li>
+  <li><strong>350 VDC</strong>: Instalações onde tradicionalmente seria usado AC monofásico de 230V</li>
+  <li><strong>700 VDC</strong>: Instalações de alta potência ou circuitos de distribuição</li>
+  <li><strong>800 VDC</strong>: O novo padrão emergente para data centers de IA</li>
 </ul>
 
-<p>Como se pode observar, as instruções são todas em 32 bits o que facilita no fetch e decodificação da instrução. Como toda arquitetura RISC pura, o campo rs1, rs2 indicam os registradores que contém os operandos das instruções e rd o destino do resultado; não há instruções que efetuam cálculos com operandos ou destinos direto na memória, esses valores devem antes ser carregados nos registradores rs1 ou rs2 e o resultado da operação será guardado em rd e quando então a instrução store poderá gravar o conteúdo de qualquer registrador na memória. Se fosse o caso de um processador CISC poderíamos ter instruções de outros tamanhos além dos 32 bits e imediatos que sirvam de endereços para execução da instrução direto na memória.</p>
-
-<p>Agora exploraremos esses 6 tipos detalhadamente.</p>
-
-<h3 id="tipo-r">Tipo R</h3>
-
-<p>As instruções do tipo R são as mais fáceis de se entender e um ótimo ponto de partida. São denominadas R justamente por operarem em operandos contidos em registradores, que foram previamente carregados pelas instruções tipo I, U ou resultado de uma operação anterior tipo R.</p>
-
-<p><img src="/assets/imgs/riscv/riscv-tipo-r.svg" alt="" /></p>
-
-<p>Na ilustração acima, ALU é a unidade aritmética que faz diversas operações como soma, diferença, xor, and entre outras. O campo <strong>opcode</strong> da instrução em RV32I com valor <code class="language-plaintext highlighter-rouge">0110011</code>identifica as instruções tipo R. Quem determinará qual operação a ALU efetuará será a combinação de <strong>funct7</strong> e <strong>funct3</strong> conforme tabela abaixo. <strong>rs1</strong> e <strong>rs2</strong> são o identificador de um dos 32 registradores que serão respectivamente o valor rs1 e rs2 da ALU e finalmente o resultado da operação aritmética será armazenado no registrador indexado por <strong>rd</strong>.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>funct7</th>
-      <th>rs2</th>
-      <th>rs1</th>
-      <th>funct3</th>
-      <th>rd</th>
-      <th>op</th>
-      <th>instrução</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>0000000</td>
-      <td>rs2</td>
-      <td>rs1</td>
-      <td>000</td>
-      <td>rd</td>
-      <td>0110011</td>
-      <td>ADD</td>
-    </tr>
-    <tr>
-      <td>0100000</td>
-      <td>rs2</td>
-      <td>rs1</td>
-      <td>000</td>
-      <td>rd</td>
-      <td>0110011</td>
-      <td>SUB</td>
-    </tr>
-    <tr>
-      <td>0000000</td>
-      <td>rs2</td>
-      <td>rs1</td>
-      <td>001</td>
-      <td>rd</td>
-      <td>0110011</td>
-      <td>SLL</td>
-    </tr>
-    <tr>
-      <td>0000000</td>
-      <td>rs2</td>
-      <td>rs1</td>
-      <td>010</td>
-      <td>rd</td>
-      <td>0110011</td>
-      <td>SLT</td>
-    </tr>
-    <tr>
-      <td>0000000</td>
-      <td>rs2</td>
-      <td>rs1</td>
-      <td>011</td>
-      <td>rd</td>
-      <td>0110011</td>
-      <td>SLTU</td>
-    </tr>
-    <tr>
-      <td>0000000</td>
-      <td>rs2</td>
-      <td>rs1</td>
-      <td>100</td>
-      <td>rd</td>
-      <td>0110011</td>
-      <td>XOR</td>
-    </tr>
-    <tr>
-      <td>0000000</td>
-      <td>rs2</td>
-      <td>rs1</td>
-      <td>101</td>
-      <td>rd</td>
-      <td>0110011</td>
-      <td>SRL</td>
-    </tr>
-    <tr>
-      <td>0100000</td>
-      <td>rs2</td>
-      <td>rs1</td>
-      <td>101</td>
-      <td>rd</td>
-      <td>0110011</td>
-      <td>SRA</td>
-    </tr>
-    <tr>
-      <td>0000000</td>
-      <td>rs2</td>
-      <td>rs1</td>
-      <td>110</td>
-      <td>rd</td>
-      <td>0110011</td>
-      <td>OR</td>
-    </tr>
-    <tr>
-      <td>0000000</td>
-      <td>rs2</td>
-      <td>rs1</td>
-      <td>111</td>
-      <td>rd</td>
-      <td>0110011</td>
-      <td>AND</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>Veja que <strong>funct7</strong> somente faz distinção das instruções ADD/SUB e SRL/SRA cujo <strong>funct3</strong> são iguais.</p>
-
-<p>Para extrair esses valores em Verilog utilize o código abaixo:</p>
-
-<pre><code class="language-Verilog">wire [6:0]  OPCODE          =   INS[6:0];
-wire [2:0]  FUNCT3          =   INS[14:12];
-wire [6:0]  FUNCT7          =   INS[31:25];
-wire [4:0]  RS1_INDEX       =   INS[19:15];
-wire [4:0]  RS2_INDEX       =   INS[24:20];
-wire [4:0]  RD_INDEX        =   INS[11:7];
-</code></pre>
-<p>E no caso de uma emulador C/C++:</p>
-
-<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">opcode</span>      <span class="o">=</span> <span class="n">ins</span> <span class="o">&amp;</span> <span class="mi">127</span><span class="p">;</span>
-<span class="kt">int</span> <span class="n">funct3</span>      <span class="o">=</span> <span class="p">(</span><span class="n">ins</span> <span class="o">&amp;</span> <span class="mi">28672</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">12</span><span class="p">;</span>
-<span class="kt">int</span> <span class="n">funct7</span>      <span class="o">=</span> <span class="p">(</span><span class="n">ins</span> <span class="o">&amp;</span> <span class="mi">4261412864</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">25</span><span class="p">;</span>
-<span class="kt">int</span> <span class="n">rs1_index</span>   <span class="o">=</span> <span class="p">(</span><span class="n">ins</span> <span class="o">&amp;</span> <span class="mi">1015808</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">15</span><span class="p">;</span>
-<span class="kt">int</span> <span class="n">rs2_index</span>   <span class="o">=</span> <span class="p">(</span><span class="n">ins</span> <span class="o">&amp;</span> <span class="mi">32505856</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">20</span><span class="p">;</span>
-<span class="kt">int</span> <span class="n">rd_index</span>    <span class="o">=</span> <span class="p">(</span><span class="n">ins</span> <span class="o">&amp;</span> <span class="mi">3968</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">7</span><span class="p">;</span>  
-</code></pre></div></div>
-
-<p>Esses imediatos e indexadores serão utilizados em outras instruções, sendo então reaproveitados nos outros tipos. Sendo essa uma das vantagens de um processador RISC moderno como o RISC-V, os imediatos têm posições fixas que facilitam a decodificação sem precisar de máquinas de estado (micro-código) e lógicas adicionais, o que torna o uso de portas lógicas o mínimo possível no RISC-V, permitindo então, fazer vários processadores, chamados harts, em uma pastilha de silício ou sintetizados em FPGA, ou seja, um multi-processador.</p>
-
-<h3 id="tipo-i">Tipo I</h3>
-
-<p>Instruções tipo I ou Imediato permitem carregar os registradores com valores através da ALU. Todas as instruções do tipo I fazem alguma operação aritmética no imediato da instrução, porém se o programador não quiser efetuar operação alguma no valor, basta somar com o registrador zero, e como toda soma de um número com zero é ele mesmo, então esse valor numérico imediato será armazenado no registrador sem alteração alguma. O x86 tem as instruções MOV, porém o RISC-V não tem uma instrução de carga explicita, somente aritméticas! Sim! Se você quer carregar um valor some ele com zero!</p>
-
-<div class="destaque amarelo bl br">
-Alguns acham estranho não ter uma instrução de carga explicita como é no x86 ou mesmo no ARM. No RISC-V não há instruções de Load ou Movimento, o mais próximo disso é a instrução tipo U que armazena o imediato nos 20 bits de cima de um registrador.
-</div>
-
-<p>As instruções tipo I apenas diferem das tipo R por não usarem <strong>rs2</strong> como operando, porém usam o valor imediato presente na instrução que deve ser extraído pelo decodificador de instruções.</p>
-
-<p><img src="/assets/imgs/riscv/riscv-tipo-i.svg" alt="" /></p>
-
-<p>Percebe-se na ilustração que a única diferença é a ausência de <strong>rs2</strong> que foi substituído pela palavra de 32 bits montada através dos bits <code class="language-plaintext highlighter-rouge">31:20</code> da instrução que foram extraídos e concatenados nos bits <code class="language-plaintext highlighter-rouge">12:0</code> da palavra de 32 bits.</p>
-
-<p>O sinal de <code class="language-plaintext highlighter-rouge">imm[11:0]</code>, ou seja, o bit <code class="language-plaintext highlighter-rouge">imm[11]</code> é estendido para o restante dos 32 bits da palavra, na prática, se copia esse bit aos 20 bits restantes da palavra. Algo fácil de se fazer em Verilog, porém em software é custoso. 
-Em seguida executa-se a operação da ALU com os operandos <code class="language-plaintext highlighter-rouge">imm_i</code> e <strong>rs1</strong> com destino em <strong>rd</strong>.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>imm[11:0]</th>
-      <th>rs1</th>
-      <th>funct3</th>
-      <th>rd</th>
-      <th>op</th>
-      <th>instrução</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>xxxxxxxxxxxx</td>
-      <td>rs1</td>
-      <td>000</td>
-      <td>rd</td>
-      <td>0010011</td>
-      <td>ADDI</td>
-    </tr>
-    <tr>
-      <td>xxxxxxxxxxxx</td>
-      <td>rs1</td>
-      <td>010</td>
-      <td>rd</td>
-      <td>0010011</td>
-      <td>SLTI</td>
-    </tr>
-    <tr>
-      <td>xxxxxxxxxxxx</td>
-      <td>rs1</td>
-      <td>011</td>
-      <td>rd</td>
-      <td>0010011</td>
-      <td>SLTIU</td>
-    </tr>
-    <tr>
-      <td>xxxxxxxxxxxx</td>
-      <td>rs1</td>
-      <td>100</td>
-      <td>rd</td>
-      <td>0010011</td>
-      <td>XORI</td>
-    </tr>
-    <tr>
-      <td>xxxxxxxxxxxx</td>
-      <td>rs1</td>
-      <td>110</td>
-      <td>rd</td>
-      <td>0010011</td>
-      <td>ORI</td>
-    </tr>
-    <tr>
-      <td>xxxxxxxxxxxx</td>
-      <td>rs1</td>
-      <td>111</td>
-      <td>rd</td>
-      <td>0010011</td>
-      <td>ANDI</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>Para montar o <strong>Imediato</strong> segue código sugestivo em Verilog e C/C++:</p>
-
-<pre><code class="language-Verilog">wire [31:0]  IMM_I             =   {{20{INS[31]}},INS[31:20]};
-</code></pre>
-
-<p>E no caso de um emulador C/C++:</p>
-
-<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int32_t</span> <span class="n">imm_i</span>      <span class="o">=</span> <span class="p">(</span><span class="n">ins</span> <span class="o">&gt;&gt;</span> <span class="mi">20</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xfff</span><span class="p">;</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">imm_i</span> <span class="o">&amp;</span> <span class="mh">0x800</span><span class="p">)</span>          <span class="c1">// se o bit 11 tá setado</span>
-    <span class="n">imm_i</span> <span class="o">|=</span> <span class="mh">0xFFFFF000</span><span class="p">;</span>    <span class="c1">// preenche o restante com 1s</span>
-</code></pre></div></div>
-
-<p>Há outras formas em C/C++ de se fazer isso e é possível ainda otimizar utilizando instruções assembly que extraem bits com sinal estendido se houver na CPU que se escreve o emulador.</p>
-
-<p>A instrução de salto incondicional JALR também utiliza o Tipo I de codificação de imediato, porém será explicada posteriormente.</p>
-
-<h4 id="o-caso-slli-srli-e-srai">O caso SLLI, SRLI e SRAI</h4>
-
-<p>As instruções de deslocamento à direita e a esquerda são do tipo I, porém tem tratamento diferente. 
-O <code class="language-plaintext highlighter-rouge">imm[11:0]</code> contém duas informações, o <strong>shamt</strong> localizado no <code class="language-plaintext highlighter-rouge">imm[4:0]</code> contendo a quantidade de deslocamento que pode ser 0 a 31 e a distinção entre <code class="language-plaintext highlighter-rouge">SRLI</code> e <code class="language-plaintext highlighter-rouge">SRAI</code>. Lembre-se de que não há sentido deslocar mais que 31 bits, pois a palavra tem somente 32 bits, logo <strong>shamt</strong> tem tamanho de 5 bits.
-Finalmente, <code class="language-plaintext highlighter-rouge">imm[30]</code>diferencia <code class="language-plaintext highlighter-rouge">SRLI</code>de <code class="language-plaintext highlighter-rouge">SRAI</code> já que ambos têm o mesmo <strong>funct3</strong>.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th> </th>
-      <th>shamt</th>
-      <th>rs1</th>
-      <th>funct3</th>
-      <th>rd</th>
-      <th>op</th>
-      <th>instrução</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>0000000</td>
-      <td>xxxxx</td>
-      <td>rs1</td>
-      <td>001</td>
-      <td>rd</td>
-      <td>0010011</td>
-      <td>SLLI</td>
-    </tr>
-    <tr>
-      <td>0000000</td>
-      <td>xxxxx</td>
-      <td>rs1</td>
-      <td>101</td>
-      <td>rd</td>
-      <td>0010011</td>
-      <td>SRLI</td>
-    </tr>
-    <tr>
-      <td>0100000</td>
-      <td>xxxxx</td>
-      <td>rs1</td>
-      <td>101</td>
-      <td>rd</td>
-      <td>0010011</td>
-      <td>SRAI</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>A extração de <strong>shamt</strong> pode ser otimizada utilizando o mesmo código de <strong>rs2</strong> e o discriminador com o mesmo código <strong>funct7</strong>.</p>
-
-<h3 id="load-e-store">Load e Store</h3>
-
-<p>As instruções de movimento da memória para o registrador e do registrador para a memória, <strong>Load</strong> e <strong>Store</strong>, têm o endereço armazenado em um dos registradores, que será denominado <em>base</em>, com a adição do imediato, denominado <em>offset</em>, de 12 bits codificado na instrução, também com sinal estendido, o que permite, então, apontar o endereço para cima ou para baixo do endereço apontado pelo registrador <em>base</em>.</p>
-
-<h4 id="load">Load</h4>
-
-<p><strong>Load</strong> tem formato igual ao tipo I visto anteriormente. O imediato (<em>offset</em>) <code class="language-plaintext highlighter-rouge">imm[11:0]</code> é somado ao registrador <strong>rs1</strong> e o resultado é usado como endereço de leitura da memória para ser armazenado no registrador <strong>rd</strong>.</p>
-
-<p><img src="/assets/imgs/riscv/riscv-load.svg" alt="" /></p>
-
-<p><strong>funct3</strong> faz distinção de 5 tamanhos de leitura, sendo eles bytes (8 bits) <strong>LB</strong> e <strong>LBU</strong>, half-words (16 bits) <strong>LH</strong> e <strong>LHU</strong> e words (32 bits) <strong>LW</strong> e se os tipos bytes e half-words fazem extensão do sinal ou não (<strong>LBU</strong> e <strong>LHU</strong>) no armazenamento. Não confundir com o sinal estendido do imediato/offset, aqui me refiro ao valor carregado da memória que, se for ,por exemplo, um byte o bit de sinal desse byte ( bit 7 ) será estendido no registrador <strong>rd</strong> ou não.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>imm[11:0]</th>
-      <th>rs1</th>
-      <th>funct3</th>
-      <th>rd</th>
-      <th>op</th>
-      <th>instrução</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>xxxxxxxxxxxx</td>
-      <td>rs1</td>
-      <td>000</td>
-      <td>rd</td>
-      <td>0000011</td>
-      <td>LB</td>
-    </tr>
-    <tr>
-      <td>xxxxxxxxxxxx</td>
-      <td>rs1</td>
-      <td>001</td>
-      <td>rd</td>
-      <td>0000011</td>
-      <td>LH</td>
-    </tr>
-    <tr>
-      <td>xxxxxxxxxxxx</td>
-      <td>rs1</td>
-      <td>010</td>
-      <td>rd</td>
-      <td>0000011</td>
-      <td>LW</td>
-    </tr>
-    <tr>
-      <td>xxxxxxxxxxxx</td>
-      <td>rs1</td>
-      <td>100</td>
-      <td>rd</td>
-      <td>0000011</td>
-      <td>LBU</td>
-    </tr>
-    <tr>
-      <td>xxxxxxxxxxxx</td>
-      <td>rs1</td>
-      <td>101</td>
-      <td>rd</td>
-      <td>0000011</td>
-      <td>LHU</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="store">Store</h4>
-
-<p><strong>Store</strong> tem tipo próprio denominado tipo S. O imediato (<em>offset</em>) foi divido em duas partes na instrução e localiza-se nos bits <code class="language-plaintext highlighter-rouge">ins[31:25]</code> e <code class="language-plaintext highlighter-rouge">ins[11:7]</code> que juntos montam o imediato de 12 bits que novamente tem seu sinal estendido e é somado ao conteúdo do registrador <strong>rs1</strong> para indicar o endereço da memória que será gravada com o conteúdo do registrador <strong>rs2</strong>.</p>
-
-<p><img src="/assets/imgs/riscv/riscv-store.svg" alt="" /></p>
-
-<p>Por ser uma CPU moderna e bem projetada, percebe-se que <strong>rd</strong> de outros tipos virou <code class="language-plaintext highlighter-rouge">imm[4:0]</code> o que facilita na extração desses bits, permitindo utilizar código já existente.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>imm[11:5]</th>
-      <th>rs2</th>
-      <th>rs1</th>
-      <th>funct3</th>
-      <th>imm[4:0]</th>
-      <th>op</th>
-      <th>instrução</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>xxxxxxx</td>
-      <td>rs2</td>
-      <td>rs1</td>
-      <td>000</td>
-      <td>xxxxx</td>
-      <td>0100011</td>
-      <td>SB</td>
-    </tr>
-    <tr>
-      <td>xxxxxxx</td>
-      <td>rs2</td>
-      <td>rs1</td>
-      <td>001</td>
-      <td>xxxxx</td>
-      <td>0100011</td>
-      <td>SH</td>
-    </tr>
-    <tr>
-      <td>xxxxxxx</td>
-      <td>rs2</td>
-      <td>rs1</td>
-      <td>010</td>
-      <td>xxxxx</td>
-      <td>0100011</td>
-      <td>SW</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="tipo-b">Tipo B</h3>
-
-<p>Esse conjunto reúne as instruções de salto condicional. Novamente aqui temos algumas diferenças que podem surpreender aqueles acostumados com x86, m68k: não há flags condicionais, as operações lógicas são efetuadas entre rs1 e rs2. BEQ, por exemplo, compara rs1 e rs2, se forem iguais, então salta para o destino, se diferente, continua na próxima instrução.</p>
-
-<p><img src="/assets/imgs/riscv/riscv-b.svg" alt="" /></p>
-
-<p>As instruções B carregam um <em>imediato</em> de 12 bits com sinal e como se pode ver na figura acima eles estão espalhados pela instrução. Perceba que no <em>deslocamento</em> final (32 bits) o <code class="language-plaintext highlighter-rouge">bit 0</code> tem valor <code class="language-plaintext highlighter-rouge">0</code>; como as instruções no RISC-V tem tamanho 32 bits ou 16 bits, nenhuma instrução estará em endereço com <code class="language-plaintext highlighter-rouge">bit[0] = 1</code>, sempre será com <code class="language-plaintext highlighter-rouge">bit[0] = 0</code>, então justifica-se deslocar o <em>deslocamento</em> de 12 bits um bit a esquerda para aumentar o range de deslocamento do salto.
-Novamente, o sinal é estendido no imediato final.</p>
-
-<p>Montado o <em>deslocamento</em> final, <code class="language-plaintext highlighter-rouge">funct3</code> seleciona a operação lógica entre <strong>rs1</strong> e <strong>rs2</strong>, o resultado da operação é descartado, porém, se for verdadeiro o <em>deslocamento</em> somado ao PC da instrução será o pŕoximo PC, caso contrário a próxima instrução será executada (PC+4). Como o sinal é estendido o deslocamento pode ocorrer para frente do PC ou para trás em uma faixa (range) de +-4KiB.</p>
-
-<p>Na ilustração, eu não atribuo a soma do <em>deslocamento</em> à ALU, isso é uma decisão do projetista, ele pode usar a ALU para somar o <em>deslocamento</em> ou usar um circuito separado para essa soma. As operações lógicas também podem ser executadas pela ALU ou em circuito separado.</p>
-
-<p>Em arquitetura com pipeline, saltar para uma instrução significa descartar as instruções que já estão no pipeline.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>[12]</th>
-      <th>imm[10:5]</th>
-      <th>rs2</th>
-      <th>rs1</th>
-      <th>funct3</th>
-      <th>imm[4:1]</th>
-      <th>[11]</th>
-      <th>op</th>
-      <th>instrução</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>x</td>
-      <td>xxxxxx</td>
-      <td>rs2</td>
-      <td>rs1</td>
-      <td>000</td>
-      <td>xxxx</td>
-      <td>x</td>
-      <td>1100011</td>
-      <td>BEQ</td>
-    </tr>
-    <tr>
-      <td>x</td>
-      <td>xxxxxx</td>
-      <td>rs2</td>
-      <td>rs1</td>
-      <td>001</td>
-      <td>xxxx</td>
-      <td>x</td>
-      <td>1100011</td>
-      <td>BNE</td>
-    </tr>
-    <tr>
-      <td>x</td>
-      <td>xxxxxx</td>
-      <td>rs2</td>
-      <td>rs1</td>
-      <td>100</td>
-      <td>xxxx</td>
-      <td>x</td>
-      <td>1100011</td>
-      <td>BLT</td>
-    </tr>
-    <tr>
-      <td>x</td>
-      <td>xxxxxx</td>
-      <td>rs2</td>
-      <td>rs1</td>
-      <td>101</td>
-      <td>xxxx</td>
-      <td>x</td>
-      <td>1100011</td>
-      <td>BGE</td>
-    </tr>
-    <tr>
-      <td>x</td>
-      <td>xxxxxx</td>
-      <td>rs2</td>
-      <td>rs1</td>
-      <td>110</td>
-      <td>xxxx</td>
-      <td>x</td>
-      <td>1100011</td>
-      <td>BLTU</td>
-    </tr>
-    <tr>
-      <td>x</td>
-      <td>xxxxxx</td>
-      <td>rs2</td>
-      <td>rs1</td>
-      <td>111</td>
-      <td>xxxx</td>
-      <td>x</td>
-      <td>1100011</td>
-      <td>BGEU</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>Em Verilog a extração dos bits do imediato pode ser feita facilmente com o código sugerido abaixo:</p>
-
-<pre><code class="language-Verilog">wire [31:0]  IMM_B             =   {{20{INS[31]}},INS[7],INS[30:25],INS[11:8],1'b0};
-</code></pre>
-
-<p>E no caso de um emulador C/C++:</p>
-
-<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int32_t</span> <span class="n">imm_b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="n">imm_b</span>        <span class="o">|=</span>  <span class="p">(</span><span class="n">INS</span> <span class="o">&amp;</span> <span class="mh">0x80</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">4</span><span class="p">;</span>  <span class="c1">// imm11</span>
-<span class="n">imm_b</span>        <span class="o">|=</span>  <span class="p">(</span><span class="n">INS</span> <span class="o">&amp;</span> <span class="mh">0xf00</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">7</span><span class="p">;</span> <span class="c1">// imm4_1</span>
-<span class="n">imm_b</span>        <span class="o">|=</span>  <span class="p">(</span><span class="n">INS</span> <span class="o">&amp;</span> <span class="mh">0x7E000000</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">20</span><span class="p">;</span> <span class="c1">// imm4_1</span>
-
-<span class="c1">// Sinaliza (sign-extend) se bit 12 estava setado</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">INS</span> <span class="o">&amp;</span> <span class="mh">0x80000000</span><span class="p">)</span> <span class="p">{</span>             <span class="c1">// se bit 12 está em 1</span>
-    <span class="n">imm_b</span> <span class="o">|=</span> <span class="mh">0xFFFFE000</span><span class="p">;</span>             <span class="c1">// extende o sinal até 32 bits</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<h3 id="tipo-j-jal-e-jalr">Tipo J, JAL e JALR</h3>
-
-<p>Há duas instruções de salto incondicional: JAL e JALR. JAL tem codificação do Tipo J e JALR do Tipo I. Ambas as instruções salvam o endereço da próxima instrução no registrador <strong>rd</strong> e somam um deslocamento ao PC atual.</p>
-
-<h4 id="jal">JAL</h4>
-
-<p>O deslocamento de JAL é diretamente extraído do imediato de 20 bits contidos em sua instrução, enquanto na instrução JALR o deslocamento é uma soma do imediato de 12 bits e o registrador <strong>rs1</strong>. Dessa forma, JAL pode saltar em uma faixa (range) de até +-1MiB enquanto JALR pode saltar em toda a faixa de 32 bits desde que <strong>rs1</strong> seja previamente carregado.</p>
-
-<p>Observe que salvar a próxima instrução e saltar é uma chamada de sub-rotina com retorno, porém não há nenhum salvamento automático da próxima instrução na memória, a sub-rotina é que deverá preservar <strong>rd</strong> para poder retornar ao ponto posterior à chamada.
-Se o salto não for para uma sub-rotina com retorno, basta chamar JAL/JALR com <code class="language-plaintext highlighter-rouge">rd=x0</code> descartando assim <code class="language-plaintext highlighter-rouge">PC+4</code>.</p>
-
-<p><img src="/assets/imgs/riscv/riscv-jal.svg" alt="" /></p>
-
-<p>Como se pode ver na ilustração, a extração do imediato do JAL é complicada. O deslocamento consiste então em 20 bits com sinal somado ao PC atual. O <code class="language-plaintext highlighter-rouge">PC+4</code> é gravado no registrador <strong>rd</strong> que poderá então ser utilizado como retorno na chamada da sub-rotina. Novamente percebe-se que a arquitetura RISC-V é mínima, não há instruções de retorno de sub-rotina nem de interrupção.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>[20]</th>
-      <th>imm[10:1]</th>
-      <th>[11]</th>
-      <th>imm[19:12]</th>
-      <th>rd</th>
-      <th>opcode</th>
-      <th>instrução</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>x</td>
-      <td>xxxxxxxxxx</td>
-      <td>x</td>
-      <td>xxxxxxxx</td>
-      <td>xxxxx</td>
-      <td>1101111</td>
-      <td>JAL</td>
-    </tr>
-  </tbody>
-</table>
-
-<div class="language-verilog highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">wire</span> <span class="p">[</span><span class="mi">31</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span>     <span class="n">imm_j</span>   <span class="o">=</span>   <span class="o">{{</span><span class="mi">12</span><span class="o">{</span><span class="n">IF</span><span class="p">[</span><span class="mi">31</span><span class="p">]</span><span class="o">}}</span><span class="p">,</span><span class="n">IF</span><span class="p">[</span><span class="mi">19</span><span class="o">:</span><span class="mi">12</span><span class="p">],</span><span class="n">IF</span><span class="p">[</span><span class="mi">20</span><span class="p">],</span><span class="n">IF</span><span class="p">[</span><span class="mi">30</span><span class="o">:</span><span class="mi">21</span><span class="p">],</span><span class="mb">1'b0</span><span class="o">}</span><span class="p">;</span>
-</code></pre></div></div>
-
-<p>Em C/C++, a extração pode ser feita com código sugerido abaixo.</p>
-
-<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int32_t</span> <span class="n">imm_b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="n">imm_b</span>        <span class="o">|=</span> <span class="p">(</span><span class="n">INS</span> <span class="o">&amp;</span> <span class="mb">0b01111111111000000000000000000000</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">20</span><span class="p">;</span> <span class="c1">// imm10_1</span>
-<span class="n">imm_b</span>        <span class="o">|=</span> <span class="p">(</span><span class="n">INS</span> <span class="o">&amp;</span> <span class="mb">0b00000000000011111111000000000000</span><span class="p">);</span>       <span class="c1">// imm19_12  </span>
-<span class="n">imm_b</span>        <span class="o">|=</span> <span class="p">(</span><span class="n">INS</span> <span class="o">&amp;</span> <span class="mb">0b00000000000100000000000000000000</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">9</span><span class="p">;</span>  <span class="c1">// imm11  </span>
-
-<span class="k">if</span> <span class="p">((</span><span class="n">INS</span> <span class="o">&amp;</span> <span class="mh">0x80000000</span><span class="p">))</span>
-    <span class="n">imm_b</span> <span class="o">|=</span> <span class="mh">0xFFF00000</span><span class="p">;</span>
-</code></pre></div></div>
-
-<h4 id="jalr">JALR</h4>
-
-<p>Enquanto os saltos condicionais têm um range útil de 4KiB de salto e o JAL de 1MiB o JALR permite saltar por toda a faixa de 32 bits de endereçamento. Ela consegue fazer isso utilizando o registrador <strong>rs1</strong> como endereço base que será somado ao imediato de 12 bits da instrução. Dessa forma, como o imediato só consegue um salto na faixa de 4KiB o conteúdo do registrador <strong>rs1</strong> é que de fato permitirá saltos em toda a faixa de 32 bits.</p>
-
-<p>Assim como JAL, JALR guarda <code class="language-plaintext highlighter-rouge">PC+4</code> no registrador <strong>rd</strong>.</p>
-
-<p><img src="/assets/imgs/riscv/riscv-jalr.svg" alt="" /></p>
-
-<p>Como JALR é do Tipo I, a extração de seu imediato de 12 bits já foi explorada e o mesmo código poderá ser utilizado. Como toda a faixa de 32 bits é alcançável via <strong>rs1</strong>, ao contrário do JAL, JALR não tem o <code class="language-plaintext highlighter-rouge">bit[0] == 0</code>, podendo então inclusive dar saltos em endereços não múltiplos de 2.</p>
-
-<div class="destaque br bl amarelo">
-No ARM em modo ARM (32 bits) se ocorrer um branch (salto) para um endereço que não seja múltiplo de 4, uma exceção de alinhamento (Alignment Fault) será disparada, no modo Thumb se o endereço não for par, ocorre a mesma exceção. E no RISC-V? Uma exceção <em>instruction-address-misaligned</em> é disparada caso um salto tenha endereço que não seja múltiplos de 4 ou par, no caso da extensão C (compressed) estar presente.
-</div>
-
-<table>
-  <thead>
-    <tr>
-      <th>imm[11:0]</th>
-      <th>rs1</th>
-      <th>funct3</th>
-      <th>rd</th>
-      <th>op</th>
-      <th>instrução</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>xxxxxxxxxxxx</td>
-      <td>rs1</td>
-      <td>000</td>
-      <td>rd</td>
-      <td>1100111</td>
-      <td>JALR</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="tipo-u">Tipo U</h3>
-
-<p>Se você chegou até aqui, percebeu que a única forma de carregar um registrador até agora é com as instruções Tipo I que contêm um imediato de 12 bits. Mas como carregar o restante dos 20 bits de um registrador? Há duas instruções que complementam a carga dos registradores: LUI e AUIPC.</p>
-
-<h4 id="lui">LUI</h4>
-
-<p>LUI (load upper immediate) carrega os 20 bits mais significativos do registrador <strong>rd</strong> com o valor imediato, zerando os 12 bits inferiores. Para carregar uma constante de 32 bits, a instrução LUI é usada em conjunto com uma instrução do Tipo I, como a ADDI, utilizando o registrador x0. De fato, é um casamento de instruções tão importante que a maioria dos compiladores utiliza uma macro chamada <code class="language-plaintext highlighter-rouge">li</code> (load immediate) para carregar um registrador. Se o compilador detectar que a constante cabe em 12 bits, apenas uma instrução ADDI será emitida. Caso contrário, ele usará uma combinação de LUI e ADDI para compor o valor completo.</p>
-
-<p><img src="/assets/imgs/riscv/riscv-lui.svg" alt="" /></p>
-
-<h4 id="auipc">AUIPC</h4>
-
-<p>A instrução AUIPC (Add Upper Immediate to PC) soma um imediato ao valor atual do contador de programa (PC) e armazena o resultado no registrador rd.</p>
-
-<p>Essa instrução é fundamental para permitir que executáveis sejam independentes da posição de memória (PIE) — como acontece em bibliotecas dinâmicas (DLLs), plugins e sistemas com ASLR.</p>
-
-<p>Suponha que você precise chamar uma sub-rotina que, no momento da compilação, está localizada K bytes abaixo da instrução atual. Como o programa poderá ser carregado em posições diferentes da memória, você não pode usar um endereço absoluto.</p>
-
-<p>Com AUIPC, é possível gerar um endereço relativo ao PC, somando o deslocamento K e armazenando o resultado em um registrador. Em seguida, você pode usar uma instrução como JALR para efetuar o salto para a sub-rotina.</p>
-
-<p><img src="/assets/imgs/riscv/riscv-auipc.svg" alt="" /></p>
-
-<table>
-  <thead>
-    <tr>
-      <th>imm[31:12] (20 bits)</th>
-      <th>rd (5 bits)</th>
-      <th>opcode (7 bits)</th>
-      <th>Instrução</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>xxxxxxxxxxxxxxxxxxxx</td>
-      <td>xxxxx</td>
-      <td>0110111</td>
-      <td>LUI</td>
-    </tr>
-    <tr>
-      <td>xxxxxxxxxxxxxxxxxxxx</td>
-      <td>xxxxx</td>
-      <td>0010111</td>
-      <td>AUIPC</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>A extração do imediato é direto:</p>
-
-<p>Verilog</p>
-
-<div class="language-verilog highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">wire</span> <span class="p">[</span><span class="mi">31</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span>     <span class="n">imm_u</span>   <span class="o">=</span>   <span class="o">{</span><span class="n">INS</span><span class="p">[</span><span class="mi">31</span><span class="o">:</span><span class="mi">12</span><span class="p">],</span><span class="mb">12'b0</span><span class="o">}</span><span class="p">;</span>
-</code></pre></div></div>
-
-<p>C/C++</p>
-
-<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int32_t</span> <span class="n">imm_u</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int32_t</span><span class="p">)(</span><span class="n">INS</span> <span class="o">&amp;</span> <span class="mh">0xFFFFF000</span><span class="p">);</span>
-</code></pre></div></div>
-
-<h3 id="tabela-resumo-das-instruções">Tabela resumo das instruções</h3>
-
-<table>
-<thead>
-    <tr>
-      <th colspan="13"></th>
-      <th>Opcode [6:0]</th>
-      <th>Instrução</th>
-    </tr>
-  </thead>
-<tbody>
-<tr>
-<td colspan="10"><p>imm[31:12]</p></td>
-<td colspan="2"><p>rd</p></td>
-<td colspan="2"><p>0110111</p></td>
-<td><p>LUI</p></td>
-</tr>
-<tr>
-<td colspan="10"><p>imm[31:12]</p></td>
-<td colspan="2"><p>rd</p></td>
-<td colspan="2"><p>0010111</p></td>
-<td><p>AUIPC</p></td>
-</tr>
-<tr>
-<td colspan="10"><p>imm[20|10:1|11|19:12]</p></td>
-<td colspan="2"><p>rd</p></td>
-<td colspan="2"><p>1101111</p></td>
-<td><p>JAL</p></td>
-</tr>
-<tr>
-<td colspan="6"><p>imm[11:0]</p></td>
-<td colspan="2"><p>rs1</p></td>
-<td colspan="2"><p>000</p></td>
-<td colspan="2"><p>rd</p></td>
-<td colspan="2"><p>1100111</p></td>
-<td><p>JALR</p></td>
-</tr>
-<tr>
-<td colspan="4"><p>imm[12|10:5]</p></td>
-<td colspan="2"><p>rs2</p></td>
-<td colspan="2"><p>rs1</p></td>
-<td colspan="2"><p>000</p></td>
-<td colspan="2"><p>imm[4:1|11]</p></td>
-<td colspan="2"><p>1100011</p></td>
-<td><p>BEQ</p></td>
-</tr>
-<tr>
-<td colspan="4"><p>imm[12|10:5]</p></td>
-<td colspan="2"><p>rs2</p></td>
-<td colspan="2"><p>rs1</p></td>
-<td colspan="2"><p>001</p></td>
-<td colspan="2"><p>imm[4:1|11]</p></td>
-<td colspan="2"><p>1100011</p></td>
-<td><p>BNE</p></td>
-</tr>
-<tr>
-<td colspan="4"><p>imm[12|10:5]</p></td>
-<td colspan="2"><p>rs2</p></td>
-<td colspan="2"><p>rs1</p></td>
-<td colspan="2"><p>100</p></td>
-<td colspan="2"><p>imm[4:1|11]</p></td>
-<td colspan="2"><p>1100011</p></td>
-<td><p>BLT</p></td>
-</tr>
-<tr>
-<td colspan="4"><p>imm[12|10:5]</p></td>
-<td colspan="2"><p>rs2</p></td>
-<td colspan="2"><p>rs1</p></td>
-<td colspan="2"><p>101</p></td>
-<td colspan="2"><p>imm[4:1|11]</p></td>
-<td colspan="2"><p>1100011</p></td>
-<td><p>BGE</p></td>
-</tr>
-<tr>
-<td colspan="4"><p>imm[12|10:5]</p></td>
-<td colspan="2"><p>rs2</p></td>
-<td colspan="2"><p>rs1</p></td>
-<td colspan="2"><p>110</p></td>
-<td colspan="2"><p>imm[4:1|11]</p></td>
-<td colspan="2"><p>1100011</p></td>
-<td><p>BLTU</p></td>
-</tr>
-<tr>
-<td colspan="4"><p>imm[12|10:5]</p></td>
-<td colspan="2"><p>rs2</p></td>
-<td colspan="2"><p>rs1</p></td>
-<td colspan="2"><p>111</p></td>
-<td colspan="2"><p>imm[4:1|11]</p></td>
-<td colspan="2"><p>1100011</p></td>
-<td><p>BGEU</p></td>
-</tr>
-<tr>
-<td colspan="6"><p>imm[11:0]</p></td>
-<td colspan="2"><p>rs1</p></td>
-<td colspan="2"><p>000</p></td>
-<td colspan="2"><p>rd</p></td>
-<td colspan="2"><p>0000011</p></td>
-<td><p>LB</p></td>
-</tr>
-<tr>
-<td colspan="6"><p>imm[11:0]</p></td>
-<td colspan="2"><p>rs1</p></td>
-<td colspan="2"><p>001</p></td>
-<td colspan="2"><p>rd</p></td>
-<td colspan="2"><p>0000011</p></td>
-<td><p>LH</p></td>
-</tr>
-<tr>
-<td colspan="6"><p>imm[11:0]</p></td>
-<td colspan="2"><p>rs1</p></td>
-<td colspan="2"><p>010</p></td>
-<td colspan="2"><p>rd</p></td>
-<td colspan="2"><p>0000011</p></td>
-<td><p>LW</p></td>
-</tr>
-<tr>
-<td colspan="6"><p>imm[11:0]</p></td>
-<td colspan="2"><p>rs1</p></td>
-<td colspan="2"><p>100</p></td>
-<td colspan="2"><p>rd</p></td>
-<td colspan="2"><p>0000011</p></td>
-<td><p>LBU</p></td>
-</tr>
-<tr>
-<td colspan="6"><p>imm[11:0]</p></td>
-<td colspan="2"><p>rs1</p></td>
-<td colspan="2"><p>101</p></td>
-<td colspan="2"><p>rd</p></td>
-<td colspan="2"><p>0000011</p></td>
-<td><p>LHU</p></td>
-</tr>
-<tr>
-<td colspan="4"><p>imm[11:5]</p></td>
-<td colspan="2"><p>rs2</p></td>
-<td colspan="2"><p>rs1</p></td>
-<td colspan="2"><p>000</p></td>
-<td colspan="2"><p>imm[4:0]</p></td>
-<td colspan="2"><p>0100011</p></td>
-<td><p>SB</p></td>
-</tr>
-<tr>
-<td colspan="4"><p>imm[11:5]</p></td>
-<td colspan="2"><p>rs2</p></td>
-<td colspan="2"><p>rs1</p></td>
-<td colspan="2"><p>001</p></td>
-<td colspan="2"><p>imm[4:0]</p></td>
-<td colspan="2"><p>0100011</p></td>
-<td><p>SH</p></td>
-</tr>
-<tr>
-<td colspan="4"><p>imm[11:5]</p></td>
-<td colspan="2"><p>rs2</p></td>
-<td colspan="2"><p>rs1</p></td>
-<td colspan="2"><p>010</p></td>
-<td colspan="2"><p>imm[4:0]</p></td>
-<td colspan="2"><p>0100011</p></td>
-<td><p>SW</p></td>
-</tr>
-<tr>
-<td colspan="6"><p>imm[11:0]</p></td>
-<td colspan="2"><p>rs1</p></td>
-<td colspan="2"><p>000</p></td>
-<td colspan="2"><p>rd</p></td>
-<td colspan="2"><p>0010011</p></td>
-<td><p>ADDI</p></td>
-</tr>
-<tr>
-<td colspan="6"><p>imm[11:0]</p></td>
-<td colspan="2"><p>rs1</p></td>
-<td colspan="2"><p>010</p></td>
-<td colspan="2"><p>rd</p></td>
-<td colspan="2"><p>0010011</p></td>
-<td><p>SLTI</p></td>
-</tr>
-<tr>
-<td colspan="6"><p>imm[11:0]</p></td>
-<td colspan="2"><p>rs1</p></td>
-<td colspan="2"><p>011</p></td>
-<td colspan="2"><p>rd</p></td>
-<td colspan="2"><p>0010011</p></td>
-<td><p>SLTIU</p></td>
-</tr>
-<tr>
-<td colspan="6"><p>imm[11:0]</p></td>
-<td colspan="2"><p>rs1</p></td>
-<td colspan="2"><p>100</p></td>
-<td colspan="2"><p>rd</p></td>
-<td colspan="2"><p>0010011</p></td>
-<td><p>XORI</p></td>
-</tr>
-<tr>
-<td colspan="6"><p>imm[11:0]</p></td>
-<td colspan="2"><p>rs1</p></td>
-<td colspan="2"><p>110</p></td>
-<td colspan="2"><p>rd</p></td>
-<td colspan="2"><p>0010011</p></td>
-<td><p>ORI</p></td>
-</tr>
-<tr>
-<td colspan="6"><p>imm[11:0]</p></td>
-<td colspan="2"><p>rs1</p></td>
-<td colspan="2"><p>111</p></td>
-<td colspan="2"><p>rd</p></td>
-<td colspan="2"><p>0010011</p></td>
-<td><p>ANDI</p></td>
-</tr>
-<tr>
-<td colspan="4"><p>0000000</p></td>
-<td colspan="2"><p>shamt</p></td>
-<td colspan="2"><p>rs1</p></td>
-<td colspan="2"><p>001</p></td>
-<td colspan="2"><p>rd</p></td>
-<td colspan="2"><p>0010011</p></td>
-<td><p>SLLI</p></td>
-</tr>
-<tr>
-<td colspan="4"><p>0000000</p></td>
-<td colspan="2"><p>shamt</p></td>
-<td colspan="2"><p>rs1</p></td>
-<td colspan="2"><p>101</p></td>
-<td colspan="2"><p>rd</p></td>
-<td colspan="2"><p>0010011</p></td>
-<td><p>SRLI</p></td>
-</tr>
-<tr>
-<td colspan="4"><p>0100000</p></td>
-<td colspan="2"><p>shamt</p></td>
-<td colspan="2"><p>rs1</p></td>
-<td colspan="2"><p>101</p></td>
-<td colspan="2"><p>rd</p></td>
-<td colspan="2"><p>0010011</p></td>
-<td><p>SRAI</p></td>
-</tr>
-<tr>
-<td colspan="4"><p>0000000</p></td>
-<td colspan="2"><p>rs2</p></td>
-<td colspan="2"><p>rs1</p></td>
-<td colspan="2"><p>000</p></td>
-<td colspan="2"><p>rd</p></td>
-<td colspan="2"><p>0110011</p></td>
-<td><p>ADD</p></td>
-</tr>
-<tr>
-<td colspan="4"><p>0100000</p></td>
-<td colspan="2"><p>rs2</p></td>
-<td colspan="2"><p>rs1</p></td>
-<td colspan="2"><p>000</p></td>
-<td colspan="2"><p>rd</p></td>
-<td colspan="2"><p>0110011</p></td>
-<td><p>SUB</p></td>
-</tr>
-<tr>
-<td colspan="4"><p>0000000</p></td>
-<td colspan="2"><p>rs2</p></td>
-<td colspan="2"><p>rs1</p></td>
-<td colspan="2"><p>001</p></td>
-<td colspan="2"><p>rd</p></td>
-<td colspan="2"><p>0110011</p></td>
-<td><p>SLL</p></td>
-</tr>
-<tr>
-<td colspan="4"><p>0000000</p></td>
-<td colspan="2"><p>rs2</p></td>
-<td colspan="2"><p>rs1</p></td>
-<td colspan="2"><p>010</p></td>
-<td colspan="2"><p>rd</p></td>
-<td colspan="2"><p>0110011</p></td>
-<td><p>SLT</p></td>
-</tr>
-<tr>
-<td colspan="4"><p>0000000</p></td>
-<td colspan="2"><p>rs2</p></td>
-<td colspan="2"><p>rs1</p></td>
-<td colspan="2"><p>011</p></td>
-<td colspan="2"><p>rd</p></td>
-<td colspan="2"><p>0110011</p></td>
-<td><p>SLTU</p></td>
-</tr>
-<tr>
-<td colspan="4"><p>0000000</p></td>
-<td colspan="2"><p>rs2</p></td>
-<td colspan="2"><p>rs1</p></td>
-<td colspan="2"><p>100</p></td>
-<td colspan="2"><p>rd</p></td>
-<td colspan="2"><p>0110011</p></td>
-<td><p>XOR</p></td>
-</tr>
-<tr>
-<td colspan="4"><p>0000000</p></td>
-<td colspan="2"><p>rs2</p></td>
-<td colspan="2"><p>rs1</p></td>
-<td colspan="2"><p>101</p></td>
-<td colspan="2"><p>rd</p></td>
-<td colspan="2"><p>0110011</p></td>
-<td><p>SRL</p></td>
-</tr>
-<tr>
-<td colspan="4"><p>0100000</p></td>
-<td colspan="2"><p>rs2</p></td>
-<td colspan="2"><p>rs1</p></td>
-<td colspan="2"><p>101</p></td>
-<td colspan="2"><p>rd</p></td>
-<td colspan="2"><p>0110011</p></td>
-<td><p>SRA</p></td>
-</tr>
-<tr>
-<td colspan="4"><p>0000000</p></td>
-<td colspan="2"><p>rs2</p></td>
-<td colspan="2"><p>rs1</p></td>
-<td colspan="2"><p>110</p></td>
-<td colspan="2"><p>rd</p></td>
-<td colspan="2"><p>0110011</p></td>
-<td><p>OR</p></td>
-</tr>
-<tr>
-<td colspan="4"><p>0000000</p></td>
-<td colspan="2"><p>rs2</p></td>
-<td colspan="2"><p>rs1</p></td>
-<td colspan="2"><p>111</p></td>
-<td colspan="2"><p>rd</p></td>
-<td colspan="2"><p>0110011</p></td>
-<td><p>AND</p></td>
-</tr>
-<tr>
-<td colspan="3"><p>fm</p></td>
-<td colspan="2"><p>pred</p></td>
-<td><p>succ</p></td>
-<td colspan="2"><p>rs1</p></td>
-<td colspan="2"><p>000</p></td>
-<td colspan="2"><p>rd</p></td>
-<td colspan="2"><p>0001111</p></td>
-<td><p>FENCE</p></td>
-</tr>
-<tr>
-<td colspan="3"><p>1000</p></td>
-<td colspan="2"><p>0011</p></td>
-<td><p>0011</p></td>
-<td colspan="2"><p>00000</p></td>
-<td colspan="2"><p>000</p></td>
-<td colspan="2"><p>00000</p></td>
-<td colspan="2"><p>0001111</p></td>
-<td><p>FENCE.TSO</p></td>
-</tr>
-<tr>
-<td colspan="3"><p>0000</p></td>
-<td colspan="2"><p>0001</p></td>
-<td><p>0000</p></td>
-<td colspan="2"><p>00000</p></td>
-<td colspan="2"><p>000</p></td>
-<td colspan="2"><p>00000</p></td>
-<td colspan="2"><p>0001111</p></td>
-<td><p>PAUSE</p></td>
-</tr>
-<tr>
-<td colspan="6"><p>000000000000</p></td>
-<td colspan="2"><p>00000</p></td>
-<td colspan="2"><p>000</p></td>
-<td colspan="2"><p>00000</p></td>
-<td colspan="2"><p>1110011</p></td>
-<td><p>ECALL</p></td>
-</tr>
-<tr>
-<td colspan="6"><p>000000000001</p></td>
-<td colspan="2"><p>00000</p></td>
-<td colspan="2"><p>000</p></td>
-<td colspan="2"><p>00000</p></td>
-<td colspan="2"><p>1110011</p></td>
-<td><p>EBREAK</p></td>
-</tr>
-</tbody>
-</table>
+<h2 id="a-arquitetura-800-vdc-da-nvidia">A Arquitetura 800 VDC da NVIDIA</h2>
 
+<h3 id="transformando-data-centers-de-ia">Transformando Data Centers de IA</h3>
+
+<p>A NVIDIA está liderando a transição para infraestrutura de energia de data center a 800 VDC para suportar racks de TI de 1 MW e além, começando em 2027. Esta iniciativa representa uma mudança fundamental na forma como alimentamos instalações de computação de alto desempenho.</p>
+
+<h3 id="benefícios-quantificáveis">Benefícios Quantificáveis</h3>
+
+<p>A arquitetura 800 VDC oferece vantagens impressionantes:</p>
+
+<p>Melhoria de até 5% na eficiência energética de ponta a ponta em comparação com sistemas de 54V atuais</p>
+
+<p>Custos de manutenção reduzidos em até 70% devido a menos falhas de PSU e menores custos de mão de obra para manutenção de componentes</p>
+
+<p>Menores despesas de resfriamento pela eliminação de PSUs AC/DC dentro dos racks de TI</p>
+
+<p>Redução de 45% nos requisitos de cobre, com a capacidade de transmitir 85% mais potência através do mesmo tamanho de condutor</p>
+
+<h3 id="como-funciona">Como Funciona</h3>
+
+<p>Ao converter energia da rede AC de 13,8 kV diretamente para 800 VDC no perímetro do data center usando retificadores de grau industrial, a maioria das etapas de conversão intermediárias são eliminadas. Esta abordagem simplificada minimiza perdas de energia.</p>
+
+<h2 id="comparação-ac-vs-dc-na-distribuição">Comparação: AC vs. DC na Distribuição</h2>
+
+<h3 id="eficiência-no-mundo-real">Eficiência no Mundo Real</h3>
+
+<p>A distribuição AC tradicional a 400V atinge uma eficiência total de aproximadamente 97,1% do MVAC até a entrada da conversão DC-DC de 400V/48V no nível do rack.</p>
+
+<p>Aumentando a tensão de distribuição para 690V AC, a eficiência aumenta para aproximadamente 97,8%.</p>
+
+<p>Com distribuição DC, os ganhos são ainda mais significativos:</p>
+
+<p>Um sistema de ±400V DC alimentado por fontes DC (células de combustível, baterias, PV) atinge uma eficiência total de aproximadamente 98,7%</p>
+
+<p>Quando alimentado pela rede, um sistema de ±400V DC com retificador PFC SiC centralizado alcança aproximadamente 97,9% de eficiência</p>
+
+<h3 id="redução-nas-perdas-de-distribuição">Redução nas Perdas de Distribuição</h3>
+
+<p>Usando a mesma barra condutora em configuração AC ou DC, a mudança de 400V AC para 800V DC (±400V DC) resulta em redução de 75% nas perdas de distribuição ou 75% na massa de cobre.</p>
+
+<h2 id="interfaces-mvac-lvdc-conectando-redes-à-distribuição-dc">Interfaces MVAC-LVDC: Conectando Redes à Distribuição DC</h2>
+
+<h3 id="transformadores-híbridos">Transformadores Híbridos</h3>
+
+<p>Os transformadores híbridos MVAC-LVDC utilizam processamento parcial de potência em modo comutado, com módulos de filtro ativo (AF) com aproximadamente 25% da potência nominal para garantir correntes senoidais na rede e compensação de potência reativa.</p>
+
+<p>Esta solução alcança eficiência de aproximadamente 98,5% com densidade de potência de cerca de 0,2 kW/dm³.</p>
+
+<h3 id="lft--retificador-pfc-sic-central">LFT + Retificador PFC SiC Central</h3>
+
+<p>Uma solução utilizando retificador PFC centralizado com tecnologia SiC de 1200V e transformador seco/EcoDesign de alta eficiência oferece funcionalidade completa (potência reativa, fluxo de potência bidirecional), alta robustez, baixa complexidade e escalabilidade para níveis MVAC mais altos.</p>
+
+<p>Esta configuração atinge eficiência de aproximadamente 98,2% com densidade de potência de cerca de 0,25 kW/dm³.</p>
+
+<h2 id="currentos-um-padrão-aberto-para-lvdc">Current/OS: Um Padrão Aberto para LVDC</h2>
+
+<h3 id="o-que-é-currentos">O Que É Current/OS?</h3>
+
+<p>Current/OS é um conjunto evolutivo de regras para garantir interoperabilidade, segurança, escalabilidade, efetividade e confiabilidade de instalações elétricas DC prosumer com fontes distribuídas. Estas regras definem todos os aspectos do sistema para cargas, fontes e cabos.</p>
+
+<h3 id="bandas-de-tensão-inteligentes">Bandas de Tensão Inteligentes</h3>
+
+<p>Um dos conceitos mais inovadores do Current/OS é o uso de bandas de tensão para controle distribuído sem necessidade de comunicação central:</p>
+
+<p>Dentro das bandas nominais, a tensão é usada como um sinal para comunicar a disponibilidade de energia às cargas e fontes conectadas à rede, fazendo-as reagir de acordo.</p>
+
+<p>As bandas incluem:</p>
+<ul>
+  <li><strong>Banda de blackout (B1)</strong>: Sistema desligado, requer reinicialização</li>
+  <li><strong>Banda de emergência (B2)</strong>: Potência disponível apenas suficiente</li>
+  <li><strong>Banda nominal (B3)</strong>: Operação normal</li>
+  <li><strong>Banda de sobretensão (B4)</strong>: Condições temporárias</li>
+  <li><strong>Bandas de proteção (B5-B7)</strong>: Ativação de dispositivos de proteção</li>
+</ul>
+
+<h3 id="zonas-dc-para-segurança">Zonas DC para Segurança</h3>
+
+<p>Para facilitar o projeto e operação de instalações DC, circuitos ou grupos de circuitos são classificados de acordo com a energia de falta disponível e os meios de proteção em 6 Zonas DC, rotuladas como 0, 1, 2.1, 2.2, 3 e 4.</p>
+
+<p><strong>Zona DC 3</strong> é particularmente interessante para distribuição:
+Múltiplas fontes distribuídas com OCPD tendo tempo de interrupção menor que 10 μs resultam em correntes de falta ultra-limitadas no barramento DC, permitindo que as fontes sejam distribuídas e mantendo a energia incidente sempre muito pequena.</p>
+
+<h2 id="suporte-da-indústria">Suporte da Indústria</h2>
+
+<h3 id="abb-e-a-arquitetura-800-vdc">ABB e a Arquitetura 800 VDC</h3>
+
+<p>A multinacional sueco-suíça ABB anunciou uma parceria com a Nvidia que verá seu suporte ao lançamento da arquitetura de energia 800 VDC da Nvidia para racks de servidor de 1 megawatt.</p>
+
+<p>Por mais de uma década, a ABB tem estado na vanguarda da inovação LVDC, fornecendo tecnologias habilitadoras nos setores marítimo, de carregamento de veículos elétricos, industrial e de edifícios.</p>
+
+<h3 id="experiência-marítima">Experiência Marítima</h3>
+
+<p>Desde 2013, embarcações marítimas usam sistemas LVDC com 1000 VDC e até 20 MW, relatando economia de energia de 20-40% e custos de manutenção até 30% menores.</p>
+
+<h3 id="ecossistema-de-parceiros">Ecossistema de Parceiros</h3>
+
+<p>A NVIDIA está colaborando com parceiros-chave da indústria em todo o ecossistema elétrico de data center, incluindo fornecedores de silício como Analog Devices, Infineon, Innoscience, MPS, Navitas, OnSemi, Renesas, ROHM, STMicroelectronics e Texas Instruments.</p>
+
+<h2 id="desafios-e-considerações">Desafios e Considerações</h2>
+
+<h3 id="proteção-e-segurança">Proteção e Segurança</h3>
+
+<p>A distribuição DC apresenta desafios únicos de proteção. Os requisitos de proteção têm impacto significativo no dimensionamento da eletrônica de potência do lado MV dos SSTs.</p>
+
+<p>A solução está em disjuntores semicondutores ultrarrápidos e sistemas de proteção inteligentes que podem detectar e isolar faltas em microssegundos.</p>
+
+<h3 id="corrosão">Corrosão</h3>
+
+<p>Correntes de fuga DC podem ter efeito prejudicial sobre o aço de reforço no concreto dos edifícios. Apenas alguns miliamperes de correntes de fuga já podem causar sérios problemas de corrosão.</p>
+
+<p>A solução inclui o uso de aterramento TN-S e dispositivos de substituição de célula de polarização (PCR) com diodos para prevenir correntes de fuga DC.</p>
+
+<h3 id="padronização">Padronização</h3>
+
+<p>Embora existam avanços significativos, a padronização completa ainda está em desenvolvimento. Organizações como IEC, Current/OS Foundation e grupos industriais estão trabalhando ativamente para estabelecer padrões globais.</p>
+
+<h2 id="aplicações-além-dos-data-centers">Aplicações Além dos Data Centers</h2>
+
+<h3 id="edifícios-inteligentes">Edifícios Inteligentes</h3>
+
+<p>Sistemas DC de 350V são recomendados para instalações onde AC monofásico de 230V seria tipicamente usado, por exemplo, para residências ou usos similares.</p>
+
+<h3 id="integração-de-renováveis">Integração de Renováveis</h3>
+
+<p>A distribuição DC aproveita a saída DC de células de combustível, baterias e sistemas fotovoltaicos, eliminando uma etapa de conversão DC/AC adicional.</p>
+
+<h3 id="infraestrutura-de-recarga-de-ves">Infraestrutura de Recarga de VEs</h3>
+
+<p>A experiência com carregadores rápidos DC para veículos elétricos está contribuindo significativamente para o desenvolvimento de padrões e componentes para distribuição LVDC em edifícios.</p>
+
+<h2 id="o-futuro-da-distribuição-de-energia">O Futuro da Distribuição de Energia</h2>
+
+<h3 id="timeline-de-implementação">Timeline de Implementação</h3>
+
+<p>A produção em escala total de data centers 800 VDC coincidirá com os sistemas rack-scale NVIDIA Kyber em 2027, garantindo escalabilidade perfeita para modelos de IA cada vez mais exigentes.</p>
+
+<h3 id="impacto-econômico">Impacto Econômico</h3>
+
+<p>À medida que as cargas de trabalho de IA requerem 100x a 1.000x mais computação por consulta, esta arquitetura permite crescimento sustentável enquanto reduz o custo total de propriedade (TCO) em até 30% através de ganhos em eficiência, confiabilidade e melhorias na arquitetura do sistema.</p>
+
+<h3 id="sustentabilidade">Sustentabilidade</h3>
+
+<p>Transformadores de baixa frequência têm vida útil típica de mais de 40 anos, comparado a aproximadamente 10 anos para SSTs, além de vantagem de reciclabilidade de LFTs e unidades de alta potência.</p>
+
+<h2 id="conclusão">Conclusão</h2>
+
+<p>LVDC não é apenas uma tendência tecnológica passageira, mas uma evolução fundamental na forma como distribuímos e utilizamos energia elétrica. Com benefícios comprovados em eficiência, redução de custos, facilitação de energias renováveis e preparação para as demandas futuras de computação de alto desempenho, LVDC está posicionado para se tornar o padrão dominante em data centers, edifícios inteligentes e instalações industriais nas próximas décadas.</p>
+
+<p>Enquanto 690V AC é competitivo com ±400V DC, considerações adicionais sobre integração de renováveis, energia de backup de células de combustível e serviços de rede favorecem as soluções DC.</p>
+
+<p>A transição já começou. Com o suporte de gigantes da indústria como NVIDIA, ABB e um ecossistema crescente de fornecedores, LVDC está pronto para revolucionar a infraestrutura energética do século XXI, tornando-a mais eficiente, sustentável e preparada para o futuro.</p>
+
+<hr />
+
+<p><strong>Referências</strong>: Este artigo foi baseado em publicações técnicas de ETH Zürich, NVIDIA, ABB e documentação Current/OS Foundation, representando o estado da arte em sistemas LVDC até 2025., R., Popp, M., &amp; Schaefer, M. (2024). “Dynamic modeling, design and simulation of a thermal pumped piston storage within a renewable energy distribution system.” <em>Journal of Energy Storage, 100</em>, 113348. https://doi.org/10.1016/j.est.2024.113348</p>
 
               <hr class="mt-1 m-5"/>
               <hr class="mt-1 m-5"/>
@@ -1226,6 +337,38 @@ No ARM em modo ARM (32 bits) se ocorrer um branch (salto) para um endereço que 
   
   
   
+  
+  
+  
+  
+  <div class="column is-half card ">
+    <a class="title is-6" href="/verilog/2025/03/30/riscv-guia-rapido-instrucoes.html">
+    <article class="media  mt-4  h-150">
+        
+        <figure class="image is-fullwidth media-left">  
+                     
+            <img src="/assets/imgs/uma CPU.png"/>  
+            
+            
+        </figure>
+        </article>
+
+    <article class="media-content"> 
+      <div class="content">
+        <p class="bl pl-2 title is-size-5 mb-1">Guia ilustrado das instruções RISC-V RVI32 - Verilog</p>
+        <p class="ml-2 is-size-5 is-italic has-text-weight-light is-family-serif mb-0">
+        
+        Com ilustrações do fluxo e extração dos imediatos das instruções base.
+        
+        </p>
+        <p class="ml-2 title-header has-text-primary-dark">Verilog</p>
+      </div>
+
+      </article>
+      
+</a>
+  
+  </div>
   
   
   
