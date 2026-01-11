@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Primary Meta Tags -->
+    <title>Portulino - Modelo de linguagem do zero utilizando as T4 gratuitas do Colab - IA</title>
+    <meta name="title" content="Portulino - Modelo de linguagem do zero utilizando as T4 gratuitas do Colab - IA" />
+    <meta name="description" content="" />
+    
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="/ia/2026/01/11/portulino-modelo-linguagem-treinado-colab-gratuitas.html" />
+    <meta property="og:title" content="Portulino - Modelo de linguagem do zero utilizando as T4 gratuitas do Colab - IA" />
+    <meta property="og:description" content="Introdução Já faz algum tempo que me interesso por modelos de linguagem, mesmo antes do surgimento dos Transformers eu já treinava alguns modelos utilizando cadeias de Markov e posteriormente as redes recorrentes. Começar pelas cadeias de Markov foi um processo didático pois fornecia ótimos insights e entendimento da matemática e..."  />
+    <meta property="og:image" content="/assets/imgs/e822f532-ee0f-4f9f-9600-72d3b91b29e2.jpeg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="/ia/2026/01/11/portulino-modelo-linguagem-treinado-colab-gratuitas.html" />
+    <meta property="twitter:title" content="Portulino - Modelo de linguagem do zero utilizando as T4 gratuitas do Colab - IA"  />
+    <meta property="twitter:description" content="Introdução Já faz algum tempo que me interesso por modelos de linguagem, mesmo antes do surgimento dos Transformers eu já treinava alguns modelos utilizando cadeias de Markov e posteriormente as redes recorrentes. Começar pelas cadeias de Markov foi um processo didático pois fornecia ótimos insights e entendimento da matemática e..." />
+    <meta property="twitter:image" content="/assets/imgs/e822f532-ee0f-4f9f-9600-72d3b91b29e2.jpeg"/>
+
+    <!-- Meta Tags Generated with https://metatags.io -->
+    <link rel="preload"  href='/assets/css/style.css' as="style" type="text/css">
+    <link rel="stylesheet"  href='/assets/css/style.css'>
+    <link rel="stylesheet"  href='/assets/css/github.css'>
+    <script rel="preload" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js" integrity="sha512-6sSYJqDreZRZGkJ3b+YfdhB3MzmuP9R7X1QZ6g5aIXhRvR1Y/N/P47jmnkENm7YL3oqsmI6AK+V6AD99uWDnIw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        var $ = function(id){return document.getElementById(id)};
+        MathJax = {
+          jax: ["input/TeX","output/HTML-CSS"],
+          chtml: { displayAlign: 'left'      },
+          tex: {
+            inlineMath: [['$', '$']],
+            displayMath:[['$$', '$$'], ['\\[', '\\]']]
+          }
+          };
+    </script>
+        <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+        </script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>      
+        <script>hljs.highlightAll();</script>
+         <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PY9DT1RWSW"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-PY9DT1RWSW');
+        </script>
+</head>
+
+    <body>
+    <nav class="navbar">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item"  href="/">
+          <h1 class="has-text-weight-bold is-capitalized" >Fabio Vila</h1>
+        </a>
+        <span class="navbar-burger" data-target="navbarMenuHeroA">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </div>
+      <div id="navbarMenuHeroA" class="navbar-menu">
+        <div class="navbar-end">
+          <a href="/" class="navbar-item">
+            Home
+          </a>
+                      <a href="https://fabiovila.github.io/contato/" class="navbar-item has-text-white">
+              Contato
+            </a>
+          <a href="https://vilaboard.com" class="navbar-item">
+            Vilaboard
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+<section class="section ">
+<div class="columns is-centered">
+<div class="column is-9 ">
+<div class="content is-fluid">
+
+  <header class="mb-5">
+    <h1 class="title is-warning">Portulino - Modelo de linguagem do zero utilizando as T4 gratuitas do Colab - IA</h1>
+    <h4 class="is-size-4-tablet has-text-weight-light is-family-sans-serif" style="margin-top: -1em;">Um pequeno modelo e seus insights preciosos.</h4>
+    
+    <hr class="m-1"/>
+    <small class="is-size-7-tablet has-text-weight-light pl-2 has-text-dark-grey" ><span class="icon "><i class="fa fa-user "></i></span>
+      
+      Fabio
+         
+    <span class="icon"><i class="fa fa-calendar"></i></span>  
+     11 Jan 2026
+     <span class="icon"><i class="fa fa-bars"></i></span>
+    IA
+    <span class="icon"><i class="fa fa-tag"></i></span>  
+    colab, transformers, dataset, modelos generativos, e inteligência artificial
+    </small>
+    <hr class="mt-1"/>
+    
+    <div class="h-400">
+        
+        <img class="image" style="width:100%" src="/assets/imgs/e822f532-ee0f-4f9f-9600-72d3b91b29e2.jpeg"/>
+        
+    </div>
+     <hr class="mt-1 mb-5"/>
+    
+
+
+  </header>
+
+  <article class="mt-5">
+    <h3 id="introdução">Introdução</h3>
+
+<p>Já faz algum tempo que me interesso por modelos de linguagem, mesmo antes do surgimento dos Transformers eu já treinava alguns modelos utilizando cadeias de Markov e posteriormente as redes recorrentes. Começar pelas cadeias de Markov foi um processo didático pois fornecia ótimos insights e entendimento da matemática e estatistica envolvida. O caminho natural seria então ir para as RNNs e a tecnologia mais avançada para a época eram as LSTM e as GRU, redes recorrentes mais sofisticadas que as RNNs vanilla. Porém, treinar essas redes era muito ineficiente: demorava demais, exigia grande quantidade de dados e o hardware disponível raramente ajudava.</p>
+
+<p>Naquele período, o treinamento eficiente de representações vetoriais de palavras começava a surgir por meio de trabalhos como (MIKOLOV et al., 2013)<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup> e (PENNINGTON; SOCHER; MANNING, 2014)<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>.</p>
+
+<p>Quando <em>Attention Is All You Need</em> (VASWANI et al., 2017)<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup> foi publicado, o cenário da pesquisa em NLP começou a mudar radicalmente. Alguns anos depois, surgiram o GPT-2 e o GPT-3 (2020), que impulsionaram a corrida por modelos próprios e, consequentemente, por datasets e infraestrutura de grande escala.</p>
+
+<p>Para mim, entretanto, ainda havia muito a aprender. Passei anos sem me aprofundar de fato em Transformers. Naquela época, o interesse em Redes Neurais não era disseminado; quem se aventurava muitas vezes desistia, pois o processo de compreensão era longo e tedioso. Era preciso primeiro dominar o forward — conceito relativamente simples. Já o backward, ou cálculo dos gradientes, era inacessível para muitos, exigindo compreensão de derivadas parciais. Como eu já tinha cursado Cálculo 1 e 2, não tive grandes problemas, mas demorei bastante para organizar meu entendimento. O método mais didático foi fazer as derivadas parciais da função de perda à mão, com papel e lápis.</p>
+
+<p>E foi que então os Transformers transformaram completamente o campo, tornando obsoletas diversas arquiteturas de redes neurais até então consagradas.</p>
+
+<p>No processo de aprender redes neurais o método que mais me ajuda a compreende-las é estudar o código-fonte. É nele que consigo visualizar o fluxo dos dados, a pilha de chamadas e os cálculos envolvidos. De fato, ao tentar ler Attention Is All You Need, é comum ter a sensação de que alguns detalhes não estão completamente explicados.</p>
+
+<p>O código-fonte que encontrei e que serviu como meu ponto de partida para entender e treinar modelos Transformer foi o <strong>nanoGPT</strong> do KARPATHY<sup id="fnref:4" role="doc-noteref"><a href="#fn:4" class="footnote" rel="footnote">4</a></sup>. O nanoGPT é modelo decoder only minimo e didático inspirado no GPT-2, em contraste com o modelo encoder-decoder originalmente proposto por (VASWANI et al., 2017)<sup id="fnref:3:1" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup>. Ele possuía um gerenciamento de dataset bastante rudimentar, que apenas selecionava chunks de textos aleatórios. Não havia suporte a instruct, apenas textos corridos.</p>
+
+<p>Esse código simples me ajudou a compreender e treinar diversos modelos com datasets próprios e neste processo, valiosos insights se reveleram através dos erros e acertos. Ao treinar meu primeiro modelo com ele fiquei impressionado com a rapidez que ele aprende comparado às RNNs. Em poucos meses ele já respondia algumas perguntas e em menos de 5000 iterações o loss caia dos 10.0 para 3.5.</p>
+
+<p>O treinamento não podia ser feito em casa pois minha GPU Nvidia era fraca. Então usava as T4 gratuitas do Colab. Ligava o treinamento praticamente todos os dias, religiosamente, conseguia 100 a 150 iterações por dia. As vezes pagava os R$ 58,00 para usar as A100 ou L4 e dar um salto no aprendizado, mas esses pagamentos eram algo raro.</p>
+
+<hr />
+
+<h3 id="portulino">Portulino</h3>
+
+<p>E foi que surgiu meu melhor modelo: O Portulino. Esse nome foi dado porque é um modelo treinado primáriamente em textos em pt-BR. Porém, mesmo pequeno se mostrou altamente eficiente no aprendizado devido aos avanços nos últimos anos que implementei no código original nanoGPT, a essa altura já totalmente reescrito, e a geração de datasets sintéticos de alta qualidade.</p>
+
+<h4 id="arquitetura-e-configurações">Arquitetura e configurações</h4>
+
+<p><strong>Similaridades ao GPT-2</strong></p>
+
+<ul>
+  <li>É um modelo decoder somente seguindo o fluxo Embedding -&gt; N x Transformer Blocks -&gt; LM Head</li>
+  <li>O block transformer contém Self-Attention + Feed-Forward com conexões residuais</li>
+  <li>Autoregressivo</li>
+</ul>
+
+<p><strong>Diferenças e melhorias:</strong></p>
+
+<ul>
+  <li>Tokenizado por <a href="https://github.com/huggingface/tokenizers">Tokenizers</a></li>
+  <li>Usa RoPE ao invés de Learning Embeddings</li>
+  <li>GQA (16 Q heads, 4 KV heads)</li>
+  <li>RMSNorm</li>
+  <li>Pre-norm</li>
+  <li>SwiGLU</li>
+  <li>Sem bias</li>
+  <li>Weight Tying ( neste ponto já não sei se foi uma boa escolha )</li>
+</ul>
+
+<p><strong>Configurações</strong></p>
+
+<ul>
+  <li>Vocabulário personalizado de 32k. Foi escolhido esse valor para comprimir o dataset em 16 bits e economizar no Google Drive permitindo maior quantidade de dados</li>
+  <li>1024 de contexto</li>
+  <li>1024 de dimensão Embedded</li>
+  <li>20 Layers</li>
+  <li>16 Heads</li>
+  <li>4 KV Heads</li>
+  <li>Dropout = 0.05</li>
+  <li>Learning Rate 0.0003</li>
+</ul>
+
+<p>O fluxo resumido segue o esquema:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      Input [B, T]
+      ↓ Embedding
+      [B, T, 1024]
+      ↓ ×20 Blocks
+      ├─ RMSNorm → GQA+RoPE → residual
+      └─ RMSNorm → SwiGLU → residual
+      ↓ Final RMSNorm
+      ↓ LM Head (weight tied)
+      [B, T, 32006] logits
+</code></pre></div></div>
+<h4 id="treinamento">Treinamento</h4>
+
+<p>O treinamento em sua grande maioria é feito quase todos os dias na disponibilidade das T4 gratuitas do Google Colab. Em geral consigo 1:20hrs a 1:40hrs de treinamento. Se pular um dia consigo 3:30hrs no máximo. Por dia o rendimento é de aproximadamente <strong>100 a 150</strong> iterações com batch de tamanho <strong>9</strong>. As melhorias implementadas liberaram memória para permitir 9 de batch ao invés dos 8 que conseguia no antigo nanoGPT. O tempo de treinamento também diminui levemente, mas varia dependendo da carga do sistema de arquivos do Colab na sessão, em geral fica em 198s a 233s para rodar 5 iterações.
+O checkpoint é salvo a cada 100 iterações e depois a cada 15 para não perder treinamento quando está perto da sessão se desconectar.
+Apesar da sua maioria ser nas T4, as vezes eu pagava créditos ao Google para liberar as A100 e L4. Nas A100 eu consigo 70 de batch size e nas L4 17 de batch size.
+O que me faz pensar que um pagamento de A100 deve cobrir meses ( se não todos ) de T4.</p>
+
+<p>Exemplo de output do treinamento:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      GPU RAM TOTAL: 15095 RESERVED: 2 ALLOCATED: 0 FREE: 1
+      BATCH SIZE: 9 GPU RAM: 15095 SAVE_CKPT 100 TIME_SAVE 100
+      Resuming training from out
+      Resumed from iteration 32900 loss 2.1903536787525693
+      Compiling the model...
+      Done
+      GPTConfig(block_size=1024, vocab_size=32006, n_layer=20, n_head=16, n_kv_head=4, n_embd=1024, dropout=0.05, bias=False, tie_word_embeddings=True)
+
+      i 32905: l 2.1359, al 2.1849,  lr 0.000298, ctime 10.69m, ne 61.02m 1.02h time 194.75s 
+      i 32910: l 2.7124, al 2.2377,  lr 0.000298, ctime 13.94m, ne 57.78m 0.96h time 194.77s
+</code></pre></div></div>
+<p>O otimizador utilizado é o AdamW. Comecei a implementar o <a href="https://github.com/KellerJordan/Muon">Muon</a>, mas ainda não coloquei para rodar, provavelmente será para um próximo modelo.</p>
+
+<h4 id="dataset">Dataset</h4>
+
+<p>O grande aprendizado nesse processo não era mais o modelo. Os modelos atuais já são ótimos para aprender e são eficientes, o que importa agora é aprender bem e para isso o dataset deveria ser a real preocupação.
+O modelo anterior era treinado com um dump da Wikipédia em pt-BR e alguns dumps de livros desses torrentes de ebooks.  Os instructs eram praticamente todos em inglês com excessão do Cabrita e Alpaca que surgiram depois e tinham instructs em pt-BR. Porém eram todos datasets sujos, com muito caracteres aleatórios, textos mal formatados, mal codificados e instructs defeituosos.
+Era hora de arrumar a casa e melhorar esses datasets e conseguir mais.
+O Portulino foi treinado primariamente com os seguintes dataset:</p>
+
+<h5 id="textos-corridos">Textos corridos</h5>
+
+<ul>
+  <li>Wikipédia pt-BR de 2015</li>
+  <li>Aproximadamente 10Gb de scrapys de blogspots e wordpress limpos em pt-BR que eu mesmo fiz
+      *      Esses scrapys de blogspot e wordpress na maioria eram religiosos, de esquerda e atividades femininas</li>
+  <li>Apostilas diversas de concurseiros achadas na internet em especial nesses google drives</li>
+  <li>Scrapys de outros sites</li>
+  <li>Livros</li>
+  <li>PDFs de manuais e trabalhos academicos</li>
+  <li>Diversos datasets encontrados de pares EN-PT para tradução</li>
+  <li>No final descobri o CulturaX que tinha melhor qualidade que meus scrapys, porém já era tarde e rodo no máximo 10k epochs.</li>
+  <li>Reddit</li>
+</ul>
+
+<h5 id="instructs">Instructs</h5>
+
+<ul>
+  <li>Alpaca e Cabrita limpos</li>
+  <li>gsm8k</li>
+  <li>OpenAssistent</li>
+  <li>Aproximadamente 100k de instructs que eu mesmo fiz automizados utilizando api da OpenAI e Gemini</li>
+  <li>Aproximadamente 5k de instructs think que eu mesmo fiz automizados utilizando api do Gemini</li>
+  <li>Obviamente alguns feitos manualmente ou batchs nas IAs web</li>
+  <li>Tem um enorme de 400k thinking em inglês mas eu não anotei e já foi concatenado no dataset</li>
+  <li>5K perguntas e respostas sobre as principais legislações brasileiras feitos automizados utilizando a api Gemini</li>
+  <li>Reddit filtrado por score</li>
+</ul>
+
+<p>Eu tinha esperança que os datasets em ingles conseguissem ajudar o modelo a responder o que não sabia em pt-BR através da tradução interna, mas em nenhum momento eu percebi isso. Provavelmente se eu tivesse deixando treinar mais tempo essa capacidade surgiria. O dataset de think foi uma surpresa tanto o em inglês quanto o em pt-BR que fiz deram um salto no raciocino do modelo supreendente.</p>
+
+<h5 id="vocabulário">Vocabulário</h5>
+
+<p>Como treino redes a algum tempo tenho textos de mais de uma década. Isso refletiu inclusive no vocabulário personalizado treinado pelo Tokenizers. O treinamento ocorreu por volta de 2015 época do Impeachment da Dilma, logo Dilma ficou eternizado no vocabulário e hoje não se fala mais nela.</p>
+
+<div class="destaque bl">
+É algo que em produção deve ser observado ao treinar seu próprio vocabulário, no sentido de evitar que palavras da 'moda' que fatalmente cairão no ostracismo fiquem eternizadas no vocabulário ocupando espaço útil.
+</div>
+
+<p>Antes tinha treinado um vocabulário de 50K mas os datasets ficam grandes pois necessitava usar 32 bits para representar um token, cogitei usar 24 bits ou até mesmo 17 bits, mas desconfiei que a manipulação de bits iria mais atrapalhar que ajudar. Dessa forma um novo vocabulário de 32K que cabe perfeitamente em 16 bits signed foi treinado. A maioria dos textos usados foram em pt-BR, porém o vocabulário tem alguns tokens em inglês.</p>
+
+<p>Tokens especiais adicionados no vocabulário:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>&lt;|query|&gt;</strong></td>
+      <td>Usado parar marcar o início de um instruct, query, solicitação do usuário</td>
+    </tr>
+    <tr>
+      <td><strong>&lt;|answer|&gt;</strong></td>
+      <td>Usado em par com o &lt;|query|&gt; para marcar o fim do instruct e início da geração da resposta pelo modelo</td>
+    </tr>
+    <tr>
+      <td><strong>&lt;|endoftext|&gt;</strong></td>
+      <td>Fim de texto</td>
+    </tr>
+    <tr>
+      <td><strong>&lt;|hole|&gt;</strong></td>
+      <td>O thinking apareceu depois que treinei o vocabulário, então usei esse token não usado como marcação para gerar o Thinking.</td>
+    </tr>
+    <tr>
+      <td><strong>&lt;|code|&gt;</strong></td>
+      <td>Pensei em usar para algo programático mas não foi para frente.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Entre outros tokens especiais não usados mas contidos no vocabulário.</p>
+
+<h3 id="performance">Performance</h3>
+
+<p>Logo nos primeiros momentos do treinamento já percebi uma melhoria considerável com essas inovações e os novos datasets limpos. Em um mês treinando o loss já caiu para 3.6 e textos inteligiveis começaram a aparecer. A inferência em casa era feita por CPU e quando ativei o cache KV ela ficou extremamente rápida.
+Eu mão implementei métrica ou validação alguma. Isso gastaria meus preciosos tempos de T4. Os testes eram eu mesmo digitando coisas ao longo do tempo.
+Quando eu implementei o thinking fiquei impressionado com a capacidade de detectar o intent do usuário, porém a resposta final nunca foi satisfatória no thinking. Provavelmente porque ele só foi implementado quando o modelo já estava na metade do treinamento.</p>
+
+<p>Obviamente é um modelo pequeno e treinado por uma pessoa só. Ele tem seus problemas e ontologia e senso-comum é seu fraco como é até hoje nos grandes modelos. Aliás cada dia que passa as grandes IAs estão reforçando mais o uso de RAG ao invés de confiar no conhecimento dos pesos. E faz todo sentido, melhor implementar um ótimo modelo de racíocinio, moderação e detecção de intent e deixar conhecimentos efemeros e especificos a parte.</p>
+
+<p><strong>Anatomia Humana</strong>. Isso ficou evidente no Portulino na anatomia sexual humana. Sim, isso mesmo, ele tem sérios problemas com quem tem pênis e vagina. Eu fiquei muito tempo tentando corrigir isso o que acabou fazendo o modelo ficar sexual! Foi ai que resolvi parar de treiná-lo pois percebi que fiz uma bagunça.</p>
+
+<p><strong>Legislações</strong>. Um conhecido advogado inserido na área de IA e advocacia me sugeriu treinar meu modelo para o ramo juridico, então fiz turn-over e fiz 5k de instructs de legislação bem como reforcei textos juridicos que são até fáceis de se achar. Os resultados não foram bons. O modelo acabou confundindo intents com solicitações juridicas e confundindo as legislações. Mas ainda sim achei impressionante ele ter aprendido em tão pouco tempo a citar leis e principios.</p>
+
+<p><strong>Safe</strong>. Durante o processo de treinamento, ao mesmo tempo eu pesquisava e fazia novos datasets. Foi então que o momento de combater respostas não seguras começaram a me preocupar e interessar. Principalmente devido ao conteúdo reddit e alguns blogs o modelo fornece algumas respostas não seguras. Lembre-se que eu sou somente uma pessoa e esse modelo não é para produção, é um modelo toy, para aprendizado, então eu não perdi tempo filtrando o dataset. Então eu fiz alguns datasets com respostas seguras para self-harming, crimese e outras ilegalidades. O Grok me ajudou muito porque é o único modelo que se você pedir coisas erradas ele não se recusa a fazer. Porém eu parei de fazer esses datasets quando cheguei nos canibais. Eu pedi para o Grok fazer frases que essas pessoas falariam e … eu só consegui ler algumas linhas … que horror. Não tinha estomago para ficar brincando de entender pessoas malucas. Lembre-se, que eu teria que pensar como elas … deixei isso para lá.
+Porém como muitos datasets instructs achados por ai tem conteúdo safe o modelo acabou pegando o viés OpenAI e Google e tem um pouco de segurança no self-harming.</p>
+
+<p><strong>Matemática</strong>. Esqueça. Ele nem sabe quanto é 2+2. E olha que insisti nisso. Fiz 50mB de números, equações em simbolos e literais. Pelo menos ele aprendeu a contar! O anterior nem isso sabia!</p>
+
+<p><strong>Programação</strong>. Tinha no começo mas tirei. Ele nunca aprenderia a programar eficientemente e eu gastaria pesos com algo que não daria certo.</p>
+
+<p><strong>Humanas</strong>. Ele performa bem em humanas. Tanto porque no Brasil há intenso trabalho de humanas disponível, quanto blogs de esquerda e religiosos.</p>
+
+<p><strong>Conversação</strong>. Portulino não é voltado a diálogos. Os datasets de diálogos nunca foram empilhados para ensiná-lo a continuar o diálogo.</p>
+
+<h3 id="próximas-realizações">Próximas realizações</h3>
+
+<p>O Portulino apesar de suas dificiências se mostrou um monstro no aprendizado. Como os datasets foram sendo limpos e melhorados ao longo do seu treinament, ele eternizou alguns defeitos que não são mais corrigíveis, somando-se a essas deficiências o vocabulário está datado.</p>
+
+<p>Então é hora de treinar outro! Enquanto houver T4 gratuitas ficarei treinando esses modelos.</p>
+
+<p>O próximo terá melhores datasets, melhores textos corridos, novas tecnologias como o otimizador Muon, um novo vocabulário com novos tokens especiais voltados para RAG, Thinking, System e outros.</p>
+
+<p>Também é hora de implementar a RMT (Recurrent Memory Transformer) para aumentar o contexto e permitir finalmente conversação. De fato já estou criando e arrumando datasets dialógicos.</p>
+
+<hr />
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>Word2Vec – Mikolov et al. (2013)
+  MIKOLOV, Tomas et al. <em>Efficient Estimation of Word Representations in Vector Space.</em> arXiv:1301.3781, 2013. Disponível em: <a href="https://arxiv.org/abs/1301.3781">https://arxiv.org/abs/1301.3781</a> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p>PENNINGTON, Jeffrey; SOCHER, Richard; MANNING, Christopher D. <em>GloVe: Global Vectors for Word Representation.</em> 2014. Disponível em: <a href="https://nlp.stanford.edu/pubs/glove.pdf">https://nlp.stanford.edu/pubs/glove.pdf</a></p>
+
+      <p>CARLSON, Riley; BAUER, John; MANNING, Christopher D. <em>A New Pair of GloVes.</em> 2025. Disponível em: <a href="https://arxiv.org/abs/2507.18103">https://arxiv.org/abs/2507.18103</a> <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:3" role="doc-endnote">
+      <p>VASWANI, Ashish; SHAZEER, Noam; PARMAR, Niki; USZKOREIT, Jakob; JONES, Llion; GOMEZ, Aidan N.; KAISER, Łukasz; POLOSUHKIN, Illia. <em>Attention Is All You Need</em>. arXiv preprint arXiv:1706.03762, 2017. Disponível em: <a href="https://arxiv.org/abs/1706.03762">https://arxiv.org/abs/1706.03762</a> <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a> <a href="#fnref:3:1" class="reversefootnote" role="doc-backlink">&#8617;<sup>2</sup></a></p>
+    </li>
+    <li id="fn:4" role="doc-endnote">
+      <p>KARPATHY, Andrej. nanoGPT: The simplest, fastest repository for training/finetuning medium-sized GPTs. GitHub, 2025. Disponível em: <a href="https://github.com/karpathy/nanoGPT">https://github.com/karpathy/nanoGPT</a> <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+  </article>
+
+</div>
+</div>
+</div>
+</section>
+
+<section class="section">
+  <hr/>
+  <nav class="level is-mobile">
+
+    <div class="level-item">      
+      
+      
+      <div>
+        <p class="heading"><strong>Veja Também:</strong></p>
+        <a href="/energia/2025/11/15/LVDC.html"><small>LVDC: A Revolução Silenciosa na Distribuição de Energia para Data Centers e Edifícios - Energia</small></br></a>
+        <a href=""><small></small></a>
+      </div>
+    </div>
+  </nav>
+</section>
+<section class="section">
+  <div id="disqus_thread"></div>
+<script>
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://fabiovila-github-io.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+<footer class="footer has-background-dark has-text-white">
+  <div class="content has-text-centered">
+    <p>
+      <strong>Fabio Vila</strong> by <a href="https://fabiovila-github-io">Fabio Vila</a>.
+      The source code is licensed
+      <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+
+    </p>
+  </div>
+<nav class="level">
+      <div class="level-item has-text-centered">
+        <div>
+          <span class="icon has-text-warning">
+            <i class="fas fa-envelope fa-lg"></i>
+          </span>
+          <p>
+            <strong class="has-text-light">Email:</strong><br>
+            <a class="has-text-link-light" href="mailto:fkvila@outlook.com">fkvila@outlook.com</a>
+          </p>
+        </div>
+      </div>
+      <div class="level-item has-text-centered">
+        <div>
+          <span class="icon has-text-info">
+            <i class="fab fa-telegram fa-lg"></i>
+          </span>
+          <p>
+            <strong class="has-text-light">Telegram:</strong><br>
+            <a class="has-text-link-light" href="https://t.me/viladx2">t.me/viladx2</a>
+          </p>
+        </div>
+      </div>
+
+    </nav>
+</footer>
+</body>
+</html>

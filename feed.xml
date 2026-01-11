@@ -1,4 +1,230 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2025-11-15T10:42:36-06:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">LVDC: A Revolução Silenciosa na Distribuição de Energia para Data Centers e Edifícios - Energia</title><link href="http://0.0.0.0:4000/energia/2025/11/15/LVDC.html" rel="alternate" type="text/html" title="LVDC: A Revolução Silenciosa na Distribuição de Energia para Data Centers e Edifícios - Energia" /><published>2025-11-15T00:00:00-06:00</published><updated>2025-11-15T00:00:00-06:00</updated><id>http://0.0.0.0:4000/energia/2025/11/15/LVDC</id><content type="html" xml:base="http://0.0.0.0:4000/energia/2025/11/15/LVDC.html">&lt;h1 id=&quot;lvdc-a-revolução-silenciosa-na-distribuição-de-energia-para-data-centers-e-edifícios&quot;&gt;LVDC: A Revolução Silenciosa na Distribuição de Energia para Data Centers e Edifícios&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2026-01-11T07:15:42-06:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Portulino - Modelo de linguagem do zero utilizando as T4 gratuitas do Colab - IA</title><link href="http://0.0.0.0:4000/ia/2026/01/11/portulino-modelo-linguagem-treinado-colab-gratuitas.html" rel="alternate" type="text/html" title="Portulino - Modelo de linguagem do zero utilizando as T4 gratuitas do Colab - IA" /><published>2026-01-11T00:00:00-06:00</published><updated>2026-01-11T00:00:00-06:00</updated><id>http://0.0.0.0:4000/ia/2026/01/11/portulino-modelo-linguagem-treinado-colab-gratuitas</id><content type="html" xml:base="http://0.0.0.0:4000/ia/2026/01/11/portulino-modelo-linguagem-treinado-colab-gratuitas.html">&lt;h3 id=&quot;introdução&quot;&gt;Introdução&lt;/h3&gt;
+
+&lt;p&gt;Já faz algum tempo que me interesso por modelos de linguagem, mesmo antes do surgimento dos Transformers eu já treinava alguns modelos utilizando cadeias de Markov e posteriormente as redes recorrentes. Começar pelas cadeias de Markov foi um processo didático pois fornecia ótimos insights e entendimento da matemática e estatistica envolvida. O caminho natural seria então ir para as RNNs e a tecnologia mais avançada para a época eram as LSTM e as GRU, redes recorrentes mais sofisticadas que as RNNs vanilla. Porém, treinar essas redes era muito ineficiente: demorava demais, exigia grande quantidade de dados e o hardware disponível raramente ajudava.&lt;/p&gt;
+
+&lt;p&gt;Naquele período, o treinamento eficiente de representações vetoriais de palavras começava a surgir por meio de trabalhos como (MIKOLOV et al., 2013)&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; e (PENNINGTON; SOCHER; MANNING, 2014)&lt;sup id=&quot;fnref:2&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+
+&lt;p&gt;Quando &lt;em&gt;Attention Is All You Need&lt;/em&gt; (VASWANI et al., 2017)&lt;sup id=&quot;fnref:3&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt; foi publicado, o cenário da pesquisa em NLP começou a mudar radicalmente. Alguns anos depois, surgiram o GPT-2 e o GPT-3 (2020), que impulsionaram a corrida por modelos próprios e, consequentemente, por datasets e infraestrutura de grande escala.&lt;/p&gt;
+
+&lt;p&gt;Para mim, entretanto, ainda havia muito a aprender. Passei anos sem me aprofundar de fato em Transformers. Naquela época, o interesse em Redes Neurais não era disseminado; quem se aventurava muitas vezes desistia, pois o processo de compreensão era longo e tedioso. Era preciso primeiro dominar o forward — conceito relativamente simples. Já o backward, ou cálculo dos gradientes, era inacessível para muitos, exigindo compreensão de derivadas parciais. Como eu já tinha cursado Cálculo 1 e 2, não tive grandes problemas, mas demorei bastante para organizar meu entendimento. O método mais didático foi fazer as derivadas parciais da função de perda à mão, com papel e lápis.&lt;/p&gt;
+
+&lt;p&gt;E foi que então os Transformers transformaram completamente o campo, tornando obsoletas diversas arquiteturas de redes neurais até então consagradas.&lt;/p&gt;
+
+&lt;p&gt;No processo de aprender redes neurais o método que mais me ajuda a compreende-las é estudar o código-fonte. É nele que consigo visualizar o fluxo dos dados, a pilha de chamadas e os cálculos envolvidos. De fato, ao tentar ler Attention Is All You Need, é comum ter a sensação de que alguns detalhes não estão completamente explicados.&lt;/p&gt;
+
+&lt;p&gt;O código-fonte que encontrei e que serviu como meu ponto de partida para entender e treinar modelos Transformer foi o &lt;strong&gt;nanoGPT&lt;/strong&gt; do KARPATHY&lt;sup id=&quot;fnref:4&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;. O nanoGPT é modelo decoder only minimo e didático inspirado no GPT-2, em contraste com o modelo encoder-decoder originalmente proposto por (VASWANI et al., 2017)&lt;sup id=&quot;fnref:3:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;. Ele possuía um gerenciamento de dataset bastante rudimentar, que apenas selecionava chunks de textos aleatórios. Não havia suporte a instruct, apenas textos corridos.&lt;/p&gt;
+
+&lt;p&gt;Esse código simples me ajudou a compreender e treinar diversos modelos com datasets próprios e neste processo, valiosos insights se reveleram através dos erros e acertos. Ao treinar meu primeiro modelo com ele fiquei impressionado com a rapidez que ele aprende comparado às RNNs. Em poucos meses ele já respondia algumas perguntas e em menos de 5000 iterações o loss caia dos 10.0 para 3.5.&lt;/p&gt;
+
+&lt;p&gt;O treinamento não podia ser feito em casa pois minha GPU Nvidia era fraca. Então usava as T4 gratuitas do Colab. Ligava o treinamento praticamente todos os dias, religiosamente, conseguia 100 a 150 iterações por dia. As vezes pagava os R$ 58,00 para usar as A100 ou L4 e dar um salto no aprendizado, mas esses pagamentos eram algo raro.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;portulino&quot;&gt;Portulino&lt;/h3&gt;
+
+&lt;p&gt;E foi que surgiu meu melhor modelo: O Portulino. Esse nome foi dado porque é um modelo treinado primáriamente em textos em pt-BR. Porém, mesmo pequeno se mostrou altamente eficiente no aprendizado devido aos avanços nos últimos anos que implementei no código original nanoGPT, a essa altura já totalmente reescrito, e a geração de datasets sintéticos de alta qualidade.&lt;/p&gt;
+
+&lt;h4 id=&quot;arquitetura-e-configurações&quot;&gt;Arquitetura e configurações&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Similaridades ao GPT-2&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;É um modelo decoder somente seguindo o fluxo Embedding -&amp;gt; N x Transformer Blocks -&amp;gt; LM Head&lt;/li&gt;
+  &lt;li&gt;O block transformer contém Self-Attention + Feed-Forward com conexões residuais&lt;/li&gt;
+  &lt;li&gt;Autoregressivo&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Diferenças e melhorias:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Tokenizado por &lt;a href=&quot;https://github.com/huggingface/tokenizers&quot;&gt;Tokenizers&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Usa RoPE ao invés de Learning Embeddings&lt;/li&gt;
+  &lt;li&gt;GQA (16 Q heads, 4 KV heads)&lt;/li&gt;
+  &lt;li&gt;RMSNorm&lt;/li&gt;
+  &lt;li&gt;Pre-norm&lt;/li&gt;
+  &lt;li&gt;SwiGLU&lt;/li&gt;
+  &lt;li&gt;Sem bias&lt;/li&gt;
+  &lt;li&gt;Weight Tying ( neste ponto já não sei se foi uma boa escolha )&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Configurações&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Vocabulário personalizado de 32k. Foi escolhido esse valor para comprimir o dataset em 16 bits e economizar no Google Drive permitindo maior quantidade de dados&lt;/li&gt;
+  &lt;li&gt;1024 de contexto&lt;/li&gt;
+  &lt;li&gt;1024 de dimensão Embedded&lt;/li&gt;
+  &lt;li&gt;20 Layers&lt;/li&gt;
+  &lt;li&gt;16 Heads&lt;/li&gt;
+  &lt;li&gt;4 KV Heads&lt;/li&gt;
+  &lt;li&gt;Dropout = 0.05&lt;/li&gt;
+  &lt;li&gt;Learning Rate 0.0003&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;O fluxo resumido segue o esquema:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;      Input [B, T]
+      ↓ Embedding
+      [B, T, 1024]
+      ↓ ×20 Blocks
+      ├─ RMSNorm → GQA+RoPE → residual
+      └─ RMSNorm → SwiGLU → residual
+      ↓ Final RMSNorm
+      ↓ LM Head (weight tied)
+      [B, T, 32006] logits
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h4 id=&quot;treinamento&quot;&gt;Treinamento&lt;/h4&gt;
+
+&lt;p&gt;O treinamento em sua grande maioria é feito quase todos os dias na disponibilidade das T4 gratuitas do Google Colab. Em geral consigo 1:20hrs a 1:40hrs de treinamento. Se pular um dia consigo 3:30hrs no máximo. Por dia o rendimento é de aproximadamente &lt;strong&gt;100 a 150&lt;/strong&gt; iterações com batch de tamanho &lt;strong&gt;9&lt;/strong&gt;. As melhorias implementadas liberaram memória para permitir 9 de batch ao invés dos 8 que conseguia no antigo nanoGPT. O tempo de treinamento também diminui levemente, mas varia dependendo da carga do sistema de arquivos do Colab na sessão, em geral fica em 198s a 233s para rodar 5 iterações.
+O checkpoint é salvo a cada 100 iterações e depois a cada 15 para não perder treinamento quando está perto da sessão se desconectar.
+Apesar da sua maioria ser nas T4, as vezes eu pagava créditos ao Google para liberar as A100 e L4. Nas A100 eu consigo 70 de batch size e nas L4 17 de batch size.
+O que me faz pensar que um pagamento de A100 deve cobrir meses ( se não todos ) de T4.&lt;/p&gt;
+
+&lt;p&gt;Exemplo de output do treinamento:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;      GPU RAM TOTAL: 15095 RESERVED: 2 ALLOCATED: 0 FREE: 1
+      BATCH SIZE: 9 GPU RAM: 15095 SAVE_CKPT 100 TIME_SAVE 100
+      Resuming training from out
+      Resumed from iteration 32900 loss 2.1903536787525693
+      Compiling the model...
+      Done
+      GPTConfig(block_size=1024, vocab_size=32006, n_layer=20, n_head=16, n_kv_head=4, n_embd=1024, dropout=0.05, bias=False, tie_word_embeddings=True)
+
+      i 32905: l 2.1359, al 2.1849,  lr 0.000298, ctime 10.69m, ne 61.02m 1.02h time 194.75s 
+      i 32910: l 2.7124, al 2.2377,  lr 0.000298, ctime 13.94m, ne 57.78m 0.96h time 194.77s
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;O otimizador utilizado é o AdamW. Comecei a implementar o &lt;a href=&quot;https://github.com/KellerJordan/Muon&quot;&gt;Muon&lt;/a&gt;, mas ainda não coloquei para rodar, provavelmente será para um próximo modelo.&lt;/p&gt;
+
+&lt;h4 id=&quot;dataset&quot;&gt;Dataset&lt;/h4&gt;
+
+&lt;p&gt;O grande aprendizado nesse processo não era mais o modelo. Os modelos atuais já são ótimos para aprender e são eficientes, o que importa agora é aprender bem e para isso o dataset deveria ser a real preocupação.
+O modelo anterior era treinado com um dump da Wikipédia em pt-BR e alguns dumps de livros desses torrentes de ebooks.  Os instructs eram praticamente todos em inglês com excessão do Cabrita e Alpaca que surgiram depois e tinham instructs em pt-BR. Porém eram todos datasets sujos, com muito caracteres aleatórios, textos mal formatados, mal codificados e instructs defeituosos.
+Era hora de arrumar a casa e melhorar esses datasets e conseguir mais.
+O Portulino foi treinado primariamente com os seguintes dataset:&lt;/p&gt;
+
+&lt;h5 id=&quot;textos-corridos&quot;&gt;Textos corridos&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Wikipédia pt-BR de 2015&lt;/li&gt;
+  &lt;li&gt;Aproximadamente 10Gb de scrapys de blogspots e wordpress limpos em pt-BR que eu mesmo fiz
+      *      Esses scrapys de blogspot e wordpress na maioria eram religiosos, de esquerda e atividades femininas&lt;/li&gt;
+  &lt;li&gt;Apostilas diversas de concurseiros achadas na internet em especial nesses google drives&lt;/li&gt;
+  &lt;li&gt;Scrapys de outros sites&lt;/li&gt;
+  &lt;li&gt;Livros&lt;/li&gt;
+  &lt;li&gt;PDFs de manuais e trabalhos academicos&lt;/li&gt;
+  &lt;li&gt;Diversos datasets encontrados de pares EN-PT para tradução&lt;/li&gt;
+  &lt;li&gt;No final descobri o CulturaX que tinha melhor qualidade que meus scrapys, porém já era tarde e rodo no máximo 10k epochs.&lt;/li&gt;
+  &lt;li&gt;Reddit&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;instructs&quot;&gt;Instructs&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Alpaca e Cabrita limpos&lt;/li&gt;
+  &lt;li&gt;gsm8k&lt;/li&gt;
+  &lt;li&gt;OpenAssistent&lt;/li&gt;
+  &lt;li&gt;Aproximadamente 100k de instructs que eu mesmo fiz automizados utilizando api da OpenAI e Gemini&lt;/li&gt;
+  &lt;li&gt;Aproximadamente 5k de instructs think que eu mesmo fiz automizados utilizando api do Gemini&lt;/li&gt;
+  &lt;li&gt;Obviamente alguns feitos manualmente ou batchs nas IAs web&lt;/li&gt;
+  &lt;li&gt;Tem um enorme de 400k thinking em inglês mas eu não anotei e já foi concatenado no dataset&lt;/li&gt;
+  &lt;li&gt;5K perguntas e respostas sobre as principais legislações brasileiras feitos automizados utilizando a api Gemini&lt;/li&gt;
+  &lt;li&gt;Reddit filtrado por score&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Eu tinha esperança que os datasets em ingles conseguissem ajudar o modelo a responder o que não sabia em pt-BR através da tradução interna, mas em nenhum momento eu percebi isso. Provavelmente se eu tivesse deixando treinar mais tempo essa capacidade surgiria. O dataset de think foi uma surpresa tanto o em inglês quanto o em pt-BR que fiz deram um salto no raciocino do modelo supreendente.&lt;/p&gt;
+
+&lt;h5 id=&quot;vocabulário&quot;&gt;Vocabulário&lt;/h5&gt;
+
+&lt;p&gt;Como treino redes a algum tempo tenho textos de mais de uma década. Isso refletiu inclusive no vocabulário personalizado treinado pelo Tokenizers. O treinamento ocorreu por volta de 2015 época do Impeachment da Dilma, logo Dilma ficou eternizado no vocabulário e hoje não se fala mais nela.&lt;/p&gt;
+
+&lt;div class=&quot;destaque bl&quot;&gt;
+É algo que em produção deve ser observado ao treinar seu próprio vocabulário, no sentido de evitar que palavras da &apos;moda&apos; que fatalmente cairão no ostracismo fiquem eternizadas no vocabulário ocupando espaço útil.
+&lt;/div&gt;
+
+&lt;p&gt;Antes tinha treinado um vocabulário de 50K mas os datasets ficam grandes pois necessitava usar 32 bits para representar um token, cogitei usar 24 bits ou até mesmo 17 bits, mas desconfiei que a manipulação de bits iria mais atrapalhar que ajudar. Dessa forma um novo vocabulário de 32K que cabe perfeitamente em 16 bits signed foi treinado. A maioria dos textos usados foram em pt-BR, porém o vocabulário tem alguns tokens em inglês.&lt;/p&gt;
+
+&lt;p&gt;Tokens especiais adicionados no vocabulário:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;&amp;lt;|query|&amp;gt;&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Usado parar marcar o início de um instruct, query, solicitação do usuário&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;&amp;lt;|answer|&amp;gt;&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Usado em par com o &amp;lt;|query|&amp;gt; para marcar o fim do instruct e início da geração da resposta pelo modelo&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;&amp;lt;|endoftext|&amp;gt;&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Fim de texto&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;&amp;lt;|hole|&amp;gt;&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;O thinking apareceu depois que treinei o vocabulário, então usei esse token não usado como marcação para gerar o Thinking.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;&amp;lt;|code|&amp;gt;&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Pensei em usar para algo programático mas não foi para frente.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Entre outros tokens especiais não usados mas contidos no vocabulário.&lt;/p&gt;
+
+&lt;h3 id=&quot;performance&quot;&gt;Performance&lt;/h3&gt;
+
+&lt;p&gt;Logo nos primeiros momentos do treinamento já percebi uma melhoria considerável com essas inovações e os novos datasets limpos. Em um mês treinando o loss já caiu para 3.6 e textos inteligiveis começaram a aparecer. A inferência em casa era feita por CPU e quando ativei o cache KV ela ficou extremamente rápida.
+Eu mão implementei métrica ou validação alguma. Isso gastaria meus preciosos tempos de T4. Os testes eram eu mesmo digitando coisas ao longo do tempo.
+Quando eu implementei o thinking fiquei impressionado com a capacidade de detectar o intent do usuário, porém a resposta final nunca foi satisfatória no thinking. Provavelmente porque ele só foi implementado quando o modelo já estava na metade do treinamento.&lt;/p&gt;
+
+&lt;p&gt;Obviamente é um modelo pequeno e treinado por uma pessoa só. Ele tem seus problemas e ontologia e senso-comum é seu fraco como é até hoje nos grandes modelos. Aliás cada dia que passa as grandes IAs estão reforçando mais o uso de RAG ao invés de confiar no conhecimento dos pesos. E faz todo sentido, melhor implementar um ótimo modelo de racíocinio, moderação e detecção de intent e deixar conhecimentos efemeros e especificos a parte.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Anatomia Humana&lt;/strong&gt;. Isso ficou evidente no Portulino na anatomia sexual humana. Sim, isso mesmo, ele tem sérios problemas com quem tem pênis e vagina. Eu fiquei muito tempo tentando corrigir isso o que acabou fazendo o modelo ficar sexual! Foi ai que resolvi parar de treiná-lo pois percebi que fiz uma bagunça.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Legislações&lt;/strong&gt;. Um conhecido advogado inserido na área de IA e advocacia me sugeriu treinar meu modelo para o ramo juridico, então fiz turn-over e fiz 5k de instructs de legislação bem como reforcei textos juridicos que são até fáceis de se achar. Os resultados não foram bons. O modelo acabou confundindo intents com solicitações juridicas e confundindo as legislações. Mas ainda sim achei impressionante ele ter aprendido em tão pouco tempo a citar leis e principios.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Safe&lt;/strong&gt;. Durante o processo de treinamento, ao mesmo tempo eu pesquisava e fazia novos datasets. Foi então que o momento de combater respostas não seguras começaram a me preocupar e interessar. Principalmente devido ao conteúdo reddit e alguns blogs o modelo fornece algumas respostas não seguras. Lembre-se que eu sou somente uma pessoa e esse modelo não é para produção, é um modelo toy, para aprendizado, então eu não perdi tempo filtrando o dataset. Então eu fiz alguns datasets com respostas seguras para self-harming, crimese e outras ilegalidades. O Grok me ajudou muito porque é o único modelo que se você pedir coisas erradas ele não se recusa a fazer. Porém eu parei de fazer esses datasets quando cheguei nos canibais. Eu pedi para o Grok fazer frases que essas pessoas falariam e … eu só consegui ler algumas linhas … que horror. Não tinha estomago para ficar brincando de entender pessoas malucas. Lembre-se, que eu teria que pensar como elas … deixei isso para lá.
+Porém como muitos datasets instructs achados por ai tem conteúdo safe o modelo acabou pegando o viés OpenAI e Google e tem um pouco de segurança no self-harming.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Matemática&lt;/strong&gt;. Esqueça. Ele nem sabe quanto é 2+2. E olha que insisti nisso. Fiz 50mB de números, equações em simbolos e literais. Pelo menos ele aprendeu a contar! O anterior nem isso sabia!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Programação&lt;/strong&gt;. Tinha no começo mas tirei. Ele nunca aprenderia a programar eficientemente e eu gastaria pesos com algo que não daria certo.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Humanas&lt;/strong&gt;. Ele performa bem em humanas. Tanto porque no Brasil há intenso trabalho de humanas disponível, quanto blogs de esquerda e religiosos.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Conversação&lt;/strong&gt;. Portulino não é voltado a diálogos. Os datasets de diálogos nunca foram empilhados para ensiná-lo a continuar o diálogo.&lt;/p&gt;
+
+&lt;h3 id=&quot;próximas-realizações&quot;&gt;Próximas realizações&lt;/h3&gt;
+
+&lt;p&gt;O Portulino apesar de suas dificiências se mostrou um monstro no aprendizado. Como os datasets foram sendo limpos e melhorados ao longo do seu treinament, ele eternizou alguns defeitos que não são mais corrigíveis, somando-se a essas deficiências o vocabulário está datado.&lt;/p&gt;
+
+&lt;p&gt;Então é hora de treinar outro! Enquanto houver T4 gratuitas ficarei treinando esses modelos.&lt;/p&gt;
+
+&lt;p&gt;O próximo terá melhores datasets, melhores textos corridos, novas tecnologias como o otimizador Muon, um novo vocabulário com novos tokens especiais voltados para RAG, Thinking, System e outros.&lt;/p&gt;
+
+&lt;p&gt;Também é hora de implementar a RMT (Recurrent Memory Transformer) para aumentar o contexto e permitir finalmente conversação. De fato já estou criando e arrumando datasets dialógicos.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;Word2Vec – Mikolov et al. (2013)
+  MIKOLOV, Tomas et al. &lt;em&gt;Efficient Estimation of Word Representations in Vector Space.&lt;/em&gt; arXiv:1301.3781, 2013. Disponível em: &lt;a href=&quot;https://arxiv.org/abs/1301.3781&quot;&gt;https://arxiv.org/abs/1301.3781&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;PENNINGTON, Jeffrey; SOCHER, Richard; MANNING, Christopher D. &lt;em&gt;GloVe: Global Vectors for Word Representation.&lt;/em&gt; 2014. Disponível em: &lt;a href=&quot;https://nlp.stanford.edu/pubs/glove.pdf&quot;&gt;https://nlp.stanford.edu/pubs/glove.pdf&lt;/a&gt;&lt;/p&gt;
+
+      &lt;p&gt;CARLSON, Riley; BAUER, John; MANNING, Christopher D. &lt;em&gt;A New Pair of GloVes.&lt;/em&gt; 2025. Disponível em: &lt;a href=&quot;https://arxiv.org/abs/2507.18103&quot;&gt;https://arxiv.org/abs/2507.18103&lt;/a&gt; &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:3&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;VASWANI, Ashish; SHAZEER, Noam; PARMAR, Niki; USZKOREIT, Jakob; JONES, Llion; GOMEZ, Aidan N.; KAISER, Łukasz; POLOSUHKIN, Illia. &lt;em&gt;Attention Is All You Need&lt;/em&gt;. arXiv preprint arXiv:1706.03762, 2017. Disponível em: &lt;a href=&quot;https://arxiv.org/abs/1706.03762&quot;&gt;https://arxiv.org/abs/1706.03762&lt;/a&gt; &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt; &lt;a href=&quot;#fnref:3:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:4&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;KARPATHY, Andrej. nanoGPT: The simplest, fastest repository for training/finetuning medium-sized GPTs. GitHub, 2025. Disponível em: &lt;a href=&quot;https://github.com/karpathy/nanoGPT&quot;&gt;https://github.com/karpathy/nanoGPT&lt;/a&gt; &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="IA" /><category term="colab" /><category term="transformers" /><category term="dataset" /><category term="modelos generativos" /><category term="inteligência artificial" /><summary type="html">Introdução</summary></entry><entry><title type="html">LVDC: A Revolução Silenciosa na Distribuição de Energia para Data Centers e Edifícios - Energia</title><link href="http://0.0.0.0:4000/energia/2025/11/15/LVDC.html" rel="alternate" type="text/html" title="LVDC: A Revolução Silenciosa na Distribuição de Energia para Data Centers e Edifícios - Energia" /><published>2025-11-15T00:00:00-06:00</published><updated>2025-11-15T00:00:00-06:00</updated><id>http://0.0.0.0:4000/energia/2025/11/15/LVDC</id><content type="html" xml:base="http://0.0.0.0:4000/energia/2025/11/15/LVDC.html">&lt;h1 id=&quot;lvdc-a-revolução-silenciosa-na-distribuição-de-energia-para-data-centers-e-edifícios&quot;&gt;LVDC: A Revolução Silenciosa na Distribuição de Energia para Data Centers e Edifícios&lt;/h1&gt;
 
 &lt;p&gt;A forma como distribuímos energia elétrica está passando por uma transformação fundamental. Enquanto a corrente alternada (AC) dominou por mais de um século, a &lt;strong&gt;corrente contínua de baixa tensão (LVDC - Low Voltage Direct Current)&lt;/strong&gt; emerge como uma solução superior para as demandas energéticas do século XXI, especialmente em data centers, edifícios inteligentes e instalações industriais.&lt;/p&gt;
 
@@ -1347,38 +1573,7 @@ O local onde este capacitor iria ficar era apertado e não era um dos padrões q
 
 &lt;p&gt;O erro estava na métrica usada para a inferência. A &lt;strong&gt;moda&lt;/strong&gt; é um bom estimador em muitas situações, mas, nesse caso, não levou em conta que a distribuição dos valores era assimétrica e que fabricantes podem priorizar determinados tamanhos com base em fatores não refletidos apenas na frequência das ofertas.&lt;/p&gt;
 
-&lt;p&gt;Talvez uma abordagem mais conservadora teria sido considerar o &lt;strong&gt;percentil superior&lt;/strong&gt; ou reservar um espaço extra com base na variabilidade dos dados.&lt;/p&gt;</content><author><name></name></author><category term="aplicadas" /><category term="matemática" /><category term="estatística" /><summary type="html">Como perdi uma placa por utilizar o estimador estatístico errado</summary></entry><entry><title type="html">Receptor FM de conversão direta - RF</title><link href="http://0.0.0.0:4000/eletr%C3%B4nica/2025/03/16/radio-conversao-direta-fm.html" rel="alternate" type="text/html" title="Receptor FM de conversão direta - RF" /><published>2025-03-16T00:00:00-05:00</published><updated>2025-03-16T00:00:00-05:00</updated><id>http://0.0.0.0:4000/eletr%C3%B4nica/2025/03/16/radio-conversao-direta-fm</id><content type="html" xml:base="http://0.0.0.0:4000/eletr%C3%B4nica/2025/03/16/radio-conversao-direta-fm.html">&lt;h2 id=&quot;receptor-de-conversão-direta&quot;&gt;Receptor de Conversão Direta&lt;/h2&gt;
-
-&lt;p&gt;Os receptores de conversão direta diferem dos super-heteródinos por operarem com um oscilador sintonizado exatamente na mesma frequência do sinal que se deseja receber, convertendo-o diretamente para a faixa de áudio. Nos receptores super-heteródinos, a frequência do oscilador local é deslocada em relação à frequência de sintonia, gerando uma Frequência Intermediária (FI) após o processo de mistura. A FI passa por diversos estágios de amplificação e filtragem antes da demodulação final do sinal de áudio.&lt;/p&gt;
-
-&lt;p&gt;Nos receptores de conversão direta, por outro lado, o oscilador opera exatamente na frequência do sinal de entrada. Quando este é combinado no mixer de radiofrequência, a frequência portadora é suprimida e restam apenas os componentes de áudio modulados, que são extraídos diretamente. Esse tipo de arquitetura simplifica o circuito e reduz a necessidade de filtros complexos, embora seja mais sensível a interferências e ruídos.&lt;/p&gt;
-
-&lt;h2 id=&quot;esquema-do-circuito&quot;&gt;Esquema do Circuito&lt;/h2&gt;
-
-&lt;p&gt;Durante minhas experiências com receptores experimentais, este foi um dos melhores circuitos que testei para a banda de FM. Ele é uma adaptação para o transistor NPN BF199, baseada no circuito original encontrado no site &lt;a href=&quot;https://www.qsl.net/va3iul/&quot;&gt;VA3IUL&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/imgs/receptor-conversao-direta-fm.png&quot; alt=&quot;Esquema do receptor de FM com conversão direta&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;O circuito é composto pelos seguintes blocos principais:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Oscilador Local (Q2 e Q3)&lt;/strong&gt;: A configuração desse oscilador é particularmente interessante, garantindo a estabilidade necessária para uma boa conversão do sinal.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Amplificador e Misturador (Q1)&lt;/strong&gt;: O transistor Q1 amplifica o sinal de RF recebido pela antena e realiza a mistura com a frequência do oscilador, gerando o sinal de áudio na saída.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Bobinas&lt;/strong&gt;: Podem ser enroladas manualmente em um lápis, ajustadas para otimizar a recepção na faixa desejada.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Potenciômetro de Ajuste&lt;/strong&gt;: Deve ser calibrado até que se atinja o ponto ideal de mistura, garantindo a melhor qualidade do sinal de áudio.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;O esquema abaixo ilustra o funcionamento do circuito:&lt;/p&gt;
-
-&lt;h2 id=&quot;oscilador&quot;&gt;Oscilador&lt;/h2&gt;
-
-&lt;p&gt;O oscilador se parece muito com a configuração flip-flop a transistor adicionado de realimentação através de L2 e C5. Quando o circuito é ligado somente Q3 conduz, devido a polarização de sua base com a corrente proveniente de RV1 e R6 e uma pequena fração do sinal de RF através de Q1. L2 e C3 começam a entrar em ressonância com tensão muito baixa inicialmente. A corrente de oscilação de L2 e Q3 começa a subir elevando cada vez mais a amplificação de Q3.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l5YCsA2ATIq0DMB2AnFssjgBx4AsyJWYOOyIykIG5WLApgLRhgBQAd3DlyIVKlHjJEqIOGSU8sTMhzkChuuWjVQsCKXoG+nXK5ZU2pSdlDyJJVy03dVqSHtLVtUTzyWbHjAApnBweGYYEkhkPAj4uAgAJQ4AZwBLVIAXAEMAOwBjDjMjECxCECdRcoZXLlLUEgd6xRrZADdKhqauxVpaqA9mPEHI6EQzLVRIZucDVwaZsT75vgBzZYY20qxES0i5HYqG8gOhKrLj1oq6qdPKrTbVAsYNQ0UdWAjyPF+--4BtVgYGoeBIYCw5F49EgcXmmAQfAANq8rDZ3GNEpUYHBdiQ6KhkFhII0CIhaLIspULFYLhiwjiQWxIIhCHs4GgLJ9ECRkBDobxYjhaDgQL8QAATDgAMxyAFckVk+FT3KrFPSIFxGSRmazkOyYqguZgUHQOZD1Hh9YhRGAWZKZfLFXxUtTLO4pipBrKkaliqd2FxPCdmE9wCQAPpgCOQCNQyA4GOwUjBRBJjnoCM8COoKORrB8ANKR57cCNQZYKMxuN2xNgaBISA-VC0cqoPA4FvphAkHmdrD+PAQnCIFlZ6O5ysF86lQKz+i2SpWxxzUznGz9JfGBd1ZeBPc7wuQQM2LSeYIOZhp6Ox06-KPQTM44+p8c5iNpguulrGAx+ALwswPp+mYG6hDwBibqoQA&quot;&gt;Quem se interessou pelo oscilador siga o link com a versão dele no simulador Falstad.&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Os receptores de conversão direta são uma excelente opção para quem deseja um design mais simples e eficiente para recepção de sinais de AM, CW e SSB. Apesar de suas limitações em relação à rejeição de sinais espúrios e ao isolamento de interferências, eles continuam sendo uma alternativa viável para aplicações de radioamadorismo e experimentação eletrônica.&lt;/p&gt;
-
-&lt;p&gt;Este circuito, em particular, mostrou-se robusto e eficiente nos testes, sendo um excelente ponto de partida para quem deseja explorar mais sobre a técnica de conversão direta na recepção de sinais de RF.&lt;/p&gt;</content><author><name></name></author><category term="eletrônica" /><category term="eletrônica" /><category term="receptor" /><category term="rf" /><summary type="html">Receptor de Conversão Direta</summary></entry><entry><title type="html">Armazenamento Térmico com Pistão Bombeado (TPPS) - Energia</title><link href="http://0.0.0.0:4000/energia/2025/03/16/armazenamento-termico-pistao-bombeado.html" rel="alternate" type="text/html" title="Armazenamento Térmico com Pistão Bombeado (TPPS) - Energia" /><published>2025-03-16T00:00:00-05:00</published><updated>2025-03-16T00:00:00-05:00</updated><id>http://0.0.0.0:4000/energia/2025/03/16/armazenamento-termico-pistao-bombeado</id><content type="html" xml:base="http://0.0.0.0:4000/energia/2025/03/16/armazenamento-termico-pistao-bombeado.html">&lt;h3 id=&quot;armazenamento-térmico-com-pistão-bombeado-tpps&quot;&gt;Armazenamento Térmico com Pistão Bombeado (TPPS)&lt;/h3&gt;
+&lt;p&gt;Talvez uma abordagem mais conservadora teria sido considerar o &lt;strong&gt;percentil superior&lt;/strong&gt; ou reservar um espaço extra com base na variabilidade dos dados.&lt;/p&gt;</content><author><name></name></author><category term="aplicadas" /><category term="matemática" /><category term="estatística" /><summary type="html">Como perdi uma placa por utilizar o estimador estatístico errado</summary></entry><entry><title type="html">Armazenamento Térmico com Pistão Bombeado (TPPS) - Energia</title><link href="http://0.0.0.0:4000/energia/2025/03/16/armazenamento-termico-pistao-bombeado.html" rel="alternate" type="text/html" title="Armazenamento Térmico com Pistão Bombeado (TPPS) - Energia" /><published>2025-03-16T00:00:00-05:00</published><updated>2025-03-16T00:00:00-05:00</updated><id>http://0.0.0.0:4000/energia/2025/03/16/armazenamento-termico-pistao-bombeado</id><content type="html" xml:base="http://0.0.0.0:4000/energia/2025/03/16/armazenamento-termico-pistao-bombeado.html">&lt;h3 id=&quot;armazenamento-térmico-com-pistão-bombeado-tpps&quot;&gt;Armazenamento Térmico com Pistão Bombeado (TPPS)&lt;/h3&gt;
 
 &lt;h4 id=&quot;introdução&quot;&gt;Introdução&lt;/h4&gt;
 &lt;p&gt;O armazenamento de energia é um dos desafios críticos na transição para fontes renováveis, especialmente em regiões onde a geração solar e eólica são intermitentes. O conceito de Armazenamento Térmico com Pistão Bombeado (TPPS) combina armazenamento de energia potencial com armazenamento térmico de água quente em uma estrutura subterrânea, proporcionando solução híbrida para suprimento de eletricidade e calor.&lt;/p&gt;
@@ -1416,7 +1611,38 @@ O local onde este capacitor iria ficar era apertado e não era um dos padrões q
 &lt;p&gt;O TPPS é uma solução inovadora para armazenamento de energia, permitindo um suprimento eficiente e sustentável de eletricidade e calor. A modelagem e simulação demonstram sua viabilidade em larga escala, contribuindo para a estabilidade da rede elétrica e redução das emissões de carbono. Com estudos avançados de otimização e implementação em cenários reais, o TPPS pode desempenhar um papel essencial na transição energética global.&lt;/p&gt;
 
 &lt;h4 id=&quot;referência&quot;&gt;Referência&lt;/h4&gt;
-&lt;p&gt;Este artigo foi baseado no estudo: Haeuslein, D., Schmidt-Vollus, R., Popp, M., &amp;amp; Schaefer, M. (2024). “Dynamic modeling, design and simulation of a thermal pumped piston storage within a renewable energy distribution system.” &lt;em&gt;Journal of Energy Storage, 100&lt;/em&gt;, 113348. https://doi.org/10.1016/j.est.2024.113348&lt;/p&gt;</content><author><name></name></author><category term="energia" /><category term="energia" /><category term="ciências" /><summary type="html">Armazenamento Térmico com Pistão Bombeado (TPPS)</summary></entry><entry><title type="html">Sobre tohost e fromhost - RISCV</title><link href="http://0.0.0.0:4000/programa%C3%A7%C3%A3o/2025/01/11/sobre-tohost-fromhost.html" rel="alternate" type="text/html" title="Sobre tohost e fromhost - RISCV" /><published>2025-01-11T00:00:00-06:00</published><updated>2025-01-11T00:00:00-06:00</updated><id>http://0.0.0.0:4000/programa%C3%A7%C3%A3o/2025/01/11/sobre-tohost-fromhost</id><content type="html" xml:base="http://0.0.0.0:4000/programa%C3%A7%C3%A3o/2025/01/11/sobre-tohost-fromhost.html">&lt;h3 id=&quot;resumo-e-explicação-da-funcionalidade-de-tohost-e-fromhost-no-spike-e-em-ambientes-risc-v&quot;&gt;Resumo e Explicação da Funcionalidade de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tohost&lt;/code&gt; e &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fromhost&lt;/code&gt; no Spike e em Ambientes RISC-V&lt;/h3&gt;
+&lt;p&gt;Este artigo foi baseado no estudo: Haeuslein, D., Schmidt-Vollus, R., Popp, M., &amp;amp; Schaefer, M. (2024). “Dynamic modeling, design and simulation of a thermal pumped piston storage within a renewable energy distribution system.” &lt;em&gt;Journal of Energy Storage, 100&lt;/em&gt;, 113348. https://doi.org/10.1016/j.est.2024.113348&lt;/p&gt;</content><author><name></name></author><category term="energia" /><category term="energia" /><category term="ciências" /><summary type="html">Armazenamento Térmico com Pistão Bombeado (TPPS)</summary></entry><entry><title type="html">Receptor FM de conversão direta - RF</title><link href="http://0.0.0.0:4000/eletr%C3%B4nica/2025/03/16/radio-conversao-direta-fm.html" rel="alternate" type="text/html" title="Receptor FM de conversão direta - RF" /><published>2025-03-16T00:00:00-05:00</published><updated>2025-03-16T00:00:00-05:00</updated><id>http://0.0.0.0:4000/eletr%C3%B4nica/2025/03/16/radio-conversao-direta-fm</id><content type="html" xml:base="http://0.0.0.0:4000/eletr%C3%B4nica/2025/03/16/radio-conversao-direta-fm.html">&lt;h2 id=&quot;receptor-de-conversão-direta&quot;&gt;Receptor de Conversão Direta&lt;/h2&gt;
+
+&lt;p&gt;Os receptores de conversão direta diferem dos super-heteródinos por operarem com um oscilador sintonizado exatamente na mesma frequência do sinal que se deseja receber, convertendo-o diretamente para a faixa de áudio. Nos receptores super-heteródinos, a frequência do oscilador local é deslocada em relação à frequência de sintonia, gerando uma Frequência Intermediária (FI) após o processo de mistura. A FI passa por diversos estágios de amplificação e filtragem antes da demodulação final do sinal de áudio.&lt;/p&gt;
+
+&lt;p&gt;Nos receptores de conversão direta, por outro lado, o oscilador opera exatamente na frequência do sinal de entrada. Quando este é combinado no mixer de radiofrequência, a frequência portadora é suprimida e restam apenas os componentes de áudio modulados, que são extraídos diretamente. Esse tipo de arquitetura simplifica o circuito e reduz a necessidade de filtros complexos, embora seja mais sensível a interferências e ruídos.&lt;/p&gt;
+
+&lt;h2 id=&quot;esquema-do-circuito&quot;&gt;Esquema do Circuito&lt;/h2&gt;
+
+&lt;p&gt;Durante minhas experiências com receptores experimentais, este foi um dos melhores circuitos que testei para a banda de FM. Ele é uma adaptação para o transistor NPN BF199, baseada no circuito original encontrado no site &lt;a href=&quot;https://www.qsl.net/va3iul/&quot;&gt;VA3IUL&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/imgs/receptor-conversao-direta-fm.png&quot; alt=&quot;Esquema do receptor de FM com conversão direta&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;O circuito é composto pelos seguintes blocos principais:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Oscilador Local (Q2 e Q3)&lt;/strong&gt;: A configuração desse oscilador é particularmente interessante, garantindo a estabilidade necessária para uma boa conversão do sinal.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Amplificador e Misturador (Q1)&lt;/strong&gt;: O transistor Q1 amplifica o sinal de RF recebido pela antena e realiza a mistura com a frequência do oscilador, gerando o sinal de áudio na saída.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Bobinas&lt;/strong&gt;: Podem ser enroladas manualmente em um lápis, ajustadas para otimizar a recepção na faixa desejada.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Potenciômetro de Ajuste&lt;/strong&gt;: Deve ser calibrado até que se atinja o ponto ideal de mistura, garantindo a melhor qualidade do sinal de áudio.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;O esquema abaixo ilustra o funcionamento do circuito:&lt;/p&gt;
+
+&lt;h2 id=&quot;oscilador&quot;&gt;Oscilador&lt;/h2&gt;
+
+&lt;p&gt;O oscilador se parece muito com a configuração flip-flop a transistor adicionado de realimentação através de L2 e C5. Quando o circuito é ligado somente Q3 conduz, devido a polarização de sua base com a corrente proveniente de RV1 e R6 e uma pequena fração do sinal de RF através de Q1. L2 e C3 começam a entrar em ressonância com tensão muito baixa inicialmente. A corrente de oscilação de L2 e Q3 começa a subir elevando cada vez mais a amplificação de Q3.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l5YCsA2ATIq0DMB2AnFssjgBx4AsyJWYOOyIykIG5WLApgLRhgBQAd3DlyIVKlHjJEqIOGSU8sTMhzkChuuWjVQsCKXoG+nXK5ZU2pSdlDyJJVy03dVqSHtLVtUTzyWbHjAApnBweGYYEkhkPAj4uAgAJQ4AZwBLVIAXAEMAOwBjDjMjECxCECdRcoZXLlLUEgd6xRrZADdKhqauxVpaqA9mPEHI6EQzLVRIZucDVwaZsT75vgBzZYY20qxES0i5HYqG8gOhKrLj1oq6qdPKrTbVAsYNQ0UdWAjyPF+--4BtVgYGoeBIYCw5F49EgcXmmAQfAANq8rDZ3GNEpUYHBdiQ6KhkFhII0CIhaLIspULFYLhiwjiQWxIIhCHs4GgLJ9ECRkBDobxYjhaDgQL8QAATDgAMxyAFckVk+FT3KrFPSIFxGSRmazkOyYqguZgUHQOZD1Hh9YhRGAWZKZfLFXxUtTLO4pipBrKkaliqd2FxPCdmE9wCQAPpgCOQCNQyA4GOwUjBRBJjnoCM8COoKORrB8ANKR57cCNQZYKMxuN2xNgaBISA-VC0cqoPA4FvphAkHmdrD+PAQnCIFlZ6O5ysF86lQKz+i2SpWxxzUznGz9JfGBd1ZeBPc7wuQQM2LSeYIOZhp6Ox06-KPQTM44+p8c5iNpguulrGAx+ALwswPp+mYG6hDwBibqoQA&quot;&gt;Quem se interessou pelo oscilador siga o link com a versão dele no simulador Falstad.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Os receptores de conversão direta são uma excelente opção para quem deseja um design mais simples e eficiente para recepção de sinais de AM, CW e SSB. Apesar de suas limitações em relação à rejeição de sinais espúrios e ao isolamento de interferências, eles continuam sendo uma alternativa viável para aplicações de radioamadorismo e experimentação eletrônica.&lt;/p&gt;
+
+&lt;p&gt;Este circuito, em particular, mostrou-se robusto e eficiente nos testes, sendo um excelente ponto de partida para quem deseja explorar mais sobre a técnica de conversão direta na recepção de sinais de RF.&lt;/p&gt;</content><author><name></name></author><category term="eletrônica" /><category term="eletrônica" /><category term="receptor" /><category term="rf" /><summary type="html">Receptor de Conversão Direta</summary></entry><entry><title type="html">Sobre tohost e fromhost - RISCV</title><link href="http://0.0.0.0:4000/programa%C3%A7%C3%A3o/2025/01/11/sobre-tohost-fromhost.html" rel="alternate" type="text/html" title="Sobre tohost e fromhost - RISCV" /><published>2025-01-11T00:00:00-06:00</published><updated>2025-01-11T00:00:00-06:00</updated><id>http://0.0.0.0:4000/programa%C3%A7%C3%A3o/2025/01/11/sobre-tohost-fromhost</id><content type="html" xml:base="http://0.0.0.0:4000/programa%C3%A7%C3%A3o/2025/01/11/sobre-tohost-fromhost.html">&lt;h3 id=&quot;resumo-e-explicação-da-funcionalidade-de-tohost-e-fromhost-no-spike-e-em-ambientes-risc-v&quot;&gt;Resumo e Explicação da Funcionalidade de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tohost&lt;/code&gt; e &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fromhost&lt;/code&gt; no Spike e em Ambientes RISC-V&lt;/h3&gt;
 
 &lt;p&gt;A comunicação entre o simulador Spike e o programa em execução é realizada por meio de dois registradores especiais: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tohost&lt;/code&gt; e &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fromhost&lt;/code&gt;. Esses registradores não fazem parte de um padrão oficial do RISC-V, mas são uma convenção adotada pela equipe da UC Berkeley para permitir a interação entre o host (sistema que executa o simulador) e o target (código RISC-V em execução no simulador).&lt;/p&gt;
 
@@ -2197,63 +2423,4 @@ import &quot;https://cdn.plot.ly/plotly-2.35.2.min.js&quot;
       &lt;p&gt;&lt;a href=&quot;https://fabiovila.github.io/eletr%C3%B4nica/2021/02/10/simulacao-circuito-RL-python.html&quot;&gt;Usando Python para resolver ODEs de circuitos elétricos: RL - Python&lt;/a&gt; &lt;a href=&quot;#fnref:anterior&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="aplicadas" /><category term="matemática" /><category term="javascript" /><summary type="html">Bricando com equações diferenciais pelo método RK4</summary></entry><entry><title type="html">Significado dos códigos de falha DTC OBD2 da ECU - Aplicativo</title><link href="http://0.0.0.0:4000/app/2024/07/17/codigo-falhas-obd2-ecu.html" rel="alternate" type="text/html" title="Significado dos códigos de falha DTC OBD2 da ECU - Aplicativo" /><published>2024-07-17T00:00:00-05:00</published><updated>2024-07-17T00:00:00-05:00</updated><id>http://0.0.0.0:4000/app/2024/07/17/codigo-falhas-obd2-ecu</id><content type="html" xml:base="http://0.0.0.0:4000/app/2024/07/17/codigo-falhas-obd2-ecu.html">&lt;script&gt;
-  var codigos;
-
-function procurar(texto,initial = false) {
-  if (texto.length &lt; 3 &amp;&amp; initial == false) return;
-  var html = &quot;&lt;tr&gt;&lt;th&gt;Código&lt;/th&gt;&lt;th&gt;Descrição&lt;/th&gt;&lt;/tr&gt;&quot;;
-  $(&apos;tresult&apos;).innerHTML = &quot;&quot;;
-  for (const codigo of codigos) {
-    const cdescr = codigo.cdescr || &quot;&quot;; 
-    if (codigo.Code.includes(texto.toUpperCase()) || codigo.Description.includes(texto) || cdescr.includes(texto)){
-      if (&quot;cdescr&quot; in codigo) {
-        html += &quot;&lt;tr&gt;&lt;td class=&apos;has-text-weight-bold&apos;&gt;&quot; + codigo.Code + &quot;&lt;/td&gt;&lt;td class=&apos;has-text-weight-bold&apos;&gt;&quot; + codigo.Description + &quot;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&quot;+codigo.cdescr+&quot;&lt;/td&gt;&lt;/tr&gt;&quot;;
-      } else {
-        html += &quot;&lt;tr&gt;&lt;td&gt;&quot; + codigo.Code + &quot;&lt;/td&gt;&lt;td&gt;&quot; + codigo.Description + &quot;&lt;/td&gt;&lt;/tr&gt;&quot;;
-      }
-      
-    }
-  }    
-  $(&apos;tresult&apos;).innerHTML = html;
-}
-
-window.addEventListener(&quot;load&quot;, function(){
-   fetch(&apos;/assets/json/codigos.json&apos;)
-    .then((response) =&gt; response.json())
-    .then((json) =&gt; codigos = json);
-});
-
-
-&lt;/script&gt;
-
-&lt;hr class=&quot;m-1&quot; /&gt;
-
-&lt;h3 id=&quot;digite-o-código-ou-alguma-palavra-para-filtrar&quot;&gt;Digite o código ou alguma palavra para filtrar&lt;/h3&gt;
-&lt;form onsubmit=&quot;return false;&quot;&gt;
-&lt;div class=&quot;field&quot;&gt;
-&lt;div class=&quot;control has-icons-left has-icons-right&quot;&gt;
-  &lt;input class=&quot;input&quot; onkeyup=&quot;procurar(this.value)&quot; id=&quot;tx&quot; type=&quot;text&quot; placeholder=&quot;Exemplo: P0104 ou 104 ou sonda lambda&quot; /&gt;
-  &lt;span class=&quot;icon is-medium is-left&quot;&gt;
-    &lt;i class=&quot;fas fa-search&quot;&gt;&lt;/i&gt;
-  &lt;/span&gt;
-  &lt;span class=&quot;icon is-medium is-right&quot;&gt;
-    &lt;i class=&quot;fas fa-check&quot;&gt;&lt;/i&gt;
-  &lt;/span&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;field is-grouped&quot;&gt;
-  &lt;div class=&quot;control&quot;&gt;
-    &lt;button class=&quot;button is-rounded is-success&quot; onkeyup=&quot;procurar($(&apos;tx&apos;).value)&quot;&gt;Procurar&lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;/form&gt;
-
-&lt;div class=&quot;content&quot;&gt;
-&lt;table id=&quot;tresult&quot;&gt;
-&lt;/table&gt; 
-
-&lt;/div&gt;
-
-&lt;p&gt;&lt;em&gt;Os comentários, soluções e descrições são genéricos. Cada carro e defeito tem particularidades que as soluções descritas podem não resolver ou ainda piorar o problema. Algumas atividades de manutenção requerem conhecimento técnico prévio, ferramentas adequadas e experiência do operador. Se não sabe o que está fazendo consulte um profissional.&lt;/em&gt;&lt;/p&gt;</content><author><name></name></author><category term="app" /><category term="auto" /><category term="obd2" /><category term="ecu" /><summary type="html"></summary></entry></feed>
+&lt;/div&gt;</content><author><name></name></author><category term="aplicadas" /><category term="matemática" /><category term="javascript" /><summary type="html">Bricando com equações diferenciais pelo método RK4</summary></entry></feed>
