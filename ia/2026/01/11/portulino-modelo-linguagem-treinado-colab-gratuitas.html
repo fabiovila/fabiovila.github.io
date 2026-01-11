@@ -4,23 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Primary Meta Tags -->
-    <title>Portulino - Modelo de linguagem do zero utilizando as T4 gratuitas do Colab - IA</title>
-    <meta name="title" content="Portulino - Modelo de linguagem do zero utilizando as T4 gratuitas do Colab - IA" />
+    <title>Portulino — Modelo de linguagem iniciado do zero usando GPUs T4 gratuitas no Colab</title>
+    <meta name="title" content="Portulino — Modelo de linguagem iniciado do zero usando GPUs T4 gratuitas no Colab" />
     <meta name="description" content="" />
     
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="/ia/2026/01/11/portulino-modelo-linguagem-treinado-colab-gratuitas.html" />
-    <meta property="og:title" content="Portulino - Modelo de linguagem do zero utilizando as T4 gratuitas do Colab - IA" />
-    <meta property="og:description" content="Introdução Já faz algum tempo que me interesso por modelos de linguagem, mesmo antes do surgimento dos Transformers eu já treinava alguns modelos utilizando cadeias de Markov e posteriormente as redes recorrentes. Começar pelas cadeias de Markov foi um processo didático pois fornecia ótimos insights e entendimento da matemática e..."  />
+    <meta property="og:title" content="Portulino — Modelo de linguagem iniciado do zero usando GPUs T4 gratuitas no Colab" />
+    <meta property="og:description" content="Introdução Já faz algum tempo que me interesso por modelos de linguagem. Mesmo antes do surgimento dos Transformers, eu treinava alguns modelos usando cadeias de Markov e, mais tarde, redes recorrentes. Começar pelas cadeias de Markov foi um processo didático pois fornecia ótimos insights e entendimento da matemática e estatistica..."  />
     <meta property="og:image" content="/assets/imgs/e822f532-ee0f-4f9f-9600-72d3b91b29e2.jpeg" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="/ia/2026/01/11/portulino-modelo-linguagem-treinado-colab-gratuitas.html" />
-    <meta property="twitter:title" content="Portulino - Modelo de linguagem do zero utilizando as T4 gratuitas do Colab - IA"  />
-    <meta property="twitter:description" content="Introdução Já faz algum tempo que me interesso por modelos de linguagem, mesmo antes do surgimento dos Transformers eu já treinava alguns modelos utilizando cadeias de Markov e posteriormente as redes recorrentes. Começar pelas cadeias de Markov foi um processo didático pois fornecia ótimos insights e entendimento da matemática e..." />
+    <meta property="twitter:title" content="Portulino — Modelo de linguagem iniciado do zero usando GPUs T4 gratuitas no Colab"  />
+    <meta property="twitter:description" content="Introdução Já faz algum tempo que me interesso por modelos de linguagem. Mesmo antes do surgimento dos Transformers, eu treinava alguns modelos usando cadeias de Markov e, mais tarde, redes recorrentes. Começar pelas cadeias de Markov foi um processo didático pois fornecia ótimos insights e entendimento da matemática e estatistica..." />
     <meta property="twitter:image" content="/assets/imgs/e822f532-ee0f-4f9f-9600-72d3b91b29e2.jpeg"/>
 
     <!-- Meta Tags Generated with https://metatags.io -->
@@ -91,7 +91,7 @@
 <div class="content is-fluid">
 
   <header class="mb-5">
-    <h1 class="title is-warning">Portulino - Modelo de linguagem do zero utilizando as T4 gratuitas do Colab - IA</h1>
+    <h1 class="title is-warning">Portulino — Modelo de linguagem iniciado do zero usando GPUs T4 gratuitas no Colab</h1>
     <h4 class="is-size-4-tablet has-text-weight-light is-family-sans-serif" style="margin-top: -1em;">Um pequeno modelo e seus insights preciosos.</h4>
     
     <hr class="m-1"/>
@@ -122,13 +122,13 @@
   <article class="mt-5">
     <h3 id="introdução">Introdução</h3>
 
-<p>Já faz algum tempo que me interesso por modelos de linguagem, mesmo antes do surgimento dos Transformers eu já treinava alguns modelos utilizando cadeias de Markov e posteriormente as redes recorrentes. Começar pelas cadeias de Markov foi um processo didático pois fornecia ótimos insights e entendimento da matemática e estatistica envolvida. O caminho natural seria então ir para as RNNs e a tecnologia mais avançada para a época eram as LSTM e as GRU, redes recorrentes mais sofisticadas que as RNNs vanilla. Porém, treinar essas redes era muito ineficiente: demorava demais, exigia grande quantidade de dados e o hardware disponível raramente ajudava.</p>
+<p>Já faz algum tempo que me interesso por modelos de linguagem. Mesmo antes do surgimento dos Transformers, eu treinava alguns modelos usando cadeias de Markov e, mais tarde, redes recorrentes. Começar pelas cadeias de Markov foi um processo didático pois fornecia ótimos insights e entendimento da matemática e estatistica envolvida. O caminho natural seria então ir para as RNNs e a tecnologia mais avançada para a época eram as LSTM e as GRU, redes recorrentes mais sofisticadas que as RNNs <em>vanilla</em>. Porém, treinar essas redes era muito ineficiente: demorava demais, exigia grande quantidade de dados e o hardware disponível raramente ajudava.</p>
 
 <p>Naquele período, o treinamento eficiente de representações vetoriais de palavras começava a surgir por meio de trabalhos como (MIKOLOV et al., 2013)<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup> e (PENNINGTON; SOCHER; MANNING, 2014)<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>.</p>
 
 <p>Quando <em>Attention Is All You Need</em> (VASWANI et al., 2017)<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup> foi publicado, o cenário da pesquisa em NLP começou a mudar radicalmente. Alguns anos depois, surgiram o GPT-2 e o GPT-3 (2020), que impulsionaram a corrida por modelos próprios e, consequentemente, por datasets e infraestrutura de grande escala.</p>
 
-<p>Para mim, entretanto, ainda havia muito a aprender. Passei anos sem me aprofundar de fato em Transformers. Naquela época, o interesse em Redes Neurais não era disseminado; quem se aventurava muitas vezes desistia, pois o processo de compreensão era longo e tedioso. Era preciso primeiro dominar o forward — conceito relativamente simples. Já o backward, ou cálculo dos gradientes, era inacessível para muitos, exigindo compreensão de derivadas parciais. Como eu já tinha cursado Cálculo 1 e 2, não tive grandes problemas, mas demorei bastante para organizar meu entendimento. O método mais didático foi fazer as derivadas parciais da função de perda à mão, com papel e lápis.</p>
+<p>Para mim, entretanto, ainda havia muito a aprender. Passei anos sem me aprofundar de fato em Transformers. Naquela época, o interesse em Redes Neurais não era disseminado; quem se aventurava muitas vezes desistia, pois o processo de compreensão era longo e tedioso. Era preciso primeiro dominar o forward — conceito relativamente simples. Já o backward, ou cálculo dos gradientes, era inacessível para muitos, exigindo compreensão de derivadas parciais. Como eu já tinha cursado Cálculo 1 e 2, não tive grandes problemas, mas demorei bastante para organizar meu entendimento. Estudar as derivadas parciais à mão foi útil para compreender a mecânica do backpropagation, que na prática é executado automaticamente por frameworks como PyTorch e TensorFlow.</p>
 
 <p>E foi que então os Transformers transformaram completamente o campo, tornando obsoletas diversas arquiteturas de redes neurais até então consagradas.</p>
 
@@ -227,8 +227,7 @@ O Portulino foi treinado primariamente com os seguintes dataset:</p>
 
 <ul>
   <li>Wikipédia pt-BR de 2015</li>
-  <li>Aproximadamente 10Gb de scrapys de blogspots e wordpress limpos em pt-BR que eu mesmo fiz
-      *      Esses scrapys de blogspot e wordpress na maioria eram religiosos, de esquerda e atividades femininas</li>
+  <li>Aproximadamente 10Gb de scrapys de blogspots e wordpress limpos em pt-BR que eu mesmo fiz</li>
   <li>Apostilas diversas de concurseiros achadas na internet em especial nesses google drives</li>
   <li>Scrapys de outros sites</li>
   <li>Livros</li>
@@ -310,7 +309,7 @@ Porém como muitos datasets instructs achados por ai tem conteúdo safe o modelo
 
 <p><strong>Matemática</strong>. Esqueça. Ele nem sabe quanto é 2+2. E olha que insisti nisso. Fiz 50mB de números, equações em simbolos e literais. Pelo menos ele aprendeu a contar! O anterior nem isso sabia!</p>
 
-<p><strong>Programação</strong>. Tinha no começo mas tirei. Ele nunca aprenderia a programar eficientemente e eu gastaria pesos com algo que não daria certo.</p>
+<p><strong>Programação</strong>. Tinha no começo mas tirei. Ele nunca aprenderia a programar eficientemente, e eu estaria desperdiçando capacidade de modelo (pesos) em algo que provavelmente não daria certo.</p>
 
 <p><strong>Humanas</strong>. Ele performa bem em humanas. Tanto porque no Brasil há intenso trabalho de humanas disponível, quanto blogs de esquerda e religiosos.</p>
 
