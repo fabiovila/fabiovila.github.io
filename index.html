@@ -252,13 +252,13 @@ O Portulino foi treinado primariamente com os seguintes dataset:</p>
   <li>Reddit filtrado por score</li>
 </ul>
 
-<p>Eu tinha esperança que os datasets em ingles conseguissem ajudar o modelo a responder o que não sabia em pt-BR através da tradução interna, mas em nenhum momento eu percebi isso. Provavelmente se eu tivesse deixando treinar mais tempo essa capacidade surgiria. O dataset de think foi uma surpresa tanto o em inglês quanto o em pt-BR que fiz deram um salto no raciocino do modelo supreendente.</p>
+<p>Eu tinha esperança que os datasets em ingles conseguissem ajudar o modelo a responder o que não sabia em pt-BR através da tradução interna, mas em nenhum momento eu percebi isso. Provavelmente se eu tivesse deixado treinar mais tempo essa capacidade surgiria. O dataset de think foi uma surpresa pois deu um salto no raciocino do modelo.</p>
 
 <h5 id="vocabulário">Vocabulário</h5>
 
 <p>Como treino redes a algum tempo tenho textos de mais de uma década. Isso refletiu inclusive no vocabulário personalizado treinado pelo Tokenizers. O treinamento ocorreu por volta de 2015 época do Impeachment da Dilma, logo Dilma ficou eternizado no vocabulário e hoje não se fala mais nela.</p>
 
-<div class="destaque bl">
+<div class="destaque amarelo br bl">
 É algo que em produção deve ser observado ao treinar seu próprio vocabulário, no sentido de evitar que palavras da 'moda' que fatalmente cairão no ostracismo fiquem eternizadas no vocabulário ocupando espaço útil.
 </div>
 
@@ -295,18 +295,22 @@ O Portulino foi treinado primariamente com os seguintes dataset:</p>
 
 <h3 id="performance">Performance</h3>
 
-<p>Logo nos primeiros momentos do treinamento já percebi uma melhoria considerável com essas inovações e os novos datasets limpos. Em um mês treinando o loss já caiu para 3.6 e textos inteligiveis começaram a aparecer. A inferência em casa era feita por CPU e quando ativei o cache KV ela ficou extremamente rápida.
-Eu mão implementei métrica ou validação alguma. Isso gastaria meus preciosos tempos de T4. Os testes eram eu mesmo digitando coisas ao longo do tempo.
+<p>Logo nos primeiros momentos do treinamento já percebi uma melhoria considerável com essas inovações e os novos datasets limpos. Em um mês treinando o loss já caiu para 3.6 e textos inteligiveis começaram a aparecer. A inferência, em casa, era feita por CPU e quando ativei o cache KV ela ficou extremamente rápida.
+Eu não implementei métrica ou validação alguma. Isso gastaria meus preciosos tempos de T4. Os testes eram eu mesmo digitando coisas ao longo do tempo.
 Quando eu implementei o thinking fiquei impressionado com a capacidade de detectar o intent do usuário, porém a resposta final nunca foi satisfatória no thinking. Provavelmente porque ele só foi implementado quando o modelo já estava na metade do treinamento.</p>
 
-<p>Obviamente é um modelo pequeno e treinado por uma pessoa só. Ele tem seus problemas e ontologia e senso-comum é seu fraco como é até hoje nos grandes modelos. Aliás cada dia que passa as grandes IAs estão reforçando mais o uso de RAG ao invés de confiar no conhecimento dos pesos. E faz todo sentido, melhor implementar um ótimo modelo de racíocinio, moderação e detecção de intent e deixar conhecimentos efemeros e especificos a parte.</p>
+<p>Obviamente é um modelo pequeno e treinado por uma pessoa só, ele tem problemas clássicos reconhecidos em IA. A inferência é pobre. Seu fraco, como é até hoje nos grandes modelos, é a ontologia e senso-comum. Ontologia e senso-comum não costuma estar escrito e se estão são em textos especificos. Um modelo grande infere e consegue responder a esses questionamentos mas um modelo pequeno e com dataset pequeno não conseguirá performar bem nessa área. Para corrigir isso o uso de RAG é encorajado, aliás é percepível que as grandes empresas de IAs estão reforçando mais o uso de RAG ao invés de confiar no conhecimento dos pesos. E faz todo sentido, melhor implementar um ótimo modelo de racíocinio, moderação e detecção de intent e deixar conhecimentos efêmeros e especificos a parte.</p>
+
+<div class="destaque amarelo br bl">
+RAG ou <strong>Retrieval Augmented Generation</strong> traduzindo <em>Geração Aumentada via Recuperação</em> é a técnica de usar informações obtidas externamente para gerar uma resposta precisa nos modelos de linguagem evitando o risco de alucinação. No uso interativo de conversação o usuário faz uma requisição, o modelo emite uma querie estruturada, um programa externo faz a pesquisa em geral em um banco de dados vetorial, as informações recuperadas são adicionadas ao contexto do usuário e finalmente a geração continua.
+</div>
 
 <p><strong>Anatomia Humana</strong>. Isso ficou evidente no Portulino na anatomia sexual humana. Sim, isso mesmo, ele tem sérios problemas com quem tem pênis e vagina. Eu fiquei muito tempo tentando corrigir isso o que acabou fazendo o modelo ficar sexual! Foi ai que resolvi parar de treiná-lo pois percebi que fiz uma bagunça.</p>
 
 <p><strong>Legislações</strong>. Um conhecido advogado inserido na área de IA e advocacia me sugeriu treinar meu modelo para o ramo juridico, então fiz turn-over e fiz 5k de instructs de legislação bem como reforcei textos juridicos que são até fáceis de se achar. Os resultados não foram bons. O modelo acabou confundindo intents com solicitações juridicas e confundindo as legislações. Mas ainda sim achei impressionante ele ter aprendido em tão pouco tempo a citar leis e principios.</p>
 
-<p><strong>Safe</strong>. Durante o processo de treinamento, ao mesmo tempo eu pesquisava e fazia novos datasets. Foi então que o momento de combater respostas não seguras começaram a me preocupar e interessar. Principalmente devido ao conteúdo reddit e alguns blogs o modelo fornece algumas respostas não seguras. Lembre-se que eu sou somente uma pessoa e esse modelo não é para produção, é um modelo toy, para aprendizado, então eu não perdi tempo filtrando o dataset. Então eu fiz alguns datasets com respostas seguras para self-harming, crimese e outras ilegalidades. O Grok me ajudou muito porque é o único modelo que se você pedir coisas erradas ele não se recusa a fazer. Porém eu parei de fazer esses datasets quando cheguei nos canibais. Eu pedi para o Grok fazer frases que essas pessoas falariam e … eu só consegui ler algumas linhas … que horror. Não tinha estomago para ficar brincando de entender pessoas malucas. Lembre-se, que eu teria que pensar como elas … deixei isso para lá.
-Porém como muitos datasets instructs achados por ai tem conteúdo safe o modelo acabou pegando o viés OpenAI e Google e tem um pouco de segurança no self-harming.</p>
+<p><strong>Safe</strong>. Durante o processo de treinamento, paralelamente eu pesquisava e fazia novos datasets. Foi então que o momento de combater respostas não seguras começaram a me preocupar e interessar, devido ao conteúdo reddit e alguns blogs o modelo fornecia algumas respostas não seguras. Lembre-se que eu sou somente uma pessoa e esse modelo não é para produção, é um modelo toy, para aprendizado, então eu não perdi tempo filtrando o dataset. Tentando remediar isso eu fiz alguns datasets com respostas seguras para self-harming, crimes e outras ilegalidades. O Grok me ajudou muito porque é o único modelo que se você pedir coisas erradas ele não se recusa a fazer. Porém eu parei de fazer esses datasets quando cheguei nos canibais. Eu pedi para o Grok fazer frases que essas pessoas falariam e … eu só consegui ler algumas linhas … que horror. Não tinha estomago para ficar brincando de entender pessoas malucas. Lembre-se, que eu teria que pensar como elas … deixei isso para lá.
+Porém como muitos datasets instructs achados por ai tem conteúdo safe o modelo acabou pegando o viés OpenAI e Google e assim adquiriu um pouco de segurança no self-harming.</p>
 
 <p><strong>Matemática</strong>. Esqueça. Ele nem sabe quanto é 2+2. E olha que insisti nisso. Fiz 50mB de números, equações em simbolos e literais. Pelo menos ele aprendeu a contar! O anterior nem isso sabia!</p>
 
@@ -318,7 +322,7 @@ Porém como muitos datasets instructs achados por ai tem conteúdo safe o modelo
 
 <h3 id="próximas-realizações">Próximas realizações</h3>
 
-<p>O Portulino apesar de suas dificiências se mostrou um monstro no aprendizado. Como os datasets foram sendo limpos e melhorados ao longo do seu treinamento, ele eternizou alguns defeitos que não são mais corrigíveis; somando-se a essas deficiências, o vocabulário está datado.</p>
+<p>O Portulino apesar de suas deficiências se mostrou um monstro no aprendizado. Como os datasets foram sendo limpos e melhorados ao longo do seu treinamento, ele eternizou alguns defeitos que não são mais corrigíveis; somando-se a essas deficiências, o vocabulário está datado.</p>
 
 <p>Então é hora de treinar outro! Enquanto houver T4 gratuitas ficarei treinando esses modelos.</p>
 
