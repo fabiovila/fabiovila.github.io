@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang=""></html>
+    <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Minerando regras de associação - Data Science</title>
+
+
+
+<meta name="description" content="Introdução Market Basket Analysis (análise de cestas de compras) é uma das áreas do data mining que explora a larga base de dados disponível das transações (vendas) de um negócio em busca de padrões e regras de associação que ajudem na tomada de decisão. O exemplo mais comum de dados...">
+
+<link rel="canonical" href="http://0.0.0.0:4000/aplicadas/2023/06/02/minerando-regras-de-associa%C3%A7%C3%A3o-estudando-o-papel-original-de-rakesh-tomasz-arun.html">
+
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="article:published_time" content="2023-06-02T00:00:00-05:00">
+<meta property="article:author" content="">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://0.0.0.0:4000/aplicadas/2023/06/02/minerando-regras-de-associa%C3%A7%C3%A3o-estudando-o-papel-original-de-rakesh-tomasz-arun.html">
+<meta property="og:title" content="Minerando regras de associação - Data Science">
+<meta property="og:description" content="Introdução Market Basket Analysis (análise de cestas de compras) é uma das áreas do data mining que explora a larga base de dados disponível das transações (vendas) de um negócio em busca de padrões e regras de associação que ajudem na tomada de decisão. O exemplo mais comum de dados...">
+<meta property="og:image" content="http://0.0.0.0:4000/assets/imgs/801c83af-7c7f-442a-9aa0-449714030b9e.jpeg">
+<meta property="og:locale" content="">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="http://0.0.0.0:4000/aplicadas/2023/06/02/minerando-regras-de-associa%C3%A7%C3%A3o-estudando-o-papel-original-de-rakesh-tomasz-arun.html">
+<meta name="twitter:title" content="Minerando regras de associação - Data Science">
+<meta name="twitter:description" content="Introdução Market Basket Analysis (análise de cestas de compras) é uma das áreas do data mining que explora a larga base de dados disponível das transações (vendas) de um negócio em busca de padrões e regras de associação que ajudem na tomada de decisão. O exemplo mais comum de dados...">
+<meta name="twitter:image" content="http://0.0.0.0:4000/assets/imgs/801c83af-7c7f-442a-9aa0-449714030b9e.jpeg">
+
+<link rel="preload" href="/assets/css/style.css" as="style">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/github.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  }
+};
+</script>
+
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PY9DT1RWSW"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-PY9DT1RWSW');
+</script>
+
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BlogPosting",
+ "headline": "Minerando regras de associação - Data Science",
+ "description": "Introdução Market Basket Analysis (análise de cestas de compras) é uma das áreas do data mining que explora a larga base de dados disponível das transações (vendas) de um negócio em busca de padrões e regras de associação que ajudem na tomada de decisão. O exemplo mais comum de dados...",
+ "image": "http://0.0.0.0:4000/assets/imgs/801c83af-7c7f-442a-9aa0-449714030b9e.jpeg",
+ "author": {
+   "@type": "Person",
+   "name": ""
+ },
+ "publisher": {
+   "@type": "Organization",
+   "name": "Your awesome title"
+ },
+ "datePublished": "2023-06-02T00:00:00-05:00",
+ "dateModified": "2023-06-02T00:00:00-05:00",
+ "mainEntityOfPage": {
+   "@type": "WebPage",
+   "@id": "http://0.0.0.0:4000/aplicadas/2023/06/02/minerando-regras-de-associa%C3%A7%C3%A3o-estudando-o-papel-original-de-rakesh-tomasz-arun.html"
+ }
+}
+</script>
+
+</head>
+    <body>
+    <nav class="navbar">
+  <div class="container">
+
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <h1 class="has-text-weight-bold is-capitalized">Fabio Vila</h1>
+      </a>
+
+      <span class="navbar-burger" data-target="navbarMenuHeroA">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </div>
+
+    <div id="navbarMenuHeroA" class="navbar-menu">
+      <div class="navbar-end">
+
+        <a href="/" class="navbar-item">
+          Home
+        </a>
+
+        <a href="https://fabiovila.github.io/contato/" class="navbar-item">
+          Contato
+        </a>
+
+        <a href="https://vilaboard.com" class="navbar-item">
+          Vilaboard
+        </a>
+
+        <!-- Language indicator -->
+
+        
+
+        
+
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="section ">
+<div class="columns is-centered">
+<div class="column is-9 ">
+<div class="content is-fluid">
+
+  <header class="mb-5">
+    <h1 class="title is-warning">Minerando regras de associação - Data Science</h1>
+    <h4 class="is-size-4-tablet has-text-weight-light is-family-sans-serif" style="margin-top: -1em;">Estudo do artigo de Rakesh, Tomasz e Arun</h4>
+    
+    <hr class="m-1"/>
+    <small class="is-size-7-tablet has-text-weight-light pl-2 has-text-dark-grey" ><span class="icon "><i class="fa fa-user "></i></span>
+      
+      Fabio
+         
+    <span class="icon"><i class="fa fa-calendar"></i></span>  
+     02 Jun 2023
+     <span class="icon"><i class="fa fa-bars"></i></span>
+    aplicadas
+    <span class="icon"><i class="fa fa-tag"></i></span>  
+    data-science, regras-associação, e market-basket-analysis
+    </small>
+    <hr class="mt-1"/>
+    
+    <div class="h-400">
+        
+        <img class="image" style="width:100%" src="/assets/imgs/801c83af-7c7f-442a-9aa0-449714030b9e.jpeg"/>
+        
+    </div>
+     <hr class="mt-1 mb-5"/>
+    
+
+
+  </header>
+
+  <article class="mt-5">
+    <h3 id="introdução">Introdução</h3>
+
+<p><em>Market Basket Analysis</em> (análise de cestas de compras) é uma das áreas do <em>data mining</em> que explora a larga base de dados disponível das transações (vendas) de um negócio em busca de padrões e regras de associação que ajudem na tomada de decisão. O exemplo mais comum de dados são os registros das cestas de compras de um supermercado, como o nome sugere, de fato uns dos trabalhos iniciais nessa área o <strong>“Mining Association Rules between Sets of Items in Large Databases”<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></strong> explora a criação de regras de dados transacionais de supermercados.</p>
+
+<p>Na época do estudo (1993) ocorria um boom de informatização dos negócios e com o advento do código de barras as transações por produto, data, preço e quantidade eram registradas nos banco de dados dos estabelecimentos. Entretanto na época os softwares apenas utilizavam esses dados para controle de estoque e contabilidade,
+fornecendo um relatório no final da semana, mês, ou outro período para fins de controle de estoque e financeiro.</p>
+
+<p>O estudo realizado nos laboratórios da IBM por Agrawal, Imielinski e Swami<sup id="fnref:1:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup> em 1993 identificou uma lacuna nos dados ociosos e desenvolveu um algoritmo para extrair regras de associação. Por exemplo, descobriram que em 90% das compras de pão e manteiga também havia a compra de leite, o que pode ser representado pela regra ${pão, manteiga} \Rightarrow {leite}$, onde ${pão, manteiga}$ é o antecedente e ${leite}$ é o consequente.</p>
+
+<p>A ‘mineração’ dessas regras permite gerar relatórios como:</p>
+
+<ul>
+  <li>Listar todas as regras em que <em>Coca-cola diet</em> seja consequente, o que pode ajudar em decisões para alavancar as vendas desse produto.</li>
+  <li>Listar as regras em que <em>rosquinhas</em> sejam o antecedente. Esse tipo de regra pode indicar quais produtos teriam vendas dimuidas se o antecedente for descontinuado.</li>
+  <li>Listar por exemplo as regras onde <em>salsicha</em> seja <strong>um dos</strong> antecedentes e <em>mostarda</em> seja o consequente retornando, assim, produtos que compõem um kit com a <em>salsicha</em> e a <em>mostarda</em> (como no cliente buscando produtos para um <em>cachorro-quente</em>).</li>
+  <li>As relações que um produto tem com as prateleiras A e B, auxiliando na montagem das seções.</li>
+  <li>$k$ regras com maior confiança onde um produto seja o consequente.</li>
+</ul>
+
+<h3 id="modelo">Modelo</h3>
+
+<p>Neste artigo pretendo demonstrar o algoritmo do estudo de Agrawal, Imielinski e Swami<sup id="fnref:1:2" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>. Para leitores não fluentes em matemática colocarei parêtenses e redundâncias no texto para facilitar o entendimento para esse leitores. Antes de continuar é necessário formalizar alguns conceitos</p>
+
+<p><strong>Os dados</strong></p>
+
+\[\begin{align*}
+&amp;\text{Sejam,} \\
+I &amp;= \{i_0, i_1, i_2, \ldots, i_n\} &amp;&amp; \text{Um conjunto de itens $i_n$ representando os produtos} \\
+T &amp;= \{t_0, t_1, t_2, \ldots, t_n\}&amp;&amp; \text{Um conjunto de transações (compras)}\\
+t &amp;= (i_0, i_1, \ldots , i_n) &amp;&amp;\text{Um vetor contendo todos os itens do conjunto I}
+\\ 
+&amp;\text{com t[n] definido como:}
+&amp;&amp;t[n] =
+\begin{cases}
+0,  &amp; \text{se o item não foi comprado} \\
+1, &amp; \text{se o item foi comprado}
+\end{cases}
+\end{align*}\]
+
+<p><strong>Regras de associação</strong></p>
+
+<p>Dado um conjunto $X$ de transações $i_n$ diremos que $t$ satisfaz $X$ se todos os itens de $X$, $t[n] = 1$.</p>
+
+<p>Regras de associação são definidos como a implicação $X \Rightarrow I_j$ onde $X$ é um conjunto de itens $i$ e $I_j$ é conjunto unitário de um elemento de $I$. Lembrando que o lado esquerdo é chamado <strong>antecedente</strong> e o lado direito <strong>consequente</strong>. Importante estabelecer que $X \cap I_j = \emptyset$, significando na prática que o item do consequente não pode estar no antecedente.</p>
+
+<p>Recapitulando o exemplo dado no início do artigo:</p>
+
+\[\begin{align*}
+&amp;\{pão, manteiga\} \Rightarrow \{leite\}\\
+&amp;\text{onde:}\\&amp;\{pão, manteiga\} = X \text{ e } \{leite\} = I_j
+\end{align*}\]
+
+<p>E como se pode ver “leite” não está no antecedente, ou seja $X \cap I_j = \emptyset$.</p>
+
+<h3 id="confiança-suporte-completude-e-lift">Confiança, Suporte, Completude e lift</h3>
+
+<p>O artigo só cita a medida de qualidade <em>confiança</em>, como os outros indicadors são muito usados listarei o cálculo de cada um.</p>
+
+<p><strong>Confiança</strong></p>
+
+<p>Confiança é a razão entre a quantidade no conjunto de transações $T$ que contenham $X$ e $I_j$ pela quantidade das transações que contenham somente $X$, ou seja</p>
+
+\[\text{Confiança} = {|(X \cup I_j) \cap T| \over |X|}\]
+
+<p>Em termos práticos é o número de transações que contenham a regra $X \Rightarrow I_j$ dividido pelo número de transações que tenham somente $X$  ( antecedente ), lembrando que as transações estão no conjunto $T$. Confiança mede a força de uma regra.</p>
+
+<p><strong>Suporte</strong></p>
+
+<p>Suporte por sua vez é a razão</p>
+
+\[\text{Suporte} = {|(X \cup I_j) \cap T| \over |T|}\]
+
+<p>Se o leitor já se acostumou com a notação percebe que é a razão entre a quantidade de $X \Rightarrow I_j$ contadas em $T$ pelo total de transações, ou seja, $|T|$. Necessariamente não é preciso que a contagem do numerador ( parte de cima da fração ) seja somente de regras, pode ser também de um conjunto de itens qualquer ou um item somente.
+Suporte é um indicador muito usado, por isso é comum se referir a ele como $Sup(X \Rightarrow I_j)$ quando usado em outros cálculos como no <strong>Lift</strong> que veremos logo.</p>
+
+<p><strong>Completude</strong></p>
+
+<p>A completude é calculada por</p>
+
+\[\text{Completude} = {|(X \cup I_j) \cap T| \over |I_j|}\]
+
+<p><strong>Lift</strong></p>
+
+<p>Lift é outro indicador muito usado e mal compreendido. Será objeto de outro artigo, porém seu cálculo é dado por</p>
+
+\[\text{Lift} = { Sup(X \Rightarrow I_j) \over Sup(X) \times Sup(I_j) }\]
+
+<p>Onde, $Sup(X)$ é a razão da quantidade de $X$ pela quantidade de transações em $T$.</p>
+
+<h3 id="minerar-regras">Minerar regras</h3>
+
+<p>Em uma grande base de dados de transações muitas regras podem ser geradas, algumas aparecerão somente uma vez em todo o conjunto $T$, outras com extrema frequência. Os indicadores acima ajudam a listar as regras mais relevantes (Restrições de Suporte) ou se uma requisição especifica do pesquisador é relevante (Restrições sintáticas).</p>
+
+<ul>
+  <li><strong>Restrições sintáticas</strong> - Restringe regras se um ou mais itens estão no antecedente ou no consequente. Serão questionamentos do tipo <em>Quais regras contém {pão} no antecedente?</em> ou <em>Quais regras contém {Leite} no consequente?</em></li>
+  <li><strong>Restrições de suporte</strong> - Restringe regras com maior Suporte. Enquanto a confiança indica a força de uma regra, o suporte indica a significância de uma regra. Em uma pesquisa de negócios somente regras a partir de um certo suporte serão consideradas.</li>
+</ul>
+
+<p>De posse dos indicadores e as restrições, minerar regras pode ser decomposto em dois sub problemas:</p>
+
+<ol>
+  <li>Gerar um conjunto de todas as combinações de items que tenham suporte acima de um valor minimo determinado que chamaremos de <em>conjunto de itens</em>. Gerar todas as combinações pode se tornar impraticável para uma quantidade enorme de itens, restrições sintáticas, então, podem ajudam a diminuir a quantidade de combinações admissíveis.</li>
+  <li></li>
+</ol>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>AGRAWAL, R.; IMIELIŃSKI, T.; SWAMI, A. Mining association rules between sets of items in large databases. Proceedings of the 1993 ACM SIGMOD international conference on Management of data. Anais…New York, NY, USA: ACM, 1993. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a> <a href="#fnref:1:1" class="reversefootnote" role="doc-backlink">&#8617;<sup>2</sup></a> <a href="#fnref:1:2" class="reversefootnote" role="doc-backlink">&#8617;<sup>3</sup></a></p>
+    </li>
+  </ol>
+</div>
+
+  </article>
+
+</div>
+</div>
+</div>
+</section>
+
+<section class="section">
+  <hr/>
+  <nav class="level is-mobile">
+
+    <div class="level-item">      
+      
+      
+      <div>
+        <p class="heading"><strong>Veja Também:</strong></p>
+        <a href="/aplicadas/2023/01/10/problema-dual-primal.html"><small>O problema dual e primal - Otimização Matemática</small></br></a>
+        <a href="/eletronica/2023/11/15/siglas-de-sensores-obd2.html"><small>Siglas de sensores e atuadores OBD2 - Eletrônica automotiva</small></a>
+      </div>
+    </div>
+  </nav>
+</section>
+<section class="section">
+  <div id="disqus_thread"></div>
+<script>
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://fabiovila-github-io.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+<footer class="footer has-background-dark has-text-white">
+  <div class="content has-text-centered">
+    <p>
+      <strong>Fabio Vila</strong> by <a href="https://fabiovila-github-io">Fabio Vila</a>.
+      The source code is licensed
+      <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+
+    </p>
+  </div>
+<nav class="level">
+      <div class="level-item has-text-centered">
+        <div>
+          <span class="icon has-text-warning">
+            <i class="fas fa-envelope fa-lg"></i>
+          </span>
+          <p>
+            <strong class="has-text-light">Email:</strong><br>
+            <a class="has-text-link-light" href="mailto:fkvila@outlook.com">fkvila@outlook.com</a>
+          </p>
+        </div>
+      </div>
+      <div class="level-item has-text-centered">
+        <div>
+          <span class="icon has-text-info">
+            <i class="fab fa-telegram fa-lg"></i>
+          </span>
+          <p>
+            <strong class="has-text-light">Telegram:</strong><br>
+            <a class="has-text-link-light" href="https://t.me/viladx2">t.me/viladx2</a>
+          </p>
+        </div>
+      </div>
+
+    </nav>
+</footer>
+</body>
+</html>
