@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="pt"></html>
+    <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Cálculo de resistência pelas cores do resistor - Aplicativo</title>
+
+
+
+<meta name="description" content="Aplicação para calcular o valor de resistores pelas faixas de cores">
+
+<link rel="canonical" href="http://0.0.0.0:4000/app/calculo-resistores/">
+
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="article:published_time" content="2024-01-24T00:00:00-03:00">
+<meta property="article:author" content="Fábio">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://0.0.0.0:4000/app/calculo-resistores/">
+<meta property="og:title" content="Cálculo de resistência pelas cores do resistor - Aplicativo">
+<meta property="og:description" content="Aplicação para calcular o valor de resistores pelas faixas de cores">
+<meta property="og:image" content="http://0.0.0.0:4000/assets/imgs/resistor.svg">
+<meta property="og:locale" content="">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="http://0.0.0.0:4000/app/calculo-resistores/">
+<meta name="twitter:title" content="Cálculo de resistência pelas cores do resistor - Aplicativo">
+<meta name="twitter:description" content="Aplicação para calcular o valor de resistores pelas faixas de cores">
+<meta name="twitter:image" content="http://0.0.0.0:4000/assets/imgs/resistor.svg">
+
+<link rel="preload" href="/assets/css/style.css" as="style">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/github.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  }
+};
+</script>
+
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PY9DT1RWSW"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-PY9DT1RWSW');
+</script>
+
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BlogPosting",
+ "headline": "Cálculo de resistência pelas cores do resistor - Aplicativo",
+ "description": "Aplicação para calcular o valor de resistores pelas faixas de cores",
+ "image": "http://0.0.0.0:4000/assets/imgs/resistor.svg",
+ "author": {
+   "@type": "Person",
+   "name": "Fábio"
+ },
+ "publisher": {
+   "@type": "Organization",
+   "name": "Fabio Vila"
+ },
+ "datePublished": "2024-01-24T00:00:00-03:00",
+ "dateModified": "2024-01-24T00:00:00-03:00",
+ "mainEntityOfPage": {
+   "@type": "WebPage",
+   "@id": "http://0.0.0.0:4000/app/calculo-resistores/"
+ }
+}
+</script>
+
+</head>
+    <body>
+    <nav class="navbar">
+  <div class="container">
+
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <h1 class="has-text-weight-bold is-capitalized">Fabio Vila</h1>
+      </a>
+
+      <span class="navbar-burger" data-target="navbarMenuHeroA">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </div>
+
+    <div id="navbarMenuHeroA" class="navbar-menu">
+      <div class="navbar-end">
+
+        <a href="/" class="navbar-item">
+          Home
+        </a>
+
+        <a href="https://fabiovila.github.io/contato/" class="navbar-item">
+          Contato
+        </a>
+
+        <a href="https://vilaboard.com" class="navbar-item">
+          Vilaboard
+        </a>
+
+        <!-- Language indicator -->
+
+        
+
+        
+
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="section ">
+<div class="columns is-centered">
+<div class="column is-9 ">
+<div class="content is-fluid">
+
+  <header class="mb-5">
+    <h1 class="title">Cálculo de resistência pelas cores do resistor - Aplicativo</h1>
+    
+    <h4 class="subtitle has-text-weight-light is-family-sans-serif">Aplicação para calcular o valor de resistores pelas faixas de cores</h4>
+    
+    <hr class="m-1"/>
+    <small class="pl-2 has-text-dark-grey" ><span class="icon "><i class="fa fa-user "></i></span>
+      
+      Fabio
+         
+    <span class="icon"><i class="fa fa-calendar"></i></span>  
+     24 Jan 2024
+     <span class="icon"><i class="fa fa-bars"></i></span>
+    app
+    <span class="icon"><i class="fa fa-tag"></i></span>  
+    eletrônica, resistores, e código de cores
+    </small>
+    <hr class="mt-1 mb-1"/>
+    <div class="h-400">
+        
+        <object id="obj" type="image/svg+xml" class="image" style="height: 100%; width: 100%; margin:auto" data="/assets/imgs/resistor.svg"></object>        
+        
+    </div>
+
+
+  </header>
+
+  <article class="">
+    <link href="/assets/css/colormenu.css" type="text/css" rel="stylesheet" />
+
+<script>
+var valor = 220000;
+var unidade = "";
+var faixas = [2,2,10000,20];
+
+function formata (valor) {
+    if (valor < 1000) {
+    unidade = " Ω";
+  } else if (valor >= 1000 && valor < 1000000) {
+    unidade = " KΩ";
+    valor = valor / 1000;
+  } else if (valor >= 1000000 && valor < 1000000000) {
+    unidade = " MΩ";
+    valor = valor / 1000000;
+  } else if (valor >= 1000000000 && valor < 1000000000000) {
+    unidade = " GΩ";
+    valor = valor / 1000000000;
+  }
+  valor = valor.toLocaleString('pt-BR', {minimumFractionDigits:0, maximumFractionDigits:2}) + unidade;
+  return valor;
+}
+
+function updateValor(cor,index,v) {
+
+  faixas[index] = v;
+  valor = (faixas[0]*10+faixas[1])*faixas[2];
+
+  if (valor <= 100) { substituto = valor; } 
+  if (valor > 100)  { substituto = faixas[0]*100 + faixas[1]*10 + (Math.log10(Number(faixas[2])))   ; }
+
+
+  console.log(cor,index,valor);
+  tolerancia = faixas[3] + "%";
+
+
+  var alta  =  formata(valor * (1 + Number(faixas[3])/100));
+  var baixa =  formata(valor * (1 - Number(faixas[3])/100));
+  $("tolerancia").innerText = tolerancia  + " " + "[ " + alta + "," + baixa + " ]";
+  valor = formata(valor);
+  document.faixas[index].style.fill = cor;
+  document.texto.innerHTML = valor;
+  $("valor").innerText = valor;
+  
+}
+
+
+</script>
+
+<div class="section">
+<div class="field is-grouped is-grouped-centered">
+  <div class="control">
+      <small>1° Faixa</small>
+      <div class="is-multiple">
+
+      <label style="background-color: black; color: dark-grey;" class="colorContainer">Preto
+        <input name="1" type="radio" disabled="disabled" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: brown; color: white;" class="colorContainer">Marrom
+        <input name="1" type="radio" onchange="updateValor('brown',0,1);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: red; color: white;" class="colorContainer">Vermelho
+        <input name="1" type="radio" onchange="updateValor('red',0,2);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: orange; color: white;" class="colorContainer">Laranja
+        <input name="1" type="radio" onchange="updateValor('orange',0,3);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: yellow; color: black;" class="colorContainer">Amarelo
+        <input name="1" type="radio" onchange="updateValor('yellow',0,4);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: green; color: white;" class="colorContainer">Verde
+        <input name="1" type="radio" onchange="updateValor('green',0,5);" />
+        <span class="colorBar"></span>
+      </label>      
+
+      <label style="background-color: blue; color: white;" class="colorContainer">Azul
+        <input name="1" type="radio" onchange="updateValor('blue',0,6);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: violet; color: white;" class="colorContainer">Violeta
+        <input name="1" type="radio" onchange="updateValor('violet',0,7);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: grey; color: white;" class="colorContainer">Cinza
+        <input name="1" type="radio" onchange="updateValor('grey',0,8);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: white; color: black;" class="colorContainer">Branco
+        <input name="1" type="radio" onchange="updateValor('white',0,9);" />
+        <span class="colorBar"></span>
+      </label>
+
+      </div>
+  </div>
+
+    <div class="control">
+    <small>2° Faixa</small>
+    <div class="is-multiple">
+      
+      <label style="background-color: black; color: white;" class="colorContainer">Preto
+        <input name="1" type="radio" onchange="updateValor('black',1,0);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: brown; color: white;" class="colorContainer">Marrom
+        <input name="1" type="radio" onchange="updateValor('brown',1,1);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: red; color: white;" class="colorContainer">Vermelho
+        <input name="1" type="radio" onchange="updateValor('red',1,2);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: orange; color: white;" class="colorContainer">Laranja
+        <input name="1" type="radio" onchange="updateValor('orange',1,3);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: yellow; color: black;" class="colorContainer">Amarelo
+        <input name="1" type="radio" onchange="updateValor('yellow',1,4);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: green; color: white;" class="colorContainer">Verde
+        <input name="1" type="radio" onchange="updateValor('green',1,5);" />
+        <span class="colorBar"></span>
+      </label>      
+
+      <label style="background-color: blue; color: white;" class="colorContainer">Azul
+        <input name="1" type="radio" onchange="updateValor('blue',1,6);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: violet; color: white;" class="colorContainer">Violeta
+        <input name="1" type="radio" onchange="updateValor('violet',1,7);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: grey; color: white;" class="colorContainer">Cinza
+        <input name="1" type="radio" onchange="updateValor('grey',1,8);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: white; color: black;" class="colorContainer">Branco
+        <input name="1" type="radio" onchange="updateValor('white',1,9);" />
+        <span class="colorBar"></span>
+      </label>
+
+    </div>
+  </div>
+
+    <div class="control">
+      <small>3° Faixa</small>
+    <div class="is-multiple">
+    
+      <label style="background-color: black; color: white;" class="colorContainer">Preto
+        <input name="1" type="radio" onchange="updateValor('black',2,1);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: brown; color: white;" class="colorContainer">Marrom
+        <input name="1" type="radio" onchange="updateValor('brown',2,10);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: red; color: white;" class="colorContainer">Vermelho
+        <input name="1" type="radio" onchange="updateValor('red',2,100);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: orange; color: white;" class="colorContainer">Laranja
+        <input name="1" type="radio" onchange="updateValor('orange',2,1000);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: yellow; color: black;" class="colorContainer">Amarelo
+        <input name="1" type="radio" onchange="updateValor('yellow',2,10000);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: green; color: white;" class="colorContainer">Verde
+        <input name="1" type="radio" onchange="updateValor('green',2,100000);" />
+        <span class="colorBar"></span>
+      </label>      
+
+      <label style="background-color: blue; color: white;" class="colorContainer">Azul
+        <input name="1" type="radio" onchange="updateValor('blue',2,1000000);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: violet; color: white;" class="colorContainer">Violeta
+        <input name="1" type="radio" onchange="updateValor('violet',2,10000000);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: grey; color: white;" class="colorContainer">Cinza
+        <input name="1" type="radio" onchange="updateValor('grey',2,100000000);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: white; color: black;" class="colorContainer">Branco
+        <input name="1" type="radio" onchange="updateValor('white',2,1000000000);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: gold; color: black;" class="colorContainer">Ouro
+        <input name="1" type="radio" onchange="updateValor('gold',2,0.1);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: silver; color: black;" class="colorContainer">Prata
+        <input name="1" type="radio" onchange="updateValor('silver',2,0.01);" />
+        <span class="colorBar"></span>
+      </label>
+    </div>
+  </div>
+
+    <div class="control">
+      <small>4° Faixa</small>
+    <div class="is-multiple">    
+      <label style="background-color: black; color: white;" class="colorContainer">Preto
+        <input name="1" type="radio" onchange="updateValor('black',3,20);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: brown; color: white;" class="colorContainer">Marrom
+        <input name="1" type="radio" onchange="updateValor('brown',3,1);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: red; color: white;" class="colorContainer">Vermelho
+        <input name="1" type="radio" onchange="updateValor('red',3,2);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: orange; color: white;" class="colorContainer">Laranja
+        <input name="1" type="radio" onchange="updateValor('orange',3,3);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: yellow; color: black;" class="colorContainer">Amarelo
+        <input name="1" type="radio" onchange="updateValor('yellow',3,4);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: green; color: white;" class="colorContainer">Verde
+        <input name="1" type="radio" onchange="updateValor('green',3,0.5);" />
+        <span class="colorBar"></span>
+      </label>      
+
+      <label style="background-color: blue; color: white;" class="colorContainer">Azul
+        <input name="1" type="radio" onchange="updateValor('blue',3,0.25);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: violet; color: white;" class="colorContainer">Violeta
+        <input name="1" type="radio" onchange="updateValor('violet',3,0.1);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: grey; color: white;" class="colorContainer">Cinza
+        <input name="1" type="radio" onchange="updateValor('grey',3,0.05);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: white; color: black;" class="colorContainer">Branco
+        <input name="1" type="radio" onchange="updateValor('white',3,10);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: gold; color: black;" class="colorContainer">Ouro
+        <input name="1" type="radio" onchange="updateValor('gold',3,5);" />
+        <span class="colorBar"></span>
+      </label>
+
+      <label style="background-color: silver; color: black;" class="colorContainer">Prata
+        <input name="1" type="radio" onchange="updateValor('silver',3,10);" />
+        <span class="colorBar"></span>
+      </label>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<div class="section">
+<div class="subtitle has-text-centered">Selecione as cores acima para obter o resultado</div>
+<table>
+  <tr>
+    <th>Valor</th>
+    <th>Tolerância</th>
+  </tr>
+  <tr>
+    <td id="valor" class="subtitle"></td>
+    <td id="tolerancia" class="subtitle"></td>
+  </tr>
+</table> 
+</div>
+
+<h3 id="valores-comuns-de-resistores">Valores comuns de resistores</h3>
+
+<ul>
+  <li><strong>330Ω</strong> é um valor comum para alimentar um LED em 5V com corrente de 10mA</li>
+  <li><strong>1kΩ</strong> é um valor comum para alimentar um LED em 5V com corrente de aproximadamente 3mA
+    <ul>
+      <li>Esse valor é usado pelo Arduino em série com os LEDs</li>
+    </ul>
+  </li>
+  <li><strong>1k2Ω</strong> é um valor comum para alimentar um LED em 12V com corrente de aproximadamente 3mA</li>
+  <li><strong>10KΩ</strong> é um valor comum para Pull Up e Pull Down
+    <ul>
+      <li>Esse valor é usado pelo Arduino como Pull Up</li>
+    </ul>
+  </li>
+  <li><strong>510Ω</strong> é usado pela placa BluePill (STM32 a 3,3 Volts) como resistor de LEDs</li>
+  <li><strong>0.18Ω</strong> e <strong>0.01Ω</strong> são valores comuns para resistores Shunt ( sensores de corrente )</li>
+  <li><strong>1MΩ</strong> é normalmente usado em paralelo com cristais de clock</li>
+</ul>
+
+<h3 id="valores-comerciais">Valores Comerciais</h3>
+
+<p>O comércio não comercializa todos os valores possíveis. A indústria padronizou alguns valores que são multiplicados pela 3° Faixa, por exemplo, o valor 8.2 pode ser 8.2Ω, 82Ω, 820Ω, 8,2KΩ e assim por diante. Na tabela abaixo pode-se conferir esses valores.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Padrão</th>
+      <th>E6, E12 e E24</th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1.0</td>
+      <td>1.1</td>
+      <td>1.2</td>
+      <td>1.3</td>
+    </tr>
+    <tr>
+      <td>1.5</td>
+      <td>1.6</td>
+      <td>1.8</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <td>2.2</td>
+      <td>2.4</td>
+      <td>2.7</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <td>3.3</td>
+      <td>3.6</td>
+      <td>3.9</td>
+      <td>4.3</td>
+    </tr>
+    <tr>
+      <td>6.8</td>
+      <td>7.5</td>
+      <td>8.2</td>
+      <td>9.1</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Esses valores são para resistores de tolerância entre 5% e 20%. Para tolerâncias menores entre 1% e 0.1% a quantidade de valores comerciais é maior e neste caso uma faixa adicional é usada para indicar a maior precisão de valores.</p>
+
+<script>
+document.obj = $("obj");
+document.obj.addEventListener("load",function(){
+  var svg = document.obj.contentDocument;
+  document.faixas = [svg.getElementById("faixa1"), svg.getElementById("faixa2"), svg.getElementById("faixa3"), svg.getElementById("faixa4")];
+  document.texto = svg.getElementById("tspan13");
+},false);
+</script>
+
+
+  </article>
+
+</div>
+</div>
+</div>
+</section>
+
+<section class="section">
+  <hr/>
+  <nav class="level is-mobile">
+
+    <div class="level-item">      
+      
+      
+      <div>
+        <p class="heading"><strong>Veja Também:</strong></p>
+        <small>Código de Cores de capacitores - Aplicativo</small></br>
+        <small>Explorando MDC e a capacidade criativa de resolver e (criar problemas) - Matemática</small>
+      </div>
+    </div>
+  </nav>
+</section>
+<section class="section">
+  <div id="disqus_thread"></div>
+<script>
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://fabiovila-github-io.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+<footer class="footer has-background-dark has-text-white">
+  <div class="content has-text-centered">
+    <p>
+      <strong>Fabio Vila</strong> by <a href="https://fabiovila-github-io">Fabio Vila</a>.
+      The source code is licensed
+      <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+
+    </p>
+  </div>
+<nav class="level">
+      <div class="level-item has-text-centered">
+        <div>
+          <span class="icon has-text-warning">
+            <i class="fas fa-envelope fa-lg"></i>
+          </span>
+          <p>
+            <strong class="has-text-light">Email:</strong><br>
+            <a class="has-text-link-light" href="mailto:fkvila@outlook.com">fkvila@outlook.com</a>
+          </p>
+        </div>
+      </div>
+      <div class="level-item has-text-centered">
+        <div>
+          <span class="icon has-text-info">
+            <i class="fab fa-telegram fa-lg"></i>
+          </span>
+          <p>
+            <strong class="has-text-light">Telegram:</strong><br>
+            <a class="has-text-link-light" href="https://t.me/viladx2">t.me/viladx2</a>
+          </p>
+        </div>
+      </div>
+
+    </nav>
+</footer>
+</body>
+</html>

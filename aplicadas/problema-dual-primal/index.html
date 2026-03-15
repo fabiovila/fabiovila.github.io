@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="pt"></html>
+    <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>O problema dual e primal - Otimização Matemática</title>
+
+
+
+<meta name="description" content="Os problemas primal e dual estão intrinsecamente ligados na teoria da dualidade em programação linear. Eles representam duas formulações diferentes de um mesmo problema de otimização linear, sendo inter-relacionados de maneira específica. Problema Primal O problema primal é a formulação original do problema de otimização linear. Geralmente, é expresso na...">
+
+<link rel="canonical" href="http://0.0.0.0:4000/aplicadas/problema-dual-primal/">
+
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="article:published_time" content="2023-01-10T00:00:00-03:00">
+<meta property="article:author" content="Fábio">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://0.0.0.0:4000/aplicadas/problema-dual-primal/">
+<meta property="og:title" content="O problema dual e primal - Otimização Matemática">
+<meta property="og:description" content="Os problemas primal e dual estão intrinsecamente ligados na teoria da dualidade em programação linear. Eles representam duas formulações diferentes de um mesmo problema de otimização linear, sendo inter-relacionados de maneira específica. Problema Primal O problema primal é a formulação original do problema de otimização linear. Geralmente, é expresso na...">
+<meta property="og:image" content="http://0.0.0.0:4000/assets/imgs/13e2d7ca-e6f1-4cf4-9d6f-4e519e7e592e.jpeg">
+<meta property="og:locale" content="">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="http://0.0.0.0:4000/aplicadas/problema-dual-primal/">
+<meta name="twitter:title" content="O problema dual e primal - Otimização Matemática">
+<meta name="twitter:description" content="Os problemas primal e dual estão intrinsecamente ligados na teoria da dualidade em programação linear. Eles representam duas formulações diferentes de um mesmo problema de otimização linear, sendo inter-relacionados de maneira específica. Problema Primal O problema primal é a formulação original do problema de otimização linear. Geralmente, é expresso na...">
+<meta name="twitter:image" content="http://0.0.0.0:4000/assets/imgs/13e2d7ca-e6f1-4cf4-9d6f-4e519e7e592e.jpeg">
+
+<link rel="preload" href="/assets/css/style.css" as="style">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/github.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  }
+};
+</script>
+
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PY9DT1RWSW"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-PY9DT1RWSW');
+</script>
+
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BlogPosting",
+ "headline": "O problema dual e primal - Otimização Matemática",
+ "description": "Os problemas primal e dual estão intrinsecamente ligados na teoria da dualidade em programação linear. Eles representam duas formulações diferentes de um mesmo problema de otimização linear, sendo inter-relacionados de maneira específica. Problema Primal O problema primal é a formulação original do problema de otimização linear. Geralmente, é expresso na...",
+ "image": "http://0.0.0.0:4000/assets/imgs/13e2d7ca-e6f1-4cf4-9d6f-4e519e7e592e.jpeg",
+ "author": {
+   "@type": "Person",
+   "name": "Fábio"
+ },
+ "publisher": {
+   "@type": "Organization",
+   "name": "Fabio Vila"
+ },
+ "datePublished": "2023-01-10T00:00:00-03:00",
+ "dateModified": "2023-01-10T00:00:00-03:00",
+ "mainEntityOfPage": {
+   "@type": "WebPage",
+   "@id": "http://0.0.0.0:4000/aplicadas/problema-dual-primal/"
+ }
+}
+</script>
+
+</head>
+    <body>
+    <nav class="navbar">
+  <div class="container">
+
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <h1 class="has-text-weight-bold is-capitalized">Fabio Vila</h1>
+      </a>
+
+      <span class="navbar-burger" data-target="navbarMenuHeroA">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </div>
+
+    <div id="navbarMenuHeroA" class="navbar-menu">
+      <div class="navbar-end">
+
+        <a href="/" class="navbar-item">
+          Home
+        </a>
+
+        <a href="https://fabiovila.github.io/contato/" class="navbar-item">
+          Contato
+        </a>
+
+        <a href="https://vilaboard.com" class="navbar-item">
+          Vilaboard
+        </a>
+
+        <!-- Language indicator -->
+
+        
+
+        
+
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="section ">
+<div class="columns is-centered">
+<div class="column is-9 ">
+<div class="content is-fluid">
+
+  <header class="mb-5">
+    <h1 class="title is-warning">O problema dual e primal - Otimização Matemática</h1>
+    <h4 class="is-size-4-tablet has-text-weight-light is-family-sans-serif" style="margin-top: -1em;"></h4>
+    
+    <hr class="m-1"/>
+    <small class="is-size-7-tablet has-text-weight-light pl-2 has-text-dark-grey" ><span class="icon "><i class="fa fa-user "></i></span>
+      
+      Fabio
+         
+    <span class="icon"><i class="fa fa-calendar"></i></span>  
+     10 Jan 2023
+     <span class="icon"><i class="fa fa-bars"></i></span>
+    aplicadas
+    <span class="icon"><i class="fa fa-tag"></i></span>  
+    programação linear, otimização, e pesquisa operacional
+    </small>
+    <hr class="mt-1"/>
+    
+    <div class="h-400">
+        
+        <img class="image" style="width:100%" src="/assets/imgs/13e2d7ca-e6f1-4cf4-9d6f-4e519e7e592e.jpeg"/>
+        
+    </div>
+     <hr class="mt-1 mb-5"/>
+    
+
+
+  </header>
+
+  <article class="mt-5">
+    <p>Os <strong>problemas primal</strong> e <strong>dual</strong> estão intrinsecamente ligados na teoria da dualidade em <strong>programação linear</strong>. Eles representam duas formulações diferentes de um mesmo problema de otimização linear, sendo inter-relacionados de maneira específica.</p>
+
+<h3 id="problema-primal">Problema Primal</h3>
+
+<p>O problema primal é a formulação original do problema de otimização linear. Geralmente, é expresso na forma padrão:</p>
+
+<p>\[\text{Maximize } \quad c^Tx\]
+\[\text{sujeito a } \quad Ax \leq b\]
+\[x \geq 0\]</p>
+
+<p>onde:</p>
+<ul>
+  <li>$c$ é um vetor de coeficientes da função objetivo,</li>
+  <li>$x$ é o vetor de variáveis de decisão,</li>
+  <li>$A$ é uma matriz de coeficientes das restrições,</li>
+  <li>$b$ é o vetor de limites das restrições.</li>
+</ul>
+
+<p>A meta é maximizar ou minimizar a função objetivo $c^Tx$ sujeita a um conjunto de restrições lineares.</p>
+
+<h3 id="problema-dual">Problema Dual</h3>
+
+<p>O problema dual é uma formulação alternativa derivada do problema primal usando a teoria de dualidade. Introduz-se multiplicadores de Lagrange para as restrições do problema primal, gerando assim o problema dual. A formulação geral do problema dual é:</p>
+
+<p>\[\text{Minimize } \quad b^Ty\]
+\[\text{sujeito a } \quad A^Ty \geq c\]
+\[y \geq 0\]</p>
+
+<p>onde:</p>
+<ul>
+  <li>$y$ é o vetor de multiplicadores de Lagrange (ou variáveis duais),</li>
+  <li>$b$ é o vetor de termos constantes das restrições do primal,</li>
+  <li>$A^T$ é a matriz transposta de $A$,</li>
+  <li>$c$ é o vetor de coeficientes da função objetivo do primal.</li>
+</ul>
+
+<p>O objetivo do problema dual é encontrar os multiplicadores de Lagrange que minimizam $b^Ty$ sujeito às restrições lineares.</p>
+
+<h3 id="relação-de-dualidade">Relação de Dualidade</h3>
+
+<p>A relação fundamental entre os problemas primal e dual é expressa pelo Teorema da Dualidade, que estabelece que o valor ótimo do problema primal é sempre maior ou igual ao valor ótimo do problema dual, e vice-versa. Matematicamente, isso é expresso como:</p>
+
+<p>\[\text{Para todo } x \text{ factível no primal e para todo } y \text{ factível no dual, temos } c^Tx \geq b^Ty\]</p>
+
+<p>Se ambos os problemas alcançam seus valores ótimos, então há igualdade entre eles. Esta relação é conhecida como dualidade forte.</p>
+
+<p>A dualidade não apenas fornece uma maneira de verificar a solução ótima, mas também oferece informações valiosas sobre a sensibilidade do problema às mudanças nos parâmetros e fornece soluções alternativas.</p>
+
+  </article>
+
+</div>
+</div>
+</div>
+</section>
+
+<section class="section">
+  <hr/>
+  <nav class="level is-mobile">
+
+    <div class="level-item">      
+      
+      
+      <div>
+        <p class="heading"><strong>Veja Também:</strong></p>
+        <a href="/python/usando-servicos-openai/"><small>Usando os serviços OpenAI para criar um ChatBot - Python</small></br></a>
+        <a href="/aplicadas/minerando-regras-de-associa%C3%A7%C3%A3o-estudando-o-papel-original-de-rakesh-tomasz-arun/"><small>Minerando regras de associação - Data Science</small></a>
+      </div>
+    </div>
+  </nav>
+</section>
+<section class="section">
+  <div id="disqus_thread"></div>
+<script>
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://fabiovila-github-io.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+<footer class="footer has-background-dark has-text-white">
+  <div class="content has-text-centered">
+    <p>
+      <strong>Fabio Vila</strong> by <a href="https://fabiovila-github-io">Fabio Vila</a>.
+      The source code is licensed
+      <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+
+    </p>
+  </div>
+<nav class="level">
+      <div class="level-item has-text-centered">
+        <div>
+          <span class="icon has-text-warning">
+            <i class="fas fa-envelope fa-lg"></i>
+          </span>
+          <p>
+            <strong class="has-text-light">Email:</strong><br>
+            <a class="has-text-link-light" href="mailto:fkvila@outlook.com">fkvila@outlook.com</a>
+          </p>
+        </div>
+      </div>
+      <div class="level-item has-text-centered">
+        <div>
+          <span class="icon has-text-info">
+            <i class="fab fa-telegram fa-lg"></i>
+          </span>
+          <p>
+            <strong class="has-text-light">Telegram:</strong><br>
+            <a class="has-text-link-light" href="https://t.me/viladx2">t.me/viladx2</a>
+          </p>
+        </div>
+      </div>
+
+    </nav>
+</footer>
+</body>
+</html>

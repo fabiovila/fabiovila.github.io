@@ -1,91 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2026-03-08T09:17:16-05:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry xml:lang="pt"><title type="html">O isolador USB salvou meu notebook de um inversor em chamas</title><link href="http://0.0.0.0:4000/pt/eletronica/2026/08/03/isolador-usb-protegeu-notebook.html" rel="alternate" type="text/html" title="O isolador USB salvou meu notebook de um inversor em chamas" /><published>2026-08-03T00:00:00-05:00</published><updated>2026-08-03T00:00:00-05:00</updated><id>http://0.0.0.0:4000/pt/eletronica/2026/08/03/isolador-usb-protegeu-notebook</id><content type="html" xml:base="http://0.0.0.0:4000/pt/eletronica/2026/08/03/isolador-usb-protegeu-notebook.html">&lt;p&gt;Cá estava eu em mais um dia comum programando um inversor para motores. O sistema estava rodando um motor de 1,5 CV a aproximadamente 30 Hz quando algo começou a parecer estranho. O giro ficou irregular, o motor começou a desbalancear e, de repente, aconteceu.&lt;/p&gt;
-
-&lt;p&gt;A placa começou a soltar raios, fogo e pequenas explosões. As luzes se apagaram, flashes e estouros ficaram altos e assustadores. Foi aquele momento em que você não sabe se corre ou se fica olhando, tentando entender se ainda há algo a salvar. Os disjuntores da rede caíram, mas ainda havia fogo e algumas explosões ocasionais vindas dos dois capacitores de 1000 µF a 350 V descarregando sabe-se lá em quem.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;img src=&quot;/assets/imgs/photo_2026-03-08_10-01-55.jpg&quot; alt=&quot;Placa pegando fogo&quot; /&gt;&lt;/td&gt;
-      &lt;td&gt;Placa pegando fogo no escuro porque o disjuntor da luz também caiu.&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;Passado o susto inicial, com a luz restabelecida, apaguei uma pequena chama que insistia no isolamento de alguns fios. O cenário não era bonito: placa carbonizada, microcontrolador explodido, pinos de gravação simplesmente não existiam mais. Cheiro de borracha queimada no ar, fios grudados uns nos outros e aquele silêncio estranho depois da confusão.&lt;/p&gt;
-
-&lt;h3 id=&quot;ahhh-meu-deus-o-notebook&quot;&gt;Ahhh meu Deus… o notebook!&lt;/h3&gt;
-
-&lt;p&gt;Olhei rapidamente para o lado, já imaginando o pior. Naquele instante pensei em todos os dados, nos projetos, no prejuízo de ter que comprar outro computador — especialmente em tempos em que notebooks estão cada vez mais caros.&lt;/p&gt;
-
-&lt;p&gt;Mas então percebi algo inesperado.&lt;/p&gt;
-
-&lt;h3 id=&quot;ele-estava-bem&quot;&gt;Ele estava bem&lt;/h3&gt;
-
-&lt;p&gt;Tela funcionando.&lt;br /&gt;
-VSCode aberto.&lt;br /&gt;
-Nenhum sinal de dano.&lt;/p&gt;
-
-&lt;p&gt;A única reação do notebook parecia ser o ventilador acelerando um pouco por causa do calor do momento.&lt;/p&gt;
-
-&lt;p&gt;Foi então que olhei para a esquerda e vi o pequeno dispositivo que provavelmente havia evitado um desastre maior: um simples isolador USB entre o computador e o programador.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/imgs/photo_2026-03-08_10-20-19.jpg&quot; alt=&quot;Isolador USB e STLink&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Naquele momento ficou claro que ele havia feito exatamente o trabalho para o qual foi projetado.&lt;/p&gt;
-
-&lt;h3 id=&quot;o-perigo-de-debugar-inversores&quot;&gt;O perigo de debugar inversores&lt;/h3&gt;
-
-&lt;p&gt;Quando comecei a trabalhar com inversores, eu já tinha consciência de que algo assim poderia acontecer. Em muitas placas de potência o microcontrolador compartilha o mesmo GND do módulo de potência, sem nenhuma isolação real.&lt;/p&gt;
-
-&lt;p&gt;Isso significa que o computador conectado via USB acaba, na prática, ligado eletricamente ao circuito de potência.&lt;/p&gt;
-
-&lt;p&gt;Em inversores alimentados por rede retificada, o barramento DC pode facilmente chegar a cerca de 310 V. Qualquer falha, transiente ou desbalanceamento entre os referenciais de terra pode colocar tensões perigosas no caminho entre a placa e o computador.&lt;/p&gt;
-
-&lt;p&gt;Na prática, isso pode transformar o cabo USB em um caminho inesperado para correntes de falha.&lt;/p&gt;
-
-&lt;p&gt;Era até relativamente comum eu levar pequenos choques ao tocar na parte metálica do conector USB enquanto fazia testes. Na época eu ignorava, mas aquilo já era um sinal claro de que algo não estava exatamente saudável no sistema.&lt;/p&gt;
-
-&lt;h3 id=&quot;a-solução-barata-que-encontrei&quot;&gt;A solução barata que encontrei&lt;/h3&gt;
-
-&lt;p&gt;Algum tempo atrás, navegando sem grandes pretensões pelo Aliexpress, encontrei pequenos isoladores USB usados normalmente em aplicações de áudio.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/imgs/Captura de tela de 2026-03-08 10-26-05.png&quot; alt=&quot;Isolador USB no Aliexpress&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Eles eram baratos e prometiam algo interessante: isolamento galvânico entre o computador e o dispositivo USB.&lt;/p&gt;
-
-&lt;p&gt;Resolvi testar.&lt;/p&gt;
-
-&lt;p&gt;E funcionou.&lt;/p&gt;
-
-&lt;p&gt;Esses isoladores utilizam normalmente o chip &lt;strong&gt;ADuM3160&lt;/strong&gt;, da Analog Devices, projetado especificamente para isolamento de comunicação USB. Internamente ele usa acoplamento magnético para transferir os sinais digitais através de uma barreira de isolamento, quebrando o caminho elétrico direto entre os dois lados do sistema.&lt;/p&gt;
-
-&lt;p&gt;Isso significa que o computador e o circuito conectado deixam de compartilhar o mesmo caminho de corrente.&lt;/p&gt;
-
-&lt;p&gt;Em outras palavras: mesmo que algo terrível aconteça no circuito de potência, a chance de essa energia chegar ao computador cai drasticamente.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/imgs/Captura de tela de 2026-03-08 10-34-50.png&quot; alt=&quot;Página do site da Analog do ADuM3160&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;limitações&quot;&gt;Limitações&lt;/h3&gt;
-
-&lt;p&gt;Esses dispositivos não são perfeitos.&lt;/p&gt;
-
-&lt;p&gt;Embora suportem conexão USB 2.0, na prática a velocidade fica limitada ao equivalente ao USB 1.1. Para a maioria das aplicações industriais ou de laboratório isso não é um grande problema.&lt;/p&gt;
-
-&lt;p&gt;No meu caso, utilizando conversores USB-serial, consegui comunicação estável até &lt;strong&gt;576000 baud&lt;/strong&gt;, o que é mais do que suficiente para debug e telemetria de firmware.&lt;/p&gt;
-
-&lt;p&gt;Para gravação de microcontroladores e comunicação serial comum, a limitação de velocidade praticamente não incomoda.&lt;/p&gt;
-
-&lt;h3 id=&quot;moral-da-história&quot;&gt;Moral da história&lt;/h3&gt;
-
-&lt;p&gt;Depois daquele episódio ficou uma lição simples:&lt;/p&gt;
-
-&lt;p&gt;Debuggar inversores conectando diretamente o computador ao circuito de potência não é uma boa ideia.&lt;/p&gt;
-
-&lt;p&gt;Um isolador USB custa poucos dólares.&lt;/p&gt;
-
-&lt;p&gt;Um notebook custa alguns milhares.&lt;/p&gt;
-
-&lt;p&gt;Naquele dia, entre uma placa carbonizada e um computador intacto, ficou claro qual dos dois vale mais a pena proteger.&lt;/p&gt;</content><author><name></name></author><category term="pt" /><category term="eletronica" /><category term="segurança" /><category term="inversores" /><category term="proteção" /><summary type="html">Cá estava eu em mais um dia comum programando um inversor para motores. O sistema estava rodando um motor de 1,5 CV a aproximadamente 30 Hz quando algo começou a parecer estranho. O giro ficou irregular, o motor começou a desbalancear e, de repente, aconteceu.</summary></entry><entry xml:lang="en"><title type="html">The USB Isolator That Saved My Laptop From a Burning Motor Inverter</title><link href="http://0.0.0.0:4000/en/electronics/2026/08/03/usb-isolator-saved-laptop.html" rel="alternate" type="text/html" title="The USB Isolator That Saved My Laptop From a Burning Motor Inverter" /><published>2026-08-03T00:00:00-05:00</published><updated>2026-08-03T00:00:00-05:00</updated><id>http://0.0.0.0:4000/en/electronics/2026/08/03/usb-isolator-saved-laptop</id><content type="html" xml:base="http://0.0.0.0:4000/en/electronics/2026/08/03/usb-isolator-saved-laptop.html">&lt;p&gt;It was just another normal day programming a motor inverter. The system was running a 1.5 HP motor at around 30 Hz when something started to look wrong. The rotation became unstable, the motor began to wobble, and then it happened.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="pt"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" hreflang="pt" /><updated>2026-03-15T11:29:47-03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Fabio Vila</title><subtitle>Blog sobre eletrônica, firmware, matemática aplicada e engenharia. Projetos reais, experimentos e falhas catastróficas ocasionais.
+</subtitle><author><name>Fábio</name></author><entry xml:lang="en"><title type="html">The USB Isolator That Saved My Laptop From a Burning Motor Inverter</title><link href="http://0.0.0.0:4000/en/electronics/usb-isolator-saved-laptop/" rel="alternate" type="text/html" title="The USB Isolator That Saved My Laptop From a Burning Motor Inverter" /><published>2026-08-03T00:00:00-03:00</published><updated>2026-08-03T00:00:00-03:00</updated><id>http://0.0.0.0:4000/en/electronics/usb-isolator-saved-laptop</id><content type="html" xml:base="http://0.0.0.0:4000/en/electronics/usb-isolator-saved-laptop/">&lt;p&gt;It was just another normal day programming a motor inverter. The system was running a 1.5 HP motor at around 30 Hz when something started to look wrong. The rotation became unstable, the motor began to wobble, and then it happened.&lt;/p&gt;
 
 &lt;p&gt;The board suddenly started throwing sparks, fire, and small explosions. The lights went out, flashes and bangs echoed around the room, and for a moment you don’t really know whether to run or just stand there staring at the disaster unfolding. The circuit breakers tripped, but there were still occasional explosions coming from the two 1000 µF 350 V capacitors discharging into who knows what.&lt;/p&gt;
 
@@ -172,7 +86,288 @@ No signs of damage.&lt;/p&gt;
 
 &lt;p&gt;A laptop costs a few thousand.&lt;/p&gt;
 
-&lt;p&gt;On that day, looking at a burnt circuit board and an intact computer, it became very clear which one is worth protecting.&lt;/p&gt;</content><author><name></name></author><category term="en" /><category term="electronics" /><category term="safety" /><category term="inverters" /><category term="protection" /><summary type="html">It was just another normal day programming a motor inverter. The system was running a 1.5 HP motor at around 30 Hz when something started to look wrong. The rotation became unstable, the motor began to wobble, and then it happened.</summary></entry><entry><title type="html">Portulino — Modelo de linguagem iniciado do zero usando GPUs T4 gratuitas no Colab</title><link href="http://0.0.0.0:4000/ia/2026/01/11/portulino-modelo-linguagem-treinado-colab-gratuitas.html" rel="alternate" type="text/html" title="Portulino — Modelo de linguagem iniciado do zero usando GPUs T4 gratuitas no Colab" /><published>2026-01-11T00:00:00-06:00</published><updated>2026-01-11T00:00:00-06:00</updated><id>http://0.0.0.0:4000/ia/2026/01/11/portulino-modelo-linguagem-treinado-colab-gratuitas</id><content type="html" xml:base="http://0.0.0.0:4000/ia/2026/01/11/portulino-modelo-linguagem-treinado-colab-gratuitas.html">&lt;h3 id=&quot;introdução&quot;&gt;Introdução&lt;/h3&gt;
+&lt;p&gt;On that day, looking at a burnt circuit board and an intact computer, it became very clear which one is worth protecting.&lt;/p&gt;</content><author><name>Fábio</name></author><category term="en" /><category term="electronics" /><category term="safety" /><category term="inverters" /><category term="protection" /><summary type="html">It was just another normal day programming a motor inverter. The system was running a 1.5 HP motor at around 30 Hz when something started to look wrong. The rotation became unstable, the motor began to wobble, and then it happened.</summary></entry><entry xml:lang="pt"><title type="html">O isolador USB salvou meu notebook de um inversor em chamas</title><link href="http://0.0.0.0:4000/pt/eletronica/isolador-usb-protegeu-notebook/" rel="alternate" type="text/html" title="O isolador USB salvou meu notebook de um inversor em chamas" /><published>2026-08-03T00:00:00-03:00</published><updated>2026-08-03T00:00:00-03:00</updated><id>http://0.0.0.0:4000/pt/eletronica/isolador-usb-protegeu-notebook</id><content type="html" xml:base="http://0.0.0.0:4000/pt/eletronica/isolador-usb-protegeu-notebook/">&lt;p&gt;Cá estava eu em mais um dia comum programando um inversor para motores. O sistema estava rodando um motor de 1,5 CV a aproximadamente 30 Hz quando algo começou a parecer estranho. O giro ficou irregular, o motor começou a desbalancear e, de repente, aconteceu.&lt;/p&gt;
+
+&lt;p&gt;A placa começou a soltar raios, fogo e pequenas explosões. As luzes se apagaram, flashes e estouros ficaram altos e assustadores. Foi aquele momento em que você não sabe se corre ou se fica olhando, tentando entender se ainda há algo a salvar. Os disjuntores da rede caíram, mas ainda havia fogo e algumas explosões ocasionais vindas dos dois capacitores de 1000 µF a 350 V descarregando sabe-se lá em quem.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;img src=&quot;/assets/imgs/photo_2026-03-08_10-01-55.jpg&quot; alt=&quot;Placa pegando fogo&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;Placa pegando fogo no escuro porque o disjuntor da luz também caiu.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Passado o susto inicial, com a luz restabelecida, apaguei uma pequena chama que insistia no isolamento de alguns fios. O cenário não era bonito: placa carbonizada, microcontrolador explodido, pinos de gravação simplesmente não existiam mais. Cheiro de borracha queimada no ar, fios grudados uns nos outros e aquele silêncio estranho depois da confusão.&lt;/p&gt;
+
+&lt;h3 id=&quot;ahhh-meu-deus-o-notebook&quot;&gt;Ahhh meu Deus… o notebook!&lt;/h3&gt;
+
+&lt;p&gt;Olhei rapidamente para o lado, já imaginando o pior. Naquele instante pensei em todos os dados, nos projetos, no prejuízo de ter que comprar outro computador — especialmente em tempos em que notebooks estão cada vez mais caros.&lt;/p&gt;
+
+&lt;p&gt;Mas então percebi algo inesperado.&lt;/p&gt;
+
+&lt;h3 id=&quot;ele-estava-bem&quot;&gt;Ele estava bem&lt;/h3&gt;
+
+&lt;p&gt;Tela funcionando.&lt;br /&gt;
+VSCode aberto.&lt;br /&gt;
+Nenhum sinal de dano.&lt;/p&gt;
+
+&lt;p&gt;A única reação do notebook parecia ser o ventilador acelerando um pouco por causa do calor do momento.&lt;/p&gt;
+
+&lt;p&gt;Foi então que olhei para a esquerda e vi o pequeno dispositivo que provavelmente havia evitado um desastre maior: um simples isolador USB entre o computador e o programador.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/imgs/photo_2026-03-08_10-20-19.jpg&quot; alt=&quot;Isolador USB e STLink&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Naquele momento ficou claro que ele havia feito exatamente o trabalho para o qual foi projetado.&lt;/p&gt;
+
+&lt;h3 id=&quot;o-perigo-de-debugar-inversores&quot;&gt;O perigo de debugar inversores&lt;/h3&gt;
+
+&lt;p&gt;Quando comecei a trabalhar com inversores, eu já tinha consciência de que algo assim poderia acontecer. Em muitas placas de potência o microcontrolador compartilha o mesmo GND do módulo de potência, sem nenhuma isolação real.&lt;/p&gt;
+
+&lt;p&gt;Isso significa que o computador conectado via USB acaba, na prática, ligado eletricamente ao circuito de potência.&lt;/p&gt;
+
+&lt;p&gt;Em inversores alimentados por rede retificada, o barramento DC pode facilmente chegar a cerca de 310 V. Qualquer falha, transiente ou desbalanceamento entre os referenciais de terra pode colocar tensões perigosas no caminho entre a placa e o computador.&lt;/p&gt;
+
+&lt;p&gt;Na prática, isso pode transformar o cabo USB em um caminho inesperado para correntes de falha.&lt;/p&gt;
+
+&lt;p&gt;Era até relativamente comum eu levar pequenos choques ao tocar na parte metálica do conector USB enquanto fazia testes. Na época eu ignorava, mas aquilo já era um sinal claro de que algo não estava exatamente saudável no sistema.&lt;/p&gt;
+
+&lt;h3 id=&quot;a-solução-barata-que-encontrei&quot;&gt;A solução barata que encontrei&lt;/h3&gt;
+
+&lt;p&gt;Algum tempo atrás, navegando sem grandes pretensões pelo Aliexpress, encontrei pequenos isoladores USB usados normalmente em aplicações de áudio.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/imgs/Captura de tela de 2026-03-08 10-26-05.png&quot; alt=&quot;Isolador USB no Aliexpress&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Eles eram baratos e prometiam algo interessante: isolamento galvânico entre o computador e o dispositivo USB.&lt;/p&gt;
+
+&lt;p&gt;Resolvi testar.&lt;/p&gt;
+
+&lt;p&gt;E funcionou.&lt;/p&gt;
+
+&lt;p&gt;Esses isoladores utilizam normalmente o chip &lt;strong&gt;ADuM3160&lt;/strong&gt;, da Analog Devices, projetado especificamente para isolamento de comunicação USB. Internamente ele usa acoplamento magnético para transferir os sinais digitais através de uma barreira de isolamento, quebrando o caminho elétrico direto entre os dois lados do sistema.&lt;/p&gt;
+
+&lt;p&gt;Isso significa que o computador e o circuito conectado deixam de compartilhar o mesmo caminho de corrente.&lt;/p&gt;
+
+&lt;p&gt;Em outras palavras: mesmo que algo terrível aconteça no circuito de potência, a chance de essa energia chegar ao computador cai drasticamente.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/imgs/Captura de tela de 2026-03-08 10-34-50.png&quot; alt=&quot;Página do site da Analog do ADuM3160&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;limitações&quot;&gt;Limitações&lt;/h3&gt;
+
+&lt;p&gt;Esses dispositivos não são perfeitos.&lt;/p&gt;
+
+&lt;p&gt;Embora suportem conexão USB 2.0, na prática a velocidade fica limitada ao equivalente ao USB 1.1. Para a maioria das aplicações industriais ou de laboratório isso não é um grande problema.&lt;/p&gt;
+
+&lt;p&gt;No meu caso, utilizando conversores USB-serial, consegui comunicação estável até &lt;strong&gt;576000 baud&lt;/strong&gt;, o que é mais do que suficiente para debug e telemetria de firmware.&lt;/p&gt;
+
+&lt;p&gt;Para gravação de microcontroladores e comunicação serial comum, a limitação de velocidade praticamente não incomoda.&lt;/p&gt;
+
+&lt;h3 id=&quot;moral-da-história&quot;&gt;Moral da história&lt;/h3&gt;
+
+&lt;p&gt;Depois daquele episódio ficou uma lição simples:&lt;/p&gt;
+
+&lt;p&gt;Debuggar inversores conectando diretamente o computador ao circuito de potência não é uma boa ideia.&lt;/p&gt;
+
+&lt;p&gt;Um isolador USB custa poucos dólares.&lt;/p&gt;
+
+&lt;p&gt;Um notebook custa alguns milhares.&lt;/p&gt;
+
+&lt;p&gt;Naquele dia, entre uma placa carbonizada e um computador intacto, ficou claro qual dos dois vale mais a pena proteger.&lt;/p&gt;</content><author><name>Fábio</name></author><category term="pt" /><category term="eletronica" /><category term="segurança" /><category term="inversores" /><category term="proteção" /><summary type="html">Cá estava eu em mais um dia comum programando um inversor para motores. O sistema estava rodando um motor de 1,5 CV a aproximadamente 30 Hz quando algo começou a parecer estranho. O giro ficou irregular, o motor começou a desbalancear e, de repente, aconteceu.</summary></entry><entry xml:lang="pt"><title type="html">Gerador de qr-code</title><link href="http://0.0.0.0:4000/pt/app/gerador-qr-code/" rel="alternate" type="text/html" title="Gerador de qr-code" /><published>2026-08-03T00:00:00-03:00</published><updated>2026-08-03T00:00:00-03:00</updated><id>http://0.0.0.0:4000/pt/app/gerador-qr-code</id><content type="html" xml:base="http://0.0.0.0:4000/pt/app/gerador-qr-code/">&lt;style&gt;
+
+.qr-box{
+margin-top:25px;
+padding:20px;
+border:2px dashed #dbdbdb;
+border-radius:12px;
+background:#fafafa;
+min-height:260px;
+display:flex;
+align-items:center;
+justify-content:center;
+transition:opacity .6s ease;
+}
+
+.fade-in{
+animation:fadein .7s;
+}
+
+@keyframes fadein{
+from{opacity:0;transform:scale(.95)}
+to{opacity:1;transform:scale(1)}
+}
+
+.qr-box svg{
+width:220px;
+height:220px;
+}
+
+&lt;/style&gt;
+
+&lt;section class=&quot;section&quot;&gt;
+
+&lt;div class=&quot;container&quot;&gt;
+
+&lt;h1 class=&quot;title has-text-centered&quot;&gt;
+Gerador de QR Code
+&lt;/h1&gt;
+
+&lt;div class=&quot;columns is-centered&quot;&gt;
+
+&lt;div class=&quot;column is-half&quot;&gt;
+
+&lt;div class=&quot;field&quot;&gt;
+
+&lt;label class=&quot;label&quot;&gt;URL&lt;/label&gt;
+
+&lt;div class=&quot;control has-icons-left&quot;&gt;
+
+&lt;input class=&quot;input is-medium&quot; id=&quot;url&quot; placeholder=&quot;https://seusite.com&quot; /&gt;
+
+&lt;span class=&quot;icon is-left&quot;&gt;🔗&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;div class=&quot;has-text-centered&quot;&gt;
+
+&lt;button class=&quot;button is-primary is-medium&quot; onclick=&quot;gerar()&quot;&gt;
+Gerar QR
+&lt;/button&gt;
+
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+
+
+&lt;div class=&quot;columns mt-6&quot;&gt;
+
+&lt;div class=&quot;column has-text-centered&quot;&gt;
+
+&lt;h3 class=&quot;subtitle&quot;&gt;
+Fundo branco
+&lt;/h3&gt;
+
+&lt;div class=&quot;qr-box&quot; id=&quot;box-branco&quot;&gt;
+&lt;div id=&quot;qr-branco&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+
+
+&lt;div class=&quot;column has-text-centered&quot;&gt;
+
+&lt;h3 class=&quot;subtitle&quot;&gt;
+Fundo transparente
+&lt;/h3&gt;
+
+&lt;div class=&quot;qr-box&quot; id=&quot;box-transparente&quot;&gt;
+&lt;div id=&quot;qr-transparente&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+
+
+&lt;div class=&quot;buttons is-centered mt-5&quot;&gt;
+
+&lt;button class=&quot;button is-link&quot; onclick=&quot;baixarSVG(&apos;branco&apos;)&quot;&gt;
+Baixar SVG branco
+&lt;/button&gt;
+
+&lt;button class=&quot;button is-dark&quot; onclick=&quot;baixarSVG(&apos;transparente&apos;)&quot;&gt;
+Baixar SVG transparente
+&lt;/button&gt;
+
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;/section&gt;
+
+&lt;script src=&quot;https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;script&gt;
+
+let svgBranco=&quot;&quot;
+let svgTransparente=&quot;&quot;
+
+
+
+function gerar(){
+
+const url=document.getElementById(&quot;url&quot;).value
+
+if(!url) return
+
+const qr=qrcode(0,&quot;L&quot;)
+
+qr.addData(url)
+qr.make()
+
+/* SVG padrão */
+
+svgBranco=qr.createSvgTag({scalable:true})
+
+/* versão transparente */
+
+svgTransparente=svgBranco.replace(/&lt;rect[^&gt;]*fill=&quot;white&quot;[^&gt;]*&gt;/i,&quot;&quot;)
+
+document.getElementById(&quot;qr-branco&quot;).innerHTML=svgBranco
+document.getElementById(&quot;qr-transparente&quot;).innerHTML=svgTransparente
+
+animar(&quot;box-branco&quot;)
+animar(&quot;box-transparente&quot;)
+
+}
+
+
+
+function animar(id){
+
+const box=document.getElementById(id)
+
+box.classList.remove(&quot;fade-in&quot;)
+void box.offsetWidth
+box.classList.add(&quot;fade-in&quot;)
+
+}
+
+
+
+function baixarSVG(tipo){
+
+let svg=tipo===&quot;branco&quot;?svgBranco:svgTransparente
+
+if(!svg) return
+
+const blob=new Blob([svg],{type:&quot;image/svg+xml&quot;})
+
+const a=document.createElement(&quot;a&quot;)
+
+a.href=URL.createObjectURL(blob)
+
+a.download=&quot;qrcode_&quot;+tipo+&quot;.svg&quot;
+
+a.click()
+
+}
+
+&lt;/script&gt;
+
+&lt;h3 id=&quot;para-importar-no-kicad&quot;&gt;Para importar no Kicad&lt;/h3&gt;
+
+&lt;p&gt;Use o svg &lt;strong&gt;transparente&lt;/strong&gt; que foi gerado. Estando no PCB Editor vá em &lt;strong&gt;File-&amp;gt;Import-&amp;gt;Graphics&lt;/strong&gt; ou &lt;strong&gt;Shift+Ctrl+F&lt;/strong&gt;, na janela que se abre ache o svg transparente salvo escolha o layer e pronto.&lt;/p&gt;
+
+&lt;h3 id=&quot;cuidado-com-os-golpes&quot;&gt;Cuidado com os golpes&lt;/h3&gt;
+
+&lt;p&gt;Fui procurar um gerador de qr-code para colocar no Kicad e havia milhares de sites disso. Muitos eram golpes. Ou tinha que pagar para gerar, ou gerava com o logotipo do site ou pior &lt;strong&gt;alguns eram grátis porém o qr-code levava ao site que redirecionava ao site que você entrou&lt;/strong&gt;.&lt;/p&gt;</content><author><name>Fábio</name></author><category term="pt" /><category term="app" /><category term="qr-code" /><summary type="html"></summary></entry><entry><title type="html">Portulino — Modelo de linguagem iniciado do zero usando GPUs T4 gratuitas no Colab</title><link href="http://0.0.0.0:4000/ia/portulino-modelo-linguagem-treinado-colab-gratuitas/" rel="alternate" type="text/html" title="Portulino — Modelo de linguagem iniciado do zero usando GPUs T4 gratuitas no Colab" /><published>2026-01-11T00:00:00-03:00</published><updated>2026-01-11T00:00:00-03:00</updated><id>http://0.0.0.0:4000/ia/portulino-modelo-linguagem-treinado-colab-gratuitas</id><content type="html" xml:base="http://0.0.0.0:4000/ia/portulino-modelo-linguagem-treinado-colab-gratuitas/">&lt;h3 id=&quot;introdução&quot;&gt;Introdução&lt;/h3&gt;
 
 &lt;p&gt;Já faz algum tempo que me interesso por modelos de linguagem. Mesmo antes do surgimento dos Transformers, eu treinava alguns modelos usando cadeias de Markov e, mais tarde, redes recorrentes. Começar pelas cadeias de Markov foi um processo didático pois fornecia ótimos insights e entendimento da matemática e estatistica envolvida. O caminho natural seria então ir para as RNNs e a tecnologia mais avançada para a época eram as LSTM e as GRU, redes recorrentes mais sofisticadas que as RNNs &lt;em&gt;vanilla&lt;/em&gt;. Porém, treinar essas redes era muito ineficiente: demorava demais, exigia grande quantidade de dados e o hardware disponível raramente ajudava.&lt;/p&gt;
 
@@ -405,7 +600,7 @@ Porém como muitos datasets instructs achados por ai tem conteúdo safe o modelo
       &lt;p&gt;KARPATHY, Andrej. nanoGPT: The simplest, fastest repository for training/finetuning medium-sized GPTs. GitHub, 2025. Disponível em: &lt;a href=&quot;https://github.com/karpathy/nanoGPT&quot;&gt;https://github.com/karpathy/nanoGPT&lt;/a&gt; &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="IA" /><category term="colab" /><category term="transformers" /><category term="dataset" /><category term="modelos generativos" /><category term="inteligência artificial" /><summary type="html">Introdução</summary></entry><entry><title type="html">LVDC: A Revolução Silenciosa na Distribuição de Energia para Data Centers e Edifícios - Energia</title><link href="http://0.0.0.0:4000/energia/2025/11/15/LVDC.html" rel="alternate" type="text/html" title="LVDC: A Revolução Silenciosa na Distribuição de Energia para Data Centers e Edifícios - Energia" /><published>2025-11-15T00:00:00-06:00</published><updated>2025-11-15T00:00:00-06:00</updated><id>http://0.0.0.0:4000/energia/2025/11/15/LVDC</id><content type="html" xml:base="http://0.0.0.0:4000/energia/2025/11/15/LVDC.html">&lt;h1 id=&quot;lvdc-a-revolução-silenciosa-na-distribuição-de-energia-para-data-centers-e-edifícios&quot;&gt;LVDC: A Revolução Silenciosa na Distribuição de Energia para Data Centers e Edifícios&lt;/h1&gt;
+&lt;/div&gt;</content><author><name>Fábio</name></author><category term="IA" /><category term="colab" /><category term="transformers" /><category term="dataset" /><category term="modelos generativos" /><category term="inteligência artificial" /><summary type="html">Introdução</summary></entry><entry><title type="html">LVDC: A Revolução Silenciosa na Distribuição de Energia para Data Centers e Edifícios - Energia</title><link href="http://0.0.0.0:4000/energia/LVDC/" rel="alternate" type="text/html" title="LVDC: A Revolução Silenciosa na Distribuição de Energia para Data Centers e Edifícios - Energia" /><published>2025-11-15T00:00:00-03:00</published><updated>2025-11-15T00:00:00-03:00</updated><id>http://0.0.0.0:4000/energia/LVDC</id><content type="html" xml:base="http://0.0.0.0:4000/energia/LVDC/">&lt;h1 id=&quot;lvdc-a-revolução-silenciosa-na-distribuição-de-energia-para-data-centers-e-edifícios&quot;&gt;LVDC: A Revolução Silenciosa na Distribuição de Energia para Data Centers e Edifícios&lt;/h1&gt;
 
 &lt;p&gt;A forma como distribuímos energia elétrica está passando por uma transformação fundamental. Enquanto a corrente alternada (AC) dominou por mais de um século, a &lt;strong&gt;corrente contínua de baixa tensão (LVDC - Low Voltage Direct Current)&lt;/strong&gt; emerge como uma solução superior para as demandas energéticas do século XXI, especialmente em data centers, edifícios inteligentes e instalações industriais.&lt;/p&gt;
 
@@ -592,7 +787,7 @@ Múltiplas fontes distribuídas com OCPD tendo tempo de interrupção menor que 
 
 &lt;hr /&gt;
 
-&lt;p&gt;&lt;strong&gt;Referências&lt;/strong&gt;: Este artigo foi baseado em publicações técnicas de ETH Zürich, NVIDIA, ABB e documentação Current/OS Foundation, representando o estado da arte em sistemas LVDC até 2025., R., Popp, M., &amp;amp; Schaefer, M. (2024). “Dynamic modeling, design and simulation of a thermal pumped piston storage within a renewable energy distribution system.” &lt;em&gt;Journal of Energy Storage, 100&lt;/em&gt;, 113348. https://doi.org/10.1016/j.est.2024.113348&lt;/p&gt;</content><author><name></name></author><category term="energia" /><category term="energia" /><category term="ciências" /><summary type="html">LVDC: A Revolução Silenciosa na Distribuição de Energia para Data Centers e Edifícios</summary></entry><entry><title type="html">Exercícios Extremamente Difíceis sugeridos por IA usando Teorema de Bayes - Matemática</title><link href="http://0.0.0.0:4000/aplicadas/2025/08/05/10-exercicios-dificeis-sugeridos-por-ia-teorema-bayes.html" rel="alternate" type="text/html" title="Exercícios Extremamente Difíceis sugeridos por IA usando Teorema de Bayes - Matemática" /><published>2025-08-05T00:00:00-05:00</published><updated>2025-08-05T00:00:00-05:00</updated><id>http://0.0.0.0:4000/aplicadas/2025/08/05/10-exercicios-dificeis-sugeridos-por-ia-teorema-bayes</id><content type="html" xml:base="http://0.0.0.0:4000/aplicadas/2025/08/05/10-exercicios-dificeis-sugeridos-por-ia-teorema-bayes.html">&lt;p&gt;Solicitei ao Claude que faça 10 exercícios usando teorema de Bayes extremamente díficeis. Ele montou uma lista progressiva de dificuldade. Como minha formação de Matemática e Engenharia alcança até Inferência Estatística, alguns exercícios eu precisei pesquisar para resolver. Quando possível a resolução de cada exercício conterá alguma leitura adicional que ou me ajudou ou aprofunda o tema do exercício.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Referências&lt;/strong&gt;: Este artigo foi baseado em publicações técnicas de ETH Zürich, NVIDIA, ABB e documentação Current/OS Foundation, representando o estado da arte em sistemas LVDC até 2025., R., Popp, M., &amp;amp; Schaefer, M. (2024). “Dynamic modeling, design and simulation of a thermal pumped piston storage within a renewable energy distribution system.” &lt;em&gt;Journal of Energy Storage, 100&lt;/em&gt;, 113348. https://doi.org/10.1016/j.est.2024.113348&lt;/p&gt;</content><author><name>Fábio</name></author><category term="energia" /><category term="energia" /><category term="ciências" /><summary type="html">LVDC: A Revolução Silenciosa na Distribuição de Energia para Data Centers e Edifícios</summary></entry><entry><title type="html">Exercícios Extremamente Difíceis sugeridos por IA usando Teorema de Bayes - Matemática</title><link href="http://0.0.0.0:4000/aplicadas/10-exercicios-dificeis-sugeridos-por-ia-teorema-bayes/" rel="alternate" type="text/html" title="Exercícios Extremamente Difíceis sugeridos por IA usando Teorema de Bayes - Matemática" /><published>2025-08-05T00:00:00-03:00</published><updated>2025-08-05T00:00:00-03:00</updated><id>http://0.0.0.0:4000/aplicadas/10-exercicios-dificeis-sugeridos-por-ia-teorema-bayes</id><content type="html" xml:base="http://0.0.0.0:4000/aplicadas/10-exercicios-dificeis-sugeridos-por-ia-teorema-bayes/">&lt;p&gt;Solicitei ao Claude que faça 10 exercícios usando teorema de Bayes extremamente díficeis. Ele montou uma lista progressiva de dificuldade. Como minha formação de Matemática e Engenharia alcança até Inferência Estatística, alguns exercícios eu precisei pesquisar para resolver. Quando possível a resolução de cada exercício conterá alguma leitura adicional que ou me ajudou ou aprofunda o tema do exercício.&lt;/p&gt;
 
 &lt;h2 id=&quot;1---diagnóstico-médico-com-múltiplas-condições&quot;&gt;1 - Diagnóstico Médico com Múltiplas Condições&lt;/h2&gt;
 
@@ -1059,1534 +1254,7 @@ Likelihood sem R: L(¬R) = 0.02 × 0.99 × 0.005 = 0.0000999&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;&lt;em&gt;Continue trabalhando através dos exercícios usando os princípios fundamentais do Teorema de Bayes, computação de posteriors, e análise de evidências múltiplas. Cada problema requer cuidadosa aplicação de conceitos probabilísticos avançados.&lt;/em&gt;&lt;/p&gt;</content><author><name></name></author><category term="aplicadas" /><category term="probabilidade" /><category term="teorema-bayes" /><category term="bayes" /><category term="claude" /><category term="exercícios" /><summary type="html">Solicitei ao Claude que faça 10 exercícios usando teorema de Bayes extremamente díficeis. Ele montou uma lista progressiva de dificuldade. Como minha formação de Matemática e Engenharia alcança até Inferência Estatística, alguns exercícios eu precisei pesquisar para resolver. Quando possível a resolução de cada exercício conterá alguma leitura adicional que ou me ajudou ou aprofunda o tema do exercício.</summary></entry><entry><title type="html">Transfomer Embbeded</title><link href="http://0.0.0.0:4000/2025/06/12/transfomer-embbeded.svg" rel="alternate" type="text/html" title="Transfomer Embbeded" /><published>2025-06-12T20:16:27-05:00</published><updated>2025-06-12T20:16:27-05:00</updated><id>http://0.0.0.0:4000/2025/06/12/transfomer-embbeded</id><content type="html" xml:base="http://0.0.0.0:4000/2025/06/12/transfomer-embbeded.svg">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
-&lt;svg
-   width=&quot;165.73mm&quot;
-   height=&quot;77.242mm&quot;
-   version=&quot;1.1&quot;
-   viewBox=&quot;0 0 165.73 77.242&quot;
-   id=&quot;svg183&quot;
-   sodipodi:docname=&quot;transfomer-embbeded.svg&quot;
-   inkscape:version=&quot;1.4.2 (ebf0e940d0, 2025-05-08)&quot;
-   xmlns:inkscape=&quot;http://www.inkscape.org/namespaces/inkscape&quot;
-   xmlns:sodipodi=&quot;http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd&quot;
-   xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot;
-   xmlns=&quot;http://www.w3.org/2000/svg&quot;
-   xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;
-  &lt;sodipodi:namedview
-     id=&quot;namedview183&quot;
-     pagecolor=&quot;#ffffff&quot;
-     bordercolor=&quot;#000000&quot;
-     borderopacity=&quot;0.25&quot;
-     inkscape:showpageshadow=&quot;2&quot;
-     inkscape:pageopacity=&quot;0.0&quot;
-     inkscape:pagecheckerboard=&quot;0&quot;
-     inkscape:deskcolor=&quot;#d1d1d1&quot;
-     inkscape:document-units=&quot;mm&quot;
-     inkscape:zoom=&quot;1.3821416&quot;
-     inkscape:cx=&quot;433.74717&quot;
-     inkscape:cy=&quot;153.74691&quot;
-     inkscape:window-width=&quot;1920&quot;
-     inkscape:window-height=&quot;1020&quot;
-     inkscape:window-x=&quot;1280&quot;
-     inkscape:window-y=&quot;0&quot;
-     inkscape:window-maximized=&quot;1&quot;
-     inkscape:current-layer=&quot;svg183&quot; /&gt;
-  &lt;defs
-     id=&quot;defs5&quot;&gt;
-    &lt;marker
-       id=&quot;e&quot;
-       overflow=&quot;visible&quot;
-       markerHeight=&quot;1&quot;
-       markerWidth=&quot;1&quot;
-       orient=&quot;auto-start-reverse&quot;
-       preserveAspectRatio=&quot;xMidYMid&quot;
-       refX=&quot;3&quot;
-       viewBox=&quot;0 0 1 1&quot;&gt;
-      &lt;path
-         transform=&quot;scale(.5)&quot;
-         d=&quot;m5.77 0-8.65 5v-10z&quot;
-         fill=&quot;context-stroke&quot;
-         fill-rule=&quot;evenodd&quot;
-         stroke=&quot;context-stroke&quot;
-         stroke-width=&quot;1pt&quot;
-         id=&quot;path1&quot; /&gt;
-    &lt;/marker&gt;
-    &lt;pattern
-       id=&quot;c&quot;
-       patternTransform=&quot;matrix(0,0.2,-0.2,0,3.5552361e-7,-1.1744576e-5)&quot;
-       preserveAspectRatio=&quot;xMidYMid&quot;
-       xlink:href=&quot;#d&quot; /&gt;
-    &lt;pattern
-       id=&quot;d&quot;
-       patternTransform=&quot;matrix(0 .2 -.2 0 -2.7268e-7 -1.1494e-5)&quot;
-       preserveAspectRatio=&quot;xMidYMid&quot;
-       xlink:href=&quot;#i&quot; /&gt;
-    &lt;pattern
-       id=&quot;i&quot;
-       width=&quot;2&quot;
-       height=&quot;10&quot;
-       fill=&quot;#8acb96&quot;
-       patternTransform=&quot;translate(0) scale(2)&quot;
-       patternUnits=&quot;userSpaceOnUse&quot;
-       preserveAspectRatio=&quot;xMidYMid&quot;&gt;
-      &lt;rect
-         y=&quot;-.5&quot;
-         width=&quot;1&quot;
-         height=&quot;11&quot;
-         id=&quot;rect1&quot; /&gt;
-    &lt;/pattern&gt;
-    &lt;marker
-       id=&quot;h&quot;
-       overflow=&quot;visible&quot;
-       markerHeight=&quot;1&quot;
-       markerWidth=&quot;1&quot;
-       orient=&quot;auto-start-reverse&quot;
-       preserveAspectRatio=&quot;xMidYMid&quot;
-       refX=&quot;3&quot;
-       viewBox=&quot;0 0 1 1&quot;&gt;
-      &lt;path
-         transform=&quot;scale(.5)&quot;
-         d=&quot;m5.77 0-8.65 5v-10z&quot;
-         fill=&quot;context-stroke&quot;
-         fill-rule=&quot;evenodd&quot;
-         stroke=&quot;context-stroke&quot;
-         stroke-width=&quot;1pt&quot;
-         id=&quot;path2&quot; /&gt;
-    &lt;/marker&gt;
-    &lt;marker
-       id=&quot;a-6&quot;
-       overflow=&quot;visible&quot;
-       markerHeight=&quot;1&quot;
-       markerWidth=&quot;1&quot;
-       orient=&quot;auto-start-reverse&quot;
-       preserveAspectRatio=&quot;xMidYMid&quot;
-       refX=&quot;3&quot;
-       viewBox=&quot;0 0 1 1&quot;&gt;
-      &lt;path
-         transform=&quot;scale(.5)&quot;
-         d=&quot;m5.77 0-8.65 5v-10z&quot;
-         fill=&quot;context-stroke&quot;
-         fill-rule=&quot;evenodd&quot;
-         stroke=&quot;context-stroke&quot;
-         stroke-width=&quot;1pt&quot;
-         id=&quot;path3&quot; /&gt;
-    &lt;/marker&gt;
-    &lt;marker
-       id=&quot;a-6-2&quot;
-       overflow=&quot;visible&quot;
-       markerHeight=&quot;1&quot;
-       markerWidth=&quot;1&quot;
-       orient=&quot;auto-start-reverse&quot;
-       preserveAspectRatio=&quot;xMidYMid&quot;
-       refX=&quot;3&quot;
-       viewBox=&quot;0 0 1 1&quot;&gt;
-      &lt;path
-         transform=&quot;scale(.5)&quot;
-         d=&quot;m5.77 0-8.65 5v-10z&quot;
-         fill=&quot;context-stroke&quot;
-         fill-rule=&quot;evenodd&quot;
-         stroke=&quot;context-stroke&quot;
-         stroke-width=&quot;1pt&quot;
-         id=&quot;path4&quot; /&gt;
-    &lt;/marker&gt;
-    &lt;marker
-       id=&quot;a-6-2-7&quot;
-       overflow=&quot;visible&quot;
-       markerHeight=&quot;1&quot;
-       markerWidth=&quot;1&quot;
-       orient=&quot;auto-start-reverse&quot;
-       preserveAspectRatio=&quot;xMidYMid&quot;
-       refX=&quot;3&quot;
-       viewBox=&quot;0 0 1 1&quot;&gt;
-      &lt;path
-         transform=&quot;scale(.5)&quot;
-         d=&quot;m5.77 0-8.65 5v-10z&quot;
-         fill=&quot;context-stroke&quot;
-         fill-rule=&quot;evenodd&quot;
-         stroke=&quot;context-stroke&quot;
-         stroke-width=&quot;1pt&quot;
-         id=&quot;path5&quot; /&gt;
-    &lt;/marker&gt;
-  &lt;/defs&gt;
-  &lt;text
-     x=&quot;213.08023&quot;
-     y=&quot;44.187031&quot;
-     fill=&quot;#000000&quot;
-     fill-opacity=&quot;0.51212&quot;
-     font-family=&quot;&apos;Adwaita Mono&apos;&quot;
-     font-size=&quot;3.0794px&quot;
-     stroke-dashoffset=&quot;46.29&quot;
-     stroke-width=&quot;0.26458&quot;
-     style=&quot;line-height:normal;text-decoration-color:#000000&quot;
-     xml:space=&quot;preserve&quot;
-     id=&quot;text5&quot;&gt;&lt;tspan
-       x=&quot;213.08023&quot;
-       y=&quot;44.187031&quot;
-       fill=&quot;#000000&quot;
-       stroke-width=&quot;0.26458&quot;
-       id=&quot;tspan5&quot;&gt;32 bits &lt;/tspan&gt;&lt;/text&gt;
-  &lt;path
-     d=&quot;m 1.3119772,-21.253575 v 5.711&quot;
-     id=&quot;path6&quot;
-     style=&quot;fill:none;stroke:#b3b3b3;stroke-width:0.21374;stroke-linecap:round;stroke-miterlimit:1&quot; /&gt;
-  &lt;path
-     d=&quot;m -1.5345228,-21.253575 v 5.711&quot;
-     id=&quot;path7&quot;
-     style=&quot;fill:none;stroke:#b3b3b3;stroke-width:0.21374;stroke-linecap:round;stroke-miterlimit:1&quot; /&gt;
-  &lt;path
-     d=&quot;m 4.2522772,-21.253575 v 5.711&quot;
-     id=&quot;path8&quot;
-     style=&quot;fill:none;stroke:#b3b3b3;stroke-width:0.21374;stroke-linecap:round;stroke-miterlimit:1&quot; /&gt;
-  &lt;path
-     d=&quot;m 7.1924772,-21.253575 v 5.711&quot;
-     id=&quot;path9&quot;
-     style=&quot;fill:none;stroke:#b3b3b3;stroke-width:0.21374;stroke-linecap:round;stroke-miterlimit:1&quot; /&gt;
-  &lt;path
-     d=&quot;m 10.132477,-21.253575 v 5.711&quot;
-     id=&quot;path10&quot;
-     style=&quot;fill:none;stroke:#b3b3b3;stroke-width:0.21374;stroke-linecap:round;stroke-miterlimit:1&quot; /&gt;
-  &lt;path
-     d=&quot;m 13.072477,-21.253575 v 5.711&quot;
-     id=&quot;path11&quot;
-     style=&quot;fill:none;stroke:#b3b3b3;stroke-width:0.21374;stroke-linecap:round;stroke-miterlimit:1&quot; /&gt;
-  &lt;path
-     d=&quot;m 16.013477,-21.253575 v 5.711&quot;
-     id=&quot;path12&quot;
-     style=&quot;fill:none;stroke:#b3b3b3;stroke-width:0.21374;stroke-linecap:round;stroke-miterlimit:1&quot; /&gt;
-  &lt;path
-     d=&quot;m 18.953477,-21.253575 v 5.711&quot;
-     id=&quot;path13&quot;
-     style=&quot;fill:none;stroke:#b3b3b3;stroke-width:0.21374;stroke-linecap:round;stroke-miterlimit:1&quot; /&gt;
-  &lt;path
-     d=&quot;m 21.893477,-21.253575 v 5.711&quot;
-     id=&quot;path14&quot;
-     style=&quot;fill:none;stroke:#b3b3b3;stroke-width:0.21374;stroke-linecap:round;stroke-miterlimit:1&quot; /&gt;
-  &lt;path
-     d=&quot;m 24.833477,-21.253575 v 5.711&quot;
-     id=&quot;path15&quot;
-     style=&quot;fill:none;stroke:#b3b3b3;stroke-width:0.21374;stroke-linecap:round;stroke-miterlimit:1&quot; /&gt;
-  &lt;path
-     d=&quot;m 27.774477,-21.253575 v 5.711&quot;
-     id=&quot;path16&quot;
-     style=&quot;fill:none;stroke:#b3b3b3;stroke-width:0.21374;stroke-linecap:round;stroke-miterlimit:1&quot; /&gt;
-  &lt;path
-     d=&quot;m 30.714477,-21.253575 v 5.711&quot;
-     id=&quot;path17&quot;
-     style=&quot;fill:none;stroke:#b3b3b3;stroke-width:0.21374;stroke-linecap:round;stroke-miterlimit:1&quot; /&gt;
-  &lt;path
-     d=&quot;m 33.654477,-21.253575 v 5.711&quot;
-     id=&quot;path18&quot;
-     style=&quot;fill:none;stroke:#b3b3b3;stroke-width:0.21374;stroke-linecap:round;stroke-miterlimit:1&quot; /&gt;
-  &lt;path
-     d=&quot;m 36.594477,-21.253575 v 5.711&quot;
-     id=&quot;path19&quot;
-     style=&quot;fill:none;stroke:#b3b3b3;stroke-width:0.21374;stroke-linecap:round;stroke-miterlimit:1&quot; /&gt;
-  &lt;path
-     d=&quot;m 39.534477,-21.253575 v 5.711&quot;
-     id=&quot;path20&quot;
-     style=&quot;fill:none;stroke:#b3b3b3;stroke-width:0.21374;stroke-linecap:round;stroke-miterlimit:1&quot; /&gt;
-  &lt;path
-     d=&quot;m 42.475477,-21.253575 v 5.711&quot;
-     id=&quot;path21&quot;
-     style=&quot;fill:none;stroke:#b3b3b3;stroke-width:0.21374;stroke-linecap:round;stroke-miterlimit:1&quot; /&gt;
-  &lt;path
-     d=&quot;m 45.415477,-21.253575 v 5.711&quot;
-     id=&quot;path22&quot;
-     style=&quot;fill:none;stroke:#b3b3b3;stroke-width:0.21374;stroke-linecap:round;stroke-miterlimit:1&quot; /&gt;
-  &lt;path
-     d=&quot;m 48.355477,-21.253575 v 5.711&quot;
-     id=&quot;path23&quot;
-     style=&quot;fill:none;stroke:#b3b3b3;stroke-width:0.21374;stroke-linecap:round;stroke-miterlimit:1&quot; /&gt;
-  &lt;path
-     d=&quot;m 51.295477,-21.253575 v 5.711&quot;
-     id=&quot;path24&quot;
-     style=&quot;fill:none;stroke:#b3b3b3;stroke-width:0.21374;stroke-linecap:round;stroke-miterlimit:1&quot; /&gt;
-  &lt;path
-     d=&quot;m 54.236477,-21.253575 v 5.711&quot;
-     id=&quot;path25&quot;
-     style=&quot;fill:none;stroke:#b3b3b3;stroke-width:0.21374;stroke-linecap:round;stroke-miterlimit:1&quot; /&gt;
-  &lt;path
-     d=&quot;m 57.176477,-21.253575 v 5.711&quot;
-     id=&quot;path26&quot;
-     style=&quot;fill:none;stroke:#b3b3b3;stroke-width:0.21374;stroke-linecap:round;stroke-miterlimit:1&quot; /&gt;
-  &lt;path
-     d=&quot;m 60.116477,-21.253575 v 5.711&quot;
-     id=&quot;path27&quot;
-     style=&quot;fill:none;stroke:#b3b3b3;stroke-width:0.21374;stroke-linecap:round;stroke-miterlimit:1&quot; /&gt;
-  &lt;path
-     d=&quot;m 63.056477,-21.253575 v 5.711&quot;
-     id=&quot;path28&quot;
-     style=&quot;fill:none;stroke:#b3b3b3;stroke-width:0.21374;stroke-linecap:round;stroke-miterlimit:1&quot; /&gt;
-  &lt;path
-     d=&quot;m 65.997477,-21.253575 v 5.711&quot;
-     id=&quot;path29&quot;
-     style=&quot;fill:none;stroke:#b3b3b3;stroke-width:0.21374;stroke-linecap:round;stroke-miterlimit:1&quot; /&gt;
-  &lt;path
-     d=&quot;m 68.937477,-21.253575 v 5.711&quot;
-     id=&quot;path30&quot;
-     style=&quot;fill:none;stroke:#b3b3b3;stroke-width:0.21374;stroke-linecap:round;stroke-miterlimit:1&quot; /&gt;
-  &lt;path
-     d=&quot;m 71.877477,-21.253575 v 5.711&quot;
-     id=&quot;path31&quot;
-     style=&quot;fill:none;stroke:#b3b3b3;stroke-width:0.21374;stroke-linecap:round;stroke-miterlimit:1&quot; /&gt;
-  &lt;path
-     d=&quot;m 74.817477,-21.253575 v 5.711&quot;
-     id=&quot;path32&quot;
-     style=&quot;fill:none;stroke:#b3b3b3;stroke-width:0.21374;stroke-linecap:round;stroke-miterlimit:1&quot; /&gt;
-  &lt;path
-     d=&quot;m 77.757477,-21.253575 v 5.711&quot;
-     id=&quot;path33&quot;
-     style=&quot;fill:none;stroke:#b3b3b3;stroke-width:0.21374;stroke-linecap:round;stroke-miterlimit:1&quot; /&gt;
-  &lt;path
-     d=&quot;m 80.698477,-21.253575 v 5.711&quot;
-     id=&quot;path34&quot;
-     style=&quot;fill:none;stroke:#b3b3b3;stroke-width:0.21374;stroke-linecap:round;stroke-miterlimit:1&quot; /&gt;
-  &lt;path
-     d=&quot;m 83.638477,-21.253575 v 5.711&quot;
-     id=&quot;path35&quot;
-     style=&quot;fill:none;stroke:#b3b3b3;stroke-width:0.21374;stroke-linecap:round;stroke-miterlimit:1&quot; /&gt;
-  &lt;path
-     d=&quot;m 86.578477,-21.253575 v 5.711&quot;
-     id=&quot;path36&quot;
-     style=&quot;fill:none;stroke:#b3b3b3;stroke-width:0.21374;stroke-linecap:round;stroke-miterlimit:1&quot; /&gt;
-  &lt;path
-     d=&quot;m 89.518477,-21.253575 v 5.711&quot;
-     id=&quot;path37&quot;
-     style=&quot;fill:none;stroke:#b3b3b3;stroke-width:0.21374;stroke-linecap:round;stroke-miterlimit:1&quot; /&gt;
-  &lt;path
-     d=&quot;m 92.459477,-21.253575 v 5.711&quot;
-     id=&quot;path38&quot;
-     style=&quot;fill:none;stroke:#b3b3b3;stroke-width:0.21374;stroke-linecap:round;stroke-miterlimit:1&quot; /&gt;
-  &lt;rect
-     x=&quot;57.176273&quot;
-     y=&quot;-19.783075&quot;
-     width=&quot;35.167999&quot;
-     height=&quot;2.7690001&quot;
-     fill=&quot;#ff8080&quot;
-     stroke=&quot;#000000&quot;
-     stroke-dashoffset=&quot;46.29&quot;
-     stroke-width=&quot;0.25502&quot;
-     id=&quot;rect38&quot; /&gt;
-  &lt;text
-     x=&quot;135.68153&quot;
-     y=&quot;9.278265&quot;
-     fill=&quot;#000000&quot;
-     font-family=&quot;FreeSans&quot;
-     font-size=&quot;4.4234px&quot;
-     stroke-width=&quot;0.73135&quot;
-     style=&quot;line-height:normal;text-decoration-color:#000000;stroke-dashoffset:46.29&quot;
-     xml:space=&quot;preserve&quot;
-     id=&quot;text75&quot;&gt;&lt;tspan
-       x=&quot;135.68153&quot;
-       y=&quot;9.278265&quot;
-       fill=&quot;#000000&quot;
-       id=&quot;tspan75&quot; /&gt;&lt;/text&gt;
-  &lt;rect
-     x=&quot;207.18216&quot;
-     y=&quot;-5.4511423&quot;
-     width=&quot;10.002&quot;
-     height=&quot;19.726999&quot;
-     fill=&quot;url(#c)&quot;
-     stroke=&quot;#71c837&quot;
-     stroke-width=&quot;0.26458&quot;
-     id=&quot;rect78&quot;
-     style=&quot;stroke-dashoffset:46.29&quot; /&gt;
-  &lt;text
-     x=&quot;265.84494&quot;
-     y=&quot;82.872879&quot;
-     fill=&quot;#000000&quot;
-     fill-opacity=&quot;0.51212&quot;
-     font-family=&quot;&apos;Adwaita Mono&apos;&quot;
-     font-size=&quot;3.0794px&quot;
-     stroke-width=&quot;0.26458&quot;
-     style=&quot;line-height:normal;text-decoration-color:#000000;stroke-dashoffset:46.29&quot;
-     xml:space=&quot;preserve&quot;
-     id=&quot;text79&quot;&gt;&lt;tspan
-       x=&quot;265.84494&quot;
-       y=&quot;82.872879&quot;
-       fill=&quot;#000000&quot;
-       stroke-width=&quot;0.26458&quot;
-       id=&quot;tspan79&quot;&gt;32 registradores&lt;/tspan&gt;&lt;/text&gt;
-  &lt;g
-     transform=&quot;matrix(0.59091,0,0,0.59091,-8.1336298,-39.872875)&quot;
-     font-family=&quot;FreeSans&quot;
-     font-size=&quot;3.4443px&quot;
-     stroke-width=&quot;1.2377&quot;
-     id=&quot;g142&quot;
-     style=&quot;fill:#666666;stroke-dashoffset:46.29&quot;&gt;
-    &lt;text
-       x=&quot;10.889782&quot;
-       y=&quot;30.443134&quot;
-       style=&quot;line-height:normal;text-decoration-color:#000000&quot;
-       xml:space=&quot;preserve&quot;
-       id=&quot;text111&quot;&gt;&lt;tspan
-         x=&quot;10.889782&quot;
-         y=&quot;30.443134&quot;
-         fill=&quot;#666666&quot;
-         stroke-width=&quot;1.2377&quot;
-         id=&quot;tspan111&quot;&gt;31&lt;/tspan&gt;&lt;/text&gt;
-    &lt;text
-       x=&quot;15.60619&quot;
-       y=&quot;30.443134&quot;
-       style=&quot;line-height:normal;text-decoration-color:#000000&quot;
-       xml:space=&quot;preserve&quot;
-       id=&quot;text112&quot;&gt;&lt;tspan
-         x=&quot;15.60619&quot;
-         y=&quot;30.443134&quot;
-         fill=&quot;#666666&quot;
-         stroke-width=&quot;1.2377&quot;
-         id=&quot;tspan112&quot;&gt;30&lt;/tspan&gt;&lt;/text&gt;
-    &lt;text
-       x=&quot;20.591253&quot;
-       y=&quot;30.443134&quot;
-       style=&quot;line-height:normal;text-decoration-color:#000000&quot;
-       xml:space=&quot;preserve&quot;
-       id=&quot;text113&quot;&gt;&lt;tspan
-         x=&quot;20.591253&quot;
-         y=&quot;30.443134&quot;
-         fill=&quot;#666666&quot;
-         stroke-width=&quot;1.2377&quot;
-         id=&quot;tspan113&quot;&gt;29&lt;/tspan&gt;&lt;/text&gt;
-    &lt;text
-       x=&quot;25.576319&quot;
-       y=&quot;30.443134&quot;
-       style=&quot;line-height:normal;text-decoration-color:#000000&quot;
-       xml:space=&quot;preserve&quot;
-       id=&quot;text114&quot;&gt;&lt;tspan
-         x=&quot;25.576319&quot;
-         y=&quot;30.443134&quot;
-         fill=&quot;#666666&quot;
-         stroke-width=&quot;1.2377&quot;
-         id=&quot;tspan114&quot;&gt;28&lt;/tspan&gt;&lt;/text&gt;
-    &lt;text
-       x=&quot;30.556217&quot;
-       y=&quot;30.522354&quot;
-       style=&quot;line-height:normal;text-decoration-color:#000000&quot;
-       xml:space=&quot;preserve&quot;
-       id=&quot;text115&quot;&gt;&lt;tspan
-         x=&quot;30.556217&quot;
-         y=&quot;30.522354&quot;
-         fill=&quot;#666666&quot;
-         stroke-width=&quot;1.2377&quot;
-         id=&quot;tspan115&quot;&gt;27&lt;/tspan&gt;&lt;/text&gt;
-    &lt;text
-       x=&quot;35.560226&quot;
-       y=&quot;30.443134&quot;
-       style=&quot;line-height:normal;text-decoration-color:#000000&quot;
-       xml:space=&quot;preserve&quot;
-       id=&quot;text116&quot;&gt;&lt;tspan
-         x=&quot;35.560226&quot;
-         y=&quot;30.443134&quot;
-         fill=&quot;#666666&quot;
-         stroke-width=&quot;1.2377&quot;
-         id=&quot;tspan116&quot;&gt;26&lt;/tspan&gt;&lt;/text&gt;
-    &lt;text
-       x=&quot;40.552177&quot;
-       y=&quot;30.443134&quot;
-       style=&quot;line-height:normal;text-decoration-color:#000000&quot;
-       xml:space=&quot;preserve&quot;
-       id=&quot;text117&quot;&gt;&lt;tspan
-         x=&quot;40.552177&quot;
-         y=&quot;30.443134&quot;
-         fill=&quot;#666666&quot;
-         stroke-width=&quot;1.2377&quot;
-         id=&quot;tspan117&quot;&gt;25&lt;/tspan&gt;&lt;/text&gt;
-    &lt;text
-       x=&quot;45.532074&quot;
-       y=&quot;30.522354&quot;
-       style=&quot;line-height:normal;text-decoration-color:#000000&quot;
-       xml:space=&quot;preserve&quot;
-       id=&quot;text118&quot;&gt;&lt;tspan
-         x=&quot;45.532074&quot;
-         y=&quot;30.522354&quot;
-         fill=&quot;#666666&quot;
-         stroke-width=&quot;1.2377&quot;
-         id=&quot;tspan118&quot;&gt;24&lt;/tspan&gt;&lt;/text&gt;
-    &lt;text
-       x=&quot;50.548138&quot;
-       y=&quot;30.443134&quot;
-       style=&quot;line-height:normal;text-decoration-color:#000000&quot;
-       xml:space=&quot;preserve&quot;
-       id=&quot;text119&quot;&gt;&lt;tspan
-         x=&quot;50.548138&quot;
-         y=&quot;30.443134&quot;
-         fill=&quot;#666666&quot;
-         stroke-width=&quot;1.2377&quot;
-         id=&quot;tspan119&quot;&gt;23&lt;/tspan&gt;&lt;/text&gt;
-    &lt;text
-       x=&quot;55.531483&quot;
-       y=&quot;30.522354&quot;
-       style=&quot;line-height:normal;text-decoration-color:#000000&quot;
-       xml:space=&quot;preserve&quot;
-       id=&quot;text120&quot;&gt;&lt;tspan
-         x=&quot;55.531483&quot;
-         y=&quot;30.522354&quot;
-         fill=&quot;#666666&quot;
-         stroke-width=&quot;1.2377&quot;
-         id=&quot;tspan120&quot;&gt;22&lt;/tspan&gt;&lt;/text&gt;
-    &lt;text
-       x=&quot;60.80587&quot;
-       y=&quot;30.522354&quot;
-       style=&quot;line-height:normal;text-decoration-color:#000000&quot;
-       xml:space=&quot;preserve&quot;
-       id=&quot;text121&quot;&gt;&lt;tspan
-         x=&quot;60.80587&quot;
-         y=&quot;30.522354&quot;
-         fill=&quot;#666666&quot;
-         stroke-width=&quot;1.2377&quot;
-         id=&quot;tspan121&quot;&gt;21&lt;/tspan&gt;&lt;/text&gt;
-    &lt;text
-       x=&quot;65.522278&quot;
-       y=&quot;30.443134&quot;
-       style=&quot;line-height:normal;text-decoration-color:#000000&quot;
-       xml:space=&quot;preserve&quot;
-       id=&quot;text122&quot;&gt;&lt;tspan
-         x=&quot;65.522278&quot;
-         y=&quot;30.443134&quot;
-         fill=&quot;#666666&quot;
-         stroke-width=&quot;1.2377&quot;
-         id=&quot;tspan122&quot;&gt;20&lt;/tspan&gt;&lt;/text&gt;
-    &lt;text
-       x=&quot;70.393677&quot;
-       y=&quot;30.443134&quot;
-       style=&quot;line-height:normal;text-decoration-color:#000000&quot;
-       xml:space=&quot;preserve&quot;
-       id=&quot;text123&quot;&gt;&lt;tspan
-         x=&quot;70.393677&quot;
-         y=&quot;30.443134&quot;
-         fill=&quot;#666666&quot;
-         stroke-width=&quot;1.2377&quot;
-         id=&quot;tspan123&quot;&gt;19&lt;/tspan&gt;&lt;/text&gt;
-    &lt;text
-       x=&quot;75.378746&quot;
-       y=&quot;30.443134&quot;
-       style=&quot;line-height:normal;text-decoration-color:#000000&quot;
-       xml:space=&quot;preserve&quot;
-       id=&quot;text124&quot;&gt;&lt;tspan
-         x=&quot;75.378746&quot;
-         y=&quot;30.443134&quot;
-         fill=&quot;#666666&quot;
-         stroke-width=&quot;1.2377&quot;
-         id=&quot;tspan124&quot;&gt;18&lt;/tspan&gt;&lt;/text&gt;
-    &lt;text
-       x=&quot;80.358643&quot;
-       y=&quot;30.522354&quot;
-       style=&quot;line-height:normal;text-decoration-color:#000000&quot;
-       xml:space=&quot;preserve&quot;
-       id=&quot;text125&quot;&gt;&lt;tspan
-         x=&quot;80.358643&quot;
-         y=&quot;30.522354&quot;
-         fill=&quot;#666666&quot;
-         stroke-width=&quot;1.2377&quot;
-         id=&quot;tspan125&quot;&gt;17&lt;/tspan&gt;&lt;/text&gt;
-    &lt;text
-       x=&quot;85.362648&quot;
-       y=&quot;30.443134&quot;
-       style=&quot;line-height:normal;text-decoration-color:#000000&quot;
-       xml:space=&quot;preserve&quot;
-       id=&quot;text126&quot;&gt;&lt;tspan
-         x=&quot;85.362648&quot;
-         y=&quot;30.443134&quot;
-         fill=&quot;#666666&quot;
-         stroke-width=&quot;1.2377&quot;
-         id=&quot;tspan126&quot;&gt;16&lt;/tspan&gt;&lt;/text&gt;
-    &lt;text
-       x=&quot;90.354599&quot;
-       y=&quot;30.443134&quot;
-       style=&quot;line-height:normal;text-decoration-color:#000000&quot;
-       xml:space=&quot;preserve&quot;
-       id=&quot;text127&quot;&gt;&lt;tspan
-         x=&quot;90.354599&quot;
-         y=&quot;30.443134&quot;
-         fill=&quot;#666666&quot;
-         stroke-width=&quot;1.2377&quot;
-         id=&quot;tspan127&quot;&gt;15&lt;/tspan&gt;&lt;/text&gt;
-    &lt;text
-       x=&quot;95.334503&quot;
-       y=&quot;30.522354&quot;
-       style=&quot;line-height:normal;text-decoration-color:#000000&quot;
-       xml:space=&quot;preserve&quot;
-       id=&quot;text128&quot;&gt;&lt;tspan
-         x=&quot;95.334503&quot;
-         y=&quot;30.522354&quot;
-         fill=&quot;#666666&quot;
-         stroke-width=&quot;1.2377&quot;
-         id=&quot;tspan128&quot;&gt;14&lt;/tspan&gt;&lt;/text&gt;
-    &lt;text
-       x=&quot;100.35056&quot;
-       y=&quot;30.443134&quot;
-       style=&quot;line-height:normal;text-decoration-color:#000000&quot;
-       xml:space=&quot;preserve&quot;
-       id=&quot;text129&quot;&gt;&lt;tspan
-         x=&quot;100.35056&quot;
-         y=&quot;30.443134&quot;
-         fill=&quot;#666666&quot;
-         stroke-width=&quot;1.2377&quot;
-         id=&quot;tspan129&quot;&gt;13&lt;/tspan&gt;&lt;/text&gt;
-    &lt;text
-       x=&quot;105.33391&quot;
-       y=&quot;30.522354&quot;
-       style=&quot;line-height:normal;text-decoration-color:#000000&quot;
-       xml:space=&quot;preserve&quot;
-       id=&quot;text130&quot;&gt;&lt;tspan
-         x=&quot;105.33391&quot;
-         y=&quot;30.522354&quot;
-         fill=&quot;#666666&quot;
-         stroke-width=&quot;1.2377&quot;
-         id=&quot;tspan130&quot;&gt;12&lt;/tspan&gt;&lt;/text&gt;
-    &lt;text
-       x=&quot;110.60829&quot;
-       y=&quot;30.522354&quot;
-       style=&quot;line-height:normal;text-decoration-color:#000000&quot;
-       xml:space=&quot;preserve&quot;
-       id=&quot;text131&quot;&gt;&lt;tspan
-         x=&quot;110.60829&quot;
-         y=&quot;30.522354&quot;
-         fill=&quot;#666666&quot;
-         stroke-width=&quot;1.2377&quot;
-         id=&quot;tspan131&quot;&gt;11&lt;/tspan&gt;&lt;/text&gt;
-    &lt;text
-       x=&quot;115.3247&quot;
-       y=&quot;30.443134&quot;
-       style=&quot;line-height:normal;text-decoration-color:#000000&quot;
-       xml:space=&quot;preserve&quot;
-       id=&quot;text132&quot;&gt;&lt;tspan
-         x=&quot;115.3247&quot;
-         y=&quot;30.443134&quot;
-         fill=&quot;#666666&quot;
-         stroke-width=&quot;1.2377&quot;
-         id=&quot;tspan132&quot;&gt;10&lt;/tspan&gt;&lt;/text&gt;
-    &lt;text
-       x=&quot;121.38095&quot;
-       y=&quot;30.443134&quot;
-       style=&quot;line-height:normal;text-decoration-color:#000000&quot;
-       xml:space=&quot;preserve&quot;
-       id=&quot;text133&quot;&gt;&lt;tspan
-         x=&quot;121.38095&quot;
-         y=&quot;30.443134&quot;
-         fill=&quot;#666666&quot;
-         stroke-width=&quot;1.2377&quot;
-         id=&quot;tspan133&quot;&gt;9&lt;/tspan&gt;&lt;/text&gt;
-    &lt;text
-       x=&quot;126.36774&quot;
-       y=&quot;30.443134&quot;
-       style=&quot;line-height:normal;text-decoration-color:#000000&quot;
-       xml:space=&quot;preserve&quot;
-       id=&quot;text134&quot;&gt;&lt;tspan
-         x=&quot;126.36774&quot;
-         y=&quot;30.443134&quot;
-         fill=&quot;#666666&quot;
-         stroke-width=&quot;1.2377&quot;
-         id=&quot;tspan134&quot;&gt;8&lt;/tspan&gt;&lt;/text&gt;
-    &lt;text
-       x=&quot;131.33214&quot;
-       y=&quot;30.522354&quot;
-       style=&quot;line-height:normal;text-decoration-color:#000000&quot;
-       xml:space=&quot;preserve&quot;
-       id=&quot;text135&quot;&gt;&lt;tspan
-         x=&quot;131.33214&quot;
-         y=&quot;30.522354&quot;
-         fill=&quot;#666666&quot;
-         stroke-width=&quot;1.2377&quot;
-         id=&quot;tspan135&quot;&gt;7&lt;/tspan&gt;&lt;/text&gt;
-    &lt;text
-       x=&quot;136.34131&quot;
-       y=&quot;30.443134&quot;
-       style=&quot;line-height:normal;text-decoration-color:#000000&quot;
-       xml:space=&quot;preserve&quot;
-       id=&quot;text136&quot;&gt;&lt;tspan
-         x=&quot;136.34131&quot;
-         y=&quot;30.443134&quot;
-         fill=&quot;#666666&quot;
-         stroke-width=&quot;1.2377&quot;
-         id=&quot;tspan136&quot;&gt;6&lt;/tspan&gt;&lt;/text&gt;
-    &lt;text
-       x=&quot;141.34705&quot;
-       y=&quot;30.443134&quot;
-       style=&quot;line-height:normal;text-decoration-color:#000000&quot;
-       xml:space=&quot;preserve&quot;
-       id=&quot;text137&quot;&gt;&lt;tspan
-         x=&quot;141.34705&quot;
-         y=&quot;30.443134&quot;
-         fill=&quot;#666666&quot;
-         stroke-width=&quot;1.2377&quot;
-         id=&quot;tspan137&quot;&gt;5&lt;/tspan&gt;&lt;/text&gt;
-    &lt;text
-       x=&quot;146.33899&quot;
-       y=&quot;30.522354&quot;
-       style=&quot;line-height:normal;text-decoration-color:#000000&quot;
-       xml:space=&quot;preserve&quot;
-       id=&quot;text138&quot;&gt;&lt;tspan
-         x=&quot;146.33899&quot;
-         y=&quot;30.522354&quot;
-         fill=&quot;#666666&quot;
-         stroke-width=&quot;1.2377&quot;
-         id=&quot;tspan138&quot;&gt;4&lt;/tspan&gt;&lt;/text&gt;
-    &lt;text
-       x=&quot;151.34816&quot;
-       y=&quot;30.443134&quot;
-       style=&quot;line-height:normal;text-decoration-color:#000000&quot;
-       xml:space=&quot;preserve&quot;
-       id=&quot;text139&quot;&gt;&lt;tspan
-         x=&quot;151.34816&quot;
-         y=&quot;30.443134&quot;
-         fill=&quot;#666666&quot;
-         stroke-width=&quot;1.2377&quot;
-         id=&quot;tspan139&quot;&gt;3&lt;/tspan&gt;&lt;/text&gt;
-    &lt;text
-       x=&quot;156.32806&quot;
-       y=&quot;30.522354&quot;
-       style=&quot;line-height:normal;text-decoration-color:#000000&quot;
-       xml:space=&quot;preserve&quot;
-       id=&quot;text140&quot;&gt;&lt;tspan
-         x=&quot;156.32806&quot;
-         y=&quot;30.522354&quot;
-         fill=&quot;#666666&quot;
-         stroke-width=&quot;1.2377&quot;
-         id=&quot;tspan140&quot;&gt;2&lt;/tspan&gt;&lt;/text&gt;
-    &lt;text
-       x=&quot;161.48535&quot;
-       y=&quot;30.522354&quot;
-       style=&quot;line-height:normal;text-decoration-color:#000000&quot;
-       xml:space=&quot;preserve&quot;
-       id=&quot;text141&quot;&gt;&lt;tspan
-         x=&quot;161.48535&quot;
-         y=&quot;30.522354&quot;
-         fill=&quot;#666666&quot;
-         stroke-width=&quot;1.2377&quot;
-         id=&quot;tspan141&quot;&gt;1&lt;/tspan&gt;&lt;/text&gt;
-    &lt;text
-       x=&quot;166.30336&quot;
-       y=&quot;30.443134&quot;
-       style=&quot;line-height:normal;text-decoration-color:#000000&quot;
-       xml:space=&quot;preserve&quot;
-       id=&quot;text142&quot;&gt;&lt;tspan
-         x=&quot;166.30336&quot;
-         y=&quot;30.443134&quot;
-         fill=&quot;#666666&quot;
-         stroke-width=&quot;1.2377&quot;
-         id=&quot;tspan142&quot;&gt;0&lt;/tspan&gt;&lt;/text&gt;
-  &lt;/g&gt;
-  &lt;path
-     d=&quot;m 58.82382,-19.376335 q -0.233719,0 -0.35207,0.238106 -0.116854,0.236563 -0.116854,0.712786 0,0.474679 0.116854,0.712786 0.118361,0.236563 0.35207,0.236563 0.235215,0 0.35207,-0.236563 0.118361,-0.238107 0.118361,-0.712786 0,-0.476223 -0.118361,-0.712786 -0.116855,-0.238106 -0.35207,-0.238106 z m 0,-0.247392 q 0.376049,0 0.573809,0.307685 0.199256,0.306142 0.199256,0.890599 0,0.582903 -0.199256,0.890599 -0.19776,0.306142 -0.573809,0.306142 -0.376049,0 -0.575305,-0.306142 -0.19776,-0.307686 -0.19776,-0.890599 0,-0.584457 0.19776,-0.890599 0.199256,-0.307685 0.575305,-0.307685 z m 2.927418,0.247392 q -0.233719,0 -0.35207,0.238106 -0.116854,0.236563 -0.116854,0.712786 0,0.474679 0.116854,0.712786 0.118361,0.236563 0.35207,0.236563 0.235215,0 0.35207,-0.236563 0.11836,-0.238107 0.11836,-0.712786 0,-0.476223 -0.11836,-0.712786 -0.116855,-0.238106 -0.35207,-0.238106 z m 0,-0.247392 q 0.376049,0 0.573809,0.307685 0.199256,0.306142 0.199256,0.890599 0,0.582903 -0.199256,0.890599 -0.19776,0.306142 -0.573809,0.306142 -0.376049,0 -0.575305,-0.306142 -0.19776,-0.307686 -0.19776,-0.890599 0,-0.584457 0.19776,-0.890599 0.199256,-0.307685 0.575305,-0.307685 z m 2.927418,0.247392 q -0.233719,0 -0.35207,0.238106 -0.116854,0.236563 -0.116854,0.712786 0,0.474679 0.116854,0.712786 0.118361,0.236563 0.35207,0.236563 0.235215,0 0.35207,-0.236563 0.11836,-0.238107 0.11836,-0.712786 0,-0.476223 -0.11836,-0.712786 -0.116855,-0.238106 -0.35207,-0.238106 z m 0,-0.247392 q 0.376049,0 0.573809,0.307685 0.199256,0.306142 0.199256,0.890599 0,0.582903 -0.199256,0.890599 -0.19776,0.306142 -0.573809,0.306142 -0.376049,0 -0.575305,-0.306142 -0.19776,-0.307686 -0.19776,-0.890599 0,-0.584457 0.19776,-0.890599 0.199256,-0.307685 0.575305,-0.307685 z m 2.927418,0.247392 q -0.233719,0 -0.35207,0.238106 -0.116854,0.236563 -0.116854,0.712786 0,0.474679 0.116854,0.712786 0.118361,0.236563 0.35207,0.236563 0.235215,0 0.35207,-0.236563 0.11836,-0.238107 0.11836,-0.712786 0,-0.476223 -0.11836,-0.712786 -0.116855,-0.238106 -0.35207,-0.238106 z m 0,-0.247392 q 0.376049,0 0.573809,0.307685 0.199256,0.306142 0.199256,0.890599 0,0.582903 -0.199256,0.890599 -0.19776,0.306142 -0.573809,0.306142 -0.376049,0 -0.575305,-0.306142 -0.19776,-0.307686 -0.19776,-0.890599 0,-0.584457 0.19776,-0.890599 0.199256,-0.307685 0.575305,-0.307685 z m 2.927418,0.247392 q -0.233719,0 -0.35207,0.238106 -0.116854,0.236563 -0.116854,0.712786 0,0.474679 0.116854,0.712786 0.118361,0.236563 0.35207,0.236563 0.235215,0 0.35207,-0.236563 0.11836,-0.238107 0.11836,-0.712786 0,-0.476223 -0.11836,-0.712786 -0.116855,-0.238106 -0.35207,-0.238106 z m 0,-0.247392 q 0.376049,0 0.573809,0.307685 0.199256,0.306142 0.199256,0.890599 0,0.582903 -0.199256,0.890599 -0.19776,0.306142 -0.573809,0.306142 -0.376049,0 -0.575305,-0.306142 -0.19776,-0.307686 -0.19776,-0.890599 0,-0.584457 0.19776,-0.890599 0.199256,-0.307685 0.575305,-0.307685 z m 2.927418,0.247392 q -0.233719,0 -0.35207,0.238106 -0.116855,0.236563 -0.116855,0.712786 0,0.474679 0.116855,0.712786 0.118361,0.236563 0.35207,0.236563 0.235215,0 0.35207,-0.236563 0.11836,-0.238107 0.11836,-0.712786 0,-0.476223 -0.11836,-0.712786 -0.116855,-0.238106 -0.35207,-0.238106 z m 0,-0.247392 q 0.376049,0 0.573809,0.307685 0.199256,0.306142 0.199256,0.890599 0,0.582903 -0.199256,0.890599 -0.19776,0.306142 -0.573809,0.306142 -0.376049,0 -0.575305,-0.306142 -0.19776,-0.307686 -0.19776,-0.890599 0,-0.584457 0.19776,-0.890599 0.199256,-0.307685 0.575305,-0.307685 z m 2.927418,0.247392 q -0.233719,0 -0.35207,0.238106 -0.116855,0.236563 -0.116855,0.712786 0,0.474679 0.116855,0.712786 0.118361,0.236563 0.35207,0.236563 0.235215,0 0.35207,-0.236563 0.11836,-0.238107 0.11836,-0.712786 0,-0.476223 -0.11836,-0.712786 -0.116855,-0.238106 -0.35207,-0.238106 z m 0,-0.247392 q 0.376049,0 0.573809,0.307685 0.199256,0.306142 0.199256,0.890599 0,0.582903 -0.199256,0.890599 -0.19776,0.306142 -0.573809,0.306142 -0.376049,0 -0.575305,-0.306142 -0.19776,-0.307686 -0.19776,-0.890599 0,-0.584457 0.19776,-0.890599 0.199256,-0.307685 0.575305,-0.307685 z m 2.927418,0.247392 q -0.233719,0 -0.35207,0.238106 -0.116855,0.236563 -0.116855,0.712786 0,0.474679 0.116855,0.712786 0.118361,0.236563 0.35207,0.236563 0.235215,0 0.352069,-0.236563 0.118361,-0.238107 0.118361,-0.712786 0,-0.476223 -0.118361,-0.712786 -0.116854,-0.238106 -0.352069,-0.238106 z m 0,-0.247392 q 0.376049,0 0.573809,0.307685 0.199256,0.306142 0.199256,0.890599 0,0.582903 -0.199256,0.890599 -0.19776,0.306142 -0.573809,0.306142 -0.376049,0 -0.575305,-0.306142 -0.19776,-0.307686 -0.19776,-0.890599 0,-0.584457 0.19776,-0.890599 0.199256,-0.307685 0.575305,-0.307685 z m 2.927418,0.247392 q -0.233719,0 -0.35207,0.238106 -0.116855,0.236563 -0.116855,0.712786 0,0.474679 0.116855,0.712786 0.118361,0.236563 0.35207,0.236563 0.235215,0 0.352069,-0.236563 0.118361,-0.238107 0.118361,-0.712786 0,-0.476223 -0.118361,-0.712786 -0.116854,-0.238106 -0.352069,-0.238106 z m 0,-0.247392 q 0.376049,0 0.573809,0.307685 0.199256,0.306142 0.199256,0.890599 0,0.582903 -0.199256,0.890599 -0.19776,0.306142 -0.573809,0.306142 -0.376049,0 -0.575306,-0.306142 -0.197759,-0.307686 -0.197759,-0.890599 0,-0.584457 0.197759,-0.890599 0.199257,-0.307685 0.575306,-0.307685 z m 2.927418,0.247392 q -0.233719,0 -0.35207,0.238106 -0.116855,0.236563 -0.116855,0.712786 0,0.474679 0.116855,0.712786 0.11836,0.236563 0.35207,0.236563 0.235215,0 0.352069,-0.236563 0.118361,-0.238107 0.118361,-0.712786 0,-0.476223 -0.118361,-0.712786 -0.116854,-0.238106 -0.352069,-0.238106 z m 0,-0.247392 q 0.376049,0 0.573809,0.307685 0.199256,0.306142 0.199256,0.890599 0,0.582903 -0.199256,0.890599 -0.19776,0.306142 -0.573809,0.306142 -0.376049,0 -0.575306,-0.306142 -0.19776,-0.307686 -0.19776,-0.890599 0,-0.584457 0.19776,-0.890599 0.199257,-0.307685 0.575306,-0.307685 z m 2.927418,0.247392 q -0.233719,0 -0.35207,0.238106 -0.116855,0.236563 -0.116855,0.712786 0,0.474679 0.116855,0.712786 0.11836,0.236563 0.35207,0.236563 0.235215,0 0.352069,-0.236563 0.118361,-0.238107 0.118361,-0.712786 0,-0.476223 -0.118361,-0.712786 -0.116854,-0.238106 -0.352069,-0.238106 z m 0,-0.247392 q 0.376049,0 0.573809,0.307685 0.199256,0.306142 0.199256,0.890599 0,0.582903 -0.199256,0.890599 -0.19776,0.306142 -0.573809,0.306142 -0.376049,0 -0.575306,-0.306142 -0.19776,-0.307686 -0.19776,-0.890599 0,-0.584457 0.19776,-0.890599 0.199257,-0.307685 0.575306,-0.307685 z m 2.927417,0.247392 q -0.233718,0 -0.352069,0.238106 -0.116855,0.236563 -0.116855,0.712786 0,0.474679 0.116855,0.712786 0.11836,0.236563 0.352069,0.236563 0.235216,0 0.35207,-0.236563 0.118361,-0.238107 0.118361,-0.712786 0,-0.476223 -0.118361,-0.712786 -0.116854,-0.238106 -0.35207,-0.238106 z m 0,-0.247392 q 0.37605,0 0.573809,0.307685 0.199257,0.306142 0.199257,0.890599 0,0.582903 -0.199257,0.890599 -0.197759,0.306142 -0.573809,0.306142 -0.376049,0 -0.575305,-0.306142 -0.19776,-0.307686 -0.19776,-0.890599 0,-0.584457 0.19776,-0.890599 0.199256,-0.307685 0.575305,-0.307685 z&quot;
-     fill=&quot;#1f1f1f&quot;
-     stroke-dashoffset=&quot;46.29&quot;
-     stroke-width=&quot;0.793759&quot;
-     aria-label=&quot;0 0 0 0 0 0 0 0 0 0 0 0&quot;
-     id=&quot;path143&quot; /&gt;
-  &lt;g
-     stroke=&quot;#000000&quot;
-     stroke-width=&quot;0.81382&quot;
-     id=&quot;g146&quot;
-     style=&quot;fill:none&quot;
-     transform=&quot;translate(167.3098,6.3171893)&quot;&gt;
-    &lt;path
-       d=&quot;m 44.581,33.463 -0.03293,5.5159 26.736,0.27239 0.21684,15.24&quot;
-       marker-end=&quot;url(#a-6)&quot;
-       id=&quot;path144&quot; /&gt;
-    &lt;path
-       d=&quot;m 52.366,61.135 12.068,0.04127&quot;
-       marker-end=&quot;url(#a-6-2)&quot;
-       id=&quot;path145&quot; /&gt;
-    &lt;path
-       d=&quot;m 78.422,61.412 29.407,0.07703&quot;
-       marker-end=&quot;url(#a-6-2-7)&quot;
-       id=&quot;path146&quot; /&gt;
-  &lt;/g&gt;
-  &lt;g
-     transform=&quot;matrix(0.75053,0,0,0.74508,139.30918,-6.2972661)&quot;
-     stroke=&quot;#b3b3b3&quot;
-     stroke-linecap=&quot;round&quot;
-     stroke-miterlimit=&quot;1&quot;
-     stroke-width=&quot;0.28582&quot;
-     id=&quot;g179&quot;
-     style=&quot;fill:none&quot;&gt;
-    &lt;path
-       d=&quot;m 84.422,40.004 v 3.8797&quot;
-       id=&quot;path147&quot; /&gt;
-    &lt;path
-       d=&quot;m 82.392,40.004 v 3.8796&quot;
-       id=&quot;path148&quot; /&gt;
-    &lt;path
-       d=&quot;m 86.518,40.004 v 3.8797&quot;
-       id=&quot;path149&quot; /&gt;
-    &lt;path
-       d=&quot;m 88.615,40.004 v 3.8797&quot;
-       id=&quot;path150&quot; /&gt;
-    &lt;path
-       d=&quot;m 90.712,40.004 v 3.8797&quot;
-       id=&quot;path151&quot; /&gt;
-    &lt;path
-       d=&quot;m 92.808,40.004 v 3.8797&quot;
-       id=&quot;path152&quot; /&gt;
-    &lt;path
-       d=&quot;m 94.905,40.004 v 3.8797&quot;
-       id=&quot;path153&quot; /&gt;
-    &lt;path
-       d=&quot;m 97.002,40.004 v 3.8797&quot;
-       id=&quot;path154&quot; /&gt;
-    &lt;path
-       d=&quot;m 99.098,40.004 v 3.8796&quot;
-       id=&quot;path155&quot; /&gt;
-    &lt;path
-       d=&quot;m 101.19,40.004 v 3.8796&quot;
-       id=&quot;path156&quot; /&gt;
-    &lt;path
-       d=&quot;m 103.29,40.004 v 3.8796&quot;
-       id=&quot;path157&quot; /&gt;
-    &lt;path
-       d=&quot;m 105.39,40.004 v 3.8796&quot;
-       id=&quot;path158&quot; /&gt;
-    &lt;path
-       d=&quot;m 107.48,40.004 v 3.8796&quot;
-       id=&quot;path159&quot; /&gt;
-    &lt;path
-       d=&quot;m 109.58,40.004 v 3.8796&quot;
-       id=&quot;path160&quot; /&gt;
-    &lt;path
-       d=&quot;m 111.68,40.004 v 3.8796&quot;
-       id=&quot;path161&quot; /&gt;
-    &lt;path
-       d=&quot;m 113.77,40.004 v 3.8796&quot;
-       id=&quot;path162&quot; /&gt;
-    &lt;path
-       d=&quot;m 115.87,40.004 v 3.8796&quot;
-       id=&quot;path163&quot; /&gt;
-    &lt;path
-       d=&quot;m 117.97,40.004 v 3.8796&quot;
-       id=&quot;path164&quot; /&gt;
-    &lt;path
-       d=&quot;m 120.06,40.004 v 3.8796&quot;
-       id=&quot;path165&quot; /&gt;
-    &lt;path
-       d=&quot;m 122.16,40.004 v 3.8796&quot;
-       id=&quot;path166&quot; /&gt;
-    &lt;path
-       d=&quot;m 124.26,40.004 v 3.8796&quot;
-       id=&quot;path167&quot; /&gt;
-    &lt;path
-       d=&quot;m 126.35,40.004 v 3.8796&quot;
-       id=&quot;path168&quot; /&gt;
-    &lt;path
-       d=&quot;m 128.45,40.004 v 3.8796&quot;
-       id=&quot;path169&quot; /&gt;
-    &lt;path
-       d=&quot;m 130.55,40.004 v 3.8796&quot;
-       id=&quot;path170&quot; /&gt;
-    &lt;path
-       d=&quot;m 132.64,40.004 v 3.8796&quot;
-       id=&quot;path171&quot; /&gt;
-    &lt;path
-       d=&quot;m 134.74,40.004 v 3.8796&quot;
-       id=&quot;path172&quot; /&gt;
-    &lt;path
-       d=&quot;m 136.84,40.004 v 3.8796&quot;
-       id=&quot;path173&quot; /&gt;
-    &lt;path
-       d=&quot;m 138.93,40.004 v 3.8796&quot;
-       id=&quot;path174&quot; /&gt;
-    &lt;path
-       d=&quot;m 141.03,40.004 v 3.8796&quot;
-       id=&quot;path175&quot; /&gt;
-    &lt;path
-       d=&quot;m 143.13,40.004 v 3.8796&quot;
-       id=&quot;path176&quot; /&gt;
-    &lt;path
-       d=&quot;m 145.22,40.004 v 3.8796&quot;
-       id=&quot;path177&quot; /&gt;
-    &lt;path
-       d=&quot;m 147.32,40.004 v 3.8796&quot;
-       id=&quot;path178&quot; /&gt;
-    &lt;path
-       d=&quot;m 149.42,40.004 v 3.8796&quot;
-       id=&quot;path179&quot; /&gt;
-  &lt;/g&gt;
-  &lt;rect
-     x=&quot;201.10999&quot;
-     y=&quot;24.199736&quot;
-     width=&quot;50.341&quot;
-     height=&quot;1.4016&quot;
-     fill=&quot;#99ff55&quot;
-     stroke=&quot;#000000&quot;
-     stroke-dashoffset=&quot;46.29&quot;
-     stroke-width=&quot;0.25502&quot;
-     id=&quot;rect180&quot; /&gt;
-  &lt;text
-     transform=&quot;scale(1.0320778,0.96891918)&quot;
-     x=&quot;211.49818&quot;
-     y=&quot;23.805399&quot;
-     fill=&quot;#000000&quot;
-     font-family=&quot;FreeSans&quot;
-     font-size=&quot;2.82216px&quot;
-     stroke-dashoffset=&quot;46.29&quot;
-     stroke-width=&quot;0.731376&quot;
-     style=&quot;line-height:normal;text-decoration-color:#000000&quot;
-     xml:space=&quot;preserve&quot;
-     id=&quot;text181&quot;&gt;&lt;tspan
-       x=&quot;211.49818&quot;
-       y=&quot;23.805399&quot;
-       fill=&quot;#000000&quot;
-       font-family=&quot;FreeSans&quot;
-       font-weight=&quot;600&quot;
-       stroke-width=&quot;0.731376&quot;
-       id=&quot;tspan181&quot;&gt;PC &lt;tspan
-   font-size=&quot;1.58293px&quot;
-   stroke-width=&quot;0.731376&quot;
-   id=&quot;tspan180&quot;&gt;(da instrução)&lt;/tspan&gt;&lt;/tspan&gt;&lt;/text&gt;
-  &lt;g
-     transform=&quot;translate(109.7318,2.7292893)&quot;
-     stroke-dashoffset=&quot;46.29&quot;
-     id=&quot;g182&quot;&gt;
-    &lt;circle
-       cx=&quot;129.08&quot;
-       cy=&quot;65&quot;
-       r=&quot;6.9201002&quot;
-       fill=&quot;#ffdd55&quot;
-       stroke=&quot;#000000&quot;
-       stroke-width=&quot;0.26458&quot;
-       id=&quot;circle181&quot; /&gt;
-    &lt;text
-       x=&quot;125.65125&quot;
-       y=&quot;67.657928&quot;
-       fill=&quot;#000000&quot;
-       font-family=&quot;FreeSans&quot;
-       font-size=&quot;11.889px&quot;
-       stroke-width=&quot;0.73135&quot;
-       style=&quot;line-height:normal;text-decoration-color:#000000&quot;
-       xml:space=&quot;preserve&quot;
-       id=&quot;text182&quot;&gt;&lt;tspan
-         x=&quot;125.65125&quot;
-         y=&quot;67.657928&quot;
-         fill=&quot;#000000&quot;
-         stroke-width=&quot;0.73135&quot;
-         id=&quot;tspan182&quot;&gt;+&lt;/tspan&gt;&lt;/text&gt;
-  &lt;/g&gt;
-  &lt;g
-     id=&quot;g183&quot;
-     transform=&quot;matrix(0.61394689,0,0,0.5937242,5.4371288,8.7406287)&quot;
-     style=&quot;stroke-width:1.65631&quot;&gt;
-    &lt;rect
-       x=&quot;-8.8647384e-06&quot;
-       y=&quot;5.4931002&quot;
-       width=&quot;160.129&quot;
-       height=&quot;4.7449999&quot;
-       fill=&quot;#ffcc00&quot;
-       stroke=&quot;#000000&quot;
-       stroke-width=&quot;0.422393&quot;
-       id=&quot;rect74&quot;
-       style=&quot;stroke-dashoffset:46.29&quot; /&gt;
-    &lt;g
-       stroke=&quot;#b3b3b3&quot;
-       stroke-linecap=&quot;round&quot;
-       stroke-miterlimit=&quot;1&quot;
-       stroke-width=&quot;0.50731&quot;
-       id=&quot;g72&quot;
-       style=&quot;fill:none;stroke:#000000&quot;
-       transform=&quot;matrix(1,0,0,0.48697552,0,3.9530888)&quot;&gt;
-      &lt;path
-         d=&quot;m 5.0864,3.1624 v 9.7862&quot;
-         id=&quot;path40&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 0.24409,3.1624 v 9.7862&quot;
-         id=&quot;path41&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 10.088,3.1624 v 9.7862&quot;
-         id=&quot;path42&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 15.09,3.1624 v 9.7862&quot;
-         id=&quot;path43&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 20.091,3.1624 v 9.7862&quot;
-         id=&quot;path44&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 25.093,3.1624 v 9.7862&quot;
-         id=&quot;path45&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 30.095,3.1624 v 9.7862&quot;
-         id=&quot;path46&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 35.096,3.1624 v 9.7862&quot;
-         id=&quot;path47&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 40.098,3.1624 v 9.7862&quot;
-         id=&quot;path48&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 45.099,3.1624 v 9.7862&quot;
-         id=&quot;path49&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 50.101,3.1624 v 9.7862&quot;
-         id=&quot;path50&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 55.103,3.1624 v 9.7862&quot;
-         id=&quot;path51&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 60.104,3.1624 v 9.7862&quot;
-         id=&quot;path52&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 65.106,3.1624 v 9.7862&quot;
-         id=&quot;path53&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 70.108,3.1624 v 9.7862&quot;
-         id=&quot;path54&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 75.109,3.1624 v 9.7862&quot;
-         id=&quot;path55&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 80.111,3.1624 v 9.7862&quot;
-         id=&quot;path56&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 85.113,3.1624 v 9.7862&quot;
-         id=&quot;path57&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 90.114,3.1624 v 9.7862&quot;
-         id=&quot;path58&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 95.116,3.1624 v 9.7862&quot;
-         id=&quot;path59&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 100.12,3.1624 v 9.7862&quot;
-         id=&quot;path60&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 105.12,3.1624 v 9.7862&quot;
-         id=&quot;path61&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 110.12,3.1624 v 9.7862&quot;
-         id=&quot;path62&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 115.12,3.1624 v 9.7862&quot;
-         id=&quot;path63&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 120.12,3.1624 v 9.7862&quot;
-         id=&quot;path64&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 125.13,3.1624 v 9.7862&quot;
-         id=&quot;path65&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 130.13,3.1624 v 9.7862&quot;
-         id=&quot;path66&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 135.13,3.1624 v 9.7862&quot;
-         id=&quot;path67&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 140.13,3.1624 v 9.7862&quot;
-         id=&quot;path68&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 145.13,3.1624 v 9.7862&quot;
-         id=&quot;path69&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 150.13,3.1624 v 9.7862&quot;
-         id=&quot;path70&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 155.14,3.1624 v 9.7862&quot;
-         id=&quot;path71&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 160.14,3.1624 v 9.7862&quot;
-         id=&quot;path72&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-    &lt;/g&gt;
-  &lt;/g&gt;
-  &lt;g
-     id=&quot;g183-6&quot;
-     transform=&quot;matrix(0.61394689,0,0,0.5937242,5.4371288,11.570104)&quot;
-     style=&quot;stroke-width:1.65631&quot;&gt;
-    &lt;rect
-       x=&quot;-8.8647384e-06&quot;
-       y=&quot;5.4931002&quot;
-       width=&quot;160.129&quot;
-       height=&quot;4.7449999&quot;
-       fill=&quot;#ffcc00&quot;
-       stroke=&quot;#000000&quot;
-       stroke-width=&quot;0.422393&quot;
-       id=&quot;rect74-7&quot;
-       style=&quot;stroke-dashoffset:46.29&quot; /&gt;
-    &lt;g
-       stroke=&quot;#b3b3b3&quot;
-       stroke-linecap=&quot;round&quot;
-       stroke-miterlimit=&quot;1&quot;
-       stroke-width=&quot;0.50731&quot;
-       id=&quot;g72-5&quot;
-       style=&quot;fill:none;stroke:#000000&quot;
-       transform=&quot;matrix(1,0,0,0.48697552,0,3.9530888)&quot;&gt;
-      &lt;path
-         d=&quot;m 5.0864,3.1624 v 9.7862&quot;
-         id=&quot;path40-3&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 0.24409,3.1624 v 9.7862&quot;
-         id=&quot;path41-5&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 10.088,3.1624 v 9.7862&quot;
-         id=&quot;path42-6&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 15.09,3.1624 v 9.7862&quot;
-         id=&quot;path43-2&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 20.091,3.1624 v 9.7862&quot;
-         id=&quot;path44-9&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 25.093,3.1624 v 9.7862&quot;
-         id=&quot;path45-1&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 30.095,3.1624 v 9.7862&quot;
-         id=&quot;path46-2&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 35.096,3.1624 v 9.7862&quot;
-         id=&quot;path47-7&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 40.098,3.1624 v 9.7862&quot;
-         id=&quot;path48-0&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 45.099,3.1624 v 9.7862&quot;
-         id=&quot;path49-9&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 50.101,3.1624 v 9.7862&quot;
-         id=&quot;path50-3&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 55.103,3.1624 v 9.7862&quot;
-         id=&quot;path51-6&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 60.104,3.1624 v 9.7862&quot;
-         id=&quot;path52-0&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 65.106,3.1624 v 9.7862&quot;
-         id=&quot;path53-6&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 70.108,3.1624 v 9.7862&quot;
-         id=&quot;path54-2&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 75.109,3.1624 v 9.7862&quot;
-         id=&quot;path55-6&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 80.111,3.1624 v 9.7862&quot;
-         id=&quot;path56-1&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 85.113,3.1624 v 9.7862&quot;
-         id=&quot;path57-8&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 90.114,3.1624 v 9.7862&quot;
-         id=&quot;path58-7&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 95.116,3.1624 v 9.7862&quot;
-         id=&quot;path59-9&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 100.12,3.1624 v 9.7862&quot;
-         id=&quot;path60-2&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 105.12,3.1624 v 9.7862&quot;
-         id=&quot;path61-0&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 110.12,3.1624 v 9.7862&quot;
-         id=&quot;path62-2&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 115.12,3.1624 v 9.7862&quot;
-         id=&quot;path63-3&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 120.12,3.1624 v 9.7862&quot;
-         id=&quot;path64-7&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 125.13,3.1624 v 9.7862&quot;
-         id=&quot;path65-5&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 130.13,3.1624 v 9.7862&quot;
-         id=&quot;path66-9&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 135.13,3.1624 v 9.7862&quot;
-         id=&quot;path67-2&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 140.13,3.1624 v 9.7862&quot;
-         id=&quot;path68-2&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 145.13,3.1624 v 9.7862&quot;
-         id=&quot;path69-8&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 150.13,3.1624 v 9.7862&quot;
-         id=&quot;path70-9&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 155.14,3.1624 v 9.7862&quot;
-         id=&quot;path71-7&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 160.14,3.1624 v 9.7862&quot;
-         id=&quot;path72-3&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-    &lt;/g&gt;
-  &lt;/g&gt;
-  &lt;g
-     id=&quot;g183-1&quot;
-     transform=&quot;matrix(0.61394689,0,0,0.5937242,5.4371288,14.39958)&quot;
-     style=&quot;stroke-width:1.65631&quot;&gt;
-    &lt;rect
-       x=&quot;-8.8647384e-06&quot;
-       y=&quot;5.4931002&quot;
-       width=&quot;160.129&quot;
-       height=&quot;4.7449999&quot;
-       fill=&quot;#ffcc00&quot;
-       stroke=&quot;#000000&quot;
-       stroke-width=&quot;0.422393&quot;
-       id=&quot;rect74-2&quot;
-       style=&quot;stroke-dashoffset:46.29&quot; /&gt;
-    &lt;g
-       stroke=&quot;#b3b3b3&quot;
-       stroke-linecap=&quot;round&quot;
-       stroke-miterlimit=&quot;1&quot;
-       stroke-width=&quot;0.50731&quot;
-       id=&quot;g72-9&quot;
-       style=&quot;fill:none;stroke:#000000&quot;
-       transform=&quot;matrix(1,0,0,0.48697552,0,3.9530888)&quot;&gt;
-      &lt;path
-         d=&quot;m 5.0864,3.1624 v 9.7862&quot;
-         id=&quot;path40-31&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 0.24409,3.1624 v 9.7862&quot;
-         id=&quot;path41-9&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 10.088,3.1624 v 9.7862&quot;
-         id=&quot;path42-4&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 15.09,3.1624 v 9.7862&quot;
-         id=&quot;path43-7&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 20.091,3.1624 v 9.7862&quot;
-         id=&quot;path44-8&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 25.093,3.1624 v 9.7862&quot;
-         id=&quot;path45-4&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 30.095,3.1624 v 9.7862&quot;
-         id=&quot;path46-5&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 35.096,3.1624 v 9.7862&quot;
-         id=&quot;path47-0&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 40.098,3.1624 v 9.7862&quot;
-         id=&quot;path48-3&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 45.099,3.1624 v 9.7862&quot;
-         id=&quot;path49-6&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 50.101,3.1624 v 9.7862&quot;
-         id=&quot;path50-1&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 55.103,3.1624 v 9.7862&quot;
-         id=&quot;path51-0&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 60.104,3.1624 v 9.7862&quot;
-         id=&quot;path52-6&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 65.106,3.1624 v 9.7862&quot;
-         id=&quot;path53-3&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 70.108,3.1624 v 9.7862&quot;
-         id=&quot;path54-20&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 75.109,3.1624 v 9.7862&quot;
-         id=&quot;path55-61&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 80.111,3.1624 v 9.7862&quot;
-         id=&quot;path56-5&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 85.113,3.1624 v 9.7862&quot;
-         id=&quot;path57-5&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 90.114,3.1624 v 9.7862&quot;
-         id=&quot;path58-4&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 95.116,3.1624 v 9.7862&quot;
-         id=&quot;path59-7&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 100.12,3.1624 v 9.7862&quot;
-         id=&quot;path60-6&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 105.12,3.1624 v 9.7862&quot;
-         id=&quot;path61-5&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 110.12,3.1624 v 9.7862&quot;
-         id=&quot;path62-6&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 115.12,3.1624 v 9.7862&quot;
-         id=&quot;path63-9&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 120.12,3.1624 v 9.7862&quot;
-         id=&quot;path64-3&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 125.13,3.1624 v 9.7862&quot;
-         id=&quot;path65-7&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 130.13,3.1624 v 9.7862&quot;
-         id=&quot;path66-4&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 135.13,3.1624 v 9.7862&quot;
-         id=&quot;path67-5&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 140.13,3.1624 v 9.7862&quot;
-         id=&quot;path68-25&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 145.13,3.1624 v 9.7862&quot;
-         id=&quot;path69-4&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 150.13,3.1624 v 9.7862&quot;
-         id=&quot;path70-7&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 155.14,3.1624 v 9.7862&quot;
-         id=&quot;path71-4&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 160.14,3.1624 v 9.7862&quot;
-         id=&quot;path72-4&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-    &lt;/g&gt;
-  &lt;/g&gt;
-  &lt;g
-     id=&quot;g183-0&quot;
-     transform=&quot;matrix(0.61394689,0,0,0.5937242,5.4371288,17.229056)&quot;
-     style=&quot;stroke-width:1.65631&quot;&gt;
-    &lt;rect
-       x=&quot;-8.8647384e-06&quot;
-       y=&quot;5.4931002&quot;
-       width=&quot;160.129&quot;
-       height=&quot;4.7449999&quot;
-       fill=&quot;#ffcc00&quot;
-       stroke=&quot;#000000&quot;
-       stroke-width=&quot;0.422393&quot;
-       id=&quot;rect74-78&quot;
-       style=&quot;stroke-dashoffset:46.29&quot; /&gt;
-    &lt;g
-       stroke=&quot;#b3b3b3&quot;
-       stroke-linecap=&quot;round&quot;
-       stroke-miterlimit=&quot;1&quot;
-       stroke-width=&quot;0.50731&quot;
-       id=&quot;g72-6&quot;
-       style=&quot;fill:none;stroke:#000000&quot;
-       transform=&quot;matrix(1,0,0,0.48697552,0,3.9530888)&quot;&gt;
-      &lt;path
-         d=&quot;m 5.0864,3.1624 v 9.7862&quot;
-         id=&quot;path40-8&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 0.24409,3.1624 v 9.7862&quot;
-         id=&quot;path41-8&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 10.088,3.1624 v 9.7862&quot;
-         id=&quot;path42-43&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 15.09,3.1624 v 9.7862&quot;
-         id=&quot;path43-1&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 20.091,3.1624 v 9.7862&quot;
-         id=&quot;path44-4&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 25.093,3.1624 v 9.7862&quot;
-         id=&quot;path45-9&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 30.095,3.1624 v 9.7862&quot;
-         id=&quot;path46-20&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 35.096,3.1624 v 9.7862&quot;
-         id=&quot;path47-6&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 40.098,3.1624 v 9.7862&quot;
-         id=&quot;path48-8&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 45.099,3.1624 v 9.7862&quot;
-         id=&quot;path49-92&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 50.101,3.1624 v 9.7862&quot;
-         id=&quot;path50-6&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 55.103,3.1624 v 9.7862&quot;
-         id=&quot;path51-64&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 60.104,3.1624 v 9.7862&quot;
-         id=&quot;path52-9&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 65.106,3.1624 v 9.7862&quot;
-         id=&quot;path53-5&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 70.108,3.1624 v 9.7862&quot;
-         id=&quot;path54-0&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 75.109,3.1624 v 9.7862&quot;
-         id=&quot;path55-4&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 80.111,3.1624 v 9.7862&quot;
-         id=&quot;path56-8&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 85.113,3.1624 v 9.7862&quot;
-         id=&quot;path57-7&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 90.114,3.1624 v 9.7862&quot;
-         id=&quot;path58-1&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 95.116,3.1624 v 9.7862&quot;
-         id=&quot;path59-72&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 100.12,3.1624 v 9.7862&quot;
-         id=&quot;path60-7&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 105.12,3.1624 v 9.7862&quot;
-         id=&quot;path61-2&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 110.12,3.1624 v 9.7862&quot;
-         id=&quot;path62-26&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 115.12,3.1624 v 9.7862&quot;
-         id=&quot;path63-1&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 120.12,3.1624 v 9.7862&quot;
-         id=&quot;path64-0&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 125.13,3.1624 v 9.7862&quot;
-         id=&quot;path65-6&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 130.13,3.1624 v 9.7862&quot;
-         id=&quot;path66-1&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 135.13,3.1624 v 9.7862&quot;
-         id=&quot;path67-59&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 140.13,3.1624 v 9.7862&quot;
-         id=&quot;path68-4&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 145.13,3.1624 v 9.7862&quot;
-         id=&quot;path69-9&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 150.13,3.1624 v 9.7862&quot;
-         id=&quot;path70-0&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 155.14,3.1624 v 9.7862&quot;
-         id=&quot;path71-9&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-      &lt;path
-         d=&quot;m 160.14,3.1624 v 9.7862&quot;
-         id=&quot;path72-1&quot;
-         style=&quot;stroke:#000000;stroke-width:0.50731&quot; /&gt;
-    &lt;/g&gt;
-  &lt;/g&gt;
-&lt;/svg&gt;</content><author><name></name></author><summary type="html">32 bits 32 registradores 31 30 29 28 27 26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0 PC (da instrução) +</summary></entry><entry><title type="html">10 Questões de estatísticas resolvidos da banca CESPE/CEBRASPE - Matemática</title><link href="http://0.0.0.0:4000/educa%C3%A7%C3%A3o/2025/05/30/exerc%C3%ADcios-estatisticas-banca-CESPE-CEBRASPE.html" rel="alternate" type="text/html" title="10 Questões de estatísticas resolvidos da banca CESPE/CEBRASPE - Matemática" /><published>2025-05-30T00:00:00-05:00</published><updated>2025-05-30T00:00:00-05:00</updated><id>http://0.0.0.0:4000/educa%C3%A7%C3%A3o/2025/05/30/exerc%C3%ADcios-estatisticas-banca-CESPE-CEBRASPE</id><content type="html" xml:base="http://0.0.0.0:4000/educa%C3%A7%C3%A3o/2025/05/30/exerc%C3%ADcios-estatisticas-banca-CESPE-CEBRASPE.html">&lt;div class=&quot;destaque br bl&quot;&gt;
+&lt;p&gt;&lt;em&gt;Continue trabalhando através dos exercícios usando os princípios fundamentais do Teorema de Bayes, computação de posteriors, e análise de evidências múltiplas. Cada problema requer cuidadosa aplicação de conceitos probabilísticos avançados.&lt;/em&gt;&lt;/p&gt;</content><author><name>Fábio</name></author><category term="aplicadas" /><category term="probabilidade" /><category term="teorema-bayes" /><category term="bayes" /><category term="claude" /><category term="exercícios" /><summary type="html">Solicitei ao Claude que faça 10 exercícios usando teorema de Bayes extremamente díficeis. Ele montou uma lista progressiva de dificuldade. Como minha formação de Matemática e Engenharia alcança até Inferência Estatística, alguns exercícios eu precisei pesquisar para resolver. Quando possível a resolução de cada exercício conterá alguma leitura adicional que ou me ajudou ou aprofunda o tema do exercício.</summary></entry><entry><title type="html">10 Questões de estatísticas resolvidos da banca CESPE/CEBRASPE - Matemática</title><link href="http://0.0.0.0:4000/educa%C3%A7%C3%A3o/exerc%C3%ADcios-estatisticas-banca-CESPE-CEBRASPE/" rel="alternate" type="text/html" title="10 Questões de estatísticas resolvidos da banca CESPE/CEBRASPE - Matemática" /><published>2025-05-30T00:00:00-03:00</published><updated>2025-05-30T00:00:00-03:00</updated><id>http://0.0.0.0:4000/educa%C3%A7%C3%A3o/exerc%C3%ADcios-estatisticas-banca-CESPE-CEBRASPE</id><content type="html" xml:base="http://0.0.0.0:4000/educa%C3%A7%C3%A3o/exerc%C3%ADcios-estatisticas-banca-CESPE-CEBRASPE/">&lt;div class=&quot;destaque br bl&quot;&gt;
 &lt;p&gt;&lt;strong&gt;2025 - CESPE / CEBRASPE - UNIVESP - Supervisor Pedagógico&lt;/strong&gt;&lt;/p&gt;Uma equipe de supervisores pedagógicos analisou os resultados da avaliação diagnóstica aplicada em diferentes unidades acadêmicas. Em uma delas, a distribuição de notas apresentou média igual a 6,0 pontos, desvio padrão igual a 1,5 ponto, mediana igual a 5,7 pontos e curtose igual a 5 pontos.&lt;br /&gt;Com base nas informações da situação hipotética precedente, assinale a opção correta. 
 &lt;hr /&gt;
 &lt;p&gt;&lt;strong&gt;A A variância das notas é igual a 3 pontos.&lt;/strong&gt;&lt;/p&gt;
@@ -2770,7 +1438,7 @@ A curva de regressão linear que representa a tabela de contingência apresentad
 &lt;p&gt;D &lt;strong&gt;$E(Y|X=x)=20+44x$&lt;/strong&gt;&lt;/p&gt;
 &lt;/div&gt;
 
-&lt;p&gt;&lt;strong&gt;Solução&lt;/strong&gt;&lt;/p&gt;</content><author><name></name></author><category term="educação" /><category term="matemática" /><category term="estatística" /><summary type="html">2025 - CESPE / CEBRASPE - UNIVESP - Supervisor PedagógicoUma equipe de supervisores pedagógicos analisou os resultados da avaliação diagnóstica aplicada em diferentes unidades acadêmicas. Em uma delas, a distribuição de notas apresentou média igual a 6,0 pontos, desvio padrão igual a 1,5 ponto, mediana igual a 5,7 pontos e curtose igual a 5 pontos.Com base nas informações da situação hipotética precedente, assinale a opção correta. A A variância das notas é igual a 3 pontos. B A distribuição é do tipo leptocúrtica. C A média maior que a mediana sugere que há assimetria negativa na distribuição das notas. D A amplitude total das notas é igual a 2 pontos. E O coeficiente de variação é igual a 1,5 ponto.</summary></entry><entry><title type="html">Calculo de transformador flyback para fontes chaveadas - Eletrônica</title><link href="http://0.0.0.0:4000/eletr%C3%B4nica/2025/03/30/calculo-transformador-fonte-chaveada.html" rel="alternate" type="text/html" title="Calculo de transformador flyback para fontes chaveadas - Eletrônica" /><published>2025-03-30T00:00:00-05:00</published><updated>2025-03-30T00:00:00-05:00</updated><id>http://0.0.0.0:4000/eletr%C3%B4nica/2025/03/30/calculo-transformador-fonte-chaveada</id><content type="html" xml:base="http://0.0.0.0:4000/eletr%C3%B4nica/2025/03/30/calculo-transformador-fonte-chaveada.html">&lt;h3 id=&quot;bobinas-e-campo-magnético&quot;&gt;Bobinas e campo magnético&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Solução&lt;/strong&gt;&lt;/p&gt;</content><author><name>Fábio</name></author><category term="educação" /><category term="matemática" /><category term="estatística" /><summary type="html">2025 - CESPE / CEBRASPE - UNIVESP - Supervisor PedagógicoUma equipe de supervisores pedagógicos analisou os resultados da avaliação diagnóstica aplicada em diferentes unidades acadêmicas. Em uma delas, a distribuição de notas apresentou média igual a 6,0 pontos, desvio padrão igual a 1,5 ponto, mediana igual a 5,7 pontos e curtose igual a 5 pontos.Com base nas informações da situação hipotética precedente, assinale a opção correta. A A variância das notas é igual a 3 pontos. B A distribuição é do tipo leptocúrtica. C A média maior que a mediana sugere que há assimetria negativa na distribuição das notas. D A amplitude total das notas é igual a 2 pontos. E O coeficiente de variação é igual a 1,5 ponto.</summary></entry><entry><title type="html">Calculo de transformador flyback para fontes chaveadas - Eletrônica</title><link href="http://0.0.0.0:4000/eletr%C3%B4nica/calculo-transformador-fonte-chaveada/" rel="alternate" type="text/html" title="Calculo de transformador flyback para fontes chaveadas - Eletrônica" /><published>2025-03-30T00:00:00-03:00</published><updated>2025-03-30T00:00:00-03:00</updated><id>http://0.0.0.0:4000/eletr%C3%B4nica/calculo-transformador-fonte-chaveada</id><content type="html" xml:base="http://0.0.0.0:4000/eletr%C3%B4nica/calculo-transformador-fonte-chaveada/">&lt;h3 id=&quot;bobinas-e-campo-magnético&quot;&gt;Bobinas e campo magnético&lt;/h3&gt;
 
 &lt;p&gt;Recapitulando e estabelecendo algumas unidades importantes, uma bobina quando percorrido por uma corrente gera um campo magnético (H) a sua volta que é proporcional a corrente aplicada (I), ao número de voltas do fio condutor (N) e inversamente proporcional ao comprimento (l).&lt;/p&gt;
 
@@ -3413,7 +2081,7 @@ Circuito fechado, sem resistência	Sim, constante	Sim	Modelo ideal ou supercondu
 Circuito aberto após desligamento	Não	Não	Corrente cai, mas campo tenta se manter via tensão induzida
 Circuito fechado com resistência	Decai exponencialmente	Decai junto	Caso mais comum (RL)&lt;/p&gt;
 
-&lt;p&gt;Se quiser, posso mostrar com gráficos como a corrente e a tensão se comportam em cada cenário. Deseja isso?&lt;/p&gt;</content><author><name></name></author><category term="eletrônica" /><category term="fonte" /><category term="chaveada," /><category term="transformador," /><category term="flyback" /><summary type="html">Bobinas e campo magnético</summary></entry><entry><title type="html">Guia ilustrado das instruções RISC-V RVI32 - Verilog</title><link href="http://0.0.0.0:4000/verilog/2025/03/30/riscv-guia-rapido-instrucoes.html" rel="alternate" type="text/html" title="Guia ilustrado das instruções RISC-V RVI32 - Verilog" /><published>2025-03-30T00:00:00-05:00</published><updated>2025-03-30T00:00:00-05:00</updated><id>http://0.0.0.0:4000/verilog/2025/03/30/riscv-guia-rapido-instrucoes</id><content type="html" xml:base="http://0.0.0.0:4000/verilog/2025/03/30/riscv-guia-rapido-instrucoes.html">&lt;p&gt;Cada vez mais processadores e microcontroladores baseados em RISC-V vêm ganhando espaço no mercado como alternativas às arquiteturas ARM e MIPS. O RISC-V não é uma CPU específica nem uma empresa, mas sim um &lt;strong&gt;conjunto de instruções (ISA) aberto e de livre implementação&lt;/strong&gt;, desenvolvido para ser modular, escalável e sem custos de licenciamento.&lt;/p&gt;
+&lt;p&gt;Se quiser, posso mostrar com gráficos como a corrente e a tensão se comportam em cada cenário. Deseja isso?&lt;/p&gt;</content><author><name>Fábio</name></author><category term="eletrônica" /><category term="fonte" /><category term="chaveada," /><category term="transformador," /><category term="flyback" /><summary type="html">Bobinas e campo magnético</summary></entry><entry><title type="html">Guia ilustrado das instruções RISC-V RVI32 - Verilog</title><link href="http://0.0.0.0:4000/verilog/riscv-guia-rapido-instrucoes/" rel="alternate" type="text/html" title="Guia ilustrado das instruções RISC-V RVI32 - Verilog" /><published>2025-03-30T00:00:00-03:00</published><updated>2025-03-30T00:00:00-03:00</updated><id>http://0.0.0.0:4000/verilog/riscv-guia-rapido-instrucoes</id><content type="html" xml:base="http://0.0.0.0:4000/verilog/riscv-guia-rapido-instrucoes/">&lt;p&gt;Cada vez mais processadores e microcontroladores baseados em RISC-V vêm ganhando espaço no mercado como alternativas às arquiteturas ARM e MIPS. O RISC-V não é uma CPU específica nem uma empresa, mas sim um &lt;strong&gt;conjunto de instruções (ISA) aberto e de livre implementação&lt;/strong&gt;, desenvolvido para ser modular, escalável e sem custos de licenciamento.&lt;/p&gt;
 
 &lt;p&gt;Esse padrão é mantido pela RISC-V International, uma organização sem fins lucrativos responsável por coordenar a evolução da arquitetura e suas especificações. Fundada em 2015 como RISC-V Foundation e transferida para a Suíça em 2020, a entidade atua para garantir neutralidade, continuidade e colaboração internacional. Com mais de 4.500 membros distribuídos em 70 países, a RISC-V International promove um ecossistema acessível e voltado à inovação, livre de royalties.&lt;/p&gt;
 
@@ -4488,7 +3156,7 @@ No ARM em modo ARM (32 bits) se ocorrer um branch (salto) para um endereço que 
 &lt;td&gt;&lt;p&gt;EBREAK&lt;/p&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
-&lt;/table&gt;</content><author><name></name></author><category term="Verilog" /><category term="Verilog" /><category term="riscv" /><summary type="html">Cada vez mais processadores e microcontroladores baseados em RISC-V vêm ganhando espaço no mercado como alternativas às arquiteturas ARM e MIPS. O RISC-V não é uma CPU específica nem uma empresa, mas sim um conjunto de instruções (ISA) aberto e de livre implementação, desenvolvido para ser modular, escalável e sem custos de licenciamento.</summary></entry><entry><title type="html">Perdi uma placa por utilizar um estimador estatístico errado - Matemática</title><link href="http://0.0.0.0:4000/aplicadas/2025/03/29/estimar-raio-capacitor-jargao-estatistica.html" rel="alternate" type="text/html" title="Perdi uma placa por utilizar um estimador estatístico errado - Matemática" /><published>2025-03-29T00:00:00-05:00</published><updated>2025-03-29T00:00:00-05:00</updated><id>http://0.0.0.0:4000/aplicadas/2025/03/29/estimar-raio-capacitor-jargao-estatistica</id><content type="html" xml:base="http://0.0.0.0:4000/aplicadas/2025/03/29/estimar-raio-capacitor-jargao-estatistica.html">&lt;h2 id=&quot;como-perdi-uma-placa-por-utilizar-o-estimador-estatístico-errado&quot;&gt;Como perdi uma placa por utilizar o estimador estatístico errado&lt;/h2&gt;
+&lt;/table&gt;</content><author><name>Fábio</name></author><category term="Verilog" /><category term="Verilog" /><category term="riscv" /><summary type="html">Cada vez mais processadores e microcontroladores baseados em RISC-V vêm ganhando espaço no mercado como alternativas às arquiteturas ARM e MIPS. O RISC-V não é uma CPU específica nem uma empresa, mas sim um conjunto de instruções (ISA) aberto e de livre implementação, desenvolvido para ser modular, escalável e sem custos de licenciamento.</summary></entry><entry><title type="html">Perdi uma placa por utilizar um estimador estatístico errado - Matemática</title><link href="http://0.0.0.0:4000/aplicadas/estimar-raio-capacitor-jargao-estatistica/" rel="alternate" type="text/html" title="Perdi uma placa por utilizar um estimador estatístico errado - Matemática" /><published>2025-03-29T00:00:00-03:00</published><updated>2025-03-29T00:00:00-03:00</updated><id>http://0.0.0.0:4000/aplicadas/estimar-raio-capacitor-jargao-estatistica</id><content type="html" xml:base="http://0.0.0.0:4000/aplicadas/estimar-raio-capacitor-jargao-estatistica/">&lt;h2 id=&quot;como-perdi-uma-placa-por-utilizar-o-estimador-estatístico-errado&quot;&gt;Como perdi uma placa por utilizar o estimador estatístico errado&lt;/h2&gt;
 
 &lt;p&gt;Me envolvi em mais um projeto de inversor de frequência para motores trifásicos, onde fui novamente responsável por tudo: projeto, roteamento e programação. Quando chegou a hora de rotear a placa, era necessário usar uma fonte chaveada indicada pelo cliente (que posteriormente apresentou problemas).&lt;br /&gt;
 Havia no circuito um capacitor de filtro &lt;strong&gt;22uF - 400V&lt;/strong&gt;, responsável pelo AC-DC.&lt;br /&gt;
@@ -4575,4 +3243,4 @@ O local onde este capacitor iria ficar era apertado e não era um dos padrões q
 
 &lt;p&gt;O erro estava na métrica usada para a inferência. A &lt;strong&gt;moda&lt;/strong&gt; é um bom estimador em muitas situações, mas, nesse caso, não levou em conta que a distribuição dos valores era assimétrica e que fabricantes podem priorizar determinados tamanhos com base em fatores não refletidos apenas na frequência das ofertas.&lt;/p&gt;
 
-&lt;p&gt;Talvez uma abordagem mais conservadora teria sido considerar o &lt;strong&gt;percentil superior&lt;/strong&gt; ou reservar um espaço extra com base na variabilidade dos dados.&lt;/p&gt;</content><author><name></name></author><category term="aplicadas" /><category term="matemática" /><category term="estatística" /><summary type="html">Como perdi uma placa por utilizar o estimador estatístico errado</summary></entry></feed>
+&lt;p&gt;Talvez uma abordagem mais conservadora teria sido considerar o &lt;strong&gt;percentil superior&lt;/strong&gt; ou reservar um espaço extra com base na variabilidade dos dados.&lt;/p&gt;</content><author><name>Fábio</name></author><category term="aplicadas" /><category term="matemática" /><category term="estatística" /><summary type="html">Como perdi uma placa por utilizar o estimador estatístico errado</summary></entry></feed>
