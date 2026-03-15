@@ -25,6 +25,12 @@
 </url>
 
 <url>
+  <loc>https://fabiovila.github.io/en/app/qr-code-generator/</loc>
+  <lastmod>2026-08-03 00:00:00 -0300</lastmod>
+  <priority>0.8</priority>
+</url>
+
+<url>
   <loc>https://fabiovila.github.io/ia/portulino-modelo-linguagem-treinado-colab-gratuitas/</loc>
   <lastmod>2026-01-11 00:00:00 -0300</lastmod>
   <priority>0.8</priority>
@@ -109,6 +115,12 @@
 </url>
 
 <url>
+  <loc>https://fabiovila.github.io/teoricas/explorando-mdc-e-a-capacidade-criativa/</loc>
+  <lastmod>2024-03-03 00:00:00 -0300</lastmod>
+  <priority>0.8</priority>
+</url>
+
+<url>
   <loc>https://fabiovila.github.io/app/calculo-resistores/</loc>
   <lastmod>2024-01-24 00:00:00 -0300</lastmod>
   <priority>0.8</priority>
@@ -175,18 +187,6 @@
 </url>
 
 <url>
-  <loc>https://fabiovila.github.io/eletr%C3%B4nica/simulacao-circuito-RL-python/</loc>
-  <lastmod>2021-02-10 00:00:00 -0300</lastmod>
-  <priority>0.8</priority>
-</url>
-
-<url>
-  <loc>https://fabiovila.github.io/eletr%C3%B4nica/filtro-fir/</loc>
-  <lastmod>2021-01-10 00:00:00 -0300</lastmod>
-  <priority>0.8</priority>
-</url>
-
-<url>
   <loc>https://fabiovila.github.io/ci%C3%AAncias/o-t%C3%A9cnico-que-chutou-a-maquina-copy/</loc>
   <lastmod>2020-06-10 00:00:00 -0300</lastmod>
   <priority>0.8</priority>
@@ -199,8 +199,14 @@
 </url>
 
 <url>
-  <loc>https://fabiovila.github.io/teoricas/explorando-mdc-e-a-capacidade-criativa/</loc>
-  <lastmod>2024-03-03 00:00:00 -0300</lastmod>
+  <loc>https://fabiovila.github.io/eletr%C3%B4nica/simulacao-circuito-RL-python/</loc>
+  <lastmod>2021-02-10 00:00:00 -0300</lastmod>
+  <priority>0.8</priority>
+</url>
+
+<url>
+  <loc>https://fabiovila.github.io/eletr%C3%B4nica/filtro-fir/</loc>
+  <lastmod>2021-01-10 00:00:00 -0300</lastmod>
   <priority>0.8</priority>
 </url>
 

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="pt"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" hreflang="pt" /><updated>2026-03-15T11:29:47-03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Fabio Vila</title><subtitle>Blog sobre eletrônica, firmware, matemática aplicada e engenharia. Projetos reais, experimentos e falhas catastróficas ocasionais.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="pt"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" hreflang="pt" /><updated>2026-03-15T11:41:43-03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Fabio Vila</title><subtitle>Blog sobre eletrônica, firmware, matemática aplicada e engenharia. Projetos reais, experimentos e falhas catastróficas ocasionais.
 </subtitle><author><name>Fábio</name></author><entry xml:lang="en"><title type="html">The USB Isolator That Saved My Laptop From a Burning Motor Inverter</title><link href="http://0.0.0.0:4000/en/electronics/usb-isolator-saved-laptop/" rel="alternate" type="text/html" title="The USB Isolator That Saved My Laptop From a Burning Motor Inverter" /><published>2026-08-03T00:00:00-03:00</published><updated>2026-08-03T00:00:00-03:00</updated><id>http://0.0.0.0:4000/en/electronics/usb-isolator-saved-laptop</id><content type="html" xml:base="http://0.0.0.0:4000/en/electronics/usb-isolator-saved-laptop/">&lt;p&gt;It was just another normal day programming a motor inverter. The system was running a 1.5 HP motor at around 30 Hz when something started to look wrong. The rotation became unstable, the motor began to wobble, and then it happened.&lt;/p&gt;
 
 &lt;p&gt;The board suddenly started throwing sparks, fire, and small explosions. The lights went out, flashes and bangs echoed around the room, and for a moment you don’t really know whether to run or just stand there staring at the disaster unfolding. The circuit breakers tripped, but there were still occasional explosions coming from the two 1000 µF 350 V capacitors discharging into who knows what.&lt;/p&gt;
@@ -367,7 +367,201 @@ a.click()
 
 &lt;h3 id=&quot;cuidado-com-os-golpes&quot;&gt;Cuidado com os golpes&lt;/h3&gt;
 
-&lt;p&gt;Fui procurar um gerador de qr-code para colocar no Kicad e havia milhares de sites disso. Muitos eram golpes. Ou tinha que pagar para gerar, ou gerava com o logotipo do site ou pior &lt;strong&gt;alguns eram grátis porém o qr-code levava ao site que redirecionava ao site que você entrou&lt;/strong&gt;.&lt;/p&gt;</content><author><name>Fábio</name></author><category term="pt" /><category term="app" /><category term="qr-code" /><summary type="html"></summary></entry><entry><title type="html">Portulino — Modelo de linguagem iniciado do zero usando GPUs T4 gratuitas no Colab</title><link href="http://0.0.0.0:4000/ia/portulino-modelo-linguagem-treinado-colab-gratuitas/" rel="alternate" type="text/html" title="Portulino — Modelo de linguagem iniciado do zero usando GPUs T4 gratuitas no Colab" /><published>2026-01-11T00:00:00-03:00</published><updated>2026-01-11T00:00:00-03:00</updated><id>http://0.0.0.0:4000/ia/portulino-modelo-linguagem-treinado-colab-gratuitas</id><content type="html" xml:base="http://0.0.0.0:4000/ia/portulino-modelo-linguagem-treinado-colab-gratuitas/">&lt;h3 id=&quot;introdução&quot;&gt;Introdução&lt;/h3&gt;
+&lt;p&gt;Fui procurar um gerador de qr-code para colocar no Kicad e havia milhares de sites disso. Muitos eram golpes. Ou tinha que pagar para gerar, ou gerava com o logotipo do site ou pior &lt;strong&gt;alguns eram grátis porém o qr-code levava ao site que redirecionava ao site que você entrou&lt;/strong&gt;.&lt;/p&gt;</content><author><name>Fábio</name></author><category term="pt" /><category term="app" /><category term="qr-code" /><summary type="html"></summary></entry><entry xml:lang="en"><title type="html">QR Code Generator</title><link href="http://0.0.0.0:4000/en/app/qr-code-generator/" rel="alternate" type="text/html" title="QR Code Generator" /><published>2026-08-03T00:00:00-03:00</published><updated>2026-08-03T00:00:00-03:00</updated><id>http://0.0.0.0:4000/en/app/qr-code-generator</id><content type="html" xml:base="http://0.0.0.0:4000/en/app/qr-code-generator/">&lt;style&gt;
+
+.qr-box{
+margin-top:25px;
+padding:20px;
+border:2px dashed #dbdbdb;
+border-radius:12px;
+background:#fafafa;
+min-height:260px;
+display:flex;
+align-items:center;
+justify-content:center;
+transition:opacity .6s ease;
+}
+
+.fade-in{
+animation:fadein .7s;
+}
+
+@keyframes fadein{
+from{opacity:0;transform:scale(.95)}
+to{opacity:1;transform:scale(1)}
+}
+
+.qr-box svg{
+width:220px;
+height:220px;
+}
+
+&lt;/style&gt;
+
+&lt;section class=&quot;section&quot;&gt;
+
+&lt;div class=&quot;container&quot;&gt;
+
+&lt;h1 class=&quot;title has-text-centered&quot;&gt;
+QR Code Generator
+&lt;/h1&gt;
+
+&lt;div class=&quot;columns is-centered&quot;&gt;
+
+&lt;div class=&quot;column is-half&quot;&gt;
+
+&lt;div class=&quot;field&quot;&gt;
+
+&lt;label class=&quot;label&quot;&gt;URL&lt;/label&gt;
+
+&lt;div class=&quot;control has-icons-left&quot;&gt;
+
+&lt;input class=&quot;input is-medium&quot; id=&quot;url&quot; placeholder=&quot;https://yoursite.com&quot; /&gt;
+
+&lt;span class=&quot;icon is-left&quot;&gt;🔗&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;div class=&quot;has-text-centered&quot;&gt;
+
+&lt;button class=&quot;button is-primary is-medium&quot; onclick=&quot;gerar()&quot;&gt;
+Generate QR
+&lt;/button&gt;
+
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+
+
+&lt;div class=&quot;columns mt-6&quot;&gt;
+
+&lt;div class=&quot;column has-text-centered&quot;&gt;
+
+&lt;h3 class=&quot;subtitle&quot;&gt;
+White background
+&lt;/h3&gt;
+
+&lt;div class=&quot;qr-box&quot; id=&quot;box-branco&quot;&gt;
+&lt;div id=&quot;qr-branco&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+
+
+&lt;div class=&quot;column has-text-centered&quot;&gt;
+
+&lt;h3 class=&quot;subtitle&quot;&gt;
+Transparent background
+&lt;/h3&gt;
+
+&lt;div class=&quot;qr-box&quot; id=&quot;box-transparente&quot;&gt;
+&lt;div id=&quot;qr-transparente&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+
+
+&lt;div class=&quot;buttons is-centered mt-5&quot;&gt;
+
+&lt;button class=&quot;button is-link&quot; onclick=&quot;baixarSVG(&apos;branco&apos;)&quot;&gt;
+Download white SVG
+&lt;/button&gt;
+
+&lt;button class=&quot;button is-dark&quot; onclick=&quot;baixarSVG(&apos;transparente&apos;)&quot;&gt;
+Download transparent SVG
+&lt;/button&gt;
+
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;/section&gt;
+
+&lt;script src=&quot;https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;script&gt;
+
+let svgBranco=&quot;&quot;
+let svgTransparente=&quot;&quot;
+
+
+
+function gerar(){
+
+const url=document.getElementById(&quot;url&quot;).value
+
+if(!url) return
+
+const qr=qrcode(0,&quot;L&quot;)
+
+qr.addData(url)
+qr.make()
+
+/* Default SVG */
+
+svgBranco=qr.createSvgTag({scalable:true})
+
+/* Transparent version */
+
+svgTransparente=svgBranco.replace(/&lt;rect[^&gt;]*fill=&quot;white&quot;[^&gt;]*&gt;/i,&quot;&quot;)
+
+document.getElementById(&quot;qr-branco&quot;).innerHTML=svgBranco
+document.getElementById(&quot;qr-transparente&quot;).innerHTML=svgTransparente
+
+animar(&quot;box-branco&quot;)
+animar(&quot;box-transparente&quot;)
+
+}
+
+
+
+function animar(id){
+
+const box=document.getElementById(id)
+
+box.classList.remove(&quot;fade-in&quot;)
+void box.offsetWidth
+box.classList.add(&quot;fade-in&quot;)
+
+}
+
+
+
+function baixarSVG(tipo){
+
+let svg=tipo===&quot;branco&quot;?svgBranco:svgTransparente
+
+if(!svg) return
+
+const blob=new Blob([svg],{type:&quot;image/svg+xml&quot;})
+
+const a=document.createElement(&quot;a&quot;)
+
+a.href=URL.createObjectURL(blob)
+
+a.download=&quot;qrcode_&quot;+tipo+&quot;.svg&quot;
+
+a.click()
+
+}
+
+&lt;/script&gt;
+
+&lt;h3 id=&quot;importing-into-kicad&quot;&gt;Importing into KiCad&lt;/h3&gt;
+
+&lt;p&gt;Use the &lt;strong&gt;transparent&lt;/strong&gt; SVG that was generated. In the PCB Editor go to &lt;strong&gt;File → Import → Graphics&lt;/strong&gt; or &lt;strong&gt;Shift+Ctrl+F&lt;/strong&gt;, find the saved transparent SVG in the dialog, choose the layer, and you’re done.&lt;/p&gt;
+
+&lt;h3 id=&quot;watch-out-for-scams&quot;&gt;Watch out for scams&lt;/h3&gt;
+
+&lt;p&gt;When I went looking for a QR code generator to use in KiCad there were thousands of sites offering that. Many were scams — some required payment to generate, others watermarked the result with their logo, and worse, &lt;strong&gt;some were free but the QR code pointed to their site, which then redirected to your intended URL&lt;/strong&gt;.&lt;/p&gt;</content><author><name>Fábio</name></author><category term="en" /><category term="app" /><category term="qr-code" /><summary type="html"></summary></entry><entry><title type="html">Portulino — Modelo de linguagem iniciado do zero usando GPUs T4 gratuitas no Colab</title><link href="http://0.0.0.0:4000/ia/portulino-modelo-linguagem-treinado-colab-gratuitas/" rel="alternate" type="text/html" title="Portulino — Modelo de linguagem iniciado do zero usando GPUs T4 gratuitas no Colab" /><published>2026-01-11T00:00:00-03:00</published><updated>2026-01-11T00:00:00-03:00</updated><id>http://0.0.0.0:4000/ia/portulino-modelo-linguagem-treinado-colab-gratuitas</id><content type="html" xml:base="http://0.0.0.0:4000/ia/portulino-modelo-linguagem-treinado-colab-gratuitas/">&lt;h3 id=&quot;introdução&quot;&gt;Introdução&lt;/h3&gt;
 
 &lt;p&gt;Já faz algum tempo que me interesso por modelos de linguagem. Mesmo antes do surgimento dos Transformers, eu treinava alguns modelos usando cadeias de Markov e, mais tarde, redes recorrentes. Começar pelas cadeias de Markov foi um processo didático pois fornecia ótimos insights e entendimento da matemática e estatistica envolvida. O caminho natural seria então ir para as RNNs e a tecnologia mais avançada para a época eram as LSTM e as GRU, redes recorrentes mais sofisticadas que as RNNs &lt;em&gt;vanilla&lt;/em&gt;. Porém, treinar essas redes era muito ineficiente: demorava demais, exigia grande quantidade de dados e o hardware disponível raramente ajudava.&lt;/p&gt;
 
@@ -1438,650 +1632,7 @@ A curva de regressão linear que representa a tabela de contingência apresentad
 &lt;p&gt;D &lt;strong&gt;$E(Y|X=x)=20+44x$&lt;/strong&gt;&lt;/p&gt;
 &lt;/div&gt;
 
-&lt;p&gt;&lt;strong&gt;Solução&lt;/strong&gt;&lt;/p&gt;</content><author><name>Fábio</name></author><category term="educação" /><category term="matemática" /><category term="estatística" /><summary type="html">2025 - CESPE / CEBRASPE - UNIVESP - Supervisor PedagógicoUma equipe de supervisores pedagógicos analisou os resultados da avaliação diagnóstica aplicada em diferentes unidades acadêmicas. Em uma delas, a distribuição de notas apresentou média igual a 6,0 pontos, desvio padrão igual a 1,5 ponto, mediana igual a 5,7 pontos e curtose igual a 5 pontos.Com base nas informações da situação hipotética precedente, assinale a opção correta. A A variância das notas é igual a 3 pontos. B A distribuição é do tipo leptocúrtica. C A média maior que a mediana sugere que há assimetria negativa na distribuição das notas. D A amplitude total das notas é igual a 2 pontos. E O coeficiente de variação é igual a 1,5 ponto.</summary></entry><entry><title type="html">Calculo de transformador flyback para fontes chaveadas - Eletrônica</title><link href="http://0.0.0.0:4000/eletr%C3%B4nica/calculo-transformador-fonte-chaveada/" rel="alternate" type="text/html" title="Calculo de transformador flyback para fontes chaveadas - Eletrônica" /><published>2025-03-30T00:00:00-03:00</published><updated>2025-03-30T00:00:00-03:00</updated><id>http://0.0.0.0:4000/eletr%C3%B4nica/calculo-transformador-fonte-chaveada</id><content type="html" xml:base="http://0.0.0.0:4000/eletr%C3%B4nica/calculo-transformador-fonte-chaveada/">&lt;h3 id=&quot;bobinas-e-campo-magnético&quot;&gt;Bobinas e campo magnético&lt;/h3&gt;
-
-&lt;p&gt;Recapitulando e estabelecendo algumas unidades importantes, uma bobina quando percorrido por uma corrente gera um campo magnético (H) a sua volta que é proporcional a corrente aplicada (I), ao número de voltas do fio condutor (N) e inversamente proporcional ao comprimento (l).&lt;/p&gt;
-
-\[H={NI\over l}\]
-
-&lt;p&gt;Porém como este campo é disperso, é comum medir o campo magnético em determinada área, denominado fluxo magnético (Φ), cuja unidade é o Wb (Weber).&lt;/p&gt;
-
-&lt;p&gt;Dois indutores de mesmas dimensões e características percorrido pela mesma corrente porém com núcleos de permeabilidade magnética relativa diferentes concentram as linhas do campo magnético fortalecendo o fluxo magnético (Φ). Em uma área qualquer a densidade do fluxo magnético é função da  dessa forma, densidade de fluxo magnético&lt;/p&gt;
-
-&lt;p&gt;Quando a corrente neste indutor é desligada uma tensão de sentido contrário&lt;/p&gt;
-
-&lt;h3 id=&quot;a-relação-entre-perdas-e-indutância&quot;&gt;A relação entre perdas e indutância&lt;/h3&gt;
-
-&lt;p&gt;A indutância (L) de um indutor pode ser calculada usando a seguinte fórmula:
-L = (N^2 * μ * A) / l
-Onde:
-L é a indutância (em Henrys, H)
-N é o número de voltas do fio (ou condutor)
-μ é a permeabilidade magnética do núcleo (em Henrys por metro, H/m)
-A é a área da seção transversal do núcleo (em metros quadrados, m^2)
-l é o comprimento do núcleo (em metros, m)
-Essa fórmula mostra que a indutância é:
-Diretamente proporcional ao quadrado do número de voltas (N^2)
-Diretamente proporcional à permeabilidade magnética do núcleo (μ)
-Diretamente proporcional à área da seção transversal do núcleo (A)
-Inversamente proporcional ao comprimento do núcleo (l)
-Isso significa que, se você diminuir o tamanho do núcleo (reduzindo A ou aumentando l), você precisará aumentar o número de voltas (N) para manter a mesma indutância. Aumentando o numero de voltas a resistência do fio aumenta tanto pela resistência do material como pelo efeito skin.
-Em contrapartida aumentar o tamanho do núcleo aumenta as perdas&lt;/p&gt;
-
-&lt;p&gt;E, como mencionado anteriormente, mais voltas de fio podem aumentar as perdas nos condutores devido à maior resistência elétrica total.&lt;/p&gt;
-
-&lt;h3 id=&quot;sobre-otimização-das-perdas&quot;&gt;Sobre otimização das perdas&lt;/h3&gt;
-
-&lt;p&gt;Ao projetar um transformador ou um indutor, o que você quer é que ele funcione da maneira mais eficiente possível. Existem dois tipos principais de perdas de energia que você precisa considerar: perdas no núcleo (ou core losses) e perdas nos condutores (ou copper losses).&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Perdas no núcleo (Core losses)&lt;/strong&gt;: essas perdas ocorrem no material do núcleo do transformador ou indutor devido à magnetização e desmagnetização do material a cada ciclo de funcionamento. Quanto maior o tamanho do núcleo e a variação da densidade de fluxo magnético (flux density swing), maiores serão essas perdas.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Perdas nos condutores (Copper losses)&lt;/strong&gt;: essas perdas ocorrem devido à resistência elétrica dos condutores (fios de cobre, por exemplo) quando a corrente elétrica passa por eles. Quanto menor o tamanho do núcleo e a variação da densidade de fluxo magnético, maior será a quantidade de condutor necessária para uma determinada potência, o que aumenta essas perdas.&lt;/p&gt;
-
-&lt;p&gt;Na verdade, o que está acontecendo aqui é que, se você diminui o tamanho do núcleo, você pode precisar de mais voltas de fio (ou condutor) para alcançar a mesma indutância ou transferência de energia. Isso ocorre porque a indutância é proporcional ao quadrado do número de voltas e à permeabilidade do núcleo, mas inversamente proporcional ao tamanho do núcleo.
-Com mais voltas de fio, você tem mais resistência elétrica total, o que aumenta as perdas nos condutores (cobre). Então, não é que o núcleo menor diretamente cause mais perdas nos condutores, mas sim que o núcleo menor pode exigir mais voltas de fio para atingir os requisitos de projeto, o que aumenta as perdas nos condutores.
-Já com um núcleo maior, você pode conseguir a mesma indutância com menos voltas de fio, reduzindo as perdas nos condutores. No entanto, como mencionado anteriormente, um núcleo maior pode aumentar as perdas no núcleo devido à maior quantidade de material magnético.&lt;/p&gt;
-
-&lt;p&gt;A indutância (L) de um indutor pode ser calculada usando a seguinte fórmula:
-L = (N^2 * μ * A) / l
-Onde:
-L é a indutância (em Henrys, H)
-N é o número de voltas do fio (ou condutor)
-μ é a permeabilidade magnética do núcleo (em Henrys por metro, H/m)
-A é a área da seção transversal do núcleo (em metros quadrados, m^2)
-l é o comprimento do núcleo (em metros, m)
-Essa fórmula mostra que a indutância é:
-Diretamente proporcional ao quadrado do número de voltas (N^2)
-Diretamente proporcional à permeabilidade magnética do núcleo (μ)
-Diretamente proporcional à área da seção transversal do núcleo (A)
-Inversamente proporcional ao comprimento do núcleo (l)
-Isso significa que, se você diminuir o tamanho do núcleo (reduzindo A ou aumentando l), você precisará aumentar o número de voltas (N) para manter a mesma indutância. E, como mencionado anteriormente, mais voltas de fio podem aumentar as perdas nos condutores devido à maior resistência elétrica total.&lt;/p&gt;
-
-&lt;p&gt;Se você enrolar 10 voltas (N = 10), a indutância medida será:
-L = (10^2 * μ * A) / l
-L = (100 * μ * A) / l
-Se você quiser encontrar a indutância por volta, você precisa dividir a indutância medida por N^2 (não apenas N). Então, nesse caso, você dividiria a indutância medida por 100 (10^2).
-Mas, na prática, é mais complicado do que isso. A fórmula assume que o núcleo é uniforme e que a permeabilidade magnética é constante, o que pode não ser o caso em núcleos reais. Além disso, a indutância medida também pode ser afetada por outros fatores, como a capacitância entre as voltas e a resistência do fio.
-Se você quiser encontrar a indutância por volta de forma precisa, é melhor usar uma abordagem mais sofisticada, como medir a indutância em diferentes números de voltas e fazer uma curva de ajuste para encontrar a relação entre a indutância e o número de voltas.&lt;/p&gt;
-
-&lt;h3 id=&quot;indutância-de-fuga-construção-do-transformador&quot;&gt;Indutância de fuga, construção do transformador&lt;/h3&gt;
-
-&lt;p&gt;A indutância de fuga em transformadores é um parâmetro importante que afeta o desempenho e a confiabilidade de fontes de alimentação e outros dispositivos eletrônicos. Ela é resultado do fluxo magnético que não é compartilhado entre os enrolamentos primário e secundário do transformador. 
-Por que a indutância de fuga é um problema?&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Picos de tensão: Quando o interruptor semicondutor (como um MOSFET) é desligado, a corrente no primário do transformador não pode cessar abruptamente devido à indutância de fuga. Isso gera um pico de tensão que pode danificar o interruptor.&lt;/li&gt;
-  &lt;li&gt;Necessidade de circuitos snubber: Para proteger o interruptor desses picos de tensão, frequentemente são usados circuitos snubber, que absorvem a energia associada à indutância de fuga. No entanto, esses circuitos adicionais aumentam a complexidade e o custo do projeto.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Técnicas para minimizar a indutância de fuga:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Enrolamentos concêntricos: Ao colocar os enrolamentos primário e secundário um sobre o outro, maximiza-se o acoplamento magnético entre eles, reduzindo assim a indutância de fuga. Isso é preferível a usar bobinas divididas ou de várias seções, que aumentam a distância entre os enrolamentos e reduzem o acoplamento.&lt;/li&gt;
-  &lt;li&gt;Enrolamento primário dividido: Ao dividir o enrolamento primário em duas camadas (a primeira camada sendo a mais interna e a segunda camada sendo a mais externa), pode-se reduzir a indutância de fuga. Isso ajuda a manter um bom acoplamento magnético com o secundário.&lt;/li&gt;
-  &lt;li&gt;Posicionamento do secundário: Em transformadores com múltiplas saídas, colocar o secundário com a maior potência de saída mais próximo ao primário melhora o acoplamento e reduz a indutância de fuga. Isso garante que o fluxo magnético seja maximamente compartilhado entre o primário e o secundário mais crítico.&lt;/li&gt;
-  &lt;li&gt;Distribuição de enrolamentos secundários: Para secundários com poucas espiras, distribuir essas espiras por toda a largura da janela do carretel maximiza o acoplamento com o primário. Isso ajuda a garantir que o fluxo magnético seja eficientemente compartilhado, reduzindo assim a indutância de fuga. O uso de múltiplos fios paralelos aumenta o fator de preenchimento e melhora ainda mais o acoplamento.&lt;/li&gt;
-  &lt;li&gt;Uso de fios triplamente isolados e minimização de camadas de fita: Ao projetar os enrolamentos com fios triplamente isolados e minimizar o uso de camadas de fita isolante, é possível atender aos requisitos de isolamento enquanto se minimiza a indutância de fuga. Isso porque o isolamento adicional pode aumentar a distância entre os enrolamentos e, consequentemente, a indutância de fuga.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Motivos e razões:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Melhoria no desempenho: Reduzir a indutância de fuga melhora a eficiência do transformador e reduz os picos de tensão, tornando o sistema mais confiável.&lt;/li&gt;
-  &lt;li&gt;Redução de custos: Ao minimizar ou eliminar a necessidade de circuitos snubber, os custos de projeto e componentes são reduzidos.&lt;/li&gt;
-  &lt;li&gt;Aumento da confiabilidade: Menos componentes e menores picos de tensão significam menos estresse nos componentes, o que pode aumentar a vida útil do dispositivo.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Em resumo, a minimização da indutância de fuga é crucial para o projeto de transformadores eficientes e confiáveis. As técnicas mencionadas são empregadas para garantir um bom acoplamento magnético entre os enrolamentos, reduzir os picos de tensão e minimizar a necessidade de componentes adicionais de proteção.&lt;/p&gt;
-
-&lt;p&gt;explique a diferença entre campo magnético, fluxo e densidade no contexto de um transformador
-O ChatGPT disse:&lt;/p&gt;
-
-&lt;p&gt;No contexto de um transformador, os termos campo magnético, fluxo magnético e densidade de fluxo magnético têm significados específicos e relacionados entre si. Vamos entender cada um e como eles se conectam:&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;Campo Magnético (H)&lt;/p&gt;
-
-    &lt;p&gt;O que é: É uma medida da intensidade da força magnética criada por uma corrente elétrica ou por um ímã.&lt;/p&gt;
-
-    &lt;p&gt;Unidade: Ampère por metro (A/m).&lt;/p&gt;
-
-    &lt;p&gt;Função no transformador: O campo magnético é gerado pela corrente alternada no enrolamento primário do transformador. Ele é o “agente causador” que dá origem ao fluxo magnético no núcleo.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Fluxo Magnético (Φ)&lt;/p&gt;
-
-    &lt;p&gt;O que é: É a quantidade total de campo magnético que passa por uma área definida (como uma seção do núcleo do transformador).&lt;/p&gt;
-
-    &lt;p&gt;Unidade: Weber (Wb).&lt;/p&gt;
-
-    &lt;p&gt;Função no transformador: O fluxo magnético varia ao longo do tempo devido à corrente alternada e é o responsável por induzir tensão no enrolamento secundário (pela Lei de Faraday).&lt;/p&gt;
-
-    &lt;p&gt;🧠 Relação com o campo magnético:&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;\Phi = B \cdot A
-]
-Onde:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ΦΦ é o fluxo magnético,
-
-BB é a densidade de fluxo magnético,
-
-AA é a área pela qual o fluxo passa.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;Densidade de Fluxo Magnético (B)&lt;/p&gt;
-
-    &lt;p&gt;O que é: É o fluxo magnético por unidade de área — ou seja, o “congestionamento” do fluxo em uma determinada área.&lt;/p&gt;
-
-    &lt;p&gt;Unidade: Tesla (T), onde 1 T=1 Wb/m21T=1Wb/m2.&lt;/p&gt;
-
-    &lt;p&gt;Função no transformador: A densidade de fluxo determina o nível de magnetização do núcleo. Se for muito alta, o núcleo pode saturar (parar de responder eficientemente ao aumento do campo magnético).&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Comparando os Três Conceitos:
-Conceito	Símbolo	Unidade	Representa o quê?
-Campo magnético	HH	A/m	Causa: criado por corrente elétrica
-Fluxo magnético	ΦΦ	Weber (Wb)	Efeito: quantidade total de magnetismo
-Densidade de fluxo magnético	BB	Tesla (T)	Intensidade do fluxo por área
-No transformador:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Corrente alternada no primário → gera campo magnético HH.
-
-O campo HH → gera fluxo magnético ΦΦ no núcleo.
-
-O fluxo ΦΦ concentrado na área do núcleo → cria uma densidade BB.
-
-A variação de ΦΦ no tempo → induz tensão no secundário, pela Lei de Faraday.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Se quiser, posso ilustrar isso com um diagrama. Deseja?
-Você disse:
-mas o H é ampere por metro e o fluxo é por área
-O ChatGPT disse:&lt;/p&gt;
-
-&lt;p&gt;Ótima observação! Vamos esclarecer esse ponto com mais cuidado, porque é justamente aí que muita gente se confunde.
-✅ Sim, o campo magnético HH é medido em ampère por metro (A/m),&lt;/p&gt;
-
-&lt;p&gt;e o fluxo magnético ΦΦ é em weber (Wb), que representa uma quantidade total de linhas de campo atravessando uma área.
-⚠️ Mas aqui está o ponto importante:&lt;/p&gt;
-
-&lt;p&gt;Eles não são diretamente proporcionais nem têm as mesmas dimensões, mas estão relacionados por meio de propriedades do material (como permeabilidade) e da geometria do sistema.
-Vamos por partes, com analogia:&lt;/p&gt;
-
-&lt;p&gt;Imagine o campo magnético como a pressão da água (força por área) que empurra a água por um cano.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HH (campo magnético) → é como a pressão da água: uma medida da força que &quot;tenta criar&quot; um fluxo.
-
-BB (densidade de fluxo magnético) → é como a quantidade de água passando por metro quadrado do cano.
-
-ΦΦ (fluxo magnético) → é a quantidade total de água passando pelo cano inteiro (ou seja, B⋅AB⋅A).
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Relações Matemáticas&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Entre HH e BB:
-B=μ⋅H
-B=μ⋅H
-
-Onde:
-
-    BB: Densidade de fluxo magnético (T ou Wb/m²)
-
-    HH: Campo magnético (A/m)
-
-    μμ: Permeabilidade magnética do material (H/m)
-
-    Isso mostra que o campo HH não depende da área, mas do material e da corrente.
-
-Entre BB e ΦΦ:
-Φ=B⋅A
-Φ=B⋅A
-
-Onde:
-
-    ΦΦ: Fluxo magnético total (Wb)
-
-    AA: Área da seção transversal do núcleo (m²)
-
-    Aqui sim o fluxo depende da área: quanto maior a área, maior o fluxo para uma mesma densidade BB.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Recapitulando de forma simples:
-Grandeza	Símbolo	Unidade	Depende de quê?	Papel no transformador
-Campo magnético	HH	A/m	Corrente e geometria do enrolamento	Gera o magnetismo no núcleo
-Densidade de fluxo	BB	T = Wb/m²	Campo HH e material do núcleo	Mostra o quanto de fluxo por área existe
-Fluxo magnético	ΦΦ	Wb	Densidade BB e área	É o “total de magnetismo” que induz tensão&lt;/p&gt;
-
-&lt;p&gt;Se você quiser, posso montar um exemplo numérico com valores reais para mostrar essas relações em ação. Deseja?
-Você disse:
-H seria um ponto no espaço?
-O ChatGPT disse:&lt;/p&gt;
-
-&lt;p&gt;Sim, exatamente — o campo magnético HH é uma grandeza vetorial definida ponto a ponto no espaço.
-📌 O que isso significa?&lt;/p&gt;
-
-&lt;p&gt;O valor de HH pode variar de um ponto para outro em um espaço tridimensional, assim como a temperatura ou a velocidade do vento podem mudar em diferentes lugares.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Em cada ponto do espaço, H⃗H
-
-tem:
-
-    Módulo (intensidade, em A/m),
-
-    Direção e sentido (indicando para onde o campo &quot;empurra&quot; o magnetismo).
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;🧭 Analogia:&lt;/p&gt;
-
-&lt;p&gt;Imagine um campo de vento. Em cada ponto do espaço:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;O vento pode soprar com diferente intensidade,
-
-Em diferente direção.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Assim também é o campo magnético HH:
-Ele existe em cada ponto do espaço ao redor de um condutor ou dentro do núcleo de um transformador.
-🧲 No transformador:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Dentro do núcleo, o campo HH está fortemente concentrado e quase uniforme ao longo do caminho magnético.
-
-Fora do núcleo, existe algum HH, mas ele se dispersa e é muito mais fraco (isso é chamado de fluxo de dispersão).
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;💡 Resumo:
-Conceito	HH como campo pontual
-Tipo de grandeza	Vetorial
-Varia no espaço?	Sim
-Unidade	A/m
-Causa	Corrente elétrica nos enrolamentos
-Onde ele existe?	Em todo ponto do espaço, mas concentrado no núcleo&lt;/p&gt;
-
-&lt;p&gt;Se quiser, posso mostrar visualmente como o HH se distribui em um transformador, com linhas de campo ou vetores. Deseja isso?
-Você disse:
-o campo magnético de um indutor é proporcional a que?
-O ChatGPT disse:&lt;/p&gt;
-
-&lt;p&gt;Ótima pergunta! O campo magnético de um indutor está diretamente ligado à corrente elétrica que passa por ele.
-✅ Resposta curta:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;O campo magnético HH de um indutor é proporcional à corrente II que circula por seu enrolamento.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;📘 Mais precisamente:&lt;/p&gt;
-
-&lt;p&gt;No caso de um indutor ideal com núcleo magnético (como ferro ou ferrite), a intensidade do campo magnético HH é dada por:
-H=N⋅Il
-H=lN⋅I​&lt;/p&gt;
-
-&lt;p&gt;Onde:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HH: campo magnético (A/m)
-
-NN: número de espiras do enrolamento
-
-II: corrente elétrica (A)
-
-ll: comprimento do caminho magnético (m)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;🔄 Relações associadas:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Densidade de fluxo magnético BB:
-B=μ⋅H=μ⋅N⋅Il
-B=μ⋅H=μ⋅lN⋅I​
-
-Onde μμ é a permeabilidade magnética do material.
-
-Fluxo magnético total ΦΦ:
-Φ=B⋅A=μ⋅N⋅Il⋅A
-Φ=B⋅A=μ⋅lN⋅I​⋅A
-
-Indutância LL:
-A energia magnética armazenada está ligada à indutância:
-L=N2⋅μ⋅Al
-L=lN2⋅μ⋅A​
-
-(para núcleo linear e homogêneo)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;🔎 Então, o campo magnético HH de um indutor depende de:
-Fator	Efeito
-Corrente elétrica II	Quanto maior a corrente, maior o HH
-Número de espiras NN	Mais espiras → campo mais intenso
-Comprimento do núcleo ll	Núcleo mais curto → campo mais intenso
-Distribuição geométrica	Se as espiras estão bem distribuídas, o campo é mais uniforme&lt;/p&gt;
-
-&lt;p&gt;Se você quiser, posso te ajudar a calcular o campo de um indutor específico com valores reais (como um toroide ou solenóide). Deseja um exemplo prático?
-Você disse:
-a indutancia é proporcional ao quadro de N mas H não?
-O ChatGPT disse:&lt;/p&gt;
-
-&lt;p&gt;Exatamente! 👏 Você entendeu corretamente, e essa diferença é crucial.&lt;/p&gt;
-
-&lt;p&gt;Vamos explicar com clareza:
-🔹 Campo magnético HH&lt;/p&gt;
-
-&lt;p&gt;A fórmula básica é:
-H=N⋅Il
-H=lN⋅I​&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Proporcional a NN (número de espiras)
-
-Proporcional a II (corrente)
-
-Inversamente proporcional a ll (comprimento do caminho magnético)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;✅ HH cresce linearmente com NN
-👉 Se dobrar o número de espiras, você dobra o campo magnético (mantendo a corrente constante).
-🔸 Indutância LL&lt;/p&gt;
-
-&lt;p&gt;A fórmula para a indutância de um enrolamento (como um toroide ou solenóide ideal) é:
-L=N2⋅μ⋅Al
-L=lN2⋅μ⋅A​&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Proporcional a N2N2
-
-Proporcional à permeabilidade μμ
-
-Proporcional à área da seção transversal AA
-
-Inversamente proporcional ao comprimento ll
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;✅ LL cresce com o quadrado de NN
-👉 Se dobrar o número de espiras, a indutância quadruplica.
-🎯 Comparando:
-Grandeza	Fórmula principal	Depende de NN como?
-Campo magnético HH	N⋅IllN⋅I​	Linearmente
-Indutância LL	N2⋅μ⋅AllN2⋅μ⋅A​	Quadraticamente (N2N2)
-🧠 Intuição:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HH mede o &quot;campo gerado&quot; instantaneamente por uma corrente.
-
-LL mede a capacidade de armazenar energia magnética — e mais espiras fazem essa capacidade crescer rapidamente.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Se quiser, posso montar um exemplo com valores reais para ilustrar essa diferença. Deseja?
-Você disse:
-sim
-O ChatGPT disse:&lt;/p&gt;
-
-&lt;p&gt;Perfeito! Vamos montar um exemplo prático para ilustrar a diferença entre como o campo magnético HH e a indutância LL dependem do número de espiras NN.
-⚙️ Suponha o seguinte indutor toroidal:
-Parâmetro	Valor
-Tipo	Toroide com núcleo de ferro
-Comprimento do caminho magnético ll	0,2 m0,2m
-Área da seção AA	2×10−4 m22×10−4m2
-Permeabilidade μ=μ0⋅μrμ=μ0​⋅μr​	4π×10−7⋅1000 H/m4π×10−7⋅1000H/m
-Corrente II	1 A1A&lt;/p&gt;
-
-&lt;p&gt;Vamos variar o número de espiras NN e ver o que acontece com HH e LL.
-🔢 Cálculos
-Fórmulas:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;H=N⋅IlH=lN⋅I​
-
-L=N2⋅μ⋅AlL=lN2⋅μ⋅A​
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;📊 Tabela de resultados
-NN	H=N⋅IlH=lN⋅I​ (A/m)	L=N2⋅μ⋅AlL=lN2⋅μ⋅A​ (H)
-10	10/0,2=5010/0,2=50	100⋅μ⋅All100⋅μ⋅A​
-20	100100	4×valor anterior4×valor anterior
-40	200200	16×valor inicial16×valor inicial
-Vamos calcular com os valores:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;μ=4π⋅10−7⋅1000=1,2566×10−3 H/mμ=4π⋅10−7⋅1000=1,2566×10−3H/m
-
-A=2×10−4 m2A=2×10−4m2
-
-l=0,2 ml=0,2m
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Para N=10N=10:
-L=102⋅1,2566×10−3⋅2×10−40,2=100⋅2,5132×10−70,2=2,5132×10−50,2=1,2566×10−4 H
-L=0,2102⋅1,2566×10−3⋅2×10−4​=0,2100⋅2,5132×10−7​=0,22,5132×10−5​=1,2566×10−4H
-Para N=20N=20:
-L=4⋅1,2566×10−4=5,0264×10−4 H
-L=4⋅1,2566×10−4=5,0264×10−4H
-Para N=40N=40:
-L=16⋅1,2566×10−4=2,0106×10−3 H
-L=16⋅1,2566×10−4=2,0106×10−3H
-🔍 Observações:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;O campo magnético HH dobra quando NN dobra.
-
-A indutância LL quadruplica quando NN dobra.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;✅ Conclusão:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;H∝NH∝N
-
-L∝N2L∝N2
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Isso mostra por que aumentar o número de espiras aumenta muito mais a capacidade de armazenar energia magnética (L) do que o campo gerado instantaneamente HH.&lt;/p&gt;
-
-&lt;p&gt;Se quiser, posso plotar um gráfico comparando os dois — deseja isso?
-Você disse:
-quando a corrente em um indutor é desligado o campo não cessa ?
-O ChatGPT disse:&lt;/p&gt;
-
-&lt;p&gt;Excelente pergunta — e não, o campo magnético de um indutor não cessa instantaneamente quando a corrente é desligada. Isso é uma característica fundamental dos indutores e tem consequências importantes.
-✅ O que acontece quando a corrente é desligada?
-📌 Indutores resistem a variações bruscas de corrente.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Quando você tenta cortar a corrente de forma repentina, o indutor reage tentando manter essa corrente fluindo.
-
-Isso ocorre porque o campo magnético armazenado no núcleo (ou ao redor do enrolamento) representa energia, e essa energia não pode desaparecer instantaneamente (lei da conservação da energia).
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;⚡ O que o indutor faz?&lt;/p&gt;
-
-&lt;p&gt;Quando a corrente cai bruscamente:
-V=L⋅dIdt
-V=L⋅dtdI​&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Se dIdtdtdI​ (a taxa de variação da corrente) for muito alta, a tensão induzida VV pode ser enorme.
-
-O indutor cria uma alta tensão nos terminais para tentar manter a corrente fluindo.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;🔥 Efeitos práticos:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Essa tensão pode ser alta o suficiente para gerar faíscas (arcos elétricos) se o circuito for aberto mecanicamente (ex: ao desligar um relé).
-
-Pode até danificar componentes se não houver um diodo de flyback ou algum caminho seguro para essa corrente.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;🧲 Sobre o campo magnético:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;O campo magnético não desaparece imediatamente — ele colapsa gradualmente, enquanto a corrente decai.
-
-Esse colapso é o que gera a tensão induzida.
-
-O tempo que o campo leva para sumir depende da indutância LL e da resistência RR no circuito:
-τ=LR
-τ=RL​
-
-Esse é o tempo característico da descarga.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;📉 Exemplo visual:&lt;/p&gt;
-
-&lt;p&gt;Ao desligar a corrente, a curva da corrente ao longo do tempo segue uma exponencial decrescente:
-I(t)=I0⋅e−t/τ
-I(t)=I0​⋅e−t/τ
-✅ Conclusão:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;O campo magnético não cessa instantaneamente.
-
-Ele decai gradualmente, enquanto a energia magnética se converte em corrente induzida.
-
-Um indutor &quot;luta&quot; contra mudanças rápidas de corrente — essa é sua função essencial.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Se quiser, posso simular essa curva ou mostrar como ela se parece em um gráfico real. Deseja?
-Você disse:
-se não houver resistência ele nunca cai?
-O ChatGPT disse:&lt;/p&gt;
-
-&lt;p&gt;Excelente continuação da pergunta — e a resposta é muito interessante do ponto de vista teórico e prático.
-🧠 Teoricamente: Sim, se não houver nenhuma resistência no circuito (R = 0), a corrente nunca decai e o campo magnético persiste indefinidamente.&lt;/p&gt;
-
-&lt;p&gt;Vamos ver por quê:
-📘 Circuito puramente indutivo (ideal):&lt;/p&gt;
-
-&lt;p&gt;Imagine um circuito com:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Um indutor ideal de indutância LL
-
-Nenhuma resistência (R = 0)
-
-Uma fonte de corrente é ligada e depois desconectada sem dissipar energia
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;O que diz a equação diferencial?&lt;/p&gt;
-
-&lt;p&gt;A equação de um circuito RL é:
-V=L⋅dIdt+R⋅I
-V=L⋅dtdI​+R⋅I&lt;/p&gt;
-
-&lt;p&gt;Se R=0R=0, a equação vira:
-V=L⋅dIdt
-V=L⋅dtdI​&lt;/p&gt;
-
-&lt;p&gt;E se não há mais tensão aplicada (V = 0), então:
-dIdt=0⇒I(t)=constante
-dtdI​=0⇒I(t)=constante&lt;/p&gt;
-
-&lt;p&gt;Ou seja:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;A corrente não muda no tempo
-
-O campo magnético permanece constante
-
-A energia magnética fica armazenada no campo do indutor
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;⚠️ Mas… na prática?&lt;/p&gt;
-
-&lt;p&gt;Não existe um circuito com resistência absolutamente zero. Sempre haverá alguma resistência no fio, no indutor ou no ambiente (mesmo que mínima).
-🧨 Resultado realista:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Com R&amp;gt;0R&amp;gt;0, por menor que seja, a energia vai se dissipar aos poucos (normalmente em forma de calor).
-
-O campo decai gradualmente, com um tempo característico τ=LRτ=RL​.
-
-A corrente nunca é eterna em sistemas reais.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;🔄 Exceção especial: supercondutores&lt;/p&gt;
-
-&lt;p&gt;Em circuitos supercondutores (como em experimentos de laboratório ou aplicações em física quântica):&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;A resistência é realmente zero
-
-Correntes circulam por anos sem cair
-
-O campo magnético se mantém estável (campo &quot;preso&quot; no indutor)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;🔬 Isso é usado, por exemplo, em:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Imãs de ressonância magnética (MRI)
-
-Experimentos em física de partículas
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;✅ Conclusão:
-Situação	O que acontece com o campo magnético?
-Circuito ideal sem resistência	O campo permanece constante para sempre
-Circuito real com resistência	O campo decai exponencialmente
-Supercondutor real	O campo pode durar anos ou indefinidamente&lt;/p&gt;
-
-&lt;p&gt;Se quiser, posso plotar um gráfico comparando os dois casos (com e sem resistência). Deseja isso?
-Você disse:
-como assim a corrente não muda no tempo? não há corrente em circuito aberto
-O ChatGPT disse:&lt;/p&gt;
-
-&lt;p&gt;Perfeito — você pegou um ponto crucial. Vamos esclarecer isso com precisão, porque é aí que muitas pessoas confundem os modelos teóricos ideais com a realidade física dos circuitos.
-✅ Sua afirmação está correta:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&quot;Não há corrente em circuito aberto.&quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Isso é absolutamente verdade.
-Corrente elétrica só flui quando existe um caminho fechado (circuito completo) para os elétrons se moverem.
-🧠 Então por que dizemos que “a corrente não muda com o tempo” no circuito puramente indutivo?&lt;/p&gt;
-
-&lt;p&gt;Essa frase se aplica somente ao modelo teórico de um circuito fechado e puramente indutivo (sem resistência), depois que a fonte é desligada, mas o circuito ainda está fechado.
-Vamos dividir os casos claramente:
-🔹 Caso 1: Circuito indutivo ainda fechado, mas sem fonte&lt;/p&gt;
-
-&lt;p&gt;Imagine:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Um indutor ideal LL
-
-Inicialmente alimentado por uma fonte VV, que gerou uma corrente I0I0​
-
-Depois a fonte é desconectada, mas o circuito permanece fechado (por exemplo, curto-circuitando os terminais do indutor)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Resultado:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Sem resistência (R=0)(R=0), a equação L⋅dIdt=0⇒I(t)=I0L⋅dtdI​=0⇒I(t)=I0​
-
-A corrente continua fluindo eternamente nesse anel fechado
-
-O campo magnético se mantém constante
-
-Isso é teoricamente possível, ou praticamente realizável com supercondutores
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;🔸 Caso 2: Circuito aberto após desligar a fonte&lt;/p&gt;
-
-&lt;p&gt;Imagine:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Você abre o circuito logo após desligar a fonte
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Resultado:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Não há mais caminho para a corrente circular
-
-Corrente cai imediatamente a zero
-
-MAS o indutor não aceita isso facilmente
-
-O indutor tenta manter a corrente fluindo, então ele induz uma alta tensão nos terminais, tentando &quot;forçar&quot; a corrente a continuar.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Se não houver caminho alternativo (como um diodo de flyback, resistor, ou arco elétrico), essa tensão pode:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Subir rapidamente a valores muito altos (centenas ou milhares de volts)
-
-Romper o ar (formando uma faísca)
-
-Danificar componentes sensíveis
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;📌 Moral da história:
-Situação	Corrente permanece?	Campo permanece?	Observações
-Circuito fechado, sem resistência	Sim, constante	Sim	Modelo ideal ou supercondutor
-Circuito aberto após desligamento	Não	Não	Corrente cai, mas campo tenta se manter via tensão induzida
-Circuito fechado com resistência	Decai exponencialmente	Decai junto	Caso mais comum (RL)&lt;/p&gt;
-
-&lt;p&gt;Se quiser, posso mostrar com gráficos como a corrente e a tensão se comportam em cada cenário. Deseja isso?&lt;/p&gt;</content><author><name>Fábio</name></author><category term="eletrônica" /><category term="fonte" /><category term="chaveada," /><category term="transformador," /><category term="flyback" /><summary type="html">Bobinas e campo magnético</summary></entry><entry><title type="html">Guia ilustrado das instruções RISC-V RVI32 - Verilog</title><link href="http://0.0.0.0:4000/verilog/riscv-guia-rapido-instrucoes/" rel="alternate" type="text/html" title="Guia ilustrado das instruções RISC-V RVI32 - Verilog" /><published>2025-03-30T00:00:00-03:00</published><updated>2025-03-30T00:00:00-03:00</updated><id>http://0.0.0.0:4000/verilog/riscv-guia-rapido-instrucoes</id><content type="html" xml:base="http://0.0.0.0:4000/verilog/riscv-guia-rapido-instrucoes/">&lt;p&gt;Cada vez mais processadores e microcontroladores baseados em RISC-V vêm ganhando espaço no mercado como alternativas às arquiteturas ARM e MIPS. O RISC-V não é uma CPU específica nem uma empresa, mas sim um &lt;strong&gt;conjunto de instruções (ISA) aberto e de livre implementação&lt;/strong&gt;, desenvolvido para ser modular, escalável e sem custos de licenciamento.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Solução&lt;/strong&gt;&lt;/p&gt;</content><author><name>Fábio</name></author><category term="educação" /><category term="matemática" /><category term="estatística" /><summary type="html">2025 - CESPE / CEBRASPE - UNIVESP - Supervisor PedagógicoUma equipe de supervisores pedagógicos analisou os resultados da avaliação diagnóstica aplicada em diferentes unidades acadêmicas. Em uma delas, a distribuição de notas apresentou média igual a 6,0 pontos, desvio padrão igual a 1,5 ponto, mediana igual a 5,7 pontos e curtose igual a 5 pontos.Com base nas informações da situação hipotética precedente, assinale a opção correta. A A variância das notas é igual a 3 pontos. B A distribuição é do tipo leptocúrtica. C A média maior que a mediana sugere que há assimetria negativa na distribuição das notas. D A amplitude total das notas é igual a 2 pontos. E O coeficiente de variação é igual a 1,5 ponto.</summary></entry><entry><title type="html">Guia ilustrado das instruções RISC-V RVI32 - Verilog</title><link href="http://0.0.0.0:4000/verilog/riscv-guia-rapido-instrucoes/" rel="alternate" type="text/html" title="Guia ilustrado das instruções RISC-V RVI32 - Verilog" /><published>2025-03-30T00:00:00-03:00</published><updated>2025-03-30T00:00:00-03:00</updated><id>http://0.0.0.0:4000/verilog/riscv-guia-rapido-instrucoes</id><content type="html" xml:base="http://0.0.0.0:4000/verilog/riscv-guia-rapido-instrucoes/">&lt;p&gt;Cada vez mais processadores e microcontroladores baseados em RISC-V vêm ganhando espaço no mercado como alternativas às arquiteturas ARM e MIPS. O RISC-V não é uma CPU específica nem uma empresa, mas sim um &lt;strong&gt;conjunto de instruções (ISA) aberto e de livre implementação&lt;/strong&gt;, desenvolvido para ser modular, escalável e sem custos de licenciamento.&lt;/p&gt;
 
 &lt;p&gt;Esse padrão é mantido pela RISC-V International, uma organização sem fins lucrativos responsável por coordenar a evolução da arquitetura e suas especificações. Fundada em 2015 como RISC-V Foundation e transferida para a Suíça em 2020, a entidade atua para garantir neutralidade, continuidade e colaboração internacional. Com mais de 4.500 membros distribuídos em 70 países, a RISC-V International promove um ecossistema acessível e voltado à inovação, livre de royalties.&lt;/p&gt;
 
@@ -3156,91 +2707,647 @@ No ARM em modo ARM (32 bits) se ocorrer um branch (salto) para um endereço que 
 &lt;td&gt;&lt;p&gt;EBREAK&lt;/p&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
-&lt;/table&gt;</content><author><name>Fábio</name></author><category term="Verilog" /><category term="Verilog" /><category term="riscv" /><summary type="html">Cada vez mais processadores e microcontroladores baseados em RISC-V vêm ganhando espaço no mercado como alternativas às arquiteturas ARM e MIPS. O RISC-V não é uma CPU específica nem uma empresa, mas sim um conjunto de instruções (ISA) aberto e de livre implementação, desenvolvido para ser modular, escalável e sem custos de licenciamento.</summary></entry><entry><title type="html">Perdi uma placa por utilizar um estimador estatístico errado - Matemática</title><link href="http://0.0.0.0:4000/aplicadas/estimar-raio-capacitor-jargao-estatistica/" rel="alternate" type="text/html" title="Perdi uma placa por utilizar um estimador estatístico errado - Matemática" /><published>2025-03-29T00:00:00-03:00</published><updated>2025-03-29T00:00:00-03:00</updated><id>http://0.0.0.0:4000/aplicadas/estimar-raio-capacitor-jargao-estatistica</id><content type="html" xml:base="http://0.0.0.0:4000/aplicadas/estimar-raio-capacitor-jargao-estatistica/">&lt;h2 id=&quot;como-perdi-uma-placa-por-utilizar-o-estimador-estatístico-errado&quot;&gt;Como perdi uma placa por utilizar o estimador estatístico errado&lt;/h2&gt;
+&lt;/table&gt;</content><author><name>Fábio</name></author><category term="Verilog" /><category term="Verilog" /><category term="riscv" /><summary type="html">Cada vez mais processadores e microcontroladores baseados em RISC-V vêm ganhando espaço no mercado como alternativas às arquiteturas ARM e MIPS. O RISC-V não é uma CPU específica nem uma empresa, mas sim um conjunto de instruções (ISA) aberto e de livre implementação, desenvolvido para ser modular, escalável e sem custos de licenciamento.</summary></entry><entry><title type="html">Calculo de transformador flyback para fontes chaveadas - Eletrônica</title><link href="http://0.0.0.0:4000/eletr%C3%B4nica/calculo-transformador-fonte-chaveada/" rel="alternate" type="text/html" title="Calculo de transformador flyback para fontes chaveadas - Eletrônica" /><published>2025-03-30T00:00:00-03:00</published><updated>2025-03-30T00:00:00-03:00</updated><id>http://0.0.0.0:4000/eletr%C3%B4nica/calculo-transformador-fonte-chaveada</id><content type="html" xml:base="http://0.0.0.0:4000/eletr%C3%B4nica/calculo-transformador-fonte-chaveada/">&lt;h3 id=&quot;bobinas-e-campo-magnético&quot;&gt;Bobinas e campo magnético&lt;/h3&gt;
 
-&lt;p&gt;Me envolvi em mais um projeto de inversor de frequência para motores trifásicos, onde fui novamente responsável por tudo: projeto, roteamento e programação. Quando chegou a hora de rotear a placa, era necessário usar uma fonte chaveada indicada pelo cliente (que posteriormente apresentou problemas).&lt;br /&gt;
-Havia no circuito um capacitor de filtro &lt;strong&gt;22uF - 400V&lt;/strong&gt;, responsável pelo AC-DC.&lt;br /&gt;
-O local onde este capacitor iria ficar era apertado e não era um dos padrões que eu estava acostumado. Em geral, nesses projetos, ou eu roteava capacitores de até 36V, ou os já conhecidos capacitores de &lt;strong&gt;1000uF - 250V&lt;/strong&gt;, para os quais eu sempre deixava 35mm de diâmetro — e às vezes ainda sobrava espaço.&lt;/p&gt;
+&lt;p&gt;Recapitulando e estabelecendo algumas unidades importantes, uma bobina quando percorrido por uma corrente gera um campo magnético (H) a sua volta que é proporcional a corrente aplicada (I), ao número de voltas do fio condutor (N) e inversamente proporcional ao comprimento (l).&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Então qual era o diâmetro desse desconhecido 22uF - 400V?&lt;/strong&gt;&lt;/p&gt;
+\[H={NI\over l}\]
 
-&lt;h2 id=&quot;inferência-estatística&quot;&gt;Inferência estatística&lt;/h2&gt;
+&lt;p&gt;Porém como este campo é disperso, é comum medir o campo magnético em determinada área, denominado fluxo magnético (Φ), cuja unidade é o Wb (Weber).&lt;/p&gt;
 
-&lt;p&gt;Quando estamos diante de um parâmetro numérico desconhecido de algo que apresenta variação e precisamos estimar esse valor, estamos lidando com uma inferência estatística. Isso acontece na vida o tempo todo, mas sabemos que não há especialistas em estatística por aí — na verdade, nem podemos admitir que haja muitas pessoas que conheçam matemática. Ainda assim, as pessoas têm alguma forma de &lt;em&gt;saber&lt;/em&gt; esse valor desconhecido, seja por intuição, experiência ou puro chute.&lt;/p&gt;
+&lt;p&gt;Dois indutores de mesmas dimensões e características percorrido pela mesma corrente porém com núcleos de permeabilidade magnética relativa diferentes concentram as linhas do campo magnético fortalecendo o fluxo magnético (Φ). Em uma área qualquer a densidade do fluxo magnético é função da  dessa forma, densidade de fluxo magnético&lt;/p&gt;
 
-&lt;p&gt;No meu caso, entrei no site da Mouser e, utilizando os filtros &lt;em&gt;Capacitores eletrolíticos&lt;/em&gt;, &lt;em&gt;400V&lt;/em&gt; e &lt;em&gt;22uF&lt;/em&gt;, cheguei aos seguintes valores:&lt;/p&gt;
+&lt;p&gt;Quando a corrente neste indutor é desligada uma tensão de sentido contrário&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/imgs/mouser-capacitor-tamanho.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;a-relação-entre-perdas-e-indutância&quot;&gt;A relação entre perdas e indutância&lt;/h3&gt;
 
-&lt;p&gt;&lt;em&gt;Resultado da pesquisa de Capacitor Eletrolítico 22uF 400V na Mouser&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;A indutância (L) de um indutor pode ser calculada usando a seguinte fórmula:
+L = (N^2 * μ * A) / l
+Onde:
+L é a indutância (em Henrys, H)
+N é o número de voltas do fio (ou condutor)
+μ é a permeabilidade magnética do núcleo (em Henrys por metro, H/m)
+A é a área da seção transversal do núcleo (em metros quadrados, m^2)
+l é o comprimento do núcleo (em metros, m)
+Essa fórmula mostra que a indutância é:
+Diretamente proporcional ao quadrado do número de voltas (N^2)
+Diretamente proporcional à permeabilidade magnética do núcleo (μ)
+Diretamente proporcional à área da seção transversal do núcleo (A)
+Inversamente proporcional ao comprimento do núcleo (l)
+Isso significa que, se você diminuir o tamanho do núcleo (reduzindo A ou aumentando l), você precisará aumentar o número de voltas (N) para manter a mesma indutância. Aumentando o numero de voltas a resistência do fio aumenta tanto pela resistência do material como pelo efeito skin.
+Em contrapartida aumentar o tamanho do núcleo aumenta as perdas&lt;/p&gt;
 
-&lt;p&gt;Veja só… de 8mm a 18mm de diâmetro. &lt;em&gt;Só pode ser brincadeira?!&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;E, como mencionado anteriormente, mais voltas de fio podem aumentar as perdas nos condutores devido à maior resistência elétrica total.&lt;/p&gt;
 
-&lt;h2 id=&quot;qual-valor-usar&quot;&gt;Qual valor usar?&lt;/h2&gt;
+&lt;h3 id=&quot;sobre-otimização-das-perdas&quot;&gt;Sobre otimização das perdas&lt;/h3&gt;
 
-&lt;p&gt;Clicando em cada opção do listbox do site, aparece em cima a quantidade de ofertas, o que me permitiu montar uma tabela de frequências, mostrada abaixo:&lt;/p&gt;
+&lt;p&gt;Ao projetar um transformador ou um indutor, o que você quer é que ele funcione da maneira mais eficiente possível. Existem dois tipos principais de perdas de energia que você precisa considerar: perdas no núcleo (ou core losses) e perdas nos condutores (ou copper losses).&lt;/p&gt;
 
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;&lt;strong&gt;Tamanho&lt;/strong&gt;&lt;/th&gt;
-      &lt;th&gt;&lt;strong&gt;fi (Ofertas)&lt;/strong&gt;&lt;/th&gt;
-      &lt;th&gt;&lt;strong&gt;fr&lt;/strong&gt;&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;8 mm&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;4&lt;/td&gt;
-      &lt;td&gt;0,044&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;10 mm&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;11&lt;/td&gt;
-      &lt;td&gt;0,122&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;12 mm&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
-      &lt;td&gt;0,011&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;12,5 mm&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;42&lt;/td&gt;
-      &lt;td&gt;0,466&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;12,95 mm&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
-      &lt;td&gt;0,011&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;13 mm&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;7&lt;/td&gt;
-      &lt;td&gt;0,077&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;16 mm&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;19&lt;/td&gt;
-      &lt;td&gt;0,211&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;18 mm&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;5&lt;/td&gt;
-      &lt;td&gt;0,055&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;90&lt;/td&gt;
-      &lt;td&gt;1,0&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Perdas no núcleo (Core losses)&lt;/strong&gt;: essas perdas ocorrem no material do núcleo do transformador ou indutor devido à magnetização e desmagnetização do material a cada ciclo de funcionamento. Quanto maior o tamanho do núcleo e a variação da densidade de fluxo magnético (flux density swing), maiores serão essas perdas.&lt;/p&gt;
 
-&lt;p&gt;A distribuição das ofertas indicava que o diâmetro mais frequente era &lt;strong&gt;12,5 mm&lt;/strong&gt;, correspondendo a &lt;strong&gt;46,6%&lt;/strong&gt; das opções disponíveis. Com base nesse dado, decidi usar esse valor para o layout da minha placa.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Perdas nos condutores (Copper losses)&lt;/strong&gt;: essas perdas ocorrem devido à resistência elétrica dos condutores (fios de cobre, por exemplo) quando a corrente elétrica passa por eles. Quanto menor o tamanho do núcleo e a variação da densidade de fluxo magnético, maior será a quantidade de condutor necessária para uma determinada potência, o que aumenta essas perdas.&lt;/p&gt;
 
-&lt;p&gt;Mas, para minha surpresa, o montador responsável pelas placas do cliente utilizou um capacitor bem maior, o que fez com que ele precisasse ficar “aéreo”, praticamente inviabilizando a placa.&lt;/p&gt;
+&lt;p&gt;Na verdade, o que está acontecendo aqui é que, se você diminui o tamanho do núcleo, você pode precisar de mais voltas de fio (ou condutor) para alcançar a mesma indutância ou transferência de energia. Isso ocorre porque a indutância é proporcional ao quadrado do número de voltas e à permeabilidade do núcleo, mas inversamente proporcional ao tamanho do núcleo.
+Com mais voltas de fio, você tem mais resistência elétrica total, o que aumenta as perdas nos condutores (cobre). Então, não é que o núcleo menor diretamente cause mais perdas nos condutores, mas sim que o núcleo menor pode exigir mais voltas de fio para atingir os requisitos de projeto, o que aumenta as perdas nos condutores.
+Já com um núcleo maior, você pode conseguir a mesma indutância com menos voltas de fio, reduzindo as perdas nos condutores. No entanto, como mencionado anteriormente, um núcleo maior pode aumentar as perdas no núcleo devido à maior quantidade de material magnético.&lt;/p&gt;
 
-&lt;p&gt;O erro estava na métrica usada para a inferência. A &lt;strong&gt;moda&lt;/strong&gt; é um bom estimador em muitas situações, mas, nesse caso, não levou em conta que a distribuição dos valores era assimétrica e que fabricantes podem priorizar determinados tamanhos com base em fatores não refletidos apenas na frequência das ofertas.&lt;/p&gt;
+&lt;p&gt;A indutância (L) de um indutor pode ser calculada usando a seguinte fórmula:
+L = (N^2 * μ * A) / l
+Onde:
+L é a indutância (em Henrys, H)
+N é o número de voltas do fio (ou condutor)
+μ é a permeabilidade magnética do núcleo (em Henrys por metro, H/m)
+A é a área da seção transversal do núcleo (em metros quadrados, m^2)
+l é o comprimento do núcleo (em metros, m)
+Essa fórmula mostra que a indutância é:
+Diretamente proporcional ao quadrado do número de voltas (N^2)
+Diretamente proporcional à permeabilidade magnética do núcleo (μ)
+Diretamente proporcional à área da seção transversal do núcleo (A)
+Inversamente proporcional ao comprimento do núcleo (l)
+Isso significa que, se você diminuir o tamanho do núcleo (reduzindo A ou aumentando l), você precisará aumentar o número de voltas (N) para manter a mesma indutância. E, como mencionado anteriormente, mais voltas de fio podem aumentar as perdas nos condutores devido à maior resistência elétrica total.&lt;/p&gt;
 
-&lt;p&gt;Talvez uma abordagem mais conservadora teria sido considerar o &lt;strong&gt;percentil superior&lt;/strong&gt; ou reservar um espaço extra com base na variabilidade dos dados.&lt;/p&gt;</content><author><name>Fábio</name></author><category term="aplicadas" /><category term="matemática" /><category term="estatística" /><summary type="html">Como perdi uma placa por utilizar o estimador estatístico errado</summary></entry></feed>
+&lt;p&gt;Se você enrolar 10 voltas (N = 10), a indutância medida será:
+L = (10^2 * μ * A) / l
+L = (100 * μ * A) / l
+Se você quiser encontrar a indutância por volta, você precisa dividir a indutância medida por N^2 (não apenas N). Então, nesse caso, você dividiria a indutância medida por 100 (10^2).
+Mas, na prática, é mais complicado do que isso. A fórmula assume que o núcleo é uniforme e que a permeabilidade magnética é constante, o que pode não ser o caso em núcleos reais. Além disso, a indutância medida também pode ser afetada por outros fatores, como a capacitância entre as voltas e a resistência do fio.
+Se você quiser encontrar a indutância por volta de forma precisa, é melhor usar uma abordagem mais sofisticada, como medir a indutância em diferentes números de voltas e fazer uma curva de ajuste para encontrar a relação entre a indutância e o número de voltas.&lt;/p&gt;
+
+&lt;h3 id=&quot;indutância-de-fuga-construção-do-transformador&quot;&gt;Indutância de fuga, construção do transformador&lt;/h3&gt;
+
+&lt;p&gt;A indutância de fuga em transformadores é um parâmetro importante que afeta o desempenho e a confiabilidade de fontes de alimentação e outros dispositivos eletrônicos. Ela é resultado do fluxo magnético que não é compartilhado entre os enrolamentos primário e secundário do transformador. 
+Por que a indutância de fuga é um problema?&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Picos de tensão: Quando o interruptor semicondutor (como um MOSFET) é desligado, a corrente no primário do transformador não pode cessar abruptamente devido à indutância de fuga. Isso gera um pico de tensão que pode danificar o interruptor.&lt;/li&gt;
+  &lt;li&gt;Necessidade de circuitos snubber: Para proteger o interruptor desses picos de tensão, frequentemente são usados circuitos snubber, que absorvem a energia associada à indutância de fuga. No entanto, esses circuitos adicionais aumentam a complexidade e o custo do projeto.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Técnicas para minimizar a indutância de fuga:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Enrolamentos concêntricos: Ao colocar os enrolamentos primário e secundário um sobre o outro, maximiza-se o acoplamento magnético entre eles, reduzindo assim a indutância de fuga. Isso é preferível a usar bobinas divididas ou de várias seções, que aumentam a distância entre os enrolamentos e reduzem o acoplamento.&lt;/li&gt;
+  &lt;li&gt;Enrolamento primário dividido: Ao dividir o enrolamento primário em duas camadas (a primeira camada sendo a mais interna e a segunda camada sendo a mais externa), pode-se reduzir a indutância de fuga. Isso ajuda a manter um bom acoplamento magnético com o secundário.&lt;/li&gt;
+  &lt;li&gt;Posicionamento do secundário: Em transformadores com múltiplas saídas, colocar o secundário com a maior potência de saída mais próximo ao primário melhora o acoplamento e reduz a indutância de fuga. Isso garante que o fluxo magnético seja maximamente compartilhado entre o primário e o secundário mais crítico.&lt;/li&gt;
+  &lt;li&gt;Distribuição de enrolamentos secundários: Para secundários com poucas espiras, distribuir essas espiras por toda a largura da janela do carretel maximiza o acoplamento com o primário. Isso ajuda a garantir que o fluxo magnético seja eficientemente compartilhado, reduzindo assim a indutância de fuga. O uso de múltiplos fios paralelos aumenta o fator de preenchimento e melhora ainda mais o acoplamento.&lt;/li&gt;
+  &lt;li&gt;Uso de fios triplamente isolados e minimização de camadas de fita: Ao projetar os enrolamentos com fios triplamente isolados e minimizar o uso de camadas de fita isolante, é possível atender aos requisitos de isolamento enquanto se minimiza a indutância de fuga. Isso porque o isolamento adicional pode aumentar a distância entre os enrolamentos e, consequentemente, a indutância de fuga.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Motivos e razões:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Melhoria no desempenho: Reduzir a indutância de fuga melhora a eficiência do transformador e reduz os picos de tensão, tornando o sistema mais confiável.&lt;/li&gt;
+  &lt;li&gt;Redução de custos: Ao minimizar ou eliminar a necessidade de circuitos snubber, os custos de projeto e componentes são reduzidos.&lt;/li&gt;
+  &lt;li&gt;Aumento da confiabilidade: Menos componentes e menores picos de tensão significam menos estresse nos componentes, o que pode aumentar a vida útil do dispositivo.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Em resumo, a minimização da indutância de fuga é crucial para o projeto de transformadores eficientes e confiáveis. As técnicas mencionadas são empregadas para garantir um bom acoplamento magnético entre os enrolamentos, reduzir os picos de tensão e minimizar a necessidade de componentes adicionais de proteção.&lt;/p&gt;
+
+&lt;p&gt;explique a diferença entre campo magnético, fluxo e densidade no contexto de um transformador
+O ChatGPT disse:&lt;/p&gt;
+
+&lt;p&gt;No contexto de um transformador, os termos campo magnético, fluxo magnético e densidade de fluxo magnético têm significados específicos e relacionados entre si. Vamos entender cada um e como eles se conectam:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Campo Magnético (H)&lt;/p&gt;
+
+    &lt;p&gt;O que é: É uma medida da intensidade da força magnética criada por uma corrente elétrica ou por um ímã.&lt;/p&gt;
+
+    &lt;p&gt;Unidade: Ampère por metro (A/m).&lt;/p&gt;
+
+    &lt;p&gt;Função no transformador: O campo magnético é gerado pela corrente alternada no enrolamento primário do transformador. Ele é o “agente causador” que dá origem ao fluxo magnético no núcleo.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Fluxo Magnético (Φ)&lt;/p&gt;
+
+    &lt;p&gt;O que é: É a quantidade total de campo magnético que passa por uma área definida (como uma seção do núcleo do transformador).&lt;/p&gt;
+
+    &lt;p&gt;Unidade: Weber (Wb).&lt;/p&gt;
+
+    &lt;p&gt;Função no transformador: O fluxo magnético varia ao longo do tempo devido à corrente alternada e é o responsável por induzir tensão no enrolamento secundário (pela Lei de Faraday).&lt;/p&gt;
+
+    &lt;p&gt;🧠 Relação com o campo magnético:&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;\Phi = B \cdot A
+]
+Onde:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ΦΦ é o fluxo magnético,
+
+BB é a densidade de fluxo magnético,
+
+AA é a área pela qual o fluxo passa.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Densidade de Fluxo Magnético (B)&lt;/p&gt;
+
+    &lt;p&gt;O que é: É o fluxo magnético por unidade de área — ou seja, o “congestionamento” do fluxo em uma determinada área.&lt;/p&gt;
+
+    &lt;p&gt;Unidade: Tesla (T), onde 1 T=1 Wb/m21T=1Wb/m2.&lt;/p&gt;
+
+    &lt;p&gt;Função no transformador: A densidade de fluxo determina o nível de magnetização do núcleo. Se for muito alta, o núcleo pode saturar (parar de responder eficientemente ao aumento do campo magnético).&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Comparando os Três Conceitos:
+Conceito	Símbolo	Unidade	Representa o quê?
+Campo magnético	HH	A/m	Causa: criado por corrente elétrica
+Fluxo magnético	ΦΦ	Weber (Wb)	Efeito: quantidade total de magnetismo
+Densidade de fluxo magnético	BB	Tesla (T)	Intensidade do fluxo por área
+No transformador:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Corrente alternada no primário → gera campo magnético HH.
+
+O campo HH → gera fluxo magnético ΦΦ no núcleo.
+
+O fluxo ΦΦ concentrado na área do núcleo → cria uma densidade BB.
+
+A variação de ΦΦ no tempo → induz tensão no secundário, pela Lei de Faraday.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Se quiser, posso ilustrar isso com um diagrama. Deseja?
+Você disse:
+mas o H é ampere por metro e o fluxo é por área
+O ChatGPT disse:&lt;/p&gt;
+
+&lt;p&gt;Ótima observação! Vamos esclarecer esse ponto com mais cuidado, porque é justamente aí que muita gente se confunde.
+✅ Sim, o campo magnético HH é medido em ampère por metro (A/m),&lt;/p&gt;
+
+&lt;p&gt;e o fluxo magnético ΦΦ é em weber (Wb), que representa uma quantidade total de linhas de campo atravessando uma área.
+⚠️ Mas aqui está o ponto importante:&lt;/p&gt;
+
+&lt;p&gt;Eles não são diretamente proporcionais nem têm as mesmas dimensões, mas estão relacionados por meio de propriedades do material (como permeabilidade) e da geometria do sistema.
+Vamos por partes, com analogia:&lt;/p&gt;
+
+&lt;p&gt;Imagine o campo magnético como a pressão da água (força por área) que empurra a água por um cano.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HH (campo magnético) → é como a pressão da água: uma medida da força que &quot;tenta criar&quot; um fluxo.
+
+BB (densidade de fluxo magnético) → é como a quantidade de água passando por metro quadrado do cano.
+
+ΦΦ (fluxo magnético) → é a quantidade total de água passando pelo cano inteiro (ou seja, B⋅AB⋅A).
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Relações Matemáticas&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Entre HH e BB:
+B=μ⋅H
+B=μ⋅H
+
+Onde:
+
+    BB: Densidade de fluxo magnético (T ou Wb/m²)
+
+    HH: Campo magnético (A/m)
+
+    μμ: Permeabilidade magnética do material (H/m)
+
+    Isso mostra que o campo HH não depende da área, mas do material e da corrente.
+
+Entre BB e ΦΦ:
+Φ=B⋅A
+Φ=B⋅A
+
+Onde:
+
+    ΦΦ: Fluxo magnético total (Wb)
+
+    AA: Área da seção transversal do núcleo (m²)
+
+    Aqui sim o fluxo depende da área: quanto maior a área, maior o fluxo para uma mesma densidade BB.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Recapitulando de forma simples:
+Grandeza	Símbolo	Unidade	Depende de quê?	Papel no transformador
+Campo magnético	HH	A/m	Corrente e geometria do enrolamento	Gera o magnetismo no núcleo
+Densidade de fluxo	BB	T = Wb/m²	Campo HH e material do núcleo	Mostra o quanto de fluxo por área existe
+Fluxo magnético	ΦΦ	Wb	Densidade BB e área	É o “total de magnetismo” que induz tensão&lt;/p&gt;
+
+&lt;p&gt;Se você quiser, posso montar um exemplo numérico com valores reais para mostrar essas relações em ação. Deseja?
+Você disse:
+H seria um ponto no espaço?
+O ChatGPT disse:&lt;/p&gt;
+
+&lt;p&gt;Sim, exatamente — o campo magnético HH é uma grandeza vetorial definida ponto a ponto no espaço.
+📌 O que isso significa?&lt;/p&gt;
+
+&lt;p&gt;O valor de HH pode variar de um ponto para outro em um espaço tridimensional, assim como a temperatura ou a velocidade do vento podem mudar em diferentes lugares.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Em cada ponto do espaço, H⃗H
+
+tem:
+
+    Módulo (intensidade, em A/m),
+
+    Direção e sentido (indicando para onde o campo &quot;empurra&quot; o magnetismo).
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;🧭 Analogia:&lt;/p&gt;
+
+&lt;p&gt;Imagine um campo de vento. Em cada ponto do espaço:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;O vento pode soprar com diferente intensidade,
+
+Em diferente direção.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Assim também é o campo magnético HH:
+Ele existe em cada ponto do espaço ao redor de um condutor ou dentro do núcleo de um transformador.
+🧲 No transformador:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Dentro do núcleo, o campo HH está fortemente concentrado e quase uniforme ao longo do caminho magnético.
+
+Fora do núcleo, existe algum HH, mas ele se dispersa e é muito mais fraco (isso é chamado de fluxo de dispersão).
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;💡 Resumo:
+Conceito	HH como campo pontual
+Tipo de grandeza	Vetorial
+Varia no espaço?	Sim
+Unidade	A/m
+Causa	Corrente elétrica nos enrolamentos
+Onde ele existe?	Em todo ponto do espaço, mas concentrado no núcleo&lt;/p&gt;
+
+&lt;p&gt;Se quiser, posso mostrar visualmente como o HH se distribui em um transformador, com linhas de campo ou vetores. Deseja isso?
+Você disse:
+o campo magnético de um indutor é proporcional a que?
+O ChatGPT disse:&lt;/p&gt;
+
+&lt;p&gt;Ótima pergunta! O campo magnético de um indutor está diretamente ligado à corrente elétrica que passa por ele.
+✅ Resposta curta:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;O campo magnético HH de um indutor é proporcional à corrente II que circula por seu enrolamento.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;📘 Mais precisamente:&lt;/p&gt;
+
+&lt;p&gt;No caso de um indutor ideal com núcleo magnético (como ferro ou ferrite), a intensidade do campo magnético HH é dada por:
+H=N⋅Il
+H=lN⋅I​&lt;/p&gt;
+
+&lt;p&gt;Onde:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HH: campo magnético (A/m)
+
+NN: número de espiras do enrolamento
+
+II: corrente elétrica (A)
+
+ll: comprimento do caminho magnético (m)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;🔄 Relações associadas:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Densidade de fluxo magnético BB:
+B=μ⋅H=μ⋅N⋅Il
+B=μ⋅H=μ⋅lN⋅I​
+
+Onde μμ é a permeabilidade magnética do material.
+
+Fluxo magnético total ΦΦ:
+Φ=B⋅A=μ⋅N⋅Il⋅A
+Φ=B⋅A=μ⋅lN⋅I​⋅A
+
+Indutância LL:
+A energia magnética armazenada está ligada à indutância:
+L=N2⋅μ⋅Al
+L=lN2⋅μ⋅A​
+
+(para núcleo linear e homogêneo)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;🔎 Então, o campo magnético HH de um indutor depende de:
+Fator	Efeito
+Corrente elétrica II	Quanto maior a corrente, maior o HH
+Número de espiras NN	Mais espiras → campo mais intenso
+Comprimento do núcleo ll	Núcleo mais curto → campo mais intenso
+Distribuição geométrica	Se as espiras estão bem distribuídas, o campo é mais uniforme&lt;/p&gt;
+
+&lt;p&gt;Se você quiser, posso te ajudar a calcular o campo de um indutor específico com valores reais (como um toroide ou solenóide). Deseja um exemplo prático?
+Você disse:
+a indutancia é proporcional ao quadro de N mas H não?
+O ChatGPT disse:&lt;/p&gt;
+
+&lt;p&gt;Exatamente! 👏 Você entendeu corretamente, e essa diferença é crucial.&lt;/p&gt;
+
+&lt;p&gt;Vamos explicar com clareza:
+🔹 Campo magnético HH&lt;/p&gt;
+
+&lt;p&gt;A fórmula básica é:
+H=N⋅Il
+H=lN⋅I​&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Proporcional a NN (número de espiras)
+
+Proporcional a II (corrente)
+
+Inversamente proporcional a ll (comprimento do caminho magnético)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;✅ HH cresce linearmente com NN
+👉 Se dobrar o número de espiras, você dobra o campo magnético (mantendo a corrente constante).
+🔸 Indutância LL&lt;/p&gt;
+
+&lt;p&gt;A fórmula para a indutância de um enrolamento (como um toroide ou solenóide ideal) é:
+L=N2⋅μ⋅Al
+L=lN2⋅μ⋅A​&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Proporcional a N2N2
+
+Proporcional à permeabilidade μμ
+
+Proporcional à área da seção transversal AA
+
+Inversamente proporcional ao comprimento ll
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;✅ LL cresce com o quadrado de NN
+👉 Se dobrar o número de espiras, a indutância quadruplica.
+🎯 Comparando:
+Grandeza	Fórmula principal	Depende de NN como?
+Campo magnético HH	N⋅IllN⋅I​	Linearmente
+Indutância LL	N2⋅μ⋅AllN2⋅μ⋅A​	Quadraticamente (N2N2)
+🧠 Intuição:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HH mede o &quot;campo gerado&quot; instantaneamente por uma corrente.
+
+LL mede a capacidade de armazenar energia magnética — e mais espiras fazem essa capacidade crescer rapidamente.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Se quiser, posso montar um exemplo com valores reais para ilustrar essa diferença. Deseja?
+Você disse:
+sim
+O ChatGPT disse:&lt;/p&gt;
+
+&lt;p&gt;Perfeito! Vamos montar um exemplo prático para ilustrar a diferença entre como o campo magnético HH e a indutância LL dependem do número de espiras NN.
+⚙️ Suponha o seguinte indutor toroidal:
+Parâmetro	Valor
+Tipo	Toroide com núcleo de ferro
+Comprimento do caminho magnético ll	0,2 m0,2m
+Área da seção AA	2×10−4 m22×10−4m2
+Permeabilidade μ=μ0⋅μrμ=μ0​⋅μr​	4π×10−7⋅1000 H/m4π×10−7⋅1000H/m
+Corrente II	1 A1A&lt;/p&gt;
+
+&lt;p&gt;Vamos variar o número de espiras NN e ver o que acontece com HH e LL.
+🔢 Cálculos
+Fórmulas:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;H=N⋅IlH=lN⋅I​
+
+L=N2⋅μ⋅AlL=lN2⋅μ⋅A​
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;📊 Tabela de resultados
+NN	H=N⋅IlH=lN⋅I​ (A/m)	L=N2⋅μ⋅AlL=lN2⋅μ⋅A​ (H)
+10	10/0,2=5010/0,2=50	100⋅μ⋅All100⋅μ⋅A​
+20	100100	4×valor anterior4×valor anterior
+40	200200	16×valor inicial16×valor inicial
+Vamos calcular com os valores:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;μ=4π⋅10−7⋅1000=1,2566×10−3 H/mμ=4π⋅10−7⋅1000=1,2566×10−3H/m
+
+A=2×10−4 m2A=2×10−4m2
+
+l=0,2 ml=0,2m
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Para N=10N=10:
+L=102⋅1,2566×10−3⋅2×10−40,2=100⋅2,5132×10−70,2=2,5132×10−50,2=1,2566×10−4 H
+L=0,2102⋅1,2566×10−3⋅2×10−4​=0,2100⋅2,5132×10−7​=0,22,5132×10−5​=1,2566×10−4H
+Para N=20N=20:
+L=4⋅1,2566×10−4=5,0264×10−4 H
+L=4⋅1,2566×10−4=5,0264×10−4H
+Para N=40N=40:
+L=16⋅1,2566×10−4=2,0106×10−3 H
+L=16⋅1,2566×10−4=2,0106×10−3H
+🔍 Observações:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;O campo magnético HH dobra quando NN dobra.
+
+A indutância LL quadruplica quando NN dobra.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;✅ Conclusão:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;H∝NH∝N
+
+L∝N2L∝N2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Isso mostra por que aumentar o número de espiras aumenta muito mais a capacidade de armazenar energia magnética (L) do que o campo gerado instantaneamente HH.&lt;/p&gt;
+
+&lt;p&gt;Se quiser, posso plotar um gráfico comparando os dois — deseja isso?
+Você disse:
+quando a corrente em um indutor é desligado o campo não cessa ?
+O ChatGPT disse:&lt;/p&gt;
+
+&lt;p&gt;Excelente pergunta — e não, o campo magnético de um indutor não cessa instantaneamente quando a corrente é desligada. Isso é uma característica fundamental dos indutores e tem consequências importantes.
+✅ O que acontece quando a corrente é desligada?
+📌 Indutores resistem a variações bruscas de corrente.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Quando você tenta cortar a corrente de forma repentina, o indutor reage tentando manter essa corrente fluindo.
+
+Isso ocorre porque o campo magnético armazenado no núcleo (ou ao redor do enrolamento) representa energia, e essa energia não pode desaparecer instantaneamente (lei da conservação da energia).
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;⚡ O que o indutor faz?&lt;/p&gt;
+
+&lt;p&gt;Quando a corrente cai bruscamente:
+V=L⋅dIdt
+V=L⋅dtdI​&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Se dIdtdtdI​ (a taxa de variação da corrente) for muito alta, a tensão induzida VV pode ser enorme.
+
+O indutor cria uma alta tensão nos terminais para tentar manter a corrente fluindo.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;🔥 Efeitos práticos:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Essa tensão pode ser alta o suficiente para gerar faíscas (arcos elétricos) se o circuito for aberto mecanicamente (ex: ao desligar um relé).
+
+Pode até danificar componentes se não houver um diodo de flyback ou algum caminho seguro para essa corrente.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;🧲 Sobre o campo magnético:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;O campo magnético não desaparece imediatamente — ele colapsa gradualmente, enquanto a corrente decai.
+
+Esse colapso é o que gera a tensão induzida.
+
+O tempo que o campo leva para sumir depende da indutância LL e da resistência RR no circuito:
+τ=LR
+τ=RL​
+
+Esse é o tempo característico da descarga.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;📉 Exemplo visual:&lt;/p&gt;
+
+&lt;p&gt;Ao desligar a corrente, a curva da corrente ao longo do tempo segue uma exponencial decrescente:
+I(t)=I0⋅e−t/τ
+I(t)=I0​⋅e−t/τ
+✅ Conclusão:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;O campo magnético não cessa instantaneamente.
+
+Ele decai gradualmente, enquanto a energia magnética se converte em corrente induzida.
+
+Um indutor &quot;luta&quot; contra mudanças rápidas de corrente — essa é sua função essencial.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Se quiser, posso simular essa curva ou mostrar como ela se parece em um gráfico real. Deseja?
+Você disse:
+se não houver resistência ele nunca cai?
+O ChatGPT disse:&lt;/p&gt;
+
+&lt;p&gt;Excelente continuação da pergunta — e a resposta é muito interessante do ponto de vista teórico e prático.
+🧠 Teoricamente: Sim, se não houver nenhuma resistência no circuito (R = 0), a corrente nunca decai e o campo magnético persiste indefinidamente.&lt;/p&gt;
+
+&lt;p&gt;Vamos ver por quê:
+📘 Circuito puramente indutivo (ideal):&lt;/p&gt;
+
+&lt;p&gt;Imagine um circuito com:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Um indutor ideal de indutância LL
+
+Nenhuma resistência (R = 0)
+
+Uma fonte de corrente é ligada e depois desconectada sem dissipar energia
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;O que diz a equação diferencial?&lt;/p&gt;
+
+&lt;p&gt;A equação de um circuito RL é:
+V=L⋅dIdt+R⋅I
+V=L⋅dtdI​+R⋅I&lt;/p&gt;
+
+&lt;p&gt;Se R=0R=0, a equação vira:
+V=L⋅dIdt
+V=L⋅dtdI​&lt;/p&gt;
+
+&lt;p&gt;E se não há mais tensão aplicada (V = 0), então:
+dIdt=0⇒I(t)=constante
+dtdI​=0⇒I(t)=constante&lt;/p&gt;
+
+&lt;p&gt;Ou seja:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;A corrente não muda no tempo
+
+O campo magnético permanece constante
+
+A energia magnética fica armazenada no campo do indutor
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;⚠️ Mas… na prática?&lt;/p&gt;
+
+&lt;p&gt;Não existe um circuito com resistência absolutamente zero. Sempre haverá alguma resistência no fio, no indutor ou no ambiente (mesmo que mínima).
+🧨 Resultado realista:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Com R&amp;gt;0R&amp;gt;0, por menor que seja, a energia vai se dissipar aos poucos (normalmente em forma de calor).
+
+O campo decai gradualmente, com um tempo característico τ=LRτ=RL​.
+
+A corrente nunca é eterna em sistemas reais.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;🔄 Exceção especial: supercondutores&lt;/p&gt;
+
+&lt;p&gt;Em circuitos supercondutores (como em experimentos de laboratório ou aplicações em física quântica):&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;A resistência é realmente zero
+
+Correntes circulam por anos sem cair
+
+O campo magnético se mantém estável (campo &quot;preso&quot; no indutor)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;🔬 Isso é usado, por exemplo, em:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Imãs de ressonância magnética (MRI)
+
+Experimentos em física de partículas
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;✅ Conclusão:
+Situação	O que acontece com o campo magnético?
+Circuito ideal sem resistência	O campo permanece constante para sempre
+Circuito real com resistência	O campo decai exponencialmente
+Supercondutor real	O campo pode durar anos ou indefinidamente&lt;/p&gt;
+
+&lt;p&gt;Se quiser, posso plotar um gráfico comparando os dois casos (com e sem resistência). Deseja isso?
+Você disse:
+como assim a corrente não muda no tempo? não há corrente em circuito aberto
+O ChatGPT disse:&lt;/p&gt;
+
+&lt;p&gt;Perfeito — você pegou um ponto crucial. Vamos esclarecer isso com precisão, porque é aí que muitas pessoas confundem os modelos teóricos ideais com a realidade física dos circuitos.
+✅ Sua afirmação está correta:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&quot;Não há corrente em circuito aberto.&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Isso é absolutamente verdade.
+Corrente elétrica só flui quando existe um caminho fechado (circuito completo) para os elétrons se moverem.
+🧠 Então por que dizemos que “a corrente não muda com o tempo” no circuito puramente indutivo?&lt;/p&gt;
+
+&lt;p&gt;Essa frase se aplica somente ao modelo teórico de um circuito fechado e puramente indutivo (sem resistência), depois que a fonte é desligada, mas o circuito ainda está fechado.
+Vamos dividir os casos claramente:
+🔹 Caso 1: Circuito indutivo ainda fechado, mas sem fonte&lt;/p&gt;
+
+&lt;p&gt;Imagine:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Um indutor ideal LL
+
+Inicialmente alimentado por uma fonte VV, que gerou uma corrente I0I0​
+
+Depois a fonte é desconectada, mas o circuito permanece fechado (por exemplo, curto-circuitando os terminais do indutor)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Resultado:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Sem resistência (R=0)(R=0), a equação L⋅dIdt=0⇒I(t)=I0L⋅dtdI​=0⇒I(t)=I0​
+
+A corrente continua fluindo eternamente nesse anel fechado
+
+O campo magnético se mantém constante
+
+Isso é teoricamente possível, ou praticamente realizável com supercondutores
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;🔸 Caso 2: Circuito aberto após desligar a fonte&lt;/p&gt;
+
+&lt;p&gt;Imagine:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Você abre o circuito logo após desligar a fonte
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Resultado:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Não há mais caminho para a corrente circular
+
+Corrente cai imediatamente a zero
+
+MAS o indutor não aceita isso facilmente
+
+O indutor tenta manter a corrente fluindo, então ele induz uma alta tensão nos terminais, tentando &quot;forçar&quot; a corrente a continuar.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Se não houver caminho alternativo (como um diodo de flyback, resistor, ou arco elétrico), essa tensão pode:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Subir rapidamente a valores muito altos (centenas ou milhares de volts)
+
+Romper o ar (formando uma faísca)
+
+Danificar componentes sensíveis
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;📌 Moral da história:
+Situação	Corrente permanece?	Campo permanece?	Observações
+Circuito fechado, sem resistência	Sim, constante	Sim	Modelo ideal ou supercondutor
+Circuito aberto após desligamento	Não	Não	Corrente cai, mas campo tenta se manter via tensão induzida
+Circuito fechado com resistência	Decai exponencialmente	Decai junto	Caso mais comum (RL)&lt;/p&gt;
+
+&lt;p&gt;Se quiser, posso mostrar com gráficos como a corrente e a tensão se comportam em cada cenário. Deseja isso?&lt;/p&gt;</content><author><name>Fábio</name></author><category term="eletrônica" /><category term="fonte" /><category term="chaveada," /><category term="transformador," /><category term="flyback" /><summary type="html">Bobinas e campo magnético</summary></entry></feed>
