@@ -63,7 +63,9 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-PY9DT1RWSW');
 </script>
-
+<script>
+  function $(id) { return document.getElementById(id); }
+</script>
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -420,7 +422,7 @@ Porém como muitos datasets instructs achados por ai tem conteúdo safe o modelo
       <div>
         <p class="heading"><strong>Veja Também:</strong></p>
         <a href="/energia/LVDC/"><small>LVDC: A Revolução Silenciosa na Distribuição de Energia para Data Centers e Edifícios - Energia</small></br></a>
-        <a href="/en/app/qr-code-generator/"><small>QR Code Generator</small></a>
+        <a href="/pt/eletr%C3%B4nica/projeto-transformador-flyback-viper12a/"><small>Calculo de transformador flyback para Viper12A - Eletrônica</small></a>
       </div>
     </div>
   </nav>
@@ -476,4 +478,115 @@ Porém como muitos datasets instructs achados por ai tem conteúdo safe o modelo
     </nav>
 </footer>
 </body>
+
+<script>
+    class MiniSheet {
+
+  constructor(containerId) {
+
+    this.container = document.getElementById(containerId)
+    this.fields = {}
+
+    this.functions = {
+      SUM: (...a)=>a.reduce((s,v)=>s+v,0),
+      ROUND: (v,p=0)=>Number(v.toFixed(p)),
+      MIN: (...a)=>Math.min(...a),
+      MAX: (...a)=>Math.max(...a),
+      IF: (c,a,b)=>c?a:b
+    }
+
+    this.container.querySelectorAll('[id]').forEach(el=>{
+      const id = el.id
+      const formula = el.getAttribute('formula')
+
+      this.fields[id] = {el, formula}
+
+      if(!formula){
+        if(el.tagName=="INPUT"||el.tagName=="SELECT"||el.tagName=="TEXTAREA"){
+          el.addEventListener('input', ()=>this.recalculate())
+        }
+      }
+    })
+
+    this.recalculate()
+  }
+
+  readValue(el){
+
+    if(el.tagName=="INPUT"||el.tagName=="SELECT"||el.tagName=="TEXTAREA"){
+      return parseFloat(el.value)||0
+    }
+
+    return parseFloat(el.textContent)||0
+  }
+
+  writeValue(el,val){
+
+    if(el.tagName=="INPUT"||el.tagName=="SELECT"||el.tagName=="TEXTAREA"){
+      el.value = val
+    }else{
+      el.textContent = val
+    }
+  }
+
+  buildContext(){
+
+    const ctx = {...this.functions}
+
+    for(const id in this.fields){
+      ctx[id] = this.readValue(this.fields[id].el)
+    }
+
+    return ctx
+  }
+
+  recalculate(){
+
+    const maxLoop = 10
+
+    for(let i=0;i<maxLoop;i++){
+
+      const ctx = this.buildContext()
+
+      let changed = false
+
+      for(const id in this.fields){
+
+        const f = this.fields[id]
+
+        if(!f.formula) continue
+
+        try{
+
+          const fn = new Function(...Object.keys(ctx),`return ${f.formula}`)
+
+          const val = fn(...Object.values(ctx))
+
+          const current = this.readValue(f.el)
+
+          if(current!=val){
+
+            this.writeValue(f.el,val)
+
+            changed = true
+
+          }
+
+        }catch(e){
+
+          this.writeValue(f.el,"ERR")
+
+        }
+
+      }
+
+      if(!changed) break
+    }
+  }
+}
+
+document.addEventListener("DOMContentLoaded",()=>{
+  new MiniSheet("sheet")
+})
+</script>
 </html>

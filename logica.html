@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lógica — dedução no navegador</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js" async></script>
+<style>
+  :root{
+    --ink:#0D1210;
+    --panel:#131C18;
+    --panel-2:#1B2621;
+    --input:#101815;
+    --paper:#E7E2D2;
+    --paper-dim:#93A395;
+    --amber:#E4A83C;
+    --amber-dim:#8A6A2C;
+    --moss:#83AE87;
+    --rust:#C1573A;
+    --rule:#28352E;
+    --radius:3px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'IBM Plex Mono', ui-monospace, monospace;
+    min-height:100vh;
+    line-height:1.5;
+  }
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    pointer-events:none;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(255,255,255,0.012) 0px, rgba(255,255,255,0.012) 1px, transparent 1px, transparent 3px);
+    z-index:50;
+    mix-blend-mode:overlay;
+  }
+  a{color:var(--amber);}
+
+  .wrap{max-width:1180px; margin:0 auto; padding:0 28px 64px;}
+
+  header{
+    padding:40px 0 26px;
+    border-bottom:1px solid var(--rule);
+    margin-bottom:28px;
+  }
+  .wordmark{
+    font-family:'Fraunces', serif;
+    font-optical-sizing:auto;
+    font-weight:560;
+    font-size:clamp(2.6rem, 6vw, 4.2rem);
+    letter-spacing:-0.01em;
+    color:var(--paper);
+    margin:0;
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+  }
+  .wordmark .cursor{
+    display:inline-block;
+    width:0.42em; height:0.62em;
+    background:var(--amber);
+    animation:blink 1.15s steps(1) infinite;
+    transform:translateY(0.06em);
+  }
+  @keyframes blink{ 0%,45%{opacity:1;} 50%,95%{opacity:0;} 100%{opacity:1;} }
+  .tagline{
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--paper-dim);
+    font-size:0.92rem;
+    margin:10px 0 0;
+    max-width:70ch;
+  }
+  .tagline b{color:var(--amber-dim); font-weight:600;}
+
+  .board{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:22px;
+    align-items:start;
+  }
+  @media (max-width: 880px){ .board{grid-template-columns:1fr;} }
+
+  .pane{
+    background:var(--panel);
+    border:1px solid var(--rule);
+    border-radius:var(--radius);
+    display:flex;
+    flex-direction:column;
+    min-height:420px;
+  }
+  .pane-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    padding:14px 16px;
+    border-bottom:1px solid var(--rule);
+    flex-wrap:wrap;
+  }
+  .pane-title{
+    font-family:'Fraunces', serif;
+    font-weight:560;
+    font-size:1.18rem;
+    color:var(--paper);
+    margin:0;
+  }
+  .pane-tools{ display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+
+  select, button, input[type=text]{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.85rem;
+    border-radius:var(--radius);
+    border:1px solid var(--rule);
+    background:var(--panel-2);
+    color:var(--paper);
+    padding:7px 10px;
+  }
+  select{ cursor:pointer; }
+  select:focus, input[type=text]:focus, textarea:focus{
+    outline:none; border-color:var(--amber-dim);
+  }
+  button{
+    cursor:pointer;
+    color:var(--paper);
+    transition:border-color .15s ease, color .15s ease, background .15s ease;
+  }
+  button:hover{ border-color:var(--amber-dim); color:var(--amber); }
+  button:active{ transform:translateY(1px); }
+  button:disabled{ opacity:0.4; cursor:default; }
+  button.primary{
+    background:var(--amber);
+    color:#1B1305;
+    border-color:var(--amber);
+    font-weight:600;
+  }
+  button.primary:hover{ background:#EEB958; color:#1B1305; border-color:#EEB958; }
+  button.ghost{ background:transparent; }
+  button.kbtn{
+    min-width:2.1em;
+    text-align:center;
+    padding:6px 8px;
+    font-size:0.95rem;
+  }
+  label.switch{
+    display:flex; align-items:center; gap:6px;
+    font-size:0.82rem; color:var(--paper-dim);
+    cursor:pointer; user-select:none;
+  }
+  label.switch input{ accent-color:var(--amber); }
+
+  .editor{
+    display:flex;
+    min-height:150px;
+    max-height:230px;
+    overflow:hidden;
+    border-bottom:1px solid var(--rule);
+  }
+  .gutter{
+    font-size:0.85rem;
+    color:#4B5A50;
+    text-align:right;
+    padding:14px 10px 14px 14px;
+    user-select:none;
+    background:var(--panel);
+    border-right:1px solid var(--rule);
+    overflow:hidden;
+    white-space:pre;
+    line-height:1.6;
+  }
+  textarea#premises{
+    flex:1;
+    resize:none;
+    border:none;
+    background:var(--input);
+    color:var(--paper);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.85rem;
+    line-height:1.6;
+    padding:14px 16px;
+  }
+  textarea#premises:focus{ outline:none; }
+
+  .concl-row{
+    display:flex; align-items:center; gap:8px;
+    padding:12px 16px;
+    border-bottom:1px solid var(--rule);
+  }
+  .concl-row .prompt{ color:var(--amber); font-weight:600; white-space:nowrap; }
+  .concl-row input[type=text]{ flex:1; }
+
+  .kb-row{
+    display:flex; gap:6px; flex-wrap:wrap;
+    padding:10px 16px;
+    border-bottom:1px solid var(--rule);
+    background:var(--panel-2);
+  }
+
+  .preview{
+    padding:14px 16px;
+    min-height:64px;
+    font-size:0.95rem;
+    color:var(--paper);
+    overflow-x:auto;
+  }
+  .preview .dim{ color:var(--paper-dim); font-size:0.82rem; }
+
+  .status-row{
+    padding:10px 16px;
+    border-top:1px solid var(--rule);
+    font-size:0.82rem;
+    min-height:38px;
+    display:flex;
+    align-items:center;
+    color:var(--paper-dim);
+    margin-top:auto;
+  }
+  .status-row.ok{ color:var(--moss); }
+  .status-row.err{ color:var(--rust); }
+
+  .console{
+    flex:1;
+    padding:14px 16px;
+    overflow-y:auto;
+    min-height:340px;
+    max-height:640px;
+    font-size:0.85rem;
+  }
+  .console .empty{ color:var(--paper-dim); }
+  .line-seq{ color:var(--paper); margin-bottom:10px; font-size:1rem; }
+  .line-verdict{ font-weight:600; font-size:1.05rem; margin:6px 0 10px; }
+  .line-verdict.ok{ color:var(--moss); }
+  .line-verdict.err{ color:var(--rust); }
+  .line-verdict.warn{ color:var(--amber); }
+  .line-step{ color:var(--paper); white-space:pre-wrap; word-break:break-word; margin:2px 0; }
+  .line-rule{ color:var(--paper-dim); }
+  .line-close{ color:var(--rust); margin:4px 0; }
+  .line-open{ color:var(--moss); margin:4px 0; white-space:pre-wrap; }
+  .line-unknown{ color:var(--amber); margin:4px 0; }
+  .line-branch-head{ color:var(--amber); margin:10px 0 2px; }
+  .branch-block{ border-left:2px solid var(--rule); padding-left:14px; margin:4px 0 8px 6px; }
+  .turn{ margin-bottom:20px; padding-bottom:16px; border-bottom:1px dashed var(--rule); }
+  .turn:last-child{ border-bottom:none; }
+
+  footer{
+    margin-top:40px;
+    padding-top:22px;
+    border-top:1px solid var(--rule);
+    color:var(--paper-dim);
+    font-size:0.86rem;
+    max-width:82ch;
+  }
+  footer p{ margin:0 0 12px; }
+  footer code{ color:var(--paper); background:var(--panel-2); padding:1px 5px; border-radius:2px; }
+
+  ::-webkit-scrollbar{ width:10px; height:10px; }
+  ::-webkit-scrollbar-track{ background:var(--panel); }
+  ::-webkit-scrollbar-thumb{ background:var(--rule); border-radius:6px; }
+  ::-webkit-scrollbar-thumb:hover{ background:var(--amber-dim); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <p class="wordmark">Lógica<span class="cursor" aria-hidden="true"></span></p>
+    <p class="tagline">Prova de argumentos em <b>lógica proposicional</b>, <b>lógica de primeira ordem</b> e <b>lógica de segunda ordem</b> (predicados quantificáveis) — dedução automática por regras de tableaux (introdução/eliminação de conectivos e quantificadores), rodando inteiramente no navegador.</p>
+  </header>
+
+  <div class="board">
+
+    <section class="pane">
+      <div class="pane-head">
+        <h2 class="pane-title">Premissas &amp; conclusão</h2>
+        <div class="pane-tools">
+          <select id="systemSelect">
+            <option value="all">todos os níveis</option>
+            <option value="prop">proposicional</option>
+            <option value="fol">primeira ordem</option>
+            <option value="sol">segunda ordem</option>
+          </select>
+          <select id="exampleSelect"><option value="">exemplos…</option></select>
+        </div>
+      </div>
+
+      <div class="editor">
+        <div class="gutter" id="gutter">1</div>
+        <textarea id="premises" spellcheck="false" placeholder="uma premissa por linha, ex.:
+∀x (Homem(x) → Mortal(x))
+Homem(socrates)"></textarea>
+      </div>
+
+      <div class="concl-row">
+        <span class="prompt">⊢</span>
+        <input type="text" id="conclusion" placeholder="conclusão (deixe em branco para checar consistência das premissas)">
+      </div>
+
+      <div class="kb-row" id="kbRow"></div>
+
+      <div class="preview" id="preview"><span class="dim">a fórmula renderizada aparece aqui…</span></div>
+
+      <div class="pane-tools" style="padding:0 16px 14px;">
+        <button class="primary" id="proveBtn">Provar</button>
+        <button class="ghost" id="clearAllBtn">limpar tudo</button>
+        <label class="switch"><input type="checkbox" id="verboseToggle" checked> dedução verbosa</label>
+      </div>
+
+      <div class="status-row" id="status">pronto.</div>
+    </section>
+
+    <section class="pane">
+      <div class="pane-head">
+        <h2 class="pane-title">Dedução</h2>
+        <div class="pane-tools">
+          <button class="ghost" id="clearConsoleBtn">limpar console</button>
+        </div>
+      </div>
+      <div class="console" id="console"><p class="empty">o resultado da prova aparece aqui.</p></div>
+    </section>
+
+  </div>
+
+  <footer id="footerNote"></footer>
+</div>
+
+<script>
+/* =========================================================================
+   LÓGICA — motor de fórmulas (proposicional / 1ª ordem / 2ª ordem)
+   e dedução por tableaux analíticos (método de refutação).
+   ========================================================================= */
+
+/* ---------------------------- 1. LEXER ---------------------------- */
+
+function tokenize(src){
+  const toks = [];
+  let i = 0; const n = src.length;
+  const isIdentStart = c => /[A-Za-z_]/.test(c);
+  const isIdentPart = c => /[A-Za-z0-9_']/.test(c);
+  const LATEX = {
+    neg:'NOT', lnot:'NOT',
+    land:'AND', wedge:'AND',
+    lor:'OR', vee:'OR',
+    to:'IMP', rightarrow:'IMP', implies:'IMP',
+    leftrightarrow:'IFF', iff:'IFF',
+    forall:'FORALL', exists:'EXISTS',
+    bot:'FALSE', top:'TRUE'
+  };
+  while(i < n){
+    const c = src[i];
+    if (/\s/.test(c)){ i++; continue; }
+    if (c === '%'){ while(i<n && src[i] !== '\n') i++; continue; }
+    if (c === '('){ toks.push({t:'LP'}); i++; continue; }
+    if (c === ')'){ toks.push({t:'RP'}); i++; continue; }
+    if (c === ','){ toks.push({t:'COMMA'}); i++; continue; }
+    if (src.startsWith('<->', i)){ toks.push({t:'IFF'}); i+=3; continue; }
+    if (src.startsWith('->', i)){ toks.push({t:'IMP'}); i+=2; continue; }
+    if (src.startsWith('=>', i)){ toks.push({t:'IMP'}); i+=2; continue; }
+    if (src.startsWith('/\\', i)){ toks.push({t:'AND'}); i+=2; continue; }
+    if (src.startsWith('\\/', i)){ toks.push({t:'OR'}); i+=2; continue; }
+    if (c === '\\'){
+      let j = i+1, s='';
+      while (j<n && /[A-Za-z]/.test(src[j])){ s += src[j]; j++; }
+      if (LATEX[s]){ toks.push({t:LATEX[s]}); i=j; continue; }
+      throw new Error('comando desconhecido: \\' + s);
+    }
+    if (c === '¬' || c === '~' || c === '!'){ toks.push({t:'NOT'}); i++; continue; }
+    if (c === '∧' || c === '&' || c === '^'){ toks.push({t:'AND'}); i++; continue; }
+    if (c === '∨' || c === '|'){ toks.push({t:'OR'}); i++; continue; }
+    if (c === '→'){ toks.push({t:'IMP'}); i++; continue; }
+    if (c === '↔'){ toks.push({t:'IFF'}); i++; continue; }
+    if (c === '∀'){ toks.push({t:'FORALL'}); i++; continue; }
+    if (c === '∃'){ toks.push({t:'EXISTS'}); i++; continue; }
+    if (c === '⊥'){ toks.push({t:'FALSE'}); i++; continue; }
+    if (c === '⊤'){ toks.push({t:'TRUE'}); i++; continue; }
+    if (isIdentStart(c)){
+      let j=i, s='';
+      while (j<n && isIdentPart(src[j])){ s+=src[j]; j++; }
+      const low = s.toLowerCase();
+      if (low==='true'){ toks.push({t:'TRUE'}); i=j; continue; }
+      if (low==='false'){ toks.push({t:'FALSE'}); i=j; continue; }
+      toks.push({t:'IDENT', name:s}); i=j; continue;
+    }
+    throw new Error('símbolo inesperado "' + c + '" na posição ' + i);
+  }
+  toks.push({t:'EOF'});
+  return toks;
+}
+
+/* ---------------------------- 2. PARSER ---------------------------- */
+
+const VAR_BASES = new Set(['x','y','z','u','v','w']);
+function isVarName(name){
+  const base = name.replace(/[0-9']+$/,'').toLowerCase();
+  return /^[a-z]/.test(name) && VAR_BASES.has(base);
+}
+function isUpperName(name){ return /^[A-Z]/.test(name); }
+
+class Parser{
+  constructor(toks){ this.toks = toks; this.pos = 0; }
+  peek(){ return this.toks[this.pos]; }
+  next(){ return this.toks[this.pos++]; }
+  expect(t){ if (this.peek().t !== t) throw new Error('esperado ' + t + ', encontrado ' + this.peek().t); return this.next(); }
+
+  parseFormula(){ return this.parseIff(); }
+  parseIff(){
+    let f = this.parseImp();
+    while (this.peek().t === 'IFF'){ this.next(); const g = this.parseImp(); f = {kind:'iff', a:f, b:g}; }
+    return f;
+  }
+  parseImp(){
+    const f = this.parseOr();
+    if (this.peek().t === 'IMP'){ this.next(); const g = this.parseImp(); return {kind:'imp', a:f, b:g}; }
+    return f;
+  }
+  parseOr(){
+    let f = this.parseAnd();
+    while (this.peek().t === 'OR'){ this.next(); const g = this.parseAnd(); f = {kind:'or', a:f, b:g}; }
+    return f;
+  }
+  parseAnd(){
+    let f = this.parseUnary();
+    while (this.peek().t === 'AND'){ this.next(); const g = this.parseUnary(); f = {kind:'and', a:f, b:g}; }
+    return f;
+  }
+  parseUnary(){
+    if (this.peek().t === 'NOT'){ this.next(); return {kind:'not', f:this.parseUnary()}; }
+    if (this.peek().t === 'FORALL' || this.peek().t === 'EXISTS'){
+      const q = this.next().t;
+      const nameTok = this.expect('IDENT');
+      const varName = nameTok.name;
+      const body = this.parseUnary();
+      const order = isUpperName(varName) ? 'predicate' : 'individual';
+      return {kind: q === 'FORALL' ? 'all' : 'exists', varName, f: body, order};
+    }
+    return this.parseAtomOrParen();
+  }
+  parseAtomOrParen(){
+    const p = this.peek();
+    if (p.t === 'LP'){ this.next(); const f = this.parseFormula(); this.expect('RP'); return f; }
+    if (p.t === 'TRUE'){ this.next(); return {kind:'true'}; }
+    if (p.t === 'FALSE'){ this.next(); return {kind:'false'}; }
+    if (p.t === 'IDENT'){
+      const name = this.next().name;
+      if (this.peek().t === 'LP'){ const args = this.parseTermArgs(); return {kind:'atom', name, args}; }
+      return {kind:'atom', name, args:[]};
+    }
+    throw new Error('fórmula esperada, encontrado ' + p.t);
+  }
+  parseTermArgs(){
+    this.expect('LP');
+    const args = [];
+    if (this.peek().t !== 'RP'){
+      args.push(this.parseTerm());
+      while (this.peek().t === 'COMMA'){ this.next(); args.push(this.parseTerm()); }
+    }
+    this.expect('RP');
+    return args;
+  }
+  parseTerm(){
+    const p = this.peek();
+    if (p.t === 'LP'){ this.next(); const t = this.parseTerm(); this.expect('RP'); return t; }
+    if (p.t === 'IDENT'){
+      const name = this.next().name;
+      if (this.peek().t === 'LP'){ const args = this.parseTermArgs(); return {kind:'func', name, args}; }
+      return isVarName(name) ? {kind:'var', name} : {kind:'const', name};
+    }
+    throw new Error('termo esperado, encontrado ' + p.t);
+  }
+}
+
+function parseFormulaSrc(src){
+  const p = new Parser(tokenize(src));
+  const f = p.parseFormula();
+  p.expect('EOF');
+  return f;
+}
+
+/* ---------------------------- 3. IMPRESSÃO ---------------------------- */
+
+function tstr(t){
+  if (t.kind === 'var' || t.kind === 'const') return t.name;
+  return t.name + '(' + t.args.map(tstr).join(',') + ')';
+}
+function isSimple(f){ return f.kind==='atom' || f.kind==='true' || f.kind==='false' || f.kind==='not'; }
+function fmt(f){
+  switch(f.kind){
+    case 'true': return '⊤';
+    case 'false': return '⊥';
+    case 'atom': return f.args.length ? f.name+'('+f.args.map(tstr).join(',')+')' : f.name;
+    case 'not': return '¬' + fmt(f.f);
+    case 'and': return wrap(f.a)+' ∧ '+wrap(f.b);
+    case 'or': return wrap(f.a)+' ∨ '+wrap(f.b);
+    case 'imp': return wrap(f.a)+' → '+wrap(f.b);
+    case 'iff': return wrap(f.a)+' ↔ '+wrap(f.b);
+    case 'all': return '∀'+f.varName+' '+wrap(f.f);
+    case 'exists': return '∃'+f.varName+' '+wrap(f.f);
+  }
+}
+function wrap(f){ return isSimple(f) ? fmt(f) : '('+fmt(f)+')'; }
+
+function ltex(name){ return name.length>1 ? '\\mathrm{'+name+'}' : name; }
+function ttex(t){
+  if (t.kind==='var') return t.name;
+  if (t.kind==='const') return ltex(t.name);
+  return ltex(t.name)+'('+t.args.map(ttex).join(',')+')';
+}
+function flatex(f){
+  switch(f.kind){
+    case 'true': return '\\top';
+    case 'false': return '\\bot';
+    case 'atom': return f.args.length ? ltex(f.name)+'('+f.args.map(ttex).join(',')+')' : ltex(f.name);
+    case 'not': return '\\neg ' + (isSimple(f.f)?flatex(f.f):'('+flatex(f.f)+')');
+    case 'and': return lwrap(f.a)+' \\land '+lwrap(f.b);
+    case 'or': return lwrap(f.a)+' \\lor '+lwrap(f.b);
+    case 'imp': return lwrap(f.a)+' \\to '+lwrap(f.b);
+    case 'iff': return lwrap(f.a)+' \\leftrightarrow '+lwrap(f.b);
+    case 'all': return '\\forall '+f.varName+'\\,'+(isSimple(f.f)?flatex(f.f):'('+flatex(f.f)+')');
+    case 'exists': return '\\exists '+f.varName+'\\,'+(isSimple(f.f)?flatex(f.f):'('+flatex(f.f)+')');
+  }
+}
+function lwrap(f){ return isSimple(f) ? flatex(f) : '('+flatex(f)+')'; }
+
+function escapeHtml(s){
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+/* ---------------------------- 4. SUBSTITUIÇÃO ---------------------------- */
+
+function substTermInTerm(term, varName, replTerm){
+  if (term.kind==='var') return term.name===varName ? replTerm : term;
+  if (term.kind==='const') return term;
+  return {kind:'func', name:term.name, args:term.args.map(a=>substTermInTerm(a,varName,replTerm))};
+}
+function substIndivVar(f, varName, replTerm){
+  switch(f.kind){
+    case 'atom': return {kind:'atom', name:f.name, args:f.args.map(a=>substTermInTerm(a,varName,replTerm))};
+    case 'not': return {kind:'not', f:substIndivVar(f.f,varName,replTerm)};
+    case 'and': return {kind:'and', a:substIndivVar(f.a,varName,replTerm), b:substIndivVar(f.b,varName,replTerm)};
+    case 'or': return {kind:'or', a:substIndivVar(f.a,varName,replTerm), b:substIndivVar(f.b,varName,replTerm)};
+    case 'imp': return {kind:'imp', a:substIndivVar(f.a,varName,replTerm), b:substIndivVar(f.b,varName,replTerm)};
+    case 'iff': return {kind:'iff', a:substIndivVar(f.a,varName,replTerm), b:substIndivVar(f.b,varName,replTerm)};
+    case 'all': case 'exists':
+      if (f.order==='individual' && f.varName===varName) return f;
+      return {kind:f.kind, varName:f.varName, order:f.order, f:substIndivVar(f.f,varName,replTerm)};
+    default: return f;
+  }
+}
+function substPredVar(f, predName, newName){
+  switch(f.kind){
+    case 'atom': return f.name===predName ? {kind:'atom', name:newName, args:f.args} : f;
+    case 'not': return {kind:'not', f:substPredVar(f.f,predName,newName)};
+    case 'and': return {kind:'and', a:substPredVar(f.a,predName,newName), b:substPredVar(f.b,predName,newName)};
+    case 'or': return {kind:'or', a:substPredVar(f.a,predName,newName), b:substPredVar(f.b,predName,newName)};
+    case 'imp': return {kind:'imp', a:substPredVar(f.a,predName,newName), b:substPredVar(f.b,predName,newName)};
+    case 'iff': return {kind:'iff', a:substPredVar(f.a,predName,newName), b:substPredVar(f.b,predName,newName)};
+    case 'all': case 'exists':
+      if (f.order==='predicate' && f.varName===predName) return f;
+      return {kind:f.kind, varName:f.varName, order:f.order, f:substPredVar(f.f,predName,newName)};
+    default: return f;
+  }
+}
+function termEq(t1,t2){
+  if (t1.kind!==t2.kind) return false;
+  if (t1.kind==='var'||t1.kind==='const') return t1.name===t2.name;
+  return t1.name===t2.name && t1.args.length===t2.args.length && t1.args.every((a,i)=>termEq(a,t2.args[i]));
+}
+function atomEq(a,b){
+  return a.name===b.name && a.args.length===b.args.length && a.args.every((t,i)=>termEq(t,b.args[i]));
+}
+
+/* ---------------------------- 5. COLETA DE SÍMBOLOS ---------------------------- */
+
+function collectTermSymbols(state, term){
+  if (term.kind==='const') state.constants.add(term.name);
+  else if (term.kind==='func') term.args.forEach(t=>collectTermSymbols(state,t));
+}
+function collectSymbols(state, f){
+  switch(f.kind){
+    case 'atom': state.predicates.add(f.name); f.args.forEach(t=>collectTermSymbols(state,t)); break;
+    case 'not': collectSymbols(state, f.f); break;
+    case 'and': case 'or': case 'imp': case 'iff': collectSymbols(state,f.a); collectSymbols(state,f.b); break;
+    case 'all': case 'exists': collectSymbols(state, f.f); break;
+    default: break;
+  }
+}
+
+/* ---------------------------- 6. MOTOR DE TABLEAUX ---------------------------- */
+
+function runProof(premises, conclusion){
+  let idc = 0; const nextId = () => ++idc;
+  let ic = 0, pc = 0;
+  const freshConst = () => 'c' + (++ic);
+  const freshPred = () => 'Q' + (++pc);
+  const budget = { steps:0, max:800 };
+
+  function instQuant(f, sym){
+    if (f.order==='predicate') return substPredVar(f.f, f.varName, sym);
+    return substIndivVar(f.f, f.varName, {kind:'const', name:sym});
+  }
+  function instNegQuant(f, sym){ // f = not(all|exists)
+    const inner = f.f;
+    const body = inner.order==='predicate' ? substPredVar(inner.f, inner.varName, sym) : substIndivVar(inner.f, inner.varName, {kind:'const', name:sym});
+    return {kind:'not', f: body};
+  }
+  function ruleName(kind){
+    const R = {
+      alphaAnd:'∧-eliminação', alphaNotOr:'De Morgan (¬∨)', alphaNotImp:'¬→ vira ∧',
+      alphaNotNot:'dupla negação', betaOr:'∨ (casos)', betaNotAnd:'De Morgan (¬∧, casos)',
+      betaImp:'→ (casos)', betaIff:'↔ (casos)', betaNotIff:'¬↔ (casos)',
+      deltaExists:'∃-instanciação', deltaNotAll:'¬∀-instanciação',
+      gammaAll:'∀-instanciação', gammaNotExists:'¬∃-instanciação'
+    };
+    return R[kind] || kind;
+  }
+
+  function findClosure(entries){
+    for (const e of entries){
+      if (e.formula.kind==='false') return {ids:[e.id,e.id], trivial:true};
+      if (e.formula.kind==='not' && e.formula.f.kind==='true') return {ids:[e.id,e.id], trivial:true};
+    }
+    const atoms = entries.filter(e=>e.formula.kind==='atom');
+    const negAtoms = entries.filter(e=>e.formula.kind==='not' && e.formula.f.kind==='atom');
+    for (const a of atoms){
+      for (const na of negAtoms){
+        if (atomEq(a.formula, na.formula.f)) return {ids:[a.id, na.id], trivial:false};
+      }
+    }
+    return null;
+  }
+  function findAlpha(entries){
+    for (const e of entries){
+      if (e.processed) continue;
+      const f = e.formula;
+      if (f.kind==='and') return {e, type:'alphaAnd'};
+      if (f.kind==='not' && f.f.kind==='or') return {e, type:'alphaNotOr'};
+      if (f.kind==='not' && f.f.kind==='imp') return {e, type:'alphaNotImp'};
+      if (f.kind==='not' && f.f.kind==='not') return {e, type:'alphaNotNot'};
+    }
+    return null;
+  }
+  function alphaExpand(f, type){
+    if (type==='alphaAnd') return [f.a, f.b];
+    if (type==='alphaNotOr') return [{kind:'not',f:f.f.a},{kind:'not',f:f.f.b}];
+    if (type==='alphaNotImp') return [f.f.a, {kind:'not', f:f.f.b}];
+    if (type==='alphaNotNot') return [f.f.f];
+  }
+  function findDelta(entries){
+    for (const e of entries){
+      if (e.processed) continue;
+      const f = e.formula;
+      if (f.kind==='exists') return {e, type:'deltaExists'};
+      if (f.kind==='not' && f.f.kind==='all') return {e, type:'deltaNotAll'};
+    }
+    return null;
+  }
+  function findBeta(entries){
+    for (const e of entries){
+      if (e.processed) continue;
+      const f = e.formula;
+      if (f.kind==='or') return {e, type:'betaOr'};
+      if (f.kind==='not' && f.f.kind==='and') return {e, type:'betaNotAnd'};
+      if (f.kind==='imp') return {e, type:'betaImp'};
+      if (f.kind==='iff') return {e, type:'betaIff'};
+      if (f.kind==='not' && f.f.kind==='iff') return {e, type:'betaNotIff'};
+    }
+    return null;
+  }
+  function betaExpand(f, type){
+    if (type==='betaOr') return [[f.a],[f.b]];
+    if (type==='betaNotAnd') return [[{kind:'not',f:f.f.a}],[{kind:'not',f:f.f.b}]];
+    if (type==='betaImp') return [[{kind:'not',f:f.a}],[f.b]];
+    if (type==='betaIff') return [[f.a,f.b],[{kind:'not',f:f.a},{kind:'not',f:f.b}]];
+    if (type==='betaNotIff') return [[f.f.a,{kind:'not',f:f.f.b}],[{kind:'not',f:f.f.a},f.f.b]];
+  }
+  function findGamma(state){
+    const cands = state.entries.filter(e => e.formula.kind==='all' || (e.formula.kind==='not' && e.formula.f.kind==='exists'));
+    for (const e of cands){
+      const order = e.formula.order!==undefined ? e.formula.order : e.formula.f.order;
+      const used = state.gammaUsed.get(e.id) || new Set();
+      const pool = order==='predicate' ? state.predicates : state.constants;
+      for (const sym of pool) if (!used.has(sym)) return {e, sym, type: e.formula.kind==='all' ? 'gammaAll' : 'gammaNotExists'};
+    }
+    for (const e of cands){
+      const used = state.gammaUsed.get(e.id) || new Set();
+      if (used.size===0){
+        const order = e.formula.order!==undefined ? e.formula.order : e.formula.f.order;
+        const sym = order==='predicate' ? freshPred() : freshConst();
+        return {e, sym, type: e.formula.kind==='all' ? 'gammaAll' : 'gammaNotExists', invented:true};
+      }
+    }
+    return null;
+  }
+  function markGamma(state, id, sym){
+    if (!state.gammaUsed.has(id)) state.gammaUsed.set(id, new Set());
+    state.gammaUsed.get(id).add(sym);
+  }
+  function markProcessed(state, entry){
+    // nunca mutar o objeto da entrada em si: ele pode estar compartilhado
+    // com um ramo irmão (que ainda precisa expandi-lo de forma independente).
+    state.entries = state.entries.map(en => en===entry ? {id:en.id, formula:en.formula, processed:true} : en);
+  }
+  function cloneWith(state, formulas){
+    const newEntries = state.entries.slice();
+    const ids = [];
+    for (const f of formulas){ const id = nextId(); newEntries.push({id, formula:f, processed:false}); ids.push(id); }
+    const gammaUsed = new Map();
+    for (const [k,v] of state.gammaUsed) gammaUsed.set(k, new Set(v));
+    const ns = { entries:newEntries, gammaUsed, constants:new Set(state.constants), predicates:new Set(state.predicates) };
+    formulas.forEach(f=>collectSymbols(ns,f));
+    return {state:ns, ids};
+  }
+  function buildModel(state){
+    const seen = new Set(); const trueFacts = []; const falseFacts = [];
+    for (const e of state.entries){
+      if (e.formula.kind==='atom'){ const k='T:'+fmt(e.formula); if(!seen.has(k)){seen.add(k); trueFacts.push(fmt(e.formula));} }
+      if (e.formula.kind==='not' && e.formula.f.kind==='atom'){ const k='F:'+fmt(e.formula.f); if(!seen.has(k)){seen.add(k); falseFacts.push(fmt(e.formula.f));} }
+    }
+    return { domain:[...state.constants], trueFacts, falseFacts };
+  }
+
+  function solve(state){
+    if (++budget.steps > budget.max) return {status:'unknown', trace:[{type:'unknown'}]};
+    const closure = findClosure(state.entries);
+    if (closure) return {status:'closed', trace:[{type:'close', ids:closure.ids, trivial:closure.trivial}]};
+
+    const alpha = findAlpha(state.entries);
+    if (alpha){
+      const parts = alphaExpand(alpha.e.formula, alpha.type);
+      markProcessed(state, alpha.e);
+      const {state:ns, ids} = cloneWith(state, parts);
+      const sub = solve(ns);
+      const steps = parts.map((f,i)=>({type:'step', id:ids[i], formula:f, rule:ruleName(alpha.type), from:[alpha.e.id]}));
+      return {status:sub.status, trace:[...steps, ...sub.trace]};
+    }
+    const delta = findDelta(state.entries);
+    if (delta){
+      const isPred = (delta.type==='deltaExists' ? delta.e.formula.order : delta.e.formula.f.order) === 'predicate';
+      const sym = isPred ? freshPred() : freshConst();
+      const newF = delta.type==='deltaExists' ? instQuant(delta.e.formula, sym) : instNegQuant(delta.e.formula, sym);
+      markProcessed(state, delta.e);
+      const {state:ns, ids} = cloneWith(state, [newF]);
+      const sub = solve(ns);
+      return {status:sub.status, trace:[{type:'step', id:ids[0], formula:newF, rule:ruleName(delta.type)+' (novo símbolo: '+sym+')', from:[delta.e.id]}, ...sub.trace]};
+    }
+    const gamma = findGamma(state);
+    if (gamma){
+      const newF = gamma.type==='gammaAll' ? instQuant(gamma.e.formula, gamma.sym) : instNegQuant(gamma.e.formula, gamma.sym);
+      markGamma(state, gamma.e.id, gamma.sym);
+      const {state:ns, ids} = cloneWith(state, [newF]);
+      const sub = solve(ns);
+      return {status:sub.status, trace:[{type:'step', id:ids[0], formula:newF, rule:ruleName(gamma.type)+' (com '+gamma.sym+')', from:[gamma.e.id]}, ...sub.trace]};
+    }
+    const beta = findBeta(state.entries);
+    if (beta){
+      const [listA, listB] = betaExpand(beta.e.formula, beta.type);
+      markProcessed(state, beta.e);
+      const A = cloneWith(state, listA);
+      const B = cloneWith(state, listB);
+      const subA = solve(A.state);
+      const subB = solve(B.state);
+      let status;
+      if (subA.status==='closed' && subB.status==='closed') status='closed';
+      else if (subA.status==='open' || subB.status==='open') status='open';
+      else status='unknown';
+      return {status, trace:[
+        {type:'branch', label:'A', rule:ruleName(beta.type), from:beta.e.id, added:listA, ids:A.ids, sub:subA.trace},
+        {type:'branch', label:'B', rule:ruleName(beta.type), from:beta.e.id, added:listB, ids:B.ids, sub:subB.trace}
+      ]};
+    }
+    return {status:'open', trace:[{type:'open', model:buildModel(state)}]};
+  }
+
+  const entries = [];
+  const state = { entries, gammaUsed:new Map(), constants:new Set(), predicates:new Set() };
+  const startFormulas = premises.slice();
+  let mode;
+  if (conclusion){ startFormulas.push({kind:'not', f:conclusion}); mode='argument'; }
+  else mode='consistency';
+  const initIds = [];
+  for (const f of startFormulas){ const id = nextId(); entries.push({id, formula:f, processed:false}); collectSymbols(state,f); initIds.push(id); }
+
+  const result = solve(state);
+  return { mode, status:result.status, trace:result.trace, initEntries: entries.map(e=>({id:e.id, formula:e.formula})) };
+}
+
+/* ---------------------------- 7. RENDERIZAÇÃO ---------------------------- */
+
+let mathQueue = [];
+function typesetSoon(){
+  if (window._tsTimer) clearTimeout(window._tsTimer);
+  window._tsTimer = setTimeout(()=>{
+    if (window.MathJax && MathJax.typesetPromise){
+      MathJax.typesetPromise().catch(()=>{});
+    }
+  }, 60);
+}
+
+function renderModel(model){
+  let s = '';
+  if (model.domain.length) s += 'domínio: {' + model.domain.join(', ') + '}\n';
+  s += model.trueFacts.length ? ('verdadeiro: ' + model.trueFacts.join(', ') + '\n') : 'verdadeiro: (nenhum átomo positivo necessário)\n';
+  if (model.falseFacts.length) s += 'falso: ' + model.falseFacts.join(', ');
+  return s;
+}
+
+function renderTraceVerbose(trace, container){
+  for (const item of trace){
+    if (item.type==='step'){
+      const d = document.createElement('div');
+      d.className = 'line-step';
+      d.innerHTML = escapeHtml(String(item.id)) + '.  \\(' + flatex(item.formula) + '\\)  <span class="line-rule">— ' + escapeHtml(item.rule) + ', de linha ' + item.from.join(',') + '</span>';
+      container.appendChild(d);
+    } else if (item.type==='close'){
+      const d = document.createElement('div');
+      d.className = 'line-close';
+      d.textContent = item.trivial ? '⊗ ramo fechado (contradição trivial: ⊥).' : ('⊗ ramo fechado — linhas ' + item.ids[0] + ' e ' + item.ids[1] + ' são contraditórias.');
+      container.appendChild(d);
+    } else if (item.type==='open'){
+      const d = document.createElement('div');
+      d.className = 'line-open';
+      d.textContent = '✓ ramo saturado e aberto — modelo encontrado:\n' + renderModel(item.model);
+      container.appendChild(d);
+    } else if (item.type==='unknown'){
+      const d = document.createElement('div');
+      d.className = 'line-unknown';
+      d.textContent = '… limite de passos atingido — não foi possível decidir este ramo (típico em lógica de 1ª/2ª ordem, que é apenas semidecidível).';
+      container.appendChild(d);
+    } else if (item.type==='branch'){
+      const head = document.createElement('div');
+      head.className = 'line-branch-head';
+      const addedStr = item.added.map(f=>'\\('+flatex(f)+'\\)').join(', ');
+      head.innerHTML = '↳ ramo ' + item.label + ' (' + escapeHtml(item.rule) + ', de linha ' + item.from + '): assume ' + addedStr + ' (linha' + (item.ids.length>1?'s ':' ') + item.ids.join(',') + ')';
+      container.appendChild(head);
+      const block = document.createElement('div');
+      block.className = 'branch-block';
+      renderTraceVerbose(item.sub, block);
+      container.appendChild(block);
+    }
+  }
+}
+
+function findFirstResultLeaf(trace){
+  for (const item of trace){
+    if (item.type==='close' || item.type==='open' || item.type==='unknown') return item;
+    if (item.type==='branch'){
+      const leaf = findFirstResultLeaf(item.sub);
+      if (leaf && (leaf.type==='open')) return leaf;
+      if (leaf) return leaf;
+    }
+  }
+  return null;
+}
+
+function renderResult(result, seqLatex, verbose){
+  const turn = document.createElement('div');
+  turn.className = 'turn';
+
+  const seq = document.createElement('div');
+  seq.className = 'line-seq';
+  seq.innerHTML = '\\(' + seqLatex + '\\)';
+  turn.appendChild(seq);
+
+  const verdict = document.createElement('div');
+  verdict.className = 'line-verdict';
+  let text, cls;
+  if (result.mode==='argument'){
+    if (result.status==='closed'){ text='VÁLIDO — a conclusão decorre necessariamente das premissas.'; cls='ok'; }
+    else if (result.status==='open'){ text='INVÁLIDO — existe um contraexemplo (veja o modelo abaixo).'; cls='err'; }
+    else { text='INDETERMINADO — limite de passos atingido antes de decidir.'; cls='warn'; }
+  } else {
+    if (result.status==='closed'){ text='INCONSISTENTE — as premissas se contradizem entre si.'; cls='err'; }
+    else if (result.status==='open'){ text='CONSISTENTE — existe um modelo que satisfaz todas as premissas.'; cls='ok'; }
+    else { text='INDETERMINADO — limite de passos atingido antes de decidir.'; cls='warn'; }
+  }
+  verdict.classList.add(cls);
+  verdict.textContent = text;
+  turn.appendChild(verdict);
+
+  if (verbose){
+    const initHead = document.createElement('div');
+    initHead.className = 'line-rule';
+    initHead.textContent = (result.mode==='argument' ? 'premissas + negação da conclusão:' : 'premissas:');
+    turn.appendChild(initHead);
+    for (const e of result.initEntries){
+      const d = document.createElement('div');
+      d.className = 'line-step';
+      d.innerHTML = e.id + '.  \\(' + flatex(e.formula) + '\\)  <span class="line-rule">— dado</span>';
+      turn.appendChild(d);
+    }
+    const traceHead = document.createElement('div');
+    traceHead.className = 'line-rule';
+    traceHead.style.marginTop = '8px';
+    traceHead.textContent = 'expansão do tableau:';
+    turn.appendChild(traceHead);
+    renderTraceVerbose(result.trace, turn);
+  } else {
+    const leaf = findFirstResultLeaf(result.trace);
+    if (leaf && leaf.type==='open'){
+      const d = document.createElement('div');
+      d.className = 'line-open';
+      d.textContent = renderModel(leaf.model);
+      turn.appendChild(d);
+    } else if (leaf && leaf.type==='unknown'){
+      const d = document.createElement('div');
+      d.className = 'line-unknown';
+      d.textContent = 'nenhum ramo foi totalmente decidido dentro do limite de passos.';
+      turn.appendChild(d);
+    }
+  }
+
+  return turn;
+}
+
+/* ---------------------------- 8. EXEMPLOS ---------------------------- */
+
+const EXAMPLES = [
+  {label:'modus ponens', level:'prop', premises:['P -> Q','P'], conclusion:'Q'},
+  {label:'modus tollens', level:'prop', premises:['P -> Q','~Q'], conclusion:'~P'},
+  {label:'silogismo disjuntivo', level:'prop', premises:['P \\/ Q','~P'], conclusion:'Q'},
+  {label:'De Morgan (tautologia)', level:'prop', premises:[], conclusion:'~(P & Q) <-> (~P \\/ ~Q)'},
+  {label:'afirmar o consequente (inválido)', level:'prop', premises:['P -> Q','Q'], conclusion:'P'},
+  {label:'silogismo de Sócrates', level:'fol', premises:['\\forall x (Homem(x) -> Mortal(x))','Homem(socrates)'], conclusion:'Mortal(socrates)'},
+  {label:'generalização indevida (inválido)', level:'fol', premises:['\\exists x P(x)'], conclusion:'\\forall x P(x)'},
+  {label:'segunda ordem — instanciação de predicado', level:'sol', premises:['\\forall P (P(a) -> P(b))','M(a)'], conclusion:'M(b)'},
+];
+
+/* ---------------------------- 9. LIGAÇÃO COM A INTERFACE ---------------------------- */
+
+const premisesEl = document.getElementById('premises');
+const conclusionEl = document.getElementById('conclusion');
+const gutterEl = document.getElementById('gutter');
+const statusEl = document.getElementById('status');
+const previewEl = document.getElementById('preview');
+const consoleEl = document.getElementById('console');
+const exampleSelect = document.getElementById('exampleSelect');
+const systemSelect = document.getElementById('systemSelect');
+const verboseToggle = document.getElementById('verboseToggle');
+
+function populateExamples(){
+  const level = systemSelect.value;
+  exampleSelect.innerHTML = '<option value="">exemplos…</option>';
+  EXAMPLES.forEach((ex, i) => {
+    if (level!=='all' && ex.level!==level) return;
+    const opt = document.createElement('option');
+    opt.value = i; opt.textContent = ex.label;
+    exampleSelect.appendChild(opt);
+  });
+}
+systemSelect.addEventListener('change', populateExamples);
+populateExamples();
+
+exampleSelect.addEventListener('change', () => {
+  if (exampleSelect.value==='') return;
+  const ex = EXAMPLES[+exampleSelect.value];
+  premisesEl.value = ex.premises.join('\n');
+  conclusionEl.value = ex.conclusion || '';
+  syncGutter();
+  updatePreview();
+  setStatus('exemplo carregado — clique em «Provar».', '');
+});
+
+function syncGutter(){
+  const lines = premisesEl.value.split('\n').length;
+  let s = '';
+  for (let i=1;i<=lines;i++) s += i + '\n';
+  gutterEl.textContent = s;
+}
+premisesEl.addEventListener('input', () => { syncGutter(); updatePreview(); });
+premisesEl.addEventListener('scroll', () => { gutterEl.scrollTop = premisesEl.scrollTop; });
+conclusionEl.addEventListener('input', updatePreview);
+syncGutter();
+
+function setStatus(msg, cls){
+  statusEl.textContent = msg;
+  statusEl.className = 'status-row' + (cls ? ' '+cls : '');
+}
+
+function parsePremiseLines(src){
+  const out = [];
+  const lines = src.split('\n');
+  for (let raw of lines){
+    let line = raw.trim();
+    if (!line || line.startsWith('%')) continue;
+    if (line.endsWith('.')) line = line.slice(0,-1).trim();
+    out.push(parseFormulaSrc(line));
+  }
+  return out;
+}
+
+function updatePreview(){
+  try {
+    const premises = parsePremiseLines(premisesEl.value);
+    const cSrc = conclusionEl.value.trim().replace(/\.$/,'');
+    let latex;
+    if (premises.length===0 && !cSrc){
+      previewEl.innerHTML = '<span class="dim">a fórmula renderizada aparece aqui…</span>';
+      setStatus('pronto.', '');
+      return;
+    }
+    const premLatex = premises.map(flatex).join(',\\ ');
+    if (cSrc){
+      const c = parseFormulaSrc(cSrc);
+      latex = (premLatex ? premLatex : '\\;') + ' \\vdash ' + flatex(c);
+    } else {
+      latex = premLatex + ' \\models\\, ?';
+    }
+    previewEl.innerHTML = '\\(' + latex + '\\)';
+    typesetSoon();
+    setStatus('sintaxe ok.', 'ok');
+  } catch(e){
+    previewEl.innerHTML = '<span class="dim">' + escapeHtml(e.message) + '</span>';
+    setStatus('erro de sintaxe: ' + e.message, 'err');
+  }
+}
+
+/* mini-teclado */
+const KB_BUTTONS = ['¬','∧','∨','→','↔','∀','∃','(',')',',','⊥','⊤','x','y','z','P','Q','R','S'];
+const kbRow = document.getElementById('kbRow');
+let lastFocused = premisesEl;
+[premisesEl, conclusionEl].forEach(el => el.addEventListener('focus', () => { lastFocused = el; }));
+KB_BUTTONS.forEach(sym => {
+  const b = document.createElement('button');
+  b.className = 'kbtn'; b.type = 'button'; b.textContent = sym;
+  b.addEventListener('click', () => {
+    const el = lastFocused || premisesEl;
+    const s = el.selectionStart ?? el.value.length;
+    const e2 = el.selectionEnd ?? el.value.length;
+    el.value = el.value.slice(0,s) + sym + el.value.slice(e2);
+    el.focus();
+    el.selectionStart = el.selectionEnd = s + sym.length;
+    if (el===premisesEl) syncGutter();
+    updatePreview();
+  });
+  kbRow.appendChild(b);
+});
+
+/* provar */
+function ensureEmptyGone(){
+  const empty = consoleEl.querySelector('.empty');
+  if (empty) empty.remove();
+}
+document.getElementById('proveBtn').addEventListener('click', () => {
+  let premises, conclusion=null;
+  try {
+    premises = parsePremiseLines(premisesEl.value);
+    const cSrc = conclusionEl.value.trim().replace(/\.$/,'');
+    if (cSrc) conclusion = parseFormulaSrc(cSrc);
+  } catch(e){
+    setStatus('erro de sintaxe: ' + e.message, 'err');
+    return;
+  }
+  if (premises.length===0 && !conclusion){
+    setStatus('digite ao menos uma premissa ou uma conclusão.', 'err');
+    return;
+  }
+  ensureEmptyGone();
+  let result;
+  try {
+    result = runProof(premises, conclusion);
+  } catch(e){
+    const d = document.createElement('div');
+    d.className = 'turn';
+    d.innerHTML = '<div class="line-verdict err">erro interno: ' + escapeHtml(e.message) + '</div>';
+    consoleEl.appendChild(d);
+    return;
+  }
+  const premLatex = premises.map(flatex).join(',\\ ');
+  const seqLatex = conclusion
+    ? (premLatex ? premLatex : '\\;') + ' \\vdash ' + flatex(conclusion)
+    : (premLatex + ' \\ (\\text{consistência})');
+  const node = renderResult(result, seqLatex, verboseToggle.checked);
+  consoleEl.appendChild(node);
+  consoleEl.scrollTop = consoleEl.scrollHeight;
+  typesetSoon();
+  setStatus('prova concluída.', 'ok');
+});
+
+document.getElementById('clearConsoleBtn').addEventListener('click', () => {
+  consoleEl.innerHTML = '<p class="empty">o resultado da prova aparece aqui.</p>';
+});
+document.getElementById('clearAllBtn').addEventListener('click', () => {
+  premisesEl.value = ''; conclusionEl.value = '';
+  syncGutter(); updatePreview();
+  setStatus('pronto.', '');
+});
+conclusionEl.addEventListener('keydown', (e) => { if (e.key==='Enter') document.getElementById('proveBtn').click(); });
+
+/* exemplo inicial */
+premisesEl.value = EXAMPLES[5].premises.join('\n');
+conclusionEl.value = EXAMPLES[5].conclusion;
+syncGutter();
+updatePreview();
+
+/* rodapé */
+document.getElementById('footerNote').innerHTML =
+  '<p><b>Convenção de símbolos.</b> Variáveis individuais são <code>x, y, z, u, v, w</code> (com dígitos ou apóstrofo opcionais, ex. <code>x1</code>); qualquer outro identificador minúsculo é uma constante (<code>socrates</code>, <code>a</code>, <code>b</code>). Identificadores maiúsculos são predicados/proposições (<code>P</code>, <code>Mortal(x)</code>) ou, quando quantificados, variáveis de predicado de segunda ordem (ex. <code>\\forall P (P(a) -> P(b))</code>). Os quantificadores têm a mesma precedência da negação — use parênteses para um escopo maior: <code>\\forall x(A(x) -> B(x))</code>.</p>' +
+  '<p><b>Símbolos aceitos</b> (unicode, ASCII ou LaTeX, à sua escolha): ¬ <code>~ ! \\neg</code> · ∧ <code>&amp; ^ /\\ \\land</code> · ∨ <code>| \\/ \\lor</code> · → <code>-&gt; =&gt; \\to</code> · ↔ <code>&lt;-&gt; \\iff</code> · ∀ <code>\\forall</code> · ∃ <code>\\exists</code> · ⊥ <code>\\bot</code> · ⊤ <code>\\top</code>. O mini-teclado abaixo do editor insere qualquer um deles no campo em foco.</p>' +
+  '<p><b>Método de dedução.</b> A prova usa <i>tableaux analíticos</i> (árvore de refutação): para provar que a conclusão decorre das premissas, nega-se a conclusão e aplicam-se regras de eliminação (∧, ¬¬, ¬∨, ¬→) e de introdução por casos (∨, →, ↔, ¬∧, ¬↔) até que todo ramo feche por contradição (argumento <b>válido</b>) ou até que um ramo sature sem fechar, revelando um modelo/contraexemplo (argumento <b>inválido</b>). Quantificadores universais são instanciados com as constantes já presentes (regra γ, repetível); existenciais introduzem uma constante nova (regra δ). Deixe a conclusão em branco para testar apenas a <b>consistência</b> das premissas.</p>' +
+  '<p><b>Segunda ordem.</b> Quantificadores sobre predicados são tratados de forma esquemática (à Henkin): instanciam-se com os predicados já mencionados no problema, em vez de percorrer todos os subconjuntos possíveis do domínio — suficiente para os exemplos usuais, mas não é a semântica plena de segunda ordem (que é indecidível em geral). Fórmulas de primeira e segunda ordem podem, por natureza, não terminar sempre; um limite de passos evita que o navegador trave, resultando em «indeterminado» quando atingido.</p>' +
+  '<p>Marque ou desmarque «dedução verbosa» para alternar entre ver cada passo da árvore de tableau (com o nome da regra aplicada) ou apenas o veredito final com o modelo/contraexemplo, quando houver.</p>';
+</script>
+</body>
+</html>

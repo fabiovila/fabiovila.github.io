@@ -1,0 +1,1491 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prolog — interpretador no navegador</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0D1210;
+    --panel:#131C18;
+    --panel-2:#1B2621;
+    --input:#101815;
+    --paper:#E7E2D2;
+    --paper-dim:#93A395;
+    --amber:#E4A83C;
+    --amber-dim:#8A6A2C;
+    --moss:#83AE87;
+    --rust:#C1573A;
+    --rule:#28352E;
+    --radius:3px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'IBM Plex Mono', ui-monospace, monospace;
+    min-height:100vh;
+    line-height:1.5;
+  }
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    pointer-events:none;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(255,255,255,0.012) 0px, rgba(255,255,255,0.012) 1px, transparent 1px, transparent 3px);
+    z-index:50;
+    mix-blend-mode:overlay;
+  }
+  a{color:var(--amber);}
+
+  .wrap{max-width:1180px; margin:0 auto; padding:0 28px 64px;}
+
+  /* ---------- header ---------- */
+  header{
+    padding:40px 0 26px;
+    border-bottom:1px solid var(--rule);
+    margin-bottom:28px;
+  }
+  .wordmark{
+    font-family:'Fraunces', serif;
+    font-optical-sizing:auto;
+    font-weight:560;
+    font-size:clamp(2.6rem, 6vw, 4.2rem);
+    letter-spacing:-0.01em;
+    color:var(--paper);
+    margin:0;
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+  }
+  .wordmark .cursor{
+    display:inline-block;
+    width:0.42em; height:0.62em;
+    background:var(--amber);
+    animation:blink 1.15s steps(1) infinite;
+    transform:translateY(0.06em);
+  }
+  @keyframes blink{ 0%,45%{opacity:1;} 50%,95%{opacity:0;} 100%{opacity:1;} }
+  .tagline{
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--paper-dim);
+    font-size:0.92rem;
+    margin:10px 0 0;
+    max-width:56ch;
+  }
+  .tagline b{color:var(--amber-dim); font-weight:600;}
+
+  /* ---------- layout ---------- */
+  .board{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:22px;
+    align-items:start;
+  }
+  @media (max-width: 880px){ .board{grid-template-columns:1fr;} }
+
+  .pane{
+    background:var(--panel);
+    border:1px solid var(--rule);
+    border-radius:var(--radius);
+    display:flex;
+    flex-direction:column;
+    min-height:420px;
+  }
+  .pane-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    padding:14px 16px;
+    border-bottom:1px solid var(--rule);
+    flex-wrap:wrap;
+  }
+  .pane-title{
+    font-family:'Fraunces', serif;
+    font-weight:560;
+    font-size:1.18rem;
+    color:var(--paper);
+    margin:0;
+  }
+  .pane-tools{ display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+
+  select, button, input[type=text]{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.85rem;
+    border-radius:var(--radius);
+    border:1px solid var(--rule);
+    background:var(--panel-2);
+    color:var(--paper);
+    padding:7px 10px;
+  }
+  select{ cursor:pointer; }
+  select:focus, input[type=text]:focus, textarea:focus{
+    outline:none; border-color:var(--amber-dim);
+  }
+  button{
+    cursor:pointer;
+    color:var(--paper);
+    transition:border-color .15s ease, color .15s ease, background .15s ease;
+  }
+  button:hover{ border-color:var(--amber-dim); color:var(--amber); }
+  button:active{ transform:translateY(1px); }
+  button:disabled{ opacity:0.4; cursor:default; }
+  button:disabled:hover{ border-color:var(--rule); color:var(--paper); }
+  button.primary{
+    background:var(--amber);
+    color:#1B1305;
+    border-color:var(--amber);
+    font-weight:600;
+  }
+  button.primary:hover{ background:#EEB958; color:#1B1305; border-color:#EEB958; }
+  button.ghost{ background:transparent; }
+
+  /* ---------- editor ---------- */
+  .editor{
+    display:flex;
+    flex:1;
+    min-height:340px;
+    max-height:520px;
+    overflow:hidden;
+  }
+  .gutter{
+    font-size:0.85rem;
+    color:#4B5A50;
+    text-align:right;
+    padding:14px 10px 14px 14px;
+    user-select:none;
+    background:var(--panel);
+    border-right:1px solid var(--rule);
+    overflow:hidden;
+    white-space:pre;
+    line-height:1.6;
+  }
+  textarea#kb{
+    flex:1;
+    resize:none;
+    border:none;
+    background:var(--input);
+    color:var(--paper);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.85rem;
+    line-height:1.6;
+    padding:14px 16px;
+    tab-size:4;
+  }
+  textarea#kb:focus{ outline:none; }
+
+  .status-row{
+    padding:10px 16px;
+    border-top:1px solid var(--rule);
+    font-size:0.82rem;
+    min-height:38px;
+    display:flex;
+    align-items:center;
+    color:var(--paper-dim);
+  }
+  .status-row.ok{ color:var(--moss); }
+  .status-row.err{ color:var(--rust); }
+
+  /* ---------- console ---------- */
+  .console{
+    flex:1;
+    padding:14px 16px;
+    overflow-y:auto;
+    min-height:340px;
+    max-height:520px;
+    font-size:0.85rem;
+  }
+  .console .empty{ color:var(--paper-dim); }
+  .line-query{ color:var(--amber); white-space:pre-wrap; word-break:break-word; }
+  .line-out{ color:var(--paper); white-space:pre-wrap; word-break:break-word; }
+  .line-bind{ color:var(--moss); white-space:pre-wrap; word-break:break-word; padding-left:1.6em; }
+  .line-info{ color:var(--paper-dim); white-space:pre-wrap; }
+  .line-err{ color:var(--rust); white-space:pre-wrap; word-break:break-word; }
+  .turn{ margin-bottom:14px; }
+  .turn:last-child{ margin-bottom:4px; }
+
+  .query-row{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:12px 16px;
+    border-top:1px solid var(--rule);
+  }
+  .query-row .prompt{ color:var(--amber); font-weight:600; }
+  .query-row input[type=text]{ flex:1; }
+  .more-row{ display:flex; gap:8px; padding:0 16px 12px; flex-wrap:wrap; }
+
+  footer{
+    margin-top:40px;
+    padding-top:22px;
+    border-top:1px solid var(--rule);
+    color:var(--paper-dim);
+    font-size:0.86rem;
+    max-width:78ch;
+  }
+  footer p{ margin:0 0 12px; }
+  footer code{ color:var(--paper); background:var(--panel-2); padding:1px 5px; border-radius:2px; }
+
+  ::-webkit-scrollbar{ width:10px; height:10px; }
+  ::-webkit-scrollbar-track{ background:var(--panel); }
+  ::-webkit-scrollbar-thumb{ background:var(--rule); border-radius:6px; }
+  ::-webkit-scrollbar-thumb:hover{ background:var(--amber-dim); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <p class="wordmark">Prolog<span class="cursor" aria-hidden="true"></span></p>
+    <p class="tagline">Um interpretador de <b>Prolog</b> completo, rodando inteiramente no seu navegador — unificação, backtracking, corte e aritmética, sem nada instalado.</p>
+  </header>
+
+  <div class="board">
+
+    <section class="pane">
+      <div class="pane-head">
+        <h2 class="pane-title">Base de conhecimento</h2>
+        <div class="pane-tools">
+          <select id="exampleSelect">
+            <option value="">exemplos…</option>
+          </select>
+          <button id="consultBtn" class="primary">Consultar</button>
+        </div>
+      </div>
+      <div class="editor">
+        <div class="gutter" id="gutter">1</div>
+        <textarea id="kb" spellcheck="false" autocapitalize="off" autocomplete="off"></textarea>
+      </div>
+      <div class="status-row" id="status">escreva fatos e regras, depois clique em «Consultar»</div>
+    </section>
+
+    <section class="pane">
+      <div class="pane-head">
+        <h2 class="pane-title">Console</h2>
+        <div class="pane-tools">
+          <button id="clearBtn" class="ghost">limpar</button>
+        </div>
+      </div>
+      <div class="console" id="console">
+        <p class="empty">as respostas das suas consultas aparecem aqui.</p>
+      </div>
+      <div class="more-row" id="moreRow" style="display:none;">
+        <button id="moreBtn" class="ghost">mais soluções</button>
+        <button id="allBtn" class="ghost">todas</button>
+      </div>
+      <div class="query-row">
+        <span class="prompt">?-</span>
+        <input type="text" id="queryInput" placeholder="ex.: avo(tom, Z)." autocomplete="off" spellcheck="false">
+        <button id="runBtn" class="primary">Executar</button>
+      </div>
+    </section>
+
+  </div>
+
+  <footer id="footerNote"></footer>
+
+</div>
+<script>
+'use strict';
+/* ============================================================
+   Pequeno interpretador Prolog em JavaScript
+   Termos:
+     {tag:'var', name, ref}         variável lógica (ref=null se livre)
+     {tag:'atom', name}             átomo
+     {tag:'num', value}             número
+     {tag:'compound', name, args}   termo composto (inclui listas)
+   Listas são açúcar sintático para '.'/2 terminado em []
+   ============================================================ */
+
+let VAR_COUNTER = 0;
+function mkVar(name) { return { tag: 'var', name: name || ('_G' + (VAR_COUNTER++)), ref: null }; }
+function mkAtom(name) { return { tag: 'atom', name }; }
+function mkNum(value) { return { tag: 'num', value }; }
+function mkCompound(name, args) { return args.length === 0 ? mkAtom(name) : { tag: 'compound', name, args }; }
+const NIL = mkAtom('[]');
+function mkList(items, tail) {
+  let t = tail || NIL;
+  for (let i = items.length - 1; i >= 0; i--) t = mkCompound('.', [items[i], t]);
+  return t;
+}
+
+function deref(t) {
+  while (t.tag === 'var' && t.ref !== null) t = t.ref;
+  return t;
+}
+
+function bind(v, t, trail) { v.ref = t; trail.push(v); }
+function undoTo(trail, mark) { while (trail.length > mark) trail.pop().ref = null; }
+
+function unify(a, b, trail) {
+  a = deref(a); b = deref(b);
+  if (a === b) return true;
+  if (a.tag === 'var') { bind(a, b, trail); return true; }
+  if (b.tag === 'var') { bind(b, a, trail); return true; }
+  if (a.tag === 'atom' && b.tag === 'atom') return a.name === b.name;
+  if (a.tag === 'num' && b.tag === 'num') return a.value === b.value;
+  if (a.tag === 'compound' && b.tag === 'compound') {
+    if (a.name !== b.name || a.args.length !== b.args.length) return false;
+    for (let i = 0; i < a.args.length; i++) if (!unify(a.args[i], b.args[i], trail)) return false;
+    return true;
+  }
+  return false;
+}
+
+/* ---------------- Tokenizer ---------------- */
+const SYMBOL_CHARS = "+-*/\\^<>=~:.?@#&$";
+function tokenize(src) {
+  const toks = [];
+  let i = 0;
+  const n = src.length;
+  while (i < n) {
+    const c = src[i];
+    const startPos = i;
+    if (c === '%') { while (i < n && src[i] !== '\n') i++; continue; }
+    if (c === '/' && src[i + 1] === '*') { i += 2; while (i < n && !(src[i] === '*' && src[i + 1] === '/')) i++; i += 2; continue; }
+    if (/\s/.test(c)) { i++; continue; }
+    if (c === "'") {
+      let j = i + 1, s = '';
+      while (j < n) {
+        if (src[j] === '\\' && j + 1 < n) { s += unescapeChar(src[j + 1]); j += 2; continue; }
+        if (src[j] === "'") {
+          if (src[j + 1] === "'") { s += "'"; j += 2; continue; }
+          j++; break;
+        }
+        s += src[j]; j++;
+      }
+      toks.push({  t: 'atom', v: s, quoted: true, pos: startPos }); i = j; continue;
+    }
+    if (c === '"') {
+      let j = i + 1, s = '';
+      while (j < n) {
+        if (src[j] === '\\' && j + 1 < n) { s += unescapeChar(src[j + 1]); j += 2; continue; }
+        if (src[j] === '"') { j++; break; }
+        s += src[j]; j++;
+      }
+      toks.push({  t: 'string', v: s, pos: startPos }); i = j; continue;
+    }
+    if (/[0-9]/.test(c)) {
+      let j = i, s = '';
+      while (j < n && /[0-9]/.test(src[j])) { s += src[j]; j++; }
+      if (src[j] === '.' && /[0-9]/.test(src[j + 1])) {
+        s += src[j]; j++;
+        while (j < n && /[0-9]/.test(src[j])) { s += src[j]; j++; }
+      }
+      if ((src[j] === 'e' || src[j] === 'E') && /[0-9+-]/.test(src[j + 1] || '')) {
+        s += src[j]; j++;
+        if (src[j] === '+' || src[j] === '-') { s += src[j]; j++; }
+        while (j < n && /[0-9]/.test(src[j])) { s += src[j]; j++; }
+      }
+      toks.push({  t: 'num', v: parseFloat(s), pos: startPos }); i = j; continue;
+    }
+    if (/[a-z]/.test(c)) {
+      let j = i, s = '';
+      while (j < n && /[A-Za-z0-9_]/.test(src[j])) { s += src[j]; j++; }
+      toks.push({  t: 'atom', v: s, pos: startPos }); i = j; continue;
+    }
+    if (/[A-Z_]/.test(c)) {
+      let j = i, s = '';
+      while (j < n && /[A-Za-z0-9_]/.test(src[j])) { s += src[j]; j++; }
+      toks.push({  t: 'var', v: s, pos: startPos }); i = j; continue;
+    }
+    if ('()[]{}|,!'.includes(c)) { toks.push({  t: c, v: c, pos: startPos }); i++; continue; }
+    if (c === ';') { toks.push({  t: 'atom', v: ';', pos: startPos }); i++; continue; }
+    if (SYMBOL_CHARS.includes(c)) {
+      let j = i, s = '';
+      while (j < n && SYMBOL_CHARS.includes(src[j])) { s += src[j]; j++; }
+      // separa "." final de cláusula quando sozinho seguido de espaço/fim
+      if (s !== '.' && /\.$/.test(s) && (j >= n || /\s/.test(src[j]) || src[j] === '%')) {
+        // ex: "X=1." -> pode vir colado; mas nosso loop de símbolos já juntou.
+      }
+      toks.push({  t: 'atom', v: s, sym: true, pos: startPos }); i = j; continue;
+    }
+    throw new Error("Caractere inesperado: '" + c + "' (linha " + (src.slice(0, i).split('\n').length) + ')');
+  }
+  toks.push({ t: 'eof', v: '', pos: n });
+  return toks;
+}
+function lineAt(src, pos) { return src.slice(0, pos).split('\n').length; }
+function unescapeChar(c) {
+  const m = { n: '\n', t: '\t', r: '\r', a: '\x07', b: '\b', f: '\f', v: '\v', '\\': '\\', "'": "'", '"': '"', '`': '`' };
+  return m[c] !== undefined ? m[c] : c;
+}
+
+/* ---------------- Operadores ---------------- */
+// prioridade, tipo
+const OPS_INFIX = {
+  ':-': [1200, 'xfx'], '-->': [1200, 'xfx'],
+  ';': [1100, 'xfy'], '|': [1100, 'xfy'],
+  '->': [1050, 'xfy'], '*->': [1050, 'xfy'],
+  ',': [1000, 'xfy'],
+  '\\+': [900, 'fy'],
+  '=': [700, 'xfx'], '\\=': [700, 'xfx'], '==': [700, 'xfx'], '\\==': [700, 'xfx'],
+  '@<': [700, 'xfx'], '@>': [700, 'xfx'], '@=<': [700, 'xfx'], '@>=': [700, 'xfx'],
+  'is': [700, 'xfx'], '=:=': [700, 'xfx'], '=\\=': [700, 'xfx'],
+  '<': [700, 'xfx'], '>': [700, 'xfx'], '=<': [700, 'xfx'], '>=': [700, 'xfx'],
+  '+': [500, 'yfx'], '-': [500, 'yfx'], '/\\': [500, 'yfx'], '\\/': [500, 'yfx'], 'xor': [500, 'yfx'],
+  '*': [400, 'yfx'], '/': [400, 'yfx'], '//': [400, 'yfx'], 'mod': [400, 'yfx'], 'rem': [400, 'yfx'], '<<': [400, 'yfx'], '>>': [400, 'yfx'],
+  '**': [200, 'xfx'], '^': [200, 'xfy'],
+};
+const OPS_PREFIX = {
+  ':-': [1200, 'fx'], '?-': [1200, 'fx'],
+  '\\+': [900, 'fy'],
+  '-': [200, 'fy'], '+': [200, 'fy'], '\\': [200, 'fy'],
+};
+
+/* ---------------- Parser (precedência de operadores) ---------------- */
+class Parser {
+  constructor(toks, src) { this.toks = toks; this.pos = 0; this.varmap = null; this.src = src || ''; }
+  peek() { return this.toks[this.pos]; }
+  next() { return this.toks[this.pos++]; }
+  loc(tok) { return tok && tok.pos !== undefined ? ' (linha ' + lineAt(this.src, tok.pos) + ')' : ''; }
+  expect(t) { const tok = this.next(); if (tok.t !== t) throw new Error('Esperado "' + t + '" mas encontrei "' + tok.v + '"' + this.loc(tok)); return tok; }
+
+  parseProgram() {
+    const clauses = [];
+    while (this.peek().t !== 'eof') {
+      this.varmap = new Map();
+      const startTok = this.peek();
+      let term;
+      try {
+        term = this.parseExpr(1200);
+        this.expectDot();
+      } catch (e) {
+        e.message = e.message.replace(/\s\(linha.*\)$/, '') + this.loc(startTok);
+        throw e;
+      }
+      clauses.push({ term, vars: this.varmap });
+    }
+    return clauses;
+  }
+  parseOneTerm() {
+    this.varmap = new Map();
+    const term = this.parseExpr(1200);
+    if (this.peek().t === 'atom' && this.peek().v === '.') this.next();
+    if (this.peek().t !== 'eof') throw new Error('Token inesperado após o termo: ' + this.peek().v);
+    return { term, vars: this.varmap };
+  }
+  expectDot() {
+    const tok = this.next();
+    if (!(tok.t === 'atom' && tok.v === '.')) throw new Error('Esperado "." no final da cláusula, mas encontrei "' + tok.v + '"' + this.loc(tok));
+  }
+
+  isTermStart(tok) {
+    if (tok.t === 'eof') return false;
+    if (tok.t === 'atom' && tok.v === '.') return false;
+    if (tok.t === ')' || tok.t === ']' || tok.t === '}' || tok.t === ',' || tok.t === '|') return false;
+    return true;
+  }
+
+  parseExpr(maxPrec) {
+    let left = this.parsePrefixOrPrimary(maxPrec);
+    return this.parseInfix(left.term, left.prec, maxPrec);
+  }
+
+  parsePrefixOrPrimary(maxPrec) {
+    const tok = this.peek();
+    if (tok.t === 'atom' && !tok.quoted && OPS_PREFIX[tok.v] && !(this.toks[this.pos + 1] && this.toks[this.pos + 1].t === '(')) {
+      const [prec, type] = OPS_PREFIX[tok.v];
+      // número negativo literal
+      if (tok.v === '-' && this.toks[this.pos + 1] && this.toks[this.pos + 1].t === 'num') {
+        this.next(); const numTok = this.next();
+        return { term: mkNum(-numTok.v), prec: 0 };
+      }
+      const save = this.pos;
+      if (prec <= maxPrec) {
+        this.next();
+        const nextTok = this.peek();
+        if (this.isTermStart(nextTok) && !(nextTok.t === 'atom' && OPS_INFIX[nextTok.v] && !OPS_PREFIX[nextTok.v] && nextTok.v !== '(')) {
+          try {
+            const argMax = type === 'fy' ? prec : prec - 1;
+            const arg = this.parseExpr(argMax);
+            return { term: mkCompound(tok.v, [arg]), prec };
+          } catch (e) { this.pos = save; }
+        } else { this.pos = save; }
+      }
+    }
+    return { term: this.parsePrimary(), prec: 0 };
+  }
+
+  parseInfix(left, leftPrec, maxPrec) {
+    for (;;) {
+      const tok = this.peek();
+      let opName = null;
+      if (tok.t === ',' ) opName = ',';
+      else if (tok.t === '|') opName = '|';
+      else if (tok.t === '!' ) opName = null;
+      else if (tok.t === 'atom' && !tok.quoted && OPS_INFIX[tok.v]) opName = tok.v;
+      if (!opName) return left;
+      const [prec, type] = OPS_INFIX[opName];
+      if (prec > maxPrec) return left;
+      const leftMax = (type === 'yfx') ? prec : prec - 1;
+      if (leftPrec > leftMax) return left;
+      this.next();
+      const rightMax = (type === 'xfy') ? prec : prec - 1;
+      const right = this.parseExpr(rightMax);
+      const realName = opName === '|' ? ';' : opName;
+      left = mkCompound(realName, [left, right]);
+      leftPrec = prec;
+    }
+  }
+
+  parsePrimary() {
+    const tok = this.next();
+    if (tok.t === 'num') return mkNum(tok.v);
+    if (tok.t === 'string') return mkList(tok.v.split('').map(ch => mkNum(ch.charCodeAt(0))));
+    if (tok.t === 'var') {
+      if (tok.v === '_') return mkVar('_');
+      if (!this.varmap.has(tok.v)) this.varmap.set(tok.v, mkVar(tok.v));
+      return this.varmap.get(tok.v);
+    }
+    if (tok.t === '!') return mkAtom('!');
+    if (tok.t === '(') {
+      const inner = this.parseExpr(1200);
+      this.expect(')');
+      return inner;
+    }
+    if (tok.t === '{') {
+      if (this.peek().t === '}') { this.next(); return mkAtom('{}'); }
+      const inner = this.parseExpr(1200);
+      this.expect('}');
+      return mkCompound('{}', [inner]);
+    }
+    if (tok.t === '[') {
+      if (this.peek().t === ']') { this.next(); return NIL; }
+      const items = [this.parseExpr(999)];
+      while (this.peek().t === ',') { this.next(); items.push(this.parseExpr(999)); }
+      let tail = NIL;
+      if (this.peek().t === '|') { this.next(); tail = this.parseExpr(999); }
+      this.expect(']');
+      return mkList(items, tail);
+    }
+    if (tok.t === 'atom') {
+      const name = tok.v;
+      if (this.peek().t === '(' && !this._precededBySpace) {
+        this.next();
+        const args = [this.parseExpr(999)];
+        while (this.peek().t === ',') { this.next(); args.push(this.parseExpr(999)); }
+        this.expect(')');
+        return mkCompound(name, args);
+      }
+      return mkAtom(name);
+    }
+    throw new Error('Termo inesperado: "' + tok.v + '"' + this.loc(tok));
+  }
+}
+
+function parseProgram(src) { return new Parser(tokenize(src), src).parseProgram(); }
+function parseQuery(src) { return new Parser(tokenize(src), src).parseOneTerm(); }
+
+/* ---------------- renomeação de variáveis (fresh) ---------------- */
+function renameTerm(t, map) {
+  t = deref(t);
+  if (t.tag === 'var') {
+    if (!map.has(t)) map.set(t, mkVar(t.name));
+    return map.get(t);
+  }
+  if (t.tag === 'compound') return mkCompound(t.name, t.args.map(a => renameTerm(a, map)));
+  return t;
+}
+
+/* ---------------- impressão ---------------- */
+function needsQuote(name) {
+  if (name === '') return true;
+  if (/^[a-z][A-Za-z0-9_]*$/.test(name)) return false;
+  if (/^[+\-*/\\^<>=~:.?@#&$]+$/.test(name)) return false;
+  if (['[]', '{}', '!', ';', ','].includes(name)) return false;
+  return true;
+}
+function formatTerm(t, opts) {
+  opts = opts || {};
+  t = deref(t);
+  if (t.tag === 'var') return '_' + (t.name && t.name[0] !== '_' ? t.name : (t.name || 'G'));
+  if (t.tag === 'num') return String(t.value);
+  if (t.tag === 'atom') {
+    if (opts.quoted && needsQuote(t.name)) return "'" + t.name.replace(/\\/g, '\\\\').replace(/'/g, "\\'") + "'";
+    return t.name;
+  }
+  if (t.tag === 'compound') {
+    if (t.name === '.' && t.args.length === 2) return formatList(t, opts);
+    if (OPS_INFIX[t.name] && t.args.length === 2) {
+      return formatTerm(t.args[0], opts) + t.name + formatTerm(t.args[1], opts);
+    }
+    if (t.name === '-' && t.args.length === 1) return '-' + formatTerm(t.args[0], opts);
+    return t.name + '(' + t.args.map(a => formatTerm(a, opts)).join(',') + ')';
+  }
+  return '?';
+}
+function formatList(t, opts) {
+  const items = [];
+  let cur = deref(t);
+  while (cur.tag === 'compound' && cur.name === '.' && cur.args.length === 2) {
+    items.push(formatTerm(cur.args[0], opts));
+    cur = deref(cur.args[1]);
+  }
+  if (cur.tag === 'atom' && cur.name === '[]') return '[' + items.join(',') + ']';
+  return '[' + items.join(',') + '|' + formatTerm(cur, opts) + ']';
+}
+
+/* ---------------- comparação padrão de termos (@<, etc, e sort) ------ */
+function typeOrder(t) { return { var: 0, num: 1, atom: 2, compound: 3 }[t.tag]; }
+function compareTerms(a, b) {
+  a = deref(a); b = deref(b);
+  if (a.tag !== b.tag) return typeOrder(a) - typeOrder(b);
+  if (a.tag === 'var') return a === b ? 0 : (a.name < b.name ? -1 : 1);
+  if (a.tag === 'num') return a.value - b.value;
+  if (a.tag === 'atom') return a.name < b.name ? -1 : a.name > b.name ? 1 : 0;
+  if (a.tag === 'compound') {
+    if (a.args.length !== b.args.length) return a.args.length - b.args.length;
+    if (a.name !== b.name) return a.name < b.name ? -1 : 1;
+    for (let i = 0; i < a.args.length; i++) { const c = compareTerms(a.args[i], b.args[i]); if (c !== 0) return c; }
+    return 0;
+  }
+  return 0;
+}
+
+/* ---------------- avaliação aritmética ---------------- */
+function evalArith(t) {
+  t = deref(t);
+  if (t.tag === 'num') return t.value;
+  if (t.tag === 'var') throw new PrologError(mkAtom('instantiation_error'));
+  if (t.tag === 'atom') {
+    switch (t.name) {
+      case 'pi': return Math.PI;
+      case 'e': return Math.E;
+      case 'inf': case 'infinite': return Infinity;
+      case 'nan': return NaN;
+      case 'epsilon': return Number.EPSILON;
+      case 'random': return Math.random();
+    }
+    throw new PrologError(mkCompound('type_error', [mkAtom('evaluable'), mkCompound('/', [mkAtom(t.name), mkNum(0)])]));
+  }
+  const a = t.args.map(evalArith);
+  switch (t.name + '/' + t.args.length) {
+    case '+/2': return a[0] + a[1];
+    case '-/2': return a[0] - a[1];
+    case '*/2': return a[0] * a[1];
+    case '//2': return a[0] / a[1];
+    case '///2': return Math.trunc(a[0] / a[1]);
+    case 'mod/2': return ((a[0] % a[1]) + a[1]) % a[1];
+    case 'rem/2': return a[0] % a[1];
+    case '**/2': return Math.pow(a[0], a[1]);
+    case '^/2': return Math.pow(a[0], a[1]);
+    case '-/1': return -a[0];
+    case '+/1': return a[0];
+    case 'abs/1': return Math.abs(a[0]);
+    case 'sign/1': return Math.sign(a[0]);
+    case 'sqrt/1': return Math.sqrt(a[0]);
+    case 'sin/1': return Math.sin(a[0]);
+    case 'cos/1': return Math.cos(a[0]);
+    case 'tan/1': return Math.tan(a[0]);
+    case 'atan/1': return Math.atan(a[0]);
+    case 'atan2/2': case 'atan/2': return Math.atan2(a[0], a[1]);
+    case 'exp/1': return Math.exp(a[0]);
+    case 'log/1': return Math.log(a[0]);
+    case 'log/2': return Math.log(a[1]) / Math.log(a[0]);
+    case 'min/2': return Math.min(a[0], a[1]);
+    case 'max/2': return Math.max(a[0], a[1]);
+    case 'floor/1': return Math.floor(a[0]);
+    case 'ceiling/1': return Math.ceil(a[0]);
+    case 'round/1': return Math.round(a[0]);
+    case 'truncate/1': return Math.trunc(a[0]);
+    case 'integer/1': return Math.trunc(a[0]);
+    case 'float/1': return a[0];
+    case '>>/2': return a[0] >> a[1];
+    case '<</2': return a[0] << a[1];
+    case '/\\/2': return a[0] & a[1];
+    case '\\//2': return a[0] | a[1];
+    case 'xor/2': return a[0] ^ a[1];
+    case '\\/1': return ~a[0];
+  }
+  throw new PrologError(mkCompound('type_error', [mkAtom('evaluable'), mkCompound('/', [mkAtom(t.name), mkNum(t.args.length)])]));
+}
+
+/* ---------------- erros Prolog ---------------- */
+class PrologError extends Error {
+  constructor(term) { super(formatTerm(term, { quoted: true })); this.term = term; }
+}
+
+/* ---------------- banco de dados ---------------- */
+class Database {
+  constructor() { this.preds = new Map(); }
+  key(name, arity) { return name + '/' + arity; }
+  add(clauseTerm, front) {
+    let head, body;
+    const t = clauseTerm;
+    if (t.tag === 'compound' && t.name === ':-' && t.args.length === 2) { head = t.args[0]; body = t.args[1]; }
+    else { head = t; body = mkAtom('true'); }
+    const name = head.tag === 'compound' ? head.name : head.name;
+    const arity = head.tag === 'compound' ? head.args.length : 0;
+    const k = this.key(name, arity);
+    if (!this.preds.has(k)) this.preds.set(k, []);
+    const list = this.preds.get(k);
+    if (front) list.unshift({ head, body }); else list.push({ head, body });
+  }
+  get(name, arity) { return this.preds.get(this.key(name, arity)) || null; }
+}
+
+/* ---------------- motor de resolução (generators) ---------------- */
+function* solve(goal, db, trail, cutBox, depth) {
+  if (depth > 4_000_000) throw new PrologError(mkAtom('resource_error'));
+  goal = deref(goal);
+  if (goal.tag === 'var') throw new PrologError(mkAtom('instantiation_error'));
+  const name = goal.name;
+  const args = goal.tag === 'compound' ? goal.args : [];
+  const arity = args.length;
+  const key = name + '/' + arity;
+
+  switch (key) {
+    case 'true/0': yield true; return;
+    case 'fail/0': case 'false/0': return;
+    case ',/2': {
+      for (const _ of solve(args[0], db, trail, cutBox, depth + 1)) {
+        yield* solve(args[1], db, trail, cutBox, depth + 1);
+        if (cutBox.cut) return;
+      }
+      return;
+    }
+    case ';/2': {
+      const left = deref(args[0]);
+      if (left.tag === 'compound' && left.name === '->' && left.args.length === 2) {
+        const mark = trail.length;
+        const innerCut = { cut: false };
+        let any = false;
+        for (const _ of solve(left.args[0], db, trail, innerCut, depth + 1)) { any = true; break; }
+        if (any) { yield* solve(left.args[1], db, trail, cutBox, depth + 1); }
+        else { undoTo(trail, mark); yield* solve(args[1], db, trail, cutBox, depth + 1); }
+        return;
+      }
+      if (left.tag === 'compound' && left.name === '*->' && left.args.length === 2) {
+        const mark = trail.length;
+        const innerCut = { cut: false };
+        let any = false;
+        for (const _ of solve(left.args[0], db, trail, innerCut, depth + 1)) {
+          any = true;
+          yield* solve(left.args[1], db, trail, cutBox, depth + 1);
+          if (cutBox.cut) return;
+        }
+        if (!any) { undoTo(trail, mark); yield* solve(args[1], db, trail, cutBox, depth + 1); }
+        return;
+      }
+      const mark = trail.length;
+      yield* solve(args[0], db, trail, cutBox, depth + 1);
+      if (cutBox.cut) return;
+      undoTo(trail, mark);
+      yield* solve(args[1], db, trail, cutBox, depth + 1);
+      return;
+    }
+    case '->/2': {
+      const innerCut = { cut: false };
+      for (const _ of solve(args[0], db, trail, innerCut, depth + 1)) {
+        yield* solve(args[1], db, trail, cutBox, depth + 1);
+        return;
+      }
+      return;
+    }
+    case '!/0': { yield true; cutBox.cut = true; return; }
+    case '\\+/1': case 'not/1': {
+      const mark = trail.length;
+      const innerCut = { cut: false };
+      let any = false;
+      for (const _ of solve(args[0], db, trail, innerCut, depth + 1)) { any = true; break; }
+      undoTo(trail, mark);
+      if (!any) yield true;
+      return;
+    }
+    case 'call/1': yield* solve(args[0], db, trail, { cut: false }, depth + 1); return;
+  }
+  if (name === 'call' && arity >= 2) {
+    const base = deref(args[0]);
+    const extra = args.slice(1);
+    const newGoal = base.tag === 'atom' ? mkCompound(base.name, extra) : mkCompound(base.name, [...base.args, ...extra]);
+    yield* solve(newGoal, db, trail, { cut: false }, depth + 1);
+    return;
+  }
+
+  const builtin = BUILTINS[key];
+  if (builtin) { yield* builtin(args, db, trail, depth); return; }
+
+  const clauses = db.get(name, arity);
+  if (!clauses) {
+    throw new PrologError(mkCompound('existence_error', [mkAtom('procedure'), mkCompound('/', [mkAtom(name), mkNum(arity)])]));
+  }
+  const bodyCut = { cut: false };
+  for (const clause of clauses) {
+    const mark = trail.length;
+    const map = new Map();
+    const head = renameTerm(clause.head, map);
+    const headArgs = head.tag === 'compound' ? head.args : [];
+    let ok = true;
+    for (let i = 0; i < arity; i++) if (!unify(args[i], headArgs[i], trail)) { ok = false; break; }
+    if (ok) {
+      const body = renameTerm(clause.body, map);
+      yield* solve(body, db, trail, bodyCut, depth + 1);
+    }
+    undoTo(trail, mark);
+    if (bodyCut.cut) return;
+  }
+}
+
+/* ---------------- builtins ---------------- */
+function listToArray(t) {
+  const out = [];
+  let cur = deref(t);
+  while (cur.tag === 'compound' && cur.name === '.' && cur.args.length === 2) {
+    out.push(cur.args[0]); cur = deref(cur.args[1]);
+  }
+  if (!(cur.tag === 'atom' && cur.name === '[]')) return null;
+  return out;
+}
+
+const BUILTINS = {};
+function def(key, fn) { BUILTINS[key] = fn; }
+
+def('=/2', function* (a, db, trail) { const m = trail.length; if (unify(a[0], a[1], trail)) yield true; else undoTo(trail, m); });
+def('\\=/2', function* (a, db, trail) { const m = trail.length; const ok = unify(a[0], a[1], trail); undoTo(trail, m); if (!ok) yield true; });
+def('==/2', function* (a) { if (compareTerms(a[0], a[1]) === 0) yield true; });
+def('\\==/2', function* (a) { if (compareTerms(a[0], a[1]) !== 0) yield true; });
+def('@</2', function* (a) { if (compareTerms(a[0], a[1]) < 0) yield true; });
+def('@>/2', function* (a) { if (compareTerms(a[0], a[1]) > 0) yield true; });
+def('@=</2', function* (a) { if (compareTerms(a[0], a[1]) <= 0) yield true; });
+def('@>=/2', function* (a) { if (compareTerms(a[0], a[1]) >= 0) yield true; });
+def('compare/3', function* (a, db, trail) { const c = compareTerms(a[1], a[2]); const sym = c < 0 ? '<' : c > 0 ? '>' : '='; if (unify(a[0], mkAtom(sym), trail)) yield true; });
+
+def('is/2', function* (a, db, trail) { const v = evalArith(a[1]); if (unify(a[0], mkNum(v), trail)) yield true; });
+function cmp(op) { return function* (a) { const x = evalArith(a[0]), y = evalArith(a[1]); if (op(x, y)) yield true; }; }
+def('</2', cmp((x, y) => x < y));
+def('>/2', cmp((x, y) => x > y));
+def('=</2', cmp((x, y) => x <= y));
+def('>=/2', cmp((x, y) => x >= y));
+def('=:=/2', cmp((x, y) => x === y));
+def('=\\=/2', cmp((x, y) => x !== y));
+
+def('var/1', function* (a) { if (deref(a[0]).tag === 'var') yield true; });
+def('nonvar/1', function* (a) { if (deref(a[0]).tag !== 'var') yield true; });
+def('atom/1', function* (a) { if (deref(a[0]).tag === 'atom') yield true; });
+def('number/1', function* (a) { if (deref(a[0]).tag === 'num') yield true; });
+def('integer/1', function* (a) { const t = deref(a[0]); if (t.tag === 'num' && Number.isInteger(t.value)) yield true; });
+def('float/1', function* (a) { const t = deref(a[0]); if (t.tag === 'num' && !Number.isInteger(t.value)) yield true; });
+def('atomic/1', function* (a) { const t = deref(a[0]); if (t.tag === 'atom' || t.tag === 'num') yield true; });
+def('compound/1', function* (a) { if (deref(a[0]).tag === 'compound') yield true; });
+def('callable/1', function* (a) { const t = deref(a[0]); if (t.tag === 'atom' || t.tag === 'compound') yield true; });
+def('is_list/1', function* (a) { if (listToArray(a[0]) !== null) yield true; });
+def('ground/1', function* (a) { yield* (isGround(a[0]) ? [true] : []); });
+function isGround(t) { t = deref(t); if (t.tag === 'var') return false; if (t.tag === 'compound') return t.args.every(isGround); return true; }
+
+def('functor/3', function* (a, db, trail) {
+  const t = deref(a[0]);
+  if (t.tag !== 'var') {
+    let nameT, arityT;
+    if (t.tag === 'compound') { nameT = mkAtom(t.name); arityT = mkNum(t.args.length); }
+    else if (t.tag === 'atom') { nameT = mkAtom(t.name); arityT = mkNum(0); }
+    else { nameT = t; arityT = mkNum(0); }
+    if (unify(a[1], nameT, trail) && unify(a[2], arityT, trail)) yield true;
+  } else {
+    const nameT = deref(a[1]); const arityT = deref(a[2]);
+    const ar = arityT.value;
+    let newTerm;
+    if (ar === 0) newTerm = nameT.tag === 'atom' ? mkAtom(nameT.name) : nameT;
+    else newTerm = mkCompound(nameT.name, Array.from({ length: ar }, () => mkVar('_')));
+    if (unify(a[0], newTerm, trail)) yield true;
+  }
+});
+def('arg/3', function* (a, db, trail) {
+  const n = deref(a[0]).value; const t = deref(a[1]);
+  if (t.tag === 'compound' && n >= 1 && n <= t.args.length) if (unify(a[2], t.args[n - 1], trail)) yield true;
+});
+def('=../2', function* (a, db, trail) {
+  const t = deref(a[0]);
+  if (t.tag !== 'var') {
+    let lst;
+    if (t.tag === 'compound') lst = mkList([mkAtom(t.name), ...t.args]);
+    else lst = mkList([t]);
+    if (unify(a[1], lst, trail)) yield true;
+  } else {
+    const arr = listToArray(a[1]);
+    if (!arr || arr.length === 0) return;
+    const head = deref(arr[0]);
+    const newTerm = arr.length === 1 ? head : mkCompound(head.name, arr.slice(1));
+    if (unify(a[0], newTerm, trail)) yield true;
+  }
+});
+
+def('findall/3', function* (a, db, trail, depth) {
+  const results = [];
+  const mark = trail.length;
+  for (const _ of solve(a[1], db, trail, { cut: false }, depth + 1)) {
+    results.push(renameTerm(a[0], new Map()));
+  }
+  undoTo(trail, mark);
+  if (unify(a[2], mkList(results), trail)) yield true;
+});
+def('forall/2', function* (a, db, trail, depth) {
+  const mark = trail.length;
+  for (const _ of solve(a[0], db, trail, { cut: false }, depth + 1)) {
+    let ok = false;
+    for (const __ of solve(a[1], db, trail, { cut: false }, depth + 1)) { ok = true; break; }
+    if (!ok) { undoTo(trail, mark); return; }
+  }
+  undoTo(trail, mark);
+  yield true;
+});
+def('aggregate_all/3', function* (a, db, trail, depth) {
+  const spec = deref(a[0]);
+  const results = [];
+  const mark = trail.length;
+  const template = spec.tag === 'compound' ? spec.args[0] : spec;
+  for (const _ of solve(a[1], db, trail, { cut: false }, depth + 1)) results.push(renameTerm(template, new Map()));
+  undoTo(trail, mark);
+  let out;
+  if (spec.tag === 'compound' && spec.name === 'count') out = mkNum(results.length);
+  else if (spec.tag === 'atom' && spec.name === 'count') out = mkNum(results.length);
+  else if (spec.tag === 'compound' && spec.name === 'bag') out = mkList(results);
+  else if (spec.tag === 'compound' && spec.name === 'set') { const arr = [...results].sort(compareTerms); out = mkList(dedupe(arr)); }
+  else if (spec.tag === 'compound' && spec.name === 'sum') out = mkNum(results.reduce((s, t) => s + deref(t).value, 0));
+  else if (spec.tag === 'compound' && spec.name === 'max') out = mkNum(Math.max(...results.map(t => deref(t).value)));
+  else if (spec.tag === 'compound' && spec.name === 'min') out = mkNum(Math.min(...results.map(t => deref(t).value)));
+  else out = mkList(results);
+  if (unify(a[2], out, trail)) yield true;
+});
+function dedupe(sortedArr) { const out = []; for (const t of sortedArr) if (out.length === 0 || compareTerms(out[out.length - 1], t) !== 0) out.push(t); return out; }
+
+def('bagof/3', function* (a, db, trail, depth) {
+  let tmpl = a[0], goal = deref(a[1]);
+  while (goal.tag === 'compound' && goal.name === '^' && goal.args.length === 2) goal = deref(goal.args[1]);
+  const results = [];
+  const mark = trail.length;
+  for (const _ of solve(goal, db, trail, { cut: false }, depth + 1)) results.push(renameTerm(tmpl, new Map()));
+  undoTo(trail, mark);
+  if (results.length === 0) return;
+  if (unify(a[2], mkList(results), trail)) yield true;
+});
+def('setof/3', function* (a, db, trail, depth) {
+  let tmpl = a[0], goal = deref(a[1]);
+  while (goal.tag === 'compound' && goal.name === '^' && goal.args.length === 2) goal = deref(goal.args[1]);
+  const results = [];
+  const mark = trail.length;
+  for (const _ of solve(goal, db, trail, { cut: false }, depth + 1)) results.push(renameTerm(tmpl, new Map()));
+  undoTo(trail, mark);
+  if (results.length === 0) return;
+  results.sort(compareTerms);
+  if (unify(a[2], mkList(dedupe(results)), trail)) yield true;
+});
+
+def('between/3', function* (a, db, trail) {
+  const lo = evalArith(a[0]); const hiT = deref(a[1]);
+  const hi = (hiT.tag === 'atom' && (hiT.name === 'inf' || hiT.name === 'infinite')) ? Infinity : evalArith(a[1]);
+  const x = deref(a[2]);
+  if (x.tag === 'num') { if (x.value >= lo && x.value <= hi) yield true; return; }
+  for (let i = lo; i <= hi; i++) {
+    const m = trail.length;
+    if (unify(a[2], mkNum(i), trail)) yield true;
+    undoTo(trail, m);
+  }
+});
+def('succ/2', function* (a, db, trail) {
+  const x = deref(a[0]), y = deref(a[1]);
+  if (x.tag === 'num') { if (unify(a[1], mkNum(x.value + 1), trail)) yield true; }
+  else if (y.tag === 'num') { if (y.value > 0 && unify(a[0], mkNum(y.value - 1), trail)) yield true; }
+});
+def('plus/3', function* (a, db, trail) {
+  const x = deref(a[0]), y = deref(a[1]), z = deref(a[2]);
+  if (x.tag === 'num' && y.tag === 'num') { if (unify(a[2], mkNum(x.value + y.value), trail)) yield true; }
+  else if (x.tag === 'num' && z.tag === 'num') { if (unify(a[1], mkNum(z.value - x.value), trail)) yield true; }
+  else if (y.tag === 'num' && z.tag === 'num') { if (unify(a[0], mkNum(z.value - y.value), trail)) yield true; }
+});
+
+def('length/2', function* (a, db, trail) {
+  const listT = deref(a[0]);
+  const arr = listToArray(listT);
+  if (arr !== null) { if (unify(a[1], mkNum(arr.length), trail)) yield true; return; }
+  const nT = deref(a[1]);
+  if (nT.tag === 'num') {
+    const items = Array.from({ length: nT.value }, () => mkVar('_'));
+    if (unify(a[0], mkList(items), trail)) yield true;
+    return;
+  }
+  for (let n = 0; n < 5000; n++) {
+    const m = trail.length;
+    const items = Array.from({ length: n }, () => mkVar('_'));
+    if (unify(a[0], mkList(items), trail) && unify(a[1], mkNum(n), trail)) yield true;
+    undoTo(trail, m);
+  }
+});
+
+def('atom_codes/2', function* (a, db, trail) {
+  const t = deref(a[0]);
+  if (t.tag !== 'var') {
+    const s = t.tag === 'atom' ? t.name : String(t.value);
+    if (unify(a[1], mkList(s.split('').map(c => mkNum(c.charCodeAt(0)))), trail)) yield true;
+  } else {
+    const arr = listToArray(a[1]);
+    const s = arr.map(c => String.fromCharCode(deref(c).value)).join('');
+    if (unify(a[0], mkAtom(s), trail)) yield true;
+  }
+});
+def('atom_chars/2', function* (a, db, trail) {
+  const t = deref(a[0]);
+  if (t.tag !== 'var') {
+    const s = t.tag === 'atom' ? t.name : String(t.value);
+    if (unify(a[1], mkList(s.split('').map(c => mkAtom(c))), trail)) yield true;
+  } else {
+    const arr = listToArray(a[1]);
+    const s = arr.map(c => deref(c).name).join('');
+    if (unify(a[0], mkAtom(s), trail)) yield true;
+  }
+});
+def('char_code/2', function* (a, db, trail) {
+  const t = deref(a[0]);
+  if (t.tag === 'atom') { if (unify(a[1], mkNum(t.name.charCodeAt(0)), trail)) yield true; }
+  else { const n = deref(a[1]); if (unify(a[0], mkAtom(String.fromCharCode(n.value)), trail)) yield true; }
+});
+def('number_codes/2', function* (a, db, trail) {
+  const t = deref(a[0]);
+  if (t.tag === 'num') { const s = String(t.value); if (unify(a[1], mkList(s.split('').map(c => mkNum(c.charCodeAt(0)))), trail)) yield true; }
+  else { const arr = listToArray(a[1]); const s = arr.map(c => String.fromCharCode(deref(c).value)).join(''); if (unify(a[0], mkNum(parseFloat(s)), trail)) yield true; }
+});
+def('atom_number/2', function* (a, db, trail) {
+  const t = deref(a[0]);
+  if (t.tag === 'atom') { const v = parseFloat(t.name); if (!isNaN(v) && unify(a[1], mkNum(v), trail)) yield true; }
+  else { const n = deref(a[1]); if (unify(a[0], mkAtom(String(n.value)), trail)) yield true; }
+});
+def('atom_length/2', function* (a, db, trail) { const t = deref(a[0]); if (unify(a[1], mkNum(t.name.length), trail)) yield true; });
+def('atom_concat/3', function* (a, db, trail) {
+  const x = deref(a[0]), y = deref(a[1]);
+  if (x.tag !== 'var' && y.tag !== 'var') {
+    const sx = x.tag === 'atom' ? x.name : String(x.value);
+    const sy = y.tag === 'atom' ? y.name : String(y.value);
+    if (unify(a[2], mkAtom(sx + sy), trail)) yield true;
+    return;
+  }
+  const z = deref(a[2]);
+  const sz = z.name;
+  for (let i = 0; i <= sz.length; i++) {
+    const m = trail.length;
+    if (unify(a[0], mkAtom(sz.slice(0, i)), trail) && unify(a[1], mkAtom(sz.slice(i)), trail)) yield true;
+    undoTo(trail, m);
+  }
+});
+def('upcase_atom/2', function* (a, db, trail) { if (unify(a[1], mkAtom(deref(a[0]).name.toUpperCase()), trail)) yield true; });
+def('downcase_atom/2', function* (a, db, trail) { if (unify(a[1], mkAtom(deref(a[0]).name.toLowerCase()), trail)) yield true; });
+def('sub_atom/5', function* (a, db, trail) {
+  const atomT = deref(a[0]); const s = atomT.name;
+  for (let b = 0; b <= s.length; b++) {
+    for (let l = 0; l <= s.length - b; l++) {
+      const m = trail.length;
+      if (unify(a[1], mkNum(b), trail) && unify(a[2], mkNum(l), trail) && unify(a[3], mkNum(s.length - b - l), trail) && unify(a[4], mkAtom(s.substr(b, l)), trail)) yield true;
+      undoTo(trail, m);
+    }
+  }
+});
+
+def('assert/1', function* (a, db) { db.add(renameTerm(a[0], new Map())); yield true; });
+def('assertz/1', function* (a, db) { db.add(renameTerm(a[0], new Map())); yield true; });
+def('asserta/1', function* (a, db) { db.add(renameTerm(a[0], new Map()), true); yield true; });
+def('retract/1', function* (a, db, trail) {
+  let t = deref(a[0]); let head, body;
+  if (t.tag === 'compound' && t.name === ':-' && t.args.length === 2) { head = t.args[0]; body = t.args[1]; } else { head = t; body = mkAtom('true'); }
+  const name = head.name; const arity = head.tag === 'compound' ? head.args.length : 0;
+  const list = db.get(name, arity);
+  if (!list) return;
+  for (let i = 0; i < list.length; i++) {
+    const m = trail.length;
+    const map = new Map();
+    const h2 = renameTerm(list[i].head, map); const b2 = renameTerm(list[i].body, map);
+    if (unify(head, h2, trail) && unify(body, b2, trail)) { list.splice(i, 1); yield true; return; }
+    undoTo(trail, m);
+  }
+});
+def('retractall/1', function* (a, db, trail) {
+  const head = deref(a[0]);
+  const name = head.name; const arity = head.tag === 'compound' ? head.args.length : 0;
+  const list = db.get(name, arity);
+  if (list) {
+    for (let i = list.length - 1; i >= 0; i--) {
+      const m = trail.length; const h2 = renameTerm(list[i].head, new Map());
+      if (unify(head, h2, trail)) list.splice(i, 1);
+      undoTo(trail, m);
+    }
+  } else { db.preds.set(db.key(name, arity), []); }
+  yield true;
+});
+
+let OUTPUT_SINK = (s) => { if (typeof process !== 'undefined' && process.stdout) process.stdout.write(s); };
+function setOutputSink(fn) { OUTPUT_SINK = fn; }
+
+def('nl/0', function* () { OUTPUT_SINK('\n'); yield true; });
+def('write/1', function* (a) { OUTPUT_SINK(formatTerm(a[0], { quoted: false })); yield true; });
+def('print/1', function* (a) { OUTPUT_SINK(formatTerm(a[0], { quoted: false })); yield true; });
+def('writeln/1', function* (a) { OUTPUT_SINK(formatTerm(a[0], { quoted: false }) + '\n'); yield true; });
+def('write_canonical/1', function* (a) { OUTPUT_SINK(formatTerm(a[0], { quoted: true })); yield true; });
+def('writeq/1', function* (a) { OUTPUT_SINK(formatTerm(a[0], { quoted: true })); yield true; });
+def('tab/1', function* (a) { const n = evalArith(a[0]); OUTPUT_SINK(' '.repeat(Math.max(0, n))); yield true; });
+def('halt/0', function* () { yield true; });
+def('halt/1', function* () { yield true; });
+
+function doFormat(fmt, argsList) {
+  let out = '';
+  let ai = 0;
+  for (let i = 0; i < fmt.length; i++) {
+    if (fmt[i] === '~' && i + 1 < fmt.length) {
+      const c = fmt[i + 1];
+      if (c === 'w' || c === 'p') { out += formatTerm(argsList[ai++], { quoted: false }); i++; continue; }
+      if (c === 'q') { out += formatTerm(argsList[ai++], { quoted: true }); i++; continue; }
+      if (c === 'a') { out += deref(argsList[ai++]).name; i++; continue; }
+      if (c === 'd') { out += String(deref(argsList[ai++]).value); i++; continue; }
+      if (c === 'n') { out += '\n'; i++; continue; }
+      if (c === '~') { out += '~'; i++; continue; }
+      out += c; i++; continue;
+    }
+    out += fmt[i];
+  }
+  return out;
+}
+function termToText(t) {
+  t = deref(t);
+  if (t.tag === 'atom') return t.name;
+  const arr = listToArray(t);
+  if (arr) return arr.map(c => { const d = deref(c); return d.tag === 'num' ? String.fromCharCode(d.value) : d.name; }).join('');
+  return formatTerm(t, {});
+}
+def('format/1', function* (a) { OUTPUT_SINK(doFormat(termToText(a[0]), [])); yield true; });
+def('format/2', function* (a) { const arr = listToArray(a[1]); OUTPUT_SINK(doFormat(termToText(a[0]), arr !== null ? arr : [a[1]])); yield true; });
+
+const PrologEngine = {
+  setOutputSink,
+  mkVar, mkAtom, mkNum, mkCompound, mkList, NIL, deref, unify, undoTo,
+  tokenize, Parser, parseProgram, parseQuery, renameTerm,
+  formatTerm, compareTerms, evalArith, PrologError, Database, solve, BUILTINS, def, listToArray,
+};
+if (typeof module !== 'undefined' && module.exports) module.exports = PrologEngine;
+if (typeof window !== 'undefined') window.PrologEngine = PrologEngine;
+
+</script>
+<script>
+(function () {
+  'use strict';
+  const E = window.PrologEngine;
+
+  /* ============== exemplos ============== */
+  const EXAMPLES = {
+    'família': `% relações de parentesco
+pai(tom, bob).
+pai(tom, liz).
+pai(bob, ana).
+pai(bob, pat).
+
+mae(marge, bob).
+mae(marge, liz).
+
+progenitor(X, Y) :- pai(X, Y).
+progenitor(X, Y) :- mae(X, Y).
+
+avo(X, Z) :- progenitor(X, Y), progenitor(Y, Z).
+
+irmao(X, Y) :-
+    progenitor(P, X),
+    progenitor(P, Y),
+    X \\= Y.
+
+% experimente:  avo(tom, Z).   irmao(bob, liz).`,
+
+    'listas': `% predicados clássicos sobre listas
+concat([], L, L).
+concat([H|T], L, [H|R]) :- concat(T, L, R).
+
+membro(X, [X|_]).
+membro(X, [_|T]) :- membro(X, T).
+
+inverte(L, R) :- inverte_(L, [], R).
+inverte_([], A, A).
+inverte_([H|T], A, R) :- inverte_(T, [H|A], R).
+
+tamanho([], 0).
+tamanho([_|T], N) :- tamanho(T, N0), N is N0 + 1.
+
+% experimente:  concat([1,2],[3,4],X).
+%               membro(X, [a,b,c]).
+%               inverte([1,2,3,4], X).`,
+
+    'aritmética': `% fatorial, fibonacci e números primos
+fatorial(0, 1) :- !.
+fatorial(N, F) :- N > 0, N1 is N - 1, fatorial(N1, F1), F is N * F1.
+
+fib(0, 0) :- !.
+fib(1, 1) :- !.
+fib(N, F) :- N > 1, N1 is N - 1, N2 is N - 2, fib(N1, F1), fib(N2, F2), F is F1 + F2.
+
+primo(2) :- !.
+primo(N) :- N > 2, N mod 2 =\\= 0, \\+ tem_divisor(N, 3).
+tem_divisor(N, D) :- D * D =< N, (N mod D =:= 0 ; D2 is D + 2, tem_divisor(N, D2)).
+
+% experimente:  fatorial(10, F).
+%               fib(15, F).
+%               findall(P, (between(2,30,P), primo(P)), L).`,
+
+    'oito rainhas': `% posicionar N rainhas sem que se ataquem
+rainhas(N, Qs) :-
+    numlist(1, N, Ns),
+    permutar(Ns, Qs),
+    seguras(Qs).
+
+numlist(L, H, []) :- L > H, !.
+numlist(L, H, [L|T]) :- L =< H, L1 is L + 1, numlist(L1, H, T).
+
+permutar([], []).
+permutar(L, [H|T]) :- selecionar(H, L, R), permutar(R, T).
+selecionar(X, [X|T], T).
+selecionar(X, [H|T], [H|R]) :- selecionar(X, T, R).
+
+seguras([]).
+seguras([Q|Qs]) :- seguras(Qs, Q, 1), seguras(Qs).
+seguras([], _, _).
+seguras([Q|Qs], Q0, D) :-
+    Q0 =\\= Q + D, Q0 =\\= Q - D,
+    D1 is D + 1, seguras(Qs, Q0, D1).
+
+% experimente:  rainhas(8, Qs).   (clique em «mais soluções» para ver outras)`,
+
+    'torre de hanói': `% mover N discos de Origem para Destino usando Auxiliar
+hanoi(0, _, _, _) :- !.
+hanoi(N, Origem, Destino, Aux) :-
+    N > 0,
+    N1 is N - 1,
+    hanoi(N1, Origem, Aux, Destino),
+    format("mover disco ~w: ~w -> ~w~n", [N, Origem, Destino]),
+    hanoi(N1, Aux, Destino, Origem).
+
+% experimente:  hanoi(4, esquerda, direita, meio).`,
+
+    'animais': `% um pequeno sistema classificador
+animal(gato).      animal(pardal).    animal(salmao).
+tem_pelo(gato).     poe_ovos(pardal).  vive_na_agua(salmao).
+tem_penas(pardal).  mamifero(gato).
+
+classe(X, mamifero) :- mamifero(X).
+classe(X, ave) :- tem_penas(X), poe_ovos(X).
+classe(X, peixe) :- vive_na_agua(X), \\+ mamifero(X).
+
+% experimente:  classe(gato, C).
+%               findall(X-C, classe(X, C), L).`,
+  };
+
+  const exampleSelect = document.getElementById('exampleSelect');
+  for (const name of Object.keys(EXAMPLES)) {
+    const opt = document.createElement('option');
+    opt.value = name; opt.textContent = name;
+    exampleSelect.appendChild(opt);
+  }
+
+  /* ============== editor com numeração de linhas ============== */
+  const kb = document.getElementById('kb');
+  const gutter = document.getElementById('gutter');
+  function syncGutter() {
+    const lines = kb.value.split('\n').length;
+    let s = '';
+    for (let i = 1; i <= lines; i++) s += i + '\n';
+    gutter.textContent = s;
+  }
+  kb.addEventListener('input', syncGutter);
+  kb.addEventListener('scroll', () => { gutter.scrollTop = kb.scrollTop; });
+  kb.addEventListener('keydown', (e) => {
+    if (e.key === 'Tab') {
+      e.preventDefault();
+      const s = kb.selectionStart, en = kb.selectionEnd;
+      kb.value = kb.value.slice(0, s) + '    ' + kb.value.slice(en);
+      kb.selectionStart = kb.selectionEnd = s + 4;
+      syncGutter();
+    }
+  });
+
+  exampleSelect.addEventListener('change', () => {
+    const name = exampleSelect.value;
+    if (!name) return;
+    kb.value = EXAMPLES[name];
+    syncGutter();
+    setStatus('exemplo carregado — clique em «Consultar» para compilar.', '');
+  });
+
+  kb.value = EXAMPLES['família'];
+  syncGutter();
+
+  /* ============== estado do interpretador ============== */
+  let db = new E.Database();
+  let current = null; // { gen, trail, vars, exhausted }
+
+  const statusEl = document.getElementById('status');
+  function setStatus(msg, cls) {
+    statusEl.textContent = msg;
+    statusEl.className = 'status-row' + (cls ? ' ' + cls : '');
+  }
+
+  const consoleEl = document.getElementById('console');
+  function consoleClearedPlaceholder() {
+    consoleEl.innerHTML = '<p class="empty">as respostas das suas consultas aparecem aqui.</p>';
+  }
+  function appendLine(text, cls) {
+    const div = document.createElement('div');
+    div.className = cls;
+    div.textContent = text;
+    consoleEl.appendChild(div);
+    consoleEl.scrollTop = consoleEl.scrollHeight;
+    return div;
+  }
+  function ensureEmptyGone() {
+    const empty = consoleEl.querySelector('.empty');
+    if (empty) empty.remove();
+  }
+
+  /* captura de saída de write/nl/format */
+  let outBuf = '';
+  E.setOutputSink((s) => { outBuf += s; });
+
+  /* ============== consultar (compilar base) ============== */
+  const consultBtn = document.getElementById('consultBtn');
+  consultBtn.addEventListener('click', consult);
+
+  function consult() {
+    const src = kb.value;
+    let clauses;
+    try {
+      clauses = E.parseProgram(src);
+    } catch (e) {
+      setStatus('erro de sintaxe: ' + e.message, 'err');
+      return;
+    }
+    const newDb = new E.Database();
+    let nClauses = 0;
+    ensureEmptyGone();
+    outBuf = '';
+    const directiveErrors = [];
+    for (const c of clauses) {
+      const t = c.term;
+      if (t.tag === 'compound' && (t.name === ':-' || t.name === '?-') && t.args.length === 1) {
+        const trail = [];
+        try {
+          const gen = E.solve(t.args[0], newDb, trail, { cut: false }, 0);
+          const r = gen.next();
+          if (r.done) directiveErrors.push('diretiva falhou: ' + E.formatTerm(t.args[0], { quoted: true }));
+        } catch (e) {
+          directiveErrors.push('diretiva com erro: ' + (e.message || String(e)));
+        }
+        continue;
+      }
+      newDb.add(t);
+      nClauses++;
+    }
+    db = newDb;
+    current = null;
+    document.getElementById('moreRow').style.display = 'none';
+    if (outBuf) { appendLine(outBuf, 'line-out'); outBuf = ''; }
+    if (directiveErrors.length) {
+      setStatus(directiveErrors.join('  ·  '), 'err');
+    } else {
+      setStatus('base compilada — ' + nClauses + (nClauses === 1 ? ' cláusula pronta.' : ' cláusulas prontas.'), 'ok');
+    }
+  }
+
+  /* ============== executar consultas ============== */
+  const queryInput = document.getElementById('queryInput');
+  const runBtn = document.getElementById('runBtn');
+  const moreRow = document.getElementById('moreRow');
+  const moreBtn = document.getElementById('moreBtn');
+  const allBtn = document.getElementById('allBtn');
+  const clearBtn = document.getElementById('clearBtn');
+
+  runBtn.addEventListener('click', startQuery);
+  queryInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') startQuery(); });
+  clearBtn.addEventListener('click', () => { consoleClearedPlaceholder(); });
+
+  function startQuery() {
+    const text = queryInput.value.trim();
+    if (!text) return;
+    ensureEmptyGone();
+    const src = text.endsWith('.') ? text : text + '.';
+    appendLine('?- ' + text.replace(/\.$/, '') + '.', 'line-query');
+
+    let q;
+    try {
+      q = E.parseQuery(src);
+    } catch (e) {
+      appendLine('erro de sintaxe: ' + e.message, 'line-err');
+      return;
+    }
+
+    const trail = [];
+    let gen;
+    try {
+      gen = E.solve(q.term, db, trail, { cut: false }, 0);
+    } catch (e) {
+      appendLine(describeError(e), 'line-err');
+      return;
+    }
+    current = { gen, trail, vars: q.vars };
+    step(true);
+  }
+
+  function describeError(e) {
+    if (e instanceof E.PrologError) return 'erro: ' + E.formatTerm(e.term, { quoted: true });
+    if (e instanceof RangeError) return 'erro: recursão profunda demais (pilha esgotada) — verifique a condição de parada.';
+    return 'erro: ' + (e.message || String(e));
+  }
+
+  function step(isFirst) {
+    if (!current) return;
+    outBuf = '';
+    let res;
+    try {
+      res = current.gen.next();
+    } catch (e) {
+      appendLine(describeError(e), 'line-err');
+      current = null;
+      moreRow.style.display = 'none';
+      return;
+    }
+    if (outBuf) appendLine(outBuf, 'line-out');
+    if (res.done) {
+      appendLine('falso.', 'line-info');
+      current = null;
+      moreRow.style.display = 'none';
+      return;
+    }
+    const names = [...current.vars.keys()];
+    if (names.length === 0) {
+      appendLine('verdadeiro.', 'line-info');
+    } else {
+      for (const name of names) {
+        const v = current.vars.get(name);
+        appendLine(name + ' = ' + E.formatTerm(v, { quoted: true }), 'line-bind');
+      }
+    }
+    moreRow.style.display = 'flex';
+  }
+
+  moreBtn.addEventListener('click', () => step(false));
+  allBtn.addEventListener('click', () => {
+    if (!current) return;
+    let count = 0;
+    const CAP = 500;
+    while (current && count < CAP) {
+      step(false);
+      count++;
+    }
+    if (current) {
+      appendLine('(parado após ' + CAP + ' soluções — refine a consulta se precisar de mais)', 'line-info');
+    }
+  });
+
+  /* nota de rodapé, escrita em prosa */
+  document.getElementById('footerNote').innerHTML =
+    '<p>A sintaxe segue o Prolog padrão: fatos e regras terminam em ponto, variáveis começam com letra maiúscula ou <code>_</code>, e listas se escrevem como <code>[1,2,3]</code> ou <code>[Cabeça|Resto]</code>. O corte <code>!</code>, a negação <code>\\+</code>, o if-then-else <code>-></code>/<code>;</code> e a aritmética com <code>is</code> funcionam como seria de esperar, junto de embutidos comuns como <code>findall/3</code>, <code>between/3</code>, <code>append/3</code>, <code>length/2</code>, <code>assert/1</code> e <code>format/2</code>.</p>' +
+    '<p>Depois de compilar a base à esquerda, digite uma consulta à direita e pressione Enter. Se houver mais de uma resposta possível, o botão «mais soluções» pede a próxima pelo mecanismo normal de retrocesso do Prolog, e «todas» percorre o restante de uma vez.</p>';
+})();
+
+</script>
+</body>
+</html>
