@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="pt"></html>
+    <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Portulino 350M — um modelo que usa ferramentas, treinado em T4 gratuita</title>
+
+
+
+<meta name="description" content="No artigo do Portulino contei o começo: Markov, RNN, nanoGPT do Karpathy e o primeiro Portulino, treinado religiosamente em T4 gratuita, 100 a 150 iterações por dia e como já havia parado de treinar ele. Era hora de criar outro modelo. Entretanto, eu quase desisti de treinar modelos em T4...">
+
+<link rel="canonical" href="http://0.0.0.0:4000/ia/portulino-350m-ferramentas-sft-dpo/">
+
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="article:published_time" content="2026-09-21T00:00:00-03:00">
+<meta property="article:author" content="Fábio">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://0.0.0.0:4000/ia/portulino-350m-ferramentas-sft-dpo/">
+<meta property="og:title" content="Portulino 350M — um modelo que usa ferramentas, treinado em T4 gratuita">
+<meta property="og:description" content="No artigo do Portulino contei o começo: Markov, RNN, nanoGPT do Karpathy e o primeiro Portulino, treinado religiosamente em T4 gratuita, 100 a 150 iterações por dia e como já havia parado de treinar ele. Era hora de criar outro modelo. Entretanto, eu quase desisti de treinar modelos em T4...">
+<meta property="og:image" content="http://0.0.0.0:4000/assets/imgs/867e13fe-25b1-4e3f-84f4-a00b275a6142.jpeg">
+<meta property="og:locale" content="pt">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="http://0.0.0.0:4000/ia/portulino-350m-ferramentas-sft-dpo/">
+<meta name="twitter:title" content="Portulino 350M — um modelo que usa ferramentas, treinado em T4 gratuita">
+<meta name="twitter:description" content="No artigo do Portulino contei o começo: Markov, RNN, nanoGPT do Karpathy e o primeiro Portulino, treinado religiosamente em T4 gratuita, 100 a 150 iterações por dia e como já havia parado de treinar ele. Era hora de criar outro modelo. Entretanto, eu quase desisti de treinar modelos em T4...">
+<meta name="twitter:image" content="http://0.0.0.0:4000/assets/imgs/867e13fe-25b1-4e3f-84f4-a00b275a6142.jpeg">
+
+<link rel="preload" href="/assets/css/style.css" as="style">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/github.css">
+
+<!-- Font Awesome CDN -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+/>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  }
+};
+</script>
+
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PY9DT1RWSW"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-PY9DT1RWSW');
+</script>
+<script>
+  function $(id) { return document.getElementById(id); }
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BlogPosting",
+ "headline": "Portulino 350M — um modelo que usa ferramentas, treinado em T4 gratuita",
+ "description": "No artigo do Portulino contei o começo: Markov, RNN, nanoGPT do Karpathy e o primeiro Portulino, treinado religiosamente em T4 gratuita, 100 a 150 iterações por dia e como já havia parado de treinar ele. Era hora de criar outro modelo. Entretanto, eu quase desisti de treinar modelos em T4...",
+ "image": "http://0.0.0.0:4000/assets/imgs/867e13fe-25b1-4e3f-84f4-a00b275a6142.jpeg",
+ "author": {
+   "@type": "Person",
+   "name": "Fábio"
+ },
+ "publisher": {
+   "@type": "Organization",
+   "name": "Fabio Vila"
+ },
+ "datePublished": "2026-09-21T00:00:00-03:00",
+ "dateModified": "2026-09-21T00:00:00-03:00",
+ "mainEntityOfPage": {
+   "@type": "WebPage",
+   "@id": "http://0.0.0.0:4000/ia/portulino-350m-ferramentas-sft-dpo/"
+ }
+}
+</script>
+
+</head>
+    <body>
+    <nav class="navbar">
+  <div class="container">
+
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <h1 class="has-text-weight-bold is-capitalized ">Fabio Vila</h1>
+      </a>
+
+      <span class="navbar-burger " data-target="navbarMenuHeroA">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </div>
+
+    <div id="navbarMenuHeroA" class="navbar-menu">
+      <div class="navbar-end">
+
+        <a href="/" class="navbar-item ">
+          Home
+        </a>
+
+        <a href="https://fabiovila.github.io/contato/" class="navbar-item ">
+          Contato
+        </a>
+
+        <a href="https://vilaboard.com" class="navbar-item ">
+          Vilaboard
+        </a>
+
+        <a href="/logica.html" class="navbar-item ">
+          Lógica Online
+        </a>
+
+        <a href="/prolog.html" class="navbar-item ">
+          Prolog Online
+        </a>
+
+        <!-- Language indicator -->
+
+        
+            <span class="navbar-item has-text-grey">
+              🇧🇷 Português
+            </span>
+
+            
+            <a class="navbar-item " href="/en/en/portulino-350m-tool-use-sft-dpo/">
+              🇺🇸 English
+            </a>
+            
+        
+
+        
+
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+<section class="section ">
+<div class="columns is-centered">
+<div class="column is-9 ">
+<div class="content is-fluid">
+
+  <header class="mb-5">
+    <h1 class="title is-warning">Portulino 350M — um modelo que usa ferramentas, treinado em T4 gratuita</h1>
+    <h4 class="is-size-4-tablet has-text-weight-light is-family-sans-serif" style="margin-top: -1em;">Shell, busca e RAG num modelo de uma pessoa só. E os defeitos hilários no caminho.</h4>
+    
+    <hr class="m-1"/>
+    <small class="is-size-7-tablet has-text-weight-light pl-2 has-text-dark-grey" ><span class="icon "><i class="fa fa-user "></i></span>
+      
+      Fabio
+         
+    <span class="icon"><i class="fa fa-calendar"></i></span>  
+     21 Sep 2026
+     <span class="icon"><i class="fa fa-bars"></i></span>
+    IA
+    <span class="icon"><i class="fa fa-tag"></i></span>  
+    colab, transformers, dataset, sft, dpo, tool-use, e rag
+    </small>
+    <hr class="mt-1"/>
+    
+    <div class="h-400">
+        
+        <img class="image" style="width:100%" src="/assets/imgs/867e13fe-25b1-4e3f-84f4-a00b275a6142.jpeg"/>
+        
+    </div>
+     <hr class="mt-1 mb-5"/>
+    
+
+
+  </header>
+
+  <article class="mt-5">
+    <p>No <a href="https://huggingface.co/fabiovilao/portulino">artigo do Portulino</a> contei o começo: Markov, RNN, nanoGPT do Karpathy e o primeiro Portulino, treinado religiosamente em T4 gratuita, 100 a 150 iterações por dia e como já havia parado de treinar ele.</p>
+
+<p>Era hora de criar outro modelo.</p>
+
+<p>Entretanto, eu quase desisti de treinar modelos em T4 do Colab porque após o Portulino fiz outro e fiquei 3 meses treinando até que ele estagnou em 3,0 de loss e não evoluia no val. Achei que havia chegado ao limite. E olha que 3,0 parece bom no papel — mas nos meus testes de chat ele nunca passou de um n-gram glorificado, aquele papo de Markov que repete padrão sem entender nada.</p>
+
+<p>Resolvi tentar novamente. Peguei esse modelo e joguei no Claude para ver se havia algum problema, e de fato havia, o RoPE estava errado. Que raiva! Meses perdidos!
+Pedi para fazer outro modelo e nesse tempo o Claude e outras IAs já ficaram mais espertas e para minha surpresa quando coloquei esse modelo atual para treinar algo incrível aconteceu. Como eu não sabia quanto de batch cabia em 15G da T4 eu ia aumentando até chegar no limite da memória. Pois então … enquanto os modelos anteriores só aguentavam 11 de batch esse modelo remodelado pelo Claude aguentava 21 de batch size!!!</p>
+
+<p>21?? Só podia ter algo errado, não é possível! Eu joguei o modelo em todas as IAs para auditar e todas me disseram que estava correto o modelo.</p>
+
+<p>Ok, então vamos treinar para ver se está certo mesmo. Logo pensei que 21 de batch demoraria uma eternidade para fazer um batch, mas não, a velocidade era a mesma dos 11 de batch do modelo anterior.
+Cético quanto a esse modelo deixei ele treinando até chegar nos 3,5 de loss que é quando de fato se consegue perceber alguma inteligibilidade. E foi que ele chegou em 3,5 em aproximadamente 3k iterações … Não é possível tanto ganho de eficiência!
+Animadissimo, rodava o validator.py para checar o val, a perplexidade e o top-1 e percebia que de fato eles estavam caindo e a cada checkpoint que eu testava no chat percebia que estava treinando muito bem.</p>
+
+<h3 id="o-modelo-novo">O modelo novo</h3>
+
+<p>Nesse modelo joguei fora quase tudo e recomecei do zero: vocabulário novo de 32k (cabe em 16 bits, economiza Drive) com diversos tokens especiais como <code class="language-plaintext highlighter-rouge">&lt;|think|&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;|RAG|&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;|json|&gt;</code> e <code class="language-plaintext highlighter-rouge">&lt;|ai|&gt;</code>, arquitetura reescrita (GQA com 16 heads de query e 4 de chave-valor, RoPE, RMSNorm, SwiGLU, sem bias) e por volta de 350M de parâmetros (o Portulino tinha só 280M). Contexto de 1024, AdamW, <code class="language-plaintext highlighter-rouge">batch_size</code> 21 na T4 e 75 na A100 com 8 de acumulação.</p>
+
+<p>O regime continua o mesmo: todo dia um pouco de T4 gratuita, e de vez em quando uns créditos para A100 ou L4 darem um salto. Cada rodada de A100 troca o bloco de textos corridos — estou no segundo bloco, o terceiro vai ser CulturaX misturado pt-BR e inglês.</p>
+
+<p>Os números de hoje — e repare que o treino continua rodando, isso aqui é foto em movimento, não retrato final: 12.705 iterações, uns 7,8 bilhões de tokens vistos, <code class="language-plaintext highlighter-rouge">val_loss</code> de 4,22 para <strong>2,0</strong> e top-1 de 0,32 para 0,60. Curva monotônica, sem platô.</p>
+
+<p><img src="/assets/imgs/portulino-val-loss.png" alt="val_loss por iteração" />
+<img src="/assets/imgs/portulino-val-ppl.png" alt="perplexidade por iteração" />
+<img src="/assets/imgs/portulino-val-top1.png" alt="top-1 por iteração" /></p>
+
+<p>Observe no gráfico os dois saltos que duas cotas de A100 fizeram. Os pequenos saltos foram trocas de dataset e formatos. Antes eu usava um json verboso que consumia tokens e fazia o modelo penar para escrever corretamente, simplifiquei-o deixando menor. Outra mudança foram os códigos python executados; antes eles eram executados quando o modelo emitia um json shell que executava o python3 com o conteúdo do programa, extremamente burocrático, e como eu tinha o token especial <code class="language-plaintext highlighter-rouge">&lt;|code|&gt;</code> sem função utilizei-o como container de código python3 para o modelo emitir e o backend executar.</p>
+
+<p>Para um modelo desse tamanho, treinado assim, está dentro do esperado — e é aí que mora a primeira lição: ele ainda está em <strong>pré-treino puro</strong>, com algo como 1% de instruct no meio. Ele nunca foi ensinado a ser assistente. Cobrar boas respostas dele agora é como cobrar de um aluno que só leu a biblioteca e nunca fez uma prova.</p>
+
+<h3 id="a-aposta-ferramentas-em-vez-de-decoração">A aposta: ferramentas em vez de decoração</h3>
+
+<p>Em vez de só texto corrido, o dataset tem quase 400 mil blocos de diálogo num formato próprio, com marcadores para cada papel: <code class="language-plaintext highlighter-rouge">&lt;|user|&gt;</code> para você, <code class="language-plaintext highlighter-rouge">&lt;|ai|&gt;</code> para o que o modelo já disse, <code class="language-plaintext highlighter-rouge">&lt;|answer|&gt;</code> para a resposta atual, <code class="language-plaintext highlighter-rouge">&lt;|think|&gt;</code> para o raciocínio, <code class="language-plaintext highlighter-rouge">&lt;|json|&gt;</code> para chamar ferramentas (<code class="language-plaintext highlighter-rouge">shell</code>, <code class="language-plaintext highlighter-rouge">search</code>, <code class="language-plaintext highlighter-rouge">create_file</code>) e <code class="language-plaintext highlighter-rouge">&lt;|RAG|&gt;</code> para o resultado que volta do mundo real.</p>
+
+<p>E tem um app local em Flask onde o modelo realmente executa: roda comando no terminal, pesquisa na web, cria arquivo. Quando pergunto “quais USBs estão conectados?”, ele roda <code class="language-plaintext highlighter-rouge">lsusb</code> de verdade e lê a saída de verdade. Quando o diretório está vazio, o <code class="language-plaintext highlighter-rouge">ls</code> retorna <code class="language-plaintext highlighter-rouge">total 0</code> — e eu já aprendi que o erro quase nunca está na ferramenta, e sim na interpretação que o modelo faz dela.</p>
+
+<h3 id="a-galeria-de-defeitos">A galeria de defeitos</h3>
+
+<p>Já que o blog promete falhas catastróficas ocasionais, vai a coleção da semana:</p>
+
+<ul>
+  <li>Perguntei a diferença entre cachorro e gato. O modelo rodou <code class="language-plaintext highlighter-rouge">cat ~/Users</code> <strong>dez vezes seguidas</strong>, falhando todas, sem nunca responder a pergunta. Discutindo esses logs com assistentes de IA, a conclusão foi simples e um pouco embaraçosa: faltava um guardrail besta — parar no terceiro erro repetido. Não é problema de treino, é de runtime, e se resolve com dez linhas.</li>
+  <li>Perguntei preço de jogo. Ele não pesquisou nada e inventou R$ 299 com uma enrolação sobre “head-dead”.</li>
+  <li>O clássico: o modelo <strong>continua o RAG alucinando</strong>. O resultado da busca termina e ele emenda fatos inventados no mesmo formato, como se fossem citação. Eu intuía que era algo estrutural, mas a explicação veio conversando com IAs sobre os logs: no pré-treino sem máscara, a loss incide sobre todos os tokens, inclusive RAG. Ele foi treinado para <em>predizer</em> busca, não para <em>usar</em> busca. Caiu a ficha na hora.</li>
+  <li>Emitiu JSON com aspas dentro de aspas e quebrou o próprio parser. Investigando junto com um assistente, virou regra de curadoria: comando shell em JSON de treino é single-line e sem aspa dupla interna. Heredoc é impossível por construção — detalhe que só aparece quando você treina o formato junto com o modelo, e eu só percebi porque alguém (não humano) apontou.</li>
+</ul>
+
+<p>Nada disso me desanima. Cada defeito virou ou um exemplo curado à mão (RAG real preservado, resposta reescrita) ou um gate no pipeline: validador de <code class="language-plaintext highlighter-rouge">&lt;|json|&gt;</code>, quarentena de tool quebrada, filtro de conteúdo no SFT. O dataset se defende sozinho hoje.</p>
+
+<h3 id="datasets-programáticos-rag-de-verdade-não-de-mentira">Datasets programáticos: RAG de verdade, não de mentira</h3>
+
+<p>Teve uma fase em que percebi um problema embaraçoso: meu modelo aprendia o <em>formato</em> do RAG mas com conteúdo inventado, porque parte dos dados de treino tinha busca simulada. Decidi então que dado de ferramenta só entra se o RAG for real — executado de verdade na hora de gerar o exemplo. Nasceram os datasets programáticos, cada um com seu gerador:</p>
+
+<ul>
+  <li><strong>HotpotQA</strong> (7 mil): perguntas multi-hop do benchmark, com os fatos de suporte reais como evidência.</li>
+  <li><strong>Pira</strong> (4 mil, pt+en): perguntas e respostas com o abstract original como prova.</li>
+  <li><strong>Catálogo de loja</strong> (2 mil): raspei o catálogo real de uma loja de utilidades — 914 produtos via JSON embutido na página, passando por proteção anti-robô — e gerei perguntas cujas respostas citam especificação de verdade.</li>
+  <li><strong>Salários</strong> (2 mil + 1,5 mil relatórios): scraper com cautela num site de pisos salariais (estatísticas, FAQ, por estado), com direito a dados sujos de propósito para o modelo aprender a ignorar ruído.</li>
+  <li><strong>FIPE</strong> (2 mil), <strong>IMDB</strong> (2 mil, de um CSV de 33 mil filmes), <strong>APIs</strong> (2 mil, de um catálogo de 837 APIs reais), <strong>telefones BR</strong> (1 mil, com regex de telefone brasileiro e validação de DDD).</li>
+  <li><strong>CodeTrace</strong> (1 mil): rastreamento de execução de código, para o modelo aprender a seguir programa passo a passo.</li>
+  <li><strong>Shell e Python</strong> (5 mil): comandos e scripts gerados com gabarito executado de verdade — média de lista, strings, programação básica. O <code class="language-plaintext highlighter-rouge">&lt;|code|&gt;</code> roda, a saída vira <code class="language-plaintext highlighter-rouge">&lt;|RAG|&gt;</code>, e a resposta cita o número que saiu. Sem essa ponte, o modelo aprende a <em>fingir</em> que calculou.</li>
+</ul>
+
+<p>Cada exemplo sai no formato que o modelo vai ver ao vivo: pergunta, <code class="language-plaintext highlighter-rouge">&lt;|think|&gt;</code>, chamada <code class="language-plaintext highlighter-rouge">&lt;|json|&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;|RAG|&gt;</code> com o resultado real, think curto citando o dado, resposta. Nada de busca de mentira. Quando o dado não existe (arquivo sumido, diretório vazio), o exemplo ensina a dizer “não achei” em vez de inventar — a frase mais difícil para um modelo pequeno.</p>
+
+<h3 id="o-que-vem-agora-sft-e-dpo-de-verdade">O que vem agora: SFT e DPO de verdade</h3>
+
+<p>O próximo passo já está desenhado no notebook — desenhado a quatro mãos, minhas e de IAs com quem debato esses problemas: mistura por porcentagem — cada micro-step sorteia entre pré-treino, SFT e DPO. O SFT usa máscara <code class="language-plaintext highlighter-rouge">-1</code> em tudo que é observação (<code class="language-plaintext highlighter-rouge">user</code>, <code class="language-plaintext highlighter-rouge">RAG</code>, <code class="language-plaintext highlighter-rouge">system</code>) e treina só o comportamento do assistente. O DPO usa pares <code class="language-plaintext highlighter-rouge">chosen/rejected</code> com modelo de referência congelado. Os dados já saem do pipeline em parquet com metadados no schema: tokens, labels mascarados e a spec da máscara carimbada junto, para ninguém treinar no arquivo errado daqui a seis meses.</p>
+
+<p>Lição que fica desta fase, e essa eu divido o crédito: <strong>modelo pequeno aprende formato muito antes de aprender juízo</strong>. Com 1% de instruct ele já emite <code class="language-plaintext highlighter-rouge">&lt;|think|&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;|json|&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;|RAG|&gt;</code> nos lugares certos — e erra feio o conteúdo. Eu entrei nessa fase achando que dataset era tudo (ainda acho), e saí entendendo que o formato vem do pré-treino mas o juízo vai ter que vir do SFT. Metade disso eu percebi sozinho regando as plantas; a outra metade me explicaram — inclusive inteligências artificiais, o que tem sua ironia: estou usando IAs para aprender a fazer uma IA.</p>
+
+<h3 id="quanto-custa-o-sonho">Quanto custa o sonho</h3>
+
+<p>Uma T4 gratuita por dia, uns R$ 58 de vez em quando para A100, um Colab, e anos regando essas plantas. Sou uma pessoa só, o modelo é prova de conceito — e chegar até aqui, com pipeline completo do tokenizer ao app com ferramentas, já é a vitória. Vou continuar regando essas plantas para ver onde chego.</p>
+
+  </article>
+
+</div>
+</div>
+</div>
+</section>
+
+<section class="section">
+  <hr/>
+  <nav class="level is-mobile">
+
+    <div class="level-item">      
+      
+      
+      <div>
+        <p class="heading"><strong>Veja Também:</strong></p>
+        <a href="/pt/eletronica/isolador-usb-protegeu-notebook/"><small>O isolador USB salvou meu notebook de um inversor em chamas</small></br></a>
+        <a href="/en/ia/portulino-350m-tool-use-sft-dpo/"><small>Portulino 350M — a model that uses tools, trained on a free T4</small></a>
+      </div>
+    </div>
+  </nav>
+</section>
+<section class="section">
+  <div id="disqus_thread"></div>
+<script>
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://fabiovila-github-io.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+<footer class="footer has-background-dark has-text-white">
+  <div class="content has-text-centered">
+    <p>
+      <strong>Fabio Vila</strong> by <a href="https://fabiovila-github-io">Fabio Vila</a>.
+      The source code is licensed
+      <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+
+    </p>
+  </div>
+<nav class="level">
+      <div class="level-item has-text-centered">
+        <div>
+          <span class="icon has-text-warning">
+            <i class="fas fa-envelope fa-lg"></i>
+          </span>
+          <p>
+            <strong class="has-text-light">Email:</strong><br>
+            <a class="has-text-link-light" href="mailto:fkvila@outlook.com">fkvila@outlook.com</a>
+          </p>
+        </div>
+      </div>
+      <div class="level-item has-text-centered">
+        <div>
+          <span class="icon has-text-info">
+            <i class="fab fa-telegram fa-lg"></i>
+          </span>
+          <p>
+            <strong class="has-text-light">Telegram:</strong><br>
+            <a class="has-text-link-light" href="https://t.me/viladx2">t.me/viladx2</a>
+          </p>
+        </div>
+      </div>
+
+    </nav>
+</footer>
+</body>
+
+<script>
+    class MiniSheet {
+
+  constructor(containerId) {
+
+    this.container = document.getElementById(containerId)
+    this.fields = {}
+
+    this.functions = {
+      SUM: (...a)=>a.reduce((s,v)=>s+v,0),
+      ROUND: (v,p=0)=>Number(v.toFixed(p)),
+      MIN: (...a)=>Math.min(...a),
+      MAX: (...a)=>Math.max(...a),
+      IF: (c,a,b)=>c?a:b
+    }
+
+    this.container.querySelectorAll('[id]').forEach(el=>{
+      const id = el.id
+      const formula = el.getAttribute('formula')
+
+      this.fields[id] = {el, formula}
+
+      if(!formula){
+        if(el.tagName=="INPUT"||el.tagName=="SELECT"||el.tagName=="TEXTAREA"){
+          el.addEventListener('input', ()=>this.recalculate())
+        }
+      }
+    })
+
+    this.recalculate()
+  }
+
+  readValue(el){
+
+    if(el.tagName=="INPUT"||el.tagName=="SELECT"||el.tagName=="TEXTAREA"){
+      return parseFloat(el.value)||0
+    }
+
+    return parseFloat(el.textContent)||0
+  }
+
+  writeValue(el,val){
+
+    if(el.tagName=="INPUT"||el.tagName=="SELECT"||el.tagName=="TEXTAREA"){
+      el.value = val
+    }else{
+      el.textContent = val
+    }
+  }
+
+  buildContext(){
+
+    const ctx = {...this.functions}
+
+    for(const id in this.fields){
+      ctx[id] = this.readValue(this.fields[id].el)
+    }
+
+    return ctx
+  }
+
+  recalculate(){
+
+    const maxLoop = 10
+
+    for(let i=0;i<maxLoop;i++){
+
+      const ctx = this.buildContext()
+
+      let changed = false
+
+      for(const id in this.fields){
+
+        const f = this.fields[id]
+
+        if(!f.formula) continue
+
+        try{
+
+          const fn = new Function(...Object.keys(ctx),`return ${f.formula}`)
+
+          const val = fn(...Object.values(ctx))
+
+          const current = this.readValue(f.el)
+
+          if(current!=val){
+
+            this.writeValue(f.el,val)
+
+            changed = true
+
+          }
+
+        }catch(e){
+
+          this.writeValue(f.el,"ERR")
+
+        }
+
+      }
+
+      if(!changed) break
+    }
+  }
+}
+
+document.addEventListener("DOMContentLoaded",()=>{
+  new MiniSheet("sheet")
+})
+</script>
+</html>

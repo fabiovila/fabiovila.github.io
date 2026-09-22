@@ -1,92 +1,150 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="pt"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" hreflang="pt" /><updated>2026-09-05T17:12:23-03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Fabio Vila</title><subtitle>Blog sobre eletrônica, firmware, matemática aplicada e engenharia. Projetos reais, experimentos e falhas catastróficas ocasionais.
-</subtitle><author><name>Fábio</name></author><entry xml:lang="en"><title type="html">The USB Isolator That Saved My Laptop From a Burning Motor Inverter</title><link href="http://0.0.0.0:4000/en/electronics/usb-isolator-saved-laptop/" rel="alternate" type="text/html" title="The USB Isolator That Saved My Laptop From a Burning Motor Inverter" /><published>2026-08-03T00:00:00-03:00</published><updated>2026-08-03T00:00:00-03:00</updated><id>http://0.0.0.0:4000/en/electronics/usb-isolator-saved-laptop</id><content type="html" xml:base="http://0.0.0.0:4000/en/electronics/usb-isolator-saved-laptop/">&lt;p&gt;It was just another normal day programming a motor inverter. The system was running a 1.5 HP motor at around 30 Hz when something started to look wrong. The rotation became unstable, the motor began to wobble, and then it happened.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="pt"><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" hreflang="pt" /><updated>2026-09-21T21:48:52-03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Fabio Vila</title><subtitle>Blog sobre eletrônica, firmware, matemática aplicada e engenharia. Projetos reais, experimentos e falhas catastróficas ocasionais.
+</subtitle><author><name>Fábio</name></author><entry xml:lang="en"><title type="html">Portulino 350M — a model that uses tools, trained on a free T4</title><link href="http://0.0.0.0:4000/en/ia/portulino-350m-tool-use-sft-dpo/" rel="alternate" type="text/html" title="Portulino 350M — a model that uses tools, trained on a free T4" /><published>2026-09-21T00:00:00-03:00</published><updated>2026-09-21T00:00:00-03:00</updated><id>http://0.0.0.0:4000/en/ia/portulino-350m-tool-use-sft-dpo</id><content type="html" xml:base="http://0.0.0.0:4000/en/ia/portulino-350m-tool-use-sft-dpo/">&lt;p&gt;In the &lt;a href=&quot;https://huggingface.co/fabiovilao/portulino&quot;&gt;Portulino article&lt;/a&gt; I told the beginning: Markov chains, RNNs, Karpathy’s nanoGPT and the first Portulino, trained religiously on free Colab T4s, 100 to 150 iterations a day — and how I had already stopped training it.&lt;/p&gt;
 
-&lt;p&gt;The board suddenly started throwing sparks, fire, and small explosions. The lights went out, flashes and bangs echoed around the room, and for a moment you don’t really know whether to run or just stand there staring at the disaster unfolding. The circuit breakers tripped, but there were still occasional explosions coming from the two 1000 µF 350 V capacitors discharging into who knows what.&lt;/p&gt;
+&lt;p&gt;Time to build another model.&lt;/p&gt;
 
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;img src=&quot;/assets/imgs/photo_2026-03-08_10-01-55.jpg&quot; alt=&quot;Board catching fire&quot; /&gt;&lt;/td&gt;
-      &lt;td&gt;The board burning in the dark because the lighting breaker also tripped.&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;Still, I almost gave up training models on Colab T4s because after Portulino I built another one and spent 3 months training it until it stalled at 3.0 loss with no val improvement. I thought I had hit the limit. And 3.0 looks good on paper — but in my chat tests it never got past a glorified n-gram, that Markov-style chatter that repeats patterns without understanding a thing.&lt;/p&gt;
 
-&lt;p&gt;Once the initial shock passed and the power came back, I managed to put out a small flame that had started in the insulation of some wires. What remained was not pretty: a charred PCB, a microcontroller that had literally exploded, programming pins that simply no longer existed, and the unmistakable smell of burned rubber in the air. Some wires had melted together and the room had that strange silence that follows electrical chaos.&lt;/p&gt;
+&lt;p&gt;I decided to try again. I threw that model at Claude to check for bugs, and sure enough there was one: RoPE was wrong. What rage! Months wasted!
+I asked for another model, and by then Claude and the other AIs had gotten smarter, and to my surprise when I put this current model to train something incredible happened. Since I didn’t know how much batch fits in the T4’s 15G, I kept increasing it until hitting the memory limit. Well … while previous models only held batch 11, this Claude-remodeled one held batch size 21!!!
+21?? Something had to be wrong. No way! I threw the model at every AI to audit it and they all said it was correct.
+OK, then let’s train and see if it’s really right. I figured 21 batch would take forever per step, but no — same speed as the old 11-batch model.
+Skeptical of this model, I let it train until 3.5 loss, which is when you can actually perceive some intelligibility. And it reached 3.5 in about 3k iterations … That much efficiency gain can’t be possible!
+Thrilled, I ran validator.py to check val, perplexity and top-1, and they were indeed dropping, and at every checkpoint I tested in chat I could tell it was training really well.
+This post is the current state — numbers, defects and all.&lt;/p&gt;
 
-&lt;h3 id=&quot;oh-no-the-laptop&quot;&gt;Oh no… the laptop!&lt;/h3&gt;
+&lt;h3 id=&quot;the-new-model&quot;&gt;The new model&lt;/h3&gt;
 
-&lt;p&gt;I quickly looked to the side, already imagining the worst. In that instant I thought about all my data, my projects, and the cost of replacing the computer — especially these days when laptops are anything but cheap.&lt;/p&gt;
+&lt;p&gt;In this model I threw away almost everything and restarted from zero: new 32k vocabulary (fits in 16 bits, saves Drive space) with several special tokens like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;|think|&amp;gt;&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;|RAG|&amp;gt;&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;|json|&amp;gt;&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;|ai|&amp;gt;&lt;/code&gt;, rewritten architecture (GQA with 16 query heads and 4 key-value heads, RoPE, RMSNorm, SwiGLU, no bias) and around 350M parameters (Portulino had only 280M). Context 1024, AdamW, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;batch_size&lt;/code&gt; 21 on T4 and 75 on A100 with 8 accumulation steps.&lt;/p&gt;
 
-&lt;p&gt;But then I noticed something unexpected.&lt;/p&gt;
+&lt;p&gt;Same routine: a bit of free T4 every day, and occasionally some credits for A100 or L4 jumps. Each A100 round swaps the raw text block — I’m on the second block, the third will be CulturaX mixed pt-BR and English.&lt;/p&gt;
 
-&lt;h3 id=&quot;it-was-fine&quot;&gt;It was fine&lt;/h3&gt;
+&lt;p&gt;Today’s numbers — and note training is still running, this is a moving picture, not a final portrait: 12,705 iterations, about 7.8 billion tokens seen, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;val_loss&lt;/code&gt; from 4.22 down to &lt;strong&gt;2.0&lt;/strong&gt; and top-1 from 0.32 to 0.60. Monotonic curve, no plateau.&lt;/p&gt;
 
-&lt;p&gt;The screen was still on.&lt;br /&gt;
-VSCode was open.&lt;br /&gt;
-No signs of damage.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/imgs/portulino-val-loss.png&quot; alt=&quot;val_loss per iteration&quot; /&gt;
+&lt;img src=&quot;/assets/imgs/portulino-val-ppl.png&quot; alt=&quot;perplexity per iteration&quot; /&gt;
+&lt;img src=&quot;/assets/imgs/portulino-val-top1.png&quot; alt=&quot;top-1 per iteration&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;The only reaction from the laptop seemed to be the cooling fan spinning a bit faster because of the heat in the room.&lt;/p&gt;
+&lt;p&gt;Notice in the chart the two jumps that two A100 quotas made. The small jumps were dataset and format swaps. I used to emit a verbose JSON that ate tokens and made the model struggle to write it correctly, so I slimmed it down. Another change was executed Python code: it used to run when the model emitted a shell JSON that ran python3 with the program contents — extremely bureaucratic — and since I had the special &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;|code|&amp;gt;&lt;/code&gt; token sitting unused, I used it as a python3 code container for the model to emit and the backend to execute. For a model this size trained this way, that’s within expectations — and here’s the first lesson: it’s still in &lt;strong&gt;pure pre-training&lt;/strong&gt;, with about 1% instruct mixed in. It was never taught to be an assistant. Demanding good answers from it now is like testing a student who only read the library and never took an exam.&lt;/p&gt;
 
-&lt;p&gt;That’s when I looked to the left and saw the small device that had probably prevented a much bigger disaster: a simple USB isolator sitting between the computer and the programmer.&lt;/p&gt;
+&lt;h3 id=&quot;the-bet-tools-instead-of-decoration&quot;&gt;The bet: tools instead of decoration&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/imgs/photo_2026-03-08_10-20-19.jpg&quot; alt=&quot;USB isolator and STLink&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;Instead of plain running text, the dataset has almost 400 thousand dialogue blocks in a custom format, with markers for each role: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;|user|&amp;gt;&lt;/code&gt; for you, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;|ai|&amp;gt;&lt;/code&gt; for what the model already said, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;|answer|&amp;gt;&lt;/code&gt; for the current answer, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;|think|&amp;gt;&lt;/code&gt; for reasoning, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;|json|&amp;gt;&lt;/code&gt; for calling tools (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;shell&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;search&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;create_file&lt;/code&gt;) and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;|RAG|&amp;gt;&lt;/code&gt; for the result coming back from the real world.&lt;/p&gt;
 
-&lt;p&gt;At that moment it became clear that it had done exactly what it was designed to do.&lt;/p&gt;
+&lt;p&gt;Plus a local Flask app where the model actually executes: runs terminal commands, searches the web, creates files. When I ask “which USB devices are connected?”, it really runs &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lsusb&lt;/code&gt; and really reads the output. When the directory is empty, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ls&lt;/code&gt; returns &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;total 0&lt;/code&gt; — and I already learned the bug is almost never in the tool, but in how the model interprets it.&lt;/p&gt;
 
-&lt;h3 id=&quot;the-danger-of-debugging-motor-inverters&quot;&gt;The danger of debugging motor inverters&lt;/h3&gt;
+&lt;h3 id=&quot;the-defect-gallery&quot;&gt;The defect gallery&lt;/h3&gt;
 
-&lt;p&gt;When I first started working with inverters, I already knew that something like this could eventually happen. In many power boards the microcontroller shares the same ground as the power module, with no real isolation.&lt;/p&gt;
+&lt;p&gt;Since the blog promises occasional catastrophic failures, here’s this week’s collection:&lt;/p&gt;
 
-&lt;p&gt;This means that the computer connected via USB is effectively tied electrically to the power circuit.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;I asked the difference between a dog and a cat. The model ran &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cat ~/Users&lt;/code&gt; &lt;strong&gt;ten times in a row&lt;/strong&gt;, failing every time, never answering the question. Discussing these logs with AI assistants, the conclusion was simple and a bit embarrassing: a dumb guardrail was missing — stop at the third repeated error. Not a training problem, a runtime one, fixed in ten lines.&lt;/li&gt;
+  &lt;li&gt;I asked a game price. It searched nothing and invented R$ 299 with some rambling about “head-dead”.&lt;/li&gt;
+  &lt;li&gt;The classic: the model &lt;strong&gt;continues the RAG by hallucinating&lt;/strong&gt;. The search result ends and it appends invented facts in the same format, as if quoted. I sensed it was structural, but the explanation came from talking to AIs about the logs: in unmasked pre-training, loss applies to every token, including RAG. It was trained to &lt;em&gt;predict&lt;/em&gt; search, not to &lt;em&gt;use&lt;/em&gt; search. Penny dropped instantly.&lt;/li&gt;
+  &lt;li&gt;It emitted JSON with quotes inside quotes and broke its own parser. Investigating with an assistant turned into a curation rule: shell commands in training JSON are single-line with no inner double quotes. Heredoc is impossible by construction — a detail that only shows up when you train the format together with the model, and I only noticed because someone (non-human) pointed it out.&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;In inverters powered from rectified mains, the DC bus can easily reach around 310 V. Any fault, transient, or imbalance between ground references can put dangerous voltages on the path between the board and the computer.&lt;/p&gt;
+&lt;p&gt;None of this discourages me. Every defect became either a hand-curated example (real RAG preserved, answer rewritten) or a pipeline gate: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;|json|&amp;gt;&lt;/code&gt; validator, broken-tool quarantine, content filter on SFT. The dataset defends itself today.&lt;/p&gt;
 
-&lt;p&gt;In practice, the USB cable can suddenly become an unintended path for fault currents.&lt;/p&gt;
+&lt;h3 id=&quot;programmatic-datasets-real-rag-not-fake-rag&quot;&gt;Programmatic datasets: real RAG, not fake RAG&lt;/h3&gt;
 
-&lt;p&gt;It was even somewhat common for me to feel small electric shocks when touching the metal shell of the USB connector during testing. At the time I ignored it, but that was already a clear sign that something in the system was not exactly healthy.&lt;/p&gt;
+&lt;p&gt;There was a phase when I noticed an embarrassing problem: my model learned the &lt;em&gt;format&lt;/em&gt; of RAG with invented content, because part of the training data had simulated search. So I decided tool data only gets in if the RAG is real — actually executed when generating the example. The programmatic datasets were born, each with its own generator:&lt;/p&gt;
 
-&lt;h3 id=&quot;the-cheap-solution-i-found&quot;&gt;The cheap solution I found&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;HotpotQA&lt;/strong&gt; (7k): multi-hop benchmark questions with the real supporting facts as evidence.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Pira&lt;/strong&gt; (4k, pt+en): questions and answers with the original abstract as proof.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Store catalog&lt;/strong&gt; (2k): scraped a real utility-store catalog — 914 products via page-embedded JSON, past anti-bot protection — and generated questions whose answers quote real specs.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Salaries&lt;/strong&gt; (2k + 1.5k reports): careful scraper on a salary-floor site (stats, FAQ, by state), including deliberately dirty data so the model learns to ignore noise.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;FIPE&lt;/strong&gt; (2k), &lt;strong&gt;IMDB&lt;/strong&gt; (2k, from a 33k-movie CSV), &lt;strong&gt;APIs&lt;/strong&gt; (2k, from a catalog of 837 real APIs), &lt;strong&gt;BR phones&lt;/strong&gt; (1k, with Brazilian phone regex and area-code validation).&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;CodeTrace&lt;/strong&gt; (1k): code execution tracing, so the model learns to follow a program step by step.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Shell and Python&lt;/strong&gt; (5k): commands and scripts generated with a truly executed answer key — list averages, strings, basic programming. The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;|code|&amp;gt;&lt;/code&gt; runs, the output becomes &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;|RAG|&amp;gt;&lt;/code&gt;, and the answer quotes the number that came out. Without that bridge, the model learns to &lt;em&gt;pretend&lt;/em&gt; it computed.&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;Some time ago, while casually browsing AliExpress, I came across small USB isolators normally used in audio applications.&lt;/p&gt;
+&lt;p&gt;Every example ships in the format the model will see live: question, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;|think|&amp;gt;&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;|json|&amp;gt;&lt;/code&gt; call, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;|RAG|&amp;gt;&lt;/code&gt; with the real result, short think citing the datum, answer. No fake search. When the data doesn’t exist (missing file, empty directory), the example teaches saying “not found” instead of inventing — the hardest sentence for a small model.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/imgs/Captura de tela de 2026-03-08 10-26-05.png&quot; alt=&quot;USB isolator on Aliexpress&quot; /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;whats-next-sft-and-dpo-for-real&quot;&gt;What’s next: SFT and DPO for real&lt;/h3&gt;
 
-&lt;p&gt;They were cheap and promised something interesting: galvanic isolation between the computer and the USB device.&lt;/p&gt;
+&lt;p&gt;The next step is already drawn in the notebook — drawn with four hands, mine and the AIs I debate these problems with: percentage mixing — each micro-step draws from pre-training, SFT or DPO. SFT uses &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-1&lt;/code&gt; masking on everything observational (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;user&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RAG&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;system&lt;/code&gt;) and trains only assistant behavior. DPO uses &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;chosen/rejected&lt;/code&gt; pairs with a frozen reference model. Data already leaves the pipeline as parquet with schema metadata: tokens, masked labels and the mask spec stamped together, so nobody trains on the wrong file six months from now.&lt;/p&gt;
 
-&lt;p&gt;So I decided to try one.&lt;/p&gt;
+&lt;p&gt;The lesson from this phase, and I split the credit: &lt;strong&gt;a small model learns format long before it learns judgment&lt;/strong&gt;. With 1% instruct it already emits &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;|think|&amp;gt;&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;|json|&amp;gt;&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;|RAG|&amp;gt;&lt;/code&gt; in the right places — and gets the content badly wrong. I entered this phase believing dataset is everything (still do), and leave understanding that format comes from pre-training but judgment will have to come from SFT. Half of that I figured out alone watering the plants; the other half was explained to me — including by artificial intelligences, which has its irony: I’m using AIs to learn how to make an AI.&lt;/p&gt;
 
-&lt;p&gt;And it worked.&lt;/p&gt;
+&lt;h3 id=&quot;what-the-dream-costs&quot;&gt;What the dream costs&lt;/h3&gt;
 
-&lt;p&gt;These isolators typically use the &lt;strong&gt;ADuM3160&lt;/strong&gt; chip from Analog Devices, which is specifically designed for USB signal isolation. Internally it uses magnetic coupling to transfer digital signals across an isolation barrier, breaking the direct electrical path between the two sides of the system.&lt;/p&gt;
+&lt;p&gt;One free T4 a day, R$ 58 now and then for A100, a Colab, and years watering these plants. I’m one person, the model is proof of concept — and getting here, with a complete pipeline from tokenizer to tool-using app, is already the victory. I’ll keep watering these plants to see where I get.&lt;/p&gt;</content><author><name>Fábio</name></author><category term="en" /><category term="IA" /><category term="colab" /><category term="transformers" /><category term="dataset" /><category term="sft" /><category term="dpo" /><category term="tool-use" /><category term="rag" /><summary type="html">In the Portulino article I told the beginning: Markov chains, RNNs, Karpathy’s nanoGPT and the first Portulino, trained religiously on free Colab T4s, 100 to 150 iterations a day — and how I had already stopped training it.</summary></entry><entry xml:lang="pt"><title type="html">Portulino 350M — um modelo que usa ferramentas, treinado em T4 gratuita</title><link href="http://0.0.0.0:4000/ia/portulino-350m-ferramentas-sft-dpo/" rel="alternate" type="text/html" title="Portulino 350M — um modelo que usa ferramentas, treinado em T4 gratuita" /><published>2026-09-21T00:00:00-03:00</published><updated>2026-09-21T00:00:00-03:00</updated><id>http://0.0.0.0:4000/ia/portulino-350m-ferramentas-sft-dpo</id><content type="html" xml:base="http://0.0.0.0:4000/ia/portulino-350m-ferramentas-sft-dpo/">&lt;p&gt;No &lt;a href=&quot;https://huggingface.co/fabiovilao/portulino&quot;&gt;artigo do Portulino&lt;/a&gt; contei o começo: Markov, RNN, nanoGPT do Karpathy e o primeiro Portulino, treinado religiosamente em T4 gratuita, 100 a 150 iterações por dia e como já havia parado de treinar ele.&lt;/p&gt;
 
-&lt;p&gt;This means the computer and the connected circuit no longer share the same current path.&lt;/p&gt;
+&lt;p&gt;Era hora de criar outro modelo.&lt;/p&gt;
 
-&lt;p&gt;In other words, even if something terrible happens on the power side, the chances of that energy reaching the computer drop dramatically.&lt;/p&gt;
+&lt;p&gt;Entretanto, eu quase desisti de treinar modelos em T4 do Colab porque após o Portulino fiz outro e fiquei 3 meses treinando até que ele estagnou em 3,0 de loss e não evoluia no val. Achei que havia chegado ao limite. E olha que 3,0 parece bom no papel — mas nos meus testes de chat ele nunca passou de um n-gram glorificado, aquele papo de Markov que repete padrão sem entender nada.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/imgs/Captura de tela de 2026-03-08 10-34-50.png&quot; alt=&quot;Analog Devices ADuM3160 page&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;Resolvi tentar novamente. Peguei esse modelo e joguei no Claude para ver se havia algum problema, e de fato havia, o RoPE estava errado. Que raiva! Meses perdidos!
+Pedi para fazer outro modelo e nesse tempo o Claude e outras IAs já ficaram mais espertas e para minha surpresa quando coloquei esse modelo atual para treinar algo incrível aconteceu. Como eu não sabia quanto de batch cabia em 15G da T4 eu ia aumentando até chegar no limite da memória. Pois então … enquanto os modelos anteriores só aguentavam 11 de batch esse modelo remodelado pelo Claude aguentava 21 de batch size!!!&lt;/p&gt;
 
-&lt;h3 id=&quot;limitations&quot;&gt;Limitations&lt;/h3&gt;
+&lt;p&gt;21?? Só podia ter algo errado, não é possível! Eu joguei o modelo em todas as IAs para auditar e todas me disseram que estava correto o modelo.&lt;/p&gt;
 
-&lt;p&gt;These devices are not perfect.&lt;/p&gt;
+&lt;p&gt;Ok, então vamos treinar para ver se está certo mesmo. Logo pensei que 21 de batch demoraria uma eternidade para fazer um batch, mas não, a velocidade era a mesma dos 11 de batch do modelo anterior.
+Cético quanto a esse modelo deixei ele treinando até chegar nos 3,5 de loss que é quando de fato se consegue perceber alguma inteligibilidade. E foi que ele chegou em 3,5 em aproximadamente 3k iterações … Não é possível tanto ganho de eficiência!
+Animadissimo, rodava o validator.py para checar o val, a perplexidade e o top-1 e percebia que de fato eles estavam caindo e a cada checkpoint que eu testava no chat percebia que estava treinando muito bem.&lt;/p&gt;
 
-&lt;p&gt;Although they support USB 2.0 connections, in practice the speed is limited to roughly USB 1.1 levels. For most lab or industrial applications this is usually not a big problem.&lt;/p&gt;
+&lt;h3 id=&quot;o-modelo-novo&quot;&gt;O modelo novo&lt;/h3&gt;
 
-&lt;p&gt;In my case, using USB-to-serial converters, I managed to reach stable communication at &lt;strong&gt;576000 baud&lt;/strong&gt;, which is more than enough for firmware debugging and telemetry.&lt;/p&gt;
+&lt;p&gt;Nesse modelo joguei fora quase tudo e recomecei do zero: vocabulário novo de 32k (cabe em 16 bits, economiza Drive) com diversos tokens especiais como &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;|think|&amp;gt;&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;|RAG|&amp;gt;&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;|json|&amp;gt;&lt;/code&gt; e &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;|ai|&amp;gt;&lt;/code&gt;, arquitetura reescrita (GQA com 16 heads de query e 4 de chave-valor, RoPE, RMSNorm, SwiGLU, sem bias) e por volta de 350M de parâmetros (o Portulino tinha só 280M). Contexto de 1024, AdamW, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;batch_size&lt;/code&gt; 21 na T4 e 75 na A100 com 8 de acumulação.&lt;/p&gt;
 
-&lt;p&gt;For programming microcontrollers and standard serial communication, the speed limitation is barely noticeable.&lt;/p&gt;
+&lt;p&gt;O regime continua o mesmo: todo dia um pouco de T4 gratuita, e de vez em quando uns créditos para A100 ou L4 darem um salto. Cada rodada de A100 troca o bloco de textos corridos — estou no segundo bloco, o terceiro vai ser CulturaX misturado pt-BR e inglês.&lt;/p&gt;
 
-&lt;h3 id=&quot;the-moral-of-the-story&quot;&gt;The moral of the story&lt;/h3&gt;
+&lt;p&gt;Os números de hoje — e repare que o treino continua rodando, isso aqui é foto em movimento, não retrato final: 12.705 iterações, uns 7,8 bilhões de tokens vistos, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;val_loss&lt;/code&gt; de 4,22 para &lt;strong&gt;2,0&lt;/strong&gt; e top-1 de 0,32 para 0,60. Curva monotônica, sem platô.&lt;/p&gt;
 
-&lt;p&gt;That incident left a simple lesson:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/imgs/portulino-val-loss.png&quot; alt=&quot;val_loss por iteração&quot; /&gt;
+&lt;img src=&quot;/assets/imgs/portulino-val-ppl.png&quot; alt=&quot;perplexidade por iteração&quot; /&gt;
+&lt;img src=&quot;/assets/imgs/portulino-val-top1.png&quot; alt=&quot;top-1 por iteração&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Debugging motor inverters by connecting a computer directly to a live power circuit is not a good idea.&lt;/p&gt;
+&lt;p&gt;Observe no gráfico os dois saltos que duas cotas de A100 fizeram. Os pequenos saltos foram trocas de dataset e formatos. Antes eu usava um json verboso que consumia tokens e fazia o modelo penar para escrever corretamente, simplifiquei-o deixando menor. Outra mudança foram os códigos python executados; antes eles eram executados quando o modelo emitia um json shell que executava o python3 com o conteúdo do programa, extremamente burocrático, e como eu tinha o token especial &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;|code|&amp;gt;&lt;/code&gt; sem função utilizei-o como container de código python3 para o modelo emitir e o backend executar.&lt;/p&gt;
 
-&lt;p&gt;A USB isolator costs only a few dollars.&lt;/p&gt;
+&lt;p&gt;Para um modelo desse tamanho, treinado assim, está dentro do esperado — e é aí que mora a primeira lição: ele ainda está em &lt;strong&gt;pré-treino puro&lt;/strong&gt;, com algo como 1% de instruct no meio. Ele nunca foi ensinado a ser assistente. Cobrar boas respostas dele agora é como cobrar de um aluno que só leu a biblioteca e nunca fez uma prova.&lt;/p&gt;
 
-&lt;p&gt;A laptop costs a few thousand.&lt;/p&gt;
+&lt;h3 id=&quot;a-aposta-ferramentas-em-vez-de-decoração&quot;&gt;A aposta: ferramentas em vez de decoração&lt;/h3&gt;
 
-&lt;p&gt;On that day, looking at a burnt circuit board and an intact computer, it became very clear which one is worth protecting.&lt;/p&gt;</content><author><name>Fábio</name></author><category term="en" /><category term="electronics" /><category term="safety" /><category term="inverters" /><category term="protection" /><summary type="html">It was just another normal day programming a motor inverter. The system was running a 1.5 HP motor at around 30 Hz when something started to look wrong. The rotation became unstable, the motor began to wobble, and then it happened.</summary></entry><entry xml:lang="pt"><title type="html">O isolador USB salvou meu notebook de um inversor em chamas</title><link href="http://0.0.0.0:4000/pt/eletronica/isolador-usb-protegeu-notebook/" rel="alternate" type="text/html" title="O isolador USB salvou meu notebook de um inversor em chamas" /><published>2026-08-03T00:00:00-03:00</published><updated>2026-08-03T00:00:00-03:00</updated><id>http://0.0.0.0:4000/pt/eletronica/isolador-usb-protegeu-notebook</id><content type="html" xml:base="http://0.0.0.0:4000/pt/eletronica/isolador-usb-protegeu-notebook/">&lt;p&gt;Cá estava eu em mais um dia comum programando um inversor para motores. O sistema estava rodando um motor de 1,5 CV a aproximadamente 30 Hz quando algo começou a parecer estranho. O giro ficou irregular, o motor começou a desbalancear e, de repente, aconteceu.&lt;/p&gt;
+&lt;p&gt;Em vez de só texto corrido, o dataset tem quase 400 mil blocos de diálogo num formato próprio, com marcadores para cada papel: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;|user|&amp;gt;&lt;/code&gt; para você, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;|ai|&amp;gt;&lt;/code&gt; para o que o modelo já disse, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;|answer|&amp;gt;&lt;/code&gt; para a resposta atual, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;|think|&amp;gt;&lt;/code&gt; para o raciocínio, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;|json|&amp;gt;&lt;/code&gt; para chamar ferramentas (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;shell&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;search&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;create_file&lt;/code&gt;) e &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;|RAG|&amp;gt;&lt;/code&gt; para o resultado que volta do mundo real.&lt;/p&gt;
+
+&lt;p&gt;E tem um app local em Flask onde o modelo realmente executa: roda comando no terminal, pesquisa na web, cria arquivo. Quando pergunto “quais USBs estão conectados?”, ele roda &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lsusb&lt;/code&gt; de verdade e lê a saída de verdade. Quando o diretório está vazio, o &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ls&lt;/code&gt; retorna &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;total 0&lt;/code&gt; — e eu já aprendi que o erro quase nunca está na ferramenta, e sim na interpretação que o modelo faz dela.&lt;/p&gt;
+
+&lt;h3 id=&quot;a-galeria-de-defeitos&quot;&gt;A galeria de defeitos&lt;/h3&gt;
+
+&lt;p&gt;Já que o blog promete falhas catastróficas ocasionais, vai a coleção da semana:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Perguntei a diferença entre cachorro e gato. O modelo rodou &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cat ~/Users&lt;/code&gt; &lt;strong&gt;dez vezes seguidas&lt;/strong&gt;, falhando todas, sem nunca responder a pergunta. Discutindo esses logs com assistentes de IA, a conclusão foi simples e um pouco embaraçosa: faltava um guardrail besta — parar no terceiro erro repetido. Não é problema de treino, é de runtime, e se resolve com dez linhas.&lt;/li&gt;
+  &lt;li&gt;Perguntei preço de jogo. Ele não pesquisou nada e inventou R$ 299 com uma enrolação sobre “head-dead”.&lt;/li&gt;
+  &lt;li&gt;O clássico: o modelo &lt;strong&gt;continua o RAG alucinando&lt;/strong&gt;. O resultado da busca termina e ele emenda fatos inventados no mesmo formato, como se fossem citação. Eu intuía que era algo estrutural, mas a explicação veio conversando com IAs sobre os logs: no pré-treino sem máscara, a loss incide sobre todos os tokens, inclusive RAG. Ele foi treinado para &lt;em&gt;predizer&lt;/em&gt; busca, não para &lt;em&gt;usar&lt;/em&gt; busca. Caiu a ficha na hora.&lt;/li&gt;
+  &lt;li&gt;Emitiu JSON com aspas dentro de aspas e quebrou o próprio parser. Investigando junto com um assistente, virou regra de curadoria: comando shell em JSON de treino é single-line e sem aspa dupla interna. Heredoc é impossível por construção — detalhe que só aparece quando você treina o formato junto com o modelo, e eu só percebi porque alguém (não humano) apontou.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Nada disso me desanima. Cada defeito virou ou um exemplo curado à mão (RAG real preservado, resposta reescrita) ou um gate no pipeline: validador de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;|json|&amp;gt;&lt;/code&gt;, quarentena de tool quebrada, filtro de conteúdo no SFT. O dataset se defende sozinho hoje.&lt;/p&gt;
+
+&lt;h3 id=&quot;datasets-programáticos-rag-de-verdade-não-de-mentira&quot;&gt;Datasets programáticos: RAG de verdade, não de mentira&lt;/h3&gt;
+
+&lt;p&gt;Teve uma fase em que percebi um problema embaraçoso: meu modelo aprendia o &lt;em&gt;formato&lt;/em&gt; do RAG mas com conteúdo inventado, porque parte dos dados de treino tinha busca simulada. Decidi então que dado de ferramenta só entra se o RAG for real — executado de verdade na hora de gerar o exemplo. Nasceram os datasets programáticos, cada um com seu gerador:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;HotpotQA&lt;/strong&gt; (7 mil): perguntas multi-hop do benchmark, com os fatos de suporte reais como evidência.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Pira&lt;/strong&gt; (4 mil, pt+en): perguntas e respostas com o abstract original como prova.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Catálogo de loja&lt;/strong&gt; (2 mil): raspei o catálogo real de uma loja de utilidades — 914 produtos via JSON embutido na página, passando por proteção anti-robô — e gerei perguntas cujas respostas citam especificação de verdade.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Salários&lt;/strong&gt; (2 mil + 1,5 mil relatórios): scraper com cautela num site de pisos salariais (estatísticas, FAQ, por estado), com direito a dados sujos de propósito para o modelo aprender a ignorar ruído.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;FIPE&lt;/strong&gt; (2 mil), &lt;strong&gt;IMDB&lt;/strong&gt; (2 mil, de um CSV de 33 mil filmes), &lt;strong&gt;APIs&lt;/strong&gt; (2 mil, de um catálogo de 837 APIs reais), &lt;strong&gt;telefones BR&lt;/strong&gt; (1 mil, com regex de telefone brasileiro e validação de DDD).&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;CodeTrace&lt;/strong&gt; (1 mil): rastreamento de execução de código, para o modelo aprender a seguir programa passo a passo.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Shell e Python&lt;/strong&gt; (5 mil): comandos e scripts gerados com gabarito executado de verdade — média de lista, strings, programação básica. O &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;|code|&amp;gt;&lt;/code&gt; roda, a saída vira &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;|RAG|&amp;gt;&lt;/code&gt;, e a resposta cita o número que saiu. Sem essa ponte, o modelo aprende a &lt;em&gt;fingir&lt;/em&gt; que calculou.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Cada exemplo sai no formato que o modelo vai ver ao vivo: pergunta, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;|think|&amp;gt;&lt;/code&gt;, chamada &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;|json|&amp;gt;&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;|RAG|&amp;gt;&lt;/code&gt; com o resultado real, think curto citando o dado, resposta. Nada de busca de mentira. Quando o dado não existe (arquivo sumido, diretório vazio), o exemplo ensina a dizer “não achei” em vez de inventar — a frase mais difícil para um modelo pequeno.&lt;/p&gt;
+
+&lt;h3 id=&quot;o-que-vem-agora-sft-e-dpo-de-verdade&quot;&gt;O que vem agora: SFT e DPO de verdade&lt;/h3&gt;
+
+&lt;p&gt;O próximo passo já está desenhado no notebook — desenhado a quatro mãos, minhas e de IAs com quem debato esses problemas: mistura por porcentagem — cada micro-step sorteia entre pré-treino, SFT e DPO. O SFT usa máscara &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-1&lt;/code&gt; em tudo que é observação (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;user&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RAG&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;system&lt;/code&gt;) e treina só o comportamento do assistente. O DPO usa pares &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;chosen/rejected&lt;/code&gt; com modelo de referência congelado. Os dados já saem do pipeline em parquet com metadados no schema: tokens, labels mascarados e a spec da máscara carimbada junto, para ninguém treinar no arquivo errado daqui a seis meses.&lt;/p&gt;
+
+&lt;p&gt;Lição que fica desta fase, e essa eu divido o crédito: &lt;strong&gt;modelo pequeno aprende formato muito antes de aprender juízo&lt;/strong&gt;. Com 1% de instruct ele já emite &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;|think|&amp;gt;&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;|json|&amp;gt;&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;|RAG|&amp;gt;&lt;/code&gt; nos lugares certos — e erra feio o conteúdo. Eu entrei nessa fase achando que dataset era tudo (ainda acho), e saí entendendo que o formato vem do pré-treino mas o juízo vai ter que vir do SFT. Metade disso eu percebi sozinho regando as plantas; a outra metade me explicaram — inclusive inteligências artificiais, o que tem sua ironia: estou usando IAs para aprender a fazer uma IA.&lt;/p&gt;
+
+&lt;h3 id=&quot;quanto-custa-o-sonho&quot;&gt;Quanto custa o sonho&lt;/h3&gt;
+
+&lt;p&gt;Uma T4 gratuita por dia, uns R$ 58 de vez em quando para A100, um Colab, e anos regando essas plantas. Sou uma pessoa só, o modelo é prova de conceito — e chegar até aqui, com pipeline completo do tokenizer ao app com ferramentas, já é a vitória. Vou continuar regando essas plantas para ver onde chego.&lt;/p&gt;</content><author><name>Fábio</name></author><category term="IA" /><category term="colab" /><category term="transformers" /><category term="dataset" /><category term="sft" /><category term="dpo" /><category term="tool-use" /><category term="rag" /><summary type="html">No artigo do Portulino contei o começo: Markov, RNN, nanoGPT do Karpathy e o primeiro Portulino, treinado religiosamente em T4 gratuita, 100 a 150 iterações por dia e como já havia parado de treinar ele.</summary></entry><entry xml:lang="pt"><title type="html">O isolador USB salvou meu notebook de um inversor em chamas</title><link href="http://0.0.0.0:4000/pt/eletronica/isolador-usb-protegeu-notebook/" rel="alternate" type="text/html" title="O isolador USB salvou meu notebook de um inversor em chamas" /><published>2026-08-03T00:00:00-03:00</published><updated>2026-08-03T00:00:00-03:00</updated><id>http://0.0.0.0:4000/pt/eletronica/isolador-usb-protegeu-notebook</id><content type="html" xml:base="http://0.0.0.0:4000/pt/eletronica/isolador-usb-protegeu-notebook/">&lt;p&gt;Cá estava eu em mais um dia comum programando um inversor para motores. O sistema estava rodando um motor de 1,5 CV a aproximadamente 30 Hz quando algo começou a parecer estranho. O giro ficou irregular, o motor começou a desbalancear e, de repente, aconteceu.&lt;/p&gt;
 
 &lt;p&gt;A placa começou a soltar raios, fogo e pequenas explosões. As luzes se apagaram, flashes e estouros ficaram altos e assustadores. Foi aquele momento em que você não sabe se corre ou se fica olhando, tentando entender se ainda há algo a salvar. Os disjuntores da rede caíram, mas ainda havia fogo e algumas explosões ocasionais vindas dos dois capacitores de 1000 µF a 350 V descarregando sabe-se lá em quem.&lt;/p&gt;
 
@@ -173,7 +231,94 @@ Nenhum sinal de dano.&lt;/p&gt;
 
 &lt;p&gt;Um notebook custa alguns milhares.&lt;/p&gt;
 
-&lt;p&gt;Naquele dia, entre uma placa carbonizada e um computador intacto, ficou claro qual dos dois vale mais a pena proteger.&lt;/p&gt;</content><author><name>Fábio</name></author><category term="pt" /><category term="eletronica" /><category term="segurança" /><category term="inversores" /><category term="proteção" /><summary type="html">Cá estava eu em mais um dia comum programando um inversor para motores. O sistema estava rodando um motor de 1,5 CV a aproximadamente 30 Hz quando algo começou a parecer estranho. O giro ficou irregular, o motor começou a desbalancear e, de repente, aconteceu.</summary></entry><entry xml:lang="pt"><title type="html">Gerador de qr-code</title><link href="http://0.0.0.0:4000/pt/app/gerador-qr-code/" rel="alternate" type="text/html" title="Gerador de qr-code" /><published>2026-08-03T00:00:00-03:00</published><updated>2026-08-03T00:00:00-03:00</updated><id>http://0.0.0.0:4000/pt/app/gerador-qr-code</id><content type="html" xml:base="http://0.0.0.0:4000/pt/app/gerador-qr-code/">&lt;style&gt;
+&lt;p&gt;Naquele dia, entre uma placa carbonizada e um computador intacto, ficou claro qual dos dois vale mais a pena proteger.&lt;/p&gt;</content><author><name>Fábio</name></author><category term="pt" /><category term="eletronica" /><category term="segurança" /><category term="inversores" /><category term="proteção" /><summary type="html">Cá estava eu em mais um dia comum programando um inversor para motores. O sistema estava rodando um motor de 1,5 CV a aproximadamente 30 Hz quando algo começou a parecer estranho. O giro ficou irregular, o motor começou a desbalancear e, de repente, aconteceu.</summary></entry><entry xml:lang="en"><title type="html">The USB Isolator That Saved My Laptop From a Burning Motor Inverter</title><link href="http://0.0.0.0:4000/en/electronics/usb-isolator-saved-laptop/" rel="alternate" type="text/html" title="The USB Isolator That Saved My Laptop From a Burning Motor Inverter" /><published>2026-08-03T00:00:00-03:00</published><updated>2026-08-03T00:00:00-03:00</updated><id>http://0.0.0.0:4000/en/electronics/usb-isolator-saved-laptop</id><content type="html" xml:base="http://0.0.0.0:4000/en/electronics/usb-isolator-saved-laptop/">&lt;p&gt;It was just another normal day programming a motor inverter. The system was running a 1.5 HP motor at around 30 Hz when something started to look wrong. The rotation became unstable, the motor began to wobble, and then it happened.&lt;/p&gt;
+
+&lt;p&gt;The board suddenly started throwing sparks, fire, and small explosions. The lights went out, flashes and bangs echoed around the room, and for a moment you don’t really know whether to run or just stand there staring at the disaster unfolding. The circuit breakers tripped, but there were still occasional explosions coming from the two 1000 µF 350 V capacitors discharging into who knows what.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;img src=&quot;/assets/imgs/photo_2026-03-08_10-01-55.jpg&quot; alt=&quot;Board catching fire&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;The board burning in the dark because the lighting breaker also tripped.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Once the initial shock passed and the power came back, I managed to put out a small flame that had started in the insulation of some wires. What remained was not pretty: a charred PCB, a microcontroller that had literally exploded, programming pins that simply no longer existed, and the unmistakable smell of burned rubber in the air. Some wires had melted together and the room had that strange silence that follows electrical chaos.&lt;/p&gt;
+
+&lt;h3 id=&quot;oh-no-the-laptop&quot;&gt;Oh no… the laptop!&lt;/h3&gt;
+
+&lt;p&gt;I quickly looked to the side, already imagining the worst. In that instant I thought about all my data, my projects, and the cost of replacing the computer — especially these days when laptops are anything but cheap.&lt;/p&gt;
+
+&lt;p&gt;But then I noticed something unexpected.&lt;/p&gt;
+
+&lt;h3 id=&quot;it-was-fine&quot;&gt;It was fine&lt;/h3&gt;
+
+&lt;p&gt;The screen was still on.&lt;br /&gt;
+VSCode was open.&lt;br /&gt;
+No signs of damage.&lt;/p&gt;
+
+&lt;p&gt;The only reaction from the laptop seemed to be the cooling fan spinning a bit faster because of the heat in the room.&lt;/p&gt;
+
+&lt;p&gt;That’s when I looked to the left and saw the small device that had probably prevented a much bigger disaster: a simple USB isolator sitting between the computer and the programmer.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/imgs/photo_2026-03-08_10-20-19.jpg&quot; alt=&quot;USB isolator and STLink&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;At that moment it became clear that it had done exactly what it was designed to do.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-danger-of-debugging-motor-inverters&quot;&gt;The danger of debugging motor inverters&lt;/h3&gt;
+
+&lt;p&gt;When I first started working with inverters, I already knew that something like this could eventually happen. In many power boards the microcontroller shares the same ground as the power module, with no real isolation.&lt;/p&gt;
+
+&lt;p&gt;This means that the computer connected via USB is effectively tied electrically to the power circuit.&lt;/p&gt;
+
+&lt;p&gt;In inverters powered from rectified mains, the DC bus can easily reach around 310 V. Any fault, transient, or imbalance between ground references can put dangerous voltages on the path between the board and the computer.&lt;/p&gt;
+
+&lt;p&gt;In practice, the USB cable can suddenly become an unintended path for fault currents.&lt;/p&gt;
+
+&lt;p&gt;It was even somewhat common for me to feel small electric shocks when touching the metal shell of the USB connector during testing. At the time I ignored it, but that was already a clear sign that something in the system was not exactly healthy.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-cheap-solution-i-found&quot;&gt;The cheap solution I found&lt;/h3&gt;
+
+&lt;p&gt;Some time ago, while casually browsing AliExpress, I came across small USB isolators normally used in audio applications.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/imgs/Captura de tela de 2026-03-08 10-26-05.png&quot; alt=&quot;USB isolator on Aliexpress&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;They were cheap and promised something interesting: galvanic isolation between the computer and the USB device.&lt;/p&gt;
+
+&lt;p&gt;So I decided to try one.&lt;/p&gt;
+
+&lt;p&gt;And it worked.&lt;/p&gt;
+
+&lt;p&gt;These isolators typically use the &lt;strong&gt;ADuM3160&lt;/strong&gt; chip from Analog Devices, which is specifically designed for USB signal isolation. Internally it uses magnetic coupling to transfer digital signals across an isolation barrier, breaking the direct electrical path between the two sides of the system.&lt;/p&gt;
+
+&lt;p&gt;This means the computer and the connected circuit no longer share the same current path.&lt;/p&gt;
+
+&lt;p&gt;In other words, even if something terrible happens on the power side, the chances of that energy reaching the computer drop dramatically.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/imgs/Captura de tela de 2026-03-08 10-34-50.png&quot; alt=&quot;Analog Devices ADuM3160 page&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;limitations&quot;&gt;Limitations&lt;/h3&gt;
+
+&lt;p&gt;These devices are not perfect.&lt;/p&gt;
+
+&lt;p&gt;Although they support USB 2.0 connections, in practice the speed is limited to roughly USB 1.1 levels. For most lab or industrial applications this is usually not a big problem.&lt;/p&gt;
+
+&lt;p&gt;In my case, using USB-to-serial converters, I managed to reach stable communication at &lt;strong&gt;576000 baud&lt;/strong&gt;, which is more than enough for firmware debugging and telemetry.&lt;/p&gt;
+
+&lt;p&gt;For programming microcontrollers and standard serial communication, the speed limitation is barely noticeable.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-moral-of-the-story&quot;&gt;The moral of the story&lt;/h3&gt;
+
+&lt;p&gt;That incident left a simple lesson:&lt;/p&gt;
+
+&lt;p&gt;Debugging motor inverters by connecting a computer directly to a live power circuit is not a good idea.&lt;/p&gt;
+
+&lt;p&gt;A USB isolator costs only a few dollars.&lt;/p&gt;
+
+&lt;p&gt;A laptop costs a few thousand.&lt;/p&gt;
+
+&lt;p&gt;On that day, looking at a burnt circuit board and an intact computer, it became very clear which one is worth protecting.&lt;/p&gt;</content><author><name>Fábio</name></author><category term="en" /><category term="electronics" /><category term="safety" /><category term="inverters" /><category term="protection" /><summary type="html">It was just another normal day programming a motor inverter. The system was running a 1.5 HP motor at around 30 Hz when something started to look wrong. The rotation became unstable, the motor began to wobble, and then it happened.</summary></entry><entry xml:lang="pt"><title type="html">Gerador de qr-code</title><link href="http://0.0.0.0:4000/pt/app/gerador-qr-code/" rel="alternate" type="text/html" title="Gerador de qr-code" /><published>2026-08-03T00:00:00-03:00</published><updated>2026-08-03T00:00:00-03:00</updated><id>http://0.0.0.0:4000/pt/app/gerador-qr-code</id><content type="html" xml:base="http://0.0.0.0:4000/pt/app/gerador-qr-code/">&lt;style&gt;
 
 .qr-box{
 margin-top:25px;
@@ -561,246 +706,7 @@ a.click()
 
 &lt;h3 id=&quot;watch-out-for-scams&quot;&gt;Watch out for scams&lt;/h3&gt;
 
-&lt;p&gt;When I went looking for a QR code generator to use in KiCad there were thousands of sites offering that. Many were scams — some required payment to generate, others watermarked the result with their logo, and worse, &lt;strong&gt;some were free but the QR code pointed to their site, which then redirected to your intended URL&lt;/strong&gt;.&lt;/p&gt;</content><author><name>Fábio</name></author><category term="en" /><category term="app" /><category term="qr-code" /><summary type="html"></summary></entry><entry xml:lang="pt"><title type="html">Calculo de transformador flyback para Viper12A - Eletrônica</title><link href="http://0.0.0.0:4000/pt/eletr%C3%B4nica/projeto-transformador-flyback-viper12a/" rel="alternate" type="text/html" title="Calculo de transformador flyback para Viper12A - Eletrônica" /><published>2026-03-15T00:00:00-03:00</published><updated>2026-03-15T00:00:00-03:00</updated><id>http://0.0.0.0:4000/pt/eletr%C3%B4nica/projeto-transformador-flyback-viper12a</id><content type="html" xml:base="http://0.0.0.0:4000/pt/eletr%C3%B4nica/projeto-transformador-flyback-viper12a/">&lt;div id=&quot;sheet&quot;&gt;
-&lt;div class=&quot;field&quot;&gt;
-  &lt;label class=&quot;label&quot;&gt;Preço&lt;/label&gt;&lt;div class=&quot;control&quot;&gt;&lt;input id=&quot;price&quot; class=&quot;input&quot; type=&quot;text&quot; value=&quot;10&quot; /&gt;&lt;/div&gt;
-  &lt;label class=&quot;label&quot;&gt;Quantidade&lt;/label&gt;&lt;div class=&quot;control&quot;&gt;&lt;input id=&quot;quantidade&quot; class=&quot;input&quot; type=&quot;text&quot; value=&quot;10&quot; /&gt;&lt;/div&gt;
-  &lt;label id=&quot;resultado&quot; class=&quot;label&quot; formula=&quot;price*quantidade&quot;&gt;&lt;/label&gt;
-&lt;/div&gt;
-&lt;/div&gt;</content><author><name>Fábio</name></author><category term="pt" /><category term="eletrônica" /><category term="viper12a" /><category term="flyback" /><category term="fonte-chaveada" /><summary type="html">Preço Quantidade</summary></entry><entry><title type="html">Portulino — Modelo de linguagem iniciado do zero usando GPUs T4 gratuitas no Colab</title><link href="http://0.0.0.0:4000/ia/portulino-modelo-linguagem-treinado-colab-gratuitas/" rel="alternate" type="text/html" title="Portulino — Modelo de linguagem iniciado do zero usando GPUs T4 gratuitas no Colab" /><published>2026-01-11T00:00:00-03:00</published><updated>2026-01-11T00:00:00-03:00</updated><id>http://0.0.0.0:4000/ia/portulino-modelo-linguagem-treinado-colab-gratuitas</id><content type="html" xml:base="http://0.0.0.0:4000/ia/portulino-modelo-linguagem-treinado-colab-gratuitas/">&lt;h3 id=&quot;introdução&quot;&gt;Introdução&lt;/h3&gt;
-
-&lt;p&gt;Já faz algum tempo que me interesso por modelos de linguagem. Mesmo antes do surgimento dos Transformers, eu treinava alguns modelos usando cadeias de Markov e, mais tarde, redes recorrentes. Começar pelas cadeias de Markov foi um processo didático pois fornecia ótimos insights e entendimento da matemática e estatistica envolvida. O caminho natural seria então ir para as RNNs e a tecnologia mais avançada para a época eram as LSTM e as GRU, redes recorrentes mais sofisticadas que as RNNs &lt;em&gt;vanilla&lt;/em&gt;. Porém, treinar essas redes era muito ineficiente: demorava demais, exigia grande quantidade de dados e o hardware disponível raramente ajudava.&lt;/p&gt;
-
-&lt;p&gt;Naquele período, o treinamento eficiente de representações vetoriais de palavras começava a surgir por meio de trabalhos como (MIKOLOV et al., 2013)&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; e (PENNINGTON; SOCHER; MANNING, 2014)&lt;sup id=&quot;fnref:2&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
-
-&lt;p&gt;Quando &lt;em&gt;Attention Is All You Need&lt;/em&gt; (VASWANI et al., 2017)&lt;sup id=&quot;fnref:3&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt; foi publicado, o cenário da pesquisa em NLP começou a mudar radicalmente. Alguns anos depois, surgiram o GPT-2 e o GPT-3 (2020), que impulsionaram a corrida por modelos próprios e, consequentemente, por datasets e infraestrutura de grande escala.&lt;/p&gt;
-
-&lt;p&gt;Para mim, entretanto, ainda havia muito a aprender. Passei anos sem me aprofundar de fato em Transformers. Naquela época, o interesse em Redes Neurais não era disseminado; quem se aventurava muitas vezes desistia, pois o processo de compreensão era longo e tedioso. Era preciso primeiro dominar o forward — conceito relativamente simples. Já o backward, ou cálculo dos gradientes, era inacessível para muitos, exigindo compreensão de derivadas parciais. Como eu já tinha cursado Cálculo 1 e 2, não tive grandes problemas, mas demorei bastante para organizar meu entendimento. Estudar as derivadas parciais à mão foi útil para compreender a mecânica do backpropagation, que na prática é executado automaticamente por frameworks como PyTorch e TensorFlow.&lt;/p&gt;
-
-&lt;p&gt;E foi que então os Transformers transformaram completamente o campo, tornando obsoletas diversas arquiteturas de redes neurais até então consagradas.&lt;/p&gt;
-
-&lt;p&gt;No processo de aprender redes neurais o método que mais me ajuda a compreende-las é estudar o código-fonte. É nele que consigo visualizar o fluxo dos dados, a pilha de chamadas e os cálculos envolvidos. De fato, ao tentar ler Attention Is All You Need, é comum ter a sensação de que alguns detalhes não estão completamente explicados.&lt;/p&gt;
-
-&lt;p&gt;O código-fonte que encontrei e que serviu como meu ponto de partida para entender e treinar modelos Transformer foi o &lt;strong&gt;nanoGPT&lt;/strong&gt; do KARPATHY&lt;sup id=&quot;fnref:4&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;. O nanoGPT é modelo decoder only minimo e didático inspirado no GPT-2, em contraste com o modelo encoder-decoder originalmente proposto por (VASWANI et al., 2017)&lt;sup id=&quot;fnref:3:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;. Ele possuía um gerenciamento de dataset bastante rudimentar, que apenas selecionava chunks de textos aleatórios. Não havia suporte a instruct, apenas textos corridos.&lt;/p&gt;
-
-&lt;p&gt;Esse código simples me ajudou a compreender e treinar diversos modelos com datasets próprios e neste processo, valiosos insights se reveleram através dos erros e acertos. Ao treinar meu primeiro modelo com ele fiquei impressionado com a rapidez que ele aprende comparado às RNNs. Em poucos meses ele já respondia algumas perguntas e em menos de 5000 iterações o loss caia dos 10.0 para 3.5.&lt;/p&gt;
-
-&lt;p&gt;O treinamento não podia ser feito em casa pois minha GPU Nvidia era fraca. Então usava as T4 gratuitas do Colab. Ligava o treinamento praticamente todos os dias, religiosamente, conseguia 100 a 150 iterações por dia. As vezes pagava os R$ 58,00 para usar as A100 ou L4 e dar um salto no aprendizado, mas esses pagamentos eram algo raro.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;portulino&quot;&gt;Portulino&lt;/h3&gt;
-
-&lt;p&gt;E foi que surgiu meu melhor modelo: O Portulino. Esse nome foi dado porque é um modelo treinado primáriamente em textos em pt-BR. Porém, mesmo pequeno se mostrou altamente eficiente no aprendizado devido aos avanços nos últimos anos que implementei no código original nanoGPT, a essa altura já totalmente reescrito, e a geração de datasets sintéticos de alta qualidade.&lt;/p&gt;
-
-&lt;h4 id=&quot;arquitetura-e-configurações&quot;&gt;Arquitetura e configurações&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;Similaridades ao GPT-2&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;É um modelo decoder somente seguindo o fluxo Embedding -&amp;gt; N x Transformer Blocks -&amp;gt; LM Head&lt;/li&gt;
-  &lt;li&gt;O block transformer contém Self-Attention + Feed-Forward com conexões residuais&lt;/li&gt;
-  &lt;li&gt;Autoregressivo&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Diferenças e melhorias:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Tokenizado por &lt;a href=&quot;https://github.com/huggingface/tokenizers&quot;&gt;Tokenizers&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Usa RoPE ao invés de Learning Embeddings&lt;/li&gt;
-  &lt;li&gt;GQA (16 Q heads, 4 KV heads)&lt;/li&gt;
-  &lt;li&gt;RMSNorm&lt;/li&gt;
-  &lt;li&gt;Pre-norm&lt;/li&gt;
-  &lt;li&gt;SwiGLU&lt;/li&gt;
-  &lt;li&gt;Sem bias&lt;/li&gt;
-  &lt;li&gt;Weight Tying ( neste ponto já não sei se foi uma boa escolha )&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Configurações&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Vocabulário personalizado de 32k. Foi escolhido esse valor para comprimir o dataset em 16 bits e economizar no Google Drive permitindo maior quantidade de dados&lt;/li&gt;
-  &lt;li&gt;1024 de contexto&lt;/li&gt;
-  &lt;li&gt;1024 de dimensão Embedded&lt;/li&gt;
-  &lt;li&gt;20 Layers&lt;/li&gt;
-  &lt;li&gt;16 Heads&lt;/li&gt;
-  &lt;li&gt;4 KV Heads&lt;/li&gt;
-  &lt;li&gt;Dropout = 0.05&lt;/li&gt;
-  &lt;li&gt;Learning Rate 0.0003&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;O fluxo resumido segue o esquema:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;      Input [B, T]
-      ↓ Embedding
-      [B, T, 1024]
-      ↓ ×20 Blocks
-      ├─ RMSNorm → GQA+RoPE → residual
-      └─ RMSNorm → SwiGLU → residual
-      ↓ Final RMSNorm
-      ↓ LM Head (weight tied)
-      [B, T, 32006] logits
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h4 id=&quot;treinamento&quot;&gt;Treinamento&lt;/h4&gt;
-
-&lt;p&gt;O treinamento em sua grande maioria é feito quase todos os dias na disponibilidade das T4 gratuitas do Google Colab. Em geral consigo 1:20hrs a 1:40hrs de treinamento. Se pular um dia consigo 3:30hrs no máximo. Por dia o rendimento é de aproximadamente &lt;strong&gt;100 a 150&lt;/strong&gt; iterações com batch de tamanho &lt;strong&gt;9&lt;/strong&gt;. As melhorias implementadas liberaram memória para permitir 9 de batch ao invés dos 8 que conseguia no antigo nanoGPT. O tempo de treinamento também diminui levemente, mas varia dependendo da carga do sistema de arquivos do Colab na sessão, em geral fica em 198s a 233s para rodar 5 iterações.
-O checkpoint é salvo a cada 100 iterações e depois a cada 15 para não perder treinamento quando está perto da sessão se desconectar.
-Apesar da sua maioria ser nas T4, as vezes eu pagava créditos ao Google para liberar as A100 e L4. Nas A100 eu consigo 70 de batch size e nas L4 17 de batch size.
-O que me faz pensar que um pagamento de A100 deve cobrir meses ( se não todos ) de T4.&lt;/p&gt;
-
-&lt;p&gt;Exemplo de output do treinamento:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;      GPU RAM TOTAL: 15095 RESERVED: 2 ALLOCATED: 0 FREE: 1
-      BATCH SIZE: 9 GPU RAM: 15095 SAVE_CKPT 100 TIME_SAVE 100
-      Resuming training from out
-      Resumed from iteration 32900 loss 2.1903536787525693
-      Compiling the model...
-      Done
-      GPTConfig(block_size=1024, vocab_size=32006, n_layer=20, n_head=16, n_kv_head=4, n_embd=1024, dropout=0.05, bias=False, tie_word_embeddings=True)
-
-      i 32905: l 2.1359, al 2.1849,  lr 0.000298, ctime 10.69m, ne 61.02m 1.02h time 194.75s 
-      i 32910: l 2.7124, al 2.2377,  lr 0.000298, ctime 13.94m, ne 57.78m 0.96h time 194.77s
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;O otimizador utilizado é o AdamW. Comecei a implementar o &lt;a href=&quot;https://github.com/KellerJordan/Muon&quot;&gt;Muon&lt;/a&gt;, mas ainda não coloquei para rodar, provavelmente será para um próximo modelo.&lt;/p&gt;
-
-&lt;h4 id=&quot;dataset&quot;&gt;Dataset&lt;/h4&gt;
-
-&lt;p&gt;O grande aprendizado nesse processo não era mais o modelo. Os modelos atuais já são ótimos para aprender e são eficientes, o que importa agora é aprender bem e para isso o dataset deveria ser a real preocupação.
-O modelo anterior era treinado com um dump da Wikipédia em pt-BR e alguns dumps de livros desses torrentes de ebooks.  Os instructs eram praticamente todos em inglês com excessão do Cabrita e Alpaca que surgiram depois e tinham instructs em pt-BR. Porém eram todos datasets sujos, com muito caracteres aleatórios, textos mal formatados, mal codificados e instructs defeituosos.
-Era hora de arrumar a casa e melhorar esses datasets e conseguir mais.
-O Portulino foi treinado primariamente com os seguintes dataset:&lt;/p&gt;
-
-&lt;h5 id=&quot;textos-corridos&quot;&gt;Textos corridos&lt;/h5&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Wikipédia pt-BR de 2015&lt;/li&gt;
-  &lt;li&gt;Aproximadamente 10Gb de scrapys de blogspots e wordpress limpos em pt-BR que eu mesmo fiz&lt;/li&gt;
-  &lt;li&gt;Apostilas diversas de concurseiros achadas na internet em especial nesses google drives&lt;/li&gt;
-  &lt;li&gt;Scrapys de outros sites&lt;/li&gt;
-  &lt;li&gt;Livros&lt;/li&gt;
-  &lt;li&gt;PDFs de manuais e trabalhos academicos&lt;/li&gt;
-  &lt;li&gt;Diversos datasets encontrados de pares EN-PT para tradução&lt;/li&gt;
-  &lt;li&gt;No final descobri o CulturaX que tinha melhor qualidade que meus scrapys, porém já era tarde e foram treinados no máximo 10k epochs.&lt;/li&gt;
-  &lt;li&gt;Reddit&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h5 id=&quot;instructs&quot;&gt;Instructs&lt;/h5&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Alpaca e Cabrita limpos&lt;/li&gt;
-  &lt;li&gt;gsm8k&lt;/li&gt;
-  &lt;li&gt;OpenAssistent&lt;/li&gt;
-  &lt;li&gt;Aproximadamente 100k de instructs que eu mesmo fiz automizados utilizando api da OpenAI e Gemini&lt;/li&gt;
-  &lt;li&gt;Aproximadamente 5k de instructs think que eu mesmo fiz automizados utilizando api do Gemini&lt;/li&gt;
-  &lt;li&gt;Obviamente alguns feitos manualmente ou batchs nas IAs web&lt;/li&gt;
-  &lt;li&gt;Tem um enorme de 400k thinking em inglês mas eu não anotei e já foi concatenado no dataset&lt;/li&gt;
-  &lt;li&gt;5K perguntas e respostas sobre as principais legislações brasileiras feitos automizados utilizando a api Gemini&lt;/li&gt;
-  &lt;li&gt;Reddit filtrado por score&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Eu tinha esperança que os datasets em ingles conseguissem ajudar o modelo a responder o que não sabia em pt-BR através da tradução interna, mas em nenhum momento eu percebi isso. Provavelmente se eu tivesse deixado treinar mais tempo essa capacidade surgiria. O dataset de think foi uma surpresa pois deu um salto no raciocino do modelo.&lt;/p&gt;
-
-&lt;h5 id=&quot;vocabulário&quot;&gt;Vocabulário&lt;/h5&gt;
-
-&lt;p&gt;Como treino redes a algum tempo tenho textos de mais de uma década. Isso refletiu inclusive no vocabulário personalizado treinado pelo Tokenizers. O treinamento ocorreu por volta de 2015 época do Impeachment da Dilma, logo Dilma ficou eternizado no vocabulário e hoje não se fala mais nela.&lt;/p&gt;
-
-&lt;div class=&quot;destaque amarelo br bl&quot;&gt;
-É algo que em produção deve ser observado ao treinar seu próprio vocabulário, no sentido de evitar que palavras da &apos;moda&apos; que fatalmente cairão no ostracismo fiquem eternizadas no vocabulário ocupando espaço útil.
-&lt;/div&gt;
-
-&lt;p&gt;Antes tinha treinado um vocabulário de 50K mas os datasets ficam grandes pois necessitava usar 32 bits para representar um token, cogitei usar 24 bits ou até mesmo 17 bits, mas desconfiei que a manipulação de bits iria mais atrapalhar que ajudar. Dessa forma um novo vocabulário de 32K que cabe perfeitamente em 16 bits signed foi treinado. A maioria dos textos usados foram em pt-BR, porém o vocabulário tem alguns tokens em inglês.&lt;/p&gt;
-
-&lt;p&gt;Tokens especiais adicionados no vocabulário:&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;&amp;lt;|query|&amp;gt;&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Usado parar marcar o início de um instruct, query, solicitação do usuário&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;&amp;lt;|answer|&amp;gt;&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Usado em par com o &amp;lt;|query|&amp;gt; para marcar o fim do instruct e início da geração da resposta pelo modelo&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;&amp;lt;|endoftext|&amp;gt;&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Fim de texto&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;&amp;lt;|hole|&amp;gt;&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;O thinking apareceu depois que treinei o vocabulário, então usei esse token não usado como marcação para gerar o Thinking.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;&amp;lt;|code|&amp;gt;&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Pensei em usar para algo programático mas não foi para frente.&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;Entre outros tokens especiais não usados mas contidos no vocabulário.&lt;/p&gt;
-
-&lt;h3 id=&quot;performance&quot;&gt;Performance&lt;/h3&gt;
-
-&lt;p&gt;Logo nos primeiros momentos do treinamento já percebi uma melhoria considerável com essas inovações e os novos datasets limpos. Em um mês treinando o loss já caiu para 3.6 e textos inteligiveis começaram a aparecer. A inferência, em casa, era feita por CPU e quando ativei o cache KV ela ficou extremamente rápida.
-Eu não implementei métrica ou validação alguma. Isso gastaria meus preciosos tempos de T4. Os testes eram eu mesmo digitando coisas ao longo do tempo.
-Quando eu implementei o thinking fiquei impressionado com a capacidade de detectar o intent do usuário, porém a resposta final nunca foi satisfatória no thinking. Provavelmente porque ele só foi implementado quando o modelo já estava na metade do treinamento.&lt;/p&gt;
-
-&lt;p&gt;Obviamente é um modelo pequeno e treinado por uma pessoa só, ele tem problemas clássicos reconhecidos em IA. A inferência é pobre. Seu fraco, como é até hoje nos grandes modelos, é a ontologia e senso-comum. Ontologia e senso-comum não costuma estar escrito e se estão são em textos especificos. Um modelo grande infere e consegue responder a esses questionamentos mas um modelo pequeno e com dataset pequeno não conseguirá performar bem nessa área. Para corrigir isso o uso de RAG é encorajado, aliás é percepível que as grandes empresas de IAs estão reforçando mais o uso de RAG ao invés de confiar no conhecimento dos pesos. E faz todo sentido, melhor implementar um ótimo modelo de racíocinio, moderação e detecção de intent e deixar conhecimentos efêmeros e especificos a parte.&lt;/p&gt;
-
-&lt;div class=&quot;destaque amarelo br bl&quot;&gt;
-RAG ou &lt;strong&gt;Retrieval Augmented Generation&lt;/strong&gt; traduzindo &lt;em&gt;Geração Aumentada via Recuperação&lt;/em&gt; é a técnica de usar informações obtidas externamente para gerar uma resposta precisa nos modelos de linguagem evitando o risco de alucinação. No uso interativo de conversação o usuário faz uma requisição, o modelo emite uma querie estruturada, um programa externo faz a pesquisa em geral em um banco de dados vetorial, as informações recuperadas são adicionadas ao contexto do usuário e finalmente a geração continua.
-&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;Anatomia Humana&lt;/strong&gt;. Isso ficou evidente no Portulino na anatomia sexual humana. Sim, isso mesmo, ele tem sérios problemas com quem tem pênis e vagina. Eu fiquei muito tempo tentando corrigir isso o que acabou fazendo o modelo ficar sexual! Foi ai que resolvi parar de treiná-lo pois percebi que fiz uma bagunça.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Legislações&lt;/strong&gt;. Um conhecido advogado inserido na área de IA e advocacia me sugeriu treinar meu modelo para o ramo juridico, então fiz turn-over e fiz 5k de instructs de legislação bem como reforcei textos juridicos que são até fáceis de se achar. Os resultados não foram bons. O modelo acabou confundindo intents com solicitações juridicas e confundindo as legislações. Mas ainda sim achei impressionante ele ter aprendido em tão pouco tempo a citar leis e principios.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Safe&lt;/strong&gt;. Durante o processo de treinamento, paralelamente eu pesquisava e fazia novos datasets. Foi então que o momento de combater respostas não seguras começaram a me preocupar e interessar, devido ao conteúdo reddit e alguns blogs o modelo fornecia algumas respostas não seguras. Lembre-se que eu sou somente uma pessoa e esse modelo não é para produção, é um modelo toy, para aprendizado, então eu não perdi tempo filtrando o dataset. Tentando remediar isso eu fiz alguns datasets com respostas seguras para self-harming, crimes e outras ilegalidades. O Grok me ajudou muito porque é o único modelo que se você pedir coisas erradas ele não se recusa a fazer. Porém eu parei de fazer esses datasets quando cheguei nos canibais. Eu pedi para o Grok fazer frases que essas pessoas falariam e … eu só consegui ler algumas linhas … que horror. Não tinha estomago para ficar brincando de entender pessoas malucas. Lembre-se, que eu teria que pensar como elas … deixei isso para lá.
-Porém como muitos datasets instructs achados por ai tem conteúdo safe o modelo acabou pegando o viés OpenAI e Google e assim adquiriu um pouco de segurança no self-harming.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Matemática&lt;/strong&gt;. Esqueça. Ele nem sabe quanto é 2+2. E olha que insisti nisso. Fiz 50mB de números, equações em simbolos e literais. Pelo menos ele aprendeu a contar! O anterior nem isso sabia!&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Programação&lt;/strong&gt;. Tinha no começo mas tirei. Ele nunca aprenderia a programar eficientemente, e eu estaria desperdiçando capacidade de modelo (pesos) em algo que provavelmente não daria certo.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Humanas&lt;/strong&gt;. Ele performa bem em humanas. Tanto porque no Brasil há intenso trabalho de humanas disponível, quanto blogs de esquerda e religiosos.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Conversação&lt;/strong&gt;. Portulino não é voltado a diálogos. Os datasets de diálogos nunca foram empilhados para ensiná-lo a continuar o diálogo.&lt;/p&gt;
-
-&lt;h3 id=&quot;próximas-realizações&quot;&gt;Próximas realizações&lt;/h3&gt;
-
-&lt;p&gt;O Portulino apesar de suas deficiências se mostrou um monstro no aprendizado. Como os datasets foram sendo limpos e melhorados ao longo do seu treinamento, ele eternizou alguns defeitos que não são mais corrigíveis; somando-se a essas deficiências, o vocabulário está datado.&lt;/p&gt;
-
-&lt;p&gt;Então é hora de treinar outro! Enquanto houver T4 gratuitas ficarei treinando esses modelos.&lt;/p&gt;
-
-&lt;p&gt;O próximo terá melhores datasets, melhores textos corridos, novas tecnologias como o otimizador Muon, um novo vocabulário com novos tokens especiais voltados para RAG, Thinking, System e outros.&lt;/p&gt;
-
-&lt;p&gt;Também é hora de implementar a RMT (Recurrent Memory Transformer) para aumentar o contexto e permitir finalmente conversação. De fato já estou criando e arrumando datasets dialógicos.&lt;/p&gt;
-
-&lt;h3 id=&quot;link-para-download&quot;&gt;Link para download&lt;/h3&gt;
-
-&lt;p&gt;Se desejar rodar o modelo ele está disponível no huggingface no link &lt;a href=&quot;https://huggingface.co/fabiovilao/portulino&quot;&gt;https://huggingface.co/fabiovilao/portulino&lt;/a&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
-  &lt;ol&gt;
-    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;Word2Vec – Mikolov et al. (2013)
-  MIKOLOV, Tomas et al. &lt;em&gt;Efficient Estimation of Word Representations in Vector Space.&lt;/em&gt; arXiv:1301.3781, 2013. Disponível em: &lt;a href=&quot;https://arxiv.org/abs/1301.3781&quot;&gt;https://arxiv.org/abs/1301.3781&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:2&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;PENNINGTON, Jeffrey; SOCHER, Richard; MANNING, Christopher D. &lt;em&gt;GloVe: Global Vectors for Word Representation.&lt;/em&gt; 2014. Disponível em: &lt;a href=&quot;https://nlp.stanford.edu/pubs/glove.pdf&quot;&gt;https://nlp.stanford.edu/pubs/glove.pdf&lt;/a&gt;&lt;/p&gt;
-
-      &lt;p&gt;CARLSON, Riley; BAUER, John; MANNING, Christopher D. &lt;em&gt;A New Pair of GloVes.&lt;/em&gt; 2025. Disponível em: &lt;a href=&quot;https://arxiv.org/abs/2507.18103&quot;&gt;https://arxiv.org/abs/2507.18103&lt;/a&gt; &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:3&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;VASWANI, Ashish; SHAZEER, Noam; PARMAR, Niki; USZKOREIT, Jakob; JONES, Llion; GOMEZ, Aidan N.; KAISER, Łukasz; POLOSUHKIN, Illia. &lt;em&gt;Attention Is All You Need&lt;/em&gt;. arXiv preprint arXiv:1706.03762, 2017. Disponível em: &lt;a href=&quot;https://arxiv.org/abs/1706.03762&quot;&gt;https://arxiv.org/abs/1706.03762&lt;/a&gt; &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt; &lt;a href=&quot;#fnref:3:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:4&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;KARPATHY, Andrej. nanoGPT: The simplest, fastest repository for training/finetuning medium-sized GPTs. GitHub, 2025. Disponível em: &lt;a href=&quot;https://github.com/karpathy/nanoGPT&quot;&gt;https://github.com/karpathy/nanoGPT&lt;/a&gt; &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/div&gt;</content><author><name>Fábio</name></author><category term="IA" /><category term="colab" /><category term="transformers" /><category term="dataset" /><category term="modelos generativos" /><category term="inteligência artificial" /><summary type="html">Introdução</summary></entry><entry><title type="html">LVDC: A Revolução Silenciosa na Distribuição de Energia para Data Centers e Edifícios - Energia</title><link href="http://0.0.0.0:4000/energia/LVDC/" rel="alternate" type="text/html" title="LVDC: A Revolução Silenciosa na Distribuição de Energia para Data Centers e Edifícios - Energia" /><published>2025-11-15T00:00:00-03:00</published><updated>2025-11-15T00:00:00-03:00</updated><id>http://0.0.0.0:4000/energia/LVDC</id><content type="html" xml:base="http://0.0.0.0:4000/energia/LVDC/">&lt;h1 id=&quot;lvdc-a-revolução-silenciosa-na-distribuição-de-energia-para-data-centers-e-edifícios&quot;&gt;LVDC: A Revolução Silenciosa na Distribuição de Energia para Data Centers e Edifícios&lt;/h1&gt;
+&lt;p&gt;When I went looking for a QR code generator to use in KiCad there were thousands of sites offering that. Many were scams — some required payment to generate, others watermarked the result with their logo, and worse, &lt;strong&gt;some were free but the QR code pointed to their site, which then redirected to your intended URL&lt;/strong&gt;.&lt;/p&gt;</content><author><name>Fábio</name></author><category term="en" /><category term="app" /><category term="qr-code" /><summary type="html"></summary></entry><entry><title type="html">LVDC: A Revolução Silenciosa na Distribuição de Energia para Data Centers e Edifícios - Energia</title><link href="http://0.0.0.0:4000/energia/LVDC/" rel="alternate" type="text/html" title="LVDC: A Revolução Silenciosa na Distribuição de Energia para Data Centers e Edifícios - Energia" /><published>2025-11-15T00:00:00-03:00</published><updated>2025-11-15T00:00:00-03:00</updated><id>http://0.0.0.0:4000/energia/LVDC</id><content type="html" xml:base="http://0.0.0.0:4000/energia/LVDC/">&lt;h1 id=&quot;lvdc-a-revolução-silenciosa-na-distribuição-de-energia-para-data-centers-e-edifícios&quot;&gt;LVDC: A Revolução Silenciosa na Distribuição de Energia para Data Centers e Edifícios&lt;/h1&gt;
 
 &lt;p&gt;A forma como distribuímos energia elétrica está passando por uma transformação fundamental. Enquanto a corrente alternada (AC) dominou por mais de um século, a &lt;strong&gt;corrente contínua de baixa tensão (LVDC - Low Voltage Direct Current)&lt;/strong&gt; emerge como uma solução superior para as demandas energéticas do século XXI, especialmente em data centers, edifícios inteligentes e instalações industriais.&lt;/p&gt;
 
