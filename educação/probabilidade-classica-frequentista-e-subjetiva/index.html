@@ -433,6 +433,7 @@ Os escritórios de advocacia e os tribunais tem registro de milhares de processo
   constructor(containerId) {
 
     this.container = document.getElementById(containerId)
+    if (!this.container) return // página sem planilha: não faz nada
     this.fields = {}
 
     this.functions = {

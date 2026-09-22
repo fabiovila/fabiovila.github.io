@@ -340,6 +340,7 @@ print("Valor de Xi     : ", Xi.value)
   constructor(containerId) {
 
     this.container = document.getElementById(containerId)
+    if (!this.container) return // página sem planilha: não faz nada
     this.fields = {}
 
     this.functions = {

@@ -448,6 +448,7 @@ Múltiplas fontes distribuídas com OCPD tendo tempo de interrupção menor que 
   constructor(containerId) {
 
     this.container = document.getElementById(containerId)
+    if (!this.container) return // página sem planilha: não faz nada
     this.fields = {}
 
     this.functions = {

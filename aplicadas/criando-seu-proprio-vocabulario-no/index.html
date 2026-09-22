@@ -513,6 +513,7 @@ tokenizer.save("byte-level-bpe.tokenizer.32k.json", pretty=True)
   constructor(containerId) {
 
     this.container = document.getElementById(containerId)
+    if (!this.container) return // página sem planilha: não faz nada
     this.fields = {}
 
     this.functions = {

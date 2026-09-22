@@ -406,6 +406,7 @@ fromhost: .dword 0
   constructor(containerId) {
 
     this.container = document.getElementById(containerId)
+    if (!this.container) return // página sem planilha: não faz nada
     this.fields = {}
 
     this.functions = {

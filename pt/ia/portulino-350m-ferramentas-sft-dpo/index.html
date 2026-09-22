@@ -345,6 +345,7 @@ Animadissimo, rodava o validator.py para checar o val, a perplexidade e o top-1 
   constructor(containerId) {
 
     this.container = document.getElementById(containerId)
+    if (!this.container) return // página sem planilha: não faz nada
     this.fields = {}
 
     this.functions = {

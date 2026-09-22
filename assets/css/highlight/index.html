@@ -218,6 +218,7 @@ remove or change the CSS style prefix of <code class="language-plaintext highlig
   constructor(containerId) {
 
     this.container = document.getElementById(containerId)
+    if (!this.container) return // página sem planilha: não faz nada
     this.fields = {}
 
     this.functions = {

@@ -179,8 +179,6 @@ gtag('config', 'G-PY9DT1RWSW');
   <article class="">
     <link href="/assets/css/colormenu.css" type="text/css" rel="stylesheet" />
 
-<object id="obj" data="/assets/imgs/resistor.svg" type="image/svg+xml" width="400"></object>
-
 <script>
 var valor = 220000;
 var unidade = "";
@@ -189,23 +187,34 @@ var faixas = [2, 2, 10000, 20]; // [faixa1, faixa2, multiplicador, tolerância]
 function $(id) { return document.getElementById(id); }
 
 function formata(valor) {
+  // capacitância em pF na entrada
   var unidade = "";
   if (valor < 1000) {
-    unidade = " Ω";
-  } else if (valor >= 1000 && valor < 1000000) {        // ✅ corrigido: &&
-    unidade = " KΩ";
+    unidade = " pF";
+  } else if (valor < 1000000) {
+    unidade = " nF";
     valor = valor / 1000;
-  } else if (valor >= 1000000 && valor < 1000000000) {  // ✅ corrigido: &&
-    unidade = " MΩ";
+  } else {
+    unidade = " µF";
     valor = valor / 1000000;
-  } else if (valor >= 1000000000 && valor < 1000000000000) {
-    unidade = " GΩ";
-    valor = valor / 1000000000;
   }
   return valor.toLocaleString('pt-BR', {
     minimumFractionDigits: 0,
     maximumFractionDigits: 2
   }) + unidade;
+}
+
+var E12 = [10,12,15,18,22,27,33,39,47,56,68,82];
+function equivalenteAtual(pf) {
+  // equivalente comercial moderno (série E12) mais próximo, em pF
+  if (!(pf > 0)) return 0;
+  var exp = Math.floor(Math.log10(pf / 10));
+  var base = pf / Math.pow(10, exp);
+  var best = E12[0];
+  for (var i = 1; i < E12.length; i++) {
+    if (Math.abs(E12[i] - base) < Math.abs(best - base)) best = E12[i];
+  }
+  return best * Math.pow(10, exp);
 }
 
 function updateValor(cor, index, v) {
@@ -217,6 +226,7 @@ function updateValor(cor, index, v) {
   var baixa = formata(valor * (1 - Number(faixas[3]) / 100));
 
   $("tolerancia").innerText = tolerancia + " [ " + alta + " , " + baixa + " ]";
+  $("equivalente").innerText = formata(equivalenteAtual(valor));
   var valorFormatado = formata(valor);
   $("valor").innerText = valorFormatado;
 
@@ -228,25 +238,6 @@ function updateValor(cor, index, v) {
     document.texto.innerHTML = valorFormatado;
   }
 }
-
-// Carrega o SVG quando o <object> terminar
-document.addEventListener("DOMContentLoaded", function() {
-  var obj = $("obj");
-  if (obj) {
-    obj.addEventListener("load", function() {
-      var svg = obj.contentDocument;
-      if (svg) {
-        document.faixas = [
-          svg.getElementById("faixa1"),
-          svg.getElementById("faixa2"),
-          svg.getElementById("faixa3"),
-          svg.getElementById("faixa4")
-        ];
-        document.texto = svg.getElementById("tspan13");
-      }
-    }, false);
-  }
-});
 </script>
 
 <div class="section">
@@ -522,12 +513,19 @@ document.addEventListener("DOMContentLoaded", function() {
 <p>O ideal é trocar todos os capacitores de equipamentos como esse. É comum encontrar alguns já estourados, rachados, descascando ou com boa aparência mas internamente já deteriorados pelo tempo.</p>
 
 <script>
-document.obj = $("obj");
-document.obj.addEventListener("load",function(){
-  var svg = document.obj.contentDocument;
+function initCapSvg() {
+  var o = $("obj");
+  if (!o) return;
+  var svg = null;
+  try { svg = o.contentDocument; } catch (e) { return; }
+  if (!svg || !svg.getElementById("rect1-6")) return;
   document.faixas = [svg.getElementById("rect1-6"), svg.getElementById("rect3"), svg.getElementById("rect2"), svg.getElementById("rect1-6-3")];
   document.texto = svg.getElementById("tspan1");
-},false);
+}
+if ($("obj")) {
+  $("obj").addEventListener("load", initCapSvg, false);
+  initCapSvg(); // svg já em cache: evento load pode ter passado
+}
 </script>
 
 
@@ -611,6 +609,7 @@ document.obj.addEventListener("load",function(){
   constructor(containerId) {
 
     this.container = document.getElementById(containerId)
+    if (!this.container) return // página sem planilha: não faz nada
     this.fields = {}
 
     this.functions = {

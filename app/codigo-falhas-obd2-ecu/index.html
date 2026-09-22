@@ -256,7 +256,7 @@ window.addEventListener("load", function(){
       <div>
         <p class="heading"><strong>Veja Também:</strong></p>
         <small>Cálculo de resistência pelas cores do resistor - Aplicativo</small></br>
-        <small>Explorando o método Runge-Kutta em javascript</small>
+        <small>Explorando o método Runge-Kutta em JavaScript</small>
       </div>
     </div>
   </nav>
@@ -319,6 +319,7 @@ window.addEventListener("load", function(){
   constructor(containerId) {
 
     this.container = document.getElementById(containerId)
+    if (!this.container) return // página sem planilha: não faz nada
     this.fields = {}
 
     this.functions = {

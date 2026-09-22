@@ -311,7 +311,7 @@ gtag('config', 'G-PY9DT1RWSW');
       
       <div>
         <p class="heading"><strong>Veja Também:</strong></p>
-        <a href="/aplicadas/runge-kutta-em-javascript/"><small>Explorando o método Runge-Kutta em javascript</small></br></a>
+        <a href="/en/aplicadas/runge-kutta-javascript/"><small>Exploring the Runge-Kutta method in JavaScript</small></br></a>
         <a href="/educa%C3%A7%C3%A3o/10-exerc%C3%ADcios-probabilidade-banca-quadrix/"><small>10 Questões de probabilidade resolvidas da Banca Quadrix - Matemática</small></a>
       </div>
     </div>
@@ -375,6 +375,7 @@ gtag('config', 'G-PY9DT1RWSW');
   constructor(containerId) {
 
     this.container = document.getElementById(containerId)
+    if (!this.container) return // página sem planilha: não faz nada
     this.fields = {}
 
     this.functions = {

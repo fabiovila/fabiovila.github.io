@@ -219,8 +219,12 @@ function updateValor(cor,index,v) {
   var baixa =  formata(valor * (1 - Number(faixas[3])/100));
   $("tolerancia").innerText = tolerancia  + " " + "[ " + alta + "," + baixa + " ]";
   valor = formata(valor);
-  document.faixas[index].style.fill = cor;
-  document.texto.innerHTML = valor;
+  if (document.faixas && document.faixas[index]) {
+    try { document.faixas[index].style.fill = cor; } catch (e) {}
+  }
+  if (document.texto) {
+    try { document.texto.innerHTML = valor; } catch (e) {}
+  }
   $("valor").innerText = valor;
   
 }
@@ -562,12 +566,20 @@ function updateValor(cor,index,v) {
 <p>Esses valores são para resistores de tolerância entre 5% e 20%. Para tolerâncias menores entre 1% e 0.1% a quantidade de valores comerciais é maior e neste caso uma faixa adicional é usada para indicar a maior precisão de valores.</p>
 
 <script>
-document.obj = $("obj");
-document.obj.addEventListener("load",function(){
-  var svg = document.obj.contentDocument;
+function initResistorSvg() {
+  var o = $("obj");
+  if (!o) return;
+  var svg = null;
+  try { svg = o.contentDocument; } catch (e) { return; }
+  if (!svg || !svg.getElementById("faixa1")) return;
   document.faixas = [svg.getElementById("faixa1"), svg.getElementById("faixa2"), svg.getElementById("faixa3"), svg.getElementById("faixa4")];
   document.texto = svg.getElementById("tspan13");
-},false);
+}
+document.obj = $("obj");
+if (document.obj) {
+  document.obj.addEventListener("load", initResistorSvg, false);
+  initResistorSvg(); // svg já em cache: evento load pode ter passado
+}
 </script>
 
 
@@ -651,6 +663,7 @@ document.obj.addEventListener("load",function(){
   constructor(containerId) {
 
     this.container = document.getElementById(containerId)
+    if (!this.container) return // página sem planilha: não faz nada
     this.fields = {}
 
     this.functions = {

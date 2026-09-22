@@ -1339,6 +1339,7 @@ No ARM em modo ARM (32 bits) se ocorrer um branch (salto) para um endereço que 
   constructor(containerId) {
 
     this.container = document.getElementById(containerId)
+    if (!this.container) return // página sem planilha: não faz nada
     this.fields = {}
 
     this.functions = {

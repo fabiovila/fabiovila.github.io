@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="pt"></html>
+<html lang="en"></html>
     <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Explorando o método Runge-Kutta em JavaScript</title>
+<title>Exploring the Runge-Kutta method in JavaScript</title>
 
 
 
-<meta name="description" content="Implementação e uso do método Runge-Kutta e Euler.">
+<meta name="description" content="Implementing and using the Runge-Kutta and Euler methods.">
 
-<link rel="canonical" href="http://0.0.0.0:4000/aplicadas/runge-kutta-em-javascript/">
+<link rel="canonical" href="http://0.0.0.0:4000/en/aplicadas/runge-kutta-javascript/">
 
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="article:published_time" content="2024-10-17T00:00:00-03:00">
@@ -18,17 +18,17 @@
 
 <!-- Open Graph -->
 <meta property="og:type" content="article">
-<meta property="og:url" content="http://0.0.0.0:4000/aplicadas/runge-kutta-em-javascript/">
-<meta property="og:title" content="Explorando o método Runge-Kutta em JavaScript">
-<meta property="og:description" content="Implementação e uso do método Runge-Kutta e Euler.">
+<meta property="og:url" content="http://0.0.0.0:4000/en/aplicadas/runge-kutta-javascript/">
+<meta property="og:title" content="Exploring the Runge-Kutta method in JavaScript">
+<meta property="og:description" content="Implementing and using the Runge-Kutta and Euler methods.">
 <meta property="og:image" content="http://0.0.0.0:4000/assets/imgs/429fb1d8-89d4-49c6-8214-a128530e1430.jpeg">
-<meta property="og:locale" content="">
+<meta property="og:locale" content="en">
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:url" content="http://0.0.0.0:4000/aplicadas/runge-kutta-em-javascript/">
-<meta name="twitter:title" content="Explorando o método Runge-Kutta em JavaScript">
-<meta name="twitter:description" content="Implementação e uso do método Runge-Kutta e Euler.">
+<meta name="twitter:url" content="http://0.0.0.0:4000/en/aplicadas/runge-kutta-javascript/">
+<meta name="twitter:title" content="Exploring the Runge-Kutta method in JavaScript">
+<meta name="twitter:description" content="Implementing and using the Runge-Kutta and Euler methods.">
 <meta name="twitter:image" content="http://0.0.0.0:4000/assets/imgs/429fb1d8-89d4-49c6-8214-a128530e1430.jpeg">
 
 <link rel="preload" href="/assets/css/style.css" as="style">
@@ -70,8 +70,8 @@ gtag('config', 'G-PY9DT1RWSW');
 {
  "@context": "https://schema.org",
  "@type": "BlogPosting",
- "headline": "Explorando o método Runge-Kutta em JavaScript",
- "description": "Implementação e uso do método Runge-Kutta e Euler.",
+ "headline": "Exploring the Runge-Kutta method in JavaScript",
+ "description": "Implementing and using the Runge-Kutta and Euler methods.",
  "image": "http://0.0.0.0:4000/assets/imgs/429fb1d8-89d4-49c6-8214-a128530e1430.jpeg",
  "author": {
    "@type": "Person",
@@ -85,7 +85,7 @@ gtag('config', 'G-PY9DT1RWSW');
  "dateModified": "2024-10-17T00:00:00-03:00",
  "mainEntityOfPage": {
    "@type": "WebPage",
-   "@id": "http://0.0.0.0:4000/aplicadas/runge-kutta-em-javascript/"
+   "@id": "http://0.0.0.0:4000/en/aplicadas/runge-kutta-javascript/"
  }
 }
 </script>
@@ -135,6 +135,16 @@ gtag('config', 'G-PY9DT1RWSW');
         
 
         
+            <span class="navbar-item has-text-grey">
+              🇺🇸 English
+            </span>
+
+            
+            <a class="navbar-item " href="/pt/aplicadas/runge-kutta-em-javascript/">
+              🇧🇷 Português
+            </a>
+            
+        
 
       </div>
     </div>
@@ -150,10 +160,10 @@ gtag('config', 'G-PY9DT1RWSW');
 <div class="content is-fluid">
 
   <header class="mb-5">
-    <h1 class="title is-warning">Explorando o método Runge-Kutta em JavaScript</h1>
+    <h1 class="title is-warning">Exploring the Runge-Kutta method in JavaScript</h1>
     <h4 class="is-size-4-tablet has-text-weight-light is-family-sans-serif" style="margin-top: -1em;"></h4>
     
-    <h4 class="is-size-5-tablet has-text-weight-light is-family-sans-serif">Implementação e uso do método Runge-Kutta e Euler.</h4>
+    <h4 class="is-size-5-tablet has-text-weight-light is-family-sans-serif">Implementing and using the Runge-Kutta and Euler methods.</h4>
     
     <hr class="m-1"/>
     <small class="is-size-7-tablet has-text-weight-light pl-2 has-text-dark-grey" ><span class="icon "><i class="fa fa-user "></i></span>
@@ -163,9 +173,9 @@ gtag('config', 'G-PY9DT1RWSW');
     <span class="icon"><i class="fa fa-calendar"></i></span>  
      17 Oct 2024
      <span class="icon"><i class="fa fa-bars"></i></span>
-    aplicadas
+    en e aplicadas
     <span class="icon"><i class="fa fa-tag"></i></span>  
-    matemática e javascript
+    mathematics e javascript
     </small>
     <hr class="mt-1"/>
     
@@ -181,42 +191,42 @@ gtag('config', 'G-PY9DT1RWSW');
   </header>
 
   <article class="mt-5">
-    <h2 id="brincando-com-equações-diferenciais-pelo-método-rk4">Brincando com equações diferenciais pelo método RK4</h2>
+    <h2 id="playing-with-differential-equations-via-the-rk4-method">Playing with differential equations via the RK4 method</h2>
 
-<p>Equações diferenciais frequentemente surgem em modelos que estão associados a sistemas físicos que armazenam energia, como por exemplo modelos matemáticos com molas, capacitores, pneumáticos, etc. Entretanto encontrar a solução de uma equação diferencial não é trivial e muitas delas ainda não têm solução algébrica conhecida e por isso esses modelos matemáticos são um campo ativo de estudos. Todavia, não ter uma solução algébrica não impede de se obter seus valores, para tanto, métodos iterativos foram desenvolvidos com este fim.</p>
+<p>Differential equations often show up in models tied to physical systems that store energy, such as mathematical models with springs, capacitors, pneumatics, etc. But finding the solution of a differential equation is not trivial, and many of them still have no known algebraic solution, which is why these mathematical models are an active field of study. Still, not having an algebraic solution doesn’t stop us from obtaining their values — iterative methods were developed for exactly that.</p>
 
-<p>Antes de ver alguns desses métodos em JavaScript, abaixo você poderá explorar graficamente equações diferenciais resolvidas pelo método Runge-Kutta implementado aqui.</p>
+<p>Before looking at some of these methods in JavaScript, below you can graphically explore differential equations solved by the Runge-Kutta method implemented here.</p>
 
-<p>Utilize o formato javascript. O namespace Math pode ser suprimido.</p>
+<p>Use JavaScript format. The Math namespace may be omitted.</p>
 
 <div>
 <div class="field is-horizontal">
   <div class="field-label is-normal">
-      <label class="label">Parâmetros</label>
+      <label class="label">Parameters</label>
   </div>
   <div class="field-body">
     <div class="field">
       <div class="control">
-        <input id="h" class="input is-primary" type="text" placeholder="Valor de H" value="0.0001" />
-        <p class="help">Passo para cada iteração (H)</p>
+        <input id="h" class="input is-primary" type="text" placeholder="H value" value="0.0001" />
+        <p class="help">Step per iteration (H)</p>
       </div>
     </div>
     <div class="field">
       <div class="control">
-        <input id="t" class="input is-primary" type="text" placeholder="Tempo" value="10.0" />
-        <p class="help">Tempo limite</p>
+        <input id="t" class="input is-primary" type="text" placeholder="Time" value="10.0" />
+        <p class="help">Time limit</p>
       </div>
     </div>
         <div class="field">
       <div class="control">
         <input id="x0" class="input is-primary" type="text" placeholder="x0" value="0" />
-        <p class="help">Valor inicial de x0</p>
+        <p class="help">Initial value of x0</p>
       </div>
     </div>
         <div class="field">
       <div class="control">
         <input id="y0" class="input is-primary" type="text" placeholder="y0" value="0" />
-        <p class="help">Valor inicial de y0</p>
+        <p class="help">Initial value of y0</p>
       </div>
     </div>
   </div>
@@ -224,55 +234,55 @@ gtag('config', 'G-PY9DT1RWSW');
 
 <div class="field has-addons">
   <div class="control is-expanded">
-    <input id="eq" class="input is-primary" type="text" placeholder="Equação formato JavaScript" value="cos(x**2)" />
+    <input id="eq" class="input is-primary" type="text" placeholder="Equation in JavaScript format" value="cos(x**2)" />
   </div>
   <div class="control">
-    <button id="calcular" class="button is-link">Calcular</button>
+    <button id="calcular" class="button is-link">Calculate</button>
   </div>
 </div>
 <div class="buttons mt-2">
-  <span class="is-size-7" style="align-self:center">Exemplos:</span>
-  <button class="button is-small" onclick="preset('rl')">Circuito RL</button>
-  <button class="button is-small" onclick="preset('rc')">Carga do capacitor</button>
-  <button class="button is-small" onclick="preset('log')">Crescimento logístico</button>
-  <button class="button is-small" onclick="preset('esfria')">Resfriamento</button>
+  <span class="is-size-7" style="align-self:center">Examples:</span>
+  <button class="button is-small" onclick="preset('rl')">RL circuit</button>
+  <button class="button is-small" onclick="preset('rc')">Capacitor charging</button>
+  <button class="button is-small" onclick="preset('log')">Logistic growth</button>
+  <button class="button is-small" onclick="preset('esfria')">Cooling</button>
 </div>
 <div id="gd"></div>
 </div>
 
-<h3 id="mais-exemplos-para-explorar">Mais exemplos para explorar</h3>
+<h3 id="more-examples-to-explore">More examples to explore</h3>
 
-<p>Os botões acima preenchem a equação e os parâmetros de quatro casos clássicos de primeira ordem:</p>
+<p>The buttons above fill in the equation and parameters for four classic first-order cases:</p>
 
 <ul>
-  <li><strong>Circuito RL</strong>: <code class="language-plaintext highlighter-rouge">(5-4700*y)/0.0001</code> — a corrente subindo até estabilizar, o mesmo circuito do texto. Repare no passo minúsculo (nanossegundos): esse circuito é <em>stiff</em>, com passo grande o método explode de verdade — pode testar aumentando o <code class="language-plaintext highlighter-rouge">h</code> para ver.</li>
-  <li><strong>Carga do capacitor</strong>: <code class="language-plaintext highlighter-rouge">(5-y)/0.001</code> — tensão no capacitor se aproximando dos 5V.</li>
-  <li><strong>Crescimento logístico</strong>: <code class="language-plaintext highlighter-rouge">0.5*y*(1-y/100)</code> — população que cresce rápido e satura em 100.</li>
-  <li><strong>Resfriamento</strong>: <code class="language-plaintext highlighter-rouge">-(y-25)/5</code> — um corpo a 90 esfriando até a temperatura ambiente de 25.</li>
+  <li><strong>RL circuit</strong>: <code class="language-plaintext highlighter-rouge">(5-4700*y)/0.0001</code> — current rising until it settles, the same circuit as in the text. Note the tiny step (nanoseconds): this circuit is <em>stiff</em>; with a large step the method genuinely blows up — try raising <code class="language-plaintext highlighter-rouge">h</code> to see.</li>
+  <li><strong>Capacitor charging</strong>: <code class="language-plaintext highlighter-rouge">(5-y)/0.001</code> — capacitor voltage approaching 5V.</li>
+  <li><strong>Logistic growth</strong>: <code class="language-plaintext highlighter-rouge">0.5*y*(1-y/100)</code> — population growing fast and saturating at 100.</li>
+  <li><strong>Cooling</strong>: <code class="language-plaintext highlighter-rouge">-(y-25)/5</code> — a body at 90 cooling down to room temperature 25.</li>
 </ul>
 
-<p>Brinque com o <code class="language-plaintext highlighter-rouge">h</code>: pequeno demais demora, grande demais o método perde a estabilidade e o gráfico explode — dá para ver na prática por que o passo importa.</p>
+<p>Play with <code class="language-plaintext highlighter-rouge">h</code>: too small is slow, too large loses stability and the chart explodes — you can see in practice why the step matters.</p>
 
-<h3 id="método-de-euler">Método de Euler</h3>
+<h3 id="eulers-method">Euler’s method</h3>
 
-<p>O primeiro método iterativo para solução de equações diferenciais foi criado pelo famoso matemático Euler; conhecido justamente como Método de Euler. Esse método faz apenas uma estimativa pontual do próximo valor e continua o processo a partir do último estimado. Como sua estimativa é fraca, erros se acumulam a cada iteração tornando inúteis os valores por explodirem ou oscilarem. Entretanto por ser simples e fácil de implementar o método de Euler costuma ser exemplo de partida para estudos desses algoritmos.</p>
+<p>The first iterative method for solving differential equations was created by the famous mathematician Euler; known precisely as Euler’s method. It makes only a pointwise estimate of the next value and continues from the last estimate. Since its estimate is weak, errors accumulate each iteration, making the values useless as they explode or oscillate. But being simple and easy to implement, Euler’s method is usually the starting example when studying these algorithms.</p>
 
-<p>Como toda equação diferencial que modela um sistema físico esses métodos partem de uma condição inicial definida pelo usuário e a cada iteração uma estimativa do próximo valor é calculado repetindo-se o processo com o valor anterior.</p>
+<p>Like every differential equation modeling a physical system, these methods start from a user-defined initial condition, and each iteration estimates the next value, repeating the process from the previous one.</p>
 
-<p>Como este site é primariamente de eletrônica, vamos partir do exemplo do circuito RL abaixo que foi tema de artigo <sup id="fnref:anterior" role="doc-noteref"><a href="#fn:anterior" class="footnote" rel="footnote">1</a></sup> para começar a explorar alguns métodos:</p>
+<p>Since this site is mostly about electronics, let’s start from the RL circuit example below, the topic of a <a href="https://fabiovila.github.io/eletr%C3%B4nica/2021/02/10/simulacao-circuito-RL-python.html">previous article</a>, to explore some methods:</p>
 
-<p><img src="/assets/imgs/circuit-rl.png" alt="Circuito RL" /></p>
+<p><img src="/assets/imgs/circuit-rl.png" alt="RL circuit" /></p>
 
-<p>Para uma fonte DC de 5V o circuito é modelado pela seguinte equação diferencial</p>
+<p>For a 5V DC source the circuit is modeled by the following differential equation</p>
 
 <p>$5 = 4700 i{\left(t \right)} + 0.0001 \frac{d}{d t} i{\left(t \right)}$</p>
 
-<p>Isolando $di(t) \over {dt}$ obtemos</p>
+<p>Isolating $di(t) \over {dt}$ we get</p>
 
 <p>${di(t) \over dt} = \frac{5 - 4700 * i(t)}{0.0001}$</p>
 
-<p>O método de Euler é um método simples e didático. Primeiramente precisamos definir a função com a equação diferencial que será chamada a cada iteração para se obter o próximo valor. A função <code class="language-plaintext highlighter-rouge">didt(t,i)</code> definida abaixo é a equação do circuito RL visto acima.
-As condições iniciais são passadas pelos parâmetros <code class="language-plaintext highlighter-rouge">y0</code> e <code class="language-plaintext highlighter-rouge">x0</code>. <code class="language-plaintext highlighter-rouge">h</code> é o passo que será dado a cada iteração, pense nisso como uma quantidade do tempo incrementado, e isso é importante, porque em um sistema rápido, digamos o circuito RL com indutância pequena, os valores acontecem rapidamente, enquanto em um modelo muito lento, como por exemplo modelos meteorológicos, o tempo é da ordem de horas.</p>
+<p>Euler’s method is simple and didactic. First we need to define the function with the differential equation that will be called each iteration to get the next value. The <code class="language-plaintext highlighter-rouge">didt(t,i)</code> function defined below is the equation of the RL circuit above.
+Initial conditions come through the <code class="language-plaintext highlighter-rouge">y0</code> and <code class="language-plaintext highlighter-rouge">x0</code> parameters. <code class="language-plaintext highlighter-rouge">h</code> is the step taken each iteration — think of it as an amount of incremented time, and that matters, because in a fast system, say the RL circuit with small inductance, values happen quickly, while in a very slow model, such as weather models, time is on the order of hours.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function didt(t, i) {
 return (5 - 4700 * i) / 0.0001;
@@ -297,16 +307,16 @@ r = Euler(0, 0, 0.0001, 0.1, didt);
 console.log(r);
 </code></pre></div></div>
 
-<p>As condições iniciais do circuito no primeiro instante (<code class="language-plaintext highlighter-rouge">t = 0</code>) a corrente é igual a <code class="language-plaintext highlighter-rouge">0</code>, logo <code class="language-plaintext highlighter-rouge">y0 = 0</code> e <code class="language-plaintext highlighter-rouge">x0 = 0</code>. Como o algoritmo é iterativo cada passo representa uma quantidade no tempo, dessa forma <code class="language-plaintext highlighter-rouge">h</code> é a quantidade do passo dado no tempo. Como um circuito como esse se estabiliza rapidamente, <code class="language-plaintext highlighter-rouge">h</code> deverá ser da ordem dos micro segundos ou nano segundos. O parâmetro <code class="language-plaintext highlighter-rouge">final</code> informa ao algoritmo quando terminar.
-O método de Euler é puramente didático. Ele faz péssimas estimativas do próximo valor que vão se acumulando, retornando, então, valores irreais e oscilatórios. De fato no programa acima em poucas iterações os valores se tornam irreais e explosivos.</p>
+<p>The circuit’s initial conditions at the first instant (<code class="language-plaintext highlighter-rouge">t = 0</code>): current equals <code class="language-plaintext highlighter-rouge">0</code>, so <code class="language-plaintext highlighter-rouge">y0 = 0</code> and <code class="language-plaintext highlighter-rouge">x0 = 0</code>. Since the algorithm is iterative, each step represents an amount of time, so <code class="language-plaintext highlighter-rouge">h</code> is the time step size. As such a circuit settles fast, <code class="language-plaintext highlighter-rouge">h</code> should be on the order of microseconds or nanoseconds. The <code class="language-plaintext highlighter-rouge">final</code> parameter tells the algorithm when to stop.
+Euler’s method is purely didactic. It makes terrible next-value estimates that accumulate, returning unrealistic, oscillatory values. Indeed, in the program above the values become unrealistic and explosive within a few iterations.</p>
 
-<h3 id="método-de-runge-kutta">Método de Runge-Kutta</h3>
+<h3 id="runge-kutta-method">Runge-Kutta method</h3>
 
 <blockquote>
-  <p><strong>Correção (2026-09-21):</strong> o solver desta página passou quase dois anos com um bug sutil — o passo <code class="language-plaintext highlighter-rouge">h</code> entrava multiplicado duas vezes (nos <code class="language-plaintext highlighter-rouge">k</code> e de novo no <code class="language-plaintext highlighter-rouge">y +=</code>), então tudo evoluía em câmera lenta. Para sistemas suaves o gráfico até parecia certo, o que é a pior espécie de bug. Já está corrigido no código e nos exemplos acima; se você copiou a versão antiga, troque por esta.</p>
+  <p><strong>Correction (2026-09-21):</strong> this page’s solver carried a subtle bug for almost two years — the step <code class="language-plaintext highlighter-rouge">h</code> was multiplied twice (into the <code class="language-plaintext highlighter-rouge">k</code>s and again in <code class="language-plaintext highlighter-rouge">y +=</code>), so everything evolved in slow motion. For smooth systems the chart even looked right, which is the worst kind of bug. Fixed in the code and examples above; if you copied the old version, replace it with this one.</p>
 </blockquote>
 
-<p>Amplamente utilizado, o método de Runge-Kutta converge adequadamente, não acumula muitos erros e tem poucas chances de oscilar. Em contraste ao método de Euler as estimativas são feitas através de média aritmética ponderada de 4 valores (<code class="language-plaintext highlighter-rouge">K_n</code>).</p>
+<p>Widely used, the Runge-Kutta method converges properly, doesn’t accumulate much error, and rarely oscillates. Unlike Euler’s method, estimates come from a weighted arithmetic mean of 4 values (<code class="language-plaintext highlighter-rouge">K_n</code>).</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function didt(t, i) {
 return (5 - 4700 * i) / 0.0001;
@@ -318,7 +328,7 @@ let x = x0;
 let y = y0;
 let k1, k2, k3, k4;
 const h2 = h / 2;
-const h6 = h / 6; // pré-calculado: 1 multiplicação por passo em vez de 5
+const h6 = h / 6; // precomputed: 1 multiplication per step instead of 5
 
 r.push(y);
 while (x &lt; final) {
@@ -339,7 +349,7 @@ r = RK(0, 0, 0.00000001, 0.000001, didt);
 console.log(r);
 </code></pre></div></div>
 
-<p>Certamente o array pode ser descartado e os valores usados dinamicamente para plotar um gráfico ou apenas o valor final seja de interesse.</p>
+<p>The array can certainly be discarded, with values used dynamically to plot a chart, or only the final value may be of interest.</p>
 
 <script>
 var func;
@@ -352,7 +362,7 @@ let x = x0;
 let y = y0;
 let k1, k2, k3, k4;
 const h2 = h / 2;
-const h6 = h / 6; // pré-calculado: 1 multiplicação por passo em vez de 5
+const h6 = h / 6; // precomputed: 1 multiplication per step instead of 5
 
 r.push(y);
 while (x < final) {
@@ -364,7 +374,7 @@ while (x < final) {
     x = x + h;
 
     r.push(y);
-    if (r.length >= 200000) break; // trava de segurança: não trava o browser
+    if (r.length >= 200000) break; // safety latch: don't freeze the browser
 }
 return r;
 }
@@ -408,7 +418,7 @@ $("calcular").onclick = (e) => {
     }
     catch(e) {
         console.log(e);
-    }    
+    }
 };
 
 (function () {
@@ -425,13 +435,6 @@ import "https://cdn.plot.ly/plotly-2.35.2.min.js"
     Plotly.newPlot("gd", {"data": [{ "y": r.filter((_, i) => i % stride === 0) }],})
 </script>
 
-<div class="footnotes" role="doc-endnotes">
-  <ol>
-    <li id="fn:anterior" role="doc-endnote">
-      <p><a href="https://fabiovila.github.io/eletr%C3%B4nica/2021/02/10/simulacao-circuito-RL-python.html">Usando Python para resolver ODEs de circuitos elétricos: RL - Python</a> <a href="#fnref:anterior" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-  </ol>
-</div>
 
   </article>
 
@@ -449,8 +452,8 @@ import "https://cdn.plot.ly/plotly-2.35.2.min.js"
       
       <div>
         <p class="heading"><strong>Veja Também:</strong></p>
-        <a href="/app/codigo-falhas-obd2-ecu/"><small>Significado dos códigos de falha DTC OBD2 da ECU - Aplicativo</small></br></a>
-        <a href="/en/aplicadas/runge-kutta-javascript/"><small>Exploring the Runge-Kutta method in JavaScript</small></a>
+        <a href="/aplicadas/runge-kutta-em-javascript/"><small>Explorando o método Runge-Kutta em JavaScript</small></br></a>
+        <a href="/automa%C3%A7%C3%A3o/motores-passo-padrao-NEMA-CNC-impressao-3d/"><small>Padrão NEMA em motores de passo na construção de CNC e Impressoras 3D - Automação</small></a>
       </div>
     </div>
   </nav>

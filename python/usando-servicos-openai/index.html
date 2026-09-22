@@ -394,6 +394,7 @@ Encontrado a informação, a informação é retornada para o chatbot para ele g
   constructor(containerId) {
 
     this.container = document.getElementById(containerId)
+    if (!this.container) return // página sem planilha: não faz nada
     this.fields = {}
 
     this.functions = {

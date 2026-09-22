@@ -342,6 +342,7 @@ This post is the current state — numbers, defects and all.</p>
   constructor(containerId) {
 
     this.container = document.getElementById(containerId)
+    if (!this.container) return // página sem planilha: não faz nada
     this.fields = {}
 
     this.functions = {

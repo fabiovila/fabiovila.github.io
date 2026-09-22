@@ -348,6 +348,7 @@ O local onde este capacitor iria ficar era apertado e não era um dos padrões q
   constructor(containerId) {
 
     this.container = document.getElementById(containerId)
+    if (!this.container) return // página sem planilha: não faz nada
     this.fields = {}
 
     this.functions = {

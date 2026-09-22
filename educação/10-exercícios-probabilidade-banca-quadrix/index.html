@@ -592,6 +592,7 @@ Com base nessa situação hipotética, julgue o item.<br />Se, entre os entrevis
   constructor(containerId) {
 
     this.container = document.getElementById(containerId)
+    if (!this.container) return // página sem planilha: não faz nada
     this.fields = {}
 
     this.functions = {
