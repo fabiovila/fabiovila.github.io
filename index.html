@@ -93,8 +93,9 @@ gtag('config', 'G-PY9DT1RWSW');
 </head>
 <body>
 
+
 <div class="hero is-medium " style="border-bottom-right-radius: 1000px">
-  <div class="bgimage" style="filter: blur(10px);  background-image: url('/assets/imgs/867e13fe-25b1-4e3f-84f4-a00b275a6142.jpeg');"></div>      
+  <div class="bgimage" id="heroBg" style="filter: blur(10px);  background-image: url('/assets/imgs/867e13fe-25b1-4e3f-84f4-a00b275a6142.jpeg');"></div>      
   <div class="bgimage" style="background: rgb(0,0,0);background: linear-gradient(180deg, rgba(0,0,0,0.6402894605107668) -10%, rgba(0,0,0,0.20723623922225143) 96%, rgb(255, 255, 255) 100%);"></div>      
 
   <div class="hero-head">
@@ -155,12 +156,12 @@ gtag('config', 'G-PY9DT1RWSW');
   <div class="hero-body container">
     <div class="columns">
     <div class="column bl">
-      <a class="title is-5" href="/en/ia/portulino-350m-tool-use-sft-dpo/">  
+      <a class="title is-5" id="heroLink" href="/pt/ia/portulino-350m-ferramentas-sft-dpo/">  
       <article class="media-content " style="padding-bottom: 2em;  text-shadow: 1px 1.5px #4a4a4a;"> 
         <div class="content is-centered has-text-white">
-          <small class="title-header has-text-white">enIA</small>
-        <p class="is-size-1-tablet has-text-white is-capitalized">Portulino 350M — a model that uses tools, trained on a free T4</p>
-        <small class="pl-2 has-text-white is-size-6" ><span class="icon "><i class="fa fa-user "></i></span>Fabio   
+          <small class="title-header has-text-white" id="heroCats">ptIA</small>
+        <p class="is-size-1-tablet has-text-white is-capitalized" id="heroTitle">Portulino 350M — um modelo que usa ferramentas, treinado em T4 gratuita</p>
+        <small class="pl-2 has-text-white is-size-6" id="heroMeta" ><span class="icon "><i class="fa fa-user "></i></span>Fabio   
         <span class="icon has-text-white"><i class="fa fa-calendar"></i></span>  
          21 Sep 2026
         <span class="icon has-text-white"><i class="fa fa-tag"></i></span>  
@@ -178,79 +179,82 @@ gtag('config', 'G-PY9DT1RWSW');
       <div class="columns is-centered  p-4" >
         <div class="column is-9">
           <div class="content" >           
-            <article class="mt-5 has-text-justified" >
-              <p>In the <a href="https://huggingface.co/fabiovilao/portulino">Portulino article</a> I told the beginning: Markov chains, RNNs, Karpathy’s nanoGPT and the first Portulino, trained religiously on free Colab T4s, 100 to 150 iterations a day — and how I had already stopped training it.</p>
+            <article class="mt-5 has-text-justified" id="heroBody" >
+              <p>No <a href="https://huggingface.co/fabiovilao/portulino">artigo do Portulino</a> contei o começo: Markov, RNN, nanoGPT do Karpathy e o primeiro Portulino, treinado religiosamente em T4 gratuita, 100 a 150 iterações por dia e como já havia parado de treinar ele.</p>
 
-<p>Time to build another model.</p>
+<p>Era hora de criar outro modelo.</p>
 
-<p>Still, I almost gave up training models on Colab T4s because after Portulino I built another one and spent 3 months training it until it stalled at 3.0 loss with no val improvement. I thought I had hit the limit. And 3.0 looks good on paper — but in my chat tests it never got past a glorified n-gram, that Markov-style chatter that repeats patterns without understanding a thing.</p>
+<p>Entretanto, eu quase desisti de treinar modelos em T4 do Colab porque após o Portulino fiz outro e fiquei 3 meses treinando até que ele estagnou em 3,0 de loss e não evoluia no val. Achei que havia chegado ao limite. E olha que 3,0 parece bom no papel — mas nos meus testes de chat ele nunca passou de um n-gram glorificado, aquele papo de Markov que repete padrão sem entender nada.</p>
 
-<p>I decided to try again. I threw that model at Claude to check for bugs, and sure enough there was one: RoPE was wrong. What rage! Months wasted!
-I asked for another model, and by then Claude and the other AIs had gotten smarter, and to my surprise when I put this current model to train something incredible happened. Since I didn’t know how much batch fits in the T4’s 15G, I kept increasing it until hitting the memory limit. Well … while previous models only held batch 11, this Claude-remodeled one held batch size 21!!!
-21?? Something had to be wrong. No way! I threw the model at every AI to audit it and they all said it was correct.
-OK, then let’s train and see if it’s really right. I figured 21 batch would take forever per step, but no — same speed as the old 11-batch model.
-Skeptical of this model, I let it train until 3.5 loss, which is when you can actually perceive some intelligibility. And it reached 3.5 in about 3k iterations … That much efficiency gain can’t be possible!
-Thrilled, I ran validator.py to check val, perplexity and top-1, and they were indeed dropping, and at every checkpoint I tested in chat I could tell it was training really well.
-This post is the current state — numbers, defects and all.</p>
+<p>Resolvi tentar novamente. Peguei esse modelo e joguei no Claude para ver se havia algum problema, e de fato havia, o RoPE estava errado. Que raiva! Meses perdidos!
+Pedi para fazer outro modelo e nesse tempo o Claude e outras IAs já ficaram mais espertas e para minha surpresa quando coloquei esse modelo atual para treinar algo incrível aconteceu. Como eu não sabia quanto de batch cabia em 15G da T4 eu ia aumentando até chegar no limite da memória. Pois então … enquanto os modelos anteriores só aguentavam 11 de batch esse modelo remodelado pelo Claude aguentava 21 de batch size!!!</p>
 
-<h3 id="the-new-model">The new model</h3>
+<p>21?? Só podia ter algo errado, não é possível! Eu joguei o modelo em todas as IAs para auditar e todas me disseram que estava correto o modelo.</p>
 
-<p>In this model I threw away almost everything and restarted from zero: new 32k vocabulary (fits in 16 bits, saves Drive space) with several special tokens like <code class="language-plaintext highlighter-rouge">&lt;|think|&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;|RAG|&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;|json|&gt;</code> and <code class="language-plaintext highlighter-rouge">&lt;|ai|&gt;</code>, rewritten architecture (GQA with 16 query heads and 4 key-value heads, RoPE, RMSNorm, SwiGLU, no bias) and around 350M parameters (Portulino had only 280M). Context 1024, AdamW, <code class="language-plaintext highlighter-rouge">batch_size</code> 21 on T4 and 75 on A100 with 8 accumulation steps.</p>
+<p>Ok, então vamos treinar para ver se está certo mesmo. Logo pensei que 21 de batch demoraria uma eternidade para fazer um batch, mas não, a velocidade era a mesma dos 11 de batch do modelo anterior.
+Cético quanto a esse modelo deixei ele treinando até chegar nos 3,5 de loss que é quando de fato se consegue perceber alguma inteligibilidade. E foi que ele chegou em 3,5 em aproximadamente 3k iterações … Não é possível tanto ganho de eficiência!
+Animadissimo, rodava o validator.py para checar o val, a perplexidade e o top-1 e percebia que de fato eles estavam caindo e a cada checkpoint que eu testava no chat percebia que estava treinando muito bem.</p>
 
-<p>Same routine: a bit of free T4 every day, and occasionally some credits for A100 or L4 jumps. Each A100 round swaps the raw text block — I’m on the second block, the third will be CulturaX mixed pt-BR and English.</p>
+<h3 id="o-modelo-novo">O modelo novo</h3>
 
-<p>Today’s numbers — and note training is still running, this is a moving picture, not a final portrait: 12,705 iterations, about 7.8 billion tokens seen, <code class="language-plaintext highlighter-rouge">val_loss</code> from 4.22 down to <strong>2.0</strong> and top-1 from 0.32 to 0.60. Monotonic curve, no plateau.</p>
+<p>Nesse modelo joguei fora quase tudo e recomecei do zero: vocabulário novo de 32k (cabe em 16 bits, economiza Drive) com diversos tokens especiais como <code class="language-plaintext highlighter-rouge">&lt;|think|&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;|RAG|&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;|json|&gt;</code> e <code class="language-plaintext highlighter-rouge">&lt;|ai|&gt;</code>, arquitetura reescrita (GQA com 16 heads de query e 4 de chave-valor, RoPE, RMSNorm, SwiGLU, sem bias) e por volta de 350M de parâmetros (o Portulino tinha só 280M). Contexto de 1024, AdamW, <code class="language-plaintext highlighter-rouge">batch_size</code> 21 na T4 e 75 na A100 com 8 de acumulação.</p>
 
-<p><img src="/assets/imgs/portulino-val-loss.png" alt="val_loss per iteration" />
-<img src="/assets/imgs/portulino-val-ppl.png" alt="perplexity per iteration" />
-<img src="/assets/imgs/portulino-val-top1.png" alt="top-1 per iteration" /></p>
+<p>O regime continua o mesmo: todo dia um pouco de T4 gratuita, e de vez em quando uns créditos para A100 ou L4 darem um salto. Cada rodada de A100 troca o bloco de textos corridos — estou no segundo bloco, o terceiro vai ser CulturaX misturado pt-BR e inglês.</p>
 
-<p>Notice in the chart the two jumps that two A100 quotas made. The small jumps were dataset and format swaps. I used to emit a verbose JSON that ate tokens and made the model struggle to write it correctly, so I slimmed it down. Another change was executed Python code: it used to run when the model emitted a shell JSON that ran python3 with the program contents — extremely bureaucratic — and since I had the special <code class="language-plaintext highlighter-rouge">&lt;|code|&gt;</code> token sitting unused, I used it as a python3 code container for the model to emit and the backend to execute. For a model this size trained this way, that’s within expectations — and here’s the first lesson: it’s still in <strong>pure pre-training</strong>, with about 1% instruct mixed in. It was never taught to be an assistant. Demanding good answers from it now is like testing a student who only read the library and never took an exam.</p>
+<p>Os números de hoje — e repare que o treino continua rodando, isso aqui é foto em movimento, não retrato final: 12.705 iterações, uns 7,8 bilhões de tokens vistos, <code class="language-plaintext highlighter-rouge">val_loss</code> de 4,22 para <strong>2,0</strong> e top-1 de 0,32 para 0,60. Curva monotônica, sem platô.</p>
 
-<h3 id="the-bet-tools-instead-of-decoration">The bet: tools instead of decoration</h3>
+<p><img src="/assets/imgs/portulino-val-loss.png" alt="val_loss por iteração" />
+<img src="/assets/imgs/portulino-val-ppl.png" alt="perplexidade por iteração" />
+<img src="/assets/imgs/portulino-val-top1.png" alt="top-1 por iteração" /></p>
 
-<p>Instead of plain running text, the dataset has almost 400 thousand dialogue blocks in a custom format, with markers for each role: <code class="language-plaintext highlighter-rouge">&lt;|user|&gt;</code> for you, <code class="language-plaintext highlighter-rouge">&lt;|ai|&gt;</code> for what the model already said, <code class="language-plaintext highlighter-rouge">&lt;|answer|&gt;</code> for the current answer, <code class="language-plaintext highlighter-rouge">&lt;|think|&gt;</code> for reasoning, <code class="language-plaintext highlighter-rouge">&lt;|json|&gt;</code> for calling tools (<code class="language-plaintext highlighter-rouge">shell</code>, <code class="language-plaintext highlighter-rouge">search</code>, <code class="language-plaintext highlighter-rouge">create_file</code>) and <code class="language-plaintext highlighter-rouge">&lt;|RAG|&gt;</code> for the result coming back from the real world.</p>
+<p>Observe no gráfico os dois saltos que duas cotas de A100 fizeram. Os pequenos saltos foram trocas de dataset e formatos. Antes eu usava um json verboso que consumia tokens e fazia o modelo penar para escrever corretamente, simplifiquei-o deixando menor. Outra mudança foram os códigos python executados; antes eles eram executados quando o modelo emitia um json shell que executava o python3 com o conteúdo do programa, extremamente burocrático, e como eu tinha o token especial <code class="language-plaintext highlighter-rouge">&lt;|code|&gt;</code> sem função utilizei-o como container de código python3 para o modelo emitir e o backend executar.</p>
 
-<p>Plus a local Flask app where the model actually executes: runs terminal commands, searches the web, creates files. When I ask “which USB devices are connected?”, it really runs <code class="language-plaintext highlighter-rouge">lsusb</code> and really reads the output. When the directory is empty, <code class="language-plaintext highlighter-rouge">ls</code> returns <code class="language-plaintext highlighter-rouge">total 0</code> — and I already learned the bug is almost never in the tool, but in how the model interprets it.</p>
+<p>Para um modelo desse tamanho, treinado assim, está dentro do esperado — e é aí que mora a primeira lição: ele ainda está em <strong>pré-treino puro</strong>, com algo como 1% de instruct no meio. Ele nunca foi ensinado a ser assistente. Cobrar boas respostas dele agora é como cobrar de um aluno que só leu a biblioteca e nunca fez uma prova.</p>
 
-<h3 id="the-defect-gallery">The defect gallery</h3>
+<h3 id="a-aposta-ferramentas-em-vez-de-decoração">A aposta: ferramentas em vez de decoração</h3>
 
-<p>Since the blog promises occasional catastrophic failures, here’s this week’s collection:</p>
+<p>Em vez de só texto corrido, o dataset tem quase 400 mil blocos de diálogo num formato próprio, com marcadores para cada papel: <code class="language-plaintext highlighter-rouge">&lt;|user|&gt;</code> para você, <code class="language-plaintext highlighter-rouge">&lt;|ai|&gt;</code> para o que o modelo já disse, <code class="language-plaintext highlighter-rouge">&lt;|answer|&gt;</code> para a resposta atual, <code class="language-plaintext highlighter-rouge">&lt;|think|&gt;</code> para o raciocínio, <code class="language-plaintext highlighter-rouge">&lt;|json|&gt;</code> para chamar ferramentas (<code class="language-plaintext highlighter-rouge">shell</code>, <code class="language-plaintext highlighter-rouge">search</code>, <code class="language-plaintext highlighter-rouge">create_file</code>) e <code class="language-plaintext highlighter-rouge">&lt;|RAG|&gt;</code> para o resultado que volta do mundo real.</p>
 
-<ul>
-  <li>I asked the difference between a dog and a cat. The model ran <code class="language-plaintext highlighter-rouge">cat ~/Users</code> <strong>ten times in a row</strong>, failing every time, never answering the question. Discussing these logs with AI assistants, the conclusion was simple and a bit embarrassing: a dumb guardrail was missing — stop at the third repeated error. Not a training problem, a runtime one, fixed in ten lines.</li>
-  <li>I asked a game price. It searched nothing and invented R$ 299 with some rambling about “head-dead”.</li>
-  <li>The classic: the model <strong>continues the RAG by hallucinating</strong>. The search result ends and it appends invented facts in the same format, as if quoted. I sensed it was structural, but the explanation came from talking to AIs about the logs: in unmasked pre-training, loss applies to every token, including RAG. It was trained to <em>predict</em> search, not to <em>use</em> search. Penny dropped instantly.</li>
-  <li>It emitted JSON with quotes inside quotes and broke its own parser. Investigating with an assistant turned into a curation rule: shell commands in training JSON are single-line with no inner double quotes. Heredoc is impossible by construction — a detail that only shows up when you train the format together with the model, and I only noticed because someone (non-human) pointed it out.</li>
-</ul>
+<p>E tem um app local em Flask onde o modelo realmente executa: roda comando no terminal, pesquisa na web, cria arquivo. Quando pergunto “quais USBs estão conectados?”, ele roda <code class="language-plaintext highlighter-rouge">lsusb</code> de verdade e lê a saída de verdade. Quando o diretório está vazio, o <code class="language-plaintext highlighter-rouge">ls</code> retorna <code class="language-plaintext highlighter-rouge">total 0</code> — e eu já aprendi que o erro quase nunca está na ferramenta, e sim na interpretação que o modelo faz dela.</p>
 
-<p>None of this discourages me. Every defect became either a hand-curated example (real RAG preserved, answer rewritten) or a pipeline gate: <code class="language-plaintext highlighter-rouge">&lt;|json|&gt;</code> validator, broken-tool quarantine, content filter on SFT. The dataset defends itself today.</p>
+<h3 id="a-galeria-de-defeitos">A galeria de defeitos</h3>
 
-<h3 id="programmatic-datasets-real-rag-not-fake-rag">Programmatic datasets: real RAG, not fake RAG</h3>
-
-<p>There was a phase when I noticed an embarrassing problem: my model learned the <em>format</em> of RAG with invented content, because part of the training data had simulated search. So I decided tool data only gets in if the RAG is real — actually executed when generating the example. The programmatic datasets were born, each with its own generator:</p>
+<p>Já que o blog promete falhas catastróficas ocasionais, vai a coleção da semana:</p>
 
 <ul>
-  <li><strong>HotpotQA</strong> (7k): multi-hop benchmark questions with the real supporting facts as evidence.</li>
-  <li><strong>Pira</strong> (4k, pt+en): questions and answers with the original abstract as proof.</li>
-  <li><strong>Store catalog</strong> (2k): scraped a real utility-store catalog — 914 products via page-embedded JSON, past anti-bot protection — and generated questions whose answers quote real specs.</li>
-  <li><strong>Salaries</strong> (2k + 1.5k reports): careful scraper on a salary-floor site (stats, FAQ, by state), including deliberately dirty data so the model learns to ignore noise.</li>
-  <li><strong>FIPE</strong> (2k), <strong>IMDB</strong> (2k, from a 33k-movie CSV), <strong>APIs</strong> (2k, from a catalog of 837 real APIs), <strong>BR phones</strong> (1k, with Brazilian phone regex and area-code validation).</li>
-  <li><strong>CodeTrace</strong> (1k): code execution tracing, so the model learns to follow a program step by step.</li>
-  <li><strong>Shell and Python</strong> (5k): commands and scripts generated with a truly executed answer key — list averages, strings, basic programming. The <code class="language-plaintext highlighter-rouge">&lt;|code|&gt;</code> runs, the output becomes <code class="language-plaintext highlighter-rouge">&lt;|RAG|&gt;</code>, and the answer quotes the number that came out. Without that bridge, the model learns to <em>pretend</em> it computed.</li>
+  <li>Perguntei a diferença entre cachorro e gato. O modelo rodou <code class="language-plaintext highlighter-rouge">cat ~/Users</code> <strong>dez vezes seguidas</strong>, falhando todas, sem nunca responder a pergunta. Discutindo esses logs com assistentes de IA, a conclusão foi simples e um pouco embaraçosa: faltava um guardrail besta — parar no terceiro erro repetido. Não é problema de treino, é de runtime, e se resolve com dez linhas.</li>
+  <li>Perguntei preço de jogo. Ele não pesquisou nada e inventou R$ 299 com uma enrolação sobre “head-dead”.</li>
+  <li>O clássico: o modelo <strong>continua o RAG alucinando</strong>. O resultado da busca termina e ele emenda fatos inventados no mesmo formato, como se fossem citação. Eu intuía que era algo estrutural, mas a explicação veio conversando com IAs sobre os logs: no pré-treino sem máscara, a loss incide sobre todos os tokens, inclusive RAG. Ele foi treinado para <em>predizer</em> busca, não para <em>usar</em> busca. Caiu a ficha na hora.</li>
+  <li>Emitiu JSON com aspas dentro de aspas e quebrou o próprio parser. Investigando junto com um assistente, virou regra de curadoria: comando shell em JSON de treino é single-line e sem aspa dupla interna. Heredoc é impossível por construção — detalhe que só aparece quando você treina o formato junto com o modelo, e eu só percebi porque alguém (não humano) apontou.</li>
 </ul>
 
-<p>Every example ships in the format the model will see live: question, <code class="language-plaintext highlighter-rouge">&lt;|think|&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;|json|&gt;</code> call, <code class="language-plaintext highlighter-rouge">&lt;|RAG|&gt;</code> with the real result, short think citing the datum, answer. No fake search. When the data doesn’t exist (missing file, empty directory), the example teaches saying “not found” instead of inventing — the hardest sentence for a small model.</p>
+<p>Nada disso me desanima. Cada defeito virou ou um exemplo curado à mão (RAG real preservado, resposta reescrita) ou um gate no pipeline: validador de <code class="language-plaintext highlighter-rouge">&lt;|json|&gt;</code>, quarentena de tool quebrada, filtro de conteúdo no SFT. O dataset se defende sozinho hoje.</p>
 
-<h3 id="whats-next-sft-and-dpo-for-real">What’s next: SFT and DPO for real</h3>
+<h3 id="datasets-programáticos-rag-de-verdade-não-de-mentira">Datasets programáticos: RAG de verdade, não de mentira</h3>
 
-<p>The next step is already drawn in the notebook — drawn with four hands, mine and the AIs I debate these problems with: percentage mixing — each micro-step draws from pre-training, SFT or DPO. SFT uses <code class="language-plaintext highlighter-rouge">-1</code> masking on everything observational (<code class="language-plaintext highlighter-rouge">user</code>, <code class="language-plaintext highlighter-rouge">RAG</code>, <code class="language-plaintext highlighter-rouge">system</code>) and trains only assistant behavior. DPO uses <code class="language-plaintext highlighter-rouge">chosen/rejected</code> pairs with a frozen reference model. Data already leaves the pipeline as parquet with schema metadata: tokens, masked labels and the mask spec stamped together, so nobody trains on the wrong file six months from now.</p>
+<p>Teve uma fase em que percebi um problema embaraçoso: meu modelo aprendia o <em>formato</em> do RAG mas com conteúdo inventado, porque parte dos dados de treino tinha busca simulada. Decidi então que dado de ferramenta só entra se o RAG for real — executado de verdade na hora de gerar o exemplo. Nasceram os datasets programáticos, cada um com seu gerador:</p>
 
-<p>The lesson from this phase, and I split the credit: <strong>a small model learns format long before it learns judgment</strong>. With 1% instruct it already emits <code class="language-plaintext highlighter-rouge">&lt;|think|&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;|json|&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;|RAG|&gt;</code> in the right places — and gets the content badly wrong. I entered this phase believing dataset is everything (still do), and leave understanding that format comes from pre-training but judgment will have to come from SFT. Half of that I figured out alone watering the plants; the other half was explained to me — including by artificial intelligences, which has its irony: I’m using AIs to learn how to make an AI.</p>
+<ul>
+  <li><strong>HotpotQA</strong> (7 mil): perguntas multi-hop do benchmark, com os fatos de suporte reais como evidência.</li>
+  <li><strong>Pira</strong> (4 mil, pt+en): perguntas e respostas com o abstract original como prova.</li>
+  <li><strong>Catálogo de loja</strong> (2 mil): raspei o catálogo real de uma loja de utilidades — 914 produtos via JSON embutido na página, passando por proteção anti-robô — e gerei perguntas cujas respostas citam especificação de verdade.</li>
+  <li><strong>Salários</strong> (2 mil + 1,5 mil relatórios): scraper com cautela num site de pisos salariais (estatísticas, FAQ, por estado), com direito a dados sujos de propósito para o modelo aprender a ignorar ruído.</li>
+  <li><strong>FIPE</strong> (2 mil), <strong>IMDB</strong> (2 mil, de um CSV de 33 mil filmes), <strong>APIs</strong> (2 mil, de um catálogo de 837 APIs reais), <strong>telefones BR</strong> (1 mil, com regex de telefone brasileiro e validação de DDD).</li>
+  <li><strong>CodeTrace</strong> (1 mil): rastreamento de execução de código, para o modelo aprender a seguir programa passo a passo.</li>
+  <li><strong>Shell e Python</strong> (5 mil): comandos e scripts gerados com gabarito executado de verdade — média de lista, strings, programação básica. O <code class="language-plaintext highlighter-rouge">&lt;|code|&gt;</code> roda, a saída vira <code class="language-plaintext highlighter-rouge">&lt;|RAG|&gt;</code>, e a resposta cita o número que saiu. Sem essa ponte, o modelo aprende a <em>fingir</em> que calculou.</li>
+</ul>
 
-<h3 id="what-the-dream-costs">What the dream costs</h3>
+<p>Cada exemplo sai no formato que o modelo vai ver ao vivo: pergunta, <code class="language-plaintext highlighter-rouge">&lt;|think|&gt;</code>, chamada <code class="language-plaintext highlighter-rouge">&lt;|json|&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;|RAG|&gt;</code> com o resultado real, think curto citando o dado, resposta. Nada de busca de mentira. Quando o dado não existe (arquivo sumido, diretório vazio), o exemplo ensina a dizer “não achei” em vez de inventar — a frase mais difícil para um modelo pequeno.</p>
 
-<p>One free T4 a day, R$ 58 now and then for A100, a Colab, and years watering these plants. I’m one person, the model is proof of concept — and getting here, with a complete pipeline from tokenizer to tool-using app, is already the victory. I’ll keep watering these plants to see where I get.</p>
+<h3 id="o-que-vem-agora-sft-e-dpo-de-verdade">O que vem agora: SFT e DPO de verdade</h3>
+
+<p>O próximo passo já está desenhado no notebook — desenhado a quatro mãos, minhas e de IAs com quem debato esses problemas: mistura por porcentagem — cada micro-step sorteia entre pré-treino, SFT e DPO. O SFT usa máscara <code class="language-plaintext highlighter-rouge">-1</code> em tudo que é observação (<code class="language-plaintext highlighter-rouge">user</code>, <code class="language-plaintext highlighter-rouge">RAG</code>, <code class="language-plaintext highlighter-rouge">system</code>) e treina só o comportamento do assistente. O DPO usa pares <code class="language-plaintext highlighter-rouge">chosen/rejected</code> com modelo de referência congelado. Os dados já saem do pipeline em parquet com metadados no schema: tokens, labels mascarados e a spec da máscara carimbada junto, para ninguém treinar no arquivo errado daqui a seis meses.</p>
+
+<p>Lição que fica desta fase, e essa eu divido o crédito: <strong>modelo pequeno aprende formato muito antes de aprender juízo</strong>. Com 1% de instruct ele já emite <code class="language-plaintext highlighter-rouge">&lt;|think|&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;|json|&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;|RAG|&gt;</code> nos lugares certos — e erra feio o conteúdo. Eu entrei nessa fase achando que dataset era tudo (ainda acho), e saí entendendo que o formato vem do pré-treino mas o juízo vai ter que vir do SFT. Metade disso eu percebi sozinho regando as plantas; a outra metade me explicaram — inclusive inteligências artificiais, o que tem sua ironia: estou usando IAs para aprender a fazer uma IA.</p>
+
+<h3 id="quanto-custa-o-sonho">Quanto custa o sonho</h3>
+
+<p>Uma T4 gratuita por dia, uns R$ 58 de vez em quando para A100, um Colab, e anos regando essas plantas. Sou uma pessoa só, o modelo é prova de conceito — e chegar até aqui, com pipeline completo do tokenizer ao app com ferramentas, já é a vitória. Vou continuar regando essas plantas para ver onde chego.</p>
 
               <hr class="mt-1 m-5"/>
               <hr class="mt-1 m-5"/>
@@ -273,44 +277,12 @@ This post is the current state — numbers, defects and all.</p>
 <div class="container mb-5">
 
   <article class="panel is-link">
-    <p class="panel-heading  has-text-centered">MAIS ARTIGOS</p>
+    <p class="panel-heading  has-text-centered" id="moreHeading">MAIS ARTIGOS</p>
   </article>
-  <div class="columns is-centered is-multiline ">
+  <div class="columns is-centered is-multiline " id="cardsGrid">
   
   
   
-  
-  
-  
-  
-  <div class="column is-half card ">
-    <a class="title is-6" href="/pt/ia/portulino-350m-ferramentas-sft-dpo/">
-    <article class="media  mt-4  h-150">
-        
-        <figure class="image is-fullwidth media-left">  
-                     
-            <img src="/assets/imgs/867e13fe-25b1-4e3f-84f4-a00b275a6142.jpeg"/>  
-            
-            
-        </figure>
-        </article>
-
-    <article class="media-content"> 
-      <div class="content">
-        <p class="bl pl-2 title is-size-5 mb-1">Portulino 350M — um modelo que usa ferramentas, treinado em T4 gratuita</p>
-        <p class="ml-2 is-size-5 is-italic has-text-weight-light is-family-serif mb-0">
-        
-        No artigo do Portulino contei o começo: Markov, RNN, nanoGPT do Karpathy e o primeiro...
-        
-        </p>
-        <p class="ml-2 title-header has-text-primary-dark">ptIA</p>
-      </div>
-
-      </article>
-      
-</a>
-  
-  </div>
   
   
   
@@ -368,70 +340,6 @@ This post is the current state — numbers, defects and all.</p>
         
         </p>
         <p class="ml-2 title-header has-text-primary-dark">ptapp</p>
-      </div>
-
-      </article>
-      
-</a>
-  
-  </div>
-  
-  
-  
-  
-  <div class="column is-half card ">
-    <a class="title is-6" href="/en/electronics/usb-isolator-saved-laptop/">
-    <article class="media  mt-4  h-150">
-        
-        <figure class="image is-fullwidth media-left">  
-                     
-            <img src="/assets/imgs/photo_2026-03-08_09-51-34.jpg"/>  
-            
-            
-        </figure>
-        </article>
-
-    <article class="media-content"> 
-      <div class="content">
-        <p class="bl pl-2 title is-size-5 mb-1">The USB Isolator That Saved My Laptop From a Burning Motor Inverter</p>
-        <p class="ml-2 is-size-5 is-italic has-text-weight-light is-family-serif mb-0">
-        
-        It was just another normal day programming a motor inverter. The system was running a...
-        
-        </p>
-        <p class="ml-2 title-header has-text-primary-dark">enelectronics</p>
-      </div>
-
-      </article>
-      
-</a>
-  
-  </div>
-  
-  
-  
-  
-  <div class="column is-half card ">
-    <a class="title is-6" href="/en/app/qr-code-generator/">
-    <article class="media  mt-4  h-150">
-        
-        <figure class="image is-fullwidth media-left">  
-                     
-            <img src="/assets/imgs/qrcode-img.png"/>  
-            
-            
-        </figure>
-        </article>
-
-    <article class="media-content"> 
-      <div class="content">
-        <p class="bl pl-2 title is-size-5 mb-1">QR Code Generator</p>
-        <p class="ml-2 is-size-5 is-italic has-text-weight-light is-family-serif mb-0">
-        
-        QR Code Generator URL 🔗 Generate QR White background Transparent background Download white SVG Download...
-        
-        </p>
-        <p class="ml-2 title-header has-text-primary-dark">enapp</p>
       </div>
 
       </article>
@@ -1179,6 +1087,46 @@ This post is the current state — numbers, defects and all.</p>
   
 </div>
 </div>
+<script id="i18n-data" type="application/json">
+
+{"hero": {"title": "Portulino 350M — a model that uses tools, trained on a free T4", "url": "/en/ia/portulino-350m-tool-use-sft-dpo/", "thumbnail": "/assets/imgs/867e13fe-25b1-4e3f-84f4-a00b275a6142.jpeg", "cats": "en e IA", "meta": "Fabio", "date": "21 Sep 2026", "tags": "colab, transformers, dataset, sft, dpo, tool-use, e rag", "content": "<p>In the <a href=\"https://huggingface.co/fabiovilao/portulino\">Portulino article<\/a> I told the beginning: Markov chains, RNNs, Karpathy’s nanoGPT and the first Portulino, trained religiously on free Colab T4s, 100 to 150 iterations a day — and how I had already stopped training it.<\/p>\n\n<p>Time to build another model.<\/p>\n\n<p>Still, I almost gave up training models on Colab T4s because after Portulino I built another one and spent 3 months training it until it stalled at 3.0 loss with no val improvement. I thought I had hit the limit. And 3.0 looks good on paper — but in my chat tests it never got past a glorified n-gram, that Markov-style chatter that repeats patterns without understanding a thing.<\/p>\n\n<p>I decided to try again. I threw that model at Claude to check for bugs, and sure enough there was one: RoPE was wrong. What rage! Months wasted!\nI asked for another model, and by then Claude and the other AIs had gotten smarter, and to my surprise when I put this current model to train something incredible happened. Since I didn’t know how much batch fits in the T4’s 15G, I kept increasing it until hitting the memory limit. Well … while previous models only held batch 11, this Claude-remodeled one held batch size 21!!!\n21?? Something had to be wrong. No way! I threw the model at every AI to audit it and they all said it was correct.\nOK, then let’s train and see if it’s really right. I figured 21 batch would take forever per step, but no — same speed as the old 11-batch model.\nSkeptical of this model, I let it train until 3.5 loss, which is when you can actually perceive some intelligibility. And it reached 3.5 in about 3k iterations … That much efficiency gain can’t be possible!\nThrilled, I ran validator.py to check val, perplexity and top-1, and they were indeed dropping, and at every checkpoint I tested in chat I could tell it was training really well.\nThis post is the current state — numbers, defects and all.<\/p>\n\n<h3 id=\"the-new-model\">The new model<\/h3>\n\n<p>In this model I threw away almost everything and restarted from zero: new 32k vocabulary (fits in 16 bits, saves Drive space) with several special tokens like <code class=\"language-plaintext highlighter-rouge\">&lt;|think|&gt;<\/code>, <code class=\"language-plaintext highlighter-rouge\">&lt;|RAG|&gt;<\/code>, <code class=\"language-plaintext highlighter-rouge\">&lt;|json|&gt;<\/code> and <code class=\"language-plaintext highlighter-rouge\">&lt;|ai|&gt;<\/code>, rewritten architecture (GQA with 16 query heads and 4 key-value heads, RoPE, RMSNorm, SwiGLU, no bias) and around 350M parameters (Portulino had only 280M). Context 1024, AdamW, <code class=\"language-plaintext highlighter-rouge\">batch_size<\/code> 21 on T4 and 75 on A100 with 8 accumulation steps.<\/p>\n\n<p>Same routine: a bit of free T4 every day, and occasionally some credits for A100 or L4 jumps. Each A100 round swaps the raw text block — I’m on the second block, the third will be CulturaX mixed pt-BR and English.<\/p>\n\n<p>Today’s numbers — and note training is still running, this is a moving picture, not a final portrait: 12,705 iterations, about 7.8 billion tokens seen, <code class=\"language-plaintext highlighter-rouge\">val_loss<\/code> from 4.22 down to <strong>2.0<\/strong> and top-1 from 0.32 to 0.60. Monotonic curve, no plateau.<\/p>\n\n<p><img src=\"/assets/imgs/portulino-val-loss.png\" alt=\"val_loss per iteration\" />\n<img src=\"/assets/imgs/portulino-val-ppl.png\" alt=\"perplexity per iteration\" />\n<img src=\"/assets/imgs/portulino-val-top1.png\" alt=\"top-1 per iteration\" /><\/p>\n\n<p>Notice in the chart the two jumps that two A100 quotas made. The small jumps were dataset and format swaps. I used to emit a verbose JSON that ate tokens and made the model struggle to write it correctly, so I slimmed it down. Another change was executed Python code: it used to run when the model emitted a shell JSON that ran python3 with the program contents — extremely bureaucratic — and since I had the special <code class=\"language-plaintext highlighter-rouge\">&lt;|code|&gt;<\/code> token sitting unused, I used it as a python3 code container for the model to emit and the backend to execute. For a model this size trained this way, that’s within expectations — and here’s the first lesson: it’s still in <strong>pure pre-training<\/strong>, with about 1% instruct mixed in. It was never taught to be an assistant. Demanding good answers from it now is like testing a student who only read the library and never took an exam.<\/p>\n\n<h3 id=\"the-bet-tools-instead-of-decoration\">The bet: tools instead of decoration<\/h3>\n\n<p>Instead of plain running text, the dataset has almost 400 thousand dialogue blocks in a custom format, with markers for each role: <code class=\"language-plaintext highlighter-rouge\">&lt;|user|&gt;<\/code> for you, <code class=\"language-plaintext highlighter-rouge\">&lt;|ai|&gt;<\/code> for what the model already said, <code class=\"language-plaintext highlighter-rouge\">&lt;|answer|&gt;<\/code> for the current answer, <code class=\"language-plaintext highlighter-rouge\">&lt;|think|&gt;<\/code> for reasoning, <code class=\"language-plaintext highlighter-rouge\">&lt;|json|&gt;<\/code> for calling tools (<code class=\"language-plaintext highlighter-rouge\">shell<\/code>, <code class=\"language-plaintext highlighter-rouge\">search<\/code>, <code class=\"language-plaintext highlighter-rouge\">create_file<\/code>) and <code class=\"language-plaintext highlighter-rouge\">&lt;|RAG|&gt;<\/code> for the result coming back from the real world.<\/p>\n\n<p>Plus a local Flask app where the model actually executes: runs terminal commands, searches the web, creates files. When I ask “which USB devices are connected?”, it really runs <code class=\"language-plaintext highlighter-rouge\">lsusb<\/code> and really reads the output. When the directory is empty, <code class=\"language-plaintext highlighter-rouge\">ls<\/code> returns <code class=\"language-plaintext highlighter-rouge\">total 0<\/code> — and I already learned the bug is almost never in the tool, but in how the model interprets it.<\/p>\n\n<h3 id=\"the-defect-gallery\">The defect gallery<\/h3>\n\n<p>Since the blog promises occasional catastrophic failures, here’s this week’s collection:<\/p>\n\n<ul>\n  <li>I asked the difference between a dog and a cat. The model ran <code class=\"language-plaintext highlighter-rouge\">cat ~/Users<\/code> <strong>ten times in a row<\/strong>, failing every time, never answering the question. Discussing these logs with AI assistants, the conclusion was simple and a bit embarrassing: a dumb guardrail was missing — stop at the third repeated error. Not a training problem, a runtime one, fixed in ten lines.<\/li>\n  <li>I asked a game price. It searched nothing and invented R$ 299 with some rambling about “head-dead”.<\/li>\n  <li>The classic: the model <strong>continues the RAG by hallucinating<\/strong>. The search result ends and it appends invented facts in the same format, as if quoted. I sensed it was structural, but the explanation came from talking to AIs about the logs: in unmasked pre-training, loss applies to every token, including RAG. It was trained to <em>predict<\/em> search, not to <em>use<\/em> search. Penny dropped instantly.<\/li>\n  <li>It emitted JSON with quotes inside quotes and broke its own parser. Investigating with an assistant turned into a curation rule: shell commands in training JSON are single-line with no inner double quotes. Heredoc is impossible by construction — a detail that only shows up when you train the format together with the model, and I only noticed because someone (non-human) pointed it out.<\/li>\n<\/ul>\n\n<p>None of this discourages me. Every defect became either a hand-curated example (real RAG preserved, answer rewritten) or a pipeline gate: <code class=\"language-plaintext highlighter-rouge\">&lt;|json|&gt;<\/code> validator, broken-tool quarantine, content filter on SFT. The dataset defends itself today.<\/p>\n\n<h3 id=\"programmatic-datasets-real-rag-not-fake-rag\">Programmatic datasets: real RAG, not fake RAG<\/h3>\n\n<p>There was a phase when I noticed an embarrassing problem: my model learned the <em>format<\/em> of RAG with invented content, because part of the training data had simulated search. So I decided tool data only gets in if the RAG is real — actually executed when generating the example. The programmatic datasets were born, each with its own generator:<\/p>\n\n<ul>\n  <li><strong>HotpotQA<\/strong> (7k): multi-hop benchmark questions with the real supporting facts as evidence.<\/li>\n  <li><strong>Pira<\/strong> (4k, pt+en): questions and answers with the original abstract as proof.<\/li>\n  <li><strong>Store catalog<\/strong> (2k): scraped a real utility-store catalog — 914 products via page-embedded JSON, past anti-bot protection — and generated questions whose answers quote real specs.<\/li>\n  <li><strong>Salaries<\/strong> (2k + 1.5k reports): careful scraper on a salary-floor site (stats, FAQ, by state), including deliberately dirty data so the model learns to ignore noise.<\/li>\n  <li><strong>FIPE<\/strong> (2k), <strong>IMDB<\/strong> (2k, from a 33k-movie CSV), <strong>APIs<\/strong> (2k, from a catalog of 837 real APIs), <strong>BR phones<\/strong> (1k, with Brazilian phone regex and area-code validation).<\/li>\n  <li><strong>CodeTrace<\/strong> (1k): code execution tracing, so the model learns to follow a program step by step.<\/li>\n  <li><strong>Shell and Python<\/strong> (5k): commands and scripts generated with a truly executed answer key — list averages, strings, basic programming. The <code class=\"language-plaintext highlighter-rouge\">&lt;|code|&gt;<\/code> runs, the output becomes <code class=\"language-plaintext highlighter-rouge\">&lt;|RAG|&gt;<\/code>, and the answer quotes the number that came out. Without that bridge, the model learns to <em>pretend<\/em> it computed.<\/li>\n<\/ul>\n\n<p>Every example ships in the format the model will see live: question, <code class=\"language-plaintext highlighter-rouge\">&lt;|think|&gt;<\/code>, <code class=\"language-plaintext highlighter-rouge\">&lt;|json|&gt;<\/code> call, <code class=\"language-plaintext highlighter-rouge\">&lt;|RAG|&gt;<\/code> with the real result, short think citing the datum, answer. No fake search. When the data doesn’t exist (missing file, empty directory), the example teaches saying “not found” instead of inventing — the hardest sentence for a small model.<\/p>\n\n<h3 id=\"whats-next-sft-and-dpo-for-real\">What’s next: SFT and DPO for real<\/h3>\n\n<p>The next step is already drawn in the notebook — drawn with four hands, mine and the AIs I debate these problems with: percentage mixing — each micro-step draws from pre-training, SFT or DPO. SFT uses <code class=\"language-plaintext highlighter-rouge\">-1<\/code> masking on everything observational (<code class=\"language-plaintext highlighter-rouge\">user<\/code>, <code class=\"language-plaintext highlighter-rouge\">RAG<\/code>, <code class=\"language-plaintext highlighter-rouge\">system<\/code>) and trains only assistant behavior. DPO uses <code class=\"language-plaintext highlighter-rouge\">chosen/rejected<\/code> pairs with a frozen reference model. Data already leaves the pipeline as parquet with schema metadata: tokens, masked labels and the mask spec stamped together, so nobody trains on the wrong file six months from now.<\/p>\n\n<p>The lesson from this phase, and I split the credit: <strong>a small model learns format long before it learns judgment<\/strong>. With 1% instruct it already emits <code class=\"language-plaintext highlighter-rouge\">&lt;|think|&gt;<\/code>, <code class=\"language-plaintext highlighter-rouge\">&lt;|json|&gt;<\/code>, <code class=\"language-plaintext highlighter-rouge\">&lt;|RAG|&gt;<\/code> in the right places — and gets the content badly wrong. I entered this phase believing dataset is everything (still do), and leave understanding that format comes from pre-training but judgment will have to come from SFT. Half of that I figured out alone watering the plants; the other half was explained to me — including by artificial intelligences, which has its irony: I’m using AIs to learn how to make an AI.<\/p>\n\n<h3 id=\"what-the-dream-costs\">What the dream costs<\/h3>\n\n<p>One free T4 a day, R$ 58 now and then for A100, a Colab, and years watering these plants. I’m one person, the model is proof of concept — and getting here, with a complete pipeline from tokenizer to tool-using app, is already the victory. I’ll keep watering these plants to see where I get.<\/p>\n"},
+"posts": [{"title": "The USB Isolator That Saved My Laptop From a Burning Motor Inverter", "url": "/en/electronics/usb-isolator-saved-laptop/", "thumbnail": "/assets/imgs/photo_2026-03-08_09-51-34.jpg", "cats": "en e electronics", "excerpt": "It was just another normal day programming a motor inverter. The system was running a..."},{"title": "QR Code Generator", "url": "/en/app/qr-code-generator/", "thumbnail": "/assets/imgs/qrcode-img.png", "cats": "en e app", "excerpt": "QR Code Generator URL 🔗 Generate QR White background Transparent background Download white SVG Download..."}]}
+</script>
+<script>
+// Home segue o idioma do browser: padrão pt (renderizado no build);
+// se o browser preferir inglês, troca hero + cards pelos posts "en".
+(function() {
+  var bl = ((navigator.language || navigator.userLanguage) || "pt").toLowerCase();
+  if (bl.indexOf("en") !== 0) return;
+  var data;
+  try { data = JSON.parse(document.getElementById("i18n-data").textContent); }
+  catch (e) { return; }
+  if (!data || !data.hero) return;
+  document.documentElement.lang = "en";
+  var h = data.hero;
+  document.getElementById("heroBg").style.backgroundImage = "url('" + (h.thumbnail || "/assets/imgs/default-back.jpg") + "')";
+  document.getElementById("heroTitle").textContent = h.title;
+  document.getElementById("heroCats").textContent = h.cats;
+  document.getElementById("heroLink").href = h.url;
+  document.getElementById("heroMeta").innerHTML = h.meta + " | " + h.date + " | " + h.tags;
+  document.getElementById("heroBody").innerHTML = h.content;
+  document.getElementById("moreHeading").textContent = "MORE ARTICLES";
+  var grid = document.getElementById("cardsGrid");
+  var html = "";
+  data.posts.forEach(function(p) {
+    var thumb = p.thumbnail ? p.thumbnail : "/assets/imgs/default-back.jpg";
+    html += '<div class="column is-half card "><a class="title is-6" href="' + p.url + '">'
+      + '<article class="media  mt-4  h-150"><figure class="image is-fullwidth media-left">'
+      + '<img src="' + thumb + '"/></figure></article>'
+      + '<article class="media-content"><div class="content">'
+      + '<p class="bl pl-2 title is-size-5 mb-1">' + p.title + "</p>"
+      + '<p class="ml-2 is-size-5 is-italic has-text-weight-light is-family-serif mb-0">' + p.excerpt + "</p>"
+      + '<p class="ml-2 title-header has-text-primary-dark">' + p.cats + "</p>"
+      + "</div></article></a></div>";
+  });
+  grid.innerHTML = html;
+})();
+</script>
 <script>
 
 fetch('output.json')
